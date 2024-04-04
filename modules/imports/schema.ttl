@@ -17,7 +17,7 @@ schema:CreativeWork a rdfs:Class ;
     rdfs:label "CreativeWork" ;
     rdfs:comment "The most generic kind of creative work, including books, movies, photographs, software programs, etc." ;
     rdfs:subClassOf schema:Thing ;
-    schema:contributor <https://schema.org/docs/collab/rNews> 
+    schema:contributor <https://schema.org/docs/collab/rNews> .
 
 schema:DigitalDocument a rdfs:Class ;
     rdfs:label "DigitalDocument" ;
