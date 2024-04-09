@@ -1,0 +1,293 @@
+@prefix : <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> rdf:type owl:Ontology ;
+                                                 owl:versionIRI <https://schema.e616.crc.nd.edu/nd/scodoc/ont/0.1.0> ;
+                                                 <http://purl.org/dc/terms/created> "2024-04-09"^^xsd:date ;
+                                                 <http://purl.org/dc/terms/creator> _:genid1 ;
+                                                 <http://purl.org/dc/terms/description> "An ontology for describing supply chain documentation."@en ;
+                                                 <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> ;
+                                                 <http://purl.org/dc/terms/modified> "2024-04-09"^^xsd:date ;
+                                                 <http://purl.org/dc/terms/publisher> _:genid2 ,
+                                                                                      _:genid3 ;
+                                                 <http://purl.org/dc/terms/rights> "This work is licensed under a Creative Commons Attribution 4.0 International License."@en ;
+                                                 <http://purl.org/dc/terms/rightsHolder> "SIMBA Chain, University of Notre Dame" ;
+                                                 <http://purl.org/dc/terms/title> "Supply Chain Documentation Ontology"@en ;
+                                                 <http://purl.org/ontology/bibo/status> "Work in progress" ;
+                                                 <http://purl.org/vocab/vann/preferredNamespacePrefix> "scodoc" ;
+                                                 <http://purl.org/vocab/vann/preferredNamespaceUri> "https://schema.e616.crc.nd.edu/nd/scodoc/ont/" ;
+                                                 owl:versionInfo "0.1.0"@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#changeNote> "0.1.0 - intial release of pattern skeletons"@en ;
+                                                 <https://schema.org/codeRepository> "https://github.com/crcresearch/earth616_ontology"^^xsd:anyURI .
+
+_:genid1 rdf:type <https://schema.org/Person> ;
+          <https://schema.org/affiliation> "University of Notre Dame" ;
+          <https://schema.org/email> "cvardema@nd.edu"^^xsd:anyURI ;
+          <https://schema.org/name> "Charles F. Vardeman II" ;
+          <https://schema.org/url> "https://orcid.org/0000-0003-4091-6059"^^xsd:anyURI .
+
+_:genid2 rdf:type <https://schema.org/Organization> ;
+          <https://schema.org/name> "Center for Research Computing, University of Notre Dame" ;
+          <https://schema.org/url> "https://crc.nd.edu"^^xsd:anyURI .
+
+_:genid3 rdf:type <https://schema.org/Organization> ;
+          <https://schema.org/name> "Simba Chain" ;
+          <https://schema.org/url> "https://simbachain.com/" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/rights
+<http://purl.org/dc/terms/rights> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/rightsHolder
+<http://purl.org/dc/terms/rightsHolder> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/ontology/bibo/status
+<http://purl.org/ontology/bibo/status> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#changeNote
+<http://www.w3.org/2004/02/skos/core#changeNote> rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/affiliation
+<https://schema.org/affiliation> rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/codeRepository
+<https://schema.org/codeRepository> rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/email
+<https://schema.org/email> rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/name
+<https://schema.org/name> rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/url
+<https://schema.org/url> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3.org/ns/prov#used
+<http://www.w3.org/ns/prov#used> rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :Informationextractionworkflow ;
+                                 rdfs:range :Scdigitaldocument ;
+                                 rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                                 rdfs:label "prov:used" .
+
+
+###  http://www.w3.org/ns/prov#wasAssociatedWith
+<http://www.w3.org/ns/prov#wasAssociatedWith> rdf:type owl:ObjectProperty ;
+                                              rdfs:domain :Informationextractionworkflow ;
+                                              rdfs:range :Iepipeline ;
+                                              rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                                              rdfs:label "prov:wasAssociatedWith" .
+
+
+###  http://www.w3.org/ns/prov#wasDerivedFrom
+<http://www.w3.org/ns/prov#wasDerivedFrom> rdf:type owl:ObjectProperty ;
+                                           rdfs:domain :Documentcontent ;
+                                           rdfs:range :Scdigitaldocument ;
+                                           rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                                           rdfs:label "prov:wasDerivedFrom" .
+
+
+###  http://www.w3.org/ns/prov#wasGeneratedBy
+<http://www.w3.org/ns/prov#wasGeneratedBy> rdf:type owl:ObjectProperty ;
+                                           rdfs:domain :Documentcontent ;
+                                           rdfs:range :Informationextractionworkflow ;
+                                           rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                                           rdfs:label "prov:wasGeneratedBy" .
+
+
+###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent
+:hasdocumentcontent rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Scdigitaldocument ;
+                    rdfs:range :Documentcontent ;
+                    rdfs:isDefinedBy <http://www.gra.fo/schema/demo-ekg> ;
+                    rdfs:label "hasDocumentContent" .
+
+
+###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype
+:hasdocumenttype rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Scdigitaldocument ;
+                 rdfs:range <http://schema.org/Enumeration> ;
+                 rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                 rdfs:label "hasDocumentType" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent
+:digitizedcontent rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Scdigitaldocument ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "The stringified JSON OCR output." ;
+                  rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                  rdfs:label "digitizedContent" .
+
+
+###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext
+:processedtext rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Documentcontent ;
+               rdfs:range xsd:string ;
+               rdfs:comment "The processed text of a digitized document." ;
+               rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+               rdfs:label "processedText" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/vocommons/voaf#Vocabulary
+<http://purl.org/vocommons/voaf#Vocabulary> rdf:type owl:Class .
+
+
+###  http://schema.org/DigitalDocument
+<http://schema.org/DigitalDocument> rdf:type owl:Class ;
+                                    rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                                    rdfs:label "schema:DigitalDocument" .
+
+
+###  http://schema.org/Enumeration
+<http://schema.org/Enumeration> rdf:type owl:Class ;
+                                rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                                rdfs:label "schema:Enumeration" .
+
+
+###  http://www.w3.org/ns/prov#Activity
+<http://www.w3.org/ns/prov#Activity> rdf:type owl:Class ;
+                                     rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                                     rdfs:label "prov:Activity" .
+
+
+###  http://www.w3.org/ns/prov#Entity
+<http://www.w3.org/ns/prov#Entity> rdf:type owl:Class ;
+                                   rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                                   rdfs:label "prov:Entity" .
+
+
+###  http://www.w3.org/ns/prov#SoftwareAgent
+<http://www.w3.org/ns/prov#SoftwareAgent> rdf:type owl:Class ;
+                                          rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                                          rdfs:label "prov:SoftwareAgent" .
+
+
+###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document
+:Document rdf:type owl:Class ;
+          rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+          rdfs:label "Document" .
+
+
+###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent
+:Documentcontent rdf:type owl:Class ;
+                 rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
+                 rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                 rdfs:label "DocumentContent" .
+
+
+###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline
+:Iepipeline rdf:type owl:Class ;
+            rdfs:subClassOf <http://www.w3.org/ns/prov#SoftwareAgent> ;
+            rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+            rdfs:label "IEPipeline" .
+
+
+###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow
+:Informationextractionworkflow rdf:type owl:Class ;
+                               rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ;
+                               rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                               rdfs:label "InformationExtractionWorkflow" .
+
+
+###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument
+:Scdigitaldocument rdf:type owl:Class ;
+                   rdfs:subClassOf <http://schema.org/DigitalDocument> ,
+                                   <http://www.w3.org/ns/prov#Entity> ,
+                                   :Document ;
+                   rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                   rdfs:label "SCDigitalDocument" .
+
+
+###  https://schema.org/Organization
+<https://schema.org/Organization> rdf:type owl:Class .
+
+
+###  https://schema.org/Person
+<https://schema.org/Person> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.wikidata.org/entity/Q178848
+
+###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> rdf:type owl:NamedIndividual ,
+                                                         <http://purl.org/vocommons/voaf#Vocabulary> .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

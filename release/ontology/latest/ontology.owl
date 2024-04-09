@@ -1,0 +1,502 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+     xml:base="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:bibo="http://purl.org/ontology/bibo/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:schema="https://schema.org/">
+    <owl:Ontology rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">
+        <owl:versionIRI rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/0.1.0"/>
+        <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-04-09</terms:created>
+        <terms:creator rdf:nodeID="genid1"/>
+        <terms:description xml:lang="en">An ontology for describing supply chain documentation.</terms:description>
+        <terms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-04-09</terms:modified>
+        <terms:publisher rdf:nodeID="genid2"/>
+        <terms:publisher rdf:nodeID="genid3"/>
+        <terms:rights xml:lang="en">This work is licensed under a Creative Commons Attribution 4.0 International License.</terms:rights>
+        <terms:rightsHolder>SIMBA Chain, University of Notre Dame</terms:rightsHolder>
+        <terms:title xml:lang="en">Supply Chain Documentation Ontology</terms:title>
+        <bibo:status>Work in progress</bibo:status>
+        <vann:preferredNamespacePrefix>scodoc</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri>https://schema.e616.crc.nd.edu/nd/scodoc/ont/</vann:preferredNamespaceUri>
+        <owl:versionInfo xml:lang="en">0.1.0</owl:versionInfo>
+        <skos:changeNote xml:lang="en">0.1.0 - intial release of pattern skeletons</skos:changeNote>
+        <schema:codeRepository rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/crcresearch/earth616_ontology</schema:codeRepository>
+    </owl:Ontology>
+    <rdf:Description rdf:nodeID="genid1">
+        <rdf:type rdf:resource="https://schema.org/Person"/>
+        <schema:affiliation>University of Notre Dame</schema:affiliation>
+        <schema:email rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">cvardema@nd.edu</schema:email>
+        <schema:name>Charles F. Vardeman II</schema:name>
+        <schema:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://orcid.org/0000-0003-4091-6059</schema:url>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid2">
+        <rdf:type rdf:resource="https://schema.org/Organization"/>
+        <schema:name>Center for Research Computing, University of Notre Dame</schema:name>
+        <schema:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://crc.nd.edu</schema:url>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid3">
+        <rdf:type rdf:resource="https://schema.org/Organization"/>
+        <schema:name>Simba Chain</schema:name>
+        <schema:url>https://simbachain.com/</schema:url>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/publisher -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/publisher"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/rights -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/rights"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/rightsHolder -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/rightsHolder"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/status -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/ontology/bibo/status"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#changeNote -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#changeNote"/>
+    
+
+
+    <!-- https://schema.org/affiliation -->
+
+
+    <owl:AnnotationProperty rdf:about="https://schema.org/affiliation"/>
+    
+
+
+    <!-- https://schema.org/codeRepository -->
+
+
+    <owl:AnnotationProperty rdf:about="https://schema.org/codeRepository"/>
+    
+
+
+    <!-- https://schema.org/email -->
+
+
+    <owl:AnnotationProperty rdf:about="https://schema.org/email"/>
+    
+
+
+    <!-- https://schema.org/name -->
+
+
+    <owl:AnnotationProperty rdf:about="https://schema.org/name"/>
+    
+
+
+    <!-- https://schema.org/url -->
+
+
+    <owl:AnnotationProperty rdf:about="https://schema.org/url"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.w3.org/ns/prov#used -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#used">
+        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow"/>
+        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:label>prov:used</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasAssociatedWith -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasAssociatedWith">
+        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow"/>
+        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:label>prov:wasAssociatedWith</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasDerivedFrom -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasDerivedFrom">
+        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent"/>
+        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:label>prov:wasDerivedFrom</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasGeneratedBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasGeneratedBy">
+        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent"/>
+        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:label>prov:wasGeneratedBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent -->
+
+
+    <owl:ObjectProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent">
+        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument"/>
+        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.gra.fo/schema/demo-ekg"/>
+        <rdfs:label>hasDocumentContent</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype -->
+
+
+    <owl:ObjectProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype">
+        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument"/>
+        <rdfs:range rdf:resource="http://schema.org/Enumeration"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:label>hasDocumentType</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent -->
+
+
+    <owl:DatatypeProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent">
+        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The stringified JSON OCR output.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:label>digitizedContent</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext -->
+
+
+    <owl:DatatypeProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext">
+        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The processed text of a digitized document.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:label>processedText</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/vocommons/voaf#Vocabulary -->
+
+
+    <owl:Class rdf:about="http://purl.org/vocommons/voaf#Vocabulary"/>
+    
+
+
+    <!-- http://schema.org/DigitalDocument -->
+
+
+    <owl:Class rdf:about="http://schema.org/DigitalDocument">
+        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:label>schema:DigitalDocument</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://schema.org/Enumeration -->
+
+
+    <owl:Class rdf:about="http://schema.org/Enumeration">
+        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:label>schema:Enumeration</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Activity -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Activity">
+        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:label>prov:Activity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Entity -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Entity">
+        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:label>prov:Entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#SoftwareAgent -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#SoftwareAgent">
+        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:label>prov:SoftwareAgent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document -->
+
+
+    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document">
+        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:label>Document</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent -->
+
+
+    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:label>DocumentContent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline -->
+
+
+    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:label>IEPipeline</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow -->
+
+
+    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:label>InformationExtractionWorkflow</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument -->
+
+
+    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument">
+        <rdfs:subClassOf rdf:resource="http://schema.org/DigitalDocument"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:label>SCDigitalDocument</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://schema.org/Organization -->
+
+
+    <owl:Class rdf:about="https://schema.org/Organization"/>
+    
+
+
+    <!-- https://schema.org/Person -->
+
+
+    <owl:Class rdf:about="https://schema.org/Person"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.wikidata.org/entity/Q178848 -->
+
+
+    <rdf:Description rdf:about="http://www.wikidata.org/entity/Q178848"/>
+    
+
+
+    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/ -->
+
+
+    <owl:NamedIndividual rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">
+        <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
+
+

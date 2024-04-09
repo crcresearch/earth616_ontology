@@ -1,0 +1,2 @@
+metadata,./modules/core/metadata.ttl
+document,./modules/core/document.ttl

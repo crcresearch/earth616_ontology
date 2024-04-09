@@ -1,0 +1,617 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "en", "undefined" ],
+    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://purl.org/vocommons/voaf", "https://schema.e616.crc.nd.edu/nd/scodoc/ont", "http://schema.org", "http://www.w3.org/2000/01/rdf-schema", "https://schema.org", "http://www.w3.org/ns/prov", "http://www.w3.org/2001/XMLSchema" ],
+    "title" : {
+      "en" : "Supply Chain Documentation Ontology"
+    },
+    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+    "version" : "0.1.0",
+    "author" : [ "_:genid2147483648" ],
+    "description" : {
+      "en" : "An ontology for describing supply chain documentation."
+    },
+    "other" : {
+      "rightsHolder" : [ {
+        "identifier" : "rightsHolder",
+        "language" : "undefined",
+        "value" : "SIMBA Chain, University of Notre Dame",
+        "type" : "label"
+      } ],
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "_:genid2147483648",
+        "type" : "label"
+      } ],
+      "created" : [ {
+        "identifier" : "created",
+        "language" : "undefined",
+        "value" : "2024-04-09",
+        "type" : "label"
+      } ],
+      "changeNote" : [ {
+        "identifier" : "changeNote",
+        "language" : "en",
+        "value" : "0.1.0 - intial release of pattern skeletons",
+        "type" : "label"
+      } ],
+      "versionInfo" : [ {
+        "identifier" : "versionInfo",
+        "language" : "en",
+        "value" : "0.1.0",
+        "type" : "label"
+      } ],
+      "title" : [ {
+        "identifier" : "title",
+        "language" : "en",
+        "value" : "Supply Chain Documentation Ontology",
+        "type" : "label"
+      } ],
+      "license" : [ {
+        "identifier" : "license",
+        "language" : "undefined",
+        "value" : "https://creativecommons.org/licenses/by/4.0/",
+        "type" : "iri"
+      } ],
+      "preferredNamespacePrefix" : [ {
+        "identifier" : "preferredNamespacePrefix",
+        "language" : "undefined",
+        "value" : "scodoc",
+        "type" : "label"
+      } ],
+      "rights" : [ {
+        "identifier" : "rights",
+        "language" : "en",
+        "value" : "This work is licensed under a Creative Commons Attribution 4.0 International License.",
+        "type" : "label"
+      } ],
+      "publisher" : [ {
+        "identifier" : "publisher",
+        "language" : "undefined",
+        "value" : "_:genid2147483650",
+        "type" : "label"
+      }, {
+        "identifier" : "publisher",
+        "language" : "undefined",
+        "value" : "_:genid2147483649",
+        "type" : "label"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2024-04-09",
+        "type" : "label"
+      } ],
+      "preferredNamespaceUri" : [ {
+        "identifier" : "preferredNamespaceUri",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "label"
+      } ],
+      "codeRepository" : [ {
+        "identifier" : "codeRepository",
+        "language" : "undefined",
+        "value" : "https://github.com/crcresearch/earth616_ontology",
+        "type" : "label"
+      } ],
+      "status" : [ {
+        "identifier" : "status",
+        "language" : "undefined",
+        "value" : "Work in progress",
+        "type" : "label"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "0",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "5",
+    "type" : "owl:Class"
+  }, {
+    "id" : "3",
+    "type" : "owl:Class"
+  }, {
+    "id" : "20",
+    "type" : "owl:Class"
+  }, {
+    "id" : "18",
+    "type" : "owl:Class"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  }, {
+    "id" : "7",
+    "type" : "owl:Class"
+  }, {
+    "id" : "21",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "13",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "23",
+    "type" : "owl:Class"
+  }, {
+    "id" : "24",
+    "type" : "owl:Class"
+  }, {
+    "id" : "8",
+    "type" : "owl:Class"
+  }, {
+    "id" : "26",
+    "type" : "owl:Class"
+  }, {
+    "id" : "19",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent",
+    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Documentcontent",
+      "undefined" : "DocumentContent"
+    },
+    "id" : "0",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#Activity",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Activity",
+      "undefined" : "prov:Activity"
+    },
+    "subClasses" : [ "3" ],
+    "attributes" : [ "external" ],
+    "id" : "6"
+  }, {
+    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument",
+    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Scdigitaldocument",
+      "undefined" : "SCDigitalDocument"
+    },
+    "id" : "5",
+    "superClasses" : [ "1", "7", "8" ]
+  }, {
+    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow",
+    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Informationextractionworkflow",
+      "undefined" : "InformationExtractionWorkflow"
+    },
+    "id" : "3",
+    "superClasses" : [ "6" ]
+  }, {
+    "iri" : "https://schema.org/Person",
+    "baseIri" : "https://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Person"
+    },
+    "attributes" : [ "external" ],
+    "id" : "20"
+  }, {
+    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline",
+    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Iepipeline",
+      "undefined" : "IEPipeline"
+    },
+    "id" : "18",
+    "superClasses" : [ "19" ]
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#Entity",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Entity",
+      "undefined" : "prov:Entity"
+    },
+    "subClasses" : [ "0", "5" ],
+    "attributes" : [ "external" ],
+    "id" : "1"
+  }, {
+    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document",
+    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Document",
+      "undefined" : "Document"
+    },
+    "subClasses" : [ "5" ],
+    "id" : "7"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "21",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "13",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://schema.org/Enumeration",
+    "baseIri" : "http://schema.org",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Enumeration",
+      "undefined" : "schema:Enumeration"
+    },
+    "attributes" : [ "external" ],
+    "id" : "23"
+  }, {
+    "iri" : "https://schema.org/Organization",
+    "baseIri" : "https://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Organization"
+    },
+    "attributes" : [ "external" ],
+    "id" : "24"
+  }, {
+    "iri" : "http://schema.org/DigitalDocument",
+    "baseIri" : "http://schema.org",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "DigitalDocument",
+      "undefined" : "schema:DigitalDocument"
+    },
+    "subClasses" : [ "5" ],
+    "attributes" : [ "external" ],
+    "id" : "8"
+  }, {
+    "iri" : "http://purl.org/vocommons/voaf#Vocabulary",
+    "baseIri" : "http://purl.org/vocommons/voaf",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Vocabulary"
+    },
+    "individuals" : [ {
+      "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+      "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc",
+      "labels" : { }
+    } ],
+    "attributes" : [ "external" ],
+    "id" : "26"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#SoftwareAgent",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "SoftwareAgent",
+      "undefined" : "prov:SoftwareAgent"
+    },
+    "subClasses" : [ "18" ],
+    "attributes" : [ "external" ],
+    "id" : "19"
+  } ],
+  "property" : [ {
+    "id" : "2",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "4",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "9",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "10",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "11",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "12",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "14",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "15",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "16",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "17",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "22",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "25",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "27",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "28",
+    "type" : "owl:datatypeProperty"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "http://www.w3.org/ns/prov#wasGeneratedBy",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "3",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "wasGeneratedBy",
+      "undefined" : "prov:wasGeneratedBy"
+    },
+    "domain" : "0",
+    "attributes" : [ "external", "object" ],
+    "id" : "2"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#wasDerivedFrom",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "5",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "wasDerivedFrom",
+      "undefined" : "prov:wasDerivedFrom"
+    },
+    "domain" : "0",
+    "attributes" : [ "external", "object" ],
+    "id" : "4"
+  }, {
+    "range" : "6",
+    "domain" : "3",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "9"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#used",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "5",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "used",
+      "undefined" : "prov:used"
+    },
+    "domain" : "3",
+    "attributes" : [ "external", "object" ],
+    "id" : "10"
+  }, {
+    "range" : "1",
+    "domain" : "0",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "11"
+  }, {
+    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext",
+    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "range" : "13",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "processedtext",
+      "undefined" : "processedText"
+    },
+    "domain" : "0",
+    "comment" : {
+      "undefined" : "The processed text of a digitized document."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "12"
+  }, {
+    "range" : "1",
+    "domain" : "5",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "14"
+  }, {
+    "range" : "7",
+    "domain" : "5",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "15"
+  }, {
+    "range" : "8",
+    "domain" : "5",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "16"
+  }, {
+    "range" : "19",
+    "domain" : "18",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "17"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#wasAssociatedWith",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "18",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "wasAssociatedWith",
+      "undefined" : "prov:wasAssociatedWith"
+    },
+    "domain" : "3",
+    "attributes" : [ "external", "object" ],
+    "id" : "22"
+  }, {
+    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype",
+    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "range" : "23",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasdocumenttype",
+      "undefined" : "hasDocumentType"
+    },
+    "domain" : "5",
+    "attributes" : [ "object" ],
+    "id" : "25"
+  }, {
+    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent",
+    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "range" : "0",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://www.gra.fo/schema/demo-ekg",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasdocumentcontent",
+      "undefined" : "hasDocumentContent"
+    },
+    "domain" : "5",
+    "attributes" : [ "object" ],
+    "id" : "27"
+  }, {
+    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent",
+    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "range" : "21",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "digitizedcontent",
+      "undefined" : "digitizedContent"
+    },
+    "domain" : "5",
+    "comment" : {
+      "undefined" : "The stringified JSON OCR output."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "28"
+  } ]
+}

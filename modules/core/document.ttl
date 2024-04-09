@@ -1,0 +1,148 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+
+# --- SCODOC ---
+@prefix scodoc: <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@prefix : <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@base <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+scodoc:hasdocumentcontent rdf:type owl:ObjectProperty ;
+                      rdfs:domain scodoc:Scdigitaldocument ;
+                      rdfs:range scodoc:Documentcontent ;
+                      rdfs:isDefinedBy <http://www.gra.fo/schema/demo-ekg> ;
+                      rdfs:label "hasDocumentContent" .
+
+
+scodoc:hasdocumenttype rdf:type owl:ObjectProperty ;
+                   rdfs:domain scodoc:Scdigitaldocument ;
+                   rdfs:range schema:Enumeration ;
+                   rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                   rdfs:label "hasDocumentType" .
+
+
+prov:used rdf:type owl:ObjectProperty ;
+          rdfs:domain scodoc:Informationextractionworkflow ;
+          rdfs:range scodoc:Scdigitaldocument ;
+          rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+          rdfs:label "prov:used" .
+
+
+prov:wasAssociatedWith rdf:type owl:ObjectProperty ;
+                       rdfs:domain scodoc:Informationextractionworkflow ;
+                       rdfs:range scodoc:Iepipeline ;
+                       rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                       rdfs:label "prov:wasAssociatedWith" .
+
+
+prov:wasDerivedFrom rdf:type owl:ObjectProperty ;
+                    rdfs:domain scodoc:Documentcontent ;
+                    rdfs:range scodoc:Scdigitaldocument ;
+                    rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                    rdfs:label "prov:wasDerivedFrom" .
+
+
+prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
+                    rdfs:domain scodoc:Documentcontent ;
+                    rdfs:range scodoc:Informationextractionworkflow ;
+                    rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                    rdfs:label "prov:wasGeneratedBy" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+scodoc:digitizedcontent rdf:type owl:DatatypeProperty ;
+                    rdfs:domain scodoc:Scdigitaldocument ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment "The stringified JSON OCR output." ;
+                    rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                    rdfs:label "digitizedContent" .
+
+
+scodoc:processedtext rdf:type owl:DatatypeProperty ;
+                 rdfs:domain scodoc:Documentcontent ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "The processed text of a digitized document." ;
+                 rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                 rdfs:label "processedText" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://schema.org/DigitalDocument
+schema:DigitalDocument rdf:type owl:Class ;
+                       rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                       rdfs:label "schema:DigitalDocument" .
+
+
+###  http://schema.org/Enumeration
+schema:Enumeration rdf:type owl:Class ;
+                   rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                   rdfs:label "schema:Enumeration" .
+
+
+###  http://www.gra.fo/schema/demo-ekg#Document
+scodoc:Document rdf:type owl:Class ;
+            rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+            rdfs:label "Document" .
+
+
+###  http://www.gra.fo/schema/demo-ekg#Documentcontent
+scodoc:Documentcontent rdf:type owl:Class ;
+                   rdfs:subClassOf prov:Entity ;
+                   rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                   rdfs:label "DocumentContent" .
+
+
+###  http://www.gra.fo/schema/demo-ekg#Iepipeline
+scodoc:Iepipeline rdf:type owl:Class ;
+              rdfs:subClassOf prov:SoftwareAgent ;
+              rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+              rdfs:label "IEPipeline" .
+
+
+###  http://www.gra.fo/schema/demo-ekg#Informationextractionworkflow
+scodoc:Informationextractionworkflow rdf:type owl:Class ;
+                                 rdfs:subClassOf prov:Activity ;
+                                 rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                                 rdfs:label "InformationExtractionWorkflow" .
+
+
+###  http://www.gra.fo/schema/demo-ekg#Scdigitaldocument
+scodoc:Scdigitaldocument rdf:type owl:Class ;
+                     rdfs:subClassOf schema:DigitalDocument ,
+                                     scodoc:Document ,
+                                     prov:Entity ;
+                     rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                     rdfs:label "SCDigitalDocument" .
+
+
+###  http://www.w3.org/ns/prov#Activity
+prov:Activity rdf:type owl:Class ;
+              rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+              rdfs:label "prov:Activity" .
+
+
+###  http://www.w3.org/ns/prov#Entity
+prov:Entity rdf:type owl:Class ;
+            rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+            rdfs:label "prov:Entity" .
+
+
+###  http://www.w3.org/ns/prov#SoftwareAgent
+prov:SoftwareAgent rdf:type owl:Class ;
+                   rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                   rdfs:label "prov:SoftwareAgent" .

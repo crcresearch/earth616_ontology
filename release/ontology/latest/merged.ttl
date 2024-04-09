@@ -1,0 +1,138 @@
+@prefix : <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sdo: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+prov:used a owl:ObjectProperty ;
+    rdfs:label "prov:used" ;
+    rdfs:domain :Informationextractionworkflow ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Scdigitaldocument .
+
+prov:wasAssociatedWith a owl:ObjectProperty ;
+    rdfs:label "prov:wasAssociatedWith" ;
+    rdfs:domain :Informationextractionworkflow ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Iepipeline .
+
+prov:wasDerivedFrom a owl:ObjectProperty ;
+    rdfs:label "prov:wasDerivedFrom" ;
+    rdfs:domain :Documentcontent ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Scdigitaldocument .
+
+prov:wasGeneratedBy a owl:ObjectProperty ;
+    rdfs:label "prov:wasGeneratedBy" ;
+    rdfs:domain :Documentcontent ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Informationextractionworkflow .
+
+:digitizedcontent a owl:DatatypeProperty ;
+    rdfs:label "digitizedContent" ;
+    rdfs:comment "The stringified JSON OCR output." ;
+    rdfs:domain :Scdigitaldocument ;
+    rdfs:isDefinedBy : ;
+    rdfs:range xsd:string .
+
+:hasdocumentcontent a owl:ObjectProperty ;
+    rdfs:label "hasDocumentContent" ;
+    rdfs:domain :Scdigitaldocument ;
+    rdfs:isDefinedBy <http://www.gra.fo/schema/demo-ekg> ;
+    rdfs:range :Documentcontent .
+
+:hasdocumenttype a owl:ObjectProperty ;
+    rdfs:label "hasDocumentType" ;
+    rdfs:domain :Scdigitaldocument ;
+    rdfs:isDefinedBy : ;
+    rdfs:range schema:Enumeration .
+
+:processedtext a owl:DatatypeProperty ;
+    rdfs:label "processedText" ;
+    rdfs:comment "The processed text of a digitized document." ;
+    rdfs:domain :Documentcontent ;
+    rdfs:isDefinedBy : ;
+    rdfs:range xsd:string .
+
+schema:DigitalDocument a owl:Class ;
+    rdfs:label "schema:DigitalDocument" ;
+    rdfs:isDefinedBy : .
+
+schema:Enumeration a owl:Class ;
+    rdfs:label "schema:Enumeration" ;
+    rdfs:isDefinedBy : .
+
+prov:Activity a owl:Class ;
+    rdfs:label "prov:Activity" ;
+    rdfs:isDefinedBy : .
+
+prov:SoftwareAgent a owl:Class ;
+    rdfs:label "prov:SoftwareAgent" ;
+    rdfs:isDefinedBy : .
+
+:Document a owl:Class ;
+    rdfs:label "Document" ;
+    rdfs:isDefinedBy : .
+
+:Iepipeline a owl:Class ;
+    rdfs:label "IEPipeline" ;
+    rdfs:isDefinedBy : ;
+    rdfs:subClassOf prov:SoftwareAgent .
+
+prov:Entity a owl:Class ;
+    rdfs:label "prov:Entity" ;
+    rdfs:isDefinedBy : .
+
+:Informationextractionworkflow a owl:Class ;
+    rdfs:label "InformationExtractionWorkflow" ;
+    rdfs:isDefinedBy : ;
+    rdfs:subClassOf prov:Activity .
+
+:Documentcontent a owl:Class ;
+    rdfs:label "DocumentContent" ;
+    rdfs:isDefinedBy : ;
+    rdfs:subClassOf prov:Entity .
+
+:Scdigitaldocument a owl:Class ;
+    rdfs:label "SCDigitalDocument" ;
+    rdfs:isDefinedBy : ;
+    rdfs:subClassOf schema:DigitalDocument,
+        prov:Entity,
+        :Document .
+
+: a voaf:Vocabulary,
+        owl:Ontology ;
+    dcterms:created "2024-04-09"^^xsd:date ;
+    dcterms:creator [ a sdo:Person ;
+            sdo:affiliation "University of Notre Dame" ;
+            sdo:email "cvardema@nd.edu"^^xsd:anyURI ;
+            sdo:name "Charles F. Vardeman II" ;
+            sdo:url "https://orcid.org/0000-0003-4091-6059"^^xsd:anyURI ] ;
+    dcterms:description "An ontology for describing supply chain documentation."@en ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:modified "2024-04-09"^^xsd:date ;
+    dcterms:publisher [ a sdo:Organization ;
+            owl:sameAs wd:Q178848 ;
+            sdo:name "Center for Research Computing, University of Notre Dame" ;
+            sdo:url "https://crc.nd.edu"^^xsd:anyURI ],
+        [ a sdo:Organization ;
+            sdo:name "Simba Chain" ;
+            sdo:url "https://simbachain.com/" ] ;
+    dcterms:rights "This work is licensed under a Creative Commons Attribution 4.0 International License."@en ;
+    dcterms:rightsHolder "SIMBA Chain, University of Notre Dame" ;
+    dcterms:title "Supply Chain Documentation Ontology"@en ;
+    bibo:status "Work in progress" ;
+    vann:preferredNamespacePrefix "scodoc" ;
+    vann:preferredNamespaceUri "https://schema.e616.crc.nd.edu/nd/scodoc/ont/" ;
+    owl:versionIRI :0.1.0 ;
+    owl:versionInfo "0.1.0"@en ;
+    skos:changeNote "0.1.0 - intial release of pattern skeletons"@en ;
+    sdo:codeRepository "https://github.com/crcresearch/earth616_ontology"^^xsd:anyURI .

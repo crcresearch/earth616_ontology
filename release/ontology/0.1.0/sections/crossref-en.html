@@ -1,0 +1,530 @@
+<h2 id="crossreference" class="list">Cross-reference for Supply Chain Documentation Ontology classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by Supply Chain Documentation Ontology.
+<div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+ <h3 id="classes-headline" class="list">Classes</h3>
+ <ul class="hlist">
+  <li><a href="#Document" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document">Document</a></li>
+  <li><a href="#Documentcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent">DocumentContent</a></li>
+  <li><a href="#Iepipeline" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline">IEPipeline</a></li>
+  <li><a href="#Informationextractionworkflow" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow">InformationExtractionWorkflow</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#Activity" title="http://www.w3.org/ns/prov#Activity">prov:Activity</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#SoftwareAgent" title="http://www.w3.org/ns/prov#SoftwareAgent">prov:SoftwareAgent</a></li>
+  <li><a href="#Scdigitaldocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument">SCDigitalDocument</a></li>
+  <li><a href="#http://schema.org/DigitalDocument" title="http://schema.org/DigitalDocument">schema:DigitalDocument</a></li>
+  <li><a href="#http://schema.org/Enumeration" title="http://schema.org/Enumeration">schema:Enumeration</a></li>
+ </ul>
+ <div class="entity" id="Document">
+  <h3>Document<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Scdigitaldocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument">SCDigitalDocument</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Documentcontent">
+  <h3>DocumentContent<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#processedtext" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext">processedText</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">prov:wasDerivedFrom</a> <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/prov#wasGeneratedBy" title="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasdocumentcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent">hasDocumentContent</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Iepipeline">
+  <h3>IEPipeline<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#SoftwareAgent" title="http://www.w3.org/ns/prov#SoftwareAgent">prov:SoftwareAgent</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#wasAssociatedWith" title="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Informationextractionworkflow">
+  <h3>InformationExtractionWorkflow<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#Activity" title="http://www.w3.org/ns/prov#Activity">prov:Activity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#used" title="http://www.w3.org/ns/prov#used">prov:used</a> <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/prov#wasAssociatedWith" title="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#wasGeneratedBy" title="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/prov#Activity">
+  <h3>prov:Activity<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#Activity</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Informationextractionworkflow" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow">InformationExtractionWorkflow</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/prov#Entity">
+  <h3>prov:Entity<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#Entity</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Documentcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent">DocumentContent</a> <sup class="type-c" title="class">c</sup>, <a href="#Scdigitaldocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument">SCDigitalDocument</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/prov#SoftwareAgent">
+  <h3>prov:SoftwareAgent<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#SoftwareAgent</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Iepipeline" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline">IEPipeline</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Scdigitaldocument">
+  <h3>SCDigitalDocument<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Document" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document">Document</a> <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a> <sup class="type-c" title="class">c</sup>, <a href="#http://schema.org/DigitalDocument" title="http://schema.org/DigitalDocument">schema:DigitalDocument</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#digitizedcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent">digitizedContent</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasdocumentcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent">hasDocumentContent</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasdocumenttype" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype">hasDocumentType</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#used" title="http://www.w3.org/ns/prov#used">prov:used</a> <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">prov:wasDerivedFrom</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://schema.org/DigitalDocument">
+  <h3>schema:DigitalDocument<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://schema.org/DigitalDocument</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Scdigitaldocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument">SCDigitalDocument</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://schema.org/Enumeration">
+  <h3>schema:Enumeration<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://schema.org/Enumeration</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasdocumenttype" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype">hasDocumentType</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+ <h3 id="properties" class="list">Object Properties</h3>
+ <ul class="hlist">
+  <li><a href="#hasdocumentcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent">hasDocumentContent</a></li>
+  <li><a href="#hasdocumenttype" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype">hasDocumentType</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#used" title="http://www.w3.org/ns/prov#used">prov:used</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#wasAssociatedWith" title="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">prov:wasDerivedFrom</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#wasGeneratedBy" title="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a></li>
+ </ul>
+ <div class="entity" id="hasdocumentcontent">
+  <h3>hasDocumentContent<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://www.gra.fo/schema/demo-ekg">http://www.gra.fo/schema/demo-ekg</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Scdigitaldocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument">SCDigitalDocument</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Documentcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent">DocumentContent</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasdocumenttype">
+  <h3>hasDocumentType<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Scdigitaldocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument">SCDigitalDocument</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#http://schema.org/Enumeration" title="http://schema.org/Enumeration">schema:Enumeration</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/prov#used">
+  <h3>prov:used<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#used</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Informationextractionworkflow" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow">InformationExtractionWorkflow</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Scdigitaldocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument">SCDigitalDocument</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/prov#wasAssociatedWith">
+  <h3>prov:wasAssociatedWith<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#wasAssociatedWith</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Informationextractionworkflow" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow">InformationExtractionWorkflow</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Iepipeline" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline">IEPipeline</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/prov#wasDerivedFrom">
+  <h3>prov:wasDerivedFrom<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#wasDerivedFrom</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Documentcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent">DocumentContent</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Scdigitaldocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument">SCDigitalDocument</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/prov#wasGeneratedBy">
+  <h3>prov:wasGeneratedBy<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#wasGeneratedBy</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Documentcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent">DocumentContent</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Informationextractionworkflow" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow">InformationExtractionWorkflow</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
+ <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+ <ul class="hlist">
+  <li><a href="#digitizedcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent">digitizedContent</a></li>
+  <li><a href="#processedtext" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext">processedText</a></li>
+ </ul>
+ <div class="entity" id="digitizedcontent">
+  <h3>digitizedContent<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent</p>
+  <div class="comment">
+   <span class="markdown">The stringified JSON OCR output.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Scdigitaldocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument">SCDigitalDocument</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="processedtext">
+  <h3>processedText<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext</p>
+  <div class="comment">
+   <span class="markdown">The processed text of a digitized document.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Documentcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent">DocumentContent</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="namedindividuals">
+ <h3 id="namedindividuals" class="list">Named Individuals</h3>
+ <ul class="hlist">
+  <li><a href="#" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"> <span></span> </a></li>
+ </ul>
+ <div class="entity" id="">
+  <h3>:<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.e616.crc.nd.edu/nd/scodoc/ont/</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://purl.org/vocommons/voaf#Vocabulary" target="_blank" title="http://purl.org/vocommons/voaf#Vocabulary">Vocabulary</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+<sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals <br/>
+</div>
+</div>

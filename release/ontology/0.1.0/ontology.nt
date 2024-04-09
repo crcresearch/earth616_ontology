@@ -1,0 +1,270 @@
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> <http://www.w3.org/2002/07/owl#versionIRI> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/0.1.0> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> <http://purl.org/dc/terms/created> "2024-04-09"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> <http://purl.org/dc/terms/creator> _:genid1 .
+_:genid1 <https://schema.org/url> "https://orcid.org/0000-0003-4091-6059"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+_:genid1 <https://schema.org/name> "Charles F. Vardeman II" .
+_:genid1 <https://schema.org/email> "cvardema@nd.edu"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+_:genid1 <https://schema.org/affiliation> "University of Notre Dame" .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Person> .
+<https://schema.org/Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> <http://purl.org/dc/terms/description> "An ontology for describing supply chain documentation."@en .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> <http://purl.org/dc/terms/modified> "2024-04-09"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> <http://purl.org/dc/terms/publisher> _:genid2 .
+_:genid2 <https://schema.org/url> "https://crc.nd.edu"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+_:genid2 <https://schema.org/name> "Center for Research Computing, University of Notre Dame" .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Organization> .
+<https://schema.org/Organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> <http://purl.org/dc/terms/publisher> _:genid3 .
+_:genid3 <https://schema.org/url> "https://simbachain.com/" .
+_:genid3 <https://schema.org/name> "Simba Chain" .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Organization> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> <http://purl.org/dc/terms/rights> "This work is licensed under a Creative Commons Attribution 4.0 International License."@en .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> <http://purl.org/dc/terms/rightsHolder> "SIMBA Chain, University of Notre Dame" .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> <http://purl.org/dc/terms/title> "Supply Chain Documentation Ontology"@en .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> <http://purl.org/ontology/bibo/status> "Work in progress" .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> <http://purl.org/vocab/vann/preferredNamespacePrefix> "scodoc" .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> <http://purl.org/vocab/vann/preferredNamespaceUri> "https://schema.e616.crc.nd.edu/nd/scodoc/ont/" .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> <http://www.w3.org/2002/07/owl#versionInfo> "0.1.0"@en .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> <http://www.w3.org/2004/02/skos/core#changeNote> "0.1.0 - intial release of pattern skeletons"@en .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> <https://schema.org/codeRepository> "https://github.com/crcresearch/earth616_ontology"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/rights
+<http://purl.org/dc/terms/rights> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/rightsHolder
+<http://purl.org/dc/terms/rightsHolder> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/ontology/bibo/status
+<http://purl.org/ontology/bibo/status> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#changeNote
+<http://www.w3.org/2004/02/skos/core#changeNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# https://schema.org/affiliation
+<https://schema.org/affiliation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# https://schema.org/codeRepository
+<https://schema.org/codeRepository> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# https://schema.org/email
+<https://schema.org/email> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# https://schema.org/name
+<https://schema.org/name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# https://schema.org/url
+<https://schema.org/url> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Datatypes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2001/XMLSchema#date
+<http://www.w3.org/2001/XMLSchema#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/ns/prov#used
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow> .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#label> "prov:used" .
+# 
+# http://www.w3.org/ns/prov#wasAssociatedWith
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#label> "prov:wasAssociatedWith" .
+# 
+# http://www.w3.org/ns/prov#wasDerivedFrom
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#label> "prov:wasDerivedFrom" .
+# 
+# http://www.w3.org/ns/prov#wasGeneratedBy
+<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent> .
+<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow> .
+<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/2000/01/rdf-schema#label> "prov:wasGeneratedBy" .
+# 
+# https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.gra.fo/schema/demo-ekg> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent> <http://www.w3.org/2000/01/rdf-schema#label> "hasDocumentContent" .
+# 
+# https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype> <http://www.w3.org/2000/01/rdf-schema#range> <http://schema.org/Enumeration> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype> <http://www.w3.org/2000/01/rdf-schema#label> "hasDocumentType" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent> <http://www.w3.org/2000/01/rdf-schema#comment> "The stringified JSON OCR output." .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent> <http://www.w3.org/2000/01/rdf-schema#label> "digitizedContent" .
+# 
+# https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext> <http://www.w3.org/2000/01/rdf-schema#comment> "The processed text of a digitized document." .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext> <http://www.w3.org/2000/01/rdf-schema#label> "processedText" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/vocommons/voaf#Vocabulary
+<http://purl.org/vocommons/voaf#Vocabulary> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://schema.org/DigitalDocument
+<http://schema.org/DigitalDocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://schema.org/DigitalDocument> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<http://schema.org/DigitalDocument> <http://www.w3.org/2000/01/rdf-schema#label> "schema:DigitalDocument" .
+# 
+# http://schema.org/Enumeration
+<http://schema.org/Enumeration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://schema.org/Enumeration> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<http://schema.org/Enumeration> <http://www.w3.org/2000/01/rdf-schema#label> "schema:Enumeration" .
+# 
+# http://www.w3.org/ns/prov#Activity
+<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/2000/01/rdf-schema#label> "prov:Activity" .
+# 
+# http://www.w3.org/ns/prov#Entity
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2000/01/rdf-schema#label> "prov:Entity" .
+# 
+# http://www.w3.org/ns/prov#SoftwareAgent
+<http://www.w3.org/ns/prov#SoftwareAgent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#SoftwareAgent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<http://www.w3.org/ns/prov#SoftwareAgent> <http://www.w3.org/2000/01/rdf-schema#label> "prov:SoftwareAgent" .
+# 
+# https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document> <http://www.w3.org/2000/01/rdf-schema#label> "Document" .
+# 
+# https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent> <http://www.w3.org/2000/01/rdf-schema#label> "DocumentContent" .
+# 
+# https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#SoftwareAgent> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline> <http://www.w3.org/2000/01/rdf-schema#label> "IEPipeline" .
+# 
+# https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow> <http://www.w3.org/2000/01/rdf-schema#label> "InformationExtractionWorkflow" .
+# 
+# https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/DigitalDocument> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> <http://www.w3.org/2000/01/rdf-schema#label> "SCDigitalDocument" .
+# 
+# https://schema.org/Organization
+# 
+# https://schema.org/Person
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://www.wikidata.org/entity/Q178848
+# 
+# https://schema.e616.crc.nd.edu/nd/scodoc/ont/
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocommons/voaf#Vocabulary> .
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

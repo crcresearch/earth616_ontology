@@ -1,0 +1,81 @@
+# === PREFIXES ================================================================
+
+# --- Basic ---
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+
+
+# --- Ontology management ---
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix sdo: <https://schema.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# --- External Ontologies ---
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix gs1: <http://gs1.org/voc/> .
+
+# --- SCODOC ---
+@prefix scodoc: <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@base <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+
+# =============================================================================
+# WIDOCO Documentation
+# https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html#status
+# Orange Ontology Example
+# https://github.com/Orange-OpenSource/noria-ontology/blob/master/ontology/noria-0.3/noria.ttl
+# =============================================================================
+
+
+
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/>  
+    a voaf:Vocabulary, owl:Ontology ;
+    dcterms:title "Supply Chain Documentation Ontology"@en ;
+    dcterms:description "An ontology for describing supply chain documentation."@en ;
+    skos:changeNote "0.1.0 - intial release of pattern skeletons"@en;
+    bibo:status "Work in progress" ;
+    owl:versionIRI <https://schema.e616.crc.nd.edu/nd/scodoc/ont/0.1.0> ;
+    owl:versionInfo "0.1.0"@en ;
+ #   owl:priorVersion <https://w3id.org/ammo/ont/0.5.0>;
+ #   owl:backwardCompatableWith <https://w3id.org/ammo/ont/0.5.0> ;
+    dcterms:modified "2024-04-09"^^xsd:date ;
+    dcterms:created  "2024-04-09"^^xsd:date ;
+
+    dcterms:publisher [
+                        a sdo:Organization ;
+		                sdo:name "Center for Research Computing, University of Notre Dame" ;
+		                sdo:url "https://crc.nd.edu"^^xsd:anyURI ;
+                        owl:sameAs wd:Q178848 ;
+                      ];
+    dcterms:publisher [
+                        a sdo:Organization ;
+                        sdo:name "Simba Chain" ;
+                        sdo:url "https://simbachain.com/";
+                       ];
+                        dcterms:creator [
+                        a sdo:Person ;
+                        sdo:name "Charles F. Vardeman II" ;
+                        sdo:affiliation "University of Notre Dame" ;
+                        sdo:email "cvardema@nd.edu"^^xsd:anyURI ;
+                        sdo:url "https://orcid.org/0000-0003-4091-6059"^^xsd:anyURI ;
+                        ];
+
+# License
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:rights "This work is licensed under a Creative Commons Attribution 4.0 International License."@en ;
+    dcterms:rightsHolder "SIMBA Chain, University of Notre Dame" ;
+    sdo:codeRepository "https://github.com/crcresearch/earth616_ontology"^^xsd:anyURI;
+    vann:preferredNamespacePrefix "scodoc" ;
+    vann:preferredNamespaceUri "https://schema.e616.crc.nd.edu/nd/scodoc/ont/" .
