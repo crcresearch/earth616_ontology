@@ -29,19 +29,30 @@ scodoc:hasdocumenttype rdf:type owl:ObjectProperty ;
                    rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
                    rdfs:label "hasDocumentType" .
 
+scodoc:contentExtractedFrom rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf prov:wasDerivedFrom ;
+                         rdfs:domain scodoc:Documentcontent ;
+                         rdfs:range scodoc:Scdigitaldocument ;
+                         rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                         rdfs:label "contentExtractedFrom" .
 
+scodoc:workflowExecution rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf prov:wasGeneratedBy ;
+                     rdfs:domain scodoc:Documentcontent ;
+                     rdfs:range scodoc:Informationextractionworkflow ;
+                     rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                     rdfs:label "workflowExecution" .
 
+scodoc:hasWorkflow rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf prov:wasAssociatedWith ;
+                     rdfs:domain scodoc:InformationExtractionWorkflow ;
+                     rdfs:range scodoc:Iepipeline ;
+                     rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                     rdfs:label "hasWorkflow" .
 
 #################################################################
 #    Data properties
 #################################################################
-
-scodoc:digitizedcontent rdf:type owl:DatatypeProperty ;
-                    rdfs:domain scodoc:Scdigitaldocument ;
-                    rdfs:range xsd:string ;
-                    rdfs:comment "The stringified JSON OCR output." ;
-                    rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
-                    rdfs:label "digitizedContent" .
 
 
 scodoc:processedtext rdf:type owl:DatatypeProperty ;
@@ -92,11 +103,16 @@ scodoc:Informationextractionworkflow rdf:type owl:Class ;
 
 ###  http://www.gra.fo/schema/demo-ekg#Scdigitaldocument
 scodoc:Scdigitaldocument rdf:type owl:Class ;
-                     rdfs:subClassOf schema:DigitalDocument ,
-                                     scodoc:Document ,
-                                     prov:Entity ;
+                     rdfs:subClassOf scodoc:DigitalDocument ; 
                      rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
                      rdfs:label "SCDigitalDocument" .
 
+### https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument
+scodoc:DigitalDocument rdf:type owl:Class ;
+                     rdfs:subClassOf schema:DigitalDocument ;
+                     rdfs:subClassOf scodoc:Document ;
+                     rdfs:subClassOf prov:Entity ;
+                     rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                     rdfs:label "DigitalDocument" .
 
 #

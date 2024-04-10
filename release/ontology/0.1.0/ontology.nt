@@ -77,6 +77,18 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/O
 # http://www.w3.org/2004/02/skos/core#changeNote
 <http://www.w3.org/2004/02/skos/core#changeNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
+# http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/prov#editorialNote
+<http://www.w3.org/ns/prov#editorialNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/prov#inverse
+<http://www.w3.org/ns/prov#inverse> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.w3.org/ns/prov#inverse> <http://www.w3.org/2000/01/rdf-schema#comment> "PROV-O does not define all property inverses. The directionalities defined in PROV-O should be given preference over those not defined. However, if users wish to name the inverse of a PROV-O property, the local name given by prov:inverse should be used."@en .
+<http://www.w3.org/ns/prov#inverse> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#inverse> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://www.w3.org/TR/prov-o/#names-of-inverse-properties> .
+# 
 # https://schema.org/affiliation
 <https://schema.org/affiliation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
@@ -118,31 +130,94 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/O
 # 
 # http://www.w3.org/ns/prov#used
 <http://www.w3.org/ns/prov#used> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow> .
-<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> .
-<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
-<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#label> "prov:used" .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasInfluencedBy> .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Activity> .
+<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Entity> .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#comment> "A prov:Entity that was used by this prov:Activity. For example, :baking prov:used :spoon, :egg, :oven ."@en .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#label> "used" .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/ns/prov#inverse> "wasUsedBy" .
 # 
 # http://www.w3.org/ns/prov#wasAssociatedWith
 <http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow> .
-<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline> .
-<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
-<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#label> "prov:wasAssociatedWith" .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasInfluencedBy> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Activity> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Agent> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#comment> "An prov:Agent that had some (unspecified) responsibility for the occurrence of this prov:Activity."@en .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#label> "wasAssociatedWith" .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/ns/prov#inverse> "wasAssociateFor" .
 # 
 # http://www.w3.org/ns/prov#wasDerivedFrom
 <http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent> .
-<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> .
-<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
-<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#label> "prov:wasDerivedFrom" .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasInfluencedBy> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Entity> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Entity> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#comment> "The more specific subproperties of prov:wasDerivedFrom (i.e., prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource) should be used when applicable."@en .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#label> "wasDerivedFrom" .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2004/02/skos/core#definition> "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."@en .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/ns/prov#inverse> "hadDerivation" .
 # 
 # http://www.w3.org/ns/prov#wasGeneratedBy
 <http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent> .
-<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow> .
-<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
-<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/2000/01/rdf-schema#label> "prov:wasGeneratedBy" .
+<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasInfluencedBy> .
+<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Entity> .
+<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Activity> .
+<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/2000/01/rdf-schema#label> "wasGeneratedBy" .
+<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/ns/prov#inverse> "generated" .
+# 
+# http://www.w3.org/ns/prov#wasInfluencedBy
+<http://www.w3.org/ns/prov#wasInfluencedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#wasInfluencedBy> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid4 .
+_:genid4 <http://www.w3.org/2002/07/owl#unionOf> _:genid7 .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid6 .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid5 .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#Entity> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#Agent> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#Activity> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#wasInfluencedBy> <http://www.w3.org/2000/01/rdf-schema#range> _:genid8 .
+_:genid8 <http://www.w3.org/2002/07/owl#unionOf> _:genid11 .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid10 .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid9 .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#Entity> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#Agent> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#Activity> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#wasInfluencedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Because prov:wasInfluencedBy is a broad relation, its more specific subproperties (e.g. prov:wasInformedBy, prov:actedOnBehalfOf, prov:wasEndedBy, etc.) should be used when applicable."@en .
+<http://www.w3.org/ns/prov#wasInfluencedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>." .
+<http://www.w3.org/ns/prov#wasInfluencedBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#wasInfluencedBy> <http://www.w3.org/2000/01/rdf-schema#label> "wasInfluencedBy" .
+<http://www.w3.org/ns/prov#wasInfluencedBy> <http://www.w3.org/ns/prov#editorialNote> "The sub-properties of prov:wasInfluencedBy can be elaborated in more detail using the Qualification Pattern. For example, the binary relation :baking prov:used :spoon can be qualified by asserting :baking prov:qualifiedUsage [ a prov:Usage; prov:entity :spoon; prov:atLocation :kitchen ] .\n\nSubproperties of prov:wasInfluencedBy may also be asserted directly without being qualified.\n\nprov:wasInfluencedBy should not be used without also using one of its subproperties. \n"@en .
+<http://www.w3.org/ns/prov#wasInfluencedBy> <http://www.w3.org/ns/prov#inverse> "influenced" .
+# 
+# https://schema.e616.crc.nd.edu/nd/scodoc/ont/contentExtractedFrom
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/contentExtractedFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/contentExtractedFrom> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasDerivedFrom> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/contentExtractedFrom> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/contentExtractedFrom> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/contentExtractedFrom> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/contentExtractedFrom> <http://www.w3.org/2000/01/rdf-schema#label> "contentExtractedFrom" .
+# 
+# https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasWorkflow
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasWorkflow> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasWorkflow> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasAssociatedWith> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasWorkflow> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationExtractionWorkflow> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationExtractionWorkflow> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasWorkflow> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasWorkflow> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasWorkflow> <http://www.w3.org/2000/01/rdf-schema#label> "hasWorkflow" .
 # 
 # https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
@@ -158,6 +233,14 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/O
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype> <http://www.w3.org/2000/01/rdf-schema#label> "hasDocumentType" .
 # 
+# https://schema.e616.crc.nd.edu/nd/scodoc/ont/workflowExecution
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/workflowExecution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/workflowExecution> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasGeneratedBy> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/workflowExecution> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/workflowExecution> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/workflowExecution> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/workflowExecution> <http://www.w3.org/2000/01/rdf-schema#label> "workflowExecution" .
+# 
 # 
 # 
 # #################################################################
@@ -166,14 +249,6 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/O
 # #
 # #################################################################
 # 
-# 
-# https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent
-<https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> .
-<https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
-<https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent> <http://www.w3.org/2000/01/rdf-schema#comment> "The stringified JSON OCR output." .
-<https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
-<https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent> <http://www.w3.org/2000/01/rdf-schema#label> "digitizedContent" .
 # 
 # https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
@@ -202,16 +277,63 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/O
 <http://schema.org/Enumeration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 # 
 # http://www.w3.org/ns/prov#Activity
-<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/2000/01/rdf-schema#label> "prov:Activity" .
+# 
+# http://www.w3.org/ns/prov#Agent
+<http://www.w3.org/ns/prov#Agent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#Agent> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.w3.org/ns/prov#InstantaneousEvent> .
+<http://www.w3.org/ns/prov#Agent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#Agent> <http://www.w3.org/2000/01/rdf-schema#label> "Agent" .
+<http://www.w3.org/ns/prov#Agent> <http://www.w3.org/2004/02/skos/core#definition> "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity. "@en .
 # 
 # http://www.w3.org/ns/prov#Entity
 <http://www.w3.org/ns/prov#Entity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2000/01/rdf-schema#label> "prov:Entity" .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.w3.org/ns/prov#InstantaneousEvent> .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.w3.org/ns/prov#:Activity> .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2000/01/rdf-schema#label> "Entity" .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2004/02/skos/core#definition> "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. "@en .
+# 
+# http://www.w3.org/ns/prov#InstantaneousEvent
+<http://www.w3.org/ns/prov#InstantaneousEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#InstantaneousEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "An instantaneous event, or event for short, happens in the world and marks a change in the world, in its activities and in its entities. The term 'event' is commonly used in process algebra with a similar meaning. Events represent communications or interactions; they are assumed to be atomic and instantaneous."@en .
+<http://www.w3.org/ns/prov#InstantaneousEvent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#InstantaneousEvent> <http://www.w3.org/2000/01/rdf-schema#label> "InstantaneousEvent" .
+<http://www.w3.org/ns/prov#InstantaneousEvent> <http://www.w3.org/2004/02/skos/core#definition> "The PROV data model is implicitly based on a notion of instantaneous events (or just events), that mark transitions in the world. Events include generation, usage, or invalidation of entities, as well as starting or ending of activities. This notion of event is not first-class in the data model, but it is useful for explaining its other concepts and its semantics."@en .
+# 
+# http://www.w3.org/ns/prov#Organization
+<http://www.w3.org/ns/prov#Organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#Organization> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Agent> .
+<http://www.w3.org/ns/prov#Organization> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#Organization> <http://www.w3.org/2000/01/rdf-schema#label> "Organization" .
+<http://www.w3.org/ns/prov#Organization> <http://www.w3.org/2004/02/skos/core#definition> "An organization is a social or legal institution such as a company, society, etc." .
+# 
+# http://www.w3.org/ns/prov#Person
+<http://www.w3.org/ns/prov#Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#Person> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Agent> .
+<http://www.w3.org/ns/prov#Person> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#Person> <http://www.w3.org/2000/01/rdf-schema#label> "Person" .
+<http://www.w3.org/ns/prov#Person> <http://www.w3.org/2004/02/skos/core#definition> "Person agents are people."@en .
 # 
 # http://www.w3.org/ns/prov#SoftwareAgent
 <http://www.w3.org/ns/prov#SoftwareAgent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.w3.org/ns/prov#SoftwareAgent> <http://www.w3.org/2000/01/rdf-schema#label> "prov:SoftwareAgent" .
+<http://www.w3.org/ns/prov#SoftwareAgent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Agent> .
+<http://www.w3.org/ns/prov#SoftwareAgent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#SoftwareAgent> <http://www.w3.org/2000/01/rdf-schema#label> "SoftwareAgent" .
+<http://www.w3.org/ns/prov#SoftwareAgent> <http://www.w3.org/2004/02/skos/core#definition> "A software agent is running software."@en .
+# 
+# http://www.w3.org/ns/prov#:Activity
+<http://www.w3.org/ns/prov#:Activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#:Activity> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#:Activity> <http://www.w3.org/2000/01/rdf-schema#label> "Activity" .
+<http://www.w3.org/ns/prov#:Activity> <http://www.w3.org/2004/02/skos/core#definition> "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." .
+# 
+# https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/DigitalDocument> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument> <http://www.w3.org/2000/01/rdf-schema#label> "DigitalDocument" .
 # 
 # https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -236,6 +358,8 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/O
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline> <http://www.w3.org/2000/01/rdf-schema#label> "IEPipeline" .
 # 
+# https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationExtractionWorkflow
+# 
 # https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
@@ -244,9 +368,7 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/O
 # 
 # https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/DigitalDocument> .
-<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
-<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument> .
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> <http://www.w3.org/2000/01/rdf-schema#label> "SCDigitalDocument" .
 # 

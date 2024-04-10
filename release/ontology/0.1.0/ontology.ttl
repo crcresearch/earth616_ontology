@@ -95,6 +95,21 @@ _:genid3 rdf:type <https://schema.org/Organization> ;
 <http://www.w3.org/2004/02/skos/core#changeNote> rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/prov#editorialNote
+<http://www.w3.org/ns/prov#editorialNote> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/prov#inverse
+<http://www.w3.org/ns/prov#inverse> rdf:type owl:AnnotationProperty ;
+                                    rdfs:comment "PROV-O does not define all property inverses. The directionalities defined in PROV-O should be given preference over those not defined. However, if users wish to name the inverse of a PROV-O property, the local name given by prov:inverse should be used."@en ;
+                                    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                    rdfs:seeAlso <http://www.w3.org/TR/prov-o/#names-of-inverse-properties> .
+
+
 ###  https://schema.org/affiliation
 <https://schema.org/affiliation> rdf:type owl:AnnotationProperty .
 
@@ -133,34 +148,91 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://www.w3.org/ns/prov#used
 <http://www.w3.org/ns/prov#used> rdf:type owl:ObjectProperty ;
-                                 rdfs:domain :Informationextractionworkflow ;
-                                 rdfs:range :Scdigitaldocument ;
-                                 rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
-                                 rdfs:label "prov:used" .
+                                 rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasInfluencedBy> ;
+                                 rdfs:domain <http://www.w3.org/ns/prov#Activity> ;
+                                 rdfs:range <http://www.w3.org/ns/prov#Entity> ;
+                                 rdfs:comment "A prov:Entity that was used by this prov:Activity. For example, :baking prov:used :spoon, :egg, :oven ."@en ;
+                                 rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                 rdfs:label "used" ;
+                                 <http://www.w3.org/ns/prov#inverse> "wasUsedBy" .
 
 
 ###  http://www.w3.org/ns/prov#wasAssociatedWith
 <http://www.w3.org/ns/prov#wasAssociatedWith> rdf:type owl:ObjectProperty ;
-                                              rdfs:domain :Informationextractionworkflow ;
-                                              rdfs:range :Iepipeline ;
-                                              rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
-                                              rdfs:label "prov:wasAssociatedWith" .
+                                              rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasInfluencedBy> ;
+                                              rdfs:domain <http://www.w3.org/ns/prov#Activity> ;
+                                              rdfs:range <http://www.w3.org/ns/prov#Agent> ;
+                                              rdfs:comment "An prov:Agent that had some (unspecified) responsibility for the occurrence of this prov:Activity."@en ;
+                                              rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                              rdfs:label "wasAssociatedWith" ;
+                                              <http://www.w3.org/ns/prov#inverse> "wasAssociateFor" .
 
 
 ###  http://www.w3.org/ns/prov#wasDerivedFrom
 <http://www.w3.org/ns/prov#wasDerivedFrom> rdf:type owl:ObjectProperty ;
-                                           rdfs:domain :Documentcontent ;
-                                           rdfs:range :Scdigitaldocument ;
-                                           rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
-                                           rdfs:label "prov:wasDerivedFrom" .
+                                           rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasInfluencedBy> ;
+                                           rdfs:domain <http://www.w3.org/ns/prov#Entity> ;
+                                           rdfs:range <http://www.w3.org/ns/prov#Entity> ;
+                                           rdfs:comment "The more specific subproperties of prov:wasDerivedFrom (i.e., prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource) should be used when applicable."@en ;
+                                           rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                           rdfs:label "wasDerivedFrom" ;
+                                           <http://www.w3.org/2004/02/skos/core#definition> "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."@en ;
+                                           <http://www.w3.org/ns/prov#inverse> "hadDerivation" .
 
 
 ###  http://www.w3.org/ns/prov#wasGeneratedBy
 <http://www.w3.org/ns/prov#wasGeneratedBy> rdf:type owl:ObjectProperty ;
-                                           rdfs:domain :Documentcontent ;
-                                           rdfs:range :Informationextractionworkflow ;
-                                           rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
-                                           rdfs:label "prov:wasGeneratedBy" .
+                                           rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasInfluencedBy> ;
+                                           rdfs:domain <http://www.w3.org/ns/prov#Entity> ;
+                                           rdfs:range <http://www.w3.org/ns/prov#Activity> ;
+                                           rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                           rdfs:label "wasGeneratedBy" ;
+                                           <http://www.w3.org/ns/prov#inverse> "generated" .
+
+
+###  http://www.w3.org/ns/prov#wasInfluencedBy
+<http://www.w3.org/ns/prov#wasInfluencedBy> rdf:type owl:ObjectProperty ;
+                                            rdfs:domain [ rdf:type owl:Class ;
+                                                          owl:unionOf ( <http://www.w3.org/ns/prov#Activity>
+                                                                        <http://www.w3.org/ns/prov#Agent>
+                                                                        <http://www.w3.org/ns/prov#Entity>
+                                                                      )
+                                                        ] ;
+                                            rdfs:range [ rdf:type owl:Class ;
+                                                         owl:unionOf ( <http://www.w3.org/ns/prov#Activity>
+                                                                       <http://www.w3.org/ns/prov#Agent>
+                                                                       <http://www.w3.org/ns/prov#Entity>
+                                                                     )
+                                                       ] ;
+                                            rdfs:comment "Because prov:wasInfluencedBy is a broad relation, its more specific subproperties (e.g. prov:wasInformedBy, prov:actedOnBehalfOf, prov:wasEndedBy, etc.) should be used when applicable."@en ,
+                                                         "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>." ;
+                                            rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                            rdfs:label "wasInfluencedBy" ;
+                                            <http://www.w3.org/ns/prov#editorialNote> """The sub-properties of prov:wasInfluencedBy can be elaborated in more detail using the Qualification Pattern. For example, the binary relation :baking prov:used :spoon can be qualified by asserting :baking prov:qualifiedUsage [ a prov:Usage; prov:entity :spoon; prov:atLocation :kitchen ] .
+
+Subproperties of prov:wasInfluencedBy may also be asserted directly without being qualified.
+
+prov:wasInfluencedBy should not be used without also using one of its subproperties. 
+"""@en ;
+                                            <http://www.w3.org/ns/prov#inverse> "influenced" .
+
+
+###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/contentExtractedFrom
+:contentExtractedFrom rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasDerivedFrom> ;
+                      rdfs:domain :Documentcontent ;
+                      rdfs:range :Scdigitaldocument ;
+                      rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                      rdfs:label "contentExtractedFrom" .
+
+
+###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasWorkflow
+:hasWorkflow rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+             rdfs:domain :InformationExtractionWorkflow ;
+             rdfs:range :Iepipeline ;
+             rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+             rdfs:label "hasWorkflow" .
 
 
 ###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent
@@ -179,18 +251,18 @@ xsd:date rdf:type rdfs:Datatype .
                  rdfs:label "hasDocumentType" .
 
 
+###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/workflowExecution
+:workflowExecution rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasGeneratedBy> ;
+                   rdfs:domain :Documentcontent ;
+                   rdfs:range :Informationextractionworkflow ;
+                   rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                   rdfs:label "workflowExecution" .
+
+
 #################################################################
 #    Data properties
 #################################################################
-
-###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent
-:digitizedcontent rdf:type owl:DatatypeProperty ;
-                  rdfs:domain :Scdigitaldocument ;
-                  rdfs:range xsd:string ;
-                  rdfs:comment "The stringified JSON OCR output." ;
-                  rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
-                  rdfs:label "digitizedContent" .
-
 
 ###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext
 :processedtext rdf:type owl:DatatypeProperty ;
@@ -218,18 +290,72 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://www.w3.org/ns/prov#Activity
-<http://www.w3.org/ns/prov#Activity> rdf:type owl:Class ;
-                                     rdfs:label "prov:Activity" .
+<http://www.w3.org/ns/prov#Activity> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/prov#Agent
+<http://www.w3.org/ns/prov#Agent> rdf:type owl:Class ;
+                                  owl:disjointWith <http://www.w3.org/ns/prov#InstantaneousEvent> ;
+                                  rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                  rdfs:label "Agent" ;
+                                  <http://www.w3.org/2004/02/skos/core#definition> "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity. "@en .
 
 
 ###  http://www.w3.org/ns/prov#Entity
 <http://www.w3.org/ns/prov#Entity> rdf:type owl:Class ;
-                                   rdfs:label "prov:Entity" .
+                                   owl:disjointWith <http://www.w3.org/ns/prov#InstantaneousEvent> ,
+                                                    <http://www.w3.org/ns/prov#:Activity> ;
+                                   rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                   rdfs:label "Entity" ;
+                                   <http://www.w3.org/2004/02/skos/core#definition> "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. "@en .
+
+
+###  http://www.w3.org/ns/prov#InstantaneousEvent
+<http://www.w3.org/ns/prov#InstantaneousEvent> rdf:type owl:Class ;
+                                               rdfs:comment "An instantaneous event, or event for short, happens in the world and marks a change in the world, in its activities and in its entities. The term 'event' is commonly used in process algebra with a similar meaning. Events represent communications or interactions; they are assumed to be atomic and instantaneous."@en ;
+                                               rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                               rdfs:label "InstantaneousEvent" ;
+                                               <http://www.w3.org/2004/02/skos/core#definition> "The PROV data model is implicitly based on a notion of instantaneous events (or just events), that mark transitions in the world. Events include generation, usage, or invalidation of entities, as well as starting or ending of activities. This notion of event is not first-class in the data model, but it is useful for explaining its other concepts and its semantics."@en .
+
+
+###  http://www.w3.org/ns/prov#Organization
+<http://www.w3.org/ns/prov#Organization> rdf:type owl:Class ;
+                                         rdfs:subClassOf <http://www.w3.org/ns/prov#Agent> ;
+                                         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                         rdfs:label "Organization" ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "An organization is a social or legal institution such as a company, society, etc." .
+
+
+###  http://www.w3.org/ns/prov#Person
+<http://www.w3.org/ns/prov#Person> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://www.w3.org/ns/prov#Agent> ;
+                                   rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                   rdfs:label "Person" ;
+                                   <http://www.w3.org/2004/02/skos/core#definition> "Person agents are people."@en .
 
 
 ###  http://www.w3.org/ns/prov#SoftwareAgent
 <http://www.w3.org/ns/prov#SoftwareAgent> rdf:type owl:Class ;
-                                          rdfs:label "prov:SoftwareAgent" .
+                                          rdfs:subClassOf <http://www.w3.org/ns/prov#Agent> ;
+                                          rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                          rdfs:label "SoftwareAgent" ;
+                                          <http://www.w3.org/2004/02/skos/core#definition> "A software agent is running software."@en .
+
+
+###  http://www.w3.org/ns/prov#:Activity
+<http://www.w3.org/ns/prov#:Activity> rdf:type owl:Class ;
+                                      rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                      rdfs:label "Activity" ;
+                                      <http://www.w3.org/2004/02/skos/core#definition> "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." .
+
+
+###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument
+:DigitalDocument rdf:type owl:Class ;
+                 rdfs:subClassOf <http://schema.org/DigitalDocument> ,
+                                 <http://www.w3.org/ns/prov#Entity> ,
+                                 :Document ;
+                 rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                 rdfs:label "DigitalDocument" .
 
 
 ###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document
@@ -259,6 +385,10 @@ xsd:date rdf:type rdfs:Datatype .
             rdfs:label "IEPipeline" .
 
 
+###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationExtractionWorkflow
+:InformationExtractionWorkflow rdf:type owl:Class .
+
+
 ###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow
 :Informationextractionworkflow rdf:type owl:Class ;
                                rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ;
@@ -268,9 +398,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument
 :Scdigitaldocument rdf:type owl:Class ;
-                   rdfs:subClassOf <http://schema.org/DigitalDocument> ,
-                                   <http://www.w3.org/ns/prov#Entity> ,
-                                   :Document ;
+                   rdfs:subClassOf :DigitalDocument ;
                    rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
                    rdfs:label "SCDigitalDocument" .
 

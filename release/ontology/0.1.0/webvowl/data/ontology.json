@@ -55,16 +55,16 @@
         "value" : "https://creativecommons.org/licenses/by/4.0/",
         "type" : "iri"
       } ],
-      "rights" : [ {
-        "identifier" : "rights",
-        "language" : "en",
-        "value" : "This work is licensed under a Creative Commons Attribution 4.0 International License.",
-        "type" : "label"
-      } ],
       "preferredNamespacePrefix" : [ {
         "identifier" : "preferredNamespacePrefix",
         "language" : "undefined",
         "value" : "scodoc",
+        "type" : "label"
+      } ],
+      "rights" : [ {
+        "identifier" : "rights",
+        "language" : "en",
+        "value" : "This work is licensed under a Creative Commons Attribution 4.0 International License.",
         "type" : "label"
       } ],
       "publisher" : [ {
@@ -106,68 +106,102 @@
   },
   "namespace" : [ ],
   "class" : [ {
-    "id" : "0",
+    "id" : "4",
     "type" : "owl:Class"
   }, {
     "id" : "6",
     "type" : "owl:Class"
   }, {
-    "id" : "5",
+    "id" : "9",
     "type" : "owl:Class"
   }, {
-    "id" : "3",
-    "type" : "owl:Class"
-  }, {
-    "id" : "22",
-    "type" : "owl:Class"
-  }, {
-    "id" : "26",
+    "id" : "14",
     "type" : "owl:Class"
   }, {
     "id" : "1",
     "type" : "owl:Class"
   }, {
-    "id" : "7",
-    "type" : "owl:Class"
-  }, {
-    "id" : "28",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "13",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "30",
-    "type" : "owl:Class"
-  }, {
     "id" : "18",
     "type" : "owl:Class"
   }, {
-    "id" : "31",
-    "type" : "owl:Class"
-  }, {
-    "id" : "21",
-    "type" : "owl:Class"
-  }, {
-    "id" : "17",
-    "type" : "owl:Class"
-  }, {
-    "id" : "8",
+    "id" : "19",
     "type" : "owl:Class"
   }, {
     "id" : "20",
     "type" : "owl:Class"
   }, {
+    "id" : "23",
+    "type" : "owl:Class"
+  }, {
+    "id" : "30",
+    "type" : "owl:Class"
+  }, {
+    "id" : "16",
+    "type" : "owl:Class"
+  }, {
+    "id" : "26",
+    "type" : "owl:Class"
+  }, {
+    "id" : "37",
+    "type" : "owl:Class"
+  }, {
+    "id" : "12",
+    "type" : "owl:Class"
+  }, {
+    "id" : "44",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "45",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "13",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "5",
+    "type" : "owl:Class"
+  }, {
+    "id" : "48",
+    "type" : "owl:Class"
+  }, {
     "id" : "25",
+    "type" : "owl:Class"
+  }, {
+    "id" : "7",
+    "type" : "owl:Class"
+  }, {
+    "id" : "40",
+    "type" : "owl:Class"
+  }, {
+    "id" : "53",
+    "type" : "owl:Class"
+  }, {
+    "id" : "31",
     "type" : "owl:Class"
   }, {
     "id" : "34",
     "type" : "owl:Class"
   }, {
-    "id" : "27",
+    "id" : "22",
+    "type" : "owl:Class"
+  }, {
+    "id" : "8",
+    "type" : "owl:Class"
+  }, {
+    "id" : "29",
     "type" : "owl:Class"
   } ],
   "classAttribute" : [ {
-    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent",
+    "iri" : "http://www.w3.org/ns/prov#Activity",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Activity"
+    },
+    "subClasses" : [ "5" ],
+    "attributes" : [ "external" ],
+    "id" : "4"
+  }, {
+    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument",
     "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
     "instances" : 0,
     "annotations" : {
@@ -179,22 +213,12 @@
       } ]
     },
     "label" : {
-      "IRI-based" : "Documentcontent",
-      "undefined" : "DocumentContent"
+      "IRI-based" : "DigitalDocument",
+      "undefined" : "DigitalDocument"
     },
-    "id" : "0",
-    "superClasses" : [ "1" ]
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#Activity",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Activity",
-      "undefined" : "prov:Activity"
-    },
-    "subClasses" : [ "3" ],
-    "attributes" : [ "external" ],
-    "id" : "6"
+    "subClasses" : [ "9" ],
+    "id" : "6",
+    "superClasses" : [ "1", "7", "8" ]
   }, {
     "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument",
     "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
@@ -211,96 +235,60 @@
       "IRI-based" : "Scdigitaldocument",
       "undefined" : "SCDigitalDocument"
     },
-    "id" : "5",
-    "superClasses" : [ "1", "7", "8" ]
-  }, {
-    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow",
-    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
-    "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Informationextractionworkflow",
-      "undefined" : "InformationExtractionWorkflow"
-    },
-    "id" : "3",
+    "id" : "9",
     "superClasses" : [ "6" ]
   }, {
-    "iri" : "https://schema.org/Person",
-    "baseIri" : "https://schema.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Person"
-    },
-    "attributes" : [ "external" ],
-    "id" : "22"
-  }, {
-    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline",
-    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "iri" : "http://www.w3.org/ns/prov#InstantaneousEvent",
+    "baseIri" : "http://www.w3.org/ns/prov",
     "instances" : 0,
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
         "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "value" : "http://www.w3.org/ns/prov-o#",
         "type" : "iri"
+      } ],
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "The PROV data model is implicitly based on a notion of instantaneous events (or just events), that mark transitions in the world. Events include generation, usage, or invalidation of entities, as well as starting or ending of activities. This notion of event is not first-class in the data model, but it is useful for explaining its other concepts and its semantics.",
+        "type" : "label"
       } ]
     },
     "label" : {
-      "IRI-based" : "Iepipeline",
-      "undefined" : "IEPipeline"
+      "IRI-based" : "InstantaneousEvent",
+      "undefined" : "InstantaneousEvent"
     },
-    "id" : "26",
-    "superClasses" : [ "27" ]
+    "comment" : {
+      "en" : "An instantaneous event, or event for short, happens in the world and marks a change in the world, in its activities and in its entities. The term 'event' is commonly used in process algebra with a similar meaning. Events represent communications or interactions; they are assumed to be atomic and instantaneous."
+    },
+    "attributes" : [ "external" ],
+    "id" : "14"
   }, {
     "iri" : "http://www.w3.org/ns/prov#Entity",
     "baseIri" : "http://www.w3.org/ns/prov",
     "instances" : 0,
-    "label" : {
-      "IRI-based" : "Entity",
-      "undefined" : "prov:Entity"
-    },
-    "subClasses" : [ "0", "5" ],
-    "attributes" : [ "external" ],
-    "id" : "1"
-  }, {
-    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document",
-    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
-    "instances" : 0,
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
         "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "value" : "http://www.w3.org/ns/prov-o#",
         "type" : "iri"
+      } ],
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. ",
+        "type" : "label"
       } ]
     },
     "label" : {
-      "IRI-based" : "Document",
-      "undefined" : "Document"
+      "IRI-based" : "Entity",
+      "undefined" : "Entity"
     },
-    "subClasses" : [ "5" ],
-    "id" : "7"
-  }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#string",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "28",
-    "label" : {
-      "IRI-based" : "string"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#string",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "13",
-    "label" : {
-      "IRI-based" : "string"
-    }
+    "subClasses" : [ "12", "6" ],
+    "attributes" : [ "external" ],
+    "id" : "1"
   }, {
     "iri" : "https://schema.org/Enumeration",
     "baseIri" : "https://schema.org",
@@ -318,17 +306,32 @@
       "undefined" : "schema:Enumeration"
     },
     "attributes" : [ "external" ],
-    "id" : "30"
-  }, {
-    "iri" : "http://schema.org/Enumeration",
-    "baseIri" : "http://schema.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Enumeration"
-    },
-    "subClasses" : [ "17" ],
-    "attributes" : [ "external" ],
     "id" : "18"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#Person",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://www.w3.org/ns/prov-o#",
+        "type" : "iri"
+      } ],
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "Person agents are people.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Person",
+      "undefined" : "Person"
+    },
+    "attributes" : [ "external" ],
+    "id" : "19",
+    "superClasses" : [ "16" ]
   }, {
     "iri" : "https://schema.org/Organization",
     "baseIri" : "https://schema.org",
@@ -337,49 +340,15 @@
       "IRI-based" : "Organization"
     },
     "attributes" : [ "external" ],
-    "id" : "31"
+    "id" : "20"
   }, {
-    "iri" : "https://schema.org/Thing",
-    "baseIri" : "https://schema.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Thing",
-      "undefined" : "Thing"
-    },
-    "subClasses" : [ "20" ],
-    "comment" : {
-      "undefined" : "The most generic type of item."
-    },
-    "attributes" : [ "external" ],
-    "id" : "21"
-  }, {
-    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType",
+    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationExtractionWorkflow",
     "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
     "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
-        "type" : "iri"
-      } ]
-    },
     "label" : {
-      "IRI-based" : "DocumentType",
-      "undefined" : "DocumentType"
+      "IRI-based" : "InformationExtractionWorkflow"
     },
-    "id" : "17",
-    "superClasses" : [ "18" ]
-  }, {
-    "iri" : "http://schema.org/DigitalDocument",
-    "baseIri" : "http://schema.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "DigitalDocument"
-    },
-    "subClasses" : [ "5" ],
-    "attributes" : [ "external" ],
-    "id" : "8"
+    "id" : "23"
   }, {
     "iri" : "https://schema.org/CreativeWork",
     "baseIri" : "https://schema.org",
@@ -396,27 +365,64 @@
       "IRI-based" : "CreativeWork",
       "undefined" : "CreativeWork"
     },
-    "subClasses" : [ "25" ],
+    "subClasses" : [ "29" ],
     "comment" : {
       "undefined" : "The most generic kind of creative work, including books, movies, photographs, software programs, etc."
     },
     "attributes" : [ "external" ],
-    "id" : "20",
-    "superClasses" : [ "21" ]
+    "id" : "30",
+    "superClasses" : [ "31" ]
   }, {
-    "iri" : "https://schema.org/DigitalDocument",
-    "baseIri" : "https://schema.org",
+    "iri" : "http://www.w3.org/ns/prov#Agent",
+    "baseIri" : "http://www.w3.org/ns/prov",
     "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://www.w3.org/ns/prov-o#",
+        "type" : "iri"
+      } ],
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity. ",
+        "type" : "label"
+      } ]
+    },
     "label" : {
-      "IRI-based" : "DigitalDocument",
-      "undefined" : "DigitalDocument"
+      "IRI-based" : "Agent",
+      "undefined" : "Agent"
     },
-    "comment" : {
-      "undefined" : "An electronic file or document."
-    },
+    "subClasses" : [ "19", "34", "26" ],
     "attributes" : [ "external" ],
-    "id" : "25",
-    "superClasses" : [ "20" ]
+    "id" : "16"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#SoftwareAgent",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://www.w3.org/ns/prov-o#",
+        "type" : "iri"
+      } ],
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "A software agent is running software.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "SoftwareAgent",
+      "undefined" : "SoftwareAgent"
+    },
+    "subClasses" : [ "25" ],
+    "attributes" : [ "external" ],
+    "id" : "26",
+    "superClasses" : [ "16" ]
   }, {
     "iri" : "http://purl.org/vocommons/voaf#Vocabulary",
     "baseIri" : "http://purl.org/vocommons/voaf",
@@ -430,138 +436,368 @@
       "labels" : { }
     } ],
     "attributes" : [ "external" ],
-    "id" : "34"
+    "id" : "37"
   }, {
-    "iri" : "http://www.w3.org/ns/prov#SoftwareAgent",
-    "baseIri" : "http://www.w3.org/ns/prov",
+    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent",
+    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Documentcontent",
+      "undefined" : "DocumentContent"
+    },
+    "id" : "12",
+    "superClasses" : [ "1" ]
+  }, {
+    "instances" : 0,
+    "union" : [ "4", "1", "16" ],
+    "attributes" : [ "anonymous", "union" ],
+    "id" : "44"
+  }, {
+    "instances" : 0,
+    "union" : [ "4", "1", "16" ],
+    "attributes" : [ "anonymous", "union" ],
+    "id" : "45"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "13",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow",
+    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Informationextractionworkflow",
+      "undefined" : "InformationExtractionWorkflow"
+    },
+    "id" : "5",
+    "superClasses" : [ "4" ]
+  }, {
+    "iri" : "https://schema.org/Person",
+    "baseIri" : "https://schema.org",
     "instances" : 0,
     "label" : {
-      "IRI-based" : "SoftwareAgent",
-      "undefined" : "prov:SoftwareAgent"
+      "IRI-based" : "Person"
     },
-    "subClasses" : [ "26" ],
     "attributes" : [ "external" ],
-    "id" : "27"
+    "id" : "48"
+  }, {
+    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline",
+    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Iepipeline",
+      "undefined" : "IEPipeline"
+    },
+    "id" : "25",
+    "superClasses" : [ "26" ]
+  }, {
+    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document",
+    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Document",
+      "undefined" : "Document"
+    },
+    "subClasses" : [ "6" ],
+    "id" : "7"
+  }, {
+    "iri" : "http://schema.org/Enumeration",
+    "baseIri" : "http://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Enumeration"
+    },
+    "subClasses" : [ "22" ],
+    "attributes" : [ "external" ],
+    "id" : "40"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#:Activity",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://www.w3.org/ns/prov-o#",
+        "type" : "iri"
+      } ],
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "undefined",
+        "value" : "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : ":Activity",
+      "undefined" : "Activity"
+    },
+    "attributes" : [ "external" ],
+    "id" : "53"
+  }, {
+    "iri" : "https://schema.org/Thing",
+    "baseIri" : "https://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Thing",
+      "undefined" : "Thing"
+    },
+    "subClasses" : [ "30" ],
+    "comment" : {
+      "undefined" : "The most generic type of item."
+    },
+    "attributes" : [ "external" ],
+    "id" : "31"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#Organization",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://www.w3.org/ns/prov-o#",
+        "type" : "iri"
+      } ],
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "undefined",
+        "value" : "An organization is a social or legal institution such as a company, society, etc.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Organization",
+      "undefined" : "Organization"
+    },
+    "attributes" : [ "external" ],
+    "id" : "34",
+    "superClasses" : [ "16" ]
+  }, {
+    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType",
+    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "DocumentType",
+      "undefined" : "DocumentType"
+    },
+    "id" : "22",
+    "superClasses" : [ "40" ]
+  }, {
+    "iri" : "http://schema.org/DigitalDocument",
+    "baseIri" : "http://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DigitalDocument"
+    },
+    "subClasses" : [ "6" ],
+    "attributes" : [ "external" ],
+    "id" : "8"
+  }, {
+    "iri" : "https://schema.org/DigitalDocument",
+    "baseIri" : "https://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DigitalDocument",
+      "undefined" : "DigitalDocument"
+    },
+    "comment" : {
+      "undefined" : "An electronic file or document."
+    },
+    "attributes" : [ "external" ],
+    "id" : "29",
+    "superClasses" : [ "30" ]
   } ],
   "property" : [ {
-    "id" : "2",
+    "id" : "0",
     "type" : "owl:objectProperty"
-  }, {
-    "id" : "4",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "9",
-    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "10",
     "type" : "owl:objectProperty"
   }, {
     "id" : "11",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "12",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "14",
-    "type" : "rdfs:SubClassOf"
-  }, {
     "id" : "15",
-    "type" : "rdfs:SubClassOf"
+    "type" : "owl:objectProperty"
   }, {
-    "id" : "16",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "19",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "23",
-    "type" : "rdfs:SubClassOf"
+    "id" : "21",
+    "type" : "owl:objectProperty"
   }, {
     "id" : "24",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "29",
-    "type" : "owl:objectProperty"
+    "id" : "27",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "28",
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "32",
-    "type" : "owl:objectProperty"
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "33",
     "type" : "rdfs:SubClassOf"
   }, {
     "id" : "35",
-    "type" : "owl:datatypeProperty"
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "36",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "38",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "39",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "41",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "43",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "2",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "46",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "47",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "49",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "50",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "3",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "51",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "52",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "17",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "42",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "54",
     "type" : "owl:objectProperty"
   } ],
   "propertyAttribute" : [ {
-    "iri" : "http://www.w3.org/ns/prov#wasGeneratedBy",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "3",
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "wasGeneratedBy",
-      "undefined" : "prov:wasGeneratedBy"
-    },
-    "domain" : "0",
-    "attributes" : [ "external", "object" ],
-    "id" : "2"
-  }, {
     "iri" : "http://www.w3.org/ns/prov#wasDerivedFrom",
     "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "5",
+    "range" : "1",
     "annotations" : {
+      "inverse" : [ {
+        "identifier" : "inverse",
+        "language" : "undefined",
+        "value" : "hadDerivation",
+        "type" : "label"
+      } ],
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
         "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "value" : "http://www.w3.org/ns/prov-o#",
         "type" : "iri"
+      } ],
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.",
+        "type" : "label"
       } ]
     },
     "label" : {
       "IRI-based" : "wasDerivedFrom",
-      "undefined" : "prov:wasDerivedFrom"
+      "undefined" : "wasDerivedFrom"
     },
-    "domain" : "0",
+    "superproperty" : [ "2" ],
+    "domain" : "1",
+    "subproperty" : [ "3" ],
+    "comment" : {
+      "en" : "The more specific subproperties of prov:wasDerivedFrom (i.e., prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource) should be used when applicable."
+    },
     "attributes" : [ "external", "object" ],
-    "id" : "4"
-  }, {
-    "range" : "6",
-    "domain" : "3",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "9"
+    "id" : "0"
   }, {
     "iri" : "http://www.w3.org/ns/prov#used",
     "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "5",
+    "range" : "1",
     "annotations" : {
+      "inverse" : [ {
+        "identifier" : "inverse",
+        "language" : "undefined",
+        "value" : "wasUsedBy",
+        "type" : "label"
+      } ],
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
         "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "value" : "http://www.w3.org/ns/prov-o#",
         "type" : "iri"
       } ]
     },
     "label" : {
       "IRI-based" : "used",
-      "undefined" : "prov:used"
+      "undefined" : "used"
     },
-    "domain" : "3",
+    "superproperty" : [ "2" ],
+    "domain" : "4",
+    "comment" : {
+      "en" : "A prov:Entity that was used by this prov:Activity. For example, :baking prov:used :spoon, :egg, :oven ."
+    },
     "attributes" : [ "external", "object" ],
     "id" : "10"
-  }, {
-    "range" : "1",
-    "domain" : "0",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "11"
   }, {
     "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext",
     "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
@@ -578,65 +814,46 @@
       "IRI-based" : "processedtext",
       "undefined" : "processedText"
     },
-    "domain" : "0",
+    "domain" : "12",
     "comment" : {
       "undefined" : "The processed text of a digitized document."
     },
     "attributes" : [ "datatype" ],
-    "id" : "12"
-  }, {
-    "range" : "1",
-    "domain" : "5",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "14"
-  }, {
-    "range" : "7",
-    "domain" : "5",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "15"
-  }, {
-    "range" : "18",
-    "domain" : "17",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "16"
-  }, {
-    "range" : "21",
-    "domain" : "20",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "19"
-  }, {
-    "range" : "8",
-    "domain" : "5",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "23"
-  }, {
-    "range" : "20",
-    "domain" : "25",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "24"
+    "id" : "11"
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasAssociatedWith",
     "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "26",
+    "range" : "16",
     "annotations" : {
+      "inverse" : [ {
+        "identifier" : "inverse",
+        "language" : "undefined",
+        "value" : "wasAssociateFor",
+        "type" : "label"
+      } ],
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
         "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "value" : "http://www.w3.org/ns/prov-o#",
         "type" : "iri"
       } ]
     },
     "label" : {
       "IRI-based" : "wasAssociatedWith",
-      "undefined" : "prov:wasAssociatedWith"
+      "undefined" : "wasAssociatedWith"
     },
-    "domain" : "3",
+    "superproperty" : [ "2" ],
+    "domain" : "4",
+    "subproperty" : [ "17" ],
+    "comment" : {
+      "en" : "An prov:Agent that had some (unspecified) responsibility for the occurrence of this prov:Activity."
+    },
     "attributes" : [ "external", "object" ],
-    "id" : "29"
+    "id" : "15"
   }, {
     "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype",
     "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
-    "range" : "17",
+    "range" : "22",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -649,18 +866,146 @@
       "IRI-based" : "hasdocumenttype",
       "undefined" : "hasDocumentType"
     },
-    "domain" : "5",
+    "domain" : "9",
     "attributes" : [ "object" ],
+    "id" : "21"
+  }, {
+    "range" : "26",
+    "domain" : "25",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "24"
+  }, {
+    "range" : "16",
+    "domain" : "26",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "27"
+  }, {
+    "range" : "30",
+    "domain" : "29",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "28"
+  }, {
+    "range" : "8",
+    "domain" : "6",
+    "attributes" : [ "anonymous", "object" ],
     "id" : "32"
   }, {
-    "range" : "27",
-    "domain" : "26",
+    "range" : "16",
+    "domain" : "34",
     "attributes" : [ "anonymous", "object" ],
     "id" : "33"
   }, {
-    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent",
+    "range" : "16",
+    "domain" : "19",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "35"
+  }, {
+    "range" : "7",
+    "domain" : "6",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "36"
+  }, {
+    "range" : "31",
+    "domain" : "30",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "38"
+  }, {
+    "range" : "40",
+    "domain" : "22",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "39"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#wasGeneratedBy",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "4",
+    "annotations" : {
+      "inverse" : [ {
+        "identifier" : "inverse",
+        "language" : "undefined",
+        "value" : "generated",
+        "type" : "label"
+      } ],
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://www.w3.org/ns/prov-o#",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "wasGeneratedBy",
+      "undefined" : "wasGeneratedBy"
+    },
+    "superproperty" : [ "2" ],
+    "domain" : "1",
+    "subproperty" : [ "42" ],
+    "attributes" : [ "external", "object" ],
+    "id" : "41"
+  }, {
+    "range" : "14",
+    "domain" : "1",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "43"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#wasInfluencedBy",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "45",
+    "annotations" : {
+      "inverse" : [ {
+        "identifier" : "inverse",
+        "language" : "undefined",
+        "value" : "influenced",
+        "type" : "label"
+      } ],
+      "editorialNote" : [ {
+        "identifier" : "editorialNote",
+        "language" : "en",
+        "value" : "The sub-properties of prov:wasInfluencedBy can be elaborated in more detail using the Qualification Pattern. For example, the binary relation :baking prov:used :spoon can be qualified by asserting :baking prov:qualifiedUsage [ a prov:Usage; prov:entity :spoon; prov:atLocation :kitchen ] .\n\nSubproperties of prov:wasInfluencedBy may also be asserted directly without being qualified.\n\nprov:wasInfluencedBy should not be used without also using one of its subproperties. \n",
+        "type" : "label"
+      } ],
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://www.w3.org/ns/prov-o#",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "wasInfluencedBy",
+      "undefined" : "wasInfluencedBy"
+    },
+    "domain" : "44",
+    "subproperty" : [ "41", "0", "10", "15" ],
+    "comment" : {
+      "en" : "Because prov:wasInfluencedBy is a broad relation, its more specific subproperties (e.g. prov:wasInformedBy, prov:actedOnBehalfOf, prov:wasEndedBy, etc.) should be used when applicable.",
+      "undefined" : "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "2"
+  }, {
+    "range" : "4",
+    "domain" : "5",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "46"
+  }, {
+    "range" : "6",
+    "domain" : "9",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "47"
+  }, {
+    "range" : "1",
+    "domain" : "12",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "49"
+  }, {
+    "range" : "1",
+    "domain" : "6",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "50"
+  }, {
+    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/contentExtractedFrom",
     "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
-    "range" : "28",
+    "range" : "9",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -670,19 +1015,67 @@
       } ]
     },
     "label" : {
-      "IRI-based" : "digitizedcontent",
-      "undefined" : "digitizedContent"
+      "IRI-based" : "contentExtractedFrom",
+      "undefined" : "contentExtractedFrom"
     },
-    "domain" : "5",
-    "comment" : {
-      "undefined" : "The stringified JSON OCR output."
+    "superproperty" : [ "0" ],
+    "domain" : "12",
+    "attributes" : [ "object" ],
+    "id" : "3"
+  }, {
+    "range" : "14",
+    "domain" : "16",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "51"
+  }, {
+    "range" : "53",
+    "domain" : "1",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "52"
+  }, {
+    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasWorkflow",
+    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "range" : "25",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
     },
-    "attributes" : [ "datatype" ],
-    "id" : "35"
+    "label" : {
+      "IRI-based" : "hasWorkflow",
+      "undefined" : "hasWorkflow"
+    },
+    "superproperty" : [ "15" ],
+    "domain" : "23",
+    "attributes" : [ "object" ],
+    "id" : "17"
+  }, {
+    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/workflowExecution",
+    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "range" : "5",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "workflowExecution",
+      "undefined" : "workflowExecution"
+    },
+    "superproperty" : [ "41" ],
+    "domain" : "12",
+    "attributes" : [ "object" ],
+    "id" : "42"
   }, {
     "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent",
     "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
-    "range" : "0",
+    "range" : "12",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -695,8 +1088,8 @@
       "IRI-based" : "hasdocumentcontent",
       "undefined" : "hasDocumentContent"
     },
-    "domain" : "5",
+    "domain" : "9",
     "attributes" : [ "object" ],
-    "id" : "36"
+    "id" : "54"
   } ]
 }

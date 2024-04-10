@@ -3,6 +3,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <http://schema.org/> .
 @prefix sdo: <https://schema.org/> .
@@ -27,36 +28,51 @@ sdo:Thing a rdfs:Class ;
     rdfs:label "Thing" ;
     rdfs:comment "The most generic type of item." .
 
+<http://www.w3.org/ns/prov#:Activity> a owl:Class ;
+    rdfs:label "Activity" ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    owl:disjointWith prov:Entity ;
+    skos:definition "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." .
+
+prov:Organization a owl:Class ;
+    rdfs:label "Organization" ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:subClassOf prov:Agent ;
+    skos:definition "An organization is a social or legal institution such as a company, society, etc." .
+
+prov:Person a owl:Class ;
+    rdfs:label "Person" ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:subClassOf prov:Agent ;
+    skos:definition "Person agents are people."@en .
+
+prov:inverse a owl:AnnotationProperty ;
+    rdfs:comment "PROV-O does not define all property inverses. The directionalities defined in PROV-O should be given preference over those not defined. However, if users wish to name the inverse of a PROV-O property, the local name given by prov:inverse should be used."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:seeAlso <http://www.w3.org/TR/prov-o/#names-of-inverse-properties> .
+
 prov:used a owl:ObjectProperty ;
-    rdfs:label "prov:used" ;
-    rdfs:domain :Informationextractionworkflow ;
-    rdfs:isDefinedBy : ;
-    rdfs:range :Scdigitaldocument .
+    rdfs:label "used" ;
+    rdfs:comment "A prov:Entity that was used by this prov:Activity. For example, :baking prov:used :spoon, :egg, :oven ."@en ;
+    rdfs:domain prov:Activity ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:range prov:Entity ;
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+    prov:inverse "wasUsedBy" .
 
-prov:wasAssociatedWith a owl:ObjectProperty ;
-    rdfs:label "prov:wasAssociatedWith" ;
-    rdfs:domain :Informationextractionworkflow ;
-    rdfs:isDefinedBy : ;
-    rdfs:range :Iepipeline .
-
-prov:wasDerivedFrom a owl:ObjectProperty ;
-    rdfs:label "prov:wasDerivedFrom" ;
+:contentExtractedFrom a owl:ObjectProperty ;
+    rdfs:label "contentExtractedFrom" ;
     rdfs:domain :Documentcontent ;
     rdfs:isDefinedBy : ;
-    rdfs:range :Scdigitaldocument .
+    rdfs:range :Scdigitaldocument ;
+    rdfs:subPropertyOf prov:wasDerivedFrom .
 
-prov:wasGeneratedBy a owl:ObjectProperty ;
-    rdfs:label "prov:wasGeneratedBy" ;
-    rdfs:domain :Documentcontent ;
+:hasWorkflow a owl:ObjectProperty ;
+    rdfs:label "hasWorkflow" ;
+    rdfs:domain :InformationExtractionWorkflow ;
     rdfs:isDefinedBy : ;
-    rdfs:range :Informationextractionworkflow .
-
-:digitizedcontent a owl:DatatypeProperty ;
-    rdfs:label "digitizedContent" ;
-    rdfs:comment "The stringified JSON OCR output." ;
-    rdfs:domain :Scdigitaldocument ;
-    rdfs:isDefinedBy : ;
-    rdfs:range xsd:string .
+    rdfs:range :Iepipeline ;
+    rdfs:subPropertyOf prov:wasAssociatedWith .
 
 :hasdocumentcontent a owl:ObjectProperty ;
     rdfs:label "hasDocumentContent" ;
@@ -77,15 +93,56 @@ prov:wasGeneratedBy a owl:ObjectProperty ;
     rdfs:isDefinedBy : ;
     rdfs:range xsd:string .
 
+:workflowExecution a owl:ObjectProperty ;
+    rdfs:label "workflowExecution" ;
+    rdfs:domain :Documentcontent ;
+    rdfs:isDefinedBy : ;
+    rdfs:range :Informationextractionworkflow ;
+    rdfs:subPropertyOf prov:wasGeneratedBy .
+
 sdo:Enumeration a owl:Class ;
     rdfs:label "schema:Enumeration" ;
     rdfs:isDefinedBy : .
 
-prov:Activity a owl:Class ;
-    rdfs:label "prov:Activity" .
-
 prov:SoftwareAgent a owl:Class ;
-    rdfs:label "prov:SoftwareAgent" .
+    rdfs:label "SoftwareAgent" ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:subClassOf prov:Agent ;
+    skos:definition "A software agent is running software."@en .
+
+prov:wasAssociatedWith a owl:ObjectProperty ;
+    rdfs:label "wasAssociatedWith" ;
+    rdfs:comment "An prov:Agent that had some (unspecified) responsibility for the occurrence of this prov:Activity."@en ;
+    rdfs:domain prov:Activity ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:range prov:Agent ;
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+    prov:inverse "wasAssociateFor" .
+
+prov:wasDerivedFrom a owl:ObjectProperty ;
+    rdfs:label "wasDerivedFrom" ;
+    rdfs:comment "The more specific subproperties of prov:wasDerivedFrom (i.e., prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource) should be used when applicable."@en ;
+    rdfs:domain prov:Entity ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:range prov:Entity ;
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+    skos:definition "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."@en ;
+    prov:inverse "hadDerivation" .
+
+prov:wasGeneratedBy a owl:ObjectProperty ;
+    rdfs:label "wasGeneratedBy" ;
+    rdfs:domain prov:Entity ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:range prov:Activity ;
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+    prov:inverse "generated" .
+
+:DigitalDocument a owl:Class ;
+    rdfs:label "DigitalDocument" ;
+    rdfs:isDefinedBy : ;
+    rdfs:subClassOf schema:DigitalDocument,
+        prov:Entity,
+        :Document .
 
 :Document a owl:Class ;
     rdfs:label "Document" ;
@@ -101,25 +158,55 @@ prov:SoftwareAgent a owl:Class ;
     rdfs:isDefinedBy : ;
     rdfs:subClassOf prov:SoftwareAgent .
 
-prov:Entity a owl:Class ;
-    rdfs:label "prov:Entity" .
-
 :Informationextractionworkflow a owl:Class ;
     rdfs:label "InformationExtractionWorkflow" ;
     rdfs:isDefinedBy : ;
     rdfs:subClassOf prov:Activity .
+
+prov:InstantaneousEvent a owl:Class ;
+    rdfs:label "InstantaneousEvent" ;
+    rdfs:comment "An instantaneous event, or event for short, happens in the world and marks a change in the world, in its activities and in its entities. The term 'event' is commonly used in process algebra with a similar meaning. Events represent communications or interactions; they are assumed to be atomic and instantaneous."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    skos:definition "The PROV data model is implicitly based on a notion of instantaneous events (or just events), that mark transitions in the world. Events include generation, usage, or invalidation of entities, as well as starting or ending of activities. This notion of event is not first-class in the data model, but it is useful for explaining its other concepts and its semantics."@en .
+
+:Scdigitaldocument a owl:Class ;
+    rdfs:label "SCDigitalDocument" ;
+    rdfs:isDefinedBy : ;
+    rdfs:subClassOf :DigitalDocument .
+
+prov:wasInfluencedBy a owl:ObjectProperty ;
+    rdfs:label "wasInfluencedBy" ;
+    rdfs:comment "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>.",
+        "Because prov:wasInfluencedBy is a broad relation, its more specific subproperties (e.g. prov:wasInformedBy, prov:actedOnBehalfOf, prov:wasEndedBy, etc.) should be used when applicable."@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( prov:Activity prov:Agent prov:Entity ) ] ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( prov:Activity prov:Agent prov:Entity ) ] ;
+    prov:editorialNote """The sub-properties of prov:wasInfluencedBy can be elaborated in more detail using the Qualification Pattern. For example, the binary relation :baking prov:used :spoon can be qualified by asserting :baking prov:qualifiedUsage [ a prov:Usage; prov:entity :spoon; prov:atLocation :kitchen ] .
+
+Subproperties of prov:wasInfluencedBy may also be asserted directly without being qualified.
+
+prov:wasInfluencedBy should not be used without also using one of its subproperties. 
+"""@en ;
+    prov:inverse "influenced" .
 
 :Documentcontent a owl:Class ;
     rdfs:label "DocumentContent" ;
     rdfs:isDefinedBy : ;
     rdfs:subClassOf prov:Entity .
 
-:Scdigitaldocument a owl:Class ;
-    rdfs:label "SCDigitalDocument" ;
-    rdfs:isDefinedBy : ;
-    rdfs:subClassOf schema:DigitalDocument,
-        prov:Entity,
-        :Document .
+prov:Agent a owl:Class ;
+    rdfs:label "Agent" ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    owl:disjointWith prov:InstantaneousEvent ;
+    skos:definition "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity. "@en .
+
+prov:Entity a owl:Class ;
+    rdfs:label "Entity" ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    owl:disjointWith prov:InstantaneousEvent ;
+    skos:definition "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. "@en .
 
 : a voaf:Vocabulary,
         owl:Ontology ;

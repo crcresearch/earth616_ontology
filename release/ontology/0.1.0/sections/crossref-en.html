@@ -3,20 +3,89 @@ This section provides details for each class and property defined by Supply Chai
 <div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
  <h3 id="classes-headline" class="list">Classes</h3>
  <ul class="hlist">
+  <li><a href="#http://www.w3.org/ns/prov#:Activity" title="http://www.w3.org/ns/prov#:Activity">Activity</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#Agent" title="http://www.w3.org/ns/prov#Agent">Agent</a></li>
   <li><a href="#https://schema.org/CreativeWork" title="https://schema.org/CreativeWork">CreativeWork</a></li>
+  <li><a href="#DigitalDocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument">DigitalDocument</a></li>
   <li><a href="#https://schema.org/DigitalDocument" title="https://schema.org/DigitalDocument">DigitalDocument</a></li>
   <li><a href="#Document" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document">Document</a></li>
   <li><a href="#Documentcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent">DocumentContent</a></li>
   <li><a href="#DocumentType" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType">DocumentType</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">Entity</a></li>
   <li><a href="#Iepipeline" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline">IEPipeline</a></li>
   <li><a href="#Informationextractionworkflow" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow">InformationExtractionWorkflow</a></li>
-  <li><a href="#http://www.w3.org/ns/prov#Activity" title="http://www.w3.org/ns/prov#Activity">prov:Activity</a></li>
-  <li><a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a></li>
-  <li><a href="#http://www.w3.org/ns/prov#SoftwareAgent" title="http://www.w3.org/ns/prov#SoftwareAgent">prov:SoftwareAgent</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#InstantaneousEvent" title="http://www.w3.org/ns/prov#InstantaneousEvent">InstantaneousEvent</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#Organization" title="http://www.w3.org/ns/prov#Organization">Organization</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#Person" title="http://www.w3.org/ns/prov#Person">Person</a></li>
   <li><a href="#Scdigitaldocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument">SCDigitalDocument</a></li>
   <li><a href="#https://schema.org/Enumeration" title="https://schema.org/Enumeration">schema:Enumeration</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#SoftwareAgent" title="http://www.w3.org/ns/prov#SoftwareAgent">SoftwareAgent</a></li>
   <li><a href="#https://schema.org/Thing" title="https://schema.org/Thing">Thing</a></li>
  </ul>
+ <div class="entity" id="http://www.w3.org/ns/prov#:Activity">
+  <h3>Activity<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#:Activity</p>
+  <div class="comment">
+   <span class="markdown">An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/ns/prov-o#">http://www.w3.org/ns/prov-o#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">Entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/prov#Agent">
+  <h3>Agent<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#Agent</p>
+  <div class="comment">
+   <span class="markdown">An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity. </span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/ns/prov-o#">http://www.w3.org/ns/prov-o#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#Organization" title="http://www.w3.org/ns/prov#Organization">Organization</a> <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/prov#Person" title="http://www.w3.org/ns/prov#Person">Person</a> <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/prov#SoftwareAgent" title="http://www.w3.org/ns/prov#SoftwareAgent">SoftwareAgent</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#wasInfluencedBy" title="http://www.w3.org/ns/prov#wasInfluencedBy">wasInfluencedBy</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#wasAssociatedWith" title="http://www.w3.org/ns/prov#wasAssociatedWith">wasAssociatedWith</a> <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/prov#wasInfluencedBy" title="http://www.w3.org/ns/prov#wasInfluencedBy">wasInfluencedBy</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#InstantaneousEvent" title="http://www.w3.org/ns/prov#InstantaneousEvent">InstantaneousEvent</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
  <div class="entity" id="https://schema.org/CreativeWork">
   <h3>CreativeWork<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://schema.org/CreativeWork</p>
@@ -35,6 +104,32 @@ This section provides details for each class and property defined by Supply Chai
    </dt>
    <dd>
     <a href="#https://schema.org/DigitalDocument" title="https://schema.org/DigitalDocument">DigitalDocument</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="DigitalDocument">
+  <h3>DigitalDocument<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://schema.org/DigitalDocument" target="_blank" title="http://schema.org/DigitalDocument">Digital Document</a> <sup class="type-c" title="class">c</sup>, <a href="#Document" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document">Document</a> <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">Entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Scdigitaldocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument">SCDigitalDocument</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -69,7 +164,7 @@ This section provides details for each class and property defined by Supply Chai
     has sub-classes
    </dt>
    <dd>
-    <a href="#Scdigitaldocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument">SCDigitalDocument</a> <sup class="type-c" title="class">c</sup>
+    <a href="#DigitalDocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument">DigitalDocument</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -89,13 +184,13 @@ This section provides details for each class and property defined by Supply Chai
     has super-classes
    </dt>
    <dd>
-    <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a> <sup class="type-c" title="class">c</sup>
+    <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">Entity</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in domain of
    </dt>
    <dd>
-    <a href="#processedtext" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext">processedText</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">prov:wasDerivedFrom</a> <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/prov#wasGeneratedBy" title="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#contentExtractedFrom" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/contentExtractedFrom">contentExtractedFrom</a> <sup class="type-op" title="object property">op</sup>, <a href="#processedtext" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext">processedText</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#workflowExecution" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/workflowExecution">workflowExecution</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
@@ -131,6 +226,47 @@ This section provides details for each class and property defined by Supply Chai
    </dd>
   </dl>
  </div>
+ <div class="entity" id="http://www.w3.org/ns/prov#Entity">
+  <h3>Entity<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#Entity</p>
+  <div class="comment">
+   <span class="markdown">An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. </span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/ns/prov-o#">http://www.w3.org/ns/prov-o#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#DigitalDocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument">DigitalDocument</a> <sup class="type-c" title="class">c</sup>, <a href="#Documentcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent">DocumentContent</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">wasDerivedFrom</a> <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/prov#wasGeneratedBy" title="http://www.w3.org/ns/prov#wasGeneratedBy">wasGeneratedBy</a> <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/prov#wasInfluencedBy" title="http://www.w3.org/ns/prov#wasInfluencedBy">wasInfluencedBy</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#used" title="http://www.w3.org/ns/prov#used">used</a> <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">wasDerivedFrom</a> <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/prov#wasInfluencedBy" title="http://www.w3.org/ns/prov#wasInfluencedBy">wasInfluencedBy</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#InstantaneousEvent" title="http://www.w3.org/ns/prov#InstantaneousEvent">InstantaneousEvent</a> <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/prov#:Activity" title="http://www.w3.org/ns/prov#:Activity">Activity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
  <div class="entity" id="Iepipeline">
   <h3>IEPipeline<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline</p>
@@ -147,13 +283,13 @@ This section provides details for each class and property defined by Supply Chai
     has super-classes
    </dt>
    <dd>
-    <a href="#http://www.w3.org/ns/prov#SoftwareAgent" title="http://www.w3.org/ns/prov#SoftwareAgent">prov:SoftwareAgent</a> <sup class="type-c" title="class">c</sup>
+    <a href="#http://www.w3.org/ns/prov#SoftwareAgent" title="http://www.w3.org/ns/prov#SoftwareAgent">SoftwareAgent</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in range of
    </dt>
    <dd>
-    <a href="#http://www.w3.org/ns/prov#wasAssociatedWith" title="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#hasWorkflow" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasWorkflow">hasWorkflow</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -173,55 +309,85 @@ This section provides details for each class and property defined by Supply Chai
     has super-classes
    </dt>
    <dd>
-    <a href="#http://www.w3.org/ns/prov#Activity" title="http://www.w3.org/ns/prov#Activity">prov:Activity</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    is in domain of
-   </dt>
-   <dd>
-    <a href="#http://www.w3.org/ns/prov#used" title="http://www.w3.org/ns/prov#used">prov:used</a> <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/prov#wasAssociatedWith" title="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a> <sup class="type-op" title="object property">op</sup>
+    <a href="http://www.w3.org/ns/prov#Activity" target="_blank" title="http://www.w3.org/ns/prov#Activity">Activity</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in range of
    </dt>
    <dd>
-    <a href="#http://www.w3.org/ns/prov#wasGeneratedBy" title="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#workflowExecution" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/workflowExecution">workflowExecution</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
- <div class="entity" id="http://www.w3.org/ns/prov#Activity">
-  <h3>prov:Activity<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#Activity</p>
-  <dl class="description">
+ <div class="entity" id="http://www.w3.org/ns/prov#InstantaneousEvent">
+  <h3>InstantaneousEvent<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#InstantaneousEvent</p>
+  <div class="comment">
+   <span class="markdown">An instantaneous event, or event for short, happens in the world and marks a change in the world, in its activities and in its entities. The term 'event' is commonly used in process algebra with a similar meaning. Events represent communications or interactions; they are assumed to be atomic and instantaneous.</span>
+  </div>
+  <div class="comment">
+   <span class="markdown">The PROV data model is implicitly based on a notion of instantaneous events (or just events), that mark transitions in the world. Events include generation, usage, or invalidation of entities, as well as starting or ending of activities. This notion of event is not first-class in the data model, but it is useful for explaining its other concepts and its semantics.</span>
+  </div>
+  <dl class="definedBy">
    <dt>
-    has sub-classes
+    Is defined by
    </dt>
    <dd>
-    <a href="#Informationextractionworkflow" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow">InformationExtractionWorkflow</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://www.w3.org/ns/prov-o#">http://www.w3.org/ns/prov-o#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#Agent" title="http://www.w3.org/ns/prov#Agent">Agent</a> <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">Entity</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
- <div class="entity" id="http://www.w3.org/ns/prov#Entity">
-  <h3>prov:Entity<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#Entity</p>
-  <dl class="description">
+ <div class="entity" id="http://www.w3.org/ns/prov#Organization">
+  <h3>Organization<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#Organization</p>
+  <div class="comment">
+   <span class="markdown">An organization is a social or legal institution such as a company, society, etc.</span>
+  </div>
+  <dl class="definedBy">
    <dt>
-    has sub-classes
+    Is defined by
    </dt>
    <dd>
-    <a href="#Documentcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent">DocumentContent</a> <sup class="type-c" title="class">c</sup>, <a href="#Scdigitaldocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument">SCDigitalDocument</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://www.w3.org/ns/prov-o#">http://www.w3.org/ns/prov-o#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#Agent" title="http://www.w3.org/ns/prov#Agent">Agent</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
- <div class="entity" id="http://www.w3.org/ns/prov#SoftwareAgent">
-  <h3>prov:SoftwareAgent<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#SoftwareAgent</p>
-  <dl class="description">
+ <div class="entity" id="http://www.w3.org/ns/prov#Person">
+  <h3>Person<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#Person</p>
+  <div class="comment">
+   <span class="markdown">Person agents are people.</span>
+  </div>
+  <dl class="definedBy">
    <dt>
-    has sub-classes
+    Is defined by
    </dt>
    <dd>
-    <a href="#Iepipeline" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline">IEPipeline</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://www.w3.org/ns/prov-o#">http://www.w3.org/ns/prov-o#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#Agent" title="http://www.w3.org/ns/prov#Agent">Agent</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -241,19 +407,19 @@ This section provides details for each class and property defined by Supply Chai
     has super-classes
    </dt>
    <dd>
-    <a href="http://schema.org/DigitalDocument" target="_blank" title="http://schema.org/DigitalDocument">Digital Document</a> <sup class="type-c" title="class">c</sup>, <a href="#Document" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document">Document</a> <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a> <sup class="type-c" title="class">c</sup>
+    <a href="#DigitalDocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument">DigitalDocument</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in domain of
    </dt>
    <dd>
-    <a href="#digitizedcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent">digitizedContent</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasdocumentcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent">hasDocumentContent</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasdocumenttype" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype">hasDocumentType</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#hasdocumentcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent">hasDocumentContent</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasdocumenttype" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype">hasDocumentType</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
    </dt>
    <dd>
-    <a href="#http://www.w3.org/ns/prov#used" title="http://www.w3.org/ns/prov#used">prov:used</a> <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">prov:wasDerivedFrom</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#contentExtractedFrom" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/contentExtractedFrom">contentExtractedFrom</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -266,6 +432,35 @@ This section provides details for each class and property defined by Supply Chai
    </dt>
    <dd>
     <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/prov#SoftwareAgent">
+  <h3>SoftwareAgent<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#SoftwareAgent</p>
+  <div class="comment">
+   <span class="markdown">A software agent is running software.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/ns/prov-o#">http://www.w3.org/ns/prov-o#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#Agent" title="http://www.w3.org/ns/prov#Agent">Agent</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Iepipeline" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline">IEPipeline</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -287,13 +482,51 @@ This section provides details for each class and property defined by Supply Chai
 </div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
  <h3 id="properties" class="list">Object Properties</h3>
  <ul class="hlist">
+  <li><a href="#contentExtractedFrom" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/contentExtractedFrom">contentExtractedFrom</a></li>
   <li><a href="#hasdocumentcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent">hasDocumentContent</a></li>
   <li><a href="#hasdocumenttype" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype">hasDocumentType</a></li>
-  <li><a href="#http://www.w3.org/ns/prov#used" title="http://www.w3.org/ns/prov#used">prov:used</a></li>
-  <li><a href="#http://www.w3.org/ns/prov#wasAssociatedWith" title="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a></li>
-  <li><a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">prov:wasDerivedFrom</a></li>
-  <li><a href="#http://www.w3.org/ns/prov#wasGeneratedBy" title="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a></li>
+  <li><a href="#hasWorkflow" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasWorkflow">hasWorkflow</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#used" title="http://www.w3.org/ns/prov#used">used</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#wasAssociatedWith" title="http://www.w3.org/ns/prov#wasAssociatedWith">wasAssociatedWith</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">wasDerivedFrom</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#wasGeneratedBy" title="http://www.w3.org/ns/prov#wasGeneratedBy">wasGeneratedBy</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#wasInfluencedBy" title="http://www.w3.org/ns/prov#wasInfluencedBy">wasInfluencedBy</a></li>
+  <li><a href="#workflowExecution" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/workflowExecution">workflowExecution</a></li>
  </ul>
+ <div class="entity" id="contentExtractedFrom">
+  <h3>contentExtractedFrom<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.e616.crc.nd.edu/nd/scodoc/ont/contentExtractedFrom</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">wasDerivedFrom</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Documentcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent">DocumentContent</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Scdigitaldocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument">SCDigitalDocument</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
  <div class="entity" id="hasdocumentcontent">
   <h3>hasDocumentContent<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent</p>
@@ -350,9 +583,9 @@ This section provides details for each class and property defined by Supply Chai
    </dl>
   </div>
  </div>
- <div class="entity" id="http://www.w3.org/ns/prov#used">
-  <h3>prov:used<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#used</p>
+ <div class="entity" id="hasWorkflow">
+  <h3>hasWorkflow<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasWorkflow</p>
   <dl class="definedBy">
    <dt>
     Is defined by
@@ -364,38 +597,16 @@ This section provides details for each class and property defined by Supply Chai
   <div class="description">
    <dl>
     <dt>
-     has domain
+     has super-properties
     </dt>
     <dd>
-     <a href="#Informationextractionworkflow" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow">InformationExtractionWorkflow</a> <sup class="type-c" title="class">c</sup>
+     <a href="#http://www.w3.org/ns/prov#wasAssociatedWith" title="http://www.w3.org/ns/prov#wasAssociatedWith">wasAssociatedWith</a> <sup class="type-op" title="object property">op</sup>
     </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="#Scdigitaldocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument">SCDigitalDocument</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-   </dl>
-  </div>
- </div>
- <div class="entity" id="http://www.w3.org/ns/prov#wasAssociatedWith">
-  <h3>prov:wasAssociatedWith<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#wasAssociatedWith</p>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
-   </dd>
-  </dl>
-  <div class="description">
-   <dl>
     <dt>
      has domain
     </dt>
     <dd>
-     <a href="#Informationextractionworkflow" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow">InformationExtractionWorkflow</a> <sup class="type-c" title="class">c</sup>
+     <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationExtractionWorkflow" target="_blank" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationExtractionWorkflow">Information Extraction Workflow</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
@@ -406,47 +617,228 @@ This section provides details for each class and property defined by Supply Chai
    </dl>
   </div>
  </div>
- <div class="entity" id="http://www.w3.org/ns/prov#wasDerivedFrom">
-  <h3>prov:wasDerivedFrom<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#wasDerivedFrom</p>
+ <div class="entity" id="http://www.w3.org/ns/prov#used">
+  <h3>used<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#used</p>
+  <div class="comment">
+   <span class="markdown">A prov:Entity that was used by this prov:Activity. For example, :baking prov:used :spoon, :egg, :oven .</span>
+  </div>
   <dl class="definedBy">
    <dt>
     Is defined by
    </dt>
    <dd>
-    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
+    <a href="http://www.w3.org/ns/prov-o#">http://www.w3.org/ns/prov-o#</a>
    </dd>
   </dl>
   <div class="description">
    <dl>
     <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/prov#wasInfluencedBy" title="http://www.w3.org/ns/prov#wasInfluencedBy">wasInfluencedBy</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
      has domain
     </dt>
     <dd>
-     <a href="#Documentcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent">DocumentContent</a> <sup class="type-c" title="class">c</sup>
+     <a href="http://www.w3.org/ns/prov#Activity" target="_blank" title="http://www.w3.org/ns/prov#Activity">Activity</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
     </dt>
     <dd>
-     <a href="#Scdigitaldocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument">SCDigitalDocument</a> <sup class="type-c" title="class">c</sup>
+     <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">Entity</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/prov#wasAssociatedWith">
+  <h3>wasAssociatedWith<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#wasAssociatedWith</p>
+  <div class="comment">
+   <span class="markdown">An prov:Agent that had some (unspecified) responsibility for the occurrence of this prov:Activity.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/ns/prov-o#">http://www.w3.org/ns/prov-o#</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/prov#wasInfluencedBy" title="http://www.w3.org/ns/prov#wasInfluencedBy">wasInfluencedBy</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has sub-properties
+    </dt>
+    <dd>
+     <a href="#hasWorkflow" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasWorkflow">hasWorkflow</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/prov#Activity" target="_blank" title="http://www.w3.org/ns/prov#Activity">Activity</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/prov#Agent" title="http://www.w3.org/ns/prov#Agent">Agent</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/prov#wasDerivedFrom">
+  <h3>wasDerivedFrom<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#wasDerivedFrom</p>
+  <div class="comment">
+   <span class="markdown">The more specific subproperties of prov:wasDerivedFrom (i.e., prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource) should be used when applicable.</span>
+  </div>
+  <div class="comment">
+   <span class="markdown">A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/ns/prov-o#">http://www.w3.org/ns/prov-o#</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/prov#wasInfluencedBy" title="http://www.w3.org/ns/prov#wasInfluencedBy">wasInfluencedBy</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has sub-properties
+    </dt>
+    <dd>
+     <a href="#contentExtractedFrom" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/contentExtractedFrom">contentExtractedFrom</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">Entity</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">Entity</a> <sup class="type-c" title="class">c</sup>
     </dd>
    </dl>
   </div>
  </div>
  <div class="entity" id="http://www.w3.org/ns/prov#wasGeneratedBy">
-  <h3>prov:wasGeneratedBy<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <h3>wasGeneratedBy<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://www.w3.org/ns/prov#wasGeneratedBy</p>
   <dl class="definedBy">
    <dt>
     Is defined by
    </dt>
    <dd>
+    <a href="http://www.w3.org/ns/prov-o#">http://www.w3.org/ns/prov-o#</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/prov#wasInfluencedBy" title="http://www.w3.org/ns/prov#wasInfluencedBy">wasInfluencedBy</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has sub-properties
+    </dt>
+    <dd>
+     <a href="#workflowExecution" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/workflowExecution">workflowExecution</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">Entity</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/prov#Activity" target="_blank" title="http://www.w3.org/ns/prov#Activity">Activity</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/prov#wasInfluencedBy">
+  <h3>wasInfluencedBy<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#wasInfluencedBy</p>
+  <div class="comment">
+   <span class="markdown">Because prov:wasInfluencedBy is a broad relation, its more specific subproperties (e.g. prov:wasInformedBy, prov:actedOnBehalfOf, prov:wasEndedBy, etc.) should be used when applicable.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/ns/prov-o#">http://www.w3.org/ns/prov-o#</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has sub-properties
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/prov#used" title="http://www.w3.org/ns/prov#used">used</a> <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/prov#wasAssociatedWith" title="http://www.w3.org/ns/prov#wasAssociatedWith">wasAssociatedWith</a> <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">wasDerivedFrom</a> <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/prov#wasGeneratedBy" title="http://www.w3.org/ns/prov#wasGeneratedBy">wasGeneratedBy</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/prov#Activity" target="_blank" title="http://www.w3.org/ns/prov#Activity">Activity</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#http://www.w3.org/ns/prov#Agent" title="http://www.w3.org/ns/prov#Agent">Agent</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">Entity</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/prov#Activity" target="_blank" title="http://www.w3.org/ns/prov#Activity">Activity</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#http://www.w3.org/ns/prov#Agent" title="http://www.w3.org/ns/prov#Agent">Agent</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">Entity</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="workflowExecution">
+  <h3>workflowExecution<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.e616.crc.nd.edu/nd/scodoc/ont/workflowExecution</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
     <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
    </dd>
   </dl>
   <div class="description">
    <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/prov#wasGeneratedBy" title="http://www.w3.org/ns/prov#wasGeneratedBy">wasGeneratedBy</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
     <dt>
      has domain
     </dt>
@@ -465,40 +857,8 @@ This section provides details for each class and property defined by Supply Chai
 </div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
  <h3 id="dataproperties-headline" class="list">Data Properties</h3>
  <ul class="hlist">
-  <li><a href="#digitizedcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent">digitizedContent</a></li>
   <li><a href="#processedtext" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext">processedText</a></li>
  </ul>
- <div class="entity" id="digitizedcontent">
-  <h3>digitizedContent<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent</p>
-  <div class="comment">
-   <span class="markdown">The stringified JSON OCR output.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
-   </dd>
-  </dl>
-  <div class="description">
-   <dl>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="#Scdigitaldocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument">SCDigitalDocument</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
-    </dd>
-   </dl>
-  </div>
- </div>
  <div class="entity" id="processedtext">
   <h3>processedText<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext</p>
