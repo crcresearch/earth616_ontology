@@ -12,6 +12,21 @@
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+sdo:CreativeWork a rdfs:Class ;
+    rdfs:label "CreativeWork" ;
+    rdfs:comment "The most generic kind of creative work, including books, movies, photographs, software programs, etc." ;
+    rdfs:subClassOf sdo:Thing ;
+    sdo:contributor <https://schema.org/docs/collab/rNews> .
+
+sdo:DigitalDocument a rdfs:Class ;
+    rdfs:label "DigitalDocument" ;
+    rdfs:comment "An electronic file or document." ;
+    rdfs:subClassOf sdo:CreativeWork .
+
+sdo:Thing a rdfs:Class ;
+    rdfs:label "Thing" ;
+    rdfs:comment "The most generic type of item." .
+
 prov:used a owl:ObjectProperty ;
     rdfs:label "prov:used" ;
     rdfs:domain :Informationextractionworkflow ;
@@ -46,14 +61,14 @@ prov:wasGeneratedBy a owl:ObjectProperty ;
 :hasdocumentcontent a owl:ObjectProperty ;
     rdfs:label "hasDocumentContent" ;
     rdfs:domain :Scdigitaldocument ;
-    rdfs:isDefinedBy <http://www.gra.fo/schema/demo-ekg> ;
+    rdfs:isDefinedBy : ;
     rdfs:range :Documentcontent .
 
 :hasdocumenttype a owl:ObjectProperty ;
     rdfs:label "hasDocumentType" ;
     rdfs:domain :Scdigitaldocument ;
     rdfs:isDefinedBy : ;
-    rdfs:range schema:Enumeration .
+    rdfs:range :DocumentType .
 
 :processedtext a owl:DatatypeProperty ;
     rdfs:label "processedText" ;
@@ -62,25 +77,24 @@ prov:wasGeneratedBy a owl:ObjectProperty ;
     rdfs:isDefinedBy : ;
     rdfs:range xsd:string .
 
-schema:DigitalDocument a owl:Class ;
-    rdfs:label "schema:DigitalDocument" ;
-    rdfs:isDefinedBy : .
-
-schema:Enumeration a owl:Class ;
+sdo:Enumeration a owl:Class ;
     rdfs:label "schema:Enumeration" ;
     rdfs:isDefinedBy : .
 
 prov:Activity a owl:Class ;
-    rdfs:label "prov:Activity" ;
-    rdfs:isDefinedBy : .
+    rdfs:label "prov:Activity" .
 
 prov:SoftwareAgent a owl:Class ;
-    rdfs:label "prov:SoftwareAgent" ;
-    rdfs:isDefinedBy : .
+    rdfs:label "prov:SoftwareAgent" .
 
 :Document a owl:Class ;
     rdfs:label "Document" ;
     rdfs:isDefinedBy : .
+
+:DocumentType a owl:Class ;
+    rdfs:label "DocumentType" ;
+    rdfs:isDefinedBy : ;
+    rdfs:subClassOf schema:Enumeration .
 
 :Iepipeline a owl:Class ;
     rdfs:label "IEPipeline" ;
@@ -88,8 +102,7 @@ prov:SoftwareAgent a owl:Class ;
     rdfs:subClassOf prov:SoftwareAgent .
 
 prov:Entity a owl:Class ;
-    rdfs:label "prov:Entity" ;
-    rdfs:isDefinedBy : .
+    rdfs:label "prov:Entity" .
 
 :Informationextractionworkflow a owl:Class ;
     rdfs:label "InformationExtractionWorkflow" ;

@@ -19,43 +19,17 @@
 scodoc:hasdocumentcontent rdf:type owl:ObjectProperty ;
                       rdfs:domain scodoc:Scdigitaldocument ;
                       rdfs:range scodoc:Documentcontent ;
-                      rdfs:isDefinedBy <http://www.gra.fo/schema/demo-ekg> ;
+                      rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
                       rdfs:label "hasDocumentContent" .
 
 
 scodoc:hasdocumenttype rdf:type owl:ObjectProperty ;
                    rdfs:domain scodoc:Scdigitaldocument ;
-                   rdfs:range schema:Enumeration ;
+                   rdfs:range scodoc:DocumentType ;
                    rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
                    rdfs:label "hasDocumentType" .
 
 
-prov:used rdf:type owl:ObjectProperty ;
-          rdfs:domain scodoc:Informationextractionworkflow ;
-          rdfs:range scodoc:Scdigitaldocument ;
-          rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
-          rdfs:label "prov:used" .
-
-
-prov:wasAssociatedWith rdf:type owl:ObjectProperty ;
-                       rdfs:domain scodoc:Informationextractionworkflow ;
-                       rdfs:range scodoc:Iepipeline ;
-                       rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
-                       rdfs:label "prov:wasAssociatedWith" .
-
-
-prov:wasDerivedFrom rdf:type owl:ObjectProperty ;
-                    rdfs:domain scodoc:Documentcontent ;
-                    rdfs:range scodoc:Scdigitaldocument ;
-                    rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
-                    rdfs:label "prov:wasDerivedFrom" .
-
-
-prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
-                    rdfs:domain scodoc:Documentcontent ;
-                    rdfs:range scodoc:Informationextractionworkflow ;
-                    rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
-                    rdfs:label "prov:wasGeneratedBy" .
 
 
 #################################################################
@@ -82,17 +56,12 @@ scodoc:processedtext rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
-###  http://schema.org/DigitalDocument
-schema:DigitalDocument rdf:type owl:Class ;
-                       rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
-                       rdfs:label "schema:DigitalDocument" .
-
-
-###  http://schema.org/Enumeration
-schema:Enumeration rdf:type owl:Class ;
-                   rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
-                   rdfs:label "schema:Enumeration" .
-
+#
+### https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType
+scodoc:DocumentType rdf:type owl:Class ;
+                 rdfs:subClassOf schema:Enumeration ;
+                 rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                 rdfs:label "DocumentType" .
 
 ###  http://www.gra.fo/schema/demo-ekg#Document
 scodoc:Document rdf:type owl:Class ;
@@ -130,19 +99,4 @@ scodoc:Scdigitaldocument rdf:type owl:Class ;
                      rdfs:label "SCDigitalDocument" .
 
 
-###  http://www.w3.org/ns/prov#Activity
-prov:Activity rdf:type owl:Class ;
-              rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
-              rdfs:label "prov:Activity" .
-
-
-###  http://www.w3.org/ns/prov#Entity
-prov:Entity rdf:type owl:Class ;
-            rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
-            rdfs:label "prov:Entity" .
-
-
-###  http://www.w3.org/ns/prov#SoftwareAgent
-prov:SoftwareAgent rdf:type owl:Class ;
-                   rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
-                   rdfs:label "prov:SoftwareAgent" .
+#

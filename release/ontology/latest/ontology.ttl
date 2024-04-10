@@ -103,6 +103,10 @@ _:genid3 rdf:type <https://schema.org/Organization> ;
 <https://schema.org/codeRepository> rdf:type owl:AnnotationProperty .
 
 
+###  https://schema.org/contributor
+<https://schema.org/contributor> rdf:type owl:AnnotationProperty .
+
+
 ###  https://schema.org/email
 <https://schema.org/email> rdf:type owl:AnnotationProperty .
 
@@ -163,14 +167,14 @@ xsd:date rdf:type rdfs:Datatype .
 :hasdocumentcontent rdf:type owl:ObjectProperty ;
                     rdfs:domain :Scdigitaldocument ;
                     rdfs:range :Documentcontent ;
-                    rdfs:isDefinedBy <http://www.gra.fo/schema/demo-ekg> ;
+                    rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
                     rdfs:label "hasDocumentContent" .
 
 
 ###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype
 :hasdocumenttype rdf:type owl:ObjectProperty ;
                  rdfs:domain :Scdigitaldocument ;
-                 rdfs:range <http://schema.org/Enumeration> ;
+                 rdfs:range :DocumentType ;
                  rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
                  rdfs:label "hasDocumentType" .
 
@@ -206,32 +210,25 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 ###  http://schema.org/DigitalDocument
-<http://schema.org/DigitalDocument> rdf:type owl:Class ;
-                                    rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
-                                    rdfs:label "schema:DigitalDocument" .
+<http://schema.org/DigitalDocument> rdf:type owl:Class .
 
 
 ###  http://schema.org/Enumeration
-<http://schema.org/Enumeration> rdf:type owl:Class ;
-                                rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
-                                rdfs:label "schema:Enumeration" .
+<http://schema.org/Enumeration> rdf:type owl:Class .
 
 
 ###  http://www.w3.org/ns/prov#Activity
 <http://www.w3.org/ns/prov#Activity> rdf:type owl:Class ;
-                                     rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
                                      rdfs:label "prov:Activity" .
 
 
 ###  http://www.w3.org/ns/prov#Entity
 <http://www.w3.org/ns/prov#Entity> rdf:type owl:Class ;
-                                   rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
                                    rdfs:label "prov:Entity" .
 
 
 ###  http://www.w3.org/ns/prov#SoftwareAgent
 <http://www.w3.org/ns/prov#SoftwareAgent> rdf:type owl:Class ;
-                                          rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
                                           rdfs:label "prov:SoftwareAgent" .
 
 
@@ -239,6 +236,13 @@ xsd:date rdf:type rdfs:Datatype .
 :Document rdf:type owl:Class ;
           rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
           rdfs:label "Document" .
+
+
+###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType
+:DocumentType rdf:type owl:Class ;
+              rdfs:subClassOf <http://schema.org/Enumeration> ;
+              rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+              rdfs:label "DocumentType" .
 
 
 ###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent
@@ -271,12 +275,39 @@ xsd:date rdf:type rdfs:Datatype .
                    rdfs:label "SCDigitalDocument" .
 
 
+###  https://schema.org/CreativeWork
+<https://schema.org/CreativeWork> rdf:type owl:Class ;
+                                  rdfs:subClassOf <https://schema.org/Thing> ;
+                                  rdfs:comment "The most generic kind of creative work, including books, movies, photographs, software programs, etc." ;
+                                  rdfs:label "CreativeWork" ;
+                                  <https://schema.org/contributor> <https://schema.org/docs/collab/rNews> .
+
+
+###  https://schema.org/DigitalDocument
+<https://schema.org/DigitalDocument> rdf:type owl:Class ;
+                                     rdfs:subClassOf <https://schema.org/CreativeWork> ;
+                                     rdfs:comment "An electronic file or document." ;
+                                     rdfs:label "DigitalDocument" .
+
+
+###  https://schema.org/Enumeration
+<https://schema.org/Enumeration> rdf:type owl:Class ;
+                                 rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                                 rdfs:label "schema:Enumeration" .
+
+
 ###  https://schema.org/Organization
 <https://schema.org/Organization> rdf:type owl:Class .
 
 
 ###  https://schema.org/Person
 <https://schema.org/Person> rdf:type owl:Class .
+
+
+###  https://schema.org/Thing
+<https://schema.org/Thing> rdf:type owl:Class ;
+                           rdfs:comment "The most generic type of item." ;
+                           rdfs:label "Thing" .
 
 
 #################################################################

@@ -83,6 +83,9 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/O
 # https://schema.org/codeRepository
 <https://schema.org/codeRepository> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
+# https://schema.org/contributor
+<https://schema.org/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
 # https://schema.org/email
 <https://schema.org/email> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
@@ -145,13 +148,13 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/O
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> .
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent> .
-<https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.gra.fo/schema/demo-ekg> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent> <http://www.w3.org/2000/01/rdf-schema#label> "hasDocumentContent" .
 # 
 # https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> .
-<https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype> <http://www.w3.org/2000/01/rdf-schema#range> <http://schema.org/Enumeration> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType> .
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype> <http://www.w3.org/2000/01/rdf-schema#label> "hasDocumentType" .
 # 
@@ -194,33 +197,32 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/O
 # 
 # http://schema.org/DigitalDocument
 <http://schema.org/DigitalDocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://schema.org/DigitalDocument> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
-<http://schema.org/DigitalDocument> <http://www.w3.org/2000/01/rdf-schema#label> "schema:DigitalDocument" .
 # 
 # http://schema.org/Enumeration
 <http://schema.org/Enumeration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://schema.org/Enumeration> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
-<http://schema.org/Enumeration> <http://www.w3.org/2000/01/rdf-schema#label> "schema:Enumeration" .
 # 
 # http://www.w3.org/ns/prov#Activity
 <http://www.w3.org/ns/prov#Activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
 <http://www.w3.org/ns/prov#Activity> <http://www.w3.org/2000/01/rdf-schema#label> "prov:Activity" .
 # 
 # http://www.w3.org/ns/prov#Entity
 <http://www.w3.org/ns/prov#Entity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
 <http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2000/01/rdf-schema#label> "prov:Entity" .
 # 
 # http://www.w3.org/ns/prov#SoftwareAgent
 <http://www.w3.org/ns/prov#SoftwareAgent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.w3.org/ns/prov#SoftwareAgent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
 <http://www.w3.org/ns/prov#SoftwareAgent> <http://www.w3.org/2000/01/rdf-schema#label> "prov:SoftwareAgent" .
 # 
 # https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document> <http://www.w3.org/2000/01/rdf-schema#label> "Document" .
+# 
+# https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Enumeration> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType> <http://www.w3.org/2000/01/rdf-schema#label> "DocumentType" .
 # 
 # https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -248,9 +250,32 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/O
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
 <https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument> <http://www.w3.org/2000/01/rdf-schema#label> "SCDigitalDocument" .
 # 
+# https://schema.org/CreativeWork
+<https://schema.org/CreativeWork> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.org/CreativeWork> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Thing> .
+<https://schema.org/CreativeWork> <http://www.w3.org/2000/01/rdf-schema#comment> "The most generic kind of creative work, including books, movies, photographs, software programs, etc." .
+<https://schema.org/CreativeWork> <http://www.w3.org/2000/01/rdf-schema#label> "CreativeWork" .
+<https://schema.org/CreativeWork> <https://schema.org/contributor> <https://schema.org/docs/collab/rNews> .
+# 
+# https://schema.org/DigitalDocument
+<https://schema.org/DigitalDocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.org/DigitalDocument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/CreativeWork> .
+<https://schema.org/DigitalDocument> <http://www.w3.org/2000/01/rdf-schema#comment> "An electronic file or document." .
+<https://schema.org/DigitalDocument> <http://www.w3.org/2000/01/rdf-schema#label> "DigitalDocument" .
+# 
+# https://schema.org/Enumeration
+<https://schema.org/Enumeration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.org/Enumeration> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+<https://schema.org/Enumeration> <http://www.w3.org/2000/01/rdf-schema#label> "schema:Enumeration" .
+# 
 # https://schema.org/Organization
 # 
 # https://schema.org/Person
+# 
+# https://schema.org/Thing
+<https://schema.org/Thing> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.org/Thing> <http://www.w3.org/2000/01/rdf-schema#comment> "The most generic type of item." .
+<https://schema.org/Thing> <http://www.w3.org/2000/01/rdf-schema#label> "Thing" .
 # 
 # 
 # 

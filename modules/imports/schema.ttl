@@ -23,3 +23,9 @@ schema:DigitalDocument a rdfs:Class ;
     rdfs:label "DigitalDocument" ;
     rdfs:comment "An electronic file or document." ;
     rdfs:subClassOf schema:CreativeWork .
+
+
+###  http://schema.org/Enumeration
+schema:Enumeration rdf:type owl:Class ;
+                   rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                   rdfs:label "schema:Enumeration" .

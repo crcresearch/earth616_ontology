@@ -3,17 +3,56 @@ This section provides details for each class and property defined by Supply Chai
 <div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
  <h3 id="classes-headline" class="list">Classes</h3>
  <ul class="hlist">
+  <li><a href="#https://schema.org/CreativeWork" title="https://schema.org/CreativeWork">CreativeWork</a></li>
+  <li><a href="#https://schema.org/DigitalDocument" title="https://schema.org/DigitalDocument">DigitalDocument</a></li>
   <li><a href="#Document" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document">Document</a></li>
   <li><a href="#Documentcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent">DocumentContent</a></li>
+  <li><a href="#DocumentType" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType">DocumentType</a></li>
   <li><a href="#Iepipeline" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline">IEPipeline</a></li>
   <li><a href="#Informationextractionworkflow" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow">InformationExtractionWorkflow</a></li>
   <li><a href="#http://www.w3.org/ns/prov#Activity" title="http://www.w3.org/ns/prov#Activity">prov:Activity</a></li>
   <li><a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a></li>
   <li><a href="#http://www.w3.org/ns/prov#SoftwareAgent" title="http://www.w3.org/ns/prov#SoftwareAgent">prov:SoftwareAgent</a></li>
   <li><a href="#Scdigitaldocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument">SCDigitalDocument</a></li>
-  <li><a href="#http://schema.org/DigitalDocument" title="http://schema.org/DigitalDocument">schema:DigitalDocument</a></li>
-  <li><a href="#http://schema.org/Enumeration" title="http://schema.org/Enumeration">schema:Enumeration</a></li>
+  <li><a href="#https://schema.org/Enumeration" title="https://schema.org/Enumeration">schema:Enumeration</a></li>
+  <li><a href="#https://schema.org/Thing" title="https://schema.org/Thing">Thing</a></li>
  </ul>
+ <div class="entity" id="https://schema.org/CreativeWork">
+  <h3>CreativeWork<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.org/CreativeWork</p>
+  <div class="comment">
+   <span class="markdown">The most generic kind of creative work, including books, movies, photographs, software programs, etc.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/Thing" title="https://schema.org/Thing">Thing</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/DigitalDocument" title="https://schema.org/DigitalDocument">DigitalDocument</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://schema.org/DigitalDocument">
+  <h3>DigitalDocument<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.org/DigitalDocument</p>
+  <div class="comment">
+   <span class="markdown">An electronic file or document.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://schema.org/CreativeWork" title="https://schema.org/CreativeWork">CreativeWork</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
  <div class="entity" id="Document">
   <h3>Document<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document</p>
@@ -63,6 +102,32 @@ This section provides details for each class and property defined by Supply Chai
    </dt>
    <dd>
     <a href="#hasdocumentcontent" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent">hasDocumentContent</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="DocumentType">
+  <h3>DocumentType<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://schema.org/Enumeration" target="_blank" title="http://schema.org/Enumeration">Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasdocumenttype" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype">hasDocumentType</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -127,14 +192,6 @@ This section provides details for each class and property defined by Supply Chai
  <div class="entity" id="http://www.w3.org/ns/prov#Activity">
   <h3>prov:Activity<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://www.w3.org/ns/prov#Activity</p>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
-   </dd>
-  </dl>
   <dl class="description">
    <dt>
     has sub-classes
@@ -147,14 +204,6 @@ This section provides details for each class and property defined by Supply Chai
  <div class="entity" id="http://www.w3.org/ns/prov#Entity">
   <h3>prov:Entity<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://www.w3.org/ns/prov#Entity</p>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
-   </dd>
-  </dl>
   <dl class="description">
    <dt>
     has sub-classes
@@ -167,14 +216,6 @@ This section provides details for each class and property defined by Supply Chai
  <div class="entity" id="http://www.w3.org/ns/prov#SoftwareAgent">
   <h3>prov:SoftwareAgent<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://www.w3.org/ns/prov#SoftwareAgent</p>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
-   </dd>
-  </dl>
   <dl class="description">
    <dt>
     has sub-classes
@@ -200,7 +241,7 @@ This section provides details for each class and property defined by Supply Chai
     has super-classes
    </dt>
    <dd>
-    <a href="#Document" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document">Document</a> <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a> <sup class="type-c" title="class">c</sup>, <a href="#http://schema.org/DigitalDocument" title="http://schema.org/DigitalDocument">schema:DigitalDocument</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://schema.org/DigitalDocument" target="_blank" title="http://schema.org/DigitalDocument">Digital Document</a> <sup class="type-c" title="class">c</sup>, <a href="#Document" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document">Document</a> <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in domain of
@@ -216,9 +257,9 @@ This section provides details for each class and property defined by Supply Chai
    </dd>
   </dl>
  </div>
- <div class="entity" id="http://schema.org/DigitalDocument">
-  <h3>schema:DigitalDocument<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> http://schema.org/DigitalDocument</p>
+ <div class="entity" id="https://schema.org/Enumeration">
+  <h3>schema:Enumeration<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.org/Enumeration</p>
   <dl class="definedBy">
    <dt>
     Is defined by
@@ -227,32 +268,19 @@ This section provides details for each class and property defined by Supply Chai
     <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
    </dd>
   </dl>
+ </div>
+ <div class="entity" id="https://schema.org/Thing">
+  <h3>Thing<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.org/Thing</p>
+  <div class="comment">
+   <span class="markdown">The most generic type of item.</span>
+  </div>
   <dl class="description">
    <dt>
     has sub-classes
    </dt>
    <dd>
-    <a href="#Scdigitaldocument" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument">SCDigitalDocument</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="http://schema.org/Enumeration">
-  <h3>schema:Enumeration<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> http://schema.org/Enumeration</p>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    is in range of
-   </dt>
-   <dd>
-    <a href="#hasdocumenttype" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype">hasDocumentType</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#https://schema.org/CreativeWork" title="https://schema.org/CreativeWork">CreativeWork</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -274,7 +302,7 @@ This section provides details for each class and property defined by Supply Chai
     Is defined by
    </dt>
    <dd>
-    <a href="http://www.gra.fo/schema/demo-ekg">http://www.gra.fo/schema/demo-ekg</a>
+    <a href="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">https://schema.e616.crc.nd.edu/nd/scodoc/ont/</a>
    </dd>
   </dl>
   <div class="description">
@@ -317,7 +345,7 @@ This section provides details for each class and property defined by Supply Chai
      has range
     </dt>
     <dd>
-     <a href="#http://schema.org/Enumeration" title="http://schema.org/Enumeration">schema:Enumeration</a> <sup class="type-c" title="class">c</sup>
+     <a href="#DocumentType" title="https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType">DocumentType</a> <sup class="type-c" title="class">c</sup>
     </dd>
    </dl>
   </div>

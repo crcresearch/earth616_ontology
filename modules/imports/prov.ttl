@@ -1,0 +1,50 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# --- SCODOC ---
+@prefix scodoc: <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@base <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+
+
+prov:used rdf:type owl:ObjectProperty ;
+          rdfs:domain scodoc:Informationextractionworkflow ;
+          rdfs:range scodoc:Scdigitaldocument ;
+          rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+          rdfs:label "prov:used" .
+
+prov:wasAssociatedWith rdf:type owl:ObjectProperty ;
+                       rdfs:domain scodoc:Informationextractionworkflow ;
+                       rdfs:range scodoc:Iepipeline ;
+                       rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                       rdfs:label "prov:wasAssociatedWith" .
+
+
+prov:wasDerivedFrom rdf:type owl:ObjectProperty ;
+                    rdfs:domain scodoc:Documentcontent ;
+                    rdfs:range scodoc:Scdigitaldocument ;
+                    rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                    rdfs:label "prov:wasDerivedFrom" .
+
+
+prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
+                    rdfs:domain scodoc:Documentcontent ;
+                    rdfs:range scodoc:Informationextractionworkflow ;
+                    rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                    rdfs:label "prov:wasGeneratedBy" .
+
+##  http://www.w3.org/ns/prov#Activity
+prov:Activity rdf:type owl:Class ;
+              rdfs:label "prov:Activity" .
+
+
+###  http://www.w3.org/ns/prov#Entity
+prov:Entity rdf:type owl:Class ;
+            rdfs:label "prov:Entity" .
+
+
+###  http://www.w3.org/ns/prov#SoftwareAgent
+prov:SoftwareAgent rdf:type owl:Class ;
+                   rdfs:label "prov:SoftwareAgent" .

@@ -55,27 +55,27 @@
         "value" : "https://creativecommons.org/licenses/by/4.0/",
         "type" : "iri"
       } ],
-      "preferredNamespacePrefix" : [ {
-        "identifier" : "preferredNamespacePrefix",
-        "language" : "undefined",
-        "value" : "scodoc",
-        "type" : "label"
-      } ],
       "rights" : [ {
         "identifier" : "rights",
         "language" : "en",
         "value" : "This work is licensed under a Creative Commons Attribution 4.0 International License.",
         "type" : "label"
       } ],
+      "preferredNamespacePrefix" : [ {
+        "identifier" : "preferredNamespacePrefix",
+        "language" : "undefined",
+        "value" : "scodoc",
+        "type" : "label"
+      } ],
       "publisher" : [ {
         "identifier" : "publisher",
         "language" : "undefined",
-        "value" : "_:genid2147483650",
+        "value" : "_:genid2147483649",
         "type" : "label"
       }, {
         "identifier" : "publisher",
         "language" : "undefined",
-        "value" : "_:genid2147483649",
+        "value" : "_:genid2147483650",
         "type" : "label"
       } ],
       "modified" : [ {
@@ -118,10 +118,10 @@
     "id" : "3",
     "type" : "owl:Class"
   }, {
-    "id" : "20",
+    "id" : "22",
     "type" : "owl:Class"
   }, {
-    "id" : "18",
+    "id" : "26",
     "type" : "owl:Class"
   }, {
     "id" : "1",
@@ -130,25 +130,40 @@
     "id" : "7",
     "type" : "owl:Class"
   }, {
-    "id" : "21",
+    "id" : "28",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "13",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "23",
+    "id" : "30",
     "type" : "owl:Class"
   }, {
-    "id" : "24",
+    "id" : "18",
+    "type" : "owl:Class"
+  }, {
+    "id" : "31",
+    "type" : "owl:Class"
+  }, {
+    "id" : "21",
+    "type" : "owl:Class"
+  }, {
+    "id" : "17",
     "type" : "owl:Class"
   }, {
     "id" : "8",
     "type" : "owl:Class"
   }, {
-    "id" : "26",
+    "id" : "20",
     "type" : "owl:Class"
   }, {
-    "id" : "19",
+    "id" : "25",
+    "type" : "owl:Class"
+  }, {
+    "id" : "34",
+    "type" : "owl:Class"
+  }, {
+    "id" : "27",
     "type" : "owl:Class"
   } ],
   "classAttribute" : [ {
@@ -173,14 +188,6 @@
     "iri" : "http://www.w3.org/ns/prov#Activity",
     "baseIri" : "http://www.w3.org/ns/prov",
     "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
-        "type" : "iri"
-      } ]
-    },
     "label" : {
       "IRI-based" : "Activity",
       "undefined" : "prov:Activity"
@@ -232,7 +239,7 @@
       "IRI-based" : "Person"
     },
     "attributes" : [ "external" ],
-    "id" : "20"
+    "id" : "22"
   }, {
     "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline",
     "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
@@ -249,20 +256,12 @@
       "IRI-based" : "Iepipeline",
       "undefined" : "IEPipeline"
     },
-    "id" : "18",
-    "superClasses" : [ "19" ]
+    "id" : "26",
+    "superClasses" : [ "27" ]
   }, {
     "iri" : "http://www.w3.org/ns/prov#Entity",
     "baseIri" : "http://www.w3.org/ns/prov",
     "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
-        "type" : "iri"
-      } ]
-    },
     "label" : {
       "IRI-based" : "Entity",
       "undefined" : "prov:Entity"
@@ -291,7 +290,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "21",
+    "id" : "28",
     "label" : {
       "IRI-based" : "string"
     }
@@ -303,8 +302,8 @@
       "IRI-based" : "string"
     }
   }, {
-    "iri" : "http://schema.org/Enumeration",
-    "baseIri" : "http://schema.org",
+    "iri" : "https://schema.org/Enumeration",
+    "baseIri" : "https://schema.org",
     "instances" : 0,
     "annotations" : {
       "isDefinedBy" : [ {
@@ -319,7 +318,17 @@
       "undefined" : "schema:Enumeration"
     },
     "attributes" : [ "external" ],
-    "id" : "23"
+    "id" : "30"
+  }, {
+    "iri" : "http://schema.org/Enumeration",
+    "baseIri" : "http://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Enumeration"
+    },
+    "subClasses" : [ "17" ],
+    "attributes" : [ "external" ],
+    "id" : "18"
   }, {
     "iri" : "https://schema.org/Organization",
     "baseIri" : "https://schema.org",
@@ -328,10 +337,24 @@
       "IRI-based" : "Organization"
     },
     "attributes" : [ "external" ],
-    "id" : "24"
+    "id" : "31"
   }, {
-    "iri" : "http://schema.org/DigitalDocument",
-    "baseIri" : "http://schema.org",
+    "iri" : "https://schema.org/Thing",
+    "baseIri" : "https://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Thing",
+      "undefined" : "Thing"
+    },
+    "subClasses" : [ "20" ],
+    "comment" : {
+      "undefined" : "The most generic type of item."
+    },
+    "attributes" : [ "external" ],
+    "id" : "21"
+  }, {
+    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType",
+    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
     "instances" : 0,
     "annotations" : {
       "isDefinedBy" : [ {
@@ -342,12 +365,58 @@
       } ]
     },
     "label" : {
-      "IRI-based" : "DigitalDocument",
-      "undefined" : "schema:DigitalDocument"
+      "IRI-based" : "DocumentType",
+      "undefined" : "DocumentType"
+    },
+    "id" : "17",
+    "superClasses" : [ "18" ]
+  }, {
+    "iri" : "http://schema.org/DigitalDocument",
+    "baseIri" : "http://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DigitalDocument"
     },
     "subClasses" : [ "5" ],
     "attributes" : [ "external" ],
     "id" : "8"
+  }, {
+    "iri" : "https://schema.org/CreativeWork",
+    "baseIri" : "https://schema.org",
+    "instances" : 0,
+    "annotations" : {
+      "contributor" : [ {
+        "identifier" : "contributor",
+        "language" : "undefined",
+        "value" : "https://schema.org/docs/collab/rNews",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "CreativeWork",
+      "undefined" : "CreativeWork"
+    },
+    "subClasses" : [ "25" ],
+    "comment" : {
+      "undefined" : "The most generic kind of creative work, including books, movies, photographs, software programs, etc."
+    },
+    "attributes" : [ "external" ],
+    "id" : "20",
+    "superClasses" : [ "21" ]
+  }, {
+    "iri" : "https://schema.org/DigitalDocument",
+    "baseIri" : "https://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DigitalDocument",
+      "undefined" : "DigitalDocument"
+    },
+    "comment" : {
+      "undefined" : "An electronic file or document."
+    },
+    "attributes" : [ "external" ],
+    "id" : "25",
+    "superClasses" : [ "20" ]
   }, {
     "iri" : "http://purl.org/vocommons/voaf#Vocabulary",
     "baseIri" : "http://purl.org/vocommons/voaf",
@@ -361,26 +430,18 @@
       "labels" : { }
     } ],
     "attributes" : [ "external" ],
-    "id" : "26"
+    "id" : "34"
   }, {
     "iri" : "http://www.w3.org/ns/prov#SoftwareAgent",
     "baseIri" : "http://www.w3.org/ns/prov",
     "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
-        "type" : "iri"
-      } ]
-    },
     "label" : {
       "IRI-based" : "SoftwareAgent",
       "undefined" : "prov:SoftwareAgent"
     },
-    "subClasses" : [ "18" ],
+    "subClasses" : [ "26" ],
     "attributes" : [ "external" ],
-    "id" : "19"
+    "id" : "27"
   } ],
   "property" : [ {
     "id" : "2",
@@ -410,20 +471,29 @@
     "id" : "16",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "17",
+    "id" : "19",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "22",
+    "id" : "23",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "24",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "29",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "25",
+    "id" : "32",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "27",
-    "type" : "owl:objectProperty"
+    "id" : "33",
+    "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "28",
+    "id" : "35",
     "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "36",
+    "type" : "owl:objectProperty"
   } ],
   "propertyAttribute" : [ {
     "iri" : "http://www.w3.org/ns/prov#wasGeneratedBy",
@@ -525,19 +595,29 @@
     "attributes" : [ "anonymous", "object" ],
     "id" : "15"
   }, {
-    "range" : "8",
-    "domain" : "5",
+    "range" : "18",
+    "domain" : "17",
     "attributes" : [ "anonymous", "object" ],
     "id" : "16"
   }, {
-    "range" : "19",
-    "domain" : "18",
+    "range" : "21",
+    "domain" : "20",
     "attributes" : [ "anonymous", "object" ],
-    "id" : "17"
+    "id" : "19"
+  }, {
+    "range" : "8",
+    "domain" : "5",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "23"
+  }, {
+    "range" : "20",
+    "domain" : "25",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "24"
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasAssociatedWith",
     "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "18",
+    "range" : "26",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -552,11 +632,11 @@
     },
     "domain" : "3",
     "attributes" : [ "external", "object" ],
-    "id" : "22"
+    "id" : "29"
   }, {
     "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype",
     "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
-    "range" : "23",
+    "range" : "17",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -571,30 +651,16 @@
     },
     "domain" : "5",
     "attributes" : [ "object" ],
-    "id" : "25"
+    "id" : "32"
   }, {
-    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent",
-    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
-    "range" : "0",
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "http://www.gra.fo/schema/demo-ekg",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "hasdocumentcontent",
-      "undefined" : "hasDocumentContent"
-    },
-    "domain" : "5",
-    "attributes" : [ "object" ],
-    "id" : "27"
+    "range" : "27",
+    "domain" : "26",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "33"
   }, {
     "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/digitizedcontent",
     "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
-    "range" : "21",
+    "range" : "28",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -612,6 +678,25 @@
       "undefined" : "The stringified JSON OCR output."
     },
     "attributes" : [ "datatype" ],
-    "id" : "28"
+    "id" : "35"
+  }, {
+    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent",
+    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "range" : "0",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasdocumentcontent",
+      "undefined" : "hasDocumentContent"
+    },
+    "domain" : "5",
+    "attributes" : [ "object" ],
+    "id" : "36"
   } ]
 }
