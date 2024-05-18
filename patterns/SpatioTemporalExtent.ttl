@@ -1,0 +1,70 @@
+﻿@prefix : <#>.
+@prefix dc: <http://purl.org/dc/elements/1.1/>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix spatime: <http://w3id.org/daselab/onto/spatiotemporalextent#>.
+@prefix cpannotationschema: <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#>.
+@prefix onto: <http://w3id.org/daselab/onto/>.
+@prefix tr: <http://w3id.org/daselab/onto/trajectory#>.
+
+dc:creator a owl:AnnotationProperty.
+
+onto:spatiotemporalextent
+    a owl:Ontology;
+    dc:creator "Adila Krisnadhi, Pascal Hitzler";
+    cpannotationschema:coversRequirements
+        """Where is Poland located in 1700?, 
+List all places and time in which the 1990 World Chess Championship Match take place.,
+Where and when did the oceanographic cruise A01132 go?""";
+    cpannotationschema:hasComponent
+        "Trajectory",
+        <http://ontologydesignpatterns.org/wiki/Submissions:Trajectory>,
+        onto:trajectory;
+    cpannotationschema:hasIntent
+        "This pattern models a spatiotemporal extent, i.e., a combination of spatial and temporal extent as a set of generalized trajectories which cannot have temporal overlap. This pattern reuses semantic trajectory pattern as component.";
+    cpannotationschema:relatedCPs "Trajectory";
+    cpannotationschema:scenarios
+        """The World Chess Championship Match 1990 was held in two parts: New York (October 8 to November 7) and Lyons - France (November 26 to December 30).
+
+The Renaissance occured in different places at different times.
+
+A hurricane moves through the spacetime.""";
+    owl:imports
+        onto:trajectory,
+        <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl>.
+spatime:hasSpatioTemporalExtent
+    a owl:ObjectProperty;
+    rdfs:comment
+        "Property relating anything (thus the domain is trivially owl:Thing and the range is unscoped) to a SpatioTemporalExtent.";
+    rdfs:label "hasSpatioTemporalExtent";
+    rdfs:range spatime:SpatioTemporalExtent.
+spatime:hasTrajectory
+    a owl:ObjectProperty;
+    rdfs:comment
+        "Set to be equivalent to trj:hasTrajectory from the Trajectory pattern, this property relates anything (including SpatioTemporalExtent) to Trajectory.";
+    rdfs:label "hasTrajectory";
+    owl:equivalentProperty tr:hasTrajectory.
+spatime:SpatioTemporalExtent
+    a owl:Class;
+    rdfs:comment
+        "The class that represents the notion of spatiotemporal extent. A spatiotemporal extent is realized as a collection of generalized trajectories that have no temporal overlap.";
+    rdfs:label "SpatioTemporalExtent";
+    rdfs:subClassOf
+            [
+                a owl:Restriction;
+                owl:allValuesFrom spatime:Trajectory;
+                owl:onProperty spatime:hasTrajectory
+            ],
+            [
+                a owl:Restriction;
+                owl:onProperty spatime:hasTrajectory;
+                owl:someValuesFrom spatime:Trajectory
+            ].
+spatime:Trajectory
+    a owl:Class;
+    rdfs:comment
+        "The hook to the Trajectory pattern, which acts as a component of the Spatiotemporal Extent pattern.";
+    rdfs:label "Trajectory";
+    owl:equivalentClass tr:Trajectory.
+
+

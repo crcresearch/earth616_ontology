@@ -75,5 +75,6 @@ Event(?x) ^ hasSpatioTemporalExtent(?x, ?w) ^ subEventOf(?x, ?y) ^ Event(?y) ^ h
 ```
 
 ## References
-* Adila Krisnadhi; Pascal Hitzler : A Core Pattern for Events. Under review at WOP 2016.
+* Adila Krisnadhi; Pascal Hitzler : [A Core Pattern for Events.](http://ontologydesignpatterns.org/wiki/images/5/52/WOP2016_paper_04.pdf)
+* [Participation](http://ontologydesignpatterns.org/wiki/Submissions:Participation)
 * [Event Core OWL](http://krisnadhi.github.io/onto/event.owl)
