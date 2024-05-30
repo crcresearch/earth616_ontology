@@ -35,7 +35,7 @@ Here's a combined template for documenting Ontology Design Patterns (ODPs) that 
 * [Property 2] ([Domain Class], [Range Class]) - [Description]
 * [...]
 
-## Axioms in formal logic notation as a rule
+## Axioms in first-order logic FOL as a rule
 ```
 [Axiom 1]
 [Axiom 2]

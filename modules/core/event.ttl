@@ -1,0 +1,93 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+
+# --- SCODOC ---
+@prefix scodoc: <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@prefix : <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@base <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+
+scodoc:Event rdf:type rdfs:Class ;
+    rdfs:label "Event"@en ;
+    rdfs:comment "Represents any kind of events. An event possesses a spatiotemporal extent, provides at least one participant-role, which is performed by some entity (agents or otherwise), and may be a sub-event of another event. An event may also have additional descriptive information, which is consolidated through an information object."@en .
+
+scodoc:ParticipantRole rdf:type rdfs:Class ;
+    rdfs:label "Participant Role"@en ;
+    rdfs:comment "Every ParticipantRole represents a reified relationship between an event and one of its participants. Should normally be aligned to a separate Participant-Role pattern."@en .
+
+scodoc:Agent rdf:type rdfs:Class ;
+    rdfs:label "Agent"@en ;
+    rdfs:comment "An entity participating in an event, such as a person, organization, or system."@en .
+
+scodoc:SpatioTemporalExtent rdf:type rdfs:Class ;
+    rdfs:label "Spatiotemporal Extent"@en ;
+    rdfs:comment "Hook to a complex notion representing a unified spatial and temporal extent. Intended to cover non-static or discontinuous spatiotemporal extent. Should be aligned to a separate Spatiotemporal Extent pattern."@en .
+
+scodoc:TemporalExtent rdf:type rdfs:Class ;
+    rdfs:subClassOf scodoc:SpatioTemporalExtent ;
+    rdfs:label "Temporal Extent"@en ;
+    rdfs:comment "Represents the temporal extent of an event."@en .
+
+scodoc:InformationObject rdf:type rdfs:Class ;
+    rdfs:label "Information Object"@en ;
+    rdfs:comment "An entity that encapsulates all descriptive or non-defining information of the corresponding event, e.g., names, additional identifiers, textual descriptions, etc. Should normally be aligned to a separate Information Object pattern."@en .
+
+scodoc:providesParticipantRole rdf:type rdf:Property ;
+    rdfs:label "provides participant role"@en ;
+    rdfs:comment "Property relating Event to ParticipantRole in this pattern. The range is always ParticipantRole since it makes no sense to have a property named as providesParticipantRole not to point to a participant role. The domain is not set to Event as non-Event may also provide a participant role."@en ;
+    rdfs:range scodoc:ParticipantRole .
+
+scodoc:assumesRole rdf:type rdf:Property ;
+    rdfs:label "assumes role"@en ;
+    rdfs:comment "Relates an agent to the role it plays in an event."@en ;
+    rdfs:domain scodoc:Agent ;
+    rdfs:range scodoc:ParticipantRole .
+
+scodoc:hasSpatioTemporalExtent rdf:type rdf:Property ;
+    rdfs:label "has spatiotemporal extent"@en ;
+    rdfs:comment "Property relating Event to SpatioTemporalExtent in this pattern. The range is always SpatioTemporalExtent (globally) since it makes no sense to have a property named hasSpatioTemporalExtent to point to anything other than spatiotemporal extent. The domain is not set to Event as non-Event may also have spatiotemporal extent."@en ;
+    rdfs:range scodoc:SpatioTemporalExtent .
+
+scodoc:hasInformationObject rdf:type rdf:Property ;
+    rdfs:label "has information object"@en ;
+    rdfs:comment "Property relating Event to InformationObject in this pattern. The domain of this property is not restricted to Event since it is possible that non-event to have an information object. The range is always InformationObject since it makes no sense to have a property named hasInformationObject to point to anything other than information object."@en ;
+    rdfs:range scodoc:InformationObject .
+
+scodoc:subEventOf rdf:type rdf:Property ;
+    rdfs:label "sub event of"@en ;
+    rdfs:comment "Property expressing partonomic relation between two events. Domain and range are always Event."@en ;
+    rdfs:domain scodoc:Event ;
+    rdfs:range scodoc:Event .
+
+
+# Additional restrictions
+rdfs:range rdfs:subPropertyOf owl:ObjectProperty .
+rdfs:domain rdfs:subPropertyOf owl:ObjectProperty .
+
+owl:Thing rdfs:subClassOf [
+    rdf:type rdfs:Restriction ;
+    owl:allValuesFrom scodoc:Event ;
+    owl:onProperty scodoc:subEventOf
+] .
+
+owl:Thing rdfs:subClassOf [
+    rdf:type rdfs:Restriction ;
+    owl:allValuesFrom scodoc:InformationObject ;
+    owl:onProperty scodoc:hasInformationObject
+] .
+
+owl:Thing rdfs:subClassOf [
+    rdf:type rdfs:Restriction ;
+    owl:allValuesFrom scodoc:ParticipantRole ;
+    owl:onProperty scodoc:providesParticipantRole
+] .
+
+owl:Thing rdfs:subClassOf [
+    rdf:type rdfs:Restriction ;
+    owl:allValuesFrom scodoc:SpatioTemporalExtent ;
+    owl:onProperty scodoc:hasSpatioTemporalExtent
+] .

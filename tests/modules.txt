@@ -2,3 +2,5 @@ schema,./modules/imports/schema.ttl
 prov,./modules/imports/prov.ttl
 metadata,./modules/core/metadata.ttl
 document,./modules/scdocumentation/document.ttl
+eventcore,./modules/core/event.ttl
+scevent,./modules/supplychain/eventmodule.ttl
