@@ -90,9 +90,10 @@ The ontology is designed to be extensible to support modeling of domain-specific
     """@en ;
     skos:changeNote "0.1.0 - intial release of pattern skeletons"@en;
     skos:changeNote "0.1.1 - adding supply chain events from the supply chain pattern and connecting to the documentation extraction pattern"@en;
+    skos:changeNote "0.1.2 - adding identifier patterns and beginning of shapes"@en;
     bibo:status "Work in progress" ;
-    owl:versionIRI <https://schema.e616.crc.nd.edu/nd/scodoc/ont/0.1.1> ;
-    owl:versionInfo "0.1.1"@en ;
+    owl:versionIRI <https://schema.e616.crc.nd.edu/nd/scodoc/ont/0.1.2> ;
+    owl:versionInfo "0.1.2"@en ;
  #   owl:priorVersion <https://w3id.org/ammo/ont/0.5.0>;
  #   owl:backwardCompatableWith <https://w3id.org/ammo/ont/0.5.0> ;
     dcterms:modified "2024-05-31"^^xsd:date ;
