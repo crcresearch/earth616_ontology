@@ -1,5 +1,30 @@
 # Defense Supply Chain and Documentation Ontology (DSCDO)
 
+Welcome to the Defense Supply Chain and Documentation Ontology (DSCDO) repository. DSCDO is designed to streamline and enhance the management of supply chain documentation in defense operations through the use of Knowledge Graphs (KGs), ontologies, and advanced AI technologies, particularly Large Language Models (LLMs).
+
+## Introduction
+
+### Why Use Knowledge Graphs for Supply Chain Information?
+
+Knowledge Graphs offer a powerful method for structuring and visualizing complex supply chain data. By representing entities and their relationships in a graph format, KGs enable a comprehensive and interconnected view of supply chain networks. This structured approach facilitates better decision-making, improved traceability, and enhanced operational efficiency.
+
+### The Role of Ontologies
+
+Ontologies provide a formal framework for defining the types, properties, and relationships of entities within a domain. In DSCDO, ontologies standardize the representation of supply chain documentation, ensuring consistency and interoperability across different data sources. This standardization is crucial for creating systems that can effectively communicate and share data, thereby improving the robustness and reliability of supply chain management.
+
+### Leveraging AI and LLMs with KGs and Ontologies
+
+Integrating AI and LLMs with Knowledge Graphs and ontologies unlocks significant potential in supply chain analytics. AI-driven workflows can automate the extraction of knowledge from supply chain documents, creating structured triples that represent factual statements about the data. This process captures both the content and the provenance of the documents, ensuring transparency and accountability.
+
+- **GraphRAG Integration**: GraphRAG (Graphs + Retrieval Augmented Generation) enhances the capabilities of LLMs by combining them with Knowledge Graphs. This integration allows for more precise and contextually relevant responses to complex queries, leveraging the structured data within KGs to provide comprehensive and accurate answers. Organizing extracted data into semantic clusters improves the efficiency of data retrieval and the quality of AI-generated insights [GraphRAG: Unlocking LLM discovery on narrative private data - Microsoft Research](https://www.microsoft.com/en-us/research/blog/graphrag-unlocking-llm-discovery-on-narrative-private-data/) [GraphRAG: Enhancing Traditional RAG through Knowledge Graph](https://www.pingcap.com/article/graphrag-enhancing-traditional-rag-through-knowledge-graph/).
+  
+- **Trustworthy Data**: Utilizing Decentralized Identifiers (DIDs), Verifiable Credentials (VCs), and distributed ledgers ensures the authenticity, integrity, and traceability of the data. These technologies provide a secure and verifiable framework for managing supply chain information, which is critical for maintaining trust and compliance in defense supply chain operations.
+
+
+By integrating Knowledge Graphs, ontologies, and advanced AI technologies, DSCDO provides a robust and scalable framework for managing and analyzing defense supply chain documentation. This approach not only enhances data transparency and interoperability but also supports sophisticated AI-driven analytics, paving the way for more efficient and effective supply chain management.
+
+For more information on how to get started, please refer to the [Installation](#installation) and [Usage](#usage) sections below.
+
 ## Development Methodology
 **GitHub Integration:** The program leverages GitHub, a widely adopted platform for distributed version control and collaborative development. All ontology files and related documentation are hosted in a dedicated GitHub repository, enabling contributors to propose changes, review modifications, and merge accepted updates seamlessly.
 
@@ -25,7 +50,32 @@ Ontology is modeled using [RDFS-Plus](http://mlwiki.org/index.php/RDFS-Plus) lev
 
 ## Testing
 
-Development of MSCDO uses [Github Actions](https://github.com/features/actions) to perform CI/CD of the ontology. It runs a [SHACL](https://www.w3.org/TR/shacl/) test suite against sample knowledge graph fragments using [pyshacl](https://github.com/RDFLib/pySHACL) and the [sharness](https://github.com/chriscool/sharness) [Test Anything Protocol](http://testanything.org). Results can be reviewed in the [actions page](https://github.com/LA3D/ammo/actions) of the AMMO Github repository.
+The Defense Supply Chain and Documentation Ontology (DSCDO) employs a comprehensive testing methodology to ensure its robustness, accuracy, and compliance with standards. This methodology integrates continuous integration and deployment (CI/CD) practices to automate testing and validation processes. Our testing strategy focuses on several key areas:
+
+1. **Ontology Merging**:
+   - Ensures that individual ontology modules are correctly combined into a cohesive whole. This step verifies that all necessary components are integrated without conflicts.
+
+2. **SHACL Validation**:
+   - Utilizes SHACL (Shapes Constraint Language) to validate the merged ontology against predefined shapes. This ensures data integrity, consistency, and adherence to structural constraints.
+
+3. **Competency Question Testing**:
+   - Validates that the ontology can accurately answer competency questions derived from user stories. This step ensures that the ontology meets its intended use cases and provides meaningful responses.
+
+4. **Documentation Generation**:
+   - Generates comprehensive documentation for the ontology using Widoco. This ensures that all aspects of the ontology are well-documented and accessible to users.
+
+### Continuous Integration and Deployment
+
+To maintain the highest standards of quality and reliability, the testing processes are integrated into our CI/CD pipeline using GitHub Actions. This automation ensures that all tests are run on each commit and pull request, providing immediate feedback and maintaining the integrity of the ontology.
+
+### Detailed Testing Processes
+
+For detailed information about the testing scripts and their configurations, please refer to the README files in the respective subdirectories:
+
+- **[Tests README](tests/README.md)**: Provides detailed instructions on the testing scripts and their configurations.
+- **[Stories README](stories/README.md)**: Describes the structure for capturing user stories and competency questions.
+
+
 
 ## Persistent Identifiers and Namespace
 The following URI structure is proposed for the prototype, similar to w3id.org redirect rule structure https://github.com/perma-id/w3id.org. Content negotiation will be used as part of the redirect rule to provide different serializations (JSON-LD, turtle, etc). It should be noted that this URI structure will likely need to be changed when deployed within a DoD network, and additional URI modeling may be required to capture additional functionality within the DoD networks. An example of this is the [“Adoption and Impact of an Identifier Policy – AstraZeneca”](https://fairtoolkit.pistoiaalliance.org/use-cases/adoption-and-impact-of-an-identifier-policy-astrazeneca/) which illustrates how AstraZeneca 
