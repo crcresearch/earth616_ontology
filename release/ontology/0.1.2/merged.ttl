@@ -459,10 +459,11 @@ The ontology is designed to be extensible to support modeling of domain-specific
     bibo:status "Work in progress" ;
     vann:preferredNamespacePrefix "scodoc" ;
     vann:preferredNamespaceUri "https://schema.e616.crc.nd.edu/nd/scodoc/ont/" ;
-    owl:versionIRI :0.1.1 ;
-    owl:versionInfo "0.1.1"@en ;
+    owl:versionIRI :0.1.2 ;
+    owl:versionInfo "0.1.2"@en ;
     skos:changeNote "0.1.0 - intial release of pattern skeletons"@en,
-        "0.1.1 - adding supply chain events from the supply chain pattern and connecting to the documentation extraction pattern"@en ;
+        "0.1.1 - adding supply chain events from the supply chain pattern and connecting to the documentation extraction pattern"@en,
+        "0.1.2 - adding identifier patterns and beginning of shapes"@en ;
     sdo:codeRepository "https://github.com/crcresearch/earth616_ontology"^^xsd:anyURI ;
     widoco:introduction """
         The Defense Supply Chain and Documentation Ontology (DSCDO) is a sophisticated framework designed to capture and link supply chain documentation artifacts to relevant events and Tradable Resource Units (TRUs). This ontology serves as a comprehensive model for representing the complex interactions and transactions within the defense supply chain, ensuring that every document, event, and resource unit is accurately documented and interconnected.
@@ -509,3 +510,4 @@ The ontology is designed to be extensible to support modeling of domain-specific
                     owl:onProperty :hasSTETE ;
                     owl:someValuesFrom :SupplyChainSpatiotemporalExtent ] ],
         :Event .
+
