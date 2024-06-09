@@ -1,0 +1,706 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+
+schema:Thing a rdfs:Class ;
+    rdfs:label "Thing" ;
+    rdfs:comment "The most generic type of item." .
+
+schema:CreativeWork a rdfs:Class ;
+    rdfs:label "CreativeWork" ;
+    rdfs:comment "The most generic kind of creative work, including books, movies, photographs, software programs, etc." ;
+    rdfs:subClassOf schema:Thing ;
+    schema:contributor <https://schema.org/docs/collab/rNews> .
+
+schema:DigitalDocument a rdfs:Class ;
+    rdfs:label "DigitalDocument" ;
+    rdfs:comment "An electronic file or document." ;
+    rdfs:subClassOf schema:CreativeWork .
+
+
+###  http://schema.org/Enumeration
+schema:Enumeration rdf:type owl:Class ;
+                   rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                   rdfs:label "schema:Enumeration" .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# --- SCODOC ---
+@prefix scodoc: <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@base <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+
+
+prov:inverse
+    a owl:AnnotationProperty ;
+    rdfs:comment "PROV-O does not define all property inverses. The directionalities defined in PROV-O should be given preference over those not defined. However, if users wish to name the inverse of a PROV-O property, the local name given by prov:inverse should be used."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:seeAlso <http://www.w3.org/TR/prov-o/#names-of-inverse-properties> .
+
+prov:used
+    a owl:ObjectProperty ;
+    rdfs:comment "A prov:Entity that was used by this prov:Activity. For example, :baking prov:used :spoon, :egg, :oven ."@en ;
+    rdfs:domain prov:Activity ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "used" ;
+    rdfs:range prov:Entity ;
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+    prov:inverse "wasUsedBy" .
+
+prov:wasAssociatedWith
+    a owl:ObjectProperty ;
+    rdfs:comment "An prov:Agent that had some (unspecified) responsibility for the occurrence of this prov:Activity."@en ;
+    rdfs:domain prov:Activity ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "wasAssociatedWith" ;
+    rdfs:range prov:Agent ;
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+    prov:inverse "wasAssociateFor" .
+
+prov:wasDerivedFrom
+    a owl:ObjectProperty ;
+    rdfs:comment "The more specific subproperties of prov:wasDerivedFrom (i.e., prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource) should be used when applicable."@en ;
+    rdfs:domain prov:Entity ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "wasDerivedFrom" ;
+    rdfs:range prov:Entity ;
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+
+    skos:definition "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."@en ;
+    prov:inverse "hadDerivation" .
+
+prov:wasInfluencedBy
+    a owl:ObjectProperty ;
+    rdfs:comment "Because prov:wasInfluencedBy is a broad relation, its more specific subproperties (e.g. prov:wasInformedBy, prov:actedOnBehalfOf, prov:wasEndedBy, etc.) should be used when applicable."@en, "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>." ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf (prov:Activity
+            prov:Agent
+            prov:Entity
+        )
+    ] ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "wasInfluencedBy" ;
+    rdfs:range [
+        a owl:Class ;
+        owl:unionOf (prov:Activity
+            prov:Agent
+            prov:Entity
+        )
+    ] ;
+    prov:editorialNote """The sub-properties of prov:wasInfluencedBy can be elaborated in more detail using the Qualification Pattern. For example, the binary relation :baking prov:used :spoon can be qualified by asserting :baking prov:qualifiedUsage [ a prov:Usage; prov:entity :spoon; prov:atLocation :kitchen ] .
+
+Subproperties of prov:wasInfluencedBy may also be asserted directly without being qualified.
+
+prov:wasInfluencedBy should not be used without also using one of its subproperties. 
+"""@en ;
+    prov:inverse "influenced" .
+
+prov:wasGeneratedBy
+    a owl:ObjectProperty ;
+    rdfs:domain prov:Entity ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "wasGeneratedBy" ;
+    rdfs:range prov:Activity ;
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+    prov:inverse "generated" .
+
+
+# --- PROV-O  Classes---
+prov::Activity
+    a owl:Class ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "Activity" ;
+    owl:disjointWith prov:Entity ;
+    skos:definition "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." ;
+.
+
+prov:Agent
+    a owl:Class ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "Agent" ;
+    owl:disjointWith prov:InstantaneousEvent ;
+    skos:definition "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity. "@en ;
+.
+
+prov:Entity
+    a owl:Class ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "Entity" ;
+    owl:disjointWith prov:InstantaneousEvent ;
+    skos:definition "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. "@en ;
+.
+
+prov:InstantaneousEvent
+    a owl:Class ;
+    rdfs:comment "An instantaneous event, or event for short, happens in the world and marks a change in the world, in its activities and in its entities. The term 'event' is commonly used in process algebra with a similar meaning. Events represent communications or interactions; they are assumed to be atomic and instantaneous."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "InstantaneousEvent" ;
+    skos:definition "The PROV data model is implicitly based on a notion of instantaneous events (or just events), that mark transitions in the world. Events include generation, usage, or invalidation of entities, as well as starting or ending of activities. This notion of event is not first-class in the data model, but it is useful for explaining its other concepts and its semantics."@en ;
+.
+
+prov:Person
+    a owl:Class ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "Person" ;
+    rdfs:subClassOf prov:Agent ;
+    skos:definition "Person agents are people."@en ;
+.
+
+
+prov:Organization
+    a owl:Class ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "Organization" ;
+    rdfs:subClassOf prov:Agent ;
+    skos:definition "An organization is a social or legal institution such as a company, society, etc." ;
+.
+
+prov:SoftwareAgent
+    a owl:Class ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "SoftwareAgent" ;
+    rdfs:subClassOf prov:Agent ;
+    skos:definition "A software agent is running software."@en ;
+.
+
+# === PREFIXES ================================================================
+
+# --- Basic ---
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> . 
+
+
+
+# --- Ontology management ---
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix sdo: <https://schema.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix widoco: <https://w3id.org/widoco/vocab#>  .
+
+# --- External Ontologies ---
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix gs1: <http://gs1.org/voc/> .
+
+# --- SCODOC ---
+@prefix scodoc: <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@base <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+
+# =============================================================================
+# WIDOCO Documentation
+# https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html#status
+# Orange Ontology Example
+# https://github.com/Orange-OpenSource/noria-ontology/blob/master/ontology/noria-0.3/noria.ttl
+# =============================================================================
+
+
+
+<https://schema.e616.crc.nd.edu/nd/scodoc/ont/>  
+    a voaf:Vocabulary, owl:Ontology ;
+    dcterms:title "Defense Supply Chain and Documentation Ontology (DSCDO)"@en ;
+    dcterms:description "An ontology for describing supply chain documentation."@en ;
+    dc:abstract """The Defense Supply Chain and Documentation Ontology (DSCDO) provides a formal model for representing knowledge about supply chain networks, processes, and entities. It enables interoperability and knowledge sharing between supply chain information systems by providing a common vocabulary and conceptual structure and supporting documentation providing supply chain provenance.
+
+Key concepts modeled include:
+
+- Supply chain stages such as suppliers, manufacturers
+- Products, materials, and information flows between supply chain stages  
+- Supply chain processes such as procurement, production, and transportation
+
+The ontology is designed to be extensible to support modeling of domain-specific supply chains and integration with other enterprise ontologies. It aims to facilitate supply chain analytics, decision support, knowledge management, and semantic integration of heterogeneous supply chain data sources."""@en ;
+    widoco:introduction """
+        The Defense Supply Chain and Documentation Ontology (DSCDO) is a sophisticated framework designed to capture and link supply chain documentation artifacts to relevant events and Tradable Resource Units (TRUs). This ontology serves as a comprehensive model for representing the complex interactions and transactions within the defense supply chain, ensuring that every document, event, and resource unit is accurately documented and interconnected.
+
+        Key Components of DSCDO:
+
+        1. **Event Pattern**: The ontology leverages an Event Pattern to model various types of events such as TransferEvent, TransformationEvent, CustodyChangeEvent, OwnershipChangeEvent, TransportEvent, and ObservationEvent. Each event is linked to spatiotemporal aspects through the SpatiotemporalExtent class, which captures the time and place of occurrence.
+
+        2. **Participant Role**: Events are connected to participants through roles such as SourceRole, TargetRole, EquipmentRole, and CustodianRoles (both Source and Target). This ensures that every event is associated with one or more agents (e.g., organizations, individuals) fulfilling specific roles.
+
+        3. **Container and Containment Relations**: The ontology models containers and their types, along with the relationships of containment. This includes modeling the TemporalExtent of containment, allowing for the tracking of resources over time and space.
+
+        4. **Identifier Encoding**: To maintain traceability, DSCDO includes a detailed Identifier framework, encompassing IdentifierEncoding, IdentifierSource, and IdentifierType. This system ensures that each resource unit can be uniquely identified and traced through the supply chain.
+
+        5. **Traceable Resource Unit (TRU)**: The TRU is a core concept representing units that are tracked through the supply chain. This includes QuantityOfMaterial, which is further detailed by Material types, measurements, and units, ensuring precise tracking and management of resources.
+
+        6. **Observation and Measurement**: Observations are linked to TRUs to capture measurement data, such as quantity and quality, ensuring that all resource units are accurately monitored and recorded.
+
+        Knowledge Extraction Workflow:
+
+        The DSCDO is integrated into a knowledge extraction workflow designed to process supply chain documentation. This workflow involves:
+
+        1. **Document Acquisition**: Using advanced OCR technologies (e.g., Azure OCR), documents are scanned and converted into machine-readable formats.
+
+        2. **Knowledge Extraction**: Leveraging LLM AI-driven pipelines (e.g., LangGraph, LangChain), the extracted text is processed to identify and link relevant entities and events according to the DSCDO patterns.
+
+        3. **Triple Generation**: The processed information is transformed into RDF triples, forming a structured, queryable knowledge graph that adheres to the DSCDO schema. This enables advanced querying and analysis, facilitating decision-making and supply chain management.
+
+        Application and Benefits:
+
+        By implementing DSCDO, defense supply chain management can achieve higher levels of transparency, traceability, and efficiency. The ontology ensures that all documentation artifacts are systematically captured and linked to corresponding events and resource units, providing a robust framework for managing the complexities of defense logistics and procurement.
+
+        In summary, the DSCDO provides a comprehensive and structured approach to managing defense supply chain documentation, leveraging advanced knowledge extraction techniques to produce a detailed and interconnected view of supply chain activities.
+    """@en ;
+    skos:changeNote "0.1.0 - intial release of pattern skeletons"@en;
+    skos:changeNote "0.1.1 - adding supply chain events from the supply chain pattern and connecting to the documentation extraction pattern"@en;
+    skos:changeNote "0.1.2 - adding identifier patterns and beginning of shapes"@en;
+    bibo:status "Work in progress" ;
+    owl:versionIRI <https://schema.e616.crc.nd.edu/nd/scodoc/ont/0.1.2> ;
+    owl:versionInfo "0.1.2"@en ;
+ #   owl:priorVersion <https://w3id.org/ammo/ont/0.5.0>;
+ #   owl:backwardCompatableWith <https://w3id.org/ammo/ont/0.5.0> ;
+    dcterms:modified "2024-05-31"^^xsd:date ;
+    dcterms:created  "2024-04-09"^^xsd:date ;
+
+    dcterms:publisher [
+                        a sdo:Organization ;
+		                sdo:name "Center for Research Computing, University of Notre Dame" ;
+		                sdo:url "https://crc.nd.edu"^^xsd:anyURI ;
+                        owl:sameAs wd:Q178848 ;
+                      ];
+    dcterms:publisher [
+                        a sdo:Organization ;
+                        sdo:name "Simba Chain" ;
+                        sdo:url "https://simbachain.com/";
+                       ];
+                        dcterms:creator [
+                        a sdo:Person ;
+                        sdo:name "Charles F. Vardeman II" ;
+                        sdo:affiliation "University of Notre Dame" ;
+                        sdo:email "cvardema@nd.edu"^^xsd:anyURI ;
+                        sdo:url "https://orcid.org/0000-0003-4091-6059"^^xsd:anyURI ;
+                        ];
+
+# License
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:rights "This work is licensed under a Creative Commons Attribution 4.0 International License."@en ;
+    dcterms:rightsHolder "SIMBA Chain, University of Notre Dame" ;
+    sdo:codeRepository "https://github.com/crcresearch/earth616_ontology"^^xsd:anyURI;
+    vann:preferredNamespacePrefix "scodoc" ;
+    vann:preferredNamespaceUri "https://schema.e616.crc.nd.edu/nd/scodoc/ont/" .
+
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+
+# --- SCODOC ---
+@prefix scodoc: <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@prefix : <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@base <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+# Object property to link a digital document to its content
+scodoc:hasdocumentcontent rdf:type owl:ObjectProperty ;
+                      rdfs:domain scodoc:Scdigitaldocument ;
+                      rdfs:range scodoc:Documentcontent ;
+                      rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                      rdfs:label "hasDocumentContent" ;
+                      rdfs:comment "Links a digital document to its content extracted via OCR." .
+
+# Object property to specify the type of a digital document
+scodoc:hasdocumenttype rdf:type owl:ObjectProperty ;
+                   rdfs:domain scodoc:Scdigitaldocument ;
+                   rdfs:range scodoc:DocumentType ;
+                   rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                   rdfs:label "hasDocumentType" ;
+                   rdfs:comment "Specifies the type or category of a digital document." .
+
+# Object property indicating that content was derived from a specific digital document
+scodoc:contentExtractedFrom rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf prov:wasDerivedFrom ;
+                         rdfs:domain scodoc:Documentcontent ;
+                         rdfs:range scodoc:Scdigitaldocument ;
+                         rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                         rdfs:label "contentExtractedFrom" ;
+                         rdfs:comment "Indicates that the document content was derived from a specific digital document." .
+
+scodoc:workflowExecution rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf prov:wasGeneratedBy ;
+                     rdfs:domain scodoc:Documentcontent ;
+                     rdfs:range scodoc:Informationextractionworkflow ;
+                     rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                     rdfs:label "workflowExecution" ;
+                     rdfs:comment "Connects the document content to the workflow that processed it." .
+
+scodoc:hasWorkflow rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf prov:wasAssociatedWith ;
+                     rdfs:domain scodoc:InformationExtractionWorkflow ;
+                     rdfs:range scodoc:Iepipeline ;
+                     rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                     rdfs:label "hasWorkflow" ;
+                     rdfs:comment "Associates an information extraction workflow with a specific pipeline." .
+
+#################################################################
+#    Data properties
+#################################################################
+
+
+scodoc:processedtext rdf:type owl:DatatypeProperty ;
+                 rdfs:domain scodoc:Documentcontent ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "The processed text of a digitized document." ;
+                 rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                 rdfs:label "processedText" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+#
+### https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType
+scodoc:DocumentType rdf:type owl:Class ;
+                 rdfs:subClassOf schema:Enumeration ;
+                 rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                 rdfs:label "DocumentType" ;
+                 rdfs:comment "Represents the type or classification of a document." .
+
+###  http:/https://schema.e616.crc.nd.edu/nd/scodoc/ont/DDocument
+scodoc:Document rdf:type owl:Class ;
+            rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+            rdfs:label "Document" ;
+            rdfs:comment "A general class for documents." .
+
+###  http:/https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent
+scodoc:Documentcontent rdf:type owl:Class ;
+                   rdfs:subClassOf prov:Entity ;
+                   rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                   rdfs:label "DocumentContent" ;
+                   rdfs:comment "Represents the content extracted from a document." .
+
+
+###  http:/https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline
+scodoc:Iepipeline rdf:type owl:Class ;
+              rdfs:subClassOf prov:SoftwareAgent ;
+              rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+              rdfs:label "IEPipeline" ;
+              rdfs:comment "Represents a pipeline used in the information extraction process." .
+
+
+###  http:/https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow
+scodoc:Informationextractionworkflow rdf:type owl:Class ;
+                                 rdfs:subClassOf prov:Activity ;
+                                 rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                                 rdfs:label "InformationExtractionWorkflow" ;
+                                 rdfs:comment "Represents a workflow or process of extracting information from documents." .
+
+
+###  http:/https://schema.e616.crc.nd.edu/nd/scodoc/ont/scdigitaldocument
+scodoc:Scdigitaldocument rdf:type owl:Class ;
+                     rdfs:subClassOf scodoc:DigitalDocument ; 
+                     rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                     rdfs:label "SCDigitalDocument" ;
+                     rdfs:comment "Represents digital document that is supply chain documentation" .
+
+### https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument
+scodoc:DigitalDocument rdf:type owl:Class ;
+                     rdfs:subClassOf schema:DigitalDocument ;
+                     rdfs:subClassOf scodoc:Document ;
+                     rdfs:subClassOf prov:Entity ;
+                     rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                     rdfs:label "DigitalDocument" ;
+                     rdfs:comment "Represents a digital document that has been scanned and digitized, and is part of the broader document processing workflow." .
+
+#
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+
+# --- SCODOC ---
+@prefix scodoc: <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@prefix : <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@base <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+
+scodoc:Event rdf:type rdfs:Class ;
+    rdfs:label "Event"@en ;
+    rdfs:comment "Represents any kind of events. An event possesses a spatiotemporal extent, provides at least one participant-role, which is performed by some entity (agents or otherwise), and may be a sub-event of another event. An event may also have additional descriptive information, which is consolidated through an information object."@en .
+
+scodoc:ParticipantRole rdf:type rdfs:Class ;
+    rdfs:label "Participant Role"@en ;
+    rdfs:comment "Every ParticipantRole represents a reified relationship between an event and one of its participants. Should normally be aligned to a separate Participant-Role pattern."@en .
+
+scodoc:Agent rdf:type rdfs:Class ;
+    rdfs:label "Agent"@en ;
+    rdfs:comment "An entity participating in an event, such as a person, organization, or system."@en .
+
+scodoc:SpatioTemporalExtent rdf:type rdfs:Class ;
+    rdfs:label "Spatiotemporal Extent"@en ;
+    rdfs:comment "Hook to a complex notion representing a unified spatial and temporal extent. Intended to cover non-static or discontinuous spatiotemporal extent. Should be aligned to a separate Spatiotemporal Extent pattern."@en .
+
+scodoc:TemporalExtent rdf:type rdfs:Class ;
+    rdfs:subClassOf scodoc:SpatioTemporalExtent ;
+    rdfs:label "Temporal Extent"@en ;
+    rdfs:comment "Represents the temporal extent of an event."@en .
+
+scodoc:InformationObject rdf:type rdfs:Class ;
+    rdfs:label "Information Object"@en ;
+    rdfs:comment "An entity that encapsulates all descriptive or non-defining information of the corresponding event, e.g., names, additional identifiers, textual descriptions, etc. Should normally be aligned to a separate Information Object pattern."@en .
+
+scodoc:providesParticipantRole rdf:type rdf:Property ;
+    rdfs:label "provides participant role"@en ;
+    rdfs:comment "Property relating Event to ParticipantRole in this pattern. The range is always ParticipantRole since it makes no sense to have a property named as providesParticipantRole not to point to a participant role. The domain is not set to Event as non-Event may also provide a participant role."@en ;
+    rdfs:range scodoc:ParticipantRole .
+
+scodoc:assumesRole rdf:type rdf:Property ;
+    rdfs:label "assumes role"@en ;
+    rdfs:comment "Relates an agent to the role it plays in an event."@en ;
+    rdfs:domain scodoc:Agent ;
+    rdfs:range scodoc:ParticipantRole .
+
+scodoc:hasSpatioTemporalExtent rdf:type rdf:Property ;
+    rdfs:label "has spatiotemporal extent"@en ;
+    rdfs:comment "Property relating Event to SpatioTemporalExtent in this pattern. The range is always SpatioTemporalExtent (globally) since it makes no sense to have a property named hasSpatioTemporalExtent to point to anything other than spatiotemporal extent. The domain is not set to Event as non-Event may also have spatiotemporal extent."@en ;
+    rdfs:range scodoc:SpatioTemporalExtent .
+
+scodoc:hasInformationObject rdf:type rdf:Property ;
+    rdfs:label "has information object"@en ;
+    rdfs:comment "Property relating Event to InformationObject in this pattern. The domain of this property is not restricted to Event since it is possible that non-event to have an information object. The range is always InformationObject since it makes no sense to have a property named hasInformationObject to point to anything other than information object."@en ;
+    rdfs:range scodoc:InformationObject .
+
+scodoc:subEventOf rdf:type rdf:Property ;
+    rdfs:label "sub event of"@en ;
+    rdfs:comment "Property expressing partonomic relation between two events. Domain and range are always Event."@en ;
+    rdfs:domain scodoc:Event ;
+    rdfs:range scodoc:Event .
+
+
+# Additional restrictions
+rdfs:range rdfs:subPropertyOf owl:ObjectProperty .
+rdfs:domain rdfs:subPropertyOf owl:ObjectProperty .
+
+owl:Thing rdfs:subClassOf [
+    rdf:type rdfs:Restriction ;
+    owl:allValuesFrom scodoc:Event ;
+    owl:onProperty scodoc:subEventOf
+] .
+
+owl:Thing rdfs:subClassOf [
+    rdf:type rdfs:Restriction ;
+    owl:allValuesFrom scodoc:InformationObject ;
+    owl:onProperty scodoc:hasInformationObject
+] .
+
+owl:Thing rdfs:subClassOf [
+    rdf:type rdfs:Restriction ;
+    owl:allValuesFrom scodoc:ParticipantRole ;
+    owl:onProperty scodoc:providesParticipantRole
+] .
+
+owl:Thing rdfs:subClassOf [
+    rdf:type rdfs:Restriction ;
+    owl:allValuesFrom scodoc:SpatioTemporalExtent ;
+    owl:onProperty scodoc:hasSpatioTemporalExtent
+] .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+
+# --- SCODOC ---
+@prefix scodoc: <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@prefix : <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@base <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+
+# Classes
+scodoc:SupplyChainEvent rdfs:subClassOf scodoc:Event ;
+    rdfs:label "Supply Chain Event"@en ;
+    rdfs:comment "An event occurring in a supply chain process."@en .
+
+scodoc:TransferEvent rdfs:subClassOf scodoc:SupplyChainEvent ;
+    rdfs:label "Transfer Event"@en ;
+    rdfs:comment "An event involving the transfer of goods or materials."@en .
+
+scodoc:TransformationEvent rdfs:subClassOf scodoc:SupplyChainEvent ;
+    rdfs:label "Transformation Event"@en ;
+    rdfs:comment "An event where goods or materials undergo a transformation process."@en .
+
+scodoc:CustodyChangeEvent rdfs:subClassOf scodoc:SupplyChainEvent ;
+    rdfs:label "Custody Change Event"@en ;
+    rdfs:comment "An event where the custody of goods or materials changes."@en .
+
+scodoc:OwnershipChangeEvent rdfs:subClassOf scodoc:SupplyChainEvent ;
+    rdfs:label "Ownership Change Event"@en ;
+    rdfs:comment "An event where the ownership of goods or materials changes."@en .
+
+scodoc:TransportEvent rdfs:subClassOf scodoc:TransferEvent ;
+    rdfs:label "Transport Event"@en ;
+    rdfs:comment "An event involving the transportation of goods or materials."@en .
+
+scodoc:ObservationEvent rdfs:subClassOf scodoc:SupplyChainEvent ;
+    rdfs:label "Observation Event"@en ;
+    rdfs:comment "An event where an observation or measurement is made on goods or materials."@en .
+
+scodoc:SupplyChainRole rdfs:subClassOf scodoc:ParticipantRole ;
+    rdfs:label "Supply Chain Role"@en ;
+    rdfs:comment "A role played by an entity in a supply chain event."@en .
+
+scodoc:SourceRole rdfs:subClassOf scodoc:SupplyChainRole ;
+    rdfs:label "Source Role"@en ;
+    rdfs:comment "The role of the entity from which goods or materials originate."@en .
+
+scodoc:TargetRole rdfs:subClassOf scodoc:SupplyChainRole ;
+    rdfs:label "Target Role"@en ;
+    rdfs:comment "The role of the entity to which goods or materials are destined."@en .
+
+scodoc:EquipmentRole rdfs:subClassOf scodoc:SupplyChainRole ;
+    rdfs:label "Equipment Role"@en ;
+    rdfs:comment "The role of equipment or machinery used in an event."@en .
+
+scodoc:SourceCustodianRole rdfs:subClassOf scodoc:SupplyChainRole ;
+    rdfs:label "Source Custodian Role"@en ;
+    rdfs:comment "The role of the entity that has custody of goods or materials before an event."@en .
+
+scodoc:TargetCustodianRole rdfs:subClassOf scodoc:SupplyChainRole ;
+    rdfs:label "Target Custodian Role"@en ;
+    rdfs:comment "The role of the entity that gains custody of goods or materials after an event."@en .
+
+scodoc:SourceOwnerRole rdfs:subClassOf scodoc:SupplyChainRole ;
+    rdfs:label "Source Owner Role"@en ;
+    rdfs:comment "The role of the entity that owns goods or materials before an event."@en .
+
+scodoc:TargetOwnerRole rdfs:subClassOf scodoc:SupplyChainRole ;
+    rdfs:label "Target Owner Role"@en ;
+    rdfs:comment "The role of the entity that gains ownership of goods or materials after an event."@en .
+
+scodoc:BeingShippedRole rdfs:subClassOf scodoc:SupplyChainRole ;
+    rdfs:label "Being Shipped Role"@en ;
+    rdfs:comment "The role of goods or materials being shipped or transported."@en .
+
+scodoc:BeingMeasuredRole rdfs:subClassOf scodoc:SupplyChainRole ;
+    rdfs:label "Being Measured Role"@en ;
+    rdfs:comment "The role of goods or materials being observed or measured."@en .
+
+scodoc:Agent rdfs:subClassOf scodoc:Agent ;
+    rdfs:label "Agent"@en ;
+    rdfs:comment "An entity participating in a supply chain event, such as a person, organization, or system."@en .
+
+scodoc:SupplyChainSpatiotemporalExtent rdfs:subClassOf scodoc:SpatioTemporalExtent ;
+    rdfs:label "Supply Chain Spatiotemporal Extent"@en ;
+    rdfs:comment "Represents the spatial and temporal extent of a supply chain event."@en .
+
+scodoc:TransformationActivity rdfs:subClassOf owl:Thing ;
+    rdfs:label "Transformation Activity"@en ;
+    rdfs:comment "An activity or process that transforms goods or materials."@en .
+
+# Properties
+scodoc:providesRole rdfs:subPropertyOf scodoc:providesParticipantRole ;
+    rdfs:label "provides role"@en ;
+    rdfs:domain scodoc:SupplyChainEvent ;
+    rdfs:range scodoc:SupplyChainRole .
+
+scodoc:assumesRole rdfs:subPropertyOf scodoc:assumesRole ;
+    rdfs:label "assumes role"@en ;
+    rdfs:domain scodoc:Agent ;
+    rdfs:range scodoc:SupplyChainRole .
+
+scodoc:hasSTETE rdfs:subPropertyOf scodoc:hasSpatioTemporalExtent ;
+    rdfs:label "has spatiotemporal extent"@en ;
+    rdfs:domain scodoc:SupplyChainEvent ;
+    rdfs:range scodoc:SupplyChainSpatiotemporalExtent .
+
+scodoc:hasTemporalExtent rdfs:subPropertyOf scodoc:hasSpatioTemporalExtent ;
+    rdfs:label "has temporal extent"@en ;
+    rdfs:domain scodoc:SupplyChainEvent ;
+    rdfs:range scodoc:TemporalExtent .
+
+scodoc:hasContainedInRelation rdfs:subPropertyOf scodoc:subEventOf ;
+    rdfs:label "has contained in relation"@en ;
+    rdfs:domain scodoc:SupplyChainEvent ;
+    rdfs:range scodoc:ContainedInRelation .
+
+scodoc:hasFurtherDocumentation rdfs:subPropertyOf scodoc:hasInformationObject ;
+    rdfs:label "has further documentation"@en ;
+    rdfs:domain scodoc:SupplyChainEvent ;
+    rdfs:range scodoc:DocumentationSource .
+
+scodoc:occursAt rdfs:subPropertyOf owl:topObjectProperty ;
+    rdfs:label "occurs at"@en ;
+    rdfs:domain scodoc:TransformationEvent ;
+    rdfs:range scodoc:TransformationActivity .
+
+scodoc:hasPreCondition rdfs:subPropertyOf scodoc:subEventOf ;
+    rdfs:label "has precondition"@en ;
+    rdfs:domain scodoc:SupplyChainEvent ;
+    rdfs:range scodoc:SupplyChainEvent .
+
+scodoc:hasPostCondition rdfs:subPropertyOf scodoc:subEventOf ;
+    rdfs:label "has postcondition"@en ;
+    rdfs:domain scodoc:SupplyChainEvent ;
+    rdfs:range scodoc:SupplyChainEvent .
+
+scodoc:producedAt rdfs:subPropertyOf scodoc:subEventOf ;
+    rdfs:label "produced at"@en ;
+    rdfs:domain scodoc:ObservationEvent ;
+    rdfs:range scodoc:SupplyChainEvent .
+
+scodoc:hasDocument rdf:type owl:ObjectProperty ;
+                   rdfs:domain scodoc:DocumentationSource ;
+                   rdfs:range scodoc:ScdigitaldocumentDocument ;
+                   rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                   rdfs:label "hasDocument" .
+
+# Additional classes and properties
+scodoc:ContainedInRelation rdfs:subClassOf owl:Thing ;
+    rdfs:label "Contained In Relation"@en ;
+    rdfs:comment "Represents a containment relationship between events."@en .
+
+scodoc:DocumentationSource rdfs:subClassOf scodoc:InformationObject ;
+    rdfs:label "Documentation Source"@en ;
+    rdfs:comment "A source of documentation or information related to an event."@en .
+
+# Axioms and restrictions
+scodoc:SupplyChainEvent rdfs:subClassOf [
+    rdf:type rdfs:Datatype ;
+    owl:equivalentClass [
+        rdf:type rdfs:Restriction ;
+        owl:onProperty scodoc:providesRole ;
+        owl:someValuesFrom scodoc:SupplyChainRole
+    ]
+] .
+
+scodoc:SupplyChainEvent rdfs:subClassOf [
+    rdf:type rdfs:Datatype ;
+    owl:equivalentClass [
+        rdf:type rdfs:Restriction ;
+        owl:onProperty scodoc:hasSTETE ;
+        owl:someValuesFrom scodoc:SupplyChainSpatiotemporalExtent
+    ]
+] .
