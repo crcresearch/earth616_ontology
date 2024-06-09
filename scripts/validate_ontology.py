@@ -1,4 +1,3 @@
-# validate_ontology.py
 import os
 import sys
 import rdflib
@@ -8,7 +7,6 @@ from termcolor import colored
 # Define paths
 MODULES_LIST = os.path.join(os.path.dirname(__file__), '../tests/modules.txt')
 SHAPES_FILE = os.path.join(os.path.dirname(__file__), '../tests/ontology-validation-shapes.ttl')
-MERGED_ONTOLOGY_FILE = os.path.join(os.path.dirname(__file__), 'merged.ttl')
 
 def read_modules_file(modules_file):
     with open(modules_file, 'r') as f:
@@ -25,29 +23,40 @@ def validate_turtle_file(file_path):
         print(colored(f"Syntax validation failed for {file_path}: {e}", 'red'))
         return False
 
-def merge_ontology(files, output_file):
+def validate_individual_file(file_path, shapes_file):
     try:
-        with open(output_file, 'w') as outfile:
-            for file in files:
-                with open(file) as infile:
-                    outfile.write(infile.read() + "\n")
-        print(colored(f"Ontology files merged into {output_file}", 'green'))
-        return True
-    except Exception as e:
-        print(colored(f"Failed to merge ontology files: {e}", 'red'))
-        return False
-
-def validate_ontology(shapes_file, ontology_file):
-    try:
-        conforms, results_graph, results_text = validate(data_graph=ontology_file, shacl_graph=shapes_file, inference='rdfs', abort_on_first=False, meta_shacl=False, advanced=True)
+        data_graph = rdflib.Graph()
+        data_graph.parse(file_path, format='ttl')
+        
+        conforms, results_graph, results_text = validate(
+            data_graph=data_graph, 
+            shacl_graph=shapes_file, 
+            inference='rdfs', 
+            abort_on_first=False, 
+            meta_shacl=False, 
+            advanced=True
+        )
+        
         if conforms:
-            print(colored("SHACL validation passed.", 'green'))
+            print(colored(f"SHACL validation passed for {file_path}", 'green'))
         else:
-            print(colored("SHACL validation failed.", 'red'))
-        print(results_text)
+            print(colored(f"SHACL validation failed for {file_path}", 'red'))
+            for result in results_graph.query("""
+                SELECT ?focusNode ?message ?path
+                WHERE {
+                    ?result a sh:ValidationResult ;
+                            sh:focusNode ?focusNode ;
+                            sh:resultMessage ?message ;
+                            sh:resultPath ?path .
+                }
+            """):
+                focus_node, message, path = result
+                print(colored(f"Focus Node: {focus_node}", 'red'))
+                print(colored(f"Path: {path}", 'red'))
+                print(colored(f"Message: {message}", 'red'))
         return conforms
     except Exception as e:
-        print(colored(f"SHACL validation error: {e}", 'red'))
+        print(colored(f"SHACL validation error for {file_path}: {e}", 'red'))
         return False
 
 def main():
@@ -56,18 +65,15 @@ def main():
     # Read the list of modules from the file
     files = read_modules_file(MODULES_LIST)
 
-    # Validate individual Turtle files
+    # Validate individual Turtle files for syntax errors
     for file_path in files:
         if not validate_turtle_file(file_path):
             all_passed = False
 
-    # Merge ontology files for SHACL validation
-    if not merge_ontology(files, MERGED_ONTOLOGY_FILE):
-        all_passed = False
-
-    # Validate merged ontology with SHACL
-    if not validate_ontology(SHAPES_FILE, MERGED_ONTOLOGY_FILE):
-        all_passed = False
+    # Validate each individual Turtle file with SHACL
+    for file_path in files:
+        if not validate_individual_file(file_path, SHAPES_FILE):
+            all_passed = False
 
     if all_passed:
         print(colored("All validations passed.", 'green'))

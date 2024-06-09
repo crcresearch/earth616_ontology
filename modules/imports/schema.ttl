@@ -10,6 +10,7 @@
 @prefix void: <http://rdfs.org/ns/void#> .
 
 schema:Thing a rdfs:Class ;
+    rdfs:isDefinedBy <http://schema.org/> ;
     rdfs:label "Thing" ;
     rdfs:comment "The most generic type of item." .
 
@@ -17,15 +18,18 @@ schema:CreativeWork a rdfs:Class ;
     rdfs:label "CreativeWork" ;
     rdfs:comment "The most generic kind of creative work, including books, movies, photographs, software programs, etc." ;
     rdfs:subClassOf schema:Thing ;
+    rdfs:isDefinedBy <http://schema.org/> ;
     schema:contributor <https://schema.org/docs/collab/rNews> .
 
 schema:DigitalDocument a rdfs:Class ;
     rdfs:label "DigitalDocument" ;
     rdfs:comment "An electronic file or document." ;
+    rdfs:isDefinedBy <http://schema.org/> ;
     rdfs:subClassOf schema:CreativeWork .
 
 
 ###  http://schema.org/Enumeration
 schema:Enumeration rdf:type owl:Class ;
-                   rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                   rdfs:isDefinedBy <https://schema.org> ;
+                   rdfs:comment "A list of enumerations." ;
                    rdfs:label "schema:Enumeration" .
