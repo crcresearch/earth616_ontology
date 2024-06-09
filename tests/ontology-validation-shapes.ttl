@@ -5,6 +5,8 @@
 
 # --- SCODOC ---
 @prefix shscodoc: <https://schema.e616.crc.nd.edu/nd/scodoc/shapes/> .
+@prefix shscdoc: <https://schema.e616.crc.nd.edu/nd/scodoc/shapes/> .
+
 
 # Shape to ensure all classes have required annotations
 shscdoc:ClassShape a sh:NodeShape ;
