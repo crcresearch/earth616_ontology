@@ -7,9 +7,9 @@
 @prefix schema: <http://schema.org/> .
 
 # --- SCODOC ---
-@prefix scodoc: <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
-@prefix : <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
-@base <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@prefix dscdo: <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+@prefix : <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+@base <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
 
 
 #################################################################
@@ -20,7 +20,7 @@
 scodoc:hasdocumentcontent rdf:type owl:ObjectProperty ;
                       rdfs:domain scodoc:Scdigitaldocument ;
                       rdfs:range scodoc:Documentcontent ;
-                      rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                      rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                       rdfs:label "hasDocumentContent" ;
                       rdfs:comment "Links a digital document to its content extracted via OCR." .
 
@@ -28,7 +28,7 @@ scodoc:hasdocumentcontent rdf:type owl:ObjectProperty ;
 scodoc:hasdocumenttype rdf:type owl:ObjectProperty ;
                    rdfs:domain scodoc:Scdigitaldocument ;
                    rdfs:range scodoc:DocumentType ;
-                   rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                   rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                    rdfs:label "hasDocumentType" ;
                    rdfs:comment "Specifies the type or category of a digital document." .
 
@@ -37,7 +37,7 @@ scodoc:contentExtractedFrom rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf prov:wasDerivedFrom ;
                          rdfs:domain scodoc:Documentcontent ;
                          rdfs:range scodoc:Scdigitaldocument ;
-                         rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                         rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                          rdfs:label "contentExtractedFrom" ;
                          rdfs:comment "Indicates that the document content was derived from a specific digital document." .
 
@@ -45,7 +45,7 @@ scodoc:workflowExecution rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf prov:wasGeneratedBy ;
                      rdfs:domain scodoc:Documentcontent ;
                      rdfs:range scodoc:Informationextractionworkflow ;
-                     rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                     rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                      rdfs:label "workflowExecution" ;
                      rdfs:comment "Connects the document content to the workflow that processed it." .
 
@@ -53,7 +53,7 @@ scodoc:hasWorkflow rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf prov:wasAssociatedWith ;
                      rdfs:domain scodoc:InformationExtractionWorkflow ;
                      rdfs:range scodoc:Iepipeline ;
-                     rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                     rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                      rdfs:label "hasWorkflow" ;
                      rdfs:comment "Associates an information extraction workflow with a specific pipeline." .
 
@@ -66,7 +66,7 @@ scodoc:processedtext rdf:type owl:DatatypeProperty ;
                  rdfs:domain scodoc:Documentcontent ;
                  rdfs:range xsd:string ;
                  rdfs:comment "The processed text of a digitized document." ;
-                 rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                 rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                  rdfs:label "processedText" .
 
 
@@ -75,56 +75,56 @@ scodoc:processedtext rdf:type owl:DatatypeProperty ;
 #################################################################
 
 #
-### https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType
+### https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentType
 scodoc:DocumentType rdf:type owl:Class ;
                  rdfs:subClassOf schema:Enumeration ;
-                 rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                 rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                  rdfs:label "DocumentType" ;
                  rdfs:comment "Represents the type or classification of a document." .
 
-###  http:/https://schema.e616.crc.nd.edu/nd/scodoc/ont/DDocument
+###  http:/https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DDocument
 scodoc:Document rdf:type owl:Class ;
-            rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+            rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
             rdfs:label "Document" ;
             rdfs:comment "A general class for documents." .
 
-###  http:/https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent
+###  http:/https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent
 scodoc:Documentcontent rdf:type owl:Class ;
                    rdfs:subClassOf prov:Entity ;
-                   rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                   rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                    rdfs:label "DocumentContent" ;
                    rdfs:comment "Represents the content extracted from a document." .
 
 
-###  http:/https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline
+###  http:/https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Iepipeline
 scodoc:Iepipeline rdf:type owl:Class ;
               rdfs:subClassOf prov:SoftwareAgent ;
-              rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+              rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
               rdfs:label "IEPipeline" ;
               rdfs:comment "Represents a pipeline used in the information extraction process." .
 
 
-###  http:/https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow
+###  http:/https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Informationextractionworkflow
 scodoc:Informationextractionworkflow rdf:type owl:Class ;
                                  rdfs:subClassOf prov:Activity ;
-                                 rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                                 rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                                  rdfs:label "InformationExtractionWorkflow" ;
                                  rdfs:comment "Represents a workflow or process of extracting information from documents." .
 
 
-###  http:/https://schema.e616.crc.nd.edu/nd/scodoc/ont/scdigitaldocument
+###  http:/https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/scdigitaldocument
 scodoc:Scdigitaldocument rdf:type owl:Class ;
                      rdfs:subClassOf scodoc:DigitalDocument ; 
-                     rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                     rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                      rdfs:label "SCDigitalDocument" ;
                      rdfs:comment "Represents digital document that is supply chain documentation" .
 
-### https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument
+### https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DigitalDocument
 scodoc:DigitalDocument rdf:type owl:Class ;
                      rdfs:subClassOf schema:DigitalDocument ;
                      rdfs:subClassOf scodoc:Document ;
                      rdfs:subClassOf prov:Entity ;
-                     rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                     rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                      rdfs:label "DigitalDocument" ;
                      rdfs:comment "Represents a digital document that has been scanned and digitized, and is part of the broader document processing workflow." .
 

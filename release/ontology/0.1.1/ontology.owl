@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
-     xml:base="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+<rdf:RDF xmlns="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
+     xml:base="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -14,8 +14,8 @@
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:vocab="https://w3id.org/widoco/vocab#"
      xmlns:schema="https://schema.org/">
-    <owl:Ontology rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">
-        <owl:versionIRI rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/0.1.1"/>
+    <owl:Ontology rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/">
+        <owl:versionIRI rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/0.1.1"/>
         <dc:abstract xml:lang="en">The Defense Supply Chain and Documentation Ontology (DSCDO) provides a formal model for representing knowledge about supply chain networks, processes, and entities. It enables interoperability and knowledge sharing between supply chain information systems by providing a common vocabulary and conceptual structure and supporting documentation providing supply chain provenance.
 
 Key concepts modeled include:
@@ -37,7 +37,7 @@ The ontology is designed to be extensible to support modeling of domain-specific
         <terms:title xml:lang="en">Defense Supply Chain and Documentation Ontology (DSCDO)</terms:title>
         <bibo:status>Work in progress</bibo:status>
         <vann:preferredNamespacePrefix>scodoc</vann:preferredNamespacePrefix>
-        <vann:preferredNamespaceUri>https://schema.e616.crc.nd.edu/nd/scodoc/ont/</vann:preferredNamespaceUri>
+        <vann:preferredNamespaceUri>https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/</vann:preferredNamespaceUri>
         <owl:versionInfo xml:lang="en">0.1.1</owl:versionInfo>
         <skos:changeNote xml:lang="en">0.1.0 - intial release of pattern skeletons</skos:changeNote>
         <skos:changeNote xml:lang="en">0.1.1 - adding supply chain events from the supply chain pattern and connecting to the documentation extraction pattern</skos:changeNote>
@@ -433,248 +433,248 @@ prov:wasInfluencedBy should not be used without also using one of its subpropert
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/assumesRole -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/assumesRole -->
 
 
-    <owl:ObjectProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/assumesRole">
-        <rdfs:subPropertyOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/assumesRole"/>
-        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Agent"/>
-        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/ParticipantRole"/>
-        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"/>
+    <owl:ObjectProperty rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/assumesRole">
+        <rdfs:subPropertyOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/assumesRole"/>
+        <rdfs:domain rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Agent"/>
+        <rdfs:range rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ParticipantRole"/>
+        <rdfs:range rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"/>
         <rdfs:comment xml:lang="en">Relates an agent to the role it plays in an event.</rdfs:comment>
         <rdfs:label xml:lang="en">assumes role</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/contentExtractedFrom -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/contentExtractedFrom -->
 
 
-    <owl:ObjectProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/contentExtractedFrom">
+    <owl:ObjectProperty rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/contentExtractedFrom">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasDerivedFrom"/>
-        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent"/>
-        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument"/>
+        <rdfs:domain rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent"/>
+        <rdfs:range rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument"/>
         <rdfs:comment>Indicates that the document content was derived from a specific digital document.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"/>
         <rdfs:label>contentExtractedFrom</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasContainedInRelation -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasContainedInRelation -->
 
 
-    <owl:ObjectProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasContainedInRelation">
-        <rdfs:subPropertyOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/subEventOf"/>
-        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"/>
-        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/ContainedInRelation"/>
+    <owl:ObjectProperty rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasContainedInRelation">
+        <rdfs:subPropertyOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf"/>
+        <rdfs:domain rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"/>
+        <rdfs:range rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ContainedInRelation"/>
         <rdfs:label xml:lang="en">has contained in relation</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasDocument -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasDocument -->
 
 
-    <owl:ObjectProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasDocument">
-        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentationSource"/>
-        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/ScdigitaldocumentDocument"/>
-        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+    <owl:ObjectProperty rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasDocument">
+        <rdfs:domain rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentationSource"/>
+        <rdfs:range rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ScdigitaldocumentDocument"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"/>
         <rdfs:label>hasDocument</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasFurtherDocumentation -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasFurtherDocumentation -->
 
 
-    <owl:ObjectProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasFurtherDocumentation">
-        <rdfs:subPropertyOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasInformationObject"/>
-        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"/>
-        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentationSource"/>
+    <owl:ObjectProperty rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasFurtherDocumentation">
+        <rdfs:subPropertyOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasInformationObject"/>
+        <rdfs:domain rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"/>
+        <rdfs:range rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentationSource"/>
         <rdfs:label xml:lang="en">has further documentation</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasInformationObject -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasInformationObject -->
 
 
-    <owl:ObjectProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasInformationObject">
-        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationObject"/>
+    <owl:ObjectProperty rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasInformationObject">
+        <rdfs:range rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationObject"/>
         <rdfs:comment xml:lang="en">Property relating Event to InformationObject in this pattern. The domain of this property is not restricted to Event since it is possible that non-event to have an information object. The range is always InformationObject since it makes no sense to have a property named hasInformationObject to point to anything other than information object.</rdfs:comment>
         <rdfs:label xml:lang="en">has information object</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasPostCondition -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasPostCondition -->
 
 
-    <owl:ObjectProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasPostCondition">
-        <rdfs:subPropertyOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/subEventOf"/>
-        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"/>
-        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"/>
+    <owl:ObjectProperty rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasPostCondition">
+        <rdfs:subPropertyOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf"/>
+        <rdfs:domain rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"/>
+        <rdfs:range rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"/>
         <rdfs:label xml:lang="en">has postcondition</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasPreCondition -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasPreCondition -->
 
 
-    <owl:ObjectProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasPreCondition">
-        <rdfs:subPropertyOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/subEventOf"/>
-        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"/>
-        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"/>
+    <owl:ObjectProperty rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasPreCondition">
+        <rdfs:subPropertyOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf"/>
+        <rdfs:domain rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"/>
+        <rdfs:range rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"/>
         <rdfs:label xml:lang="en">has precondition</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasSTETE -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSTETE -->
 
 
-    <owl:ObjectProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasSTETE">
-        <rdfs:subPropertyOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasSpatioTemporalExtent"/>
-        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"/>
-        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainSpatiotemporalExtent"/>
+    <owl:ObjectProperty rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSTETE">
+        <rdfs:subPropertyOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSpatioTemporalExtent"/>
+        <rdfs:domain rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"/>
+        <rdfs:range rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainSpatiotemporalExtent"/>
         <rdfs:label xml:lang="en">has spatiotemporal extent</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasSpatioTemporalExtent -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSpatioTemporalExtent -->
 
 
-    <owl:ObjectProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasSpatioTemporalExtent">
-        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SpatioTemporalExtent"/>
+    <owl:ObjectProperty rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSpatioTemporalExtent">
+        <rdfs:range rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SpatioTemporalExtent"/>
         <rdfs:comment xml:lang="en">Property relating Event to SpatioTemporalExtent in this pattern. The range is always SpatioTemporalExtent (globally) since it makes no sense to have a property named hasSpatioTemporalExtent to point to anything other than spatiotemporal extent. The domain is not set to Event as non-Event may also have spatiotemporal extent.</rdfs:comment>
         <rdfs:label xml:lang="en">has spatiotemporal extent</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasTemporalExtent -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasTemporalExtent -->
 
 
-    <owl:ObjectProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasTemporalExtent">
-        <rdfs:subPropertyOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasSpatioTemporalExtent"/>
-        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"/>
-        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/TemporalExtent"/>
+    <owl:ObjectProperty rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasTemporalExtent">
+        <rdfs:subPropertyOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSpatioTemporalExtent"/>
+        <rdfs:domain rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"/>
+        <rdfs:range rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TemporalExtent"/>
         <rdfs:label xml:lang="en">has temporal extent</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasWorkflow -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasWorkflow -->
 
 
-    <owl:ObjectProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasWorkflow">
+    <owl:ObjectProperty rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasWorkflow">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
-        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationExtractionWorkflow"/>
-        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline"/>
+        <rdfs:domain rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationExtractionWorkflow"/>
+        <rdfs:range rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Iepipeline"/>
         <rdfs:comment>Associates an information extraction workflow with a specific pipeline.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"/>
         <rdfs:label>hasWorkflow</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumentcontent -->
 
 
-    <owl:ObjectProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent">
-        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument"/>
-        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent"/>
+    <owl:ObjectProperty rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumentcontent">
+        <rdfs:domain rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument"/>
+        <rdfs:range rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent"/>
         <rdfs:comment>Links a digital document to its content extracted via OCR.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"/>
         <rdfs:label>hasDocumentContent</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumenttype -->
 
 
-    <owl:ObjectProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype">
-        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument"/>
-        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType"/>
+    <owl:ObjectProperty rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumenttype">
+        <rdfs:domain rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument"/>
+        <rdfs:range rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentType"/>
         <rdfs:comment>Specifies the type or category of a digital document.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"/>
         <rdfs:label>hasDocumentType</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/occursAt -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/occursAt -->
 
 
-    <owl:ObjectProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/occursAt">
+    <owl:ObjectProperty rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/occursAt">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/TransformationEvent"/>
-        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/TransformationActivity"/>
+        <rdfs:domain rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransformationEvent"/>
+        <rdfs:range rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransformationActivity"/>
         <rdfs:label xml:lang="en">occurs at</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/producedAt -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/producedAt -->
 
 
-    <owl:ObjectProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/producedAt">
-        <rdfs:subPropertyOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/subEventOf"/>
-        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/ObservationEvent"/>
-        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"/>
+    <owl:ObjectProperty rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/producedAt">
+        <rdfs:subPropertyOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf"/>
+        <rdfs:domain rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ObservationEvent"/>
+        <rdfs:range rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"/>
         <rdfs:label xml:lang="en">produced at</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/providesParticipantRole -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesParticipantRole -->
 
 
-    <owl:ObjectProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/providesParticipantRole">
-        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/ParticipantRole"/>
+    <owl:ObjectProperty rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesParticipantRole">
+        <rdfs:range rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ParticipantRole"/>
         <rdfs:comment xml:lang="en">Property relating Event to ParticipantRole in this pattern. The range is always ParticipantRole since it makes no sense to have a property named as providesParticipantRole not to point to a participant role. The domain is not set to Event as non-Event may also provide a participant role.</rdfs:comment>
         <rdfs:label xml:lang="en">provides participant role</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/providesRole -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesRole -->
 
 
-    <owl:ObjectProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/providesRole">
-        <rdfs:subPropertyOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/providesParticipantRole"/>
-        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"/>
-        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"/>
+    <owl:ObjectProperty rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesRole">
+        <rdfs:subPropertyOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesParticipantRole"/>
+        <rdfs:domain rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"/>
+        <rdfs:range rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"/>
         <rdfs:label xml:lang="en">provides role</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/subEventOf -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf -->
 
 
-    <owl:ObjectProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/subEventOf">
-        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Event"/>
-        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Event"/>
+    <owl:ObjectProperty rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf">
+        <rdfs:domain rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Event"/>
+        <rdfs:range rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Event"/>
         <rdfs:comment xml:lang="en">Property expressing partonomic relation between two events. Domain and range are always Event.</rdfs:comment>
         <rdfs:label xml:lang="en">sub event of</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/workflowExecution -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/workflowExecution -->
 
 
-    <owl:ObjectProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/workflowExecution">
+    <owl:ObjectProperty rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/workflowExecution">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
-        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent"/>
-        <rdfs:range rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow"/>
+        <rdfs:domain rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent"/>
+        <rdfs:range rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Informationextractionworkflow"/>
         <rdfs:comment>Connects the document content to the workflow that processed it.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"/>
         <rdfs:label>workflowExecution</rdfs:label>
     </owl:ObjectProperty>
     
@@ -692,14 +692,14 @@ prov:wasInfluencedBy should not be used without also using one of its subpropert
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/processedtext -->
 
 
-    <owl:DatatypeProperty rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext">
-        <rdfs:domain rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent"/>
+    <owl:DatatypeProperty rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/processedtext">
+        <rdfs:domain rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The processed text of a digitized document.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"/>
         <rdfs:label>processedText</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -723,8 +723,8 @@ prov:wasInfluencedBy should not be used without also using one of its subpropert
     <owl:Class rdf:about="http://org.semanticweb.owlapi/error#Error1">
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/providesRole"/>
-                <owl:someValuesFrom rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"/>
+                <owl:onProperty rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesRole"/>
+                <owl:someValuesFrom rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"/>
             </owl:Restriction>
         </owl:equivalentClass>
     </owl:Class>
@@ -737,8 +737,8 @@ prov:wasInfluencedBy should not be used without also using one of its subpropert
     <owl:Class rdf:about="http://org.semanticweb.owlapi/error#Error2">
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasSTETE"/>
-                <owl:someValuesFrom rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainSpatiotemporalExtent"/>
+                <owl:onProperty rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSTETE"/>
+                <owl:someValuesFrom rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainSpatiotemporalExtent"/>
             </owl:Restriction>
         </owl:equivalentClass>
     </owl:Class>
@@ -779,26 +779,26 @@ prov:wasInfluencedBy should not be used without also using one of its subpropert
     <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasInformationObject"/>
-                <owl:allValuesFrom rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationObject"/>
+                <owl:onProperty rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasInformationObject"/>
+                <owl:allValuesFrom rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationObject"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasSpatioTemporalExtent"/>
-                <owl:allValuesFrom rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SpatioTemporalExtent"/>
+                <owl:onProperty rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSpatioTemporalExtent"/>
+                <owl:allValuesFrom rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SpatioTemporalExtent"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/providesParticipantRole"/>
-                <owl:allValuesFrom rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/ParticipantRole"/>
+                <owl:onProperty rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesParticipantRole"/>
+                <owl:allValuesFrom rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ParticipantRole"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/subEventOf"/>
-                <owl:allValuesFrom rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Event"/>
+                <owl:onProperty rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf"/>
+                <owl:allValuesFrom rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Event"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </rdf:Description>
@@ -896,11 +896,11 @@ prov:wasInfluencedBy should not be used without also using one of its subpropert
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/Agent -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Agent -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Agent">
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Agent"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Agent">
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Agent"/>
         <rdfs:comment xml:lang="en">An entity participating in a supply chain event, such as a person, organization, or system.</rdfs:comment>
         <rdfs:comment xml:lang="en">An entity participating in an event, such as a person, organization, or system.</rdfs:comment>
         <rdfs:label xml:lang="en">Agent</rdfs:label>
@@ -908,32 +908,32 @@ prov:wasInfluencedBy should not be used without also using one of its subpropert
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/BeingMeasuredRole -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/BeingMeasuredRole -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/BeingMeasuredRole">
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/BeingMeasuredRole">
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"/>
         <rdfs:comment xml:lang="en">The role of goods or materials being observed or measured.</rdfs:comment>
         <rdfs:label xml:lang="en">Being Measured Role</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/BeingShippedRole -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/BeingShippedRole -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/BeingShippedRole">
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/BeingShippedRole">
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"/>
         <rdfs:comment xml:lang="en">The role of goods or materials being shipped or transported.</rdfs:comment>
         <rdfs:label xml:lang="en">Being Shipped Role</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/ContainedInRelation -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ContainedInRelation -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/ContainedInRelation">
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ContainedInRelation">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:comment xml:lang="en">Represents a containment relationship between events.</rdfs:comment>
         <rdfs:label xml:lang="en">Contained In Relation</rdfs:label>
@@ -941,327 +941,327 @@ prov:wasInfluencedBy should not be used without also using one of its subpropert
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/CustodyChangeEvent -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/CustodyChangeEvent -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/CustodyChangeEvent">
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/CustodyChangeEvent">
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"/>
         <rdfs:comment xml:lang="en">An event where the custody of goods or materials changes.</rdfs:comment>
         <rdfs:label xml:lang="en">Custody Change Event</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DigitalDocument -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument">
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DigitalDocument">
         <rdfs:subClassOf rdf:resource="http://schema.org/DigitalDocument"/>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document"/>
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Document"/>
         <rdfs:comment>Represents a digital document that has been scanned and digitized, and is part of the broader document processing workflow.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"/>
         <rdfs:label>DigitalDocument</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Document -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document">
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Document">
         <rdfs:comment>A general class for documents.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"/>
         <rdfs:label>Document</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentType -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType">
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentType">
         <rdfs:subClassOf rdf:resource="http://schema.org/Enumeration"/>
         <rdfs:comment>Represents the type or classification of a document.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"/>
         <rdfs:label>DocumentType</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentationSource -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentationSource -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentationSource">
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationObject"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentationSource">
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationObject"/>
         <rdfs:comment xml:lang="en">A source of documentation or information related to an event.</rdfs:comment>
         <rdfs:label xml:lang="en">Documentation Source</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent">
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
         <rdfs:comment>Represents the content extracted from a document.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"/>
         <rdfs:label>DocumentContent</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/EquipmentRole -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/EquipmentRole -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/EquipmentRole">
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/EquipmentRole">
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"/>
         <rdfs:comment xml:lang="en">The role of equipment or machinery used in an event.</rdfs:comment>
         <rdfs:label xml:lang="en">Equipment Role</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/Event -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Event -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Event">
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Event">
         <rdfs:comment xml:lang="en">Represents any kind of events. An event possesses a spatiotemporal extent, provides at least one participant-role, which is performed by some entity (agents or otherwise), and may be a sub-event of another event. An event may also have additional descriptive information, which is consolidated through an information object.</rdfs:comment>
         <rdfs:label xml:lang="en">Event</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Iepipeline -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline">
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Iepipeline">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
         <rdfs:comment>Represents a pipeline used in the information extraction process.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"/>
         <rdfs:label>IEPipeline</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationExtractionWorkflow -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationExtractionWorkflow -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationExtractionWorkflow"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationExtractionWorkflow"/>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationObject -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationObject -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationObject">
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationObject">
         <rdfs:comment xml:lang="en">An entity that encapsulates all descriptive or non-defining information of the corresponding event, e.g., names, additional identifiers, textual descriptions, etc. Should normally be aligned to a separate Information Object pattern.</rdfs:comment>
         <rdfs:label xml:lang="en">Information Object</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Informationextractionworkflow -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow">
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Informationextractionworkflow">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
         <rdfs:comment>Represents a workflow or process of extracting information from documents.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"/>
         <rdfs:label>InformationExtractionWorkflow</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/ObservationEvent -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ObservationEvent -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/ObservationEvent">
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ObservationEvent">
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"/>
         <rdfs:comment xml:lang="en">An event where an observation or measurement is made on goods or materials.</rdfs:comment>
         <rdfs:label xml:lang="en">Observation Event</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/OwnershipChangeEvent -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/OwnershipChangeEvent -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/OwnershipChangeEvent">
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/OwnershipChangeEvent">
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"/>
         <rdfs:comment xml:lang="en">An event where the ownership of goods or materials changes.</rdfs:comment>
         <rdfs:label xml:lang="en">Ownership Change Event</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/ParticipantRole -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ParticipantRole -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/ParticipantRole">
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ParticipantRole">
         <rdfs:comment xml:lang="en">Every ParticipantRole represents a reified relationship between an event and one of its participants. Should normally be aligned to a separate Participant-Role pattern.</rdfs:comment>
         <rdfs:label xml:lang="en">Participant Role</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument">
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument">
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DigitalDocument"/>
         <rdfs:comment>Represents digital document that is supply chain documentation</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"/>
         <rdfs:label>SCDigitalDocument</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/ScdigitaldocumentDocument -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ScdigitaldocumentDocument -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/ScdigitaldocumentDocument"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ScdigitaldocumentDocument"/>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/SourceCustodianRole -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceCustodianRole -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SourceCustodianRole">
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceCustodianRole">
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"/>
         <rdfs:comment xml:lang="en">The role of the entity that has custody of goods or materials before an event.</rdfs:comment>
         <rdfs:label xml:lang="en">Source Custodian Role</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/SourceOwnerRole -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceOwnerRole -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SourceOwnerRole">
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceOwnerRole">
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"/>
         <rdfs:comment xml:lang="en">The role of the entity that owns goods or materials before an event.</rdfs:comment>
         <rdfs:label xml:lang="en">Source Owner Role</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/SourceRole -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceRole -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SourceRole">
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceRole">
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"/>
         <rdfs:comment xml:lang="en">The role of the entity from which goods or materials originate.</rdfs:comment>
         <rdfs:label xml:lang="en">Source Role</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/SpatioTemporalExtent -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SpatioTemporalExtent -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SpatioTemporalExtent">
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SpatioTemporalExtent">
         <rdfs:comment xml:lang="en">Hook to a complex notion representing a unified spatial and temporal extent. Intended to cover non-static or discontinuous spatiotemporal extent. Should be aligned to a separate Spatiotemporal Extent pattern.</rdfs:comment>
         <rdfs:label xml:lang="en">Spatiotemporal Extent</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent">
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent">
         <rdfs:subClassOf rdf:resource="http://org.semanticweb.owlapi/error#Error1"/>
         <rdfs:subClassOf rdf:resource="http://org.semanticweb.owlapi/error#Error2"/>
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/Event"/>
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Event"/>
         <rdfs:comment xml:lang="en">An event occurring in a supply chain process.</rdfs:comment>
         <rdfs:label xml:lang="en">Supply Chain Event</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole">
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/ParticipantRole"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole">
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ParticipantRole"/>
         <rdfs:comment xml:lang="en">A role played by an entity in a supply chain event.</rdfs:comment>
         <rdfs:label xml:lang="en">Supply Chain Role</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainSpatiotemporalExtent -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainSpatiotemporalExtent -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainSpatiotemporalExtent">
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SpatioTemporalExtent"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainSpatiotemporalExtent">
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SpatioTemporalExtent"/>
         <rdfs:comment xml:lang="en">Represents the spatial and temporal extent of a supply chain event.</rdfs:comment>
         <rdfs:label xml:lang="en">Supply Chain Spatiotemporal Extent</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/TargetCustodianRole -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetCustodianRole -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/TargetCustodianRole">
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetCustodianRole">
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"/>
         <rdfs:comment xml:lang="en">The role of the entity that gains custody of goods or materials after an event.</rdfs:comment>
         <rdfs:label xml:lang="en">Target Custodian Role</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/TargetOwnerRole -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetOwnerRole -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/TargetOwnerRole">
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetOwnerRole">
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"/>
         <rdfs:comment xml:lang="en">The role of the entity that gains ownership of goods or materials after an event.</rdfs:comment>
         <rdfs:label xml:lang="en">Target Owner Role</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/TargetRole -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetRole -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/TargetRole">
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetRole">
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"/>
         <rdfs:comment xml:lang="en">The role of the entity to which goods or materials are destined.</rdfs:comment>
         <rdfs:label xml:lang="en">Target Role</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/TemporalExtent -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TemporalExtent -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/TemporalExtent">
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SpatioTemporalExtent"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TemporalExtent">
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SpatioTemporalExtent"/>
         <rdfs:comment xml:lang="en">Represents the temporal extent of an event.</rdfs:comment>
         <rdfs:label xml:lang="en">Temporal Extent</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/TransferEvent -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransferEvent -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/TransferEvent">
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransferEvent">
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"/>
         <rdfs:comment xml:lang="en">An event involving the transfer of goods or materials.</rdfs:comment>
         <rdfs:label xml:lang="en">Transfer Event</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/TransformationActivity -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransformationActivity -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/TransformationActivity">
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransformationActivity">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:comment xml:lang="en">An activity or process that transforms goods or materials.</rdfs:comment>
         <rdfs:label xml:lang="en">Transformation Activity</rdfs:label>
@@ -1269,22 +1269,22 @@ prov:wasInfluencedBy should not be used without also using one of its subpropert
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/TransformationEvent -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransformationEvent -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/TransformationEvent">
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransformationEvent">
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"/>
         <rdfs:comment xml:lang="en">An event where goods or materials undergo a transformation process.</rdfs:comment>
         <rdfs:label xml:lang="en">Transformation Event</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/TransportEvent -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransportEvent -->
 
 
-    <owl:Class rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/TransportEvent">
-        <rdfs:subClassOf rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/TransferEvent"/>
+    <owl:Class rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransportEvent">
+        <rdfs:subClassOf rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransferEvent"/>
         <rdfs:comment xml:lang="en">An event involving the transportation of goods or materials.</rdfs:comment>
         <rdfs:label xml:lang="en">Transport Event</rdfs:label>
     </owl:Class>
@@ -1318,7 +1318,7 @@ prov:wasInfluencedBy should not be used without also using one of its subpropert
 
 
     <owl:Class rdf:about="https://schema.org/Enumeration">
-        <rdfs:isDefinedBy rdf:resource="https://schema.e616.crc.nd.edu/nd/scodoc/ont/"/>
+        <rdfs:isDefinedBy rdf:resource="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"/>
         <rdfs:label>schema:Enumeration</rdfs:label>
     </owl:Class>
     
@@ -1367,10 +1367,10 @@ prov:wasInfluencedBy should not be used without also using one of its subpropert
     
 
 
-    <!-- https://schema.e616.crc.nd.edu/nd/scodoc/ont/ -->
+    <!-- https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ -->
 
 
-    <owl:NamedIndividual rdf:about="https://schema.e616.crc.nd.edu/nd/scodoc/ont/">
+    <owl:NamedIndividual rdf:about="https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/">
         <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
     </owl:NamedIndividual>
     <rdf:Description>

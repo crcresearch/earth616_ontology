@@ -1,4 +1,4 @@
-@prefix : <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@prefix : <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
 @prefix bibo: <http://purl.org/ontology/bibo/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -458,7 +458,7 @@ The ontology is designed to be extensible to support modeling of domain-specific
     dcterms:title "Defense Supply Chain and Documentation Ontology (DSCDO)"@en ;
     bibo:status "Work in progress" ;
     vann:preferredNamespacePrefix "scodoc" ;
-    vann:preferredNamespaceUri "https://schema.e616.crc.nd.edu/nd/scodoc/ont/" ;
+    vann:preferredNamespaceUri "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/" ;
     owl:versionIRI :0.1.1 ;
     owl:versionInfo "0.1.1"@en ;
     skos:changeNote "0.1.0 - intial release of pattern skeletons"@en,

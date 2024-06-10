@@ -2,7 +2,7 @@
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix : <> .
-<https://schema.e616.crc.nd.edu/nd/scodoc/ont/0.1.1> a prov:Entity;
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/0.1.1> a prov:Entity;
 	 dc:title "Defense Supply Chain and Documentation Ontology (DSCDO)";
 	 prov:wasAttributedTo <https://orcid.org/0000-0003-4091-6059>;
 	 dc:creator <https://orcid.org/0000-0003-4091-6059>;

@@ -21,55 +21,55 @@
   "@id" : "_:genid12",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/providesRole"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesRole"
   } ],
   "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"
   } ]
 }, {
   "@id" : "_:genid13",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasSTETE"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSTETE"
   } ],
   "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainSpatiotemporalExtent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainSpatiotemporalExtent"
   } ]
 }, {
   "@id" : "_:genid14",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationObject"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationObject"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasInformationObject"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasInformationObject"
   } ]
 }, {
   "@id" : "_:genid15",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SpatioTemporalExtent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SpatioTemporalExtent"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasSpatioTemporalExtent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSpatioTemporalExtent"
   } ]
 }, {
   "@id" : "_:genid16",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/ParticipantRole"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ParticipantRole"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/providesParticipantRole"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesParticipantRole"
   } ]
 }, {
   "@id" : "_:genid17",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Event"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Event"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/subEventOf"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf"
   } ]
 }, {
   "@id" : "_:genid18",
@@ -514,7 +514,7 @@
     "@value" : "influenced"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/",
   "@type" : [ "http://www.w3.org/2002/07/owl#Ontology", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://purl.org/dc/elements/1.1/abstract" : [ {
     "@language" : "en",
@@ -561,13 +561,13 @@
     "@value" : "scodoc"
   } ],
   "http://purl.org/vocab/vann/preferredNamespaceUri" : [ {
-    "@value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@value" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://purl.org/vocommons/voaf#Vocabulary"
   } ],
   "http://www.w3.org/2002/07/owl#versionIRI" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/0.1.1"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/0.1.1"
   } ],
   "http://www.w3.org/2002/07/owl#versionInfo" : [ {
     "@language" : "en",
@@ -589,7 +589,7 @@
     "@value" : "\n        The Defense Supply Chain and Documentation Ontology (DSCDO) is a sophisticated framework designed to capture and link supply chain documentation artifacts to relevant events and Tradable Resource Units (TRUs). This ontology serves as a comprehensive model for representing the complex interactions and transactions within the defense supply chain, ensuring that every document, event, and resource unit is accurately documented and interconnected.\n\n        Key Components of DSCDO:\n\n        1. **Event Pattern**: The ontology leverages an Event Pattern to model various types of events such as TransferEvent, TransformationEvent, CustodyChangeEvent, OwnershipChangeEvent, TransportEvent, and ObservationEvent. Each event is linked to spatiotemporal aspects through the SpatiotemporalExtent class, which captures the time and place of occurrence.\n\n        2. **Participant Role**: Events are connected to participants through roles such as SourceRole, TargetRole, EquipmentRole, and CustodianRoles (both Source and Target). This ensures that every event is associated with one or more agents (e.g., organizations, individuals) fulfilling specific roles.\n\n        3. **Container and Containment Relations**: The ontology models containers and their types, along with the relationships of containment. This includes modeling the TemporalExtent of containment, allowing for the tracking of resources over time and space.\n\n        4. **Identifier Encoding**: To maintain traceability, DSCDO includes a detailed Identifier framework, encompassing IdentifierEncoding, IdentifierSource, and IdentifierType. This system ensures that each resource unit can be uniquely identified and traced through the supply chain.\n\n        5. **Traceable Resource Unit (TRU)**: The TRU is a core concept representing units that are tracked through the supply chain. This includes QuantityOfMaterial, which is further detailed by Material types, measurements, and units, ensuring precise tracking and management of resources.\n\n        6. **Observation and Measurement**: Observations are linked to TRUs to capture measurement data, such as quantity and quality, ensuring that all resource units are accurately monitored and recorded.\n\n        Knowledge Extraction Workflow:\n\n        The DSCDO is integrated into a knowledge extraction workflow designed to process supply chain documentation. This workflow involves:\n\n        1. **Document Acquisition**: Using advanced OCR technologies (e.g., Azure OCR), documents are scanned and converted into machine-readable formats.\n\n        2. **Knowledge Extraction**: Leveraging LLM AI-driven pipelines (e.g., LangGraph, LangChain), the extracted text is processed to identify and link relevant entities and events according to the DSCDO patterns.\n\n        3. **Triple Generation**: The processed information is transformed into RDF triples, forming a structured, queryable knowledge graph that adheres to the DSCDO schema. This enables advanced querying and analysis, facilitating decision-making and supply chain management.\n\n        Application and Benefits:\n\n        By implementing DSCDO, defense supply chain management can achieve higher levels of transparency, traceability, and efficiency. The ontology ensures that all documentation artifacts are systematically captured and linked to corresponding events and resource units, providing a robust framework for managing the complexities of defense logistics and procurement.\n\n        In summary, the DSCDO provides a comprehensive and structured approach to managing defense supply chain documentation, leveraging advanced knowledge extraction techniques to produce a detailed and interconnected view of supply chain activities.\n    "
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Agent",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Agent",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -603,10 +603,10 @@
     "@value" : "Agent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Agent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Agent"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/BeingMeasuredRole",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/BeingMeasuredRole",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -617,10 +617,10 @@
     "@value" : "Being Measured Role"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/BeingShippedRole",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/BeingShippedRole",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -631,10 +631,10 @@
     "@value" : "Being Shipped Role"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/ContainedInRelation",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ContainedInRelation",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -648,7 +648,7 @@
     "@id" : "http://www.w3.org/2002/07/owl#Thing"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/CustodyChangeEvent",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/CustodyChangeEvent",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -659,16 +659,16 @@
     "@value" : "Custody Change Event"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DigitalDocument",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@value" : "Represents a digital document that has been scanned and digitized, and is part of the broader document processing workflow."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "DigitalDocument"
@@ -678,28 +678,28 @@
   }, {
     "@id" : "http://www.w3.org/ns/prov#Entity"
   }, {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Document"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Document",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@value" : "A general class for documents."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "Document"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentType",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@value" : "Represents the type or classification of a document."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "DocumentType"
@@ -708,7 +708,7 @@
     "@id" : "http://schema.org/Enumeration"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentationSource",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentationSource",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -719,16 +719,16 @@
     "@value" : "Documentation Source"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationObject"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationObject"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@value" : "Represents the content extracted from a document."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "DocumentContent"
@@ -737,7 +737,7 @@
     "@id" : "http://www.w3.org/ns/prov#Entity"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/EquipmentRole",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/EquipmentRole",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -748,10 +748,10 @@
     "@value" : "Equipment Role"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Event",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Event",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -762,13 +762,13 @@
     "@value" : "Event"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Iepipeline",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@value" : "Represents a pipeline used in the information extraction process."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "IEPipeline"
@@ -777,10 +777,10 @@
     "@id" : "http://www.w3.org/ns/prov#SoftwareAgent"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationExtractionWorkflow",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationExtractionWorkflow",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationObject",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationObject",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -791,13 +791,13 @@
     "@value" : "Information Object"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Informationextractionworkflow",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@value" : "Represents a workflow or process of extracting information from documents."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "InformationExtractionWorkflow"
@@ -806,7 +806,7 @@
     "@id" : "http://www.w3.org/ns/prov#Activity"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/ObservationEvent",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ObservationEvent",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -817,10 +817,10 @@
     "@value" : "Observation Event"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/OwnershipChangeEvent",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/OwnershipChangeEvent",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -831,10 +831,10 @@
     "@value" : "Ownership Change Event"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/ParticipantRole",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ParticipantRole",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -845,25 +845,25 @@
     "@value" : "Participant Role"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@value" : "Represents digital document that is supply chain documentation"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "SCDigitalDocument"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DigitalDocument"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/ScdigitaldocumentDocument",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ScdigitaldocumentDocument",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SourceCustodianRole",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceCustodianRole",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -874,10 +874,10 @@
     "@value" : "Source Custodian Role"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SourceOwnerRole",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceOwnerRole",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -888,10 +888,10 @@
     "@value" : "Source Owner Role"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SourceRole",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceRole",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -902,10 +902,10 @@
     "@value" : "Source Role"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SpatioTemporalExtent",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SpatioTemporalExtent",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -916,7 +916,7 @@
     "@value" : "Spatiotemporal Extent"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -931,10 +931,10 @@
   }, {
     "@id" : "http://org.semanticweb.owlapi/error#Error2"
   }, {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Event"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Event"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -945,10 +945,10 @@
     "@value" : "Supply Chain Role"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/ParticipantRole"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ParticipantRole"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainSpatiotemporalExtent",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainSpatiotemporalExtent",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -959,10 +959,10 @@
     "@value" : "Supply Chain Spatiotemporal Extent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SpatioTemporalExtent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SpatioTemporalExtent"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/TargetCustodianRole",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetCustodianRole",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -973,10 +973,10 @@
     "@value" : "Target Custodian Role"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/TargetOwnerRole",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetOwnerRole",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -987,10 +987,10 @@
     "@value" : "Target Owner Role"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/TargetRole",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetRole",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -1001,10 +1001,10 @@
     "@value" : "Target Role"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/TemporalExtent",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TemporalExtent",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -1015,10 +1015,10 @@
     "@value" : "Temporal Extent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SpatioTemporalExtent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SpatioTemporalExtent"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/TransferEvent",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransferEvent",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -1029,10 +1029,10 @@
     "@value" : "Transfer Event"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/TransformationActivity",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransformationActivity",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -1046,7 +1046,7 @@
     "@id" : "http://www.w3.org/2002/07/owl#Thing"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/TransformationEvent",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransformationEvent",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -1057,10 +1057,10 @@
     "@value" : "Transformation Event"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/TransportEvent",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransportEvent",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -1071,10 +1071,10 @@
     "@value" : "Transport Event"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/TransferEvent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransferEvent"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/assumesRole",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/assumesRole",
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#ObjectProperty"
   } ],
@@ -1083,22 +1083,22 @@
     "@value" : "Relates an agent to the role it plays in an event."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Agent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Agent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
     "@value" : "assumes role"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/ParticipantRole"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ParticipantRole"
   }, {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/assumesRole"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/assumesRole"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/contentExtractedFrom",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/contentExtractedFrom",
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#ObjectProperty"
   } ],
@@ -1106,75 +1106,75 @@
     "@value" : "Indicates that the document content was derived from a specific digital document."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "contentExtractedFrom"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
     "@id" : "http://www.w3.org/ns/prov#wasDerivedFrom"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasContainedInRelation",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasContainedInRelation",
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#ObjectProperty"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
     "@value" : "has contained in relation"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/ContainedInRelation"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ContainedInRelation"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/subEventOf"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasDocument",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasDocument",
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#ObjectProperty"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentationSource"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentationSource"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "hasDocument"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/ScdigitaldocumentDocument"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ScdigitaldocumentDocument"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasFurtherDocumentation",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasFurtherDocumentation",
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#ObjectProperty"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
     "@value" : "has further documentation"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentationSource"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentationSource"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasInformationObject"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasInformationObject"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasInformationObject",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasInformationObject",
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#ObjectProperty"
   } ],
@@ -1187,64 +1187,64 @@
     "@value" : "has information object"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationObject"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationObject"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasPostCondition",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasPostCondition",
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#ObjectProperty"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
     "@value" : "has postcondition"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/subEventOf"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasPreCondition",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasPreCondition",
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#ObjectProperty"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
     "@value" : "has precondition"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/subEventOf"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasSTETE",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSTETE",
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#ObjectProperty"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
     "@value" : "has spatiotemporal extent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainSpatiotemporalExtent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainSpatiotemporalExtent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasSpatioTemporalExtent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSpatioTemporalExtent"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasSpatioTemporalExtent",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSpatioTemporalExtent",
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#ObjectProperty"
   } ],
@@ -1257,28 +1257,28 @@
     "@value" : "has spatiotemporal extent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SpatioTemporalExtent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SpatioTemporalExtent"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasTemporalExtent",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasTemporalExtent",
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#ObjectProperty"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
     "@value" : "has temporal extent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/TemporalExtent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TemporalExtent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasSpatioTemporalExtent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSpatioTemporalExtent"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasWorkflow",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasWorkflow",
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#ObjectProperty"
   } ],
@@ -1286,22 +1286,22 @@
     "@value" : "Associates an information extraction workflow with a specific pipeline."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationExtractionWorkflow"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationExtractionWorkflow"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "hasWorkflow"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Iepipeline"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
     "@id" : "http://www.w3.org/ns/prov#wasAssociatedWith"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumentcontent",
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#ObjectProperty"
   } ],
@@ -1309,19 +1309,19 @@
     "@value" : "Links a digital document to its content extracted via OCR."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "hasDocumentContent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumenttype",
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#ObjectProperty"
   } ],
@@ -1329,46 +1329,46 @@
     "@value" : "Specifies the type or category of a digital document."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "hasDocumentType"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentType"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/occursAt",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/occursAt",
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#ObjectProperty"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/TransformationEvent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransformationEvent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
     "@value" : "occurs at"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/TransformationActivity"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransformationActivity"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#topObjectProperty"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/processedtext",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@value" : "The processed text of a digitized document."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "processedText"
@@ -1377,25 +1377,25 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/producedAt",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/producedAt",
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#ObjectProperty"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/ObservationEvent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ObservationEvent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
     "@value" : "produced at"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/subEventOf"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/providesParticipantRole",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesParticipantRole",
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#ObjectProperty"
   } ],
@@ -1408,28 +1408,28 @@
     "@value" : "provides participant role"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/ParticipantRole"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ParticipantRole"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/providesRole",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesRole",
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#ObjectProperty"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainEvent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
     "@value" : "provides role"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/SupplyChainRole"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/providesParticipantRole"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesParticipantRole"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/subEventOf",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf",
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#ObjectProperty"
   } ],
@@ -1438,17 +1438,17 @@
     "@value" : "Property expressing partonomic relation between two events. Domain and range are always Event."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Event"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Event"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
     "@value" : "sub event of"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Event"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Event"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/workflowExecution",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/workflowExecution",
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#ObjectProperty"
   } ],
@@ -1456,16 +1456,16 @@
     "@value" : "Connects the document content to the workflow that processed it."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "workflowExecution"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Informationextractionworkflow"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
     "@id" : "http://www.w3.org/ns/prov#wasGeneratedBy"
@@ -1501,7 +1501,7 @@
   "@id" : "https://schema.org/Enumeration",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "schema:Enumeration"

@@ -376,7 +376,7 @@
     "@value" : "influenced"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/",
   "@type" : [ "http://www.w3.org/2002/07/owl#Ontology", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://purl.org/dc/terms/created" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#date",
@@ -419,13 +419,13 @@
     "@value" : "scodoc"
   } ],
   "http://purl.org/vocab/vann/preferredNamespaceUri" : [ {
-    "@value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@value" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://purl.org/vocommons/voaf#Vocabulary"
   } ],
   "http://www.w3.org/2002/07/owl#versionIRI" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/0.1.0"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/0.1.0"
   } ],
   "http://www.w3.org/2002/07/owl#versionInfo" : [ {
     "@language" : "en",
@@ -440,10 +440,10 @@
     "@value" : "https://github.com/crcresearch/earth616_ontology"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DigitalDocument",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "DigitalDocument"
@@ -453,22 +453,22 @@
   }, {
     "@id" : "http://www.w3.org/ns/prov#Entity"
   }, {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Document"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Document",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "Document"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentType",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "DocumentType"
@@ -477,10 +477,10 @@
     "@id" : "http://schema.org/Enumeration"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "DocumentContent"
@@ -489,10 +489,10 @@
     "@id" : "http://www.w3.org/ns/prov#Entity"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Iepipeline",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "IEPipeline"
@@ -501,13 +501,13 @@
     "@id" : "http://www.w3.org/ns/prov#SoftwareAgent"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationExtractionWorkflow",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationExtractionWorkflow",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Informationextractionworkflow",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "InformationExtractionWorkflow"
@@ -516,94 +516,94 @@
     "@id" : "http://www.w3.org/ns/prov#Activity"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "SCDigitalDocument"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DigitalDocument"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/contentExtractedFrom",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/contentExtractedFrom",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "contentExtractedFrom"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
     "@id" : "http://www.w3.org/ns/prov#wasDerivedFrom"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasWorkflow",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasWorkflow",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationExtractionWorkflow"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationExtractionWorkflow"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "hasWorkflow"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Iepipeline"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
     "@id" : "http://www.w3.org/ns/prov#wasAssociatedWith"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumentcontent",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "hasDocumentContent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumenttype",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "hasDocumentType"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentType"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/processedtext",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@value" : "The processed text of a digitized document."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "processedText"
@@ -612,19 +612,19 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ]
 }, {
-  "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/workflowExecution",
+  "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/workflowExecution",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "workflowExecution"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Informationextractionworkflow"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
     "@id" : "http://www.w3.org/ns/prov#wasGeneratedBy"
@@ -660,7 +660,7 @@
   "@id" : "https://schema.org/Enumeration",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/"
+    "@id" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "schema:Enumeration"

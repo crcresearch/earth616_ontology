@@ -7,9 +7,9 @@
 @prefix schema: <http://schema.org/> .
 
 # --- SCODOC ---
-@prefix scodoc: <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
-@prefix : <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
-@base <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@prefix dscdo: <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+@prefix : <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+@base <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
 
 scodoc:Event rdf:type rdfs:Class ;
     rdfs:label "Event"@en ;
