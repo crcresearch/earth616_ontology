@@ -3,12 +3,20 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix ex: <http://example.org/> . # Change to your ontology's URI
+@prefix ex: <http://example.org/> .
 
 # Shape to ensure all classes in the specified namespace have required annotations
 ex:ClassShape
     a sh:NodeShape ;
-    sh:targetSubjectsOf rdf:type ;
+    sh:targetClass owl:Class ;  # Target all owl:Class instances
+    sh:property [
+        sh:path rdf:type ;
+        sh:hasValue rdfs:Class ;
+    ] ;
+    sh:property [
+        sh:path rdf:type ;
+        sh:hasValue owl:Class ;
+    ] ;
     sh:property [
         sh:path rdfs:label ;
         sh:minCount 1 ;
@@ -26,9 +34,19 @@ ex:ClassShape
         sh:minCount 1 ;
         sh:message "Class must have either a skos:definition or an rdfs:comment." ;
     ] ;
-    sh:target [
-        sh:nodeKind sh:IRI ;
-        sh:pattern "^http://example.org/" ; # Replace with your namespace
-    ] ;
     rdfs:label "Class Annotations" ;
     skos:note "This shape ensures all classes have rdfs:label, rdfs:isDefinedBy, and either a skos:definition or an rdfs:comment." .
+
+# Define a SPARQLTarget to select IRIs within the specified namespace
+ex:SPARQLTarget
+    a sh:SPARQLTarget ;
+    sh:target [
+        sh:nodeKind sh:IRI ;
+        sh:pattern "^http://example.org/" ;  # Replace with your namespace
+    ] ;
+    sh:select """
+        SELECT ?this
+        WHERE {
+            FILTER(STRSTARTS(STR(?this), "http://example.org/"))
+        }
+    """ .
