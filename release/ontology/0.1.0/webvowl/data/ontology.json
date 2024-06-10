@@ -2,11 +2,11 @@
   "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
   "header" : {
     "languages" : [ "en", "undefined" ],
-    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://purl.org/vocommons/voaf", "https://schema.e616.crc.nd.edu/nd/scodoc/ont", "http://schema.org", "http://www.w3.org/2000/01/rdf-schema", "https://schema.org", "http://www.w3.org/ns/prov", "http://www.w3.org/2001/XMLSchema" ],
+    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://purl.org/vocommons/voaf", "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont", "http://schema.org", "http://www.w3.org/2000/01/rdf-schema", "https://schema.org", "http://www.w3.org/ns/prov", "http://www.w3.org/2001/XMLSchema" ],
     "title" : {
       "en" : "Supply Chain Documentation Ontology"
     },
-    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+    "iri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/",
     "version" : "0.1.0",
     "author" : [ "_:genid2147483648" ],
     "description" : {
@@ -87,7 +87,7 @@
       "preferredNamespaceUri" : [ {
         "identifier" : "preferredNamespaceUri",
         "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "value" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/",
         "type" : "label"
       } ],
       "codeRepository" : [ {
@@ -201,14 +201,14 @@
     "attributes" : [ "external" ],
     "id" : "4"
   }, {
-    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument",
-    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "iri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DigitalDocument",
+    "baseIri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont",
     "instances" : 0,
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
         "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "value" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/",
         "type" : "iri"
       } ]
     },
@@ -220,14 +220,14 @@
     "id" : "6",
     "superClasses" : [ "1", "7", "8" ]
   }, {
-    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument",
-    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "iri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument",
+    "baseIri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont",
     "instances" : 0,
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
         "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "value" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/",
         "type" : "iri"
       } ]
     },
@@ -297,7 +297,7 @@
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
         "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "value" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/",
         "type" : "iri"
       } ]
     },
@@ -342,8 +342,8 @@
     "attributes" : [ "external" ],
     "id" : "20"
   }, {
-    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationExtractionWorkflow",
-    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "iri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationExtractionWorkflow",
+    "baseIri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont",
     "instances" : 0,
     "label" : {
       "IRI-based" : "InformationExtractionWorkflow"
@@ -431,21 +431,21 @@
       "IRI-based" : "Vocabulary"
     },
     "individuals" : [ {
-      "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
-      "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc",
+      "iri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/",
+      "baseIri" : "https://schema.earth616.crc.nd.edu:8443/nd/scodoc",
       "labels" : { }
     } ],
     "attributes" : [ "external" ],
     "id" : "37"
   }, {
-    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent",
-    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "iri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent",
+    "baseIri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont",
     "instances" : 0,
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
         "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "value" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/",
         "type" : "iri"
       } ]
     },
@@ -473,14 +473,14 @@
       "IRI-based" : "string"
     }
   }, {
-    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow",
-    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "iri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Informationextractionworkflow",
+    "baseIri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont",
     "instances" : 0,
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
         "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "value" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/",
         "type" : "iri"
       } ]
     },
@@ -500,14 +500,14 @@
     "attributes" : [ "external" ],
     "id" : "48"
   }, {
-    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline",
-    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "iri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Iepipeline",
+    "baseIri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont",
     "instances" : 0,
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
         "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "value" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/",
         "type" : "iri"
       } ]
     },
@@ -518,14 +518,14 @@
     "id" : "25",
     "superClasses" : [ "26" ]
   }, {
-    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document",
-    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "iri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Document",
+    "baseIri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont",
     "instances" : 0,
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
         "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "value" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/",
         "type" : "iri"
       } ]
     },
@@ -609,14 +609,14 @@
     "id" : "34",
     "superClasses" : [ "16" ]
   }, {
-    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType",
-    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "iri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentType",
+    "baseIri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont",
     "instances" : 0,
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
         "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "value" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/",
         "type" : "iri"
       } ]
     },
@@ -799,14 +799,14 @@
     "attributes" : [ "object", "external" ],
     "id" : "10"
   }, {
-    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext",
-    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "iri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/processedtext",
+    "baseIri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont",
     "range" : "13",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
         "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "value" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/",
         "type" : "iri"
       } ]
     },
@@ -851,14 +851,14 @@
     "attributes" : [ "object", "external" ],
     "id" : "15"
   }, {
-    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype",
-    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "iri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumenttype",
+    "baseIri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont",
     "range" : "22",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
         "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "value" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/",
         "type" : "iri"
       } ]
     },
@@ -1003,14 +1003,14 @@
     "attributes" : [ "anonymous", "object" ],
     "id" : "50"
   }, {
-    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/contentExtractedFrom",
-    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "iri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/contentExtractedFrom",
+    "baseIri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont",
     "range" : "9",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
         "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "value" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/",
         "type" : "iri"
       } ]
     },
@@ -1033,14 +1033,14 @@
     "attributes" : [ "anonymous", "object" ],
     "id" : "52"
   }, {
-    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasWorkflow",
-    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "iri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasWorkflow",
+    "baseIri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont",
     "range" : "25",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
         "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "value" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/",
         "type" : "iri"
       } ]
     },
@@ -1053,14 +1053,14 @@
     "attributes" : [ "object" ],
     "id" : "17"
   }, {
-    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/workflowExecution",
-    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "iri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/workflowExecution",
+    "baseIri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont",
     "range" : "5",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
         "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "value" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/",
         "type" : "iri"
       } ]
     },
@@ -1073,14 +1073,14 @@
     "attributes" : [ "object" ],
     "id" : "42"
   }, {
-    "iri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent",
-    "baseIri" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont",
+    "iri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumentcontent",
+    "baseIri" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont",
     "range" : "12",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
         "language" : "undefined",
-        "value" : "https://schema.e616.crc.nd.edu/nd/scodoc/ont/",
+        "value" : "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/",
         "type" : "iri"
       } ]
     },

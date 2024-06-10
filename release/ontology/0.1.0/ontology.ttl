@@ -1,13 +1,13 @@
-@prefix : <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@prefix : <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@base <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
 
-<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> rdf:type owl:Ontology ;
-                                                 owl:versionIRI <https://schema.e616.crc.nd.edu/nd/scodoc/ont/0.1.0> ;
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> rdf:type owl:Ontology ;
+                                                 owl:versionIRI <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/0.1.0> ;
                                                  <http://purl.org/dc/terms/created> "2024-04-09"^^xsd:date ;
                                                  <http://purl.org/dc/terms/creator> _:genid1 ;
                                                  <http://purl.org/dc/terms/description> "An ontology for describing supply chain documentation."@en ;
@@ -20,7 +20,7 @@
                                                  <http://purl.org/dc/terms/title> "Supply Chain Documentation Ontology"@en ;
                                                  <http://purl.org/ontology/bibo/status> "Work in progress" ;
                                                  <http://purl.org/vocab/vann/preferredNamespacePrefix> "scodoc" ;
-                                                 <http://purl.org/vocab/vann/preferredNamespaceUri> "https://schema.e616.crc.nd.edu/nd/scodoc/ont/" ;
+                                                 <http://purl.org/vocab/vann/preferredNamespaceUri> "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/" ;
                                                  owl:versionInfo "0.1.0"@en ;
                                                  <http://www.w3.org/2004/02/skos/core#changeNote> "0.1.0 - intial release of pattern skeletons"@en ;
                                                  <https://schema.org/codeRepository> "https://github.com/crcresearch/earth616_ontology"^^xsd:anyURI .
@@ -217,46 +217,46 @@ prov:wasInfluencedBy should not be used without also using one of its subpropert
                                             <http://www.w3.org/ns/prov#inverse> "influenced" .
 
 
-###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/contentExtractedFrom
+###  https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/contentExtractedFrom
 :contentExtractedFrom rdf:type owl:ObjectProperty ;
                       rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasDerivedFrom> ;
                       rdfs:domain :Documentcontent ;
                       rdfs:range :Scdigitaldocument ;
-                      rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                      rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                       rdfs:label "contentExtractedFrom" .
 
 
-###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasWorkflow
+###  https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasWorkflow
 :hasWorkflow rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasAssociatedWith> ;
              rdfs:domain :InformationExtractionWorkflow ;
              rdfs:range :Iepipeline ;
-             rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+             rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
              rdfs:label "hasWorkflow" .
 
 
-###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumentcontent
+###  https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumentcontent
 :hasdocumentcontent rdf:type owl:ObjectProperty ;
                     rdfs:domain :Scdigitaldocument ;
                     rdfs:range :Documentcontent ;
-                    rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                    rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                     rdfs:label "hasDocumentContent" .
 
 
-###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/hasdocumenttype
+###  https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumenttype
 :hasdocumenttype rdf:type owl:ObjectProperty ;
                  rdfs:domain :Scdigitaldocument ;
                  rdfs:range :DocumentType ;
-                 rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                 rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                  rdfs:label "hasDocumentType" .
 
 
-###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/workflowExecution
+###  https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/workflowExecution
 :workflowExecution rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasGeneratedBy> ;
                    rdfs:domain :Documentcontent ;
                    rdfs:range :Informationextractionworkflow ;
-                   rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                   rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                    rdfs:label "workflowExecution" .
 
 
@@ -264,12 +264,12 @@ prov:wasInfluencedBy should not be used without also using one of its subpropert
 #    Data properties
 #################################################################
 
-###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/processedtext
+###  https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/processedtext
 :processedtext rdf:type owl:DatatypeProperty ;
                rdfs:domain :Documentcontent ;
                rdfs:range xsd:string ;
                rdfs:comment "The processed text of a digitized document." ;
-               rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+               rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                rdfs:label "processedText" .
 
 
@@ -349,57 +349,57 @@ prov:wasInfluencedBy should not be used without also using one of its subpropert
                                       <http://www.w3.org/2004/02/skos/core#definition> "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." .
 
 
-###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/DigitalDocument
+###  https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DigitalDocument
 :DigitalDocument rdf:type owl:Class ;
                  rdfs:subClassOf <http://schema.org/DigitalDocument> ,
                                  <http://www.w3.org/ns/prov#Entity> ,
                                  :Document ;
-                 rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                 rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                  rdfs:label "DigitalDocument" .
 
 
-###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/Document
+###  https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Document
 :Document rdf:type owl:Class ;
-          rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+          rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
           rdfs:label "Document" .
 
 
-###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/DocumentType
+###  https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentType
 :DocumentType rdf:type owl:Class ;
               rdfs:subClassOf <http://schema.org/Enumeration> ;
-              rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+              rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
               rdfs:label "DocumentType" .
 
 
-###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/Documentcontent
+###  https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent
 :Documentcontent rdf:type owl:Class ;
                  rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
-                 rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                 rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                  rdfs:label "DocumentContent" .
 
 
-###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/Iepipeline
+###  https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Iepipeline
 :Iepipeline rdf:type owl:Class ;
             rdfs:subClassOf <http://www.w3.org/ns/prov#SoftwareAgent> ;
-            rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+            rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
             rdfs:label "IEPipeline" .
 
 
-###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/InformationExtractionWorkflow
+###  https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationExtractionWorkflow
 :InformationExtractionWorkflow rdf:type owl:Class .
 
 
-###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/Informationextractionworkflow
+###  https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Informationextractionworkflow
 :Informationextractionworkflow rdf:type owl:Class ;
                                rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ;
-                               rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                               rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                                rdfs:label "InformationExtractionWorkflow" .
 
 
-###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/Scdigitaldocument
+###  https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument
 :Scdigitaldocument rdf:type owl:Class ;
                    rdfs:subClassOf :DigitalDocument ;
-                   rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                   rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                    rdfs:label "SCDigitalDocument" .
 
 
@@ -420,7 +420,7 @@ prov:wasInfluencedBy should not be used without also using one of its subpropert
 
 ###  https://schema.org/Enumeration
 <https://schema.org/Enumeration> rdf:type owl:Class ;
-                                 rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                                 rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                                  rdfs:label "schema:Enumeration" .
 
 
@@ -444,8 +444,8 @@ prov:wasInfluencedBy should not be used without also using one of its subpropert
 
 ###  http://www.wikidata.org/entity/Q178848
 
-###  https://schema.e616.crc.nd.edu/nd/scodoc/ont/
-<https://schema.e616.crc.nd.edu/nd/scodoc/ont/> rdf:type owl:NamedIndividual ,
+###  https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> rdf:type owl:NamedIndividual ,
                                                          <http://purl.org/vocommons/voaf#Vocabulary> .
 
 

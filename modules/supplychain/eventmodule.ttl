@@ -7,9 +7,9 @@
 @prefix schema: <http://schema.org/> .
 
 # --- SCODOC ---
-@prefix scodoc: <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
-@prefix : <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
-@base <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@prefix dscdo: <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+@prefix : <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+@base <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
 
 # Classes
 scodoc:SupplyChainEvent rdfs:subClassOf scodoc:Event ;
@@ -146,7 +146,7 @@ scodoc:producedAt rdfs:subPropertyOf scodoc:subEventOf ;
 scodoc:hasDocument rdf:type owl:ObjectProperty ;
                    rdfs:domain scodoc:DocumentationSource ;
                    rdfs:range scodoc:ScdigitaldocumentDocument ;
-                   rdfs:isDefinedBy <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> ;
+                   rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                    rdfs:label "hasDocument" .
 
 # Additional classes and properties

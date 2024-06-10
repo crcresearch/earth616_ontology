@@ -29,7 +29,12 @@ schema:DigitalDocument a rdfs:Class ;
 
 
 ###  http://schema.org/Enumeration
+<<<<<<< HEAD
 schema:Enumeration rdf:type  rdfs:Class;
                    rdfs:isDefinedBy <https://schema.org> ;
                    rdfs:comment "A list of enumerations." ;
+=======
+schema:Enumeration rdf:type owl:Class ;
+                   rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
+>>>>>>> main
                    rdfs:label "schema:Enumeration" .
