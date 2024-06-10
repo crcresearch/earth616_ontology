@@ -1,0 +1,22 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# Shape to ensure all classes have required annotations
+[
+    a sh:NodeShape ;
+    sh:targetClass rdfs:Class ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:message "Class must have a rdfs:label." ;
+    ] ;
+    sh:property [
+        sh:path rdfs:isDefinedBy ;
+        sh:minCount 1 ;
+        sh:message "Class must have a rdfs:isDefinedBy." ;
+    ] ;
+    rdfs:label "Class Annotations" ;
+    skos:note "This shape ensures all classes have rdfs:label and rdfs:isDefinedBy properties."
+] .
