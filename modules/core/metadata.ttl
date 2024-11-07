@@ -30,8 +30,8 @@
 @prefix gs1: <http://gs1.org/voc/> .
 
 # --- SCODOC ---
-@prefix dscdo: <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
-@base <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+@prefix dscdo: <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
+@base <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
 
 # =============================================================================
 # WIDOCO Documentation
@@ -42,7 +42,7 @@
 
 
 
-<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/>  
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>  
     a voaf:Vocabulary, owl:Ontology ;
     dcterms:title "Defense Supply Chain and Documentation Ontology (DSCDO)"@en ;
     dcterms:description "An ontology for describing supply chain documentation."@en ;
@@ -95,8 +95,6 @@ The ontology is designed to be extensible to support modeling of domain-specific
     bibo:status "Work in progress" ;
     owl:versionIRI <https://schema.616.crc.nd.edu/nd/scdoc/ont/0.1.2> ;
     owl:versionInfo "0.1.2"@en ;
- #   owl:priorVersion <https://w3id.org/ammo/ont/0.5.0>;
- #   owl:backwardCompatableWith <https://w3id.org/ammo/ont/0.5.0> ;
     dcterms:modified "2024-05-31"^^xsd:date ;
     dcterms:created  "2024-04-09"^^xsd:date ;
 
@@ -125,4 +123,4 @@ The ontology is designed to be extensible to support modeling of domain-specific
     dcterms:rightsHolder "SIMBA Chain, University of Notre Dame" ;
     sdo:codeRepository "https://github.com/crcresearch/earth616_ontology"^^xsd:anyURI;
     vann:preferredNamespacePrefix "dscdo" ;
-    vann:preferredNamespaceUri "https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/" .
+    vann:preferredNamespaceUri "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/" .
