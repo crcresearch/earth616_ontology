@@ -84,21 +84,21 @@ The following URI structure is proposed for the prototype, similar to w3id.org r
 Our minimum viable URI policy for the proposed system is as follows:
 | URI Structure                                                    | URI Definition                                                                                   |
 |------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
-| https://schema.earth616.crc.nd.edu:8443/                                 | Root URI equivalent to w3id.org                                                                   |
-| https://schema.earth616.crc.nd.edu:8443/{org}/                              | Organizational Root for example ND, SIMBA, etc.                                                   |
-| https://schema.earth616.crc.nd.edu:8443/{org}/project/                      | Project Root                                                                                      |
-| https://schema.earth616.crc.nd.edu:8443/{org}/{project}/ont/                  | Ontology URI Space                                                                                |
-| https://schema.earth616.crc.nd.edu:8443/{org}/{project}/voc/                  | Vocabulary URI Space                                                                              |
-| https://schema.earth616.crc.nd.edu:8443/{org}/{project}/shapes/               | Shapes Root URI Space to define shape documents used in the project                               |
-| https://schema.earth616.crc.nd.edu:8443/{org}/{project}/shapes/shacl/         | Shapes Root URI for [SHACL](https://www.w3.org/TR/shacl/) encoded shapes                         |
-| https://schema.earth616.crc.nd.edu:8443/{org}/{project}/shapes/shex/          | Shapes Root URI for [SHEX](https://shex.io/) encoded shapes (unused in this project but reserved) |
+| https://schema-earth616-ks18.blocks.simbachain.com/                                | Root URI equivalent to w3id.org                                                                   |
+| https://schema-earth616-ks18.blocks.simbachain.com/{org}/                              | Organizational Root for example ND, SIMBA, etc.                                                   |
+| https://schema-earth616-ks18.blocks.simbachain.com/{org}/project/                      | Project Root                                                                                      |
+| https://schema-earth616-ks18.blocks.simbachain.com/{org}/{project}/ont/                  | Ontology URI Space                                                                                |
+| https://schema-earth616-ks18.blocks.simbachain.com/{org}/{project}/voc/                  | Vocabulary URI Space                                                                              |
+| https://schema-earth616-ks18.blocks.simbachain.com/{org}/{project}/shapes/               | Shapes Root URI Space to define shape documents used in the project                               |
+| https://schema-earth616-ks18.blocks.simbachain.com/{org}/{project}/shapes/shacl/         | Shapes Root URI for [SHACL](https://www.w3.org/TR/shacl/) encoded shapes                         |
+| https://schema-earth616-ks18.blocks.simbachain.com/{org}/{project}/shapes/shex/          | Shapes Root URI for [SHEX](https://shex.io/) encoded shapes (unused in this project but reserved) |
 
 
 
 
 ## Versions
 
-The latest version of the full ontology can be found at https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ and specific release versions can be found at https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/{version number} for example https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/0.1.0.
+The latest version of the full ontology can be found at https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/ and specific release versions can be found at https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/{version number} for example https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/0.1.0.
 
 ## Alignments
 
