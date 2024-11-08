@@ -1,0 +1,71 @@
+@prefix base: <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dscdo: <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont#> .
+@prefix mod: <https://w3id.org/mod#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+dc:creator a owl:AnnotationProperty .
+
+dc:title a owl:AnnotationProperty .
+
+owl:versionInfo a owl:AnnotationProperty .
+
+dscdo:DocumentationSource a owl:Class ;
+    rdfs:label "Documentation Source" .
+
+dscdo:assumesRole a owl:ObjectProperty ;
+    rdfs:label "assumes role" ;
+    rdfs:domain dscdo:Agent,
+        dscdo:TRU ;
+    rdfs:range dscdo:CertificiationRole .
+
+dscdo:hasDocumentation a owl:ObjectProperty ;
+    rdfs:label "has documentation" ;
+    rdfs:domain dscdo:CertificationEvent .
+
+dscdo:hasSTE a owl:ObjectProperty ;
+    rdfs:label "has s t e" ;
+    rdfs:domain dscdo:CertificationEvent ;
+    rdfs:range dscdo:SpatiotemporalExtent .
+
+dscdo:providesRole a owl:ObjectProperty ;
+    rdfs:label "provides role" ;
+    rdfs:domain dscdo:CertificationEvent ;
+    rdfs:range dscdo:CertificiationRole .
+
+base: a owl:Ontology ;
+    dc:creator "Charles F. Vardeman II" ;
+    dc:title "DSCDO Certification Event" ;
+    owl:versionInfo "0.1.3" ;
+    mod:createdWith <https://chowlk.linkeddata.es/> .
+
+dscdo:Agent a owl:Class ;
+    rdfs:label "Agent" .
+
+dscdo:ComplianceEvent a owl:Class ;
+    rdfs:label "Compliance Event" ;
+    rdfs:subClassOf dscdo:CertificationEvent ;
+    owl:disjointWith dscdo:ConformanceEvent .
+
+dscdo:ConformanceEvent a owl:Class ;
+    rdfs:label "Conformance Event" ;
+    rdfs:subClassOf dscdo:CertificationEvent ;
+    owl:disjointWith dscdo:ComplianceEvent .
+
+dscdo:Event a owl:Class ;
+    rdfs:label "Event" .
+
+dscdo:SpatiotemporalExtent a owl:Class ;
+    rdfs:label "Spatiotemporal Extent" .
+
+dscdo:TRU a owl:Class ;
+    rdfs:label "Traceable Resource Unit" .
+
+dscdo:CertificiationRole a owl:Class ;
+    rdfs:label "Certificiation Role" .
+
+dscdo:CertificationEvent a owl:Class ;
+    rdfs:label "Certification Event" ;
+    rdfs:subClassOf dscdo:Event .
+
