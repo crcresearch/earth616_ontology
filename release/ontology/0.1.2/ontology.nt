@@ -1,0 +1,763 @@
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://www.w3.org/2002/07/owl#versionIRI> <https://schema.616.crc.nd.edu/nd/scdoc/ont/0.1.2> .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://purl.org/dc/elements/1.1/abstract> "The Defense Supply Chain and Documentation Ontology (DSCDO) provides a formal model for representing knowledge about supply chain networks, processes, and entities. It enables interoperability and knowledge sharing between supply chain information systems by providing a common vocabulary and conceptual structure and supporting documentation providing supply chain provenance.\n\nKey concepts modeled include:\n\n- Supply chain stages such as suppliers, manufacturers\n- Products, materials, and information flows between supply chain stages  \n- Supply chain processes such as procurement, production, and transportation\n\nThe ontology is designed to be extensible to support modeling of domain-specific supply chains and integration with other enterprise ontologies. It aims to facilitate supply chain analytics, decision support, knowledge management, and semantic integration of heterogeneous supply chain data sources."@en .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://purl.org/dc/terms/created> "2024-04-09"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://purl.org/dc/terms/creator> _:genid1 .
+_:genid1 <https://schema.org/url> "https://orcid.org/0000-0003-4091-6059"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+_:genid1 <https://schema.org/name> "Charles F. Vardeman II" .
+_:genid1 <https://schema.org/email> "cvardema@nd.edu"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+_:genid1 <https://schema.org/affiliation> "University of Notre Dame" .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Person> .
+<https://schema.org/Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://purl.org/dc/terms/description> "An ontology for describing supply chain documentation."@en .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://purl.org/dc/terms/modified> "2024-05-31"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://purl.org/dc/terms/publisher> _:genid2 .
+_:genid2 <https://schema.org/url> "https://crc.nd.edu"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+_:genid2 <https://schema.org/name> "Center for Research Computing, University of Notre Dame" .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Organization> .
+<https://schema.org/Organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://purl.org/dc/terms/publisher> _:genid3 .
+_:genid3 <https://schema.org/url> "https://simbachain.com/" .
+_:genid3 <https://schema.org/name> "Simba Chain" .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Organization> .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://purl.org/dc/terms/rights> "This work is licensed under a Creative Commons Attribution 4.0 International License."@en .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://purl.org/dc/terms/rightsHolder> "SIMBA Chain, University of Notre Dame" .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://purl.org/dc/terms/title> "Defense Supply Chain and Documentation Ontology (DSCDO)"@en .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://purl.org/ontology/bibo/status> "Work in progress" .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://purl.org/vocab/vann/preferredNamespacePrefix> "dscdo" .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://purl.org/vocab/vann/preferredNamespaceUri> "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/" .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://www.w3.org/2002/07/owl#versionInfo> "0.1.2"@en .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://www.w3.org/2004/02/skos/core#changeNote> "0.1.0 - intial release of pattern skeletons"@en .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://www.w3.org/2004/02/skos/core#changeNote> "0.1.1 - adding supply chain events from the supply chain pattern and connecting to the documentation extraction pattern"@en .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://www.w3.org/2004/02/skos/core#changeNote> "0.1.2 - adding identifier patterns and beginning of shapes"@en .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://www.w3.org/2004/02/skos/core#changeNote> "0.1.3 - chaning iri namespace and ontology prefix"@en .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <https://schema.org/codeRepository> "https://github.com/crcresearch/earth616_ontology"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <https://w3id.org/widoco/vocab#introduction> "\n        The Defense Supply Chain and Documentation Ontology (DSCDO) is a sophisticated framework designed to capture and link supply chain documentation artifacts to relevant events and Tradable Resource Units (TRUs). This ontology serves as a comprehensive model for representing the complex interactions and transactions within the defense supply chain, ensuring that every document, event, and resource unit is accurately documented and interconnected.\n\n        Key Components of DSCDO:\n\n        1. **Event Pattern**: The ontology leverages an Event Pattern to model various types of events such as TransferEvent, TransformationEvent, CustodyChangeEvent, OwnershipChangeEvent, TransportEvent, and ObservationEvent. Each event is linked to spatiotemporal aspects through the SpatiotemporalExtent class, which captures the time and place of occurrence.\n\n        2. **Participant Role**: Events are connected to participants through roles such as SourceRole, TargetRole, EquipmentRole, and CustodianRoles (both Source and Target). This ensures that every event is associated with one or more agents (e.g., organizations, individuals) fulfilling specific roles.\n\n        3. **Container and Containment Relations**: The ontology models containers and their types, along with the relationships of containment. This includes modeling the TemporalExtent of containment, allowing for the tracking of resources over time and space.\n\n        4. **Identifier Encoding**: To maintain traceability, DSCDO includes a detailed Identifier framework, encompassing IdentifierEncoding, IdentifierSource, and IdentifierType. This system ensures that each resource unit can be uniquely identified and traced through the supply chain.\n\n        5. **Traceable Resource Unit (TRU)**: The TRU is a core concept representing units that are tracked through the supply chain. This includes QuantityOfMaterial, which is further detailed by Material types, measurements, and units, ensuring precise tracking and management of resources.\n\n        6. **Observation and Measurement**: Observations are linked to TRUs to capture measurement data, such as quantity and quality, ensuring that all resource units are accurately monitored and recorded.\n\n        Knowledge Extraction Workflow:\n\n        The DSCDO is integrated into a knowledge extraction workflow designed to process supply chain documentation. This workflow involves:\n\n        1. **Document Acquisition**: Using advanced OCR technologies (e.g., Azure OCR), documents are scanned and converted into machine-readable formats.\n\n        2. **Knowledge Extraction**: Leveraging LLM AI-driven pipelines (e.g., LangGraph, LangChain), the extracted text is processed to identify and link relevant entities and events according to the DSCDO patterns.\n\n        3. **Triple Generation**: The processed information is transformed into RDF triples, forming a structured, queryable knowledge graph that adheres to the DSCDO schema. This enables advanced querying and analysis, facilitating decision-making and supply chain management.\n\n        Application and Benefits:\n\n        By implementing DSCDO, defense supply chain management can achieve higher levels of transparency, traceability, and efficiency. The ontology ensures that all documentation artifacts are systematically captured and linked to corresponding events and resource units, providing a robust framework for managing the complexities of defense logistics and procurement.\n\n        In summary, the DSCDO provides a comprehensive and structured approach to managing defense supply chain documentation, leveraging advanced knowledge extraction techniques to produce a detailed and interconnected view of supply chain activities.\n    "@en .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/elements/1.1/abstract
+<http://purl.org/dc/elements/1.1/abstract> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/rights
+<http://purl.org/dc/terms/rights> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/rightsHolder
+<http://purl.org/dc/terms/rightsHolder> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/ontology/bibo/status
+<http://purl.org/ontology/bibo/status> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2000/01/rdf-schema#domain
+<http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2002/07/owl#ObjectProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2000/01/rdf-schema#range
+<http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://www.w3.org/2002/07/owl#ObjectProperty
+# 
+# http://www.w3.org/2004/02/skos/core#changeNote
+<http://www.w3.org/2004/02/skos/core#changeNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/prov#editorialNote
+<http://www.w3.org/ns/prov#editorialNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/prov#inverse
+<http://www.w3.org/ns/prov#inverse> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.w3.org/ns/prov#inverse> <http://www.w3.org/2000/01/rdf-schema#comment> "PROV-O does not define all property inverses. The directionalities defined in PROV-O should be given preference over those not defined. However, if users wish to name the inverse of a PROV-O property, the local name given by prov:inverse should be used."@en .
+<http://www.w3.org/ns/prov#inverse> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#inverse> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://www.w3.org/TR/prov-o/#names-of-inverse-properties> .
+# 
+# https://schema.org/affiliation
+<https://schema.org/affiliation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# https://schema.org/codeRepository
+<https://schema.org/codeRepository> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# https://schema.org/contributor
+<https://schema.org/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# https://schema.org/email
+<https://schema.org/email> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# https://schema.org/name
+<https://schema.org/name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# https://schema.org/url
+<https://schema.org/url> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# https://w3id.org/widoco/vocab#introduction
+<https://w3id.org/widoco/vocab#introduction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Datatypes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2001/XMLSchema#date
+<http://www.w3.org/2001/XMLSchema#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/ns/prov#used
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasInfluencedBy> .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Activity> .
+<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Entity> .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#comment> "A prov:Entity that was used by this prov:Activity. For example, :baking prov:used :spoon, :egg, :oven ."@en .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#label> "used" .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/ns/prov#inverse> "wasUsedBy" .
+# 
+# http://www.w3.org/ns/prov#wasAssociatedWith
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasInfluencedBy> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Activity> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Agent> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#comment> "An prov:Agent that had some (unspecified) responsibility for the occurrence of this prov:Activity."@en .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#label> "wasAssociatedWith" .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/ns/prov#inverse> "wasAssociateFor" .
+# 
+# http://www.w3.org/ns/prov#wasDerivedFrom
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasInfluencedBy> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Entity> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Entity> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#comment> "The more specific subproperties of prov:wasDerivedFrom (i.e., prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource) should be used when applicable."@en .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#label> "wasDerivedFrom" .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2004/02/skos/core#definition> "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."@en .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/ns/prov#inverse> "hadDerivation" .
+# 
+# http://www.w3.org/ns/prov#wasGeneratedBy
+<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasInfluencedBy> .
+<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Entity> .
+<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Activity> .
+<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/2000/01/rdf-schema#label> "wasGeneratedBy" .
+<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/ns/prov#inverse> "generated" .
+# 
+# http://www.w3.org/ns/prov#wasInfluencedBy
+<http://www.w3.org/ns/prov#wasInfluencedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#wasInfluencedBy> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid4 .
+_:genid4 <http://www.w3.org/2002/07/owl#unionOf> _:genid7 .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid6 .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid5 .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#Entity> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#Agent> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#Activity> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#wasInfluencedBy> <http://www.w3.org/2000/01/rdf-schema#range> _:genid8 .
+_:genid8 <http://www.w3.org/2002/07/owl#unionOf> _:genid11 .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid10 .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid9 .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#Entity> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#Agent> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#Activity> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#wasInfluencedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Because prov:wasInfluencedBy is a broad relation, its more specific subproperties (e.g. prov:wasInformedBy, prov:actedOnBehalfOf, prov:wasEndedBy, etc.) should be used when applicable."@en .
+<http://www.w3.org/ns/prov#wasInfluencedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>." .
+<http://www.w3.org/ns/prov#wasInfluencedBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#wasInfluencedBy> <http://www.w3.org/2000/01/rdf-schema#label> "wasInfluencedBy" .
+<http://www.w3.org/ns/prov#wasInfluencedBy> <http://www.w3.org/ns/prov#editorialNote> "The sub-properties of prov:wasInfluencedBy can be elaborated in more detail using the Qualification Pattern. For example, the binary relation :baking prov:used :spoon can be qualified by asserting :baking prov:qualifiedUsage [ a prov:Usage; prov:entity :spoon; prov:atLocation :kitchen ] .\n\nSubproperties of prov:wasInfluencedBy may also be asserted directly without being qualified.\n\nprov:wasInfluencedBy should not be used without also using one of its subproperties. \n"@en .
+<http://www.w3.org/ns/prov#wasInfluencedBy> <http://www.w3.org/ns/prov#inverse> "influenced" .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/assumesRole
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/assumesRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/assumesRole> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/assumesRole> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/assumesRole> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Agent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/assumesRole> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ParticipantRole> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/assumesRole> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/assumesRole> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates an agent to the role it plays in an event."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/assumesRole> <http://www.w3.org/2000/01/rdf-schema#label> "assumes role"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/contentExtractedFrom
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/contentExtractedFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/contentExtractedFrom> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasDerivedFrom> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/contentExtractedFrom> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/contentExtractedFrom> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/contentExtractedFrom> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that the document content was derived from a specific digital document." .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/contentExtractedFrom> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/contentExtractedFrom> <http://www.w3.org/2000/01/rdf-schema#label> "contentExtractedFrom" .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasContainedInRelation
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasContainedInRelation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasContainedInRelation> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasContainedInRelation> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasContainedInRelation> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ContainedInRelation> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ContainedInRelation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasContainedInRelation> <http://www.w3.org/2000/01/rdf-schema#label> "has contained in relation"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasDocument
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasDocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasDocument> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentationSource> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentationSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasDocument> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ScdigitaldocumentDocument> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ScdigitaldocumentDocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasDocument> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasDocument> <http://www.w3.org/2000/01/rdf-schema#label> "hasDocument" .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasFurtherDocumentation
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasFurtherDocumentation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasFurtherDocumentation> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasInformationObject> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasInformationObject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasFurtherDocumentation> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasFurtherDocumentation> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentationSource> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasFurtherDocumentation> <http://www.w3.org/2000/01/rdf-schema#label> "has further documentation"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasInformationObject
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasInformationObject> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationObject> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasInformationObject> <http://www.w3.org/2000/01/rdf-schema#comment> "Property relating Event to InformationObject in this pattern. The domain of this property is not restricted to Event since it is possible that non-event to have an information object. The range is always InformationObject since it makes no sense to have a property named hasInformationObject to point to anything other than information object."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasInformationObject> <http://www.w3.org/2000/01/rdf-schema#label> "has information object"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasPostCondition
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasPostCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasPostCondition> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasPostCondition> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasPostCondition> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasPostCondition> <http://www.w3.org/2000/01/rdf-schema#label> "has postcondition"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasPreCondition
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasPreCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasPreCondition> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasPreCondition> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasPreCondition> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasPreCondition> <http://www.w3.org/2000/01/rdf-schema#label> "has precondition"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSTETE
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSTETE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSTETE> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSpatioTemporalExtent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSpatioTemporalExtent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSTETE> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSTETE> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainSpatiotemporalExtent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainSpatiotemporalExtent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSTETE> <http://www.w3.org/2000/01/rdf-schema#label> "has spatiotemporal extent"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSpatioTemporalExtent
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSpatioTemporalExtent> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SpatioTemporalExtent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSpatioTemporalExtent> <http://www.w3.org/2000/01/rdf-schema#comment> "Property relating Event to SpatioTemporalExtent in this pattern. The range is always SpatioTemporalExtent (globally) since it makes no sense to have a property named hasSpatioTemporalExtent to point to anything other than spatiotemporal extent. The domain is not set to Event as non-Event may also have spatiotemporal extent."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSpatioTemporalExtent> <http://www.w3.org/2000/01/rdf-schema#label> "has spatiotemporal extent"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasTemporalExtent
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasTemporalExtent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasTemporalExtent> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSpatioTemporalExtent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasTemporalExtent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasTemporalExtent> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TemporalExtent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasTemporalExtent> <http://www.w3.org/2000/01/rdf-schema#label> "has temporal extent"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasWorkflow
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasWorkflow> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasWorkflow> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasAssociatedWith> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasWorkflow> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationExtractionWorkflow> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationExtractionWorkflow> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasWorkflow> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Iepipeline> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasWorkflow> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates an information extraction workflow with a specific pipeline." .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasWorkflow> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasWorkflow> <http://www.w3.org/2000/01/rdf-schema#label> "hasWorkflow" .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumentcontent
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumentcontent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumentcontent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumentcontent> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumentcontent> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a digital document to its content extracted via OCR." .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumentcontent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumentcontent> <http://www.w3.org/2000/01/rdf-schema#label> "hasDocumentContent" .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumenttype
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumenttype> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumenttype> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumenttype> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentType> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumenttype> <http://www.w3.org/2000/01/rdf-schema#comment> "Specifies the type or category of a digital document." .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumenttype> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasdocumenttype> <http://www.w3.org/2000/01/rdf-schema#label> "hasDocumentType" .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/occursAt
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/occursAt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/occursAt> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/occursAt> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransformationEvent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransformationEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/occursAt> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransformationActivity> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransformationActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/occursAt> <http://www.w3.org/2000/01/rdf-schema#label> "occurs at"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/producedAt
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/producedAt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/producedAt> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/producedAt> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ObservationEvent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ObservationEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/producedAt> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/producedAt> <http://www.w3.org/2000/01/rdf-schema#label> "produced at"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesParticipantRole
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesParticipantRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesParticipantRole> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ParticipantRole> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesParticipantRole> <http://www.w3.org/2000/01/rdf-schema#comment> "Property relating Event to ParticipantRole in this pattern. The range is always ParticipantRole since it makes no sense to have a property named as providesParticipantRole not to point to a participant role. The domain is not set to Event as non-Event may also provide a participant role."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesParticipantRole> <http://www.w3.org/2000/01/rdf-schema#label> "provides participant role"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesRole
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesRole> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesParticipantRole> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesRole> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesRole> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesRole> <http://www.w3.org/2000/01/rdf-schema#label> "provides role"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Event> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Event> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Property expressing partonomic relation between two events. Domain and range are always Event."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf> <http://www.w3.org/2000/01/rdf-schema#label> "sub event of"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/workflowExecution
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/workflowExecution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/workflowExecution> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasGeneratedBy> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/workflowExecution> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/workflowExecution> <http://www.w3.org/2000/01/rdf-schema#range> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Informationextractionworkflow> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/workflowExecution> <http://www.w3.org/2000/01/rdf-schema#comment> "Connects the document content to the workflow that processed it." .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/workflowExecution> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/workflowExecution> <http://www.w3.org/2000/01/rdf-schema#label> "workflowExecution" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/processedtext
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/processedtext> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/processedtext> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/processedtext> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/processedtext> <http://www.w3.org/2000/01/rdf-schema#comment> "The processed text of a digitized document." .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/processedtext> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/processedtext> <http://www.w3.org/2000/01/rdf-schema#label> "processedText" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://org.semanticweb.owlapi/error#Error1
+<http://org.semanticweb.owlapi/error#Error1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://org.semanticweb.owlapi/error#Error1> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid12 .
+_:genid12 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole> .
+_:genid12 <http://www.w3.org/2002/07/owl#onProperty> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesRole> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+# 
+# http://org.semanticweb.owlapi/error#Error2
+<http://org.semanticweb.owlapi/error#Error2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://org.semanticweb.owlapi/error#Error2> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid13 .
+_:genid13 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainSpatiotemporalExtent> .
+_:genid13 <http://www.w3.org/2002/07/owl#onProperty> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSTETE> .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+# 
+# http://purl.org/vocommons/voaf#Vocabulary
+<http://purl.org/vocommons/voaf#Vocabulary> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://schema.org/DigitalDocument
+<http://schema.org/DigitalDocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://schema.org/Enumeration
+<http://schema.org/Enumeration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/2000/01/rdf-schema#Restriction
+<http://www.w3.org/2000/01/rdf-schema#Restriction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/2002/07/owl#Thing
+<http://www.w3.org/2002/07/owl#Thing> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid14 .
+_:genid14 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationObject> .
+_:genid14 <http://www.w3.org/2002/07/owl#onProperty> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasInformationObject> .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2002/07/owl#Thing> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid15 .
+_:genid15 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SpatioTemporalExtent> .
+_:genid15 <http://www.w3.org/2002/07/owl#onProperty> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/hasSpatioTemporalExtent> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2002/07/owl#Thing> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid16 .
+_:genid16 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ParticipantRole> .
+_:genid16 <http://www.w3.org/2002/07/owl#onProperty> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/providesParticipantRole> .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2002/07/owl#Thing> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid17 .
+_:genid17 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Event> .
+_:genid17 <http://www.w3.org/2002/07/owl#onProperty> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/subEventOf> .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+# 
+# http://www.w3.org/ns/prov#Activity
+# 
+# http://www.w3.org/ns/prov#Agent
+<http://www.w3.org/ns/prov#Agent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#Agent> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.w3.org/ns/prov#InstantaneousEvent> .
+<http://www.w3.org/ns/prov#Agent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#Agent> <http://www.w3.org/2000/01/rdf-schema#label> "Agent" .
+<http://www.w3.org/ns/prov#Agent> <http://www.w3.org/2004/02/skos/core#definition> "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity. "@en .
+# 
+# http://www.w3.org/ns/prov#Entity
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.w3.org/ns/prov#InstantaneousEvent> .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.w3.org/ns/prov#:Activity> .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2000/01/rdf-schema#label> "Entity" .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2004/02/skos/core#definition> "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. "@en .
+# 
+# http://www.w3.org/ns/prov#InstantaneousEvent
+<http://www.w3.org/ns/prov#InstantaneousEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#InstantaneousEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "An instantaneous event, or event for short, happens in the world and marks a change in the world, in its activities and in its entities. The term 'event' is commonly used in process algebra with a similar meaning. Events represent communications or interactions; they are assumed to be atomic and instantaneous."@en .
+<http://www.w3.org/ns/prov#InstantaneousEvent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#InstantaneousEvent> <http://www.w3.org/2000/01/rdf-schema#label> "InstantaneousEvent" .
+<http://www.w3.org/ns/prov#InstantaneousEvent> <http://www.w3.org/2004/02/skos/core#definition> "The PROV data model is implicitly based on a notion of instantaneous events (or just events), that mark transitions in the world. Events include generation, usage, or invalidation of entities, as well as starting or ending of activities. This notion of event is not first-class in the data model, but it is useful for explaining its other concepts and its semantics."@en .
+# 
+# http://www.w3.org/ns/prov#Organization
+<http://www.w3.org/ns/prov#Organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#Organization> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Agent> .
+<http://www.w3.org/ns/prov#Organization> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#Organization> <http://www.w3.org/2000/01/rdf-schema#label> "Organization" .
+<http://www.w3.org/ns/prov#Organization> <http://www.w3.org/2004/02/skos/core#definition> "An organization is a social or legal institution such as a company, society, etc." .
+# 
+# http://www.w3.org/ns/prov#Person
+<http://www.w3.org/ns/prov#Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#Person> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Agent> .
+<http://www.w3.org/ns/prov#Person> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#Person> <http://www.w3.org/2000/01/rdf-schema#label> "Person" .
+<http://www.w3.org/ns/prov#Person> <http://www.w3.org/2004/02/skos/core#definition> "Person agents are people."@en .
+# 
+# http://www.w3.org/ns/prov#SoftwareAgent
+<http://www.w3.org/ns/prov#SoftwareAgent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#SoftwareAgent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Agent> .
+<http://www.w3.org/ns/prov#SoftwareAgent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#SoftwareAgent> <http://www.w3.org/2000/01/rdf-schema#label> "SoftwareAgent" .
+<http://www.w3.org/ns/prov#SoftwareAgent> <http://www.w3.org/2004/02/skos/core#definition> "A software agent is running software."@en .
+# 
+# http://www.w3.org/ns/prov#:Activity
+<http://www.w3.org/ns/prov#:Activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#:Activity> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#:Activity> <http://www.w3.org/2000/01/rdf-schema#label> "Activity" .
+<http://www.w3.org/ns/prov#:Activity> <http://www.w3.org/2004/02/skos/core#definition> "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Agent
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Agent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Agent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Agent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Agent> <http://www.w3.org/2000/01/rdf-schema#comment> "An entity participating in a supply chain event, such as a person, organization, or system."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Agent> <http://www.w3.org/2000/01/rdf-schema#comment> "An entity participating in an event, such as a person, organization, or system."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Agent> <http://www.w3.org/2000/01/rdf-schema#label> "Agent"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/BeingMeasuredRole
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/BeingMeasuredRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/BeingMeasuredRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/BeingMeasuredRole> <http://www.w3.org/2000/01/rdf-schema#comment> "The role of goods or materials being observed or measured."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/BeingMeasuredRole> <http://www.w3.org/2000/01/rdf-schema#label> "Being Measured Role"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/BeingShippedRole
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/BeingShippedRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/BeingShippedRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/BeingShippedRole> <http://www.w3.org/2000/01/rdf-schema#comment> "The role of goods or materials being shipped or transported."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/BeingShippedRole> <http://www.w3.org/2000/01/rdf-schema#label> "Being Shipped Role"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ContainedInRelation
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ContainedInRelation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ContainedInRelation> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a containment relationship between events."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ContainedInRelation> <http://www.w3.org/2000/01/rdf-schema#label> "Contained In Relation"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/CustodyChangeEvent
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/CustodyChangeEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/CustodyChangeEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/CustodyChangeEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "An event where the custody of goods or materials changes."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/CustodyChangeEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Custody Change Event"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DigitalDocument
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DigitalDocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DigitalDocument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/DigitalDocument> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DigitalDocument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DigitalDocument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Document> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DigitalDocument> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a digital document that has been scanned and digitized, and is part of the broader document processing workflow." .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DigitalDocument> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DigitalDocument> <http://www.w3.org/2000/01/rdf-schema#label> "DigitalDocument" .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Document
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Document> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Document> <http://www.w3.org/2000/01/rdf-schema#comment> "A general class for documents." .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Document> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Document> <http://www.w3.org/2000/01/rdf-schema#label> "Document" .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentType
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Enumeration> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentType> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the type or classification of a document." .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentType> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentType> <http://www.w3.org/2000/01/rdf-schema#label> "DocumentType" .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentationSource
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentationSource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationObject> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentationSource> <http://www.w3.org/2000/01/rdf-schema#comment> "A source of documentation or information related to an event."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentationSource> <http://www.w3.org/2000/01/rdf-schema#label> "Documentation Source"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the content extracted from a document." .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent> <http://www.w3.org/2000/01/rdf-schema#label> "DocumentContent" .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/EquipmentRole
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/EquipmentRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/EquipmentRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/EquipmentRole> <http://www.w3.org/2000/01/rdf-schema#comment> "The role of equipment or machinery used in an event."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/EquipmentRole> <http://www.w3.org/2000/01/rdf-schema#label> "Equipment Role"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Event
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Event> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Event> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents any kind of events. An event possesses a spatiotemporal extent, provides at least one participant-role, which is performed by some entity (agents or otherwise), and may be a sub-event of another event. An event may also have additional descriptive information, which is consolidated through an information object."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Event> <http://www.w3.org/2000/01/rdf-schema#label> "Event"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Iepipeline
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Iepipeline> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Iepipeline> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#SoftwareAgent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Iepipeline> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a pipeline used in the information extraction process." .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Iepipeline> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Iepipeline> <http://www.w3.org/2000/01/rdf-schema#label> "IEPipeline" .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationExtractionWorkflow
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationObject
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationObject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationObject> <http://www.w3.org/2000/01/rdf-schema#comment> "An entity that encapsulates all descriptive or non-defining information of the corresponding event, e.g., names, additional identifiers, textual descriptions, etc. Should normally be aligned to a separate Information Object pattern."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/InformationObject> <http://www.w3.org/2000/01/rdf-schema#label> "Information Object"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Informationextractionworkflow
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Informationextractionworkflow> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Informationextractionworkflow> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Informationextractionworkflow> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a workflow or process of extracting information from documents." .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Informationextractionworkflow> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Informationextractionworkflow> <http://www.w3.org/2000/01/rdf-schema#label> "InformationExtractionWorkflow" .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ObservationEvent
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ObservationEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ObservationEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "An event where an observation or measurement is made on goods or materials."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ObservationEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Observation Event"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/OwnershipChangeEvent
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/OwnershipChangeEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/OwnershipChangeEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/OwnershipChangeEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "An event where the ownership of goods or materials changes."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/OwnershipChangeEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Ownership Change Event"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ParticipantRole
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ParticipantRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ParticipantRole> <http://www.w3.org/2000/01/rdf-schema#comment> "Every ParticipantRole represents a reified relationship between an event and one of its participants. Should normally be aligned to a separate Participant-Role pattern."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ParticipantRole> <http://www.w3.org/2000/01/rdf-schema#label> "Participant Role"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DigitalDocument> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents digital document that is supply chain documentation" .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Scdigitaldocument> <http://www.w3.org/2000/01/rdf-schema#label> "SCDigitalDocument" .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ScdigitaldocumentDocument
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceCustodianRole
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceCustodianRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceCustodianRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceCustodianRole> <http://www.w3.org/2000/01/rdf-schema#comment> "The role of the entity that has custody of goods or materials before an event."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceCustodianRole> <http://www.w3.org/2000/01/rdf-schema#label> "Source Custodian Role"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceOwnerRole
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceOwnerRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceOwnerRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceOwnerRole> <http://www.w3.org/2000/01/rdf-schema#comment> "The role of the entity that owns goods or materials before an event."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceOwnerRole> <http://www.w3.org/2000/01/rdf-schema#label> "Source Owner Role"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceRole
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceRole> <http://www.w3.org/2000/01/rdf-schema#comment> "The role of the entity from which goods or materials originate."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SourceRole> <http://www.w3.org/2000/01/rdf-schema#label> "Source Role"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SpatioTemporalExtent
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SpatioTemporalExtent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SpatioTemporalExtent> <http://www.w3.org/2000/01/rdf-schema#comment> "Hook to a complex notion representing a unified spatial and temporal extent. Intended to cover non-static or discontinuous spatiotemporal extent. Should be aligned to a separate Spatiotemporal Extent pattern."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SpatioTemporalExtent> <http://www.w3.org/2000/01/rdf-schema#label> "Spatiotemporal Extent"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://org.semanticweb.owlapi/error#Error1> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://org.semanticweb.owlapi/error#Error2> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Event> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "An event occurring in a supply chain process."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Supply Chain Event"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/ParticipantRole> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole> <http://www.w3.org/2000/01/rdf-schema#comment> "A role played by an entity in a supply chain event."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole> <http://www.w3.org/2000/01/rdf-schema#label> "Supply Chain Role"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainSpatiotemporalExtent
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainSpatiotemporalExtent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SpatioTemporalExtent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainSpatiotemporalExtent> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the spatial and temporal extent of a supply chain event."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainSpatiotemporalExtent> <http://www.w3.org/2000/01/rdf-schema#label> "Supply Chain Spatiotemporal Extent"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetCustodianRole
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetCustodianRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetCustodianRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetCustodianRole> <http://www.w3.org/2000/01/rdf-schema#comment> "The role of the entity that gains custody of goods or materials after an event."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetCustodianRole> <http://www.w3.org/2000/01/rdf-schema#label> "Target Custodian Role"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetOwnerRole
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetOwnerRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetOwnerRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetOwnerRole> <http://www.w3.org/2000/01/rdf-schema#comment> "The role of the entity that gains ownership of goods or materials after an event."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetOwnerRole> <http://www.w3.org/2000/01/rdf-schema#label> "Target Owner Role"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetRole
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainRole> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetRole> <http://www.w3.org/2000/01/rdf-schema#comment> "The role of the entity to which goods or materials are destined."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TargetRole> <http://www.w3.org/2000/01/rdf-schema#label> "Target Role"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TemporalExtent
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TemporalExtent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TemporalExtent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SpatioTemporalExtent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TemporalExtent> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the temporal extent of an event."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TemporalExtent> <http://www.w3.org/2000/01/rdf-schema#label> "Temporal Extent"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransferEvent
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransferEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransferEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransferEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "An event involving the transfer of goods or materials."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransferEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Transfer Event"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransformationActivity
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransformationActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransformationActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "An activity or process that transforms goods or materials."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransformationActivity> <http://www.w3.org/2000/01/rdf-schema#label> "Transformation Activity"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransformationEvent
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransformationEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/SupplyChainEvent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransformationEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "An event where goods or materials undergo a transformation process."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransformationEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Transformation Event"@en .
+# 
+# https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransportEvent
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransportEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransportEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransferEvent> .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransportEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "An event involving the transportation of goods or materials."@en .
+<https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/TransportEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Transport Event"@en .
+# 
+# https://schema.org/CreativeWork
+<https://schema.org/CreativeWork> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.org/CreativeWork> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Thing> .
+<https://schema.org/CreativeWork> <http://www.w3.org/2000/01/rdf-schema#comment> "The most generic kind of creative work, including books, movies, photographs, software programs, etc." .
+<https://schema.org/CreativeWork> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://schema.org/> .
+<https://schema.org/CreativeWork> <http://www.w3.org/2000/01/rdf-schema#label> "CreativeWork" .
+<https://schema.org/CreativeWork> <https://schema.org/contributor> <https://schema.org/docs/collab/rNews> .
+# 
+# https://schema.org/DigitalDocument
+<https://schema.org/DigitalDocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.org/DigitalDocument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/CreativeWork> .
+<https://schema.org/DigitalDocument> <http://www.w3.org/2000/01/rdf-schema#comment> "An electronic file or document." .
+<https://schema.org/DigitalDocument> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://schema.org/> .
+<https://schema.org/DigitalDocument> <http://www.w3.org/2000/01/rdf-schema#label> "DigitalDocument" .
+# 
+# https://schema.org/Enumeration
+<https://schema.org/Enumeration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.org/Enumeration> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.org> .
+<https://schema.org/Enumeration> <http://www.w3.org/2000/01/rdf-schema#label> "schema:Enumeration" .
+# 
+# https://schema.org/Organization
+# 
+# https://schema.org/Person
+# 
+# https://schema.org/Thing
+<https://schema.org/Thing> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.org/Thing> <http://www.w3.org/2000/01/rdf-schema#comment> "The most generic type of item." .
+<https://schema.org/Thing> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://schema.org/> .
+<https://schema.org/Thing> <http://www.w3.org/2000/01/rdf-schema#label> "Thing" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://www.wikidata.org/entity/Q178848
+# 
+# https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocommons/voaf#Vocabulary> .
+# 
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Restriction> .
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Restriction> .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Restriction> .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Restriction> .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Restriction> .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Restriction> .
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
