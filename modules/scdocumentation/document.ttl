@@ -6,10 +6,11 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <http://schema.org/> .
 
-# --- dscdo ---
-@prefix dscdo: <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
-@prefix : <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
-@base <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> .
+
+# --- SCODOC ---
+@prefix dscdo: < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> .
+@prefix : < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> .
+@base < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> .
 
 
 #################################################################
@@ -17,18 +18,21 @@
 #################################################################
 
 # Object property to link a digital document to its content
+
 dscdo:hasdocumentcontent rdf:type owl:ObjectProperty ;
                       rdfs:domain dscdo:Scdigitaldocument ;
                       rdfs:range dscdo:Documentcontent ;
-                      rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
+                      rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+
                       rdfs:label "hasDocumentContent" ;
                       rdfs:comment "Links a digital document to its content extracted via OCR." .
 
 # Object property to specify the type of a digital document
+
 dscdo:hasdocumenttype rdf:type owl:ObjectProperty ;
                    rdfs:domain dscdo:Scdigitaldocument ;
                    rdfs:range dscdo:DocumentType ;
-                   rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
+                   rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
                    rdfs:label "hasDocumentType" ;
                    rdfs:comment "Specifies the type or category of a digital document." .
 
@@ -37,7 +41,7 @@ dscdo:contentExtractedFrom rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf prov:wasDerivedFrom ;
                          rdfs:domain dscdo:Documentcontent ;
                          rdfs:range dscdo:Scdigitaldocument ;
-                         rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
+                         rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
                          rdfs:label "contentExtractedFrom" ;
                          rdfs:comment "Indicates that the document content was derived from a specific digital document." .
 
@@ -45,7 +49,7 @@ dscdo:workflowExecution rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf prov:wasGeneratedBy ;
                      rdfs:domain dscdo:Documentcontent ;
                      rdfs:range dscdo:Informationextractionworkflow ;
-                     rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
+                     rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
                      rdfs:label "workflowExecution" ;
                      rdfs:comment "Connects the document content to the workflow that processed it." .
 
@@ -53,7 +57,7 @@ dscdo:hasWorkflow rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf prov:wasAssociatedWith ;
                      rdfs:domain dscdo:InformationExtractionWorkflow ;
                      rdfs:range dscdo:Iepipeline ;
-                     rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
+                     rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
                      rdfs:label "hasWorkflow" ;
                      rdfs:comment "Associates an information extraction workflow with a specific pipeline." .
 
@@ -66,7 +70,7 @@ dscdo:processedtext rdf:type owl:DatatypeProperty ;
                  rdfs:domain dscdo:Documentcontent ;
                  rdfs:range xsd:string ;
                  rdfs:comment "The processed text of a digitized document." ;
-                 rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
+                 rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> ;
                  rdfs:label "processedText" .
 
 
@@ -75,56 +79,60 @@ dscdo:processedtext rdf:type owl:DatatypeProperty ;
 #################################################################
 
 #
-### https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DocumentType
+
+### https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/DocumentType
 dscdo:DocumentType rdf:type owl:Class ;
                  rdfs:subClassOf schema:Enumeration ;
-                 rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
+                 rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
                  rdfs:label "DocumentType" ;
                  rdfs:comment "Represents the type or classification of a document." .
 
-###  http:/https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DDocument
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/Document
 dscdo:Document rdf:type owl:Class ;
-            rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
+            rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
             rdfs:label "Document" ;
             rdfs:comment "A general class for documents." .
 
-###  http:/https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Documentcontent
+### https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/Documentcontent
 dscdo:Documentcontent rdf:type owl:Class ;
                    rdfs:subClassOf prov:Entity ;
-                   rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
+                   rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
                    rdfs:label "DocumentContent" ;
                    rdfs:comment "Represents the content extracted from a document." .
 
 
-###  http:/https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Iepipeline
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/Iepipeline
 dscdo:Iepipeline rdf:type owl:Class ;
               rdfs:subClassOf prov:SoftwareAgent ;
-              rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
+              rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
               rdfs:label "IEPipeline" ;
               rdfs:comment "Represents a pipeline used in the information extraction process." .
 
 
-###  http:/https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/Informationextractionworkflow
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/Informationextractionworkflow
 dscdo:Informationextractionworkflow rdf:type owl:Class ;
                                  rdfs:subClassOf prov:Activity ;
-                                 rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
+                                 rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
                                  rdfs:label "InformationExtractionWorkflow" ;
                                  rdfs:comment "Represents a workflow or process of extracting information from documents." .
 
 
-###  http:/https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/scdigitaldocument
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/scdigitaldocument
 dscdo:Scdigitaldocument rdf:type owl:Class ;
                      rdfs:subClassOf dscdo:DigitalDocument ; 
                      rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
                      rdfs:label "SCDigitalDocument" ;
                      rdfs:comment "Represents digital document that is supply chain documentation" .
 
-### https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/DigitalDocument
+### https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/DigitalDocument
 dscdo:DigitalDocument rdf:type owl:Class ;
                      rdfs:subClassOf schema:DigitalDocument ;
                      rdfs:subClassOf dscdo:Document ;
                      rdfs:subClassOf prov:Entity ;
-                     rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
+                     rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> ;
                      rdfs:label "DigitalDocument" ;
                      rdfs:comment "Represents a digital document that has been scanned and digitized, and is part of the broader document processing workflow." .
 
