@@ -1,0 +1,80 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix scodoc: <https://schema.e616.crc.nd.edu/nd/scodoc/ont/> .
+@prefix shscdoc: <https://schema.e616.crc.nd.edu/nd/scodoc/shapes/> .
+
+# Shape to ensure all scodoc classes have required annotations
+shscdoc:ClassShape a sh:NodeShape ;
+    sh:targetSubjectsOf rdf:type ;
+    sh:filterShape [
+        sh:property [
+            sh:path rdf:type ;
+            sh:hasValue rdfs:Class ;
+        ] ;
+        sh:property [
+            sh:path sh:pattern ;
+            sh:hasValue "^https://schema.e616.crc.nd.edu/nd/scodoc/ont/.*" ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:message "Class must have a rdfs:label." ;
+    ] ;
+    sh:property [
+        sh:path rdfs:isDefinedBy ;
+        sh:minCount 1 ;
+        sh:message "Class must have a rdfs:isDefinedBy." ;
+    ] ;
+    sh:or ( [
+        sh:property [
+            sh:path skos:definition ;
+            sh:minCount 1 ;
+            sh:message "Class must have a skos:definition or rdfs:comment." ;
+        ]
+    ] [
+        sh:property [
+            sh:path rdfs:comment ;
+            sh:minCount 1 ;
+            sh:message "Class must have a skos:definition or rdfs:comment." ;
+        ]
+    ] ) .
+
+# Shape to ensure all scodoc properties have required annotations
+shscdoc:PropertyShape a sh:NodeShape ;
+    sh:targetSubjectsOf rdf:type ;
+    sh:filterShape [
+        sh:property [
+            sh:path rdf:type ;
+            sh:hasValue rdf:Property ;
+        ] ;
+        sh:property [
+            sh:path sh:pattern ;
+            sh:hasValue "^https://schema.e616.crc.nd.edu/nd/scodoc/ont/.*" ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:message "Property must have a rdfs:label." ;
+    ] ;
+    sh:property [
+        sh:path rdfs:isDefinedBy ;
+        sh:minCount 1 ;
+        sh:message "Property must have a rdfs:isDefinedBy." ;
+    ] ;
+    sh:or ( [
+        sh:property [
+            sh:path skos:definition ;
+            sh:minCount 1 ;
+            sh:message "Property must have a skos:definition or rdfs:comment." ;
+        ]
+    ] [
+        sh:property [
+            sh:path rdfs:comment ;
+            sh:minCount 1 ;
+            sh:message "Property must have a skos:definition or rdfs:comment." ;
+        ]
+    ] ) .

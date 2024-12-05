@@ -1,0 +1,50 @@
+## ID of the Story
+[05-AI-Engineer](https://github.com/crcresearch/earth616_ontology/issues/5)
+
+## Priority
+Must have
+
+## Persona
+AI Workflow Engineer: A professional responsible for designing, implementing, and maintaining automated workflows that leverage AI technologies to process and analyze data.
+
+## Goal
+- Knowledge extraction
+- Workflow automation
+- Document classification
+- Supply chain management
+- Data testing and validation
+
+## Scenario
+The AI Workflow Engineer is tasked with developing a knowledge extraction workflow to construct a knowledge graph from supply chain documents. These documents are digitized and stored in S3 cloud storage. The workflow employs OCR and multimodal Visual Large Language Models (LLMs) to classify the documents. Sample datasets are processed through the pipeline for testing. Various OCR services, AI foundation models, and workflow versions are deployed and tested over time. A potentially different LLM extracts triples from the documents, which are then sent to a graph database. Workflow error messages are captured and sent to a message queue, while LLM confidence information is integrated into the graph.
+
+## Competency Questions
+- How accurately are supply chain documents classified by the workflow?
+- What is the confidence level of the LLMs in the extracted triples?
+- What types of errors occur during the workflow, and how frequently do they happen?
+- How do different OCR services and AI models compare in terms of performance?
+- How is the extracted knowledge represented in the graph database?
+
+## Role and Tasks
+### Role
+AI Workflow
+
+### Tasks
+- Evaluate the classification accuracy of supply chain documents.
+- Monitor LLM confidence levels in the extracted triples.
+- Analyze and address workflow errors captured in the message queue.
+- Compare the performance of different OCR services and AI models.
+- Validate the representation of extracted knowledge in the graph database.
+
+### Tools and Capabilities
+- OCR services (e.g., Azure OCR, Google Cloud Vision)
+- Multimodal Visual LLMs
+- Graph databases (e.g., Neo4j)
+- Message queue systems
+- Data analysis and visualization tools
+
+## Resources (Optional)
+- Documentation for OCR services
+- API references for LLMs and graph databases
+- Sample datasets for testing
+- Workflow logs and error reports
+- Research papers and articles on knowledge extraction and graph construction

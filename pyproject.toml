@@ -1,20 +1,11 @@
 [project]
-name = "earth616_ontology"
-version = "0.1.2"
-description = "Default template for PDM package"
-authors = [
-    {name = "charlesvardema", email = "cvardema@nd.edu"},
-]
-dependencies = [
-    "rdflib>=7.0.0",
-    "pyshacl>=0.26.0",
-    "ollama>=0.2.0",
-    "openai>=1.30.5",
-]
-requires-python = "==3.11.*"
+name = "earth616-ontology"
+version = "0.3.0"
+description = "Add your description here"
 readme = "README.md"
-license = {text = "MIT"}
-
-
-[tool.pdm]
-distribution = false
+requires-python = ">=3.13"
+dependencies = [
+    "pyshacl>=0.29.0",
+    "rdflib>=7.1.1",
+    "termcolor>=2.5.0",
+]
