@@ -40,8 +40,10 @@ Can the planning sub-agent leverage explicit ontological hierarchies, temporal/ 
 
 	7.	Competency Questions as Ontology Benchmarks:
 How can competency questions be systematically integrated into the agentic workflow, enabling specialized ontology-construction or ontology-maintenance sub-agents to detect, propose, and refine ontology modules, ensuring that the knowledge base remains aligned with evolving user needs?
+
 	8.	Iterative Ontology Evolution via Reflection & Collaboration:
 Could multi-agent collaboration, guided by competency questions, drive an iterative cycle where one agent identifies ontology gaps (e.g., missing temporal relations), another proposes new axioms or classes, and a reasoning sub-agent validates the changes?
+
 	9.	Automated Ontology Extensions for Complex Domains:
 How can domain-specific competency questions (e.g., for geospatial/topological relationships or temporal event sequencing) guide ontology evolution, ensuring that sub-agents specialized in these areas collaboratively improve the ontology’s expressiveness and coverage?
 
