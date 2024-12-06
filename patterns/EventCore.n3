@@ -1,0 +1,136 @@
+# Section 1: RDFS Ontology Schema
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix core: <http://example.org/core#> .
+
+# Classes
+core:Event a rdfs:Class ;
+    rdfs:label "Event" ;
+    rdfs:comment "An occurrence involving participants, time, and place." .
+
+core:SpatioTemporalExtent a rdfs:Class ;
+    rdfs:label "SpatioTemporalExtent" ;
+    rdfs:comment "A unified representation of spatial and temporal extents of an event." .
+
+core:Participant a rdfs:Class ;
+    rdfs:label "Participant" ;
+    rdfs:comment "An entity involved in an event." .
+
+core:ParticipantRole a rdfs:Class ;
+    rdfs:label "ParticipantRole" ;
+    rdfs:comment "The role a participant plays in an event." .
+
+core:InformationObject a rdfs:Class ;
+    rdfs:label "InformationObject" ;
+    rdfs:comment "Non-essential information about an event such as descriptions and labels." .
+
+# Properties
+core:hasSpatioTemporalExtent a rdfs:Property ;
+    rdfs:domain core:Event ;
+    rdfs:range core:SpatioTemporalExtent ;
+    rdfs:label "has SpatioTemporal Extent" ;
+    rdfs:comment "Links an event to its spatiotemporal extent." .
+
+core:providesParticipantRole a rdfs:Property ;
+    rdfs:domain core:Event ;
+    rdfs:range core:ParticipantRole ;
+    rdfs:label "provides Participant Role" ;
+    rdfs:comment "Links an event to a participant role." .
+
+core:hasParticipant a rdfs:Property ;
+    rdfs:domain core:ParticipantRole ;
+    rdfs:range core:Participant ;
+    rdfs:label "has Participant" ;
+    rdfs:comment "Links a participant role to a participant." .
+
+core:subEventOf a rdfs:Property ;
+    rdfs:domain core:Event ;
+    rdfs:range core:Event ;
+    rdfs:label "sub Event Of" ;
+    rdfs:comment "Defines hierarchical relationships between events." .
+
+core:hasInformationObject a rdfs:Property ;
+    rdfs:domain core:Event ;
+    rdfs:range core:InformationObject ;
+    rdfs:label "has Information Object" ;
+    rdfs:comment "Links an event to an information object." .
+
+# Section 2: SHACL Validation Shapes
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+# Event Shape
+core:EventShape a sh:NodeShape ;
+    sh:targetClass core:Event ;
+    sh:property [
+        sh:path core:hasSpatioTemporalExtent ;
+        sh:minCount 1 ;
+        sh:class core:SpatioTemporalExtent ;
+    ] ;
+    sh:property [
+        sh:path core:providesParticipantRole ;
+        sh:minCount 1 ;
+        sh:class core:ParticipantRole ;
+    ] ;
+    sh:property [
+        sh:path core:hasInformationObject ;
+        sh:class core:InformationObject ;
+    ] .
+
+# Participant Role Shape
+core:ParticipantRoleShape a sh:NodeShape ;
+    sh:targetClass core:ParticipantRole ;
+    sh:property [
+        sh:path core:hasParticipant ;
+        sh:minCount 1 ;
+        sh:class core:Participant ;
+    ] .
+
+# Disjointness Constraints
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+core:Event a owl:Class ;
+    owl:disjointWith core:SpatioTemporalExtent, core:ParticipantRole, core:InformationObject .
+
+# Section 3: N3 Reasoning Rules
+@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+
+# Rule 1: Transitivity of subEventOf
+{
+    ?subEvent core:subEventOf ?midEvent .
+    ?midEvent core:subEventOf ?parentEvent .
+} => {
+    ?subEvent core:subEventOf ?parentEvent .
+} .
+
+# Rule 2: Participant Inheritance
+{
+    ?subEvent core:providesParticipantRole ?role .
+    ?subEvent core:subEventOf ?parentEvent .
+} => {
+    ?parentEvent core:providesParticipantRole ?role .
+} .
+
+# Rule 3: SpatioTemporalExtent Inheritance
+{
+    ?subEvent core:hasSpatioTemporalExtent ?subSTE .
+    ?subEvent core:subEventOf ?parentEvent .
+    ?parentEvent core:hasSpatioTemporalExtent ?parentSTE .
+} => {
+    ?subSTE core:subSTEOf ?parentSTE .
+} .
+
+# Rule 4: Disjointness Violation Detection
+{
+    ?x a core:Event, core:SpatioTemporalExtent .
+} => {
+    _:violation a :DisjointnessViolation ;
+    :details "An entity cannot be both an Event and a SpatioTemporalExtent." .
+} .
+
+# Section 4: Metadata for Agentic Systems
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+core:EventPatternMetadata a rdfs:Resource ;
+    dcterms:title "Faithful Core Event Pattern" ;
+    dcterms:description "This pattern models events faithfully to the original core event pattern with spatiotemporal extent and participant roles." ;
+    dcterms:creator "Example Author" ;
+    dcterms:keywords "event, spatiotemporal extent, participant, participant role, subevent, schema.org" ;
+    dcterms:issued "2024-12-05" .
