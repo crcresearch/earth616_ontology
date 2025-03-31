@@ -1,4 +1,3 @@
-
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -6,32 +5,41 @@
 @prefix dscdo: <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-# Core Identifier Class
+# --- Core Identifier Class ---
+# Represents the identifier itself (e.g., the GTIN number)
 dscdo:Identifier rdfs:subClassOf schema:PropertyValue ;
     rdfs:label "Identifier"@en ;
-    rdfs:comment "A generic identifier for entities in the defense supply chain"@en ;
-    skos:definition "A standardized code, number, or reference that uniquely identifies an entity, document, or resource within the defense supply chain context."@en ;
-    skos:example "Examples include NSN, CAGE codes, DoDAAC, DIDs, and GS1 identifiers like GTIN or SSCC."@en ;
+    rdfs:comment "A generic identifier for entities, aligned with ODP. Represents the abstract identifier value and its type."@en ;
+    skos:definition "A standardized code, number, or reference that uniquely identifies an entity, document, or resource. Holds the core identifier value (via schema:value) and type."@en ;
     rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
 
-# Identifier Type (as a concept scheme)
+# --- Identifier Encoding Class (NEW, per ODP) ---
+# Represents a specific instance of encoding (e.g., a specific barcode)
+dscdo:IdentifierEncoding rdf:type rdfs:Class ;
+    rdfs:label "Identifier Encoding"@en ;
+    rdfs:comment "Represents a specific instance of how an identifier is encoded (e.g., a specific barcode instance, an RFID tag encoding)."@en ;
+    skos:definition "Details the specific encoding scheme and source/authority for a particular physical or electronic representation of an identifier."@en ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
+
+# --- Concept Schemes (Unchanged) ---
+# Define the controlled vocabularies for types and schemes
+
 dscdo:IdentifierType rdfs:subClassOf skos:Concept ;
     rdfs:label "Identifier Type"@en ;
-    rdfs:comment "The classification or category of an identifier"@en ;
-    skos:definition "Categorizes identifiers by their standardization system, issuing authority, or intended use."@en ;
+    rdfs:comment "The classification or category of an identifier."@en ;
+    skos:definition "Categorizes identifiers by their standardization system, issuing authority, or intended use (e.g., GTIN, SSCC, NSN)."@en ;
     skos:inScheme dscdo:IdentifierTypeScheme ;
     rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
 
 dscdo:IdentifierTypeScheme rdf:type skos:ConceptScheme ;
     rdfs:label "Identifier Type Scheme"@en ;
-    skos:definition "A controlled vocabulary of identifier types used in defense supply chain documentation."@en ;
+    skos:definition "A controlled vocabulary of identifier types."@en ;
     rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
 
-# Encoding Scheme (as a concept scheme)
 dscdo:EncodingScheme rdfs:subClassOf skos:Concept ;
     rdfs:label "Encoding Scheme"@en ;
-    rdfs:comment "The method used to physically or electronically encode an identifier"@en ;
-    skos:definition "Defines how an identifier is physically represented or encoded for machine reading, such as barcode symbologies or RFID."@en ;
+    rdfs:comment "The method used to physically or electronically encode an identifier."@en ;
+    skos:definition "Defines how an identifier is physically represented or encoded for machine reading (e.g., Data Matrix, Code 128, RFID EPC)."@en ;
     skos:inScheme dscdo:EncodingSchemeScheme ;
     rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
 
@@ -40,54 +48,82 @@ dscdo:EncodingSchemeScheme rdf:type skos:ConceptScheme ;
     skos:definition "A controlled vocabulary of encoding schemes used for representing identifiers."@en ;
     rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
 
-# Core Properties
+# --- Core Properties ---
+
+# Property linking Identifier to its Type (Unchanged)
 dscdo:identifierType rdf:type rdf:Property ;
     rdfs:label "identifier type"@en ;
     skos:definition "Specifies the type or category of the identifier."@en ;
-    skos:example "NSN, CAGE, GTIN, DID, etc."@en ;
+    skos:example "Connects dscdo:Identifier to a dscdo:IdentifierType concept."@en ;
     rdfs:domain dscdo:Identifier ;
     rdfs:range dscdo:IdentifierType ;
     rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
 
-dscdo:encodingScheme rdf:type rdf:Property ;
-    rdfs:label "encoding scheme"@en ;
-    skos:definition "Specifies the physical or electronic encoding scheme used for an identifier."@en ;
-    skos:example "QR Code, Data Matrix, Code 128, RFID"@en ;
+# Property linking Identifier to its specific Encoding(s) (NEW, per ODP)
+dscdo:hasIdentifierEncoding rdf:type rdf:Property ;
+    rdfs:label "has identifier encoding"@en ;
+    skos:definition "Links an identifier to one or more specific instances of its physical or electronic encoding."@en ;
+    skos:example "Connects dscdo:Identifier to dscdo:IdentifierEncoding resources."@en ;
     rdfs:domain dscdo:Identifier ;
-    rdfs:range dscdo:EncodingScheme ;
+    rdfs:range dscdo:IdentifierEncoding ;
     rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
+
+# Property linking an Encoding instance to its Scheme/Type (NEW, per ODP)
+dscdo:hasIdentifierEncodingScheme rdf:type rdf:Property ;
+    rdfs:label "has identifier encoding scheme"@en ;
+    skos:definition "Specifies the encoding scheme used for this specific identifier encoding instance."@en ;
+    skos:example "Connects dscdo:IdentifierEncoding to a dscdo:EncodingScheme concept (e.g., Data Matrix)."@en ;
+    rdfs:domain dscdo:IdentifierEncoding ; # Domain is the encoding instance
+    rdfs:range dscdo:EncodingScheme ;     # Range is the scheme concept
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
+
+# Property linking an Encoding instance to its Source/Authority (Domain Changed, per ODP)
+# Renamed for clarity from 'issuingAuthority' to 'hasEncodingSource' to better reflect ODP alignment
+dscdo:hasEncodingSource rdf:type rdf:Property ;
+    rdfs:label "has encoding source"@en ;
+    skos:definition "The organization or system responsible for creating or providing this specific encoding instance."@en ;
+    skos:example "Connects dscdo:IdentifierEncoding to a schema:Organization (e.g., Supplier X's printing system, Warehouse RFID writer)."@en ;
+    rdfs:domain dscdo:IdentifierEncoding ; # Domain is the encoding instance
+    rdfs:range schema:Organization ;
+    rdfs:subPropertyOf dscdo:issuingAuthority ; # Optional: If you want to relate it back / keep backward compatibility
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
+
+# Original 'issuingAuthority' - Now potentially applies to the Identifier concept itself, or deprecated if source only applies to encoding
+# Decide if you need authority at both levels. If source *only* applies to encoding, remove/deprecate this.
+# If authority can apply to the Identifier itself (e.g. GS1 issues the GTIN concept), keep it with domain dscdo:Identifier.
+# For now, let's assume the primary source info moves to the encoding:
+dscdo:issuingAuthority rdf:type rdf:Property ;
+     rdfs:label "issuing authority (Identifier Level)"@en ;
+     skos:definition "The organization or system responsible for issuing and managing the identifier type or value itself (if different from encoding source)."@en ;
+     skos:example "GS1, Defense Logistics Agency"@en ;
+     rdfs:domain dscdo:Identifier ;
+     rdfs:range schema:Organization ;
+     rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
+
+
 
 dscdo:identifierFormat rdf:type rdf:Property ;
     rdfs:label "identifier format"@en ;
-    skos:definition "Describes the structure and format of the identifier value."@en ;
-    skos:example "NSN: XXXX-XX-XXX-XXXX, CAGE: XXXXX, DID: did:{method}:{method-specific-id}"@en ;
+    skos:definition "Describes the typical structure and format of the identifier value string."@en ;
+    skos:example "NSN: XXXX-XX-XXX-XXXX, CAGE: XXXXX"@en ;
     rdfs:domain dscdo:Identifier ;
     rdfs:range xsd:string ;
     rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
 
 dscdo:formatRegex rdf:type rdf:Property ;
     rdfs:label "format regex"@en ;
-    skos:definition "A regular expression pattern that validates the format of the identifier value."@en ;
+    skos:definition "A regular expression pattern that validates the format of the identifier value string."@en ;
     rdfs:domain dscdo:Identifier ;
     rdfs:range xsd:string ;
     rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
 
-dscdo:issuingAuthority rdf:type rdf:Property ;
-    rdfs:label "issuing authority"@en ;
-    skos:definition "The organization or system responsible for issuing and managing the identifier."@en ;
-    skos:example "Defense Logistics Agency, GS1, W3C"@en ;
-    rdfs:domain dscdo:Identifier ;
-    rdfs:range schema:Organization ;
-    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
-
 dscdo:equivalentIdentifier rdf:type rdf:Property ;
     rdfs:label "equivalent identifier"@en ;
-    skos:definition "Links an identifier to another identifier that represents the same entity in a different identification system."@en ;
+    skos:definition "Links an identifier to another identifier instance that represents the same conceptual entity in a different identification system."@en ;
     rdfs:domain dscdo:Identifier ;
     rdfs:range dscdo:Identifier ;
     rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
 
-# LLM Guidance
 dscdo:llmGuidance rdf:type rdf:Property ;
     rdfs:label "LLM guidance"@en ;
     skos:definition "Provides explicit guidance for LLMs on how to construct, validate, and use this identifier."@en ;
