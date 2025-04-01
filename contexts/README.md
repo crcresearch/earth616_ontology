@@ -1,24 +1,15 @@
 # Defense Supply Chain and Documentation Ontology (DSCDO) - JSON-LD Contexts Directory
 
-Welcome to the JSON-LD Contexts Directory for the Defense Supply Chain and Documentation Ontology (DSCDO). This directory contains essential files that facilitate the use and integration of DSCDO in various applications, enabling seamless interoperability and data exchange across systems.
+Welcome to the JSON-LD Contexts Directory for the Defense Supply Chain and Documentation Ontology (DSCDO). This directory contains the context files that enable semantic interoperability for supply chain documentation and events, specifically designed to support LLM-based agentic systems that navigate linked data.
 
-## What is a JSON-LD Context File?
+## Our Modular Context Approach
 
-A JSON-LD context file is a key component in the Linked Data ecosystem. It serves as a mapping between terms used in a JSON document and their corresponding IRIs (Internationalized Resource Identifiers), which uniquely identify these terms in the context of the web. By defining a context, JSON-LD makes it possible to use short, human-readable terms in JSON documents while ensuring they are linked to unambiguous definitions.
+DSCDO uses a modular approach to JSON-LD contexts that follows these principles:
 
-### Key Benefits of JSON-LD Context Files:
-- **Simplifies Data Exchange**: By providing a clear mapping of terms to their IRIs, JSON-LD contexts make it easier to understand and exchange data between different systems.
-- **Promotes Interoperability**: Ensures that terms are consistently understood across diverse applications and platforms.
-- **Enhances Semantic Understanding**: Links terms to their precise definitions, fostering better semantic interpretation of data.
-
-## What is a Vocabulary?
-
-In the context of DSCDO, a vocabulary refers to the set of terms and their definitions used to describe concepts and relationships within the defense supply chain and documentation domain. The vocabulary provides a structured framework for representing data, ensuring consistency and clarity in how information is described and understood.
-
-### Key Components of a Vocabulary:
-- **Terms**: The specific words or phrases used to represent concepts.
-- **Definitions**: Detailed explanations of what each term means.
-- **Relationships**: The connections between different terms, describing how they interact or relate to one another.
+1. **Base + Type-Specific Structure**: We separate contexts into a common base and specialized type-specific contexts.
+2. **Explicit Validation Links**: Each type-specific context links directly to its corresponding SHACL validation shape.
+3. **Rich Semantic Annotations**: Contexts include natural language descriptions to support LLM understanding.
+4. **"Follow Your Nose" Pattern**: Contexts are designed to let agents discover validation rules and related resources.
 
 ## Directory Structure
 
@@ -26,42 +17,141 @@ The JSON-LD Contexts Directory is organized as follows:
 
 ```
 /contexts
-    - dscdo-context.jsonld
-    - supply-chain-context.jsonld
-    - documentation-context.jsonld
-    - ... (additional context files)
+    - context-base.jsonld (Common prefixes and shared terms)
+    - context-document.jsonld (SCDigitalDocument and related types)
+    - context-event.jsonld (TransferEvent, TransformationEvent, etc.)
+    - context-identifier.jsonld (Identifier patterns and vocabulary)
+    /examples
+        - document-instance.jsonld (Example document using the contexts)
+        - event-instance.jsonld (Example event using the contexts)
 ```
 
-### Example Context File: `dscdo-context.jsonld`
+## Context Files Explained
 
-This file provides mappings for the core terms used in the DSCDO. It defines the relationships between the short terms used in JSON documents and their full IRIs, ensuring that data is consistently interpreted across different systems.
+### Base Context: `context-base.jsonld`
+
+This foundational context defines namespace prefixes and cross-cutting terms:
 
 ```json
 {
   "@context": {
-    "name": "http://example.org/vocab#name",
-    "description": "http://example.org/vocab#description",
-    "supplyChain": "http://example.org/vocab#supplyChain",
-    "documentation": "http://example.org/vocab#documentation"
+    "@version": 1.1,
+    "dscdo": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "schema": "https://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "epcis": "https://ref.gs1.org/epcis/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    
+    "id": "@id",
+    "type": "@type"
   }
 }
 ```
 
-## How to Use
+### Type-Specific Contexts
 
-1. **Include the Context in JSON-LD Documents**: Reference the appropriate context file in your JSON-LD documents to ensure that terms are correctly interpreted.
+Each type has its own context file that imports the base context and adds specialized terms:
+
+**Document Context: `context-document.jsonld`**
 
 ```json
 {
-  "@context": "http://example.org/contexts/dscdo-context.jsonld",
-  "name": "Defense Supply Chain",
-  "description": "A comprehensive ontology for the defense supply chain."
+  "@context": [
+    "https://example.org/contexts/dscdo/context-base.jsonld",
+    {
+      "documentType": {"@id": "dscdo:hasdocumenttype", "@type": "@id"},
+      "documentContent": {"@id": "dscdo:hasdocumentcontent", "@type": "@id"},
+      "contentText": "dscdo:processedtext",
+      "SCDigitalDocument": "dscdo:Scdigitaldocument",
+      "workflowExecution": {"@id": "dscdo:workflowExecution", "@type": "@id"}
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "dscdo:Scdigitaldocument",
+      "skos:definition": "Represents digital document that is supply chain documentation",
+      "sh:shapesGraph": "https://example.org/shapes/DocumentShape-v1.jsonld"
+    }
+  ]
 }
 ```
 
-2. **Validate Data**: Use the context files to validate your data, ensuring that all terms are correctly mapped and understood.
+**Event Context: `context-event.jsonld`**
 
-3. **Enhance Interoperability**: Integrate the context files into your applications to facilitate seamless data exchange and interoperability across systems.
+```json
+{
+  "@context": [
+    "https://example.org/contexts/dscdo/context-base.jsonld",
+    {
+      "eventTime": {"@id": "prov:startedAtTime", "@type": "xsd:dateTime"},
+      "location": {"@id": "dscdo:hasSTETE", "@type": "@id"},
+      "sourceAgent": {"@id": "dscdo:assumesRole", "@type": "@id"},
+      "targetAgent": {"@id": "dscdo:assumesRole", "@type": "@id"},
+      "TransferEvent": "dscdo:TransferEvent",
+      "TransformationEvent": "dscdo:TransformationEvent"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "dscdo:TransferEvent",
+      "skos:definition": "An event involving the transfer of goods or materials.",
+      "sh:shapesGraph": "https://example.org/shapes/TransferEventShape-v1.jsonld"
+    }
+  ]
+}
+```
+
+## Integration with EPCIS and Schema.org
+
+Our contexts leverage two established vocabularies:
+
+1. **EPCIS Integration**: We selectively incorporate relevant terms from the EPCIS standard, particularly for supply chain events, with explicit mappings to DSCDO equivalents.
+
+2. **Schema.org Adoption**: We use Schema.org as our model for general concepts like organizations, people, and creative works, following its straightforward RDFS structure and rich annotations approach.
+
+## Supporting Agentic Systems
+
+These contexts are specifically designed to support LLM-based agentic systems by:
+
+1. **Providing Rich Annotations**: Natural language definitions help LLMs understand terms.
+2. **Linking to Validation Shapes**: Direct connections to SHACL shapes enable validation.
+3. **Enabling Discovery**: Clear paths to related resources support the "follow your nose" pattern.
+4. **Maintaining Consistency**: Predictable patterns make processing easier for agents.
+
+## How to Use
+
+### 1. Include the Appropriate Context
+
+Reference the context file that matches your data type:
+
+```json
+{
+  "@context": "https://example.org/contexts/dscdo/context-document.jsonld",
+  "@id": "urn:uuid:123e4567-e89b-12d3-a456-426614174000",
+  "@type": "SCDigitalDocument",
+  "documentType": "dscdo:PurchaseOrder",
+  "contentText": "This purchase order describes receipt of 100 units..."
+}
+```
+
+### 2. Follow Validation Rules
+
+Use the SHACL shapes linked from the context to validate your data:
+
+```
+GET https://example.org/shapes/DocumentShape-v1.jsonld
+```
+
+### 3. Develop Agentic Workflows
+
+LLM agents can follow this pattern:
+1. Access an instance document
+2. Fetch its context
+3. Find and apply the validation shape
+4. Process the validated data
 
 ## Contributing
 
