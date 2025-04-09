@@ -1,0 +1,92 @@
+{
+    "@context": [
+      "http://www.w3.org/ns/shacl#",
+      {
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "dscdo": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/",
+        "prov": "http://www.w3.org/ns/prov#",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "schema": "https://schema.org/",
+        "dcterms": "http://purl.org/dc/terms/"
+      }
+    ],
+    "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/WorkflowShape-v1.jsonld",
+    "@type": "sh:NodeShape",
+    "sh:targetClass": "dscdo:Informationextractionworkflow",
+    "rdfs:label": "Information Extraction Workflow Shape",
+    "rdfs:comment": "SHACL shape for validating Information Extraction Workflow instances in the DSCDO ontology",
+    "skos:definition": "Defines constraints for workflows that extract information from supply chain documents",
+    "dcterms:created": "2025-04-01",
+    "dcterms:creator": "https://orcid.org/0000-0003-4091-6059",
+    "dcterms:version": "1.0",
+    "sh:property": [
+      {
+        "sh:path": "rdf:type",
+        "sh:hasValue": "dscdo:Informationextractionworkflow",
+        "sh:minCount": 1
+      },
+      {
+        "sh:path": "dscdo:hasWorkflow",
+        "sh:nodeKind": "sh:IRI",
+        "sh:class": "dscdo:Iepipeline",
+        "sh:minCount": 1,
+        "sh:maxCount": 1,
+        "rdfs:comment": "Links to the specific information extraction pipeline used"
+      },
+      {
+        "sh:path": "prov:used",
+        "sh:nodeKind": "sh:IRI",
+        "sh:class": "dscdo:Scdigitaldocument",
+        "sh:minCount": 1,
+        "rdfs:comment": "The source document(s) processed by this workflow"
+      },
+      {
+        "sh:path": "prov:generated",
+        "sh:nodeKind": "sh:IRI",
+        "sh:class": "dscdo:Documentcontent",
+        "sh:minCount": 1,
+        "rdfs:comment": "The document content produced by this workflow"
+      },
+      {
+        "sh:path": "prov:startedAtTime",
+        "sh:datatype": "xsd:dateTime",
+        "sh:maxCount": 1,
+        "rdfs:comment": "When the workflow execution started"
+      },
+      {
+        "sh:path": "prov:endedAtTime",
+        "sh:datatype": "xsd:dateTime",
+        "sh:maxCount": 1,
+        "rdfs:comment": "When the workflow execution completed"
+      },
+      {
+        "sh:path": "prov:wasAttributedTo",
+        "sh:nodeKind": "sh:IRI",
+        "sh:class": "prov:Agent",
+        "sh:minCount": 1,
+        "rdfs:comment": "The agent (person, organization, or software) responsible for this workflow execution"
+      },
+      {
+        "sh:path": "schema:version",
+        "sh:datatype": "xsd:string",
+        "sh:maxCount": 1,
+        "rdfs:comment": "The version of the workflow"
+      },
+      {
+        "sh:path": "schema:status",
+        "sh:datatype": "xsd:string",
+        "sh:maxCount": 1,
+        "sh:in": ["completed", "failed", "running", "cancelled"],
+        "rdfs:comment": "The status of the workflow execution"
+      }
+    ],
+    "sh:closed": false,
+    "sh:ignoredProperties": [
+      "rdf:type",
+      "rdfs:label",
+      "rdfs:comment"
+    ]
+  }

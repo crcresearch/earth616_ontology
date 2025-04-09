@@ -1,0 +1,34 @@
+<h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+        The Defense Supply Chain and Documentation Ontology (DSCDO) is a sophisticated framework designed to capture and link supply chain documentation artifacts to relevant events and Tradable Resource Units (TRUs). This ontology serves as a comprehensive model for representing the complex interactions and transactions within the defense supply chain, ensuring that every document, event, and resource unit is accurately documented and interconnected.
+
+        Key Components of DSCDO:
+
+        1. **Event Pattern**: The ontology leverages an Event Pattern to model various types of events such as TransferEvent, TransformationEvent, CustodyChangeEvent, OwnershipChangeEvent, TransportEvent, and ObservationEvent. Each event is linked to spatiotemporal aspects through the SpatiotemporalExtent class, which captures the time and place of occurrence.
+
+        2. **Participant Role**: Events are connected to participants through roles such as SourceRole, TargetRole, EquipmentRole, and CustodianRoles (both Source and Target). This ensures that every event is associated with one or more agents (e.g., organizations, individuals) fulfilling specific roles.
+
+        3. **Container and Containment Relations**: The ontology models containers and their types, along with the relationships of containment. This includes modeling the TemporalExtent of containment, allowing for the tracking of resources over time and space.
+
+        4. **Identifier Encoding**: To maintain traceability, DSCDO includes a detailed Identifier framework, encompassing IdentifierEncoding, IdentifierSource, and IdentifierType. This system ensures that each resource unit can be uniquely identified and traced through the supply chain.
+
+        5. **Traceable Resource Unit (TRU)**: The TRU is a core concept representing units that are tracked through the supply chain. This includes QuantityOfMaterial, which is further detailed by Material types, measurements, and units, ensuring precise tracking and management of resources.
+
+        6. **Observation and Measurement**: Observations are linked to TRUs to capture measurement data, such as quantity and quality, ensuring that all resource units are accurately monitored and recorded.
+
+        Knowledge Extraction Workflow:
+
+        The DSCDO is integrated into a knowledge extraction workflow designed to process supply chain documentation. This workflow involves:
+
+        1. **Document Acquisition**: Using advanced OCR technologies (e.g., Azure OCR), documents are scanned and converted into machine-readable formats.
+
+        2. **Knowledge Extraction**: Leveraging LLM AI-driven pipelines (e.g., LangGraph, LangChain), the extracted text is processed to identify and link relevant entities and events according to the DSCDO patterns.
+
+        3. **Triple Generation**: The processed information is transformed into RDF triples, forming a structured, queryable knowledge graph that adheres to the DSCDO schema. This enables advanced querying and analysis, facilitating decision-making and supply chain management.
+
+        Application and Benefits:
+
+        By implementing DSCDO, defense supply chain management can achieve higher levels of transparency, traceability, and efficiency. The ontology ensures that all documentation artifacts are systematically captured and linked to corresponding events and resource units, providing a robust framework for managing the complexities of defense logistics and procurement.
+
+        In summary, the DSCDO provides a comprehensive and structured approach to managing defense supply chain documentation, leveraging advanced knowledge extraction techniques to produce a detailed and interconnected view of supply chain activities.
+    </span>

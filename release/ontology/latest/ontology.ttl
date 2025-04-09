@@ -1,0 +1,1033 @@
+@prefix : <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
+
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> rdf:type owl:Ontology ;
+                                                                    owl:versionIRI <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/0.1.4> ;
+                                                                    <http://purl.org/dc/elements/1.1/abstract> """The Defense Supply Chain and Documentation Ontology (DSCDO) provides a formal model for representing knowledge about supply chain networks, processes, and entities. It enables interoperability and knowledge sharing between supply chain information systems by providing a common vocabulary and conceptual structure and supporting documentation providing supply chain provenance.
+
+Key concepts modeled include:
+
+- Supply chain stages such as suppliers, manufacturers
+- Products, materials, and information flows between supply chain stages  
+- Supply chain processes such as procurement, production, and transportation
+
+The ontology is designed to be extensible to support modeling of domain-specific supply chains and integration with other enterprise ontologies. It aims to facilitate supply chain analytics, decision support, knowledge management, and semantic integration of heterogeneous supply chain data sources."""@en ;
+                                                                    <http://purl.org/dc/terms/created> "2024-04-09"^^xsd:date ;
+                                                                    <http://purl.org/dc/terms/creator> _:genid1 ;
+                                                                    <http://purl.org/dc/terms/description> "An ontology for describing supply chain documentation."@en ;
+                                                                    <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> ;
+                                                                    <http://purl.org/dc/terms/modified> "2025-04-15"^^xsd:date ;
+                                                                    <http://purl.org/dc/terms/publisher> _:genid2 ,
+                                                                                                         _:genid3 ;
+                                                                    <http://purl.org/dc/terms/rights> "This work is licensed under a Creative Commons Attribution 4.0 International License."@en ;
+                                                                    <http://purl.org/dc/terms/rightsHolder> "SIMBA Chain, University of Notre Dame" ;
+                                                                    <http://purl.org/dc/terms/title> "Defense Supply Chain and Documentation Ontology (DSCDO)"@en ;
+                                                                    <http://purl.org/ontology/bibo/status> "Work in progress" ;
+                                                                    <http://purl.org/vocab/vann/preferredNamespacePrefix> "dscdo" ;
+                                                                    <http://purl.org/vocab/vann/preferredNamespaceUri> "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/" ;
+                                                                    owl:versionInfo "0.1.4"@en ;
+                                                                    <http://www.w3.org/2004/02/skos/core#changeNote> "0.1.0 - intial release of pattern skeletons"@en ,
+                                                                                                                     "0.1.1 - adding supply chain events from the supply chain pattern and connecting to the documentation extraction pattern"@en ,
+                                                                                                                     "0.1.2 - adding identifier patterns and beginning of shapes"@en ,
+                                                                                                                     "0.1.3 - chaning iri namespace and ontology prefix"@en ,
+                                                                                                                     "0.1.4 - adding identifiers module, jsonld-context documents and shapes for validating JSON-LD contexts."@en ;
+                                                                    <https://schema.org/codeRepository> "https://github.com/crcresearch/earth616_ontology"^^xsd:anyURI ;
+                                                                    <https://w3id.org/widoco/vocab#introduction> """
+        The Defense Supply Chain and Documentation Ontology (DSCDO) is a sophisticated framework designed to capture and link supply chain documentation artifacts to relevant events and Tradable Resource Units (TRUs). This ontology serves as a comprehensive model for representing the complex interactions and transactions within the defense supply chain, ensuring that every document, event, and resource unit is accurately documented and interconnected.
+
+        Key Components of DSCDO:
+
+        1. **Event Pattern**: The ontology leverages an Event Pattern to model various types of events such as TransferEvent, TransformationEvent, CustodyChangeEvent, OwnershipChangeEvent, TransportEvent, and ObservationEvent. Each event is linked to spatiotemporal aspects through the SpatiotemporalExtent class, which captures the time and place of occurrence.
+
+        2. **Participant Role**: Events are connected to participants through roles such as SourceRole, TargetRole, EquipmentRole, and CustodianRoles (both Source and Target). This ensures that every event is associated with one or more agents (e.g., organizations, individuals) fulfilling specific roles.
+
+        3. **Container and Containment Relations**: The ontology models containers and their types, along with the relationships of containment. This includes modeling the TemporalExtent of containment, allowing for the tracking of resources over time and space.
+
+        4. **Identifier Encoding**: To maintain traceability, DSCDO includes a detailed Identifier framework, encompassing IdentifierEncoding, IdentifierSource, and IdentifierType. This system ensures that each resource unit can be uniquely identified and traced through the supply chain.
+
+        5. **Traceable Resource Unit (TRU)**: The TRU is a core concept representing units that are tracked through the supply chain. This includes QuantityOfMaterial, which is further detailed by Material types, measurements, and units, ensuring precise tracking and management of resources.
+
+        6. **Observation and Measurement**: Observations are linked to TRUs to capture measurement data, such as quantity and quality, ensuring that all resource units are accurately monitored and recorded.
+
+        Knowledge Extraction Workflow:
+
+        The DSCDO is integrated into a knowledge extraction workflow designed to process supply chain documentation. This workflow involves:
+
+        1. **Document Acquisition**: Using advanced OCR technologies (e.g., Azure OCR), documents are scanned and converted into machine-readable formats.
+
+        2. **Knowledge Extraction**: Leveraging LLM AI-driven pipelines (e.g., LangGraph, LangChain), the extracted text is processed to identify and link relevant entities and events according to the DSCDO patterns.
+
+        3. **Triple Generation**: The processed information is transformed into RDF triples, forming a structured, queryable knowledge graph that adheres to the DSCDO schema. This enables advanced querying and analysis, facilitating decision-making and supply chain management.
+
+        Application and Benefits:
+
+        By implementing DSCDO, defense supply chain management can achieve higher levels of transparency, traceability, and efficiency. The ontology ensures that all documentation artifacts are systematically captured and linked to corresponding events and resource units, providing a robust framework for managing the complexities of defense logistics and procurement.
+
+        In summary, the DSCDO provides a comprehensive and structured approach to managing defense supply chain documentation, leveraging advanced knowledge extraction techniques to produce a detailed and interconnected view of supply chain activities.
+    """@en .
+
+_:genid1 rdf:type <https://schema.org/Person> ;
+          <https://schema.org/affiliation> "University of Notre Dame" ;
+          <https://schema.org/email> "cvardema@nd.edu"^^xsd:anyURI ;
+          <https://schema.org/name> "Charles F. Vardeman II" ;
+          <https://schema.org/url> "https://orcid.org/0000-0003-4091-6059"^^xsd:anyURI .
+
+_:genid2 rdf:type <https://schema.org/Organization> ;
+          <https://schema.org/name> "Center for Research Computing, University of Notre Dame" ;
+          <https://schema.org/url> "https://crc.nd.edu"^^xsd:anyURI .
+
+_:genid3 rdf:type <https://schema.org/Organization> ;
+          <https://schema.org/name> "Simba Chain" ;
+          <https://schema.org/url> "https://simbachain.com/" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/abstract
+<http://purl.org/dc/elements/1.1/abstract> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/rights
+<http://purl.org/dc/terms/rights> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/rightsHolder
+<http://purl.org/dc/terms/rightsHolder> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/ontology/bibo/status
+<http://purl.org/ontology/bibo/status> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#domain
+rdfs:domain rdf:type owl:AnnotationProperty ;
+            rdfs:subPropertyOf owl:ObjectProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#range
+rdfs:range rdf:type owl:AnnotationProperty ;
+           rdfs:subPropertyOf owl:ObjectProperty .
+
+
+###  http://www.w3.org/2002/07/owl#ObjectProperty
+owl:ObjectProperty rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#changeNote
+<http://www.w3.org/2004/02/skos/core#changeNote> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/prov#editorialNote
+<http://www.w3.org/ns/prov#editorialNote> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/prov#inverse
+<http://www.w3.org/ns/prov#inverse> rdf:type owl:AnnotationProperty ;
+                                    rdfs:comment "PROV-O does not define all property inverses. The directionalities defined in PROV-O should be given preference over those not defined. However, if users wish to name the inverse of a PROV-O property, the local name given by prov:inverse should be used."@en ;
+                                    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                    rdfs:seeAlso <http://www.w3.org/TR/prov-o/#names-of-inverse-properties> .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/hasContainedInRelation
+:hasContainedInRelation rdf:type owl:AnnotationProperty ;
+                        rdfs:subPropertyOf :subEventOf .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/hasFurtherDocumentation
+:hasFurtherDocumentation rdf:type owl:AnnotationProperty ;
+                         rdfs:subPropertyOf :hasInformationObject .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/hasInformationObject
+:hasInformationObject rdf:type owl:AnnotationProperty .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/hasPostCondition
+:hasPostCondition rdf:type owl:AnnotationProperty ;
+                  rdfs:subPropertyOf :subEventOf .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/hasPreCondition
+:hasPreCondition rdf:type owl:AnnotationProperty ;
+                 rdfs:subPropertyOf :subEventOf .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/hasSTETE
+:hasSTETE rdf:type owl:AnnotationProperty ;
+          rdfs:subPropertyOf :hasSpatioTemporalExtent .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/hasSpatioTemporalExtent
+:hasSpatioTemporalExtent rdf:type owl:AnnotationProperty .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/hasTemporalExtent
+:hasTemporalExtent rdf:type owl:AnnotationProperty ;
+                   rdfs:subPropertyOf :hasSpatioTemporalExtent .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/producedAt
+:producedAt rdf:type owl:AnnotationProperty ;
+            rdfs:subPropertyOf :subEventOf .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/providesParticipantRole
+:providesParticipantRole rdf:type owl:AnnotationProperty .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/providesRole
+:providesRole rdf:type owl:AnnotationProperty ;
+              rdfs:subPropertyOf :providesParticipantRole .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/subEventOf
+:subEventOf rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/affiliation
+<https://schema.org/affiliation> rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/codeRepository
+<https://schema.org/codeRepository> rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/contributor
+<https://schema.org/contributor> rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/email
+<https://schema.org/email> rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/name
+<https://schema.org/name> rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/url
+<https://schema.org/url> rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/widoco/vocab#introduction
+<https://w3id.org/widoco/vocab#introduction> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3.org/ns/prov#used
+<http://www.w3.org/ns/prov#used> rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasInfluencedBy> ;
+                                 rdfs:domain <http://www.w3.org/ns/prov#Activity> ;
+                                 rdfs:range <http://www.w3.org/ns/prov#Entity> ;
+                                 rdfs:comment "A prov:Entity that was used by this prov:Activity. For example, :baking prov:used :spoon, :egg, :oven ."@en ;
+                                 rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                 rdfs:label "used" ;
+                                 <http://www.w3.org/ns/prov#inverse> "wasUsedBy" .
+
+
+###  http://www.w3.org/ns/prov#wasAssociatedWith
+<http://www.w3.org/ns/prov#wasAssociatedWith> rdf:type owl:ObjectProperty ;
+                                              rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasInfluencedBy> ;
+                                              rdfs:domain <http://www.w3.org/ns/prov#Activity> ;
+                                              rdfs:range <http://www.w3.org/ns/prov#Agent> ;
+                                              rdfs:comment "An prov:Agent that had some (unspecified) responsibility for the occurrence of this prov:Activity."@en ;
+                                              rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                              rdfs:label "wasAssociatedWith" ;
+                                              <http://www.w3.org/ns/prov#inverse> "wasAssociateFor" .
+
+
+###  http://www.w3.org/ns/prov#wasDerivedFrom
+<http://www.w3.org/ns/prov#wasDerivedFrom> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasInfluencedBy> ;
+                                           rdfs:domain <http://www.w3.org/ns/prov#Entity> ;
+                                           rdfs:range <http://www.w3.org/ns/prov#Entity> ;
+                                           rdfs:comment "The more specific subproperties of prov:wasDerivedFrom (i.e., prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource) should be used when applicable."@en ;
+                                           rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                           rdfs:label "wasDerivedFrom" ;
+                                           <http://www.w3.org/2004/02/skos/core#definition> "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."@en ;
+                                           <http://www.w3.org/ns/prov#inverse> "hadDerivation" .
+
+
+###  http://www.w3.org/ns/prov#wasGeneratedBy
+<http://www.w3.org/ns/prov#wasGeneratedBy> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasInfluencedBy> ;
+                                           rdfs:domain <http://www.w3.org/ns/prov#Entity> ;
+                                           rdfs:range <http://www.w3.org/ns/prov#Activity> ;
+                                           rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                           rdfs:label "wasGeneratedBy" ;
+                                           <http://www.w3.org/ns/prov#inverse> "generated" .
+
+
+###  http://www.w3.org/ns/prov#wasInfluencedBy
+<http://www.w3.org/ns/prov#wasInfluencedBy> rdf:type owl:ObjectProperty ;
+                                            rdfs:domain [ rdf:type owl:Class ;
+                                                          owl:unionOf ( <http://www.w3.org/ns/prov#Activity>
+                                                                        <http://www.w3.org/ns/prov#Agent>
+                                                                        <http://www.w3.org/ns/prov#Entity>
+                                                                      )
+                                                        ] ;
+                                            rdfs:range [ rdf:type owl:Class ;
+                                                         owl:unionOf ( <http://www.w3.org/ns/prov#Activity>
+                                                                       <http://www.w3.org/ns/prov#Agent>
+                                                                       <http://www.w3.org/ns/prov#Entity>
+                                                                     )
+                                                       ] ;
+                                            rdfs:comment "Because prov:wasInfluencedBy is a broad relation, its more specific subproperties (e.g. prov:wasInformedBy, prov:actedOnBehalfOf, prov:wasEndedBy, etc.) should be used when applicable."@en ,
+                                                         "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>." ;
+                                            rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                            rdfs:label "wasInfluencedBy" ;
+                                            <http://www.w3.org/ns/prov#editorialNote> """The sub-properties of prov:wasInfluencedBy can be elaborated in more detail using the Qualification Pattern. For example, the binary relation :baking prov:used :spoon can be qualified by asserting :baking prov:qualifiedUsage [ a prov:Usage; prov:entity :spoon; prov:atLocation :kitchen ] .
+
+Subproperties of prov:wasInfluencedBy may also be asserted directly without being qualified.
+
+prov:wasInfluencedBy should not be used without also using one of its subproperties. 
+"""@en ;
+                                            <http://www.w3.org/ns/prov#inverse> "influenced" .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/assumesRole
+:assumesRole rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :assumesRole ;
+             rdfs:domain :Agent ;
+             rdfs:range :SupplyChainRole ;
+             rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+             rdfs:label "assumes role"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/hasContainedInRelation
+:hasContainedInRelation rdf:type owl:ObjectProperty ;
+                        rdfs:domain :SupplyChainEvent ;
+                        rdfs:range :ContainedInRelation .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/hasDocument
+:hasDocument rdf:type owl:ObjectProperty ;
+             rdfs:domain :DocumentationSource ;
+             rdfs:range :ScdigitaldocumentDocument ;
+             rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+             rdfs:label "hasDocument" .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/hasFurtherDocumentation
+:hasFurtherDocumentation rdf:type owl:ObjectProperty ;
+                         rdfs:domain :SupplyChainEvent ;
+                         rdfs:range :DocumentationSource .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/hasPostCondition
+:hasPostCondition rdf:type owl:ObjectProperty ;
+                  rdfs:domain :SupplyChainEvent ;
+                  rdfs:range :SupplyChainEvent .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/hasPreCondition
+:hasPreCondition rdf:type owl:ObjectProperty ;
+                 rdfs:domain :SupplyChainEvent ;
+                 rdfs:range :SupplyChainEvent .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/hasSTETE
+:hasSTETE rdf:type owl:ObjectProperty ;
+          rdfs:domain :SupplyChainEvent ;
+          rdfs:range :SupplyChainSpatiotemporalExtent .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/hasTemporalExtent
+:hasTemporalExtent rdf:type owl:ObjectProperty ;
+                   rdfs:domain :SupplyChainEvent ;
+                   rdfs:range :TemporalExtent .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/occursAt
+:occursAt rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          rdfs:domain :TransformationEvent ;
+          rdfs:range :TransformationActivity ;
+          rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+          rdfs:label "occurs at"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/producedAt
+:producedAt rdf:type owl:ObjectProperty ;
+            rdfs:domain :ObservationEvent ;
+            rdfs:range :SupplyChainEvent .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/providesRole
+:providesRole rdf:type owl:ObjectProperty ;
+              rdfs:domain :SupplyChainEvent ;
+              rdfs:range :SupplyChainRole .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/assumesRole
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/assumesRole> rdf:type owl:ObjectProperty ;
+                                                                                           rdfs:domain <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Agent> ;
+                                                                                           rdfs:range <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/ParticipantRole> ;
+                                                                                           rdfs:comment "Relates an agent to the role it plays in an event."@en ;
+                                                                                           rdfs:label "assumes role"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/contentExtractedFrom
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/contentExtractedFrom> rdf:type owl:ObjectProperty ;
+                                                                                                    rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasDerivedFrom> ;
+                                                                                                    rdfs:domain <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Documentcontent> ;
+                                                                                                    rdfs:range <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Scdigitaldocument> ;
+                                                                                                    rdfs:comment "Indicates that the document content was derived from a specific digital document." ;
+                                                                                                    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                                                                                                    rdfs:label "contentExtractedFrom" .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/hasInformationObject
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/hasInformationObject> rdf:type owl:ObjectProperty ;
+                                                                                                    rdfs:range <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/InformationObject> ;
+                                                                                                    rdfs:comment "Property relating Event to InformationObject in this pattern. The domain of this property is not restricted to Event since it is possible that non-event to have an information object. The range is always InformationObject since it makes no sense to have a property named hasInformationObject to point to anything other than information object."@en ;
+                                                                                                    rdfs:label "has information object"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/hasSpatioTemporalExtent
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/hasSpatioTemporalExtent> rdf:type owl:ObjectProperty ;
+                                                                                                       rdfs:range <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/SpatioTemporalExtent> ;
+                                                                                                       rdfs:comment "Property relating Event to SpatioTemporalExtent in this pattern. The range is always SpatioTemporalExtent (globally) since it makes no sense to have a property named hasSpatioTemporalExtent to point to anything other than spatiotemporal extent. The domain is not set to Event as non-Event may also have spatiotemporal extent."@en ;
+                                                                                                       rdfs:label "has spatiotemporal extent"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/hasWorkflow
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/hasWorkflow> rdf:type owl:ObjectProperty ;
+                                                                                           rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+                                                                                           rdfs:domain <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/InformationExtractionWorkflow> ;
+                                                                                           rdfs:range <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Iepipeline> ;
+                                                                                           rdfs:comment "Associates an information extraction workflow with a specific pipeline." ;
+                                                                                           rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                                                                                           rdfs:label "hasWorkflow" .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/hasdocumentcontent
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/hasdocumentcontent> rdf:type owl:ObjectProperty ;
+                                                                                                  rdfs:domain <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Scdigitaldocument> ;
+                                                                                                  rdfs:range <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Documentcontent> ;
+                                                                                                  rdfs:comment "Links a digital document to its content extracted via OCR." ;
+                                                                                                  rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                                                                                                  rdfs:label "hasDocumentContent" .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/hasdocumenttype
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/hasdocumenttype> rdf:type owl:ObjectProperty ;
+                                                                                               rdfs:domain <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Scdigitaldocument> ;
+                                                                                               rdfs:range <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/DocumentType> ;
+                                                                                               rdfs:comment "Specifies the type or category of a digital document." ;
+                                                                                               rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                                                                                               rdfs:label "hasDocumentType" .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/providesParticipantRole
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/providesParticipantRole> rdf:type owl:ObjectProperty ;
+                                                                                                       rdfs:range <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/ParticipantRole> ;
+                                                                                                       rdfs:comment "Property relating Event to ParticipantRole in this pattern. The range is always ParticipantRole since it makes no sense to have a property named as providesParticipantRole not to point to a participant role. The domain is not set to Event as non-Event may also provide a participant role."@en ;
+                                                                                                       rdfs:label "provides participant role"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/subEventOf
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/subEventOf> rdf:type owl:ObjectProperty ;
+                                                                                          rdfs:domain <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Event> ;
+                                                                                          rdfs:range <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Event> ;
+                                                                                          rdfs:comment "Property expressing partonomic relation between two events. Domain and range are always Event."@en ;
+                                                                                          rdfs:label "sub event of"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/workflowExecution
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/workflowExecution> rdf:type owl:ObjectProperty ;
+                                                                                                 rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasGeneratedBy> ;
+                                                                                                 rdfs:domain <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Documentcontent> ;
+                                                                                                 rdfs:range <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Informationextractionworkflow> ;
+                                                                                                 rdfs:comment "Connects the document content to the workflow that processed it." ;
+                                                                                                 rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                                                                                                 rdfs:label "workflowExecution" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/processedtext
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/processedtext> rdf:type owl:DatatypeProperty ;
+                                                                                             rdfs:domain <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Documentcontent> ;
+                                                                                             rdfs:range xsd:string ;
+                                                                                             rdfs:comment "The processed text of a digitized document." ;
+                                                                                             rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> ;
+                                                                                             rdfs:label "processedText" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://org.semanticweb.owlapi/error#Error1
+<http://org.semanticweb.owlapi/error#Error1> rdf:type owl:Class ;
+                                             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :hasSTETE ;
+                                                                   owl:someValuesFrom :SupplyChainSpatiotemporalExtent
+                                                                 ] .
+
+
+###  http://org.semanticweb.owlapi/error#Error2
+<http://org.semanticweb.owlapi/error#Error2> rdf:type owl:Class ;
+                                             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :providesRole ;
+                                                                   owl:someValuesFrom :SupplyChainRole
+                                                                 ] .
+
+
+###  http://purl.org/vocommons/voaf#Vocabulary
+<http://purl.org/vocommons/voaf#Vocabulary> rdf:type owl:Class .
+
+
+###  http://schema.org/DigitalDocument
+<http://schema.org/DigitalDocument> rdf:type owl:Class .
+
+
+###  http://schema.org/Enumeration
+<http://schema.org/Enumeration> rdf:type owl:Class .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#Restriction
+rdfs:Restriction rdf:type owl:Class .
+
+
+###  http://www.w3.org/2002/07/owl#Thing
+owl:Thing rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/hasInformationObject> ;
+                            owl:allValuesFrom <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/InformationObject>
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/hasSpatioTemporalExtent> ;
+                            owl:allValuesFrom <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/SpatioTemporalExtent>
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/providesParticipantRole> ;
+                            owl:allValuesFrom <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/ParticipantRole>
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/subEventOf> ;
+                            owl:allValuesFrom <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Event>
+                          ] .
+
+
+###  http://www.w3.org/ns/prov#Activity
+<http://www.w3.org/ns/prov#Activity> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/prov#Agent
+<http://www.w3.org/ns/prov#Agent> rdf:type owl:Class ;
+                                  owl:disjointWith <http://www.w3.org/ns/prov#InstantaneousEvent> ;
+                                  rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                  rdfs:label "Agent" ;
+                                  <http://www.w3.org/2004/02/skos/core#definition> "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity. "@en .
+
+
+###  http://www.w3.org/ns/prov#Entity
+<http://www.w3.org/ns/prov#Entity> rdf:type owl:Class ;
+                                   owl:disjointWith <http://www.w3.org/ns/prov#InstantaneousEvent> ,
+                                                    <http://www.w3.org/ns/prov#:Activity> ;
+                                   rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                   rdfs:label "Entity" ;
+                                   <http://www.w3.org/2004/02/skos/core#definition> "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. "@en .
+
+
+###  http://www.w3.org/ns/prov#InstantaneousEvent
+<http://www.w3.org/ns/prov#InstantaneousEvent> rdf:type owl:Class ;
+                                               rdfs:comment "An instantaneous event, or event for short, happens in the world and marks a change in the world, in its activities and in its entities. The term 'event' is commonly used in process algebra with a similar meaning. Events represent communications or interactions; they are assumed to be atomic and instantaneous."@en ;
+                                               rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                               rdfs:label "InstantaneousEvent" ;
+                                               <http://www.w3.org/2004/02/skos/core#definition> "The PROV data model is implicitly based on a notion of instantaneous events (or just events), that mark transitions in the world. Events include generation, usage, or invalidation of entities, as well as starting or ending of activities. This notion of event is not first-class in the data model, but it is useful for explaining its other concepts and its semantics."@en .
+
+
+###  http://www.w3.org/ns/prov#Organization
+<http://www.w3.org/ns/prov#Organization> rdf:type owl:Class ;
+                                         rdfs:subClassOf <http://www.w3.org/ns/prov#Agent> ;
+                                         rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                         rdfs:label "Organization" ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "An organization is a social or legal institution such as a company, society, etc." .
+
+
+###  http://www.w3.org/ns/prov#Person
+<http://www.w3.org/ns/prov#Person> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://www.w3.org/ns/prov#Agent> ;
+                                   rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                   rdfs:label "Person" ;
+                                   <http://www.w3.org/2004/02/skos/core#definition> "Person agents are people."@en .
+
+
+###  http://www.w3.org/ns/prov#SoftwareAgent
+<http://www.w3.org/ns/prov#SoftwareAgent> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://www.w3.org/ns/prov#Agent> ;
+                                          rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                          rdfs:label "SoftwareAgent" ;
+                                          <http://www.w3.org/2004/02/skos/core#definition> "A software agent is running software."@en .
+
+
+###  http://www.w3.org/ns/prov#:Activity
+<http://www.w3.org/ns/prov#:Activity> rdf:type owl:Class ;
+                                      rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                                      rdfs:label "Activity" ;
+                                      <http://www.w3.org/2004/02/skos/core#definition> "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/Agent
+:Agent rdf:type owl:Class ;
+       rdfs:subClassOf :Agent ;
+       rdfs:comment "An entity participating in a supply chain event, such as a person, organization, or system."@en ;
+       rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+       rdfs:label "Agent"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/BeingMeasuredRole
+:BeingMeasuredRole rdf:type owl:Class ;
+                   rdfs:subClassOf :SupplyChainRole ;
+                   rdfs:comment "The role of goods or materials being observed or measured."@en ;
+                   rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                   rdfs:label "Being Measured Role"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/BeingShippedRole
+:BeingShippedRole rdf:type owl:Class ;
+                  rdfs:subClassOf :SupplyChainRole ;
+                  rdfs:comment "The role of goods or materials being shipped or transported."@en ;
+                  rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                  rdfs:label "Being Shipped Role"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/ContainedInRelation
+:ContainedInRelation rdf:type owl:Class ;
+                     rdfs:subClassOf owl:Thing ;
+                     rdfs:comment "Represents a containment relationship between events."@en ;
+                     rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                     rdfs:label "Contained In Relation"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/CustodyChangeEvent
+:CustodyChangeEvent rdf:type owl:Class ;
+                    rdfs:subClassOf :SupplyChainEvent ;
+                    rdfs:comment "An event where the custody of goods or materials changes."@en ;
+                    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                    rdfs:label "Custody Change Event"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/DocumentationSource
+:DocumentationSource rdf:type owl:Class ;
+                     rdfs:subClassOf :InformationObject ;
+                     rdfs:comment "A source of documentation or information related to an event."@en ;
+                     rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                     rdfs:label "Documentation Source"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/EquipmentRole
+:EquipmentRole rdf:type owl:Class ;
+               rdfs:subClassOf :SupplyChainRole ;
+               rdfs:comment "The role of equipment or machinery used in an event."@en ;
+               rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+               rdfs:label "Equipment Role"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/Event
+:Event rdf:type owl:Class .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/InformationObject
+:InformationObject rdf:type owl:Class .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/ObservationEvent
+:ObservationEvent rdf:type owl:Class ;
+                  rdfs:subClassOf :SupplyChainEvent ;
+                  rdfs:comment "An event where an observation or measurement is made on goods or materials."@en ;
+                  rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                  rdfs:label "Observation Event"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/OwnershipChangeEvent
+:OwnershipChangeEvent rdf:type owl:Class ;
+                      rdfs:subClassOf :SupplyChainEvent ;
+                      rdfs:comment "An event where the ownership of goods or materials changes."@en ;
+                      rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                      rdfs:label "Ownership Change Event"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/ParticipantRole
+:ParticipantRole rdf:type owl:Class .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/ScdigitaldocumentDocument
+:ScdigitaldocumentDocument rdf:type owl:Class .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/SourceCustodianRole
+:SourceCustodianRole rdf:type owl:Class ;
+                     rdfs:subClassOf :SupplyChainRole ;
+                     rdfs:comment "The role of the entity that has custody of goods or materials before an event."@en ;
+                     rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                     rdfs:label "Source Custodian Role"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/SourceOwnerRole
+:SourceOwnerRole rdf:type owl:Class ;
+                 rdfs:subClassOf :SupplyChainRole ;
+                 rdfs:comment "The role of the entity that owns goods or materials before an event."@en ;
+                 rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                 rdfs:label "Source Owner Role"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/SourceRole
+:SourceRole rdf:type owl:Class ;
+            rdfs:subClassOf :SupplyChainRole ;
+            rdfs:comment "The role of the entity from which goods or materials originate."@en ;
+            rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+            rdfs:label "Source Role"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/SpatioTemporalExtent
+:SpatioTemporalExtent rdf:type owl:Class .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/SupplyChainEvent
+:SupplyChainEvent rdf:type owl:Class ;
+                  rdfs:subClassOf <http://org.semanticweb.owlapi/error#Error1> ,
+                                  <http://org.semanticweb.owlapi/error#Error2> ,
+                                  :Event ;
+                  rdfs:comment "An event occurring in a supply chain process."@en ;
+                  rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                  rdfs:label "Supply Chain Event"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/SupplyChainRole
+:SupplyChainRole rdf:type owl:Class ;
+                 rdfs:subClassOf :ParticipantRole ;
+                 rdfs:comment "A role played by an entity in a supply chain event."@en ;
+                 rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                 rdfs:label "Supply Chain Role"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/SupplyChainSpatiotemporalExtent
+:SupplyChainSpatiotemporalExtent rdf:type owl:Class ;
+                                 rdfs:subClassOf :SpatioTemporalExtent ;
+                                 rdfs:comment "Represents the spatial and temporal extent of a supply chain event."@en ;
+                                 rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                                 rdfs:label "Supply Chain Spatiotemporal Extent"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/TargetCustodianRole
+:TargetCustodianRole rdf:type owl:Class ;
+                     rdfs:subClassOf :SupplyChainRole ;
+                     rdfs:comment "The role of the entity that gains custody of goods or materials after an event."@en ;
+                     rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                     rdfs:label "Target Custodian Role"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/TargetOwnerRole
+:TargetOwnerRole rdf:type owl:Class ;
+                 rdfs:subClassOf :SupplyChainRole ;
+                 rdfs:comment "The role of the entity that gains ownership of goods or materials after an event."@en ;
+                 rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                 rdfs:label "Target Owner Role"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/TargetRole
+:TargetRole rdf:type owl:Class ;
+            rdfs:subClassOf :SupplyChainRole ;
+            rdfs:comment "The role of the entity to which goods or materials are destined."@en ;
+            rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+            rdfs:label "Target Role"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/TemporalExtent
+:TemporalExtent rdf:type owl:Class .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/TransferEvent
+:TransferEvent rdf:type owl:Class ;
+               rdfs:subClassOf :SupplyChainEvent ;
+               rdfs:comment "An event involving the transfer of goods or materials."@en ;
+               rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+               rdfs:label "Transfer Event"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/TransformationActivity
+:TransformationActivity rdf:type owl:Class ;
+                        rdfs:subClassOf owl:Thing ;
+                        rdfs:comment "An activity or process that transforms goods or materials."@en ;
+                        rdfs:label "Transformation Activity"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/TransformationEvent
+:TransformationEvent rdf:type owl:Class ;
+                     rdfs:subClassOf :SupplyChainEvent ;
+                     rdfs:comment "An event where goods or materials undergo a transformation process."@en ;
+                     rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                     rdfs:label "Transformation Event"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/TransportEvent
+:TransportEvent rdf:type owl:Class ;
+                rdfs:subClassOf :TransferEvent ;
+                rdfs:comment "An event involving the transportation of goods or materials."@en ;
+                rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                rdfs:label "Transport Event"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Agent
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Agent> rdf:type owl:Class ;
+                                                                                     rdfs:comment "An entity participating in an event, such as a person, organization, or system."@en ;
+                                                                                     rdfs:label "Agent"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/DigitalDocument
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/DigitalDocument> rdf:type owl:Class ;
+                                                                                               rdfs:subClassOf <http://schema.org/DigitalDocument> ,
+                                                                                                               <http://www.w3.org/ns/prov#Entity> ,
+                                                                                                               <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Document> ;
+                                                                                               rdfs:comment "Represents a digital document that has been scanned and digitized, and is part of the broader document processing workflow." ;
+                                                                                               rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> ;
+                                                                                               rdfs:label "DigitalDocument" .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Document
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Document> rdf:type owl:Class ;
+                                                                                        rdfs:comment "A general class for documents." ;
+                                                                                        rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                                                                                        rdfs:label "Document" .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/DocumentType
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/DocumentType> rdf:type owl:Class ;
+                                                                                            rdfs:subClassOf <http://schema.org/Enumeration> ;
+                                                                                            rdfs:comment "Represents the type or classification of a document." ;
+                                                                                            rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                                                                                            rdfs:label "DocumentType" .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Documentcontent
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Documentcontent> rdf:type owl:Class ;
+                                                                                               rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
+                                                                                               rdfs:comment "Represents the content extracted from a document." ;
+                                                                                               rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                                                                                               rdfs:label "DocumentContent" .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Event
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Event> rdf:type owl:Class ;
+                                                                                     rdfs:comment "Represents any kind of events. An event possesses a spatiotemporal extent, provides at least one participant-role, which is performed by some entity (agents or otherwise), and may be a sub-event of another event. An event may also have additional descriptive information, which is consolidated through an information object."@en ;
+                                                                                     rdfs:label "Event"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Iepipeline
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Iepipeline> rdf:type owl:Class ;
+                                                                                          rdfs:subClassOf <http://www.w3.org/ns/prov#SoftwareAgent> ;
+                                                                                          rdfs:comment "Represents a pipeline used in the information extraction process." ;
+                                                                                          rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                                                                                          rdfs:label "IEPipeline" .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/InformationExtractionWorkflow
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/InformationExtractionWorkflow> rdf:type owl:Class .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/InformationObject
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/InformationObject> rdf:type owl:Class ;
+                                                                                                 rdfs:comment "An entity that encapsulates all descriptive or non-defining information of the corresponding event, e.g., names, additional identifiers, textual descriptions, etc. Should normally be aligned to a separate Information Object pattern."@en ;
+                                                                                                 rdfs:label "Information Object"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Informationextractionworkflow
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Informationextractionworkflow> rdf:type owl:Class ;
+                                                                                                             rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ;
+                                                                                                             rdfs:comment "Represents a workflow or process of extracting information from documents." ;
+                                                                                                             rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                                                                                                             rdfs:label "InformationExtractionWorkflow" .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/ParticipantRole
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/ParticipantRole> rdf:type owl:Class ;
+                                                                                               rdfs:comment "Every ParticipantRole represents a reified relationship between an event and one of its participants. Should normally be aligned to a separate Participant-Role pattern."@en ;
+                                                                                               rdfs:label "Participant Role"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Scdigitaldocument
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/Scdigitaldocument> rdf:type owl:Class ;
+                                                                                                 rdfs:subClassOf <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/DigitalDocument> ;
+                                                                                                 rdfs:comment "Represents digital document that is supply chain documentation" ;
+                                                                                                 rdfs:isDefinedBy <https://schema.earth616.crc.nd.edu:8443/nd/scdoc/ont/> ;
+                                                                                                 rdfs:label "SCDigitalDocument" .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/SpatioTemporalExtent
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/SpatioTemporalExtent> rdf:type owl:Class ;
+                                                                                                    rdfs:comment "Hook to a complex notion representing a unified spatial and temporal extent. Intended to cover non-static or discontinuous spatiotemporal extent. Should be aligned to a separate Spatiotemporal Extent pattern."@en ;
+                                                                                                    rdfs:label "Spatiotemporal Extent"@en .
+
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/TemporalExtent
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/TemporalExtent> rdf:type owl:Class ;
+                                                                                              rdfs:subClassOf <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/SpatioTemporalExtent> ;
+                                                                                              rdfs:comment "Represents the temporal extent of an event."@en ;
+                                                                                              rdfs:label "Temporal Extent"@en .
+
+
+###  https://schema.org/CreativeWork
+<https://schema.org/CreativeWork> rdf:type owl:Class ;
+                                  rdfs:subClassOf <https://schema.org/Thing> ;
+                                  rdfs:comment "The most generic kind of creative work, including books, movies, photographs, software programs, etc." ;
+                                  rdfs:isDefinedBy <http://schema.org/> ;
+                                  rdfs:label "CreativeWork" ;
+                                  <https://schema.org/contributor> <https://schema.org/docs/collab/rNews> .
+
+
+###  https://schema.org/DigitalDocument
+<https://schema.org/DigitalDocument> rdf:type owl:Class ;
+                                     rdfs:subClassOf <https://schema.org/CreativeWork> ;
+                                     rdfs:comment "An electronic file or document." ;
+                                     rdfs:isDefinedBy <http://schema.org/> ;
+                                     rdfs:label "DigitalDocument" .
+
+
+###  https://schema.org/Enumeration
+<https://schema.org/Enumeration> rdf:type owl:Class ;
+                                 rdfs:isDefinedBy <https://schema.org> ;
+                                 rdfs:label "schema:Enumeration" .
+
+
+###  https://schema.org/Organization
+<https://schema.org/Organization> rdf:type owl:Class .
+
+
+###  https://schema.org/Person
+<https://schema.org/Person> rdf:type owl:Class .
+
+
+###  https://schema.org/Thing
+<https://schema.org/Thing> rdf:type owl:Class ;
+                           rdfs:comment "The most generic type of item." ;
+                           rdfs:isDefinedBy <http://schema.org/> ;
+                           rdfs:label "Thing" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.wikidata.org/entity/Q178848
+
+###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> rdf:type owl:NamedIndividual ,
+                                                                            <http://purl.org/vocommons/voaf#Vocabulary> .
+
+
+[ rdf:type rdfs:Restriction
+] .
+
+[ rdf:type rdfs:Restriction
+ ] .
+
+[ rdf:type rdfs:Restriction
+ ] .
+
+[ rdf:type rdfs:Restriction
+ ] .
+
+[ rdf:type rdfs:Restriction
+ ] .
+
+[ rdf:type rdfs:Restriction
+ ] .
+
+#################################################################
+#    Annotations
+#################################################################
+
+:hasContainedInRelation rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                         rdfs:label "has contained in relation"@en .
+
+
+:hasFurtherDocumentation rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                         rdfs:label "has further documentation"@en .
+
+
+:hasPostCondition rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                  rdfs:label "has postcondition"@en .
+
+
+:hasPreCondition rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                 rdfs:label "has precondition"@en .
+
+
+:hasSTETE rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+          rdfs:label "has spatiotemporal extent"@en .
+
+
+:hasTemporalExtent rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                   rdfs:label "has temporal extent"@en .
+
+
+:producedAt rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+            rdfs:label "produced at"@en .
+
+
+:providesRole rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+              rdfs:label "provides role"@en .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
