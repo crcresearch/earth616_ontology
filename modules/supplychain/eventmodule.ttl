@@ -15,97 +15,97 @@
 # Classes
 dscdo:SupplyChainEvent rdfs:subClassOf dscdo:Event ;
     rdfs:label "Supply Chain Event"@en ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:comment "An event occurring in a supply chain process."@en .
 
 dscdo:TransferEvent rdfs:subClassOf dscdo:SupplyChainEvent ;
     rdfs:label "Transfer Event"@en ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:comment "An event involving the transfer of goods or materials."@en .
 
 dscdo:TransformationEvent rdfs:subClassOf dscdo:SupplyChainEvent ;
     rdfs:label "Transformation Event"@en ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:comment "An event where goods or materials undergo a transformation process."@en .
 
 dscdo:CustodyChangeEvent rdfs:subClassOf dscdo:SupplyChainEvent ;
     rdfs:label "Custody Change Event"@en ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:comment "An event where the custody of goods or materials changes."@en .
 
 dscdo:OwnershipChangeEvent rdfs:subClassOf dscdo:SupplyChainEvent ;
     rdfs:label "Ownership Change Event"@en ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:comment "An event where the ownership of goods or materials changes."@en .
 
 dscdo:TransportEvent rdfs:subClassOf dscdo:TransferEvent ;
     rdfs:label "Transport Event"@en ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:comment "An event involving the transportation of goods or materials."@en .
 
 dscdo:ObservationEvent rdfs:subClassOf dscdo:SupplyChainEvent ;
     rdfs:label "Observation Event"@en ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:comment "An event where an observation or measurement is made on goods or materials."@en .
 
 dscdo:SupplyChainRole rdfs:subClassOf dscdo:ParticipantRole ;
     rdfs:label "Supply Chain Role"@en ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:comment "A role played by an entity in a supply chain event."@en .
 
 dscdo:SourceRole rdfs:subClassOf dscdo:SupplyChainRole ;
     rdfs:label "Source Role"@en ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:comment "The role of the entity from which goods or materials originate."@en .
 
 dscdo:TargetRole rdfs:subClassOf dscdo:SupplyChainRole ;
     rdfs:label "Target Role"@en ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:comment "The role of the entity to which goods or materials are destined."@en .
 
 dscdo:EquipmentRole rdfs:subClassOf dscdo:SupplyChainRole ;
     rdfs:label "Equipment Role"@en ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:comment "The role of equipment or machinery used in an event."@en .
 
 dscdo:SourceCustodianRole rdfs:subClassOf dscdo:SupplyChainRole ;
     rdfs:label "Source Custodian Role"@en ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:comment "The role of the entity that has custody of goods or materials before an event."@en .
 
 dscdo:TargetCustodianRole rdfs:subClassOf dscdo:SupplyChainRole ;
     rdfs:label "Target Custodian Role"@en ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:comment "The role of the entity that gains custody of goods or materials after an event."@en .
 
 dscdo:SourceOwnerRole rdfs:subClassOf dscdo:SupplyChainRole ;
     rdfs:label "Source Owner Role"@en ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:comment "The role of the entity that owns goods or materials before an event."@en .
 
 dscdo:TargetOwnerRole rdfs:subClassOf dscdo:SupplyChainRole ;
     rdfs:label "Target Owner Role"@en ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:comment "The role of the entity that gains ownership of goods or materials after an event."@en .
 
 dscdo:BeingShippedRole rdfs:subClassOf dscdo:SupplyChainRole ;
     rdfs:label "Being Shipped Role"@en ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:comment "The role of goods or materials being shipped or transported."@en .
 
 dscdo:BeingMeasuredRole rdfs:subClassOf dscdo:SupplyChainRole ;
     rdfs:label "Being Measured Role"@en ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:comment "The role of goods or materials being observed or measured."@en .
 
 dscdo:Agent rdfs:subClassOf dscdo:Agent ;
     rdfs:label "Agent"@en ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:comment "An entity participating in a supply chain event, such as a person, organization, or system."@en .
 
 dscdo:SupplyChainSpatiotemporalExtent rdfs:subClassOf dscdo:SpatioTemporalExtent ;
     rdfs:label "Supply Chain Spatiotemporal Extent"@en ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:comment "Represents the spatial and temporal extent of a supply chain event."@en .
 
 dscdo:TransformationActivity rdfs:subClassOf owl:Thing ;
@@ -114,62 +114,62 @@ dscdo:TransformationActivity rdfs:subClassOf owl:Thing ;
 
 # Properties
 dscdo:providesRole rdfs:subPropertyOf dscdo:providesParticipantRole ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:label "provides role"@en ;
     rdfs:domain dscdo:SupplyChainEvent ;
     rdfs:range dscdo:SupplyChainRole .
 
 dscdo:assumesRole rdfs:subPropertyOf dscdo:assumesRole ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:label "assumes role"@en ;
     rdfs:domain dscdo:Agent ;
     rdfs:range dscdo:SupplyChainRole .
 
 
 dscdo:hasSTETE rdfs:subPropertyOf dscdo:hasSpatioTemporalExtent ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:label "has spatiotemporal extent"@en ;
     rdfs:domain dscdo:SupplyChainEvent ;
     rdfs:range dscdo:SupplyChainSpatiotemporalExtent .
 
 
 dscdo:hasTemporalExtent rdfs:subPropertyOf dscdo:hasSpatioTemporalExtent ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:label "has temporal extent"@en ;
     rdfs:domain dscdo:SupplyChainEvent ;
     rdfs:range dscdo:TemporalExtent .
 
 
 dscdo:hasContainedInRelation rdfs:subPropertyOf dscdo:subEventOf ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:label "has contained in relation"@en ;
     rdfs:domain dscdo:SupplyChainEvent ;
     rdfs:range dscdo:ContainedInRelation .
 
 
 dscdo:hasFurtherDocumentation rdfs:subPropertyOf dscdo:hasInformationObject ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:label "has further documentation"@en ;
     rdfs:domain dscdo:SupplyChainEvent ;
     rdfs:range dscdo:DocumentationSource .
 
 
 dscdo:occursAt rdfs:subPropertyOf owl:topObjectProperty ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:label "occurs at"@en ;
     rdfs:domain dscdo:TransformationEvent ;
     rdfs:range dscdo:TransformationActivity .
 
 
 dscdo:hasPreCondition rdfs:subPropertyOf dscdo:subEventOf ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:label "has precondition"@en ;
     rdfs:domain dscdo:SupplyChainEvent ;
     rdfs:range dscdo:SupplyChainEvent .
 
 
 dscdo:hasPostCondition rdfs:subPropertyOf dscdo:subEventOf ;
-    rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/>;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>;
     rdfs:label "has postcondition"@en ;
     rdfs:domain dscdo:SupplyChainEvent ;
     rdfs:range dscdo:SupplyChainEvent .

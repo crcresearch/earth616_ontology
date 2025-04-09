@@ -8,9 +8,9 @@
 
 
 # --- SCODOC ---
-@prefix dscdo: < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> .
-@prefix : < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> .
-@base < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> .
+@prefix dscdo: <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> .
+@prefix : <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> .
+@base <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> .
 
 
 dscdo:Event rdf:type rdfs:Class ;

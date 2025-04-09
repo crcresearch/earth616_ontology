@@ -8,9 +8,9 @@
 
 
 # --- SCODOC ---
-@prefix dscdo: < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> .
-@prefix : < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> .
-@base < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> .
+@prefix dscdo: <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> .
+@prefix : <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> .
+@base <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> .
 
 
 #################################################################
@@ -70,7 +70,7 @@ dscdo:processedtext rdf:type owl:DatatypeProperty ;
                  rdfs:domain dscdo:Documentcontent ;
                  rdfs:range xsd:string ;
                  rdfs:comment "The processed text of a digitized document." ;
-                 rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> ;
+                 rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> ;
                  rdfs:label "processedText" .
 
 
@@ -97,7 +97,7 @@ dscdo:Document rdf:type owl:Class ;
 ### https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/Documentcontent
 dscdo:Documentcontent rdf:type owl:Class ;
                    rdfs:subClassOf prov:Entity ;
-                   rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                   rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
                    rdfs:label "DocumentContent" ;
                    rdfs:comment "Represents the content extracted from a document." .
 
@@ -106,7 +106,7 @@ dscdo:Documentcontent rdf:type owl:Class ;
 ###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/Iepipeline
 dscdo:Iepipeline rdf:type owl:Class ;
               rdfs:subClassOf prov:SoftwareAgent ;
-              rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+              rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
               rdfs:label "IEPipeline" ;
               rdfs:comment "Represents a pipeline used in the information extraction process." .
 
@@ -115,7 +115,7 @@ dscdo:Iepipeline rdf:type owl:Class ;
 ###  https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/Informationextractionworkflow
 dscdo:Informationextractionworkflow rdf:type owl:Class ;
                                  rdfs:subClassOf prov:Activity ;
-                                 rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+                                 rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
                                  rdfs:label "InformationExtractionWorkflow" ;
                                  rdfs:comment "Represents a workflow or process of extracting information from documents." .
 
@@ -132,7 +132,7 @@ dscdo:DigitalDocument rdf:type owl:Class ;
                      rdfs:subClassOf schema:DigitalDocument ;
                      rdfs:subClassOf dscdo:Document ;
                      rdfs:subClassOf prov:Entity ;
-                     rdfs:isDefinedBy < https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> ;
+                     rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/nd/scdoc/ont/> ;
                      rdfs:label "DigitalDocument" ;
                      rdfs:comment "Represents a digital document that has been scanned and digitized, and is part of the broader document processing workflow." .
 
