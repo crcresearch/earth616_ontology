@@ -3,19 +3,31 @@
   File: design/redesign.md
 -->
 # DSCDO & CogitareLink Integration: Redesign Plan
+Purpose  Refactor the Defense Supply‑Chain & Documentation Ontology (DSCDO) so it ships as a zero‑code domain bundle for CogitareLink agents, with Python‑native tooling and explicit SHACL/SPARQL rules (no embedded reasoners).
+
 
 ## 1. Introduction and Objectives
 
-This document presents a comprehensive plan to refactor the Defense Supply Chain and Documentation Ontology (DSCDO) repository so that:
-  1. DSCDO becomes a drop-in domain for CogitareLink agents with zero-code configuration.
-  2. The OPLaX pattern vocabulary (in modules/imports/oplax.owl) is surfaced via an index ontology, enabling LLMs to navigate pattern metadata.
-  3. The release pipeline produces a clear separation between:
-     - an **Index Ontology** (owl:imports raw modules, OPLaX, patterns),
-     - a **Merged Ontology** (for programmatic use and Widoco docs),
-     - bundled **Contexts** and **Shapes** under the ontology URI space,
-     - a **CogitareLink Bundle** (`data/scdoc/`) following the 4-layer model.
+This document presents a comprehensive plan to refactor the Defense Supply Chain and Documentation Ontology (DSCDO) repository 
+
+1. **Drop‑in domain** — `data/scdoc/` bundle follows CogitareLink’s 4‑layer model.
+2. **Surface OPLaX patterns** through an *index ontology* so LLMs can navigate pattern metadata.
+3. **Pure SHACL/SPARQL reasoning** — all OWL‑RL inferences are re‑expressed as SHACL rules (or SPARQL `CONSTRUCT`).
+4. **Python‑first docs** — replace Widoco with **pyLODE** for HTML generation; templates live in‑repo so Codex agents can extend them.
+5. **Release pipeline** emits:
+
+   * **Index Ontology** (`index.ttl`) – owl\:imports raw modules, OPLaX & patterns.
+   * **Merged Ontology** (`merged.ttl`) – materialised graph for programmatic use.
+   * **Contexts / Shapes / Rules** JSON‑LD under the ontology URI space.
+   * **CogitareLink bundle** (`data/scdoc/`).
 
 ## 2. Requirements
+| Layer            | Deliverable                            | Location                      | Notes                                                             |
+| ---------------- | -------------------------------------- | ----------------------------- | ----------------------------------------------------------------- |
+| 0 Context        | `context.jsonld`                       | `data/scdoc/`                 | **≤ 5 KB**, contains `ex:hasShape` (affordance link), `@version`. |
+| 1 Ontology       | `index.ttl` & `merged.ttl` (+ JSON‑LD) | `<baseURI>/ont/`              | `index.ttl` **< 200 KB** guard; imports OPLaX & patterns.         |
+| 2 Shapes & Rules | `shapes.ttl`, `RL_rules.shapes.ttl`    | `<baseURI>/ont/shapes/shacl/` | RL‑equivalent rules **replace** owlrl dependency.                 |
+| 3 Data           | `instances/*.jsonld`                   | `data/scdoc/instances/`       | Each instance links to a NodeShape via `dscdo:usesShape`.         |
 
 1. **Index Ontology (`index.ttl`)** available at `<baseURI>/ont/`:
    - Declares `owl:imports` for each raw module TTL/OWL (including OPLaX).
@@ -38,11 +50,10 @@ This document presents a comprehensive plan to refactor the Defense Supply Chain
    - Use JSON-LD 1.1 for all Layer 0 contexts and Layer 3 data to leverage advanced container, set, and graph features.
    - Publish the index ontology and SHACL shapes also as JSON-LD 1.1, with TTL provided as a secondary serialization for programmatic merges and tooling.
 
-## 3. Foundational Vocabularies
 
 ## 3. Foundational Vocabularies
 
-To maximize LLM familiarity and interoperability, DSCDO will reuse widely adopted foundational ontologies:
+To maximize LLM familiarity and interoperability, DSCDO will reuse widely adopted foundational ontologies *Domain axioms stay open‑world; enforcement moves to SHACL.*:
 
 - **schema.org**: for common classes and properties (organizations, persons, events, documents, URLs, dates).
 - **Prov-O** (`http://www.w3.org/ns/prov#`): to represent provenance activities, agents, and entities.
@@ -50,9 +61,27 @@ To maximize LLM familiarity and interoperability, DSCDO will reuse widely adopte
 - **GeoSPARQL** (`http://www.opengis.net/ont/geosparql#`): for spatial data (geometries, features, spatial relationships).
 
 Domain-specific vocabularies (e.g., GS1 EPCIS/CBV, SPDX, ML Commons Croissant) will be imported only where needed within modules or shapes, keeping the core ontology concise and maximizing LLM familiarity.
+
 ## 4. Enforcing Semantics: Open-World vs Closed-World
 
 To maintain a lightweight open-world ontology while centralizing domain logic in SHACL, we propose:
+* **Open‑world ontology**: keep only descriptive axioms.
+* **Closed‑world constraints / derivations**: SHACL NodeShapes & `sh:SPARQLRule` blocks.
+* **OWL‑RL removal**: every RL rule is copied into `RL_rules.shapes.ttl` with a matching IRI (e.g. `rl:PRP_Domain`). Agents can opt‑in via:
+
+```jsonc
+{
+  "name": "reason_over",
+  "arguments": {
+    "jsonld": "<instance.jsonld>",
+    "shapes_turtle": "<RL_rules.shapes.ttl>"
+  }
+}
+```
+
+*Cogitarelink Agent Micro‑kernel still wraps each rule fire in `prov:Activity`.*
+
+
 
 - **Open-World Layer (schema.org, Prov-O, OWL-Time, GeoSPARQL)**
   - Use schema:domainIncludes and schema:rangeIncludes (or rdfs:comment) in TTL modules as advisory guidance.
@@ -150,7 +179,7 @@ To integrate seamlessly with CogitareLink, DSCDO maps into the four-layer model:
 3. **Generate `index.ttl`**
    - Copy raw `modules/` and `patterns/` into `${VERSION_DIR}/modules` & `/patterns` in `build-release.sh`.
    - Script a block that reads `tests/modules.txt` and emits an `owl:imports` list, plus OPLaX and patterns.
-4. **Revise Widoco Invocation**
+4. **Remove Widoco Invocation and implement pylode**
    - Point Widoco at `index.ttl` instead of `merged.ttl` to generate HTML & WebVOWL over the import graph.
 5. **Bundle Contexts & Shapes**
    - In `build-release.sh`, copy JSON-LD contexts into `${VERSION_DIR}/contexts/`.
@@ -161,14 +190,24 @@ To integrate seamlessly with CogitareLink, DSCDO maps into the four-layer model:
    - Add a “Using DSCDO with CogitareLink” section in `README.md`.
    - Reference this `design/redesign.md` for contributors.
 
-## 7. Testing & Validation
+## 7 · Migration Checklist
+
+1. Append `oplax.owl` to `tests/modules.txt` & imports in `metadata.ttl`.
+2. Delete owlrl from `requirements.txt`; add `pylode>=2.12`.
+3. Author `RL_rules.shapes.ttl` (one NodeShape per RL rule).
+4. Update build & CI scripts per §5 & §7.
+5. Bump version to **v0.2.0**; publish tagged release.
+
+
+
+## 8. Testing & Validation
 
 - **Merge Tests**: ensure `scripts/merge_ontology.py` handles all extensions.
 - **SHACL Validation**: run existing `tests/shacl-test.sh` against `index.ttl + shapes.ttl`.
 - **SPARQL Tests**: validate competency queries on `merged.ttl`.
 - **CogitareLink Smoke Test**: configure a local CogitareLink instance to load `data/scdoc/` and `reason_over` against a sample JSON-LD.
 
-## 8. Directory Structure After Redesign
+## 9. Directory Structure After Redesign
 
 ```
 design/
@@ -192,16 +231,6 @@ release/ontology/<version>/
   ├─ index-en.html
   └─ webvowl/, sections/, provenance/, resources/
 ```
-
-## 9. Rollout & Timeline
-
-1. Review and finalize this plan.
-2. Update tests/modules.txt & merge_ontology.py.
-3. Modify `metadata.ttl` imports.
-4. Implement `index.ttl` generation and revised build-release.sh.
-5. Build and test CogitareLink bundle.
-6. Update docs/README, bump to v0.2.0.
-7. Gather feedback and iterate.
 
 ## 10. Additional Considerations
 
