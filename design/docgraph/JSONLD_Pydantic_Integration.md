@@ -152,3 +152,41 @@ To model the structured conceptual view of a document (pages, sections, items, e
    - Ensure the module defining these classes/properties is listed in data/scdoc/ontology.ttl via owl:imports
 
 These ontology extensions provide the necessary “glue” for any agent or tooling to seamlessly navigate between the physical digital artifact and its structured, Pydantic-backed representation.
+
+## Fluree Integration & JSON-LD Translation API
+When persisting `DoclingDocument` JSON-LD 1.1 instances into a Fluree ledger, we need an API layer to:
+
+1. **Ingest JSON-LD instances**
+   - Endpoint: `POST /api/documents`
+     - Accepts a JSON-LD 1.1 document instance conforming to the Layer 0 context
+     - Uses JSON-LD framing/compaction to normalize fields
+     - Converts compacted JSON-LD into Fluree transactions (triples or nested JSON)
+     - Submits a Fluree `db/transact` request
+     - Returns the Fluree-generated transaction receipt and document URI
+
+2. **Retrieve JSON-LD instances**
+   - Endpoint: `GET /api/documents/{docId}`
+     - Queries Fluree by `@id` or indexed document key
+     - Fetches all triples for `?docId` and its linked pages, sections, items
+     - Reconstructs a JSON-LD graph, applies the Layer 0 context via JSON-LD framing
+     - Returns a compacted JSON-LD 1.1 document
+
+3. **Update existing documents**
+   - Endpoint: `PUT /api/documents/{docId}`
+     - Accepts a full or partial JSON-LD 1.1 update
+     - Computes the diff or replacement transactions
+     - Submits to Fluree via `db/transact`
+     - Returns updated transaction receipt
+
+4. **Delete documents**
+   - Endpoint: `DELETE /api/documents/{docId}`
+     - Issues Fluree retractions for the document and all child nodes
+     - Returns a confirmation receipt
+
+### Translation Components
+- **JSON-LD Processor**: use `pyld` for compaction, framing, expansion
+- **Pydantic Mixin**: leverage `JsonLdMixin` to map JSON-LD → Pydantic → dict
+- **Fluree Mapper**: convert Python dicts (via `model_dump(by_alias=True)`) into Fluree's JSON transaction format
+- **Context-Driven Framing**: define JSON-LD frames for each class (`DoclingDocument`, `DocumentPage`, etc.) to drive extraction and reassembly
+
+By centralizing all JSON-LD ↔ Fluree translation in this API layer, the core Pydantic models, Layer 0 contexts, and ontology modules remain unchanged. This approach preserves the JSON-LD 1.1 model for downstream LLMs while enabling robust persistence and querying in Fluree.
