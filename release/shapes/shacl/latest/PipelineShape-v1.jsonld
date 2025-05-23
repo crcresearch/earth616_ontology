@@ -1,0 +1,99 @@
+{
+    "@context": [
+      "http://www.w3.org/ns/shacl#",
+      {
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "dscdo": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/",
+        "prov": "http://www.w3.org/ns/prov#",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "schema": "https://schema.org/",
+        "dcterms": "http://purl.org/dc/terms/"
+      }
+    ],
+    "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/PipelineShape-v1.jsonld",
+    "@type": "sh:NodeShape",
+    "sh:targetClass": "dscdo:Iepipeline",
+    "rdfs:label": "Information Extraction Pipeline Shape",
+    "rdfs:comment": "SHACL shape for validating Information Extraction Pipeline instances in the DSCDO ontology",
+    "skos:definition": "Defines constraints for pipeline components that perform specific information extraction tasks",
+    "dcterms:created": "2025-04-01",
+    "dcterms:creator": "https://orcid.org/0000-0003-4091-6059",
+    "dcterms:version": "1.0",
+    "sh:property": [
+      {
+        "sh:path": "rdf:type",
+        "sh:hasValue": "dscdo:Iepipeline",
+        "sh:minCount": 1
+      },
+      {
+        "sh:path": "rdfs:label",
+        "sh:datatype": "xsd:string",
+        "sh:minCount": 1,
+        "sh:maxCount": 1,
+        "rdfs:comment": "Human-readable name of the pipeline"
+      },
+      {
+        "sh:path": "schema:name",
+        "sh:datatype": "xsd:string",
+        "sh:minCount": 1,
+        "sh:maxCount": 1,
+        "rdfs:comment": "Canonical name of the pipeline"
+      },
+      {
+        "sh:path": "schema:description",
+        "sh:datatype": "xsd:string",
+        "sh:maxCount": 1,
+        "rdfs:comment": "Description of the pipeline's purpose and functionality"
+      },
+      {
+        "sh:path": "schema:version",
+        "sh:datatype": "xsd:string",
+        "sh:minCount": 1,
+        "sh:maxCount": 1,
+        "rdfs:comment": "Version of the pipeline"
+      },
+      {
+        "sh:path": "schema:codeRepository",
+        "sh:nodeKind": "sh:IRI",
+        "sh:maxCount": 1,
+        "rdfs:comment": "Link to code repository containing the pipeline implementation"
+      },
+      {
+        "sh:path": "prov:wasAttributedTo",
+        "sh:nodeKind": "sh:IRI", 
+        "sh:class": "prov:Agent",
+        "sh:minCount": 1,
+        "rdfs:comment": "The agent(s) that created or maintains the pipeline"
+      },
+      {
+        "sh:path": "dcterms:created",
+        "sh:datatype": "xsd:date",
+        "sh:maxCount": 1,
+        "rdfs:comment": "Date when the pipeline was first created"
+      },
+      {
+        "sh:path": "dcterms:modified",
+        "sh:datatype": "xsd:date",
+        "sh:maxCount": 1,
+        "rdfs:comment": "Date when the pipeline was last modified"
+      },
+      {
+        "sh:path": "schema:applicationCategory",
+        "sh:datatype": "xsd:string",
+        "rdfs:comment": "Categories of documents this pipeline can process"
+      },
+      {
+        "sh:path": "schema:softwareRequirements",
+        "sh:datatype": "xsd:string",
+        "rdfs:comment": "Software dependencies required to run this pipeline"
+      }
+    ],
+    "sh:closed": false,
+    "sh:ignoredProperties": [
+      "rdf:type",
+      "rdfs:comment"
+    ]
+  }

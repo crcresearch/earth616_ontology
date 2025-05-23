@@ -1,0 +1,87 @@
+{
+  "@context": [
+    "http://www.w3.org/ns/shacl#",
+    {
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "dscdo": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/",
+      "prov": "http://www.w3.org/ns/prov#",
+      "sh": "http://www.w3.org/ns/shacl#",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "schema": "https://schema.org/",
+      "dcterms": "http://purl.org/dc/terms/"
+    }
+  ],
+  "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/DocumentShape-v1.jsonld",
+  "@type": "sh:NodeShape",
+  "sh:targetClass": "dscdo:Digitaldocument",
+  "rdfs:label": "Digital Document Shape",
+  "rdfs:comment": "SHACL shape for validating Digital Document instances in the DSCDO ontology",
+  "skos:definition": "Defines constraints for digital documents and their content in the supply chain documentation system",
+  "dcterms:created": "2025-04-09",
+  "dcterms:creator": "https://orcid.org/0000-0003-4091-6059",
+  "dcterms:version": "1.0",
+  "sh:property": [
+    {
+      "sh:path": "rdf:type",
+      "sh:hasValue": "dscdo:Digitaldocument",
+      "sh:minCount": 1
+    },
+    {
+      "sh:path": "dscdo:hasDocumentContent",
+      "sh:nodeKind": "sh:IRI",
+      "sh:class": "dscdo:Documentcontent",
+      "sh:minCount": 1,
+      "rdfs:comment": "Links to the content of the document"
+    },
+    {
+      "sh:path": "schema:name",
+      "sh:datatype": "xsd:string",
+      "sh:minCount": 1,
+      "sh:maxCount": 1,
+      "rdfs:comment": "The name or title of the document"
+    },
+    {
+      "sh:path": "schema:description",
+      "sh:datatype": "xsd:string",
+      "sh:maxCount": 1,
+      "rdfs:comment": "Description of the document purpose and content"
+    },
+    {
+      "sh:path": "schema:dateCreated",
+      "sh:datatype": "xsd:dateTime",
+      "sh:maxCount": 1,
+      "rdfs:comment": "Date when the document was created"
+    },
+    {
+      "sh:path": "schema:dateModified",
+      "sh:datatype": "xsd:dateTime",
+      "sh:maxCount": 1,
+      "rdfs:comment": "Date when the document was last modified"
+    },
+    {
+      "sh:path": "schema:contentUrl",
+      "sh:nodeKind": "sh:IRI",
+      "sh:maxCount": 1,
+      "rdfs:comment": "URL to access the document content"
+    },
+    {
+      "sh:path": "schema:encodingFormat",
+      "sh:datatype": "xsd:string",
+      "sh:maxCount": 1,
+      "rdfs:comment": "The MIME type of the document"
+    },
+    {
+      "sh:path": "schema:author",
+      "sh:nodeKind": "sh:IRI",
+      "rdfs:comment": "The author(s) of the document"
+    }
+  ],
+  "sh:closed": false,
+  "sh:ignoredProperties": [
+    "rdf:type",
+    "rdfs:label",
+    "rdfs:comment"
+  ]
+}
