@@ -1,0 +1,28 @@
+# Production environment configuration
+environment: production
+
+# Persistent URI bases (what external clients use)
+uri_bases:
+  context: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context"
+  ontology: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont"
+  shapes: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes"
+  rules: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/rules" 
+  data: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/data"
+
+# Deployment bases (where files are actually served from)
+deployment_bases:
+  context: "https://schema-earth616-ks18.blocks.simbachain.com/release/contexts/latest"
+  ontology: "https://schema-earth616-ks18.blocks.simbachain.com/release/ontology/latest"
+  shapes: "https://schema-earth616-ks18.blocks.simbachain.com/release/shapes/latest"
+  rules: "https://schema-earth616-ks18.blocks.simbachain.com/release/rules/latest"
+  data: "https://schema-earth616-ks18.blocks.simbachain.com/release/data/latest"
+
+# Template variable mappings for envsubst
+CONTEXT_BASE: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context"
+ONTOLOGY_BASE: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont"
+SHAPES_BASE: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes"
+RULES_BASE: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/rules"
+DATA_BASE: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/data"
+
+# Version information
+version: "0.1.4"
