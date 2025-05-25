@@ -1,78 +1,32 @@
 {
     "@graph": [
         {
-            "@id": "_:b0",
-            "owl:onProperty": {
-                "@id": "dscdo:hasSpatioTemporalExtent"
-            },
-            "owl:allValuesFrom": {
-                "@id": "dscdo:SpatioTemporalExtent"
-            },
-            "@type": "rdfs:Restriction"
-        },
-        {
-            "@id": "dscdo:hasSpatioTemporalExtent",
-            "rdfs:isDefinedBy": {
-                "@id": "dscdo:modules/core/event"
-            },
-            "rdfs:range": {
-                "@id": "dscdo:SpatioTemporalExtent"
-            },
-            "rdfs:comment": {
-                "@language": "en",
-                "@value": "Property relating Event to SpatioTemporalExtent in this pattern. The range is always SpatioTemporalExtent (globally) since it makes no sense to have a property named hasSpatioTemporalExtent to point to anything other than spatiotemporal extent. The domain is not set to Event as non-Event may also have spatiotemporal extent."
-            },
-            "rdfs:label": {
-                "@language": "en",
-                "@value": "has spatiotemporal extent"
-            },
-            "@type": "rdf:Property"
-        },
-        {
-            "@id": "dscdo:SpatioTemporalExtent",
-            "rdfs:isDefinedBy": {
-                "@id": "dscdo:modules/core/event"
-            },
-            "rdfs:comment": {
-                "@language": "en",
-                "@value": "Hook to a complex notion representing a unified spatial and temporal extent. Intended to cover non-static or discontinuous spatiotemporal extent. Should be aligned to a separate Spatiotemporal Extent pattern."
-            },
-            "rdfs:label": {
-                "@language": "en",
-                "@value": "Spatiotemporal Extent"
-            },
-            "@type": "rdfs:Class"
-        },
-        {
-            "@id": "_:b1",
-            "owl:onProperty": {
-                "@id": "dscdo:providesParticipantRole"
-            },
-            "owl:allValuesFrom": {
-                "@id": "dscdo:ParticipantRole"
-            },
-            "@type": "rdfs:Restriction"
-        },
-        {
-            "@id": "dscdo:providesParticipantRole",
+            "@id": "dscdo:assumesRole",
             "rdfs:isDefinedBy": {
                 "@id": "dscdo:modules/core/event"
             },
             "rdfs:range": {
                 "@id": "dscdo:ParticipantRole"
             },
+            "rdfs:domain": {
+                "@id": "dscdo:Agent"
+            },
             "rdfs:comment": {
                 "@language": "en",
-                "@value": "Property relating Event to ParticipantRole in this pattern. The range is always ParticipantRole since it makes no sense to have a property named as providesParticipantRole not to point to a participant role. The domain is not set to Event as non-Event may also provide a participant role."
+                "@value": "Relates an agent to the role it plays in an event."
             },
             "rdfs:label": {
                 "@language": "en",
-                "@value": "provides participant role"
+                "@value": "assumes role"
             },
             "@type": "rdf:Property"
         },
         {
             "@id": "dscdo:ParticipantRole",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A role played by an agent or entity participating in an event"
+            },
             "rdfs:isDefinedBy": {
                 "@id": "dscdo:modules/core/event"
             },
@@ -87,74 +41,23 @@
             "@type": "rdfs:Class"
         },
         {
-            "@id": "_:b2",
-            "owl:onProperty": {
-                "@id": "dscdo:hasInformationObject"
-            },
-            "owl:allValuesFrom": {
-                "@id": "dscdo:InformationObject"
-            },
-            "@type": "rdfs:Restriction"
-        },
-        {
-            "@id": "dscdo:hasInformationObject",
-            "rdfs:isDefinedBy": {
-                "@id": "dscdo:modules/core/event"
-            },
-            "rdfs:range": {
-                "@id": "dscdo:InformationObject"
-            },
-            "rdfs:comment": {
+            "@id": "dscdo:Agent",
+            "skos:definition": {
                 "@language": "en",
-                "@value": "Property relating Event to InformationObject in this pattern. The domain of this property is not restricted to Event since it is possible that non-event to have an information object. The range is always InformationObject since it makes no sense to have a property named hasInformationObject to point to anything other than information object."
+                "@value": "An entity capable of acting or participating in events"
             },
-            "rdfs:label": {
-                "@language": "en",
-                "@value": "has information object"
-            },
-            "@type": "rdf:Property"
-        },
-        {
-            "@id": "dscdo:InformationObject",
             "rdfs:isDefinedBy": {
                 "@id": "dscdo:modules/core/event"
             },
             "rdfs:comment": {
                 "@language": "en",
-                "@value": "An entity that encapsulates all descriptive or non-defining information of the corresponding event, e.g., names, additional identifiers, textual descriptions, etc. Should normally be aligned to a separate Information Object pattern."
+                "@value": "An entity participating in an event, such as a person, organization, or system."
             },
             "rdfs:label": {
                 "@language": "en",
-                "@value": "Information Object"
+                "@value": "Agent"
             },
             "@type": "rdfs:Class"
-        },
-        {
-            "@id": "owl:Thing",
-            "rdfs:subClassOf": [
-                {
-                    "@id": "_:b0"
-                },
-                {
-                    "@id": "_:b1"
-                },
-                {
-                    "@id": "_:b2"
-                },
-                {
-                    "@id": "_:b3"
-                }
-            ]
-        },
-        {
-            "@id": "_:b3",
-            "owl:onProperty": {
-                "@id": "dscdo:subEventOf"
-            },
-            "owl:allValuesFrom": {
-                "@id": "dscdo:Event"
-            },
-            "@type": "rdfs:Restriction"
         },
         {
             "@id": "dscdo:subEventOf",
@@ -179,6 +82,10 @@
         },
         {
             "@id": "dscdo:Event",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A temporal entity that represents occurrences or happenings in time and space"
+            },
             "rdfs:isDefinedBy": {
                 "@id": "dscdo:modules/core/event"
             },
@@ -193,71 +100,106 @@
             "@type": "rdfs:Class"
         },
         {
-            "@id": "rdfs:domain",
-            "rdfs:subPropertyOf": {
-                "@id": "owl:ObjectProperty"
-            }
-        },
-        {
-            "@id": "rdfs:range",
-            "rdfs:subPropertyOf": {
-                "@id": "owl:ObjectProperty"
-            }
-        },
-        {
-            "@id": "dscdo:modules/core/event",
-            "sh:shapesGraph": {
-                "@id": "https://vocab.earth616.local/shapes/EventShape"
+            "@id": "dscdo:hasInformationObject",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/core/event"
             },
-            "owl:versionInfo": "0.1.4",
+            "rdfs:range": {
+                "@id": "dscdo:InformationObject"
+            },
             "rdfs:comment": {
                 "@language": "en",
-                "@value": "Core event classes and properties for the Defense Supply Chain and Documentation Ontology"
+                "@value": "Property relating Event to InformationObject in this pattern. The domain of this property is not restricted to Event since it is possible that non-event to have an information object. The range is always InformationObject since it makes no sense to have a property named hasInformationObject to point to anything other than information object."
             },
             "rdfs:label": {
                 "@language": "en",
-                "@value": "DSCDO Core Event Module"
+                "@value": "has information object"
             },
-            "@type": "owl:Ontology"
+            "@type": "rdf:Property"
         },
         {
-            "@id": "dscdo:assumesRole",
+            "@id": "dscdo:InformationObject",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "An object that carries descriptive information about an event"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/core/event"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "An entity that encapsulates all descriptive or non-defining information of the corresponding event, e.g., names, additional identifiers, textual descriptions, etc. Should normally be aligned to a separate Information Object pattern."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Information Object"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "dscdo:providesParticipantRole",
             "rdfs:isDefinedBy": {
                 "@id": "dscdo:modules/core/event"
             },
             "rdfs:range": {
                 "@id": "dscdo:ParticipantRole"
             },
-            "rdfs:domain": {
-                "@id": "dscdo:Agent"
-            },
             "rdfs:comment": {
                 "@language": "en",
-                "@value": "Relates an agent to the role it plays in an event."
+                "@value": "Property relating Event to ParticipantRole in this pattern. The range is always ParticipantRole since it makes no sense to have a property named as providesParticipantRole not to point to a participant role. The domain is not set to Event as non-Event may also provide a participant role."
             },
             "rdfs:label": {
                 "@language": "en",
-                "@value": "assumes role"
+                "@value": "provides participant role"
             },
             "@type": "rdf:Property"
         },
         {
-            "@id": "dscdo:Agent",
+            "@id": "dscdo:hasSpatioTemporalExtent",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/core/event"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:SpatioTemporalExtent"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Property relating Event to SpatioTemporalExtent in this pattern. The range is always SpatioTemporalExtent (globally) since it makes no sense to have a property named hasSpatioTemporalExtent to point to anything other than spatiotemporal extent. The domain is not set to Event as non-Event may also have spatiotemporal extent."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has spatiotemporal extent"
+            },
+            "@type": "rdf:Property"
+        },
+        {
+            "@id": "dscdo:SpatioTemporalExtent",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "The spatial and temporal boundaries of an event or entity"
+            },
             "rdfs:isDefinedBy": {
                 "@id": "dscdo:modules/core/event"
             },
             "rdfs:comment": {
                 "@language": "en",
-                "@value": "An entity participating in an event, such as a person, organization, or system."
+                "@value": "Hook to a complex notion representing a unified spatial and temporal extent. Intended to cover non-static or discontinuous spatiotemporal extent. Should be aligned to a separate Spatiotemporal Extent pattern."
             },
             "rdfs:label": {
                 "@language": "en",
-                "@value": "Agent"
+                "@value": "Spatiotemporal Extent"
             },
             "@type": "rdfs:Class"
         },
         {
             "@id": "dscdo:TemporalExtent",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "The temporal boundaries of an event"
+            },
+            "rdfs:subClassOf": {
+                "@id": "dscdo:SpatioTemporalExtent"
+            },
             "rdfs:isDefinedBy": {
                 "@id": "dscdo:modules/core/event"
             },
@@ -269,9 +211,6 @@
                 "@language": "en",
                 "@value": "Temporal Extent"
             },
-            "rdfs:subClassOf": {
-                "@id": "dscdo:SpatioTemporalExtent"
-            },
             "@type": "rdfs:Class"
         }
     ],
@@ -279,9 +218,10 @@
         "schema": "http://schema.org/",
         "owl": "http://www.w3.org/2002/07/owl#",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-        "sh": "http://www.w3.org/ns/shacl#",
         "xml": "http://www.w3.org/XML/1998/namespace",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
         "dscdo": "https://vocab.earth616.local/ont/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "prov": "http://www.w3.org/ns/prov#",

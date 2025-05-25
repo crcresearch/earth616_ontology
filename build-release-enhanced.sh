@@ -132,7 +132,15 @@ if [[ "$LAYERS" == "all" || "$LAYERS" == *"ontology"* ]]; then
         # Merge ontology files (if merge script exists)
         if [ -f "${SCRIPTS_DIR}/merge_ontology.py" ]; then
             echo "Merging ontology modules"
-            FILES=$(find "${RELEASE_DIR}/ontology/${VERSION}" -name "*.ttl" | tr '\n' ' ')
+            
+            # Get all TTL files but exclude metadata.ttl if profile.ttl exists (avoid duplicates)
+            if [ -f "${RELEASE_DIR}/ontology/${VERSION}/core/profile.ttl" ]; then
+                echo "Using PROF profile approach - excluding legacy metadata.ttl"
+                FILES=$(find "${RELEASE_DIR}/ontology/${VERSION}" -name "*.ttl" -not -path "*/metadata.ttl" | tr '\n' ' ')
+            else
+                FILES=$(find "${RELEASE_DIR}/ontology/${VERSION}" -name "*.ttl" | tr '\n' ' ')
+            fi
+            
             if [ ! -z "$FILES" ]; then
                 python3 "${SCRIPTS_DIR}/merge_ontology.py" "${RELEASE_DIR}/ontology/${VERSION}/merged.ttl" $FILES || echo "Warning: Merge failed"
                 cp "${RELEASE_DIR}/ontology/${VERSION}/merged.ttl" "${RELEASE_DIR}/ontology/latest/merged.ttl" 2>/dev/null || true
@@ -203,20 +211,42 @@ if [[ "$LAYERS" == "all" || "$LAYERS" == *"rules"* ]]; then
     fi
 fi
 
+# Generate PROF profile and pyLODE config (if ontology layer was built)
+if [[ "$LAYERS" == "all" || "$LAYERS" == *"ontology"* ]]; then
+    echo "=== Generating PROF Profile and pyLODE Config ==="
+    
+    # Generate pyLODE config from template
+    if [ -f "${TEMPLATES_DIR}/pylode-config.ttl.template" ]; then
+        echo "Generating pyLODE config"
+        envsubst < "${TEMPLATES_DIR}/pylode-config.ttl.template" > "${RELEASE_DIR}/ontology/${VERSION}/pylode-config.ttl"
+        envsubst < "${TEMPLATES_DIR}/pylode-config.ttl.template" > "${RELEASE_DIR}/ontology/latest/pylode-config.ttl"
+    fi
+fi
+
 # Generate documentation (if ontology layer was built)
 if [[ "$LAYERS" == "all" || "$LAYERS" == *"ontology"* ]] && [ "$DOCS" = "pylode" ]; then
     echo "=== Generating Documentation ==="
     
     # Check if pylode is available
     if command -v pylode &> /dev/null; then
+        
+        # Generate supermodel documentation if PROF profile exists (OPLaX mode)
+        if [ "$MODE" = "oplax" ] && [ -f "${RELEASE_DIR}/ontology/${VERSION}/core/profile.ttl" ]; then
+            echo "Attempting pyLODE supermodel documentation"
+            # For now, skip supermodel generation due to module URL resolution issues
+            # TODO: Implement local web server or fix file:// URI handling in pylode
+            echo "Supermodel generation temporarily disabled - modules need to be served via HTTP"
+            echo "Generated traditional documentation instead"
+        fi
+        
         # Generate documentation for merged ontology if it exists
         if [ -f "${RELEASE_DIR}/ontology/${VERSION}/merged.ttl" ]; then
-            echo "Generating documentation via pyLODE"
+            echo "Generating traditional documentation via pyLODE"
             pylode "${RELEASE_DIR}/ontology/${VERSION}/merged.ttl" -o "${RELEASE_DIR}/ontology/${VERSION}/ontology-en.html" -c false || echo "Warning: pyLODE documentation generation failed"
             cp "${RELEASE_DIR}/ontology/${VERSION}/ontology-en.html" "${RELEASE_DIR}/ontology/latest/ontology-en.html" 2>/dev/null || true
         fi
         
-        # Generate index documentation if index exists
+        # Generate index documentation if index exists  
         if [ -f "${RELEASE_DIR}/ontology/${VERSION}/index.ttl" ]; then
             pylode "${RELEASE_DIR}/ontology/${VERSION}/index.ttl" -o "${RELEASE_DIR}/ontology/${VERSION}/index-en.html" -c false || echo "Warning: Index documentation generation failed"
             cp "${RELEASE_DIR}/ontology/${VERSION}/index-en.html" "${RELEASE_DIR}/ontology/latest/index-en.html" 2>/dev/null || true

@@ -1,0 +1,96 @@
+# === pyLODE Configuration for DSCDO Supermodel ===
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix prof: <http://www.w3.org/ns/dx/prof/> .
+@prefix lode: <http://purl.org/lode/config#> .
+
+# === Core Event Module ===
+<${ONTOLOGY_BASE}/modules/core/event>
+    a prof:Profile, lode:Module ;
+    rdfs:label "Core Event Module" ;
+    dcterms:description "Foundational event modeling patterns including Event, ParticipantRole, SpatioTemporalExtent, and InformationObject classes. Provides the basic event structure used throughout DSCDO." ;
+    sh:order 1 ;
+    dcterms:isPartOf <${ONTOLOGY_BASE}/> ;
+.
+
+# === Identifier Module ===
+<${ONTOLOGY_BASE}/modules/core/identifier>
+    a prof:Profile, lode:Module ;
+    rdfs:label "Identifier Module" ;
+    dcterms:description "Identifier patterns and encoding classes for traceability. Includes Identifier, IdentifierEncoding, IdentifierSource, and IdentifierType classes aligned with schema.org PropertyValue." ;
+    sh:order 2 ;
+    dcterms:isPartOf <${ONTOLOGY_BASE}/> ;
+.
+
+# === Documentation Module ===
+<${ONTOLOGY_BASE}/modules/scdocumentation/document>
+    a prof:Profile, lode:Module ;
+    rdfs:label "Documentation Module" ;
+    dcterms:description "Supply chain documentation modeling classes including Document, DocumentContent, DocumentType, and their relationships to events and processes." ;
+    sh:order 3 ;
+    dcterms:isPartOf <${ONTOLOGY_BASE}/> ;
+.
+
+# === Supply Chain Event Module ===
+<${ONTOLOGY_BASE}/modules/supplychain/eventmodule>
+    a prof:Profile, lode:Module ;
+    rdfs:label "Supply Chain Event Module" ;
+    dcterms:description "Supply chain specific event types and patterns including SupplyChainEvent and related subclasses for tracking goods, services, and information through supply networks." ;
+    sh:order 4 ;
+    dcterms:isPartOf <${ONTOLOGY_BASE}/> ;
+.
+
+# === Import Modules (Supporting Vocabularies) ===
+
+<${ONTOLOGY_BASE}/modules/imports/schema>
+    a prof:Profile, lode:Module ;
+    rdfs:label "Schema.org Import Module" ;
+    dcterms:description "Schema.org vocabulary terms used within DSCDO for interoperability with web-scale structured data." ;
+    sh:order 10 ;
+    dcterms:isPartOf <${ONTOLOGY_BASE}/> ;
+    lode:ignoreClass <https://schema.org/Thing> ;  # Don't document the base Thing class
+.
+
+<${ONTOLOGY_BASE}/modules/imports/prov>
+    a prof:Profile, lode:Module ;
+    rdfs:label "PROV-O Import Module" ;
+    dcterms:description "W3C PROV-O provenance vocabulary for tracking the origin, derivation, and responsibility chains in supply chain documentation." ;
+    sh:order 11 ;
+    dcterms:isPartOf <${ONTOLOGY_BASE}/> ;
+.
+
+# === OPLaX Pattern Modules ===
+
+<${ONTOLOGY_BASE}/patterns/EventCore>
+    a prof:Profile, lode:Module ;
+    rdfs:label "Event Core Pattern" ;
+    dcterms:description "Foundational event modeling pattern providing the core event structure with participants, roles, and spatiotemporal extents." ;
+    sh:order 20 ;
+    dcterms:isPartOf <${ONTOLOGY_BASE}/> ;
+.
+
+<${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent>
+    a prof:Profile, lode:Module ;
+    rdfs:label "Spatiotemporal Extent Pattern" ;
+    dcterms:description "Pattern for modeling unified spatial and temporal extents, supporting events that move or have discontinuous temporal aspects." ;
+    sh:order 21 ;
+    dcterms:isPartOf <${ONTOLOGY_BASE}/> ;
+.
+
+<${ONTOLOGY_BASE}/patterns/SemanticTrajectory>
+    a prof:Profile, lode:Module ;
+    rdfs:label "Semantic Trajectory Pattern" ;
+    dcterms:description "Pattern for modeling semantic trajectories and movement of entities through space and time with semantic annotations." ;
+    sh:order 22 ;
+    dcterms:isPartOf <${ONTOLOGY_BASE}/> ;
+.
+
+# === pyLODE Global Configuration ===
+[] a lode:Config ;
+    lode:debug false ;
+    rdfs:label "DSCDO pyLODE Configuration" ;
+    dcterms:description "Configuration settings for generating pyLODE supermodel documentation for the Defense Supply Chain and Documentation Ontology" ;
+.

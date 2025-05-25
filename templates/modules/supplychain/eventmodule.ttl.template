@@ -1,0 +1,99 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# --- DSCDO (environment-specific namespace) ---
+@prefix dscdo: <${ONTOLOGY_BASE}/> .
+@prefix : <${ONTOLOGY_BASE}/> .
+@base <${ONTOLOGY_BASE}/> .
+
+# =============================================================================
+# Supply Chain Event Module
+# =============================================================================
+
+# === Classes ===
+
+dscdo:SupplyChainEvent rdf:type owl:Class ;
+    rdfs:subClassOf dscdo:Event ;
+    rdfs:label "Supply Chain Event"@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/supplychain/eventmodule> ;
+    rdfs:comment "An event occurring in a supply chain process."@en ;
+    skos:definition "A specialized event that occurs within supply chain operations, tracking the movement, transformation, or status changes of goods, materials, or information"@en .
+
+dscdo:TransferEvent rdf:type owl:Class ;
+    rdfs:subClassOf dscdo:SupplyChainEvent ;
+    rdfs:label "Transfer Event"@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/supplychain/eventmodule> ;
+    rdfs:comment "An event representing the transfer of goods or materials from one party to another."@en ;
+    skos:definition "An event that records the change in custody or ownership of supply chain items"@en .
+
+dscdo:TransformationEvent rdf:type owl:Class ;
+    rdfs:subClassOf dscdo:SupplyChainEvent ;
+    rdfs:label "Transformation Event"@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/supplychain/eventmodule> ;
+    rdfs:comment "An event representing the transformation of materials into new products or components."@en ;
+    skos:definition "An event that records the conversion of input materials into different output products through manufacturing or processing"@en .
+
+dscdo:TransportEvent rdf:type owl:Class ;
+    rdfs:subClassOf dscdo:SupplyChainEvent ;
+    rdfs:label "Transport Event"@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/supplychain/eventmodule> ;
+    rdfs:comment "An event representing the movement of goods from one location to another."@en ;
+    skos:definition "An event that tracks the physical movement of items through the supply chain network"@en .
+
+dscdo:ObservationEvent rdf:type owl:Class ;
+    rdfs:subClassOf dscdo:SupplyChainEvent ;
+    rdfs:label "Observation Event"@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/supplychain/eventmodule> ;
+    rdfs:comment "An event representing the observation or measurement of supply chain items without changing their state."@en ;
+    skos:definition "An event that records data collection or monitoring activities without altering the observed items"@en .
+
+dscdo:AggregationEvent rdf:type owl:Class ;
+    rdfs:subClassOf dscdo:SupplyChainEvent ;
+    rdfs:label "Aggregation Event"@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/supplychain/eventmodule> ;
+    rdfs:comment "An event representing the aggregation of multiple items into a container or package."@en ;
+    skos:definition "An event that records the grouping of individual items into larger units for handling or shipping"@en .
+
+dscdo:DisaggregationEvent rdf:type owl:Class ;
+    rdfs:subClassOf dscdo:SupplyChainEvent ;
+    rdfs:label "Disaggregation Event"@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/supplychain/eventmodule> ;
+    rdfs:comment "An event representing the disaggregation of items from a container or package."@en ;
+    skos:definition "An event that records the separation of aggregated items back into individual units"@en .
+
+# === Supply Chain Roles ===
+
+dscdo:SupplierRole rdf:type owl:Class ;
+    rdfs:subClassOf dscdo:ParticipantRole ;
+    rdfs:label "Supplier Role"@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/supplychain/eventmodule> ;
+    rdfs:comment "The role of an entity that provides goods or services in a supply chain event."@en ;
+    skos:definition "A participant role representing an entity that provides inputs to the supply chain"@en .
+
+dscdo:CustomerRole rdf:type owl:Class ;
+    rdfs:subClassOf dscdo:ParticipantRole ;
+    rdfs:label "Customer Role"@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/supplychain/eventmodule> ;
+    rdfs:comment "The role of an entity that receives goods or services in a supply chain event."@en ;
+    skos:definition "A participant role representing an entity that receives outputs from the supply chain"@en .
+
+dscdo:CarrierRole rdf:type owl:Class ;
+    rdfs:subClassOf dscdo:ParticipantRole ;
+    rdfs:label "Carrier Role"@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/supplychain/eventmodule> ;
+    rdfs:comment "The role of an entity that transports goods in a supply chain event."@en ;
+    skos:definition "A participant role representing an entity responsible for moving items between locations"@en .
+
+dscdo:ManufacturerRole rdf:type owl:Class ;
+    rdfs:subClassOf dscdo:ParticipantRole ;
+    rdfs:label "Manufacturer Role"@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/supplychain/eventmodule> ;
+    rdfs:comment "The role of an entity that produces or transforms goods in a supply chain event."@en ;
+    skos:definition "A participant role representing an entity that creates or modifies products"@en .
