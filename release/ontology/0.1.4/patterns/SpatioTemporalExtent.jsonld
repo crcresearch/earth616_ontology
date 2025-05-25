@@ -1,0 +1,70 @@
+{
+    "@graph": [
+        {
+            "@id": "_:b0",
+            "sdo:affiliation": "University of Notre Dame",
+            "sdo:name": "Charles F. Vardeman II",
+            "rdfs:label": "Charles F. Vardeman II",
+            "@type": "sdo:Person"
+        },
+        {
+            "@id": "dscdo:patterns/SpatioTemporalExtent",
+            "skos:note": {
+                "@language": "en",
+                "@value": "This template defines the pattern metadata. The actual pattern implementation uses OWL-Time and GeoSPARQL vocabularies."
+            },
+            "cpa:relatedCPs": {
+                "@language": "en",
+                "@value": "EventCore, SemanticTrajectory"
+            },
+            "cpa:hasConsequences": {
+                "@language": "en",
+                "@value": "Enables unified spatiotemporal queries and reasoning. May require complex coordinate system handling for accurate spatial-temporal correlations."
+            },
+            "cpa:coversRequirements": {
+                "@language": "en",
+                "@value": "What is the spatiotemporal extent of a supply chain event?\nWhere and when did a transportation process take place?\nHow do spatiotemporal extents of different events relate?"
+            },
+            "cpa:hasIntent": {
+                "@language": "en",
+                "@value": "To provide a unified model for representing both spatial and temporal aspects of entities and events, enabling queries that span both spatial and temporal dimensions."
+            },
+            "oplax:addressesScenario": {
+                "@language": "en",
+                "@value": "A supply chain event occurs at multiple locations over a specific time period, requiring unified spatiotemporal representation."
+            },
+            "oplax:hasPatternName": {
+                "@language": "en",
+                "@value": "Spatiotemporal Extent"
+            },
+            "dcterms:creator": {
+                "@id": "_:b0"
+            },
+            "dcterms:description": {
+                "@language": "en",
+                "@value": "Pattern for modeling unified spatial and temporal extents of events and entities."
+            },
+            "dcterms:title": {
+                "@language": "en",
+                "@value": "Spatiotemporal Extent Pattern"
+            },
+            "@type": [
+                "oplax:Pattern",
+                "owl:Ontology"
+            ]
+        }
+    ],
+    "@context": {
+        "oplax": "http://ontologydesignpatterns.org/opla-core#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "cpa": "http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "oplax-sd": "http://ontologydesignpatterns.org/opla-sd#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "dscdo": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "sdo": "https://schema.org/"
+    }
+}

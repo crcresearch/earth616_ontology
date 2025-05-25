@@ -1,0 +1,53 @@
+# === PREFIXES ================================================================
+
+# --- Basic ---
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# --- Ontology Design Patterns ---
+@prefix oplax: <http://ontologydesignpatterns.org/opla-core#> .
+@prefix oplax-sd: <http://ontologydesignpatterns.org/opla-sd#> .
+@prefix cpa: <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#> .
+
+# --- Documentation ---
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sdo: <https://schema.org/> .
+
+# --- DSCDO ---
+@prefix dscdo: <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
+@base <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
+
+# =============================================================================
+# Semantic Trajectory Pattern
+# =============================================================================
+
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/SemanticTrajectory>
+    a owl:Ontology, oplax:Pattern ;
+    dcterms:title "Semantic Trajectory Pattern"@en ;
+    dcterms:description "Pattern for modeling semantic trajectories and movement of entities through space, time, and semantic contexts."@en ;
+    dcterms:creator [
+        a sdo:Person ;
+        rdfs:label "Charles F. Vardeman II" ;
+        sdo:name "Charles F. Vardeman II" ;
+        sdo:affiliation "University of Notre Dame" ;
+    ] ;
+    dcterms:source "Based on work from WOP 2016 Semantic Trajectory patterns" ;
+    
+    # OPLaX Pattern Metadata
+    oplax:hasPatternName "Semantic Trajectory"@en ;
+    oplax:addressesScenario "A product moves through multiple supply chain stages, each with different semantic contexts (ownership, processing state, location, compliance status)."@en ;
+    
+    cpa:hasIntent "To model the movement of entities through space, time, and semantic contexts, enabling tracking of state changes and context transitions."@en ;
+    
+    cpa:coversRequirements """What is the trajectory of a product through the supply chain?
+How does the semantic context of an entity change over time?
+What states did an entity pass through during its trajectory?"""@en ;
+    
+    cpa:hasConsequences "Enables rich trajectory analysis with semantic state tracking. May require complex event correlation for accurate trajectory reconstruction."@en ;
+    
+    cpa:relatedCPs "EventCore, SpatioTemporalExtent"@en ;
+    
+    skos:note "This template defines the pattern metadata. The actual pattern implementation combines spatiotemporal and semantic state modeling."@en .

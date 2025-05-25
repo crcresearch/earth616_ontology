@@ -1,0 +1,204 @@
+# === PREFIXES ================================================================
+
+# --- Basic ---
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> . 
+
+# --- Ontology management ---
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix sdo: <https://schema.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix widoco: <https://w3id.org/widoco/vocab#>  .
+
+# --- PROF and pyLODE ---
+@prefix prof: <http://www.w3.org/ns/dx/prof/> .
+@prefix lode: <http://purl.org/lode/config#> .
+
+# --- External Ontologies ---
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix gs1: <http://gs1.org/voc/> .
+
+# --- DSCDO (environment-specific namespace) ---
+@prefix dscdo: <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
+@base <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
+
+# =============================================================================
+# Hybrid Profile + Ontology for pyLODE Supermodel Support
+# =============================================================================
+
+# === Ontology Declaration (with all metadata) ===
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>  
+    a voaf:Vocabulary, owl:Ontology ;
+    dcterms:title "Defense Supply Chain and Documentation Ontology (DSCDO)"@en ;
+    dcterms:description """The Defense Supply Chain and Documentation Ontology (DSCDO) provides a formal model for representing knowledge about supply chain networks, processes, and entities. It enables interoperability and knowledge sharing between supply chain information systems by providing a common vocabulary and conceptual structure and supporting documentation providing supply chain provenance.
+
+Key concepts modeled include:
+
+- Supply chain stages such as suppliers, manufacturers
+- Products, materials, and information flows between supply chain stages  
+- Supply chain processes such as procurement, production, and transportation
+
+The ontology is designed to be extensible to support modeling of domain-specific supply chains and integration with other enterprise ontologies. It aims to facilitate supply chain analytics, decision support, knowledge management, and semantic integration of heterogeneous supply chain data sources."""@en ;
+    skos:changeNote "0.1.0 - intial release of pattern skeletons"@en;
+    skos:changeNote "0.1.1 - adding supply chain events from the supply chain pattern and connecting to the documentation extraction pattern"@en;
+    skos:changeNote "0.1.2 - adding identifier patterns and beginning of shapes"@en;
+    skos:changeNote "0.1.3 - chaning iri namespace and ontology prefix"@en;
+    skos:changeNote "0.1.4 - adding identifiers module, jsonld-context documents and shapes for validating JSON-LD contexts."@en;
+    bibo:status "Work in progress" ;
+    owl:versionIRI <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/0.1.4> ;
+    owl:versionInfo "0.1.4"@en ;
+    dcterms:modified "2025-04-15"^^xsd:date ;
+
+    dcterms:created  "2024-04-09"^^xsd:date ;
+
+    dcterms:publisher [
+                        a sdo:Organization ;
+		                rdfs:label "Center for Research Computing, University of Notre Dame" ;
+		                sdo:name "Center for Research Computing, University of Notre Dame" ;
+		                sdo:url "https://crc.nd.edu"^^xsd:anyURI ;
+                        owl:sameAs wd:Q178848 ;
+                      ];
+    dcterms:publisher [
+                        a sdo:Organization ;
+                        rdfs:label "Simba Chain" ;
+                        sdo:name "Simba Chain" ;
+                        sdo:url "https://simbachain.com/";
+                       ];
+                        dcterms:creator [
+                        a sdo:Person ;
+                        rdfs:label "Charles F. Vardeman II" ;
+                        sdo:name "Charles F. Vardeman II" ;
+                        sdo:affiliation "University of Notre Dame" ;
+                        sdo:email "cvardema@nd.edu"^^xsd:anyURI ;
+                        sdo:url "https://orcid.org/0000-0003-4091-6059"^^xsd:anyURI ;
+                        ];
+
+# License
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:rights "This work is licensed under a Creative Commons Attribution 4.0 International License."@en ;
+    dcterms:rightsHolder "SIMBA Chain, University of Notre Dame" ;
+    sdo:codeRepository "https://github.com/crcresearch/earth616_ontology"^^xsd:anyURI;
+    vann:preferredNamespacePrefix "dscdo" ;
+    vann:preferredNamespaceUri "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/" .
+
+# === Profile Declaration (separate resource describing modular structure) ===
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/profile/>
+    a prof:Profile ;
+    dcterms:title "DSCDO CogitareLink Implementation Profile"@en ;
+    dcterms:description "Profile defining modular implementation structure for the Defense Supply Chain and Documentation Ontology compatible with CogitareLink four-layer model."@en ;
+    prof:isProfileOf <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> ;
+
+    # === PROF Profile Resources ===
+    
+    # pyLODE Configuration Resource
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "pyLODE Configuration" ;
+        rdfs:comment "Configuration for pyLODE supermodel documentation generation" ;
+        dcterms:format "text/turtle" ;
+        prof:hasRole lode:config ;
+        prof:hasArtifact <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/pylode-config> ;
+    ] ;
+
+    # === Module Resource Descriptors ===
+
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "Core Event Module" ;
+        rdfs:comment "Core event modeling patterns and classes" ;
+        dcterms:format "text/turtle" ;
+        prof:hasArtifact <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/core/event> ;
+        sh:order 1 ;
+    ] ;
+
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "Identifier Module" ;
+        rdfs:comment "Identifier patterns and encoding classes" ;
+        dcterms:format "text/turtle" ;
+        prof:hasArtifact <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/core/identifier> ;
+        sh:order 2 ;
+    ] ;
+
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "Documentation Module" ;
+        rdfs:comment "Supply chain documentation modeling" ;
+        dcterms:format "text/turtle" ;
+        prof:hasArtifact <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/scdocumentation/document> ;
+        sh:order 3 ;
+    ] ;
+
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "Supply Chain Event Module" ;
+        rdfs:comment "Supply chain specific event types and patterns" ;
+        dcterms:format "text/turtle" ;
+        prof:hasArtifact <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+        sh:order 4 ;
+    ] ;
+
+    # === Import Resource Descriptors ===
+    
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "Schema.org Vocabulary" ;
+        rdfs:comment "Schema.org terms used in the ontology" ;
+        dcterms:format "text/turtle" ;
+        prof:hasRole prof:vocabulary ;
+        prof:hasArtifact <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/imports/schema> ;
+    ] ;
+
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "PROV Ontology" ;
+        rdfs:comment "W3C PROV-O provenance vocabulary" ;
+        dcterms:format "text/turtle" ;
+        prof:hasRole prof:vocabulary ;
+        prof:hasArtifact <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/imports/prov> ;
+    ] ;
+
+    # === OPLaX Pattern Resource Descriptors ===
+    
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "Event Core Pattern" ;
+        rdfs:comment "Core event modeling pattern from ontology design pattern library" ;
+        dcterms:format "text/turtle" ;
+        prof:hasRole prof:guidance ;
+        prof:hasArtifact <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/EventCore> ;
+        sh:order 20 ;
+    ] ;
+
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "Spatiotemporal Extent Pattern" ;
+        rdfs:comment "Pattern for modeling unified spatial and temporal extents" ;
+        dcterms:format "text/turtle" ;
+        prof:hasRole prof:guidance ;
+        prof:hasArtifact <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/SpatioTemporalExtent> ;
+        sh:order 21 ;
+    ] ;
+
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "Semantic Trajectory Pattern" ;
+        rdfs:comment "Pattern for modeling semantic trajectories and movement" ;
+        dcterms:format "text/turtle" ;
+        prof:hasRole prof:guidance ;
+        prof:hasArtifact <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/SemanticTrajectory> ;
+        sh:order 22 ;
+    ] .

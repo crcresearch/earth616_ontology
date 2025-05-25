@@ -57,12 +57,26 @@ The ontology is being redesigned around the CogitareLink four-layer model:
 
 ### Release Pipeline
 
-The build-release.sh script:
+The build-release-enhanced.sh script:
 1. Validates Turtle syntax
-2. Merges modules into a single ontology
-3. Generates documentation
-4. Copies JSON-LD contexts and SHACL shapes to versioned directories
-5. Updates the "latest" directories
+2. Processes templates with environment variable substitution
+3. Merges modules into a single ontology
+4. Generates documentation using pyLODE
+5. Copies JSON-LD contexts and SHACL shapes to versioned directories
+6. Updates the "latest" directories
+
+#### pyLODE Documentation Generation
+
+**Issue**: pyLODE duplicates metadata when a resource has multiple RDF types (owl:Ontology + prof:Profile).
+
+**Root Cause**: pyLODE's `_make_metadata()` function in `profiles/vocpub.py` iterates through subjects with different types separately, causing the same subject to be processed multiple times and duplicating all metadata properties.
+
+**Solution**: Follow W3C Profile semantics by separating the ontology and profile into different URIs:
+- Ontology URI (`/ont/`) carries all metadata (creator, publisher, license, etc.)
+- Profile URI (`/ont/profile/`) describes modular structure via `prof:hasResource`
+- Profile references ontology via `prof:isProfileOf`
+
+This follows the W3C PROF pattern where profiles describe how to implement specifications, rather than being the specification itself.
 
 ### URI Structure
 

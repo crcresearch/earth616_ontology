@@ -251,9 +251,9 @@
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "dcterms": "http://purl.org/dc/terms/",
         "skos": "http://www.w3.org/2004/02/skos/core#",
-        "dscdo": "https://vocab.earth616.local/ont/",
+        "dscdo": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "prov": "http://www.w3.org/ns/prov#",
-        "@vocab": "https://vocab.earth616.local/ont/"
+        "@vocab": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/"
     }
 }

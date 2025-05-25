@@ -1,0 +1,145 @@
+{
+    "@graph": [
+        {
+            "@id": "dscdo:patterns/SemanticTrajectory",
+            "skos:related": [
+                {
+                    "@id": "dscdo:patterns/SpatioTemporalExtent"
+                },
+                {
+                    "@id": "dscdo:patterns/EventCore"
+                }
+            ],
+            "skos:topConceptOf": {
+                "@id": "dscdo:patterns/"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Modeling movement through space, time, and semantic contexts."
+            },
+            "skos:prefLabel": {
+                "@language": "en",
+                "@value": "Semantic Trajectory Pattern"
+            },
+            "skos:inScheme": {
+                "@id": "dscdo:patterns/"
+            },
+            "@type": [
+                "oplax:Pattern",
+                "skos:Concept"
+            ]
+        },
+        {
+            "@id": "dscdo:patterns/SpatioTemporalExtent",
+            "skos:related": {
+                "@id": "dscdo:patterns/EventCore"
+            },
+            "skos:topConceptOf": {
+                "@id": "dscdo:patterns/"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Unified modeling of spatial and temporal extents."
+            },
+            "skos:prefLabel": {
+                "@language": "en",
+                "@value": "Spatiotemporal Extent Pattern"
+            },
+            "skos:inScheme": {
+                "@id": "dscdo:patterns/"
+            },
+            "@type": [
+                "oplax:Pattern",
+                "skos:Concept"
+            ]
+        },
+        {
+            "@id": "dscdo:patterns/EventCore",
+            "skos:topConceptOf": {
+                "@id": "dscdo:patterns/"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Minimalistic model of events with spatiotemporal extents and participants."
+            },
+            "skos:prefLabel": {
+                "@language": "en",
+                "@value": "Event Core Pattern"
+            },
+            "skos:inScheme": {
+                "@id": "dscdo:patterns/"
+            },
+            "@type": [
+                "oplax:Pattern",
+                "skos:Concept"
+            ]
+        },
+        {
+            "@id": "dscdo:patterns/",
+            "skos:hasTopConcept": [
+                {
+                    "@id": "dscdo:patterns/SemanticTrajectory"
+                },
+                {
+                    "@id": "dscdo:patterns/SpatioTemporalExtent"
+                },
+                {
+                    "@id": "dscdo:patterns/EventCore"
+                }
+            ],
+            "dcat:dataset": [
+                {
+                    "@id": "dscdo:patterns/SemanticTrajectory"
+                },
+                {
+                    "@id": "dscdo:patterns/SpatioTemporalExtent"
+                },
+                {
+                    "@id": "dscdo:patterns/EventCore"
+                }
+            ],
+            "dcterms:modified": {
+                "@value": "2025-04-15",
+                "@type": "xsd:date"
+            },
+            "dcterms:created": {
+                "@value": "2025-04-15",
+                "@type": "xsd:date"
+            },
+            "dcterms:creator": {
+                "@id": "_:b0"
+            },
+            "dcterms:description": {
+                "@language": "en",
+                "@value": "Index of ontology design patterns used in the Defense Supply Chain and Documentation Ontology."
+            },
+            "dcterms:title": {
+                "@language": "en",
+                "@value": "DSCDO Ontology Design Patterns Catalog"
+            },
+            "@type": [
+                "skos:ConceptScheme",
+                "dcat:Catalog"
+            ]
+        },
+        {
+            "@id": "_:b0",
+            "sdo:affiliation": "University of Notre Dame",
+            "sdo:name": "Charles F. Vardeman II",
+            "rdfs:label": "Charles F. Vardeman II",
+            "@type": "sdo:Person"
+        }
+    ],
+    "@context": {
+        "oplax": "http://ontologydesignpatterns.org/opla-core#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "dscdo": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "dcat": "http://www.w3.org/ns/dcat#",
+        "sdo": "https://schema.org/"
+    }
+}
