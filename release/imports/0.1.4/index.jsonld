@@ -2,12 +2,12 @@
     "@graph": [
         {
             "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/oplax",
-            "rdfs:comment": "Cached due to unreliable research server availability",
+            "rdfs:comment": "Research project with unreliable server availability - cached for reliable agent access",
             "schema:license": {
                 "@id": "https://creativecommons.org/licenses/by/3.0/"
             },
             "schema:creator": "STLab, ISTC-CNR",
-            "schema:availability": "Discontinued",
+            "schema:availability": "Research project - server unreliable",
             "schema:dateModified": {
                 "@value": "2025-05-26",
                 "@type": "xsd:date"
@@ -56,12 +56,12 @@
         },
         {
             "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/cbv-ontology",
-            "rdfs:comment": "Cached due to unreliable original endpoint availability",
+            "rdfs:comment": "Actively maintained by GS1 but canonical URI not directly dereferenceable - cached for reliable agent access",
             "schema:license": {
                 "@id": "https://www.gs1.org/standards/gs1-general-specifications"
             },
             "schema:creator": "GS1 AISBL",
-            "schema:availability": "Discontinued",
+            "schema:availability": "Maintained - URI non-dereferenceable",
             "schema:dateModified": {
                 "@value": "2025-05-26",
                 "@type": "xsd:date"
@@ -79,12 +79,12 @@
         },
         {
             "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/epcis-ontology",
-            "rdfs:comment": "Cached due to unreliable original endpoint availability",
+            "rdfs:comment": "Actively maintained by GS1 but canonical URI not directly dereferenceable - cached for reliable agent access",
             "schema:license": {
                 "@id": "https://www.gs1.org/standards/gs1-general-specifications"
             },
             "schema:creator": "GS1 AISBL",
-            "schema:availability": "Discontinued",
+            "schema:availability": "Maintained - URI non-dereferenceable",
             "schema:dateModified": {
                 "@value": "2025-05-26",
                 "@type": "xsd:date"
@@ -102,12 +102,12 @@
         },
         {
             "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/gs1-vocab",
-            "rdfs:comment": "Cached due to unreliable original endpoint availability",
+            "rdfs:comment": "Actively maintained by GS1 but canonical URI not directly dereferenceable - cached for reliable agent access",
             "schema:license": {
                 "@id": "https://www.gs1.org/standards/gs1-general-specifications"
             },
             "schema:creator": "GS1 AISBL",
-            "schema:availability": "Discontinued",
+            "schema:availability": "Maintained - URI non-dereferenceable",
             "schema:dateModified": {
                 "@value": "2025-05-26",
                 "@type": "xsd:date"

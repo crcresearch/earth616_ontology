@@ -39,10 +39,10 @@
     schema:contentUrl <${ONTOLOGY_BASE_URI}/imports/GS1-voc.ttl> ;
     schema:encodingFormat "text/turtle" ;
     schema:dateModified "${BUILD_DATE}"^^xsd:date ;
-    schema:availability "Discontinued" ;
+    schema:availability "Maintained - URI non-dereferenceable" ;
     schema:creator "GS1 AISBL" ;
     schema:license <https://www.gs1.org/standards/gs1-general-specifications> ;
-    rdfs:comment "Cached due to unreliable original endpoint availability" .
+    rdfs:comment "Actively maintained by GS1 but canonical URI not directly dereferenceable - cached for reliable agent access" .
 
 # EPCIS Ontology
 :epcis-ontology a :CachedImport ;
@@ -52,10 +52,10 @@
     schema:contentUrl <${ONTOLOGY_BASE_URI}/imports/epcis-ontology.ttl> ;
     schema:encodingFormat "text/turtle" ;
     schema:dateModified "${BUILD_DATE}"^^xsd:date ;
-    schema:availability "Discontinued" ;
+    schema:availability "Maintained - URI non-dereferenceable" ;
     schema:creator "GS1 AISBL" ;
     schema:license <https://www.gs1.org/standards/gs1-general-specifications> ;
-    rdfs:comment "Cached due to unreliable original endpoint availability" .
+    rdfs:comment "Actively maintained by GS1 but canonical URI not directly dereferenceable - cached for reliable agent access" .
 
 # Core Business Vocabulary
 :cbv-ontology a :CachedImport ;
@@ -65,10 +65,10 @@
     schema:contentUrl <${ONTOLOGY_BASE_URI}/imports/cbv-ontology.ttl> ;
     schema:encodingFormat "text/turtle" ;
     schema:dateModified "${BUILD_DATE}"^^xsd:date ;
-    schema:availability "Discontinued" ;
+    schema:availability "Maintained - URI non-dereferenceable" ;
     schema:creator "GS1 AISBL" ;
     schema:license <https://www.gs1.org/standards/gs1-general-specifications> ;
-    rdfs:comment "Cached due to unreliable original endpoint availability" .
+    rdfs:comment "Actively maintained by GS1 but canonical URI not directly dereferenceable - cached for reliable agent access" .
 
 # Schema.org Vocabulary
 :schema-org a :CachedImport ;
@@ -91,10 +91,10 @@
     schema:contentUrl <${ONTOLOGY_BASE_URI}/imports/oplax.owl> ;
     schema:encodingFormat "application/rdf+xml" ;
     schema:dateModified "${BUILD_DATE}"^^xsd:date ;
-    schema:availability "Discontinued" ;
+    schema:availability "Research project - server unreliable" ;
     schema:creator "STLab, ISTC-CNR" ;
     schema:license <https://creativecommons.org/licenses/by/3.0/> ;
-    rdfs:comment "Cached due to unreliable research server availability" .
+    rdfs:comment "Research project with unreliable server availability - cached for reliable agent access" .
 
 # Registry metadata
 <${ONTOLOGY_BASE_URI}/imports/> schema:dataset :gs1-vocab, :epcis-ontology, :cbv-ontology, :schema-org, :oplax .
