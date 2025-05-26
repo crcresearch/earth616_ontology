@@ -1,0 +1,289 @@
+{
+    "@graph": [
+        {
+            "@id": "dscdo:SbomIntegrationPattern",
+            "skos:example": {
+                "@language": "en",
+                "@value": "\n    {\n      \"@type\": \"InformationExtractionWorkflow\",\n      \"containerSbom\": {\n        \"@type\": \"Sbom\",\n        \"hasElement\": [\n          {\"@type\": \"Package\", \"packageName\": \"python\", \"packageVersion\": \"3.11.7\"},\n          {\"@type\": \"Package\", \"packageName\": \"transformers\", \"packageVersion\": \"4.36.0\"}\n        ]\n      }\n    }\n    "
+            },
+            "skos:related": [
+                {
+                    "@id": "dscdo:InformationExtractionWorkflow"
+                },
+                {
+                    "@id": "spdx:Sbom"
+                }
+            ],
+            "skos:broader": {
+                "@id": "dscdo:ProvenancePattern"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Design pattern for integrating SPDX Software Bills of Materials with workflow provenance tracking in containerized AI systems."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "SBOM Integration Pattern"
+            },
+            "@type": "skos:Concept"
+        },
+        {
+            "@id": "dscdo:InformationExtractionWorkflow",
+            "rdfs:subClassOf": {
+                "@id": "_:b7"
+            }
+        },
+        {
+            "@id": "_:b0",
+            "owl:someValuesFrom": {
+                "@id": "spdx:Package"
+            },
+            "owl:onProperty": {
+                "@id": "dscdo:dependsOnPackage"
+            },
+            "@type": "owl:Restriction"
+        },
+        {
+            "@id": "dscdo:dependsOnPackage",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Establishes explicit dependencies between DSCDO workflows/agents and SPDX software packages."
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "prov:used"
+            },
+            "rdfs:range": {
+                "@id": "spdx:Package"
+            },
+            "rdfs:domain": {
+                "@id": "_:b11"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that a software agent or workflow depends on a specific software package for its execution."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "depends on package"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "_:b1",
+            "owl:propertyChainAxiom": {
+                "@list": [
+                    {
+                        "@id": "dscdo:containerSbom"
+                    },
+                    {
+                        "@id": "spdx:hasElement"
+                    }
+                ]
+            }
+        },
+        {
+            "@id": "dscdo:containerSbom",
+            "rdfs:seeAlso": {
+                "@id": "https://www.cisa.gov/sbom"
+            },
+            "dcterms:subject": [
+                {
+                    "@language": "en",
+                    "@value": "SBOM"
+                },
+                {
+                    "@language": "en",
+                    "@value": "software supply chain"
+                },
+                {
+                    "@language": "en",
+                    "@value": "container security"
+                }
+            ],
+            "skos:broader": {
+                "@language": "en",
+                "@value": "software provenance pattern"
+            },
+            "skos:example": {
+                "@language": "en",
+                "@value": "An AI document processing workflow references the SBOM of its container image containing Python, transformers library, and other dependencies."
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A property that associates a containerized workflow with its SBOM, providing full software provenance for compliance and security analysis."
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "prov:used"
+            },
+            "rdfs:range": {
+                "@id": "spdx:Sbom"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:InformationExtractionWorkflow"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Links a workflow execution to the Software Bill of Materials (SBOM) describing the container runtime environment and its software components."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "container SBOM"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "_:b4",
+            "owl:someValuesFrom": {
+                "@id": "spdx:Package"
+            },
+            "owl:onProperty": {
+                "@id": "_:b1"
+            },
+            "@type": "owl:Restriction"
+        },
+        {
+            "@id": "_:b5",
+            "rdfs:subClassOf": {
+                "@id": "_:b0"
+            },
+            "owl:equivalentClass": {
+                "@id": "_:b4"
+            },
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "prov:SoftwareAgent",
+            "rdfs:subClassOf": {
+                "@id": "_:b6"
+            }
+        },
+        {
+            "@id": "_:b6",
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Software agents may depend on zero or more SPDX packages"
+            },
+            "owl:allValuesFrom": {
+                "@id": "spdx:Package"
+            },
+            "owl:onProperty": {
+                "@id": "dscdo:dependsOnPackage"
+            },
+            "@type": "owl:Restriction"
+        },
+        {
+            "@id": "_:b7",
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A workflow may reference at most one container SBOM"
+            },
+            "owl:maxCardinality": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "owl:onProperty": {
+                "@id": "dscdo:containerSbom"
+            },
+            "@type": "owl:Restriction"
+        },
+        {
+            "@id": "_:b8",
+            "owl:unionOf": {
+                "@list": [
+                    {
+                        "@id": "prov:SoftwareAgent"
+                    },
+                    {
+                        "@id": "dscdo:SoftwareAgent"
+                    }
+                ]
+            }
+        },
+        {
+            "@id": "dscdo:sbomGeneratedBy",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Tracks which scanning tools, container runtimes, or AI agents were responsible for generating SBOM data."
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "prov:wasGeneratedBy"
+            },
+            "rdfs:range": {
+                "@id": "_:b8"
+            },
+            "rdfs:domain": {
+                "@id": "spdx:Sbom"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Links an SBOM to the tool or agent that generated it, extending SPDX creation info with DSCDO agent concepts."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "SBOM generated by"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "_:b11",
+            "owl:unionOf": {
+                "@list": [
+                    {
+                        "@id": "prov:SoftwareAgent"
+                    },
+                    {
+                        "@id": "dscdo:InformationExtractionWorkflow"
+                    }
+                ]
+            }
+        },
+        {
+            "@id": "dscdo:modules/spdx/sbom-integration",
+            "rdfs:seeAlso": {
+                "@id": "https://spdx.github.io/spdx-spec/v3.0.1/"
+            },
+            "owl:imports": [
+                {
+                    "@id": "dscdo:modules/core/event"
+                },
+                {
+                    "@id": "https://spdx.org/rdf/3.0.1/terms/"
+                }
+            ],
+            "owl:versionInfo": "0.1.0",
+            "dcterms:modified": {
+                "@value": "2025-01-25",
+                "@type": "xsd:date"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-25",
+                "@type": "xsd:date"
+            },
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Integrates SPDX 3.0.1 Software Bill of Materials (SBOM) concepts with DSCDO workflow ontology for container-based AI agent provenance tracking."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "DSCDO SPDX SBOM Integration Module"
+            },
+            "@type": "owl:Ontology"
+        }
+    ],
+    "@context": {
+        "spdx": "https://spdx.org/rdf/3.0.1/terms/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "dscdo": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "prov": "http://www.w3.org/ns/prov#",
+        "@vocab": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/"
+    }
+}

@@ -1,0 +1,681 @@
+{
+    "@graph": [
+        {
+            "@id": "_:b0",
+            "sh:message": {
+                "@language": "en",
+                "@value": "Relationship must reference exactly one target package via hasElement"
+            },
+            "sh:severity": {
+                "@id": "sh:Violation"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Relationship must reference target package"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "target element"
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:class": {
+                "@id": "spdx:Package"
+            },
+            "sh:path": {
+                "@id": "spdx:hasElement"
+            }
+        },
+        {
+            "@id": "_:b1",
+            "sh:message": {
+                "@language": "en",
+                "@value": "Relationship must have exactly one relationshipType"
+            },
+            "sh:severity": {
+                "@id": "sh:Violation"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Relationship must specify its type"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "relationship type"
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:path": {
+                "@id": "spdx:relationshipType"
+            }
+        },
+        {
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/PackageRelationshipShape",
+            "sh:property": [
+                {
+                    "@id": "_:b0"
+                },
+                {
+                    "@id": "_:b1"
+                }
+            ],
+            "rdfs:isDefinedBy": {
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/SbomWorkflowShape"
+            },
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-25",
+                "@type": "xsd:date"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Ensures package dependency relationships are properly structured"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Validates relationships between software packages in SBOM"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "SPDX Package Relationship Shape"
+            },
+            "sh:targetClass": {
+                "@id": "spdx:Relationship"
+            },
+            "@type": "sh:NodeShape"
+        },
+        {
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/SbomWorkflowShape",
+            "rdfs:seeAlso": {
+                "@id": "https://spdx.github.io/spdx-spec/v3.0.1/"
+            },
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-25",
+                "@type": "xsd:date"
+            },
+            "owl:versionInfo": "1.0",
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "SHACL shapes for validating SPDX SBOM integration with DSCDO workflow instances"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "SBOM Workflow Shape Graph"
+            },
+            "@type": [
+                "sh:ShapesGraph",
+                "owl:Ontology"
+            ]
+        },
+        {
+            "@id": "_:b2",
+            "sh:severity": {
+                "@id": "sh:Info"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "When SBOM creation began"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "creation time"
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:dateTime"
+            },
+            "sh:path": {
+                "@id": "prov:startedAtTime"
+            }
+        },
+        {
+            "@id": "_:b3",
+            "sh:message": {
+                "@language": "en",
+                "@value": "CreationInfo must specify attribution via prov:wasAttributedTo"
+            },
+            "sh:severity": {
+                "@id": "sh:Violation"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Creation info must specify who/what created the SBOM"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "creation attribution"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:path": {
+                "@id": "prov:wasAttributedTo"
+            }
+        },
+        {
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/CreationInfoShape",
+            "sh:property": [
+                {
+                    "@id": "_:b2"
+                },
+                {
+                    "@id": "_:b3"
+                }
+            ],
+            "rdfs:isDefinedBy": {
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/SbomWorkflowShape"
+            },
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-25",
+                "@type": "xsd:date"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Ensures SBOM creation information includes proper attribution and temporal metadata"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Validates SPDX CreationInfo for SBOM provenance tracking"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "SPDX Creation Info Shape"
+            },
+            "sh:targetClass": {
+                "@id": "spdx:CreationInfo"
+            },
+            "@type": "sh:NodeShape"
+        },
+        {
+            "@id": "_:b4",
+            "sh:severity": {
+                "@id": "sh:Info"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Software agent may depend on specific packages"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "package dependencies"
+            },
+            "sh:class": {
+                "@id": "spdx:Package"
+            },
+            "sh:path": {
+                "@id": "dscdo:dependsOnPackage"
+            }
+        },
+        {
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/SoftwareAgentSbomShape",
+            "sh:property": {
+                "@id": "_:b4"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/SbomWorkflowShape"
+            },
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-25",
+                "@type": "xsd:date"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Ensures software agents properly declare their software package dependencies"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Validates software agent package dependencies for SBOM integration"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Software Agent SBOM Enhancement Shape"
+            },
+            "sh:targetClass": {
+                "@id": "prov:SoftwareAgent"
+            },
+            "@type": "sh:NodeShape"
+        },
+        {
+            "@id": "_:b5",
+            "sh:message": {
+                "@language": "en",
+                "@value": "Package may include download location for provenance"
+            },
+            "sh:severity": {
+                "@id": "sh:Info"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Package should specify download location"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "download location"
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:nodeKind": {
+                "@id": "sh:IRI"
+            },
+            "sh:path": {
+                "@id": "spdx:downloadLocation"
+            }
+        },
+        {
+            "@id": "_:b6",
+            "sh:message": {
+                "@language": "en",
+                "@value": "Package should include version information for tracking"
+            },
+            "sh:severity": {
+                "@id": "sh:Warning"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Package should specify version information"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "package version"
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "spdx:versionInfo"
+            }
+        },
+        {
+            "@id": "_:b7",
+            "sh:message": {
+                "@language": "en",
+                "@value": "Package must have exactly one spdx:name"
+            },
+            "sh:severity": {
+                "@id": "sh:Violation"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Package must have exactly one name"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "package name"
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "spdx:name"
+            }
+        },
+        {
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/PackageShape",
+            "sh:property": [
+                {
+                    "@id": "_:b5"
+                },
+                {
+                    "@id": "_:b6"
+                },
+                {
+                    "@id": "_:b7"
+                }
+            ],
+            "rdfs:isDefinedBy": {
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/SbomWorkflowShape"
+            },
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-25",
+                "@type": "xsd:date"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Ensures software packages have required identification and provenance metadata"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Validates SPDX Package instances for DSCDO SBOM integration"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "SPDX Package Shape"
+            },
+            "sh:targetClass": {
+                "@id": "spdx:Package"
+            },
+            "@type": "sh:NodeShape"
+        },
+        {
+            "@id": "_:b8",
+            "sh:message": {
+                "@language": "en",
+                "@value": "SBOM must have exactly one rdfs:label"
+            },
+            "sh:severity": {
+                "@id": "sh:Violation"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "SBOM must have a human-readable label"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "SBOM label"
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "rdfs:label"
+            }
+        },
+        {
+            "@id": "_:b9",
+            "sh:message": {
+                "@language": "en",
+                "@value": "SBOM should include creation info for provenance tracking"
+            },
+            "sh:severity": {
+                "@id": "sh:Warning"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "SBOM should include creation metadata"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "creation information"
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:class": {
+                "@id": "spdx:CreationInfo"
+            },
+            "sh:path": {
+                "@id": "spdx:creationInfo"
+            }
+        },
+        {
+            "@id": "_:b10",
+            "sh:message": {
+                "@language": "en",
+                "@value": "SBOM must reference at least one software package or component"
+            },
+            "sh:severity": {
+                "@id": "sh:Violation"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "SBOM must contain at least one software package"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "SBOM elements"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:class": {
+                "@id": "spdx:Package"
+            },
+            "sh:path": {
+                "@id": "spdx:hasElement"
+            }
+        },
+        {
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/SbomShape",
+            "sh:property": [
+                {
+                    "@id": "_:b8"
+                },
+                {
+                    "@id": "_:b9"
+                },
+                {
+                    "@id": "_:b10"
+                }
+            ],
+            "rdfs:isDefinedBy": {
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/SbomWorkflowShape"
+            },
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-25",
+                "@type": "xsd:date"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Ensures SBOM instances contain required elements and provenance for supply chain compliance"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Validates SPDX Software Bill of Materials structure for DSCDO integration"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "SPDX SBOM Shape"
+            },
+            "sh:targetClass": {
+                "@id": "spdx:Sbom"
+            },
+            "@type": "sh:NodeShape"
+        },
+        {
+            "@id": "_:b11",
+            "sh:severity": {
+                "@id": "sh:Info"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Workflow execution end time"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "end time"
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:dateTime"
+            },
+            "sh:path": {
+                "@id": "prov:endedAtTime"
+            }
+        },
+        {
+            "@id": "_:b12",
+            "sh:severity": {
+                "@id": "sh:Info"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Workflow execution start time"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "start time"
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:dateTime"
+            },
+            "sh:path": {
+                "@id": "prov:startedAtTime"
+            }
+        },
+        {
+            "@id": "_:b13",
+            "sh:message": {
+                "@language": "en",
+                "@value": "Workflow must specify which software agent performed the execution"
+            },
+            "sh:severity": {
+                "@id": "sh:Violation"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Workflows must be attributed to at least one software agent"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "software agent attribution"
+            },
+            "sh:class": {
+                "@id": "prov:SoftwareAgent"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:path": {
+                "@id": "prov:wasAttributedTo"
+            }
+        },
+        {
+            "@id": "_:b14",
+            "sh:message": {
+                "@language": "en",
+                "@value": "Information extraction workflows should include container SBOM for supply chain transparency"
+            },
+            "sh:severity": {
+                "@id": "sh:Warning"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "A workflow may reference at most one container SBOM"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "container SBOM"
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:class": {
+                "@id": "spdx:Sbom"
+            },
+            "sh:path": {
+                "@id": "dscdo:containerSbom"
+            }
+        },
+        {
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/InformationExtractionWorkflowSbomShape",
+            "sh:property": [
+                {
+                    "@id": "_:b11"
+                },
+                {
+                    "@id": "_:b12"
+                },
+                {
+                    "@id": "_:b13"
+                },
+                {
+                    "@id": "_:b14"
+                }
+            ],
+            "rdfs:isDefinedBy": {
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/SbomWorkflowShape"
+            },
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-25",
+                "@type": "xsd:date"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Ensures workflows with container execution provide proper SBOM references for compliance and security tracking"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Validates SBOM integration for containerized information extraction workflows"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Information Extraction Workflow SBOM Shape"
+            },
+            "sh:targetClass": {
+                "@id": "dscdo:InformationExtractionWorkflow"
+            },
+            "@type": "sh:NodeShape"
+        }
+    ],
+    "@context": {
+        "spdx": "https://spdx.org/rdf/3.0.1/terms/",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "dscdo": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "prov": "http://www.w3.org/ns/prov#"
+    }
+}

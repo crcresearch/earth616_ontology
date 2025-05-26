@@ -1,0 +1,249 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dscdo: <${ONTOLOGY_BASE}/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix spdx: <https://spdx.org/rdf/3.0.1/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <${SHAPES_BASE}/> .
+
+# === SBOM WORKFLOW VALIDATION SHAPES =======================================
+
+# Shape Graph metadata
+<${SHAPES_BASE}/SbomWorkflowShape> a owl:Ontology, sh:ShapesGraph ;
+    rdfs:label "SBOM Workflow Shape Graph"@en ;
+    rdfs:comment "SHACL shapes for validating SPDX SBOM integration with DSCDO workflow instances"@en ;
+    owl:versionInfo "1.0" ;
+    dcterms:created "2025-01-25"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    rdfs:seeAlso <https://spdx.github.io/spdx-spec/v3.0.1/> .
+
+# === WORKFLOW SBOM INTEGRATION SHAPES ===================================
+
+<${SHAPES_BASE}/InformationExtractionWorkflowSbomShape> a sh:NodeShape ;
+    sh:targetClass dscdo:InformationExtractionWorkflow ;
+    rdfs:label "Information Extraction Workflow SBOM Shape"@en ;
+    rdfs:comment "Validates SBOM integration for containerized information extraction workflows"@en ;
+    skos:definition "Ensures workflows with container execution provide proper SBOM references for compliance and security tracking"@en ;
+    dcterms:created "2025-01-25"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    rdfs:isDefinedBy <${SHAPES_BASE}/SbomWorkflowShape> ;
+    
+    # Container SBOM property validation
+    sh:property [
+        sh:path dscdo:containerSbom ;
+        sh:class spdx:Sbom ;
+        sh:maxCount 1 ;
+        sh:name "container SBOM"@en ;
+        sh:description "A workflow may reference at most one container SBOM"@en ;
+        sh:severity sh:Warning ;
+        sh:message "Information extraction workflows should include container SBOM for supply chain transparency"@en
+    ] ;
+    
+    # Software agent attribution validation
+    sh:property [
+        sh:path prov:wasAttributedTo ;
+        sh:minCount 1 ;
+        sh:class prov:SoftwareAgent ;
+        sh:name "software agent attribution"@en ;
+        sh:description "Workflows must be attributed to at least one software agent"@en ;
+        sh:severity sh:Violation ;
+        sh:message "Workflow must specify which software agent performed the execution"@en
+    ] ;
+    
+    # Temporal bounds validation
+    sh:property [
+        sh:path prov:startedAtTime ;
+        sh:datatype xsd:dateTime ;
+        sh:maxCount 1 ;
+        sh:name "start time"@en ;
+        sh:description "Workflow execution start time"@en ;
+        sh:severity sh:Info
+    ] ;
+    
+    sh:property [
+        sh:path prov:endedAtTime ;
+        sh:datatype xsd:dateTime ;
+        sh:maxCount 1 ;
+        sh:name "end time"@en ;
+        sh:description "Workflow execution end time"@en ;
+        sh:severity sh:Info
+    ] .
+
+# === SBOM VALIDATION SHAPES =============================================
+
+<${SHAPES_BASE}/SbomShape> a sh:NodeShape ;
+    sh:targetClass spdx:Sbom ;
+    rdfs:label "SPDX SBOM Shape"@en ;
+    rdfs:comment "Validates SPDX Software Bill of Materials structure for DSCDO integration"@en ;
+    skos:definition "Ensures SBOM instances contain required elements and provenance for supply chain compliance"@en ;
+    dcterms:created "2025-01-25"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    rdfs:isDefinedBy <${SHAPES_BASE}/SbomWorkflowShape> ;
+    
+    # Required elements
+    sh:property [
+        sh:path spdx:hasElement ;
+        sh:class spdx:Package ;
+        sh:minCount 1 ;
+        sh:name "SBOM elements"@en ;
+        sh:description "SBOM must contain at least one software package"@en ;
+        sh:severity sh:Violation ;
+        sh:message "SBOM must reference at least one software package or component"@en
+    ] ;
+    
+    # Creation info validation
+    sh:property [
+        sh:path spdx:creationInfo ;
+        sh:class spdx:CreationInfo ;
+        sh:maxCount 1 ;
+        sh:name "creation information"@en ;
+        sh:description "SBOM should include creation metadata"@en ;
+        sh:severity sh:Warning ;
+        sh:message "SBOM should include creation info for provenance tracking"@en
+    ] ;
+    
+    # Label requirement
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "SBOM label"@en ;
+        sh:description "SBOM must have a human-readable label"@en ;
+        sh:severity sh:Violation ;
+        sh:message "SBOM must have exactly one rdfs:label"@en
+    ] .
+
+# === PACKAGE VALIDATION SHAPES ==========================================
+
+<${SHAPES_BASE}/PackageShape> a sh:NodeShape ;
+    sh:targetClass spdx:Package ;
+    rdfs:label "SPDX Package Shape"@en ;
+    rdfs:comment "Validates SPDX Package instances for DSCDO SBOM integration"@en ;
+    skos:definition "Ensures software packages have required identification and provenance metadata"@en ;
+    dcterms:created "2025-01-25"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    rdfs:isDefinedBy <${SHAPES_BASE}/SbomWorkflowShape> ;
+    
+    # Package name requirement
+    sh:property [
+        sh:path spdx:name ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "package name"@en ;
+        sh:description "Package must have exactly one name"@en ;
+        sh:severity sh:Violation ;
+        sh:message "Package must have exactly one spdx:name"@en
+    ] ;
+    
+    # Version info
+    sh:property [
+        sh:path spdx:versionInfo ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:name "package version"@en ;
+        sh:description "Package should specify version information"@en ;
+        sh:severity sh:Warning ;
+        sh:message "Package should include version information for tracking"@en
+    ] ;
+    
+    # Download location
+    sh:property [
+        sh:path spdx:downloadLocation ;
+        sh:nodeKind sh:IRI ;
+        sh:maxCount 1 ;
+        sh:name "download location"@en ;
+        sh:description "Package should specify download location"@en ;
+        sh:severity sh:Info ;
+        sh:message "Package may include download location for provenance"@en
+    ] .
+
+# === SOFTWARE AGENT ENHANCEMENT SHAPES =================================
+
+<${SHAPES_BASE}/SoftwareAgentSbomShape> a sh:NodeShape ;
+    sh:targetClass prov:SoftwareAgent ;
+    rdfs:label "Software Agent SBOM Enhancement Shape"@en ;
+    rdfs:comment "Validates software agent package dependencies for SBOM integration"@en ;
+    skos:definition "Ensures software agents properly declare their software package dependencies"@en ;
+    dcterms:created "2025-01-25"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    rdfs:isDefinedBy <${SHAPES_BASE}/SbomWorkflowShape> ;
+    
+    # Package dependencies
+    sh:property [
+        sh:path dscdo:dependsOnPackage ;
+        sh:class spdx:Package ;
+        sh:name "package dependencies"@en ;
+        sh:description "Software agent may depend on specific packages"@en ;
+        sh:severity sh:Info
+    ] .
+
+# === CREATION INFO VALIDATION SHAPES ====================================
+
+<${SHAPES_BASE}/CreationInfoShape> a sh:NodeShape ;
+    sh:targetClass spdx:CreationInfo ;
+    rdfs:label "SPDX Creation Info Shape"@en ;
+    rdfs:comment "Validates SPDX CreationInfo for SBOM provenance tracking"@en ;
+    skos:definition "Ensures SBOM creation information includes proper attribution and temporal metadata"@en ;
+    dcterms:created "2025-01-25"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    rdfs:isDefinedBy <${SHAPES_BASE}/SbomWorkflowShape> ;
+    
+    # Attribution requirement
+    sh:property [
+        sh:path prov:wasAttributedTo ;
+        sh:minCount 1 ;
+        sh:name "creation attribution"@en ;
+        sh:description "Creation info must specify who/what created the SBOM"@en ;
+        sh:severity sh:Violation ;
+        sh:message "CreationInfo must specify attribution via prov:wasAttributedTo"@en
+    ] ;
+    
+    # Creation time
+    sh:property [
+        sh:path prov:startedAtTime ;
+        sh:datatype xsd:dateTime ;
+        sh:maxCount 1 ;
+        sh:name "creation time"@en ;
+        sh:description "When SBOM creation began"@en ;
+        sh:severity sh:Info
+    ] .
+
+# === RELATIONSHIP VALIDATION SHAPES =====================================
+
+<${SHAPES_BASE}/PackageRelationshipShape> a sh:NodeShape ;
+    sh:targetClass spdx:Relationship ;
+    rdfs:label "SPDX Package Relationship Shape"@en ;
+    rdfs:comment "Validates relationships between software packages in SBOM"@en ;
+    skos:definition "Ensures package dependency relationships are properly structured"@en ;
+    dcterms:created "2025-01-25"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    rdfs:isDefinedBy <${SHAPES_BASE}/SbomWorkflowShape> ;
+    
+    # Relationship type requirement
+    sh:property [
+        sh:path spdx:relationshipType ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "relationship type"@en ;
+        sh:description "Relationship must specify its type"@en ;
+        sh:severity sh:Violation ;
+        sh:message "Relationship must have exactly one relationshipType"@en
+    ] ;
+    
+    # Target element requirement
+    sh:property [
+        sh:path spdx:hasElement ;
+        sh:class spdx:Package ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "target element"@en ;
+        sh:description "Relationship must reference target package"@en ;
+        sh:severity sh:Violation ;
+        sh:message "Relationship must reference exactly one target package via hasElement"@en
+    ] .
