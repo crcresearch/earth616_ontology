@@ -1,0 +1,195 @@
+{
+    "@graph": [
+        {
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/oplax",
+            "rdfs:comment": "Cached due to unreliable research server availability",
+            "schema:license": {
+                "@id": "https://creativecommons.org/licenses/by/3.0/"
+            },
+            "schema:creator": "STLab, ISTC-CNR",
+            "schema:availability": "Discontinued",
+            "schema:dateModified": {
+                "@value": "2025-05-26",
+                "@type": "xsd:date"
+            },
+            "schema:encodingFormat": "application/rdf+xml",
+            "schema:contentUrl": {
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/oplax.owl"
+            },
+            "originalUrl": {
+                "@id": "http://ontologydesignpatterns.org/oplax/"
+            },
+            "schema:description": "Ontology Pattern Language eXtended for design pattern metadata",
+            "schema:name": "OPLaX Ontology Patterns",
+            "@type": "CachedImport"
+        },
+        {
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/CachedImport",
+            "schema:description": "An ontology import that provides alternative resolution mechanisms for agents",
+            "rdfs:subClassOf": {
+                "@id": "schema:Dataset"
+            },
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/schema-org",
+            "rdfs:comment": "Cached due to non-standard Link header dereferencing instead of direct RDF content negotiation",
+            "schema:license": {
+                "@id": "https://creativecommons.org/licenses/by-sa/3.0/"
+            },
+            "schema:creator": "Schema.org Community Group",
+            "schema:availability": "Available",
+            "schema:dateModified": {
+                "@value": "2025-05-26",
+                "@type": "xsd:date"
+            },
+            "schema:encodingFormat": "text/turtle",
+            "schema:contentUrl": {
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/schema.ttl"
+            },
+            "originalUrl": {
+                "@id": "https://schema.org/"
+            },
+            "schema:description": "Schema.org structured data vocabulary for web content",
+            "schema:name": "Schema.org Vocabulary",
+            "@type": "CachedImport"
+        },
+        {
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/cbv-ontology",
+            "rdfs:comment": "Cached due to unreliable original endpoint availability",
+            "schema:license": {
+                "@id": "https://www.gs1.org/standards/gs1-general-specifications"
+            },
+            "schema:creator": "GS1 AISBL",
+            "schema:availability": "Discontinued",
+            "schema:dateModified": {
+                "@value": "2025-05-26",
+                "@type": "xsd:date"
+            },
+            "schema:encodingFormat": "text/turtle",
+            "schema:contentUrl": {
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/cbv-ontology.ttl"
+            },
+            "originalUrl": {
+                "@id": "https://ref.gs1.org/standards/cbv/"
+            },
+            "schema:description": "GS1 Core Business Vocabulary for standardized business terms and concepts",
+            "schema:name": "Core Business Vocabulary",
+            "@type": "CachedImport"
+        },
+        {
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/epcis-ontology",
+            "rdfs:comment": "Cached due to unreliable original endpoint availability",
+            "schema:license": {
+                "@id": "https://www.gs1.org/standards/gs1-general-specifications"
+            },
+            "schema:creator": "GS1 AISBL",
+            "schema:availability": "Discontinued",
+            "schema:dateModified": {
+                "@value": "2025-05-26",
+                "@type": "xsd:date"
+            },
+            "schema:encodingFormat": "text/turtle",
+            "schema:contentUrl": {
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/epcis-ontology.ttl"
+            },
+            "originalUrl": {
+                "@id": "https://ref.gs1.org/standards/epcis/"
+            },
+            "schema:description": "Electronic Product Code Information Services ontology for supply chain visibility",
+            "schema:name": "EPCIS Ontology",
+            "@type": "CachedImport"
+        },
+        {
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/gs1-vocab",
+            "rdfs:comment": "Cached due to unreliable original endpoint availability",
+            "schema:license": {
+                "@id": "https://www.gs1.org/standards/gs1-general-specifications"
+            },
+            "schema:creator": "GS1 AISBL",
+            "schema:availability": "Discontinued",
+            "schema:dateModified": {
+                "@value": "2025-05-26",
+                "@type": "xsd:date"
+            },
+            "schema:encodingFormat": "text/turtle",
+            "schema:contentUrl": {
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/GS1-voc.ttl"
+            },
+            "originalUrl": {
+                "@id": "https://gs1.org/voc/"
+            },
+            "schema:description": "GS1 vocabulary for supply chain identification and product information",
+            "schema:name": "GS1 Web Vocabulary",
+            "@type": "CachedImport"
+        },
+        {
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/originalUrl",
+            "rdfs:range": {
+                "@id": "xsd:anyURI"
+            },
+            "schema:description": "The canonical URI for semantic and reasoning purposes",
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/cachedImports",
+            "rdfs:range": {
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/CachedImport"
+            },
+            "rdfs:domain": {
+                "@id": "owl:Ontology"
+            },
+            "schema:description": "Import with cached alternative access methods for agents",
+            "rdfs:subPropertyOf": {
+                "@id": "owl:imports"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/",
+            "schema:dataset": [
+                {
+                    "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/oplax"
+                },
+                {
+                    "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/schema-org"
+                },
+                {
+                    "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/cbv-ontology"
+                },
+                {
+                    "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/epcis-ontology"
+                },
+                {
+                    "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/gs1-vocab"
+                }
+            ],
+            "schema:license": {
+                "@id": "https://creativecommons.org/licenses/by/4.0/"
+            },
+            "dct:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "schema:url": {
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/"
+            },
+            "schema:dateModified": {
+                "@value": "2025-05-26",
+                "@type": "xsd:date"
+            },
+            "schema:version": "0.1.4",
+            "schema:description": "Registry of cached ontology imports with alternative access methods for agents",
+            "schema:name": "Earth616 Ontology Import Cache",
+            "@type": "schema:DataCatalog"
+        }
+    ],
+    "@context": {
+        "schema": "https://schema.org/",
+        "dct": "http://purl.org/dc/terms/",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "@vocab": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/"
+    }
+}

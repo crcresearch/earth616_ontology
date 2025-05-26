@@ -3,7 +3,7 @@ set -e
 
 # Enhanced build script with template support for URI resolution
 # Usage:
-#   build-release-enhanced.sh [--env=local|production] [--mode=standard|oplax] [--docs=widoco|pylode] [--layers=all|context,ontology,shapes,rules]
+#   build-release-enhanced.sh [--env=local|production] [--mode=standard|oplax] [--docs=widoco|pylode] [--layers=all|context,ontology,shapes,rules,imports]
 
 # Parse options
 ENV=production
@@ -242,6 +242,52 @@ if [[ "$LAYERS" == "all" || "$LAYERS" == *"rules"* ]]; then
     fi
 fi
 
+# Process Import Cache Registry
+if [[ "$LAYERS" == "all" || "$LAYERS" == *"imports"* ]]; then
+    echo "=== Building Import Cache Registry ==="
+    
+    prepare_directory "${RELEASE_DIR}/imports/${VERSION}"
+    prepare_directory "${RELEASE_DIR}/imports/latest"
+    
+    # Copy cached import files
+    if [ -d "modules/imports" ]; then
+        echo "Copying cached import files"
+        cp -r modules/imports/* "${RELEASE_DIR}/imports/${VERSION}/" 2>/dev/null || true
+        cp -r modules/imports/* "${RELEASE_DIR}/imports/latest/" 2>/dev/null || true
+    fi
+    
+    # Process import registry templates
+    if [ -d "${TEMPLATES_DIR}/imports" ]; then
+        # Set environment variables for import registry
+        export BUILD_DATE=$(date +%Y-%m-%d)
+        export VERSION="$VERSION"
+        export ONTOLOGY_BASE_URI="$ONTOLOGY_BASE"
+        export ONTOLOGY_CREATOR_URI="${ONTOLOGY_CREATOR_URI:-https://orcid.org/0000-0003-4091-6059}"
+        export ONTOLOGY_LICENSE_URI="${ONTOLOGY_LICENSE_URI:-https://creativecommons.org/licenses/by/4.0/}"
+        
+        for template in ${TEMPLATES_DIR}/imports/*.template; do
+            if [ -f "$template" ]; then
+                filename=$(basename "$template" .template)
+                echo "Processing import registry template: $template -> $filename"
+                
+                # Process template with environment variables
+                envsubst < "$template" > "${RELEASE_DIR}/imports/${VERSION}/${filename}"
+                envsubst < "$template" > "${RELEASE_DIR}/imports/latest/${filename}"
+                
+                # Generate JSON-LD for .ttl files if riot is available
+                if [[ "$filename" == *.ttl ]] && [ "$RIOT_AVAILABLE" = "true" ]; then
+                    jsonld_filename=$(echo "$filename" | sed 's|\.ttl$|.jsonld|')
+                    echo "  Converting import registry to JSON-LD: $jsonld_filename"
+                    riot --output=jsonld "${RELEASE_DIR}/imports/${VERSION}/${filename}" > "${RELEASE_DIR}/imports/${VERSION}/${jsonld_filename}" 2>/dev/null || echo "    Warning: JSON-LD conversion failed for $filename"
+                    riot --output=jsonld "${RELEASE_DIR}/imports/latest/${filename}" > "${RELEASE_DIR}/imports/latest/${jsonld_filename}" 2>/dev/null || true
+                fi
+            fi
+        done
+    else
+        echo "Warning: No import registry templates found in ${TEMPLATES_DIR}/imports"
+    fi
+fi
+
 # Generate PROF profile and pyLODE config (if ontology layer was built)
 if [[ "$LAYERS" == "all" || "$LAYERS" == *"ontology"* ]]; then
     echo "=== Generating PROF Profile and pyLODE Config ==="
@@ -323,6 +369,7 @@ echo "  Ontology: ${ONTOLOGY_BASE}/ (TTL/JSON-LD/HTML)"
 echo "  Profile: ${ONTOLOGY_BASE}/profile/ (TTL/JSON-LD/HTML)"
 echo "  Patterns: ${ONTOLOGY_BASE}/patterns/ (index + individual patterns)"
 echo "  Modules: ${ONTOLOGY_BASE}/modules/{module}/ (TTL/JSON-LD/HTML)"
+echo "  Import Cache: ${ONTOLOGY_BASE}/imports/ (TTL/JSON-LD/HTML)"
 
 # If a Python virtualenv exists, activate it so python3 and rdflib are available
 if [ -f ".venv/bin/activate" ]; then

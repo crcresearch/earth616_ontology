@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earth616 Ontology Import Cache Registry</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        .header {
+            border-bottom: 2px solid #e1e4e8;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .import-card {
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 20px 0;
+            background: #f6f8fa;
+        }
+        .import-title {
+            color: #0366d6;
+            font-size: 1.25em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .import-urls {
+            background: #fff;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+            border-left: 4px solid #28a745;
+        }
+        .url-row {
+            margin: 8px 0;
+            font-family: 'SFMono-Regular', Consolas, monospace;
+            font-size: 0.9em;
+        }
+        .url-label {
+            font-weight: 600;
+            color: #586069;
+            min-width: 120px;
+            display: inline-block;
+        }
+        .status {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .status-available { background: #d4edda; color: #155724; }
+        .status-discontinued { background: #f8d7da; color: #721c24; }
+        .metadata {
+            font-size: 0.9em;
+            color: #586069;
+            margin-top: 10px;
+        }
+        .version-info {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        code {
+            background: #f1f3f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'SFMono-Regular', Consolas, monospace;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Earth616 Ontology Import Cache Registry</h1>
+        <p><strong>Version:</strong> ${VERSION} | <strong>Generated:</strong> ${BUILD_DATE}</p>
+        <p>Registry of cached ontology imports with alternative access methods for LLM agents and semantic web applications.</p>
+    </div>
+
+    <div class="version-info">
+        <h3>🤖 For LLM Agents</h3>
+        <p>This registry provides reliable access to ontology imports. When the original URI fails, use the cached version. 
+        Machine-readable metadata available at: <code><a href="index.ttl">index.ttl</a></code></p>
+    </div>
+
+    <div class="import-card">
+        <div class="import-title">GS1 Web Vocabulary</div>
+        <p>GS1 vocabulary for supply chain identification and product information</p>
+        <div class="import-urls">
+            <div class="url-row">
+                <span class="url-label">Original URI:</span> 
+                <code>https://gs1.org/voc/</code>
+                <span class="status status-discontinued">Discontinued</span>
+            </div>
+            <div class="url-row">
+                <span class="url-label">Cached Version:</span> 
+                <code><a href="../imports/GS1-voc.ttl">${ONTOLOGY_BASE_URI}/imports/GS1-voc.ttl</a></code>
+                <span class="status status-available">Available</span>
+            </div>
+        </div>
+        <div class="metadata">
+            <strong>Creator:</strong> GS1 AISBL | 
+            <strong>Format:</strong> Turtle | 
+            <strong>License:</strong> <a href="https://www.gs1.org/standards/gs1-general-specifications">GS1 General Specifications</a>
+        </div>
+    </div>
+
+    <div class="import-card">
+        <div class="import-title">EPCIS Ontology</div>
+        <p>Electronic Product Code Information Services ontology for supply chain visibility</p>
+        <div class="import-urls">
+            <div class="url-row">
+                <span class="url-label">Original URI:</span> 
+                <code>https://ref.gs1.org/standards/epcis/</code>
+                <span class="status status-discontinued">Discontinued</span>
+            </div>
+            <div class="url-row">
+                <span class="url-label">Cached Version:</span> 
+                <code><a href="../imports/epcis-ontology.ttl">${ONTOLOGY_BASE_URI}/imports/epcis-ontology.ttl</a></code>
+                <span class="status status-available">Available</span>
+            </div>
+        </div>
+        <div class="metadata">
+            <strong>Creator:</strong> GS1 AISBL | 
+            <strong>Format:</strong> Turtle | 
+            <strong>License:</strong> <a href="https://www.gs1.org/standards/gs1-general-specifications">GS1 General Specifications</a>
+        </div>
+    </div>
+
+    <div class="import-card">
+        <div class="import-title">Core Business Vocabulary</div>
+        <p>GS1 Core Business Vocabulary for standardized business terms and concepts</p>
+        <div class="import-urls">
+            <div class="url-row">
+                <span class="url-label">Original URI:</span> 
+                <code>https://ref.gs1.org/standards/cbv/</code>
+                <span class="status status-discontinued">Discontinued</span>
+            </div>
+            <div class="url-row">
+                <span class="url-label">Cached Version:</span> 
+                <code><a href="../imports/cbv-ontology.ttl">${ONTOLOGY_BASE_URI}/imports/cbv-ontology.ttl</a></code>
+                <span class="status status-available">Available</span>
+            </div>
+        </div>
+        <div class="metadata">
+            <strong>Creator:</strong> GS1 AISBL | 
+            <strong>Format:</strong> Turtle | 
+            <strong>License:</strong> <a href="https://www.gs1.org/standards/gs1-general-specifications">GS1 General Specifications</a>
+        </div>
+    </div>
+
+    <div class="import-card">
+        <div class="import-title">Schema.org Vocabulary</div>
+        <p>Schema.org structured data vocabulary for web content</p>
+        <div class="import-urls">
+            <div class="url-row">
+                <span class="url-label">Original URI:</span> 
+                <code>https://schema.org/</code>
+                <span class="status status-available">Available</span>
+            </div>
+            <div class="url-row">
+                <span class="url-label">Cached Version:</span> 
+                <code><a href="../imports/schema.ttl">${ONTOLOGY_BASE_URI}/imports/schema.ttl</a></code>
+                <span class="status status-available">Available</span>
+            </div>
+        </div>
+        <div class="metadata">
+            <strong>Creator:</strong> Schema.org Community Group | 
+            <strong>Format:</strong> Turtle | 
+            <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a><br>
+            <strong>Note:</strong> Cached due to non-standard Link header dereferencing instead of direct RDF content negotiation
+        </div>
+    </div>
+
+    <div class="import-card">
+        <div class="import-title">OPLaX Ontology Patterns</div>
+        <p>Ontology Pattern Language eXtended for design pattern metadata</p>
+        <div class="import-urls">
+            <div class="url-row">
+                <span class="url-label">Original URI:</span> 
+                <code>http://ontologydesignpatterns.org/oplax/</code>
+                <span class="status status-discontinued">Discontinued</span>
+            </div>
+            <div class="url-row">
+                <span class="url-label">Cached Version:</span> 
+                <code><a href="../imports/oplax.owl">${ONTOLOGY_BASE_URI}/imports/oplax.owl</a></code>
+                <span class="status status-available">Available</span>
+            </div>
+        </div>
+        <div class="metadata">
+            <strong>Creator:</strong> STLab, ISTC-CNR | 
+            <strong>Format:</strong> RDF/XML | 
+            <strong>License:</strong> <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>
+        </div>
+    </div>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e1e4e8; font-size: 0.9em; color: #586069;">
+        <p>This import cache registry is part of the <a href="${ONTOLOGY_BASE_URI}">Earth616 Ontology</a> project.</p>
+        <p>Generated from template on ${BUILD_DATE} | <a href="https://github.com/crcresearch/earth616_ontology">Source Repository</a></p>
+    </footer>
+</body>
+</html>
