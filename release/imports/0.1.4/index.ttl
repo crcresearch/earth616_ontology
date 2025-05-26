@@ -1,0 +1,100 @@
+@prefix : <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+# Import Cache Registry
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/> a schema:DataCatalog ;
+    schema:name "Earth616 Ontology Import Cache" ;
+    schema:description "Registry of cached ontology imports with alternative access methods for agents" ;
+    schema:version "0.1.4" ;
+    schema:dateModified "2025-05-26"^^xsd:date ;
+    schema:url <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/> ;
+    dct:creator <https://orcid.org/0000-0003-4091-6059> ;
+    schema:license <https://creativecommons.org/licenses/by/4.0/> .
+
+# Import Cache Vocabulary
+:cachedImports a owl:ObjectProperty ;
+    rdfs:subPropertyOf owl:imports ;
+    schema:description "Import with cached alternative access methods for agents" ;
+    rdfs:domain owl:Ontology ;
+    rdfs:range :CachedImport .
+
+:originalUrl a owl:DatatypeProperty ;
+    schema:description "The canonical URI for semantic and reasoning purposes" ;
+    rdfs:range xsd:anyURI .
+
+:CachedImport a owl:Class ;
+    rdfs:subClassOf schema:Dataset ;
+    schema:description "An ontology import that provides alternative resolution mechanisms for agents" .
+
+# GS1 Web Vocabulary
+:gs1-vocab a :CachedImport ;
+    schema:name "GS1 Web Vocabulary" ;
+    schema:description "GS1 vocabulary for supply chain identification and product information" ;
+    :originalUrl <https://gs1.org/voc/> ;
+    schema:contentUrl <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/GS1-voc.ttl> ;
+    schema:encodingFormat "text/turtle" ;
+    schema:dateModified "2025-05-26"^^xsd:date ;
+    schema:availability "Maintained - URI non-dereferenceable" ;
+    schema:creator "GS1 AISBL" ;
+    schema:license <https://www.gs1.org/standards/gs1-general-specifications> ;
+    rdfs:comment "Actively maintained by GS1 but canonical URI not directly dereferenceable - cached for reliable agent access" .
+
+# EPCIS Ontology
+:epcis-ontology a :CachedImport ;
+    schema:name "EPCIS Ontology" ;
+    schema:description "Electronic Product Code Information Services ontology for supply chain visibility" ;
+    :originalUrl <https://ref.gs1.org/standards/epcis/> ;
+    schema:contentUrl <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/epcis-ontology.ttl> ;
+    schema:encodingFormat "text/turtle" ;
+    schema:dateModified "2025-05-26"^^xsd:date ;
+    schema:availability "Maintained - URI non-dereferenceable" ;
+    schema:creator "GS1 AISBL" ;
+    schema:license <https://www.gs1.org/standards/gs1-general-specifications> ;
+    rdfs:comment "Actively maintained by GS1 but canonical URI not directly dereferenceable - cached for reliable agent access" .
+
+# Core Business Vocabulary
+:cbv-ontology a :CachedImport ;
+    schema:name "Core Business Vocabulary" ;
+    schema:description "GS1 Core Business Vocabulary for standardized business terms and concepts" ;
+    :originalUrl <https://ref.gs1.org/standards/cbv/> ;
+    schema:contentUrl <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/cbv-ontology.ttl> ;
+    schema:encodingFormat "text/turtle" ;
+    schema:dateModified "2025-05-26"^^xsd:date ;
+    schema:availability "Maintained - URI non-dereferenceable" ;
+    schema:creator "GS1 AISBL" ;
+    schema:license <https://www.gs1.org/standards/gs1-general-specifications> ;
+    rdfs:comment "Actively maintained by GS1 but canonical URI not directly dereferenceable - cached for reliable agent access" .
+
+# Schema.org Vocabulary
+:schema-org a :CachedImport ;
+    schema:name "Schema.org Vocabulary" ;
+    schema:description "Schema.org structured data vocabulary for web content" ;
+    :originalUrl <https://schema.org/> ;
+    schema:contentUrl <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/schema.ttl> ;
+    schema:encodingFormat "text/turtle" ;
+    schema:dateModified "2025-05-26"^^xsd:date ;
+    schema:availability "Available" ;
+    schema:creator "Schema.org Community Group" ;
+    schema:license <https://creativecommons.org/licenses/by-sa/3.0/> ;
+    rdfs:comment "Cached due to non-standard Link header dereferencing instead of direct RDF content negotiation" .
+
+# OPLaX Ontology Design Patterns
+:oplax a :CachedImport ;
+    schema:name "OPLaX Ontology Patterns" ;
+    schema:description "Ontology Pattern Language eXtended for design pattern metadata" ;
+    :originalUrl <http://ontologydesignpatterns.org/oplax/> ;
+    schema:contentUrl <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/oplax.owl> ;
+    schema:encodingFormat "application/rdf+xml" ;
+    schema:dateModified "2025-05-26"^^xsd:date ;
+    schema:availability "Research project - server unreliable" ;
+    schema:creator "STLab, ISTC-CNR" ;
+    schema:license <https://creativecommons.org/licenses/by/3.0/> ;
+    rdfs:comment "Research project with unreliable server availability - cached for reliable agent access" .
+
+# Registry metadata
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/imports/> schema:dataset :gs1-vocab, :epcis-ontology, :cbv-ontology, :schema-org, :oplax .

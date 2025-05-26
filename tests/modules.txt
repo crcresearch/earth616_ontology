@@ -1,6 +1,8 @@
-schema,./modules/imports/schema.ttl
-prov,./modules/imports/prov.ttl
-metadata,./modules/core/metadata.ttl
-document,./modules/scdocumentation/document.ttl
-eventcore,./modules/core/event.ttl
-scevent,./modules/supplychain/eventmodule.ttl
+# NOTE: This file is deprecated. Module development has moved to templates/modules/
+# The build process now generates modules in release/ontology/{version}/
+# For testing, use the latest release files:
+ontology,./release/ontology/latest/core/ontology.ttl
+event,./release/ontology/latest/core/event.ttl
+identifier,./release/ontology/latest/core/identifier.ttl
+document,./release/ontology/latest/scdocumentation/document.ttl
+scevent,./release/ontology/latest/supplychain/eventmodule.ttl

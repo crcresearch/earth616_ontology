@@ -1,0 +1,28 @@
+# Local development environment configuration
+environment: local
+
+# Persistent URI bases (what external clients use)
+uri_bases:
+  context: "https://vocab.earth616.local/context"
+  ontology: "https://vocab.earth616.local/ont" 
+  shapes: "https://vocab.earth616.local/shapes"
+  rules: "https://vocab.earth616.local/rules"
+  data: "https://vocab.earth616.local/data"
+
+# Deployment bases (where files are actually served from)
+deployment_bases:
+  context: "http://localhost:8080/release/contexts/latest"
+  ontology: "http://localhost:8080/release/ontology/latest"
+  shapes: "http://localhost:8080/release/shapes/latest" 
+  rules: "http://localhost:8080/release/rules/latest"
+  data: "http://localhost:8080/release/data/latest"
+
+# Template variable mappings for envsubst
+CONTEXT_BASE: "https://vocab.earth616.local/context"
+ONTOLOGY_BASE: "https://vocab.earth616.local/ont"
+SHAPES_BASE: "https://vocab.earth616.local/shapes"
+RULES_BASE: "https://vocab.earth616.local/rules"
+DATA_BASE: "https://vocab.earth616.local/data"
+
+# Version information
+version: "0.1.4"

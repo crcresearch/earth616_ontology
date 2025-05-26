@@ -25,6 +25,29 @@ By integrating Knowledge Graphs, ontologies, and advanced AI technologies, DSCDO
 
 For more information on how to get started, please refer to the [Installation](#installation) and [Usage](#usage) sections below.
 
+## Installation
+
+Install Python dependencies and set up the development environment using [uv](https://github.com/pypa/uv):
+
+```bash
+pip install uv
+uv install
+```
+
+This will create a `.venv` and install all runtime and development dependencies as defined in `pyproject.toml`.
+
+## Usage
+
+Run tests:
+```bash
+uv run pytest
+```
+
+Generate release artifacts:
+```bash
+uv run bash build-release.sh
+```
+
 ## Development Methodology
 **GitHub Integration:** The program leverages GitHub, a widely adopted platform for distributed version control and collaborative development. All ontology files and related documentation are hosted in a dedicated GitHub repository, enabling contributors to propose changes, review modifications, and merge accepted updates seamlessly.
 

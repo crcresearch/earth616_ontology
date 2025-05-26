@@ -1,0 +1,71 @@
+{
+    "@graph": [
+        {
+            "@id": "_:b0",
+            "sdo:affiliation": "University of Notre Dame",
+            "sdo:name": "Charles F. Vardeman II",
+            "rdfs:label": "Charles F. Vardeman II",
+            "@type": "sdo:Person"
+        },
+        {
+            "@id": "dscdo:patterns/SemanticTrajectory",
+            "skos:note": {
+                "@language": "en",
+                "@value": "This template defines the pattern metadata. The actual pattern implementation combines spatiotemporal and semantic state modeling."
+            },
+            "cpa:relatedCPs": {
+                "@language": "en",
+                "@value": "EventCore, SpatioTemporalExtent"
+            },
+            "cpa:hasConsequences": {
+                "@language": "en",
+                "@value": "Enables rich trajectory analysis with semantic state tracking. May require complex event correlation for accurate trajectory reconstruction."
+            },
+            "cpa:coversRequirements": {
+                "@language": "en",
+                "@value": "What is the trajectory of a product through the supply chain?\nHow does the semantic context of an entity change over time?\nWhat states did an entity pass through during its trajectory?"
+            },
+            "cpa:hasIntent": {
+                "@language": "en",
+                "@value": "To model the movement of entities through space, time, and semantic contexts, enabling tracking of state changes and context transitions."
+            },
+            "oplax:addressesScenario": {
+                "@language": "en",
+                "@value": "A product moves through multiple supply chain stages, each with different semantic contexts (ownership, processing state, location, compliance status)."
+            },
+            "oplax:hasPatternName": {
+                "@language": "en",
+                "@value": "Semantic Trajectory"
+            },
+            "dcterms:source": "Based on work from WOP 2016 Semantic Trajectory patterns",
+            "dcterms:creator": {
+                "@id": "_:b0"
+            },
+            "dcterms:description": {
+                "@language": "en",
+                "@value": "Pattern for modeling semantic trajectories and movement of entities through space, time, and semantic contexts."
+            },
+            "dcterms:title": {
+                "@language": "en",
+                "@value": "Semantic Trajectory Pattern"
+            },
+            "@type": [
+                "oplax:Pattern",
+                "owl:Ontology"
+            ]
+        }
+    ],
+    "@context": {
+        "oplax": "http://ontologydesignpatterns.org/opla-core#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "cpa": "http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "oplax-sd": "http://ontologydesignpatterns.org/opla-sd#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "dscdo": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "sdo": "https://schema.org/"
+    }
+}

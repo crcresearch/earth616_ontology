@@ -1,0 +1,154 @@
+{
+  "@context": [
+    "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context/context-workflow.jsonld",
+    {
+      "spdx": "https://spdx.org/rdf/3.0.1/terms/",
+      "Sbom": "spdx:Sbom",
+      "Package": "spdx:Package",
+      "hasElement": {"@id": "spdx:hasElement", "@type": "@id"},
+      "creationInfo": {"@id": "spdx:creationInfo", "@type": "@id"},
+      "CreationInfo": "spdx:CreationInfo",
+      "containerSbom": {"@id": "dscdo:containerSbom", "@type": "@id"},
+      "packageName": "spdx:name",
+      "packageVersion": "spdx:versionInfo",
+      "downloadLocation": "spdx:downloadLocation",
+      "relationship": {"@id": "spdx:relationship", "@type": "@id"},
+      "relationshipType": "spdx:relationshipType",
+      "Relationship": "spdx:Relationship"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "https://example.org/workflow/ie-workflow-001",
+      "@type": "InformationExtractionWorkflow",
+      "rdfs:label": "Document Processing Workflow with Container SBOM",
+      "rdfs:comment": "Example workflow that processes defense supply chain documents using a containerized AI agent with full SBOM tracking",
+      
+      "hasWorkflow": "https://example.org/pipelines/document-extraction-pipeline",
+      "containerSbom": "https://example.org/sbom/container-ie-runtime-v1.2.3",
+      
+      "wasAttributedTo": [
+        {
+          "@id": "https://example.org/agents/document-processor-ai",
+          "@type": "SoftwareAgent",
+          "rdfs:label": "Document Processing AI Agent",
+          "actedOnBehalfOf": "https://example.org/organizations/defense-contractor-alpha"
+        }
+      ],
+      
+      "startedAtTime": "2025-01-15T09:30:00Z",
+      "endedAtTime": "2025-01-15T09:45:30Z",
+      
+      "wasInformedBy": "https://example.org/workflow/document-ingestion-001"
+    },
+    
+    {
+      "@id": "https://example.org/sbom/container-ie-runtime-v1.2.3",
+      "@type": "Sbom",
+      "rdfs:label": "Information Extraction Container SBOM v1.2.3",
+      "rdfs:comment": "Software Bill of Materials for the containerized information extraction runtime environment",
+      
+      "creationInfo": {
+        "@id": "https://example.org/sbom/creation-info-001",
+        "@type": "CreationInfo",
+        "wasAttributedTo": [
+          "https://example.org/tools/container-scanner-v2.1",
+          "https://example.org/agents/sbom-generator"
+        ],
+        "startedAtTime": "2025-01-15T08:00:00Z"
+      },
+      
+      "hasElement": [
+        "https://example.org/packages/python-3.11.7",
+        "https://example.org/packages/transformers-4.36.0",
+        "https://example.org/packages/torch-2.1.0",
+        "https://example.org/packages/spacy-3.7.2",
+        "https://example.org/packages/pdfplumber-0.10.3",
+        "https://example.org/packages/requests-2.31.0",
+        "https://example.org/packages/numpy-1.24.3"
+      ]
+    },
+    
+    {
+      "@id": "https://example.org/packages/python-3.11.7",
+      "@type": "Package",
+      "packageName": "Python",
+      "packageVersion": "3.11.7",
+      "downloadLocation": "https://www.python.org/downloads/release/python-3117/",
+      "rdfs:comment": "Python runtime environment for AI processing"
+    },
+    
+    {
+      "@id": "https://example.org/packages/transformers-4.36.0",
+      "@type": "Package", 
+      "packageName": "transformers",
+      "packageVersion": "4.36.0",
+      "downloadLocation": "https://pypi.org/project/transformers/4.36.0/",
+      "rdfs:comment": "Hugging Face transformers library for NLP models",
+      
+      "relationship": [
+        {
+          "@id": "https://example.org/relationships/transformers-depends-torch",
+          "@type": "Relationship",
+          "relationshipType": "DEPENDS_ON",
+          "hasElement": "https://example.org/packages/torch-2.1.0"
+        }
+      ]
+    },
+    
+    {
+      "@id": "https://example.org/packages/torch-2.1.0", 
+      "@type": "Package",
+      "packageName": "torch",
+      "packageVersion": "2.1.0",
+      "downloadLocation": "https://pypi.org/project/torch/2.1.0/",
+      "rdfs:comment": "PyTorch deep learning framework"
+    },
+    
+    {
+      "@id": "https://example.org/packages/spacy-3.7.2",
+      "@type": "Package",
+      "packageName": "spacy", 
+      "packageVersion": "3.7.2",
+      "downloadLocation": "https://pypi.org/project/spacy/3.7.2/",
+      "rdfs:comment": "Industrial-strength NLP library for information extraction"
+    },
+    
+    {
+      "@id": "https://example.org/packages/pdfplumber-0.10.3",
+      "@type": "Package",
+      "packageName": "pdfplumber",
+      "packageVersion": "0.10.3", 
+      "downloadLocation": "https://pypi.org/project/pdfplumber/0.10.3/",
+      "rdfs:comment": "PDF text extraction and analysis library"
+    },
+    
+    {
+      "@id": "https://example.org/packages/requests-2.31.0",
+      "@type": "Package",
+      "packageName": "requests",
+      "packageVersion": "2.31.0",
+      "downloadLocation": "https://pypi.org/project/requests/2.31.0/",
+      "rdfs:comment": "HTTP library for API communications"
+    },
+    
+    {
+      "@id": "https://example.org/packages/numpy-1.24.3",
+      "@type": "Package", 
+      "packageName": "numpy",
+      "packageVersion": "1.24.3",
+      "downloadLocation": "https://pypi.org/project/numpy/1.24.3/",
+      "rdfs:comment": "Numerical computing library"
+    },
+    
+    {
+      "@id": "https://example.org/pipelines/document-extraction-pipeline",
+      "@type": "IEPipeline",
+      "rdfs:label": "Defense Document Extraction Pipeline",
+      "rdfs:comment": "Pipeline for extracting structured data from defense supply chain documents",
+      
+      "wasAttributedTo": "https://example.org/agents/document-processor-ai",
+      "wasInformedBy": "https://example.org/workflow/ie-workflow-001"
+    }
+  ]
+}

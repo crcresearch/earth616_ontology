@@ -1,0 +1,230 @@
+{
+    "@graph": [
+        {
+            "@id": "dscdo:assumesRole",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/core/event"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:ParticipantRole"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:Agent"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Relates an agent to the role it plays in an event."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "assumes role"
+            },
+            "@type": "rdf:Property"
+        },
+        {
+            "@id": "dscdo:ParticipantRole",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A role played by an agent or entity participating in an event"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/core/event"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Every ParticipantRole represents a reified relationship between an event and one of its participants. Should normally be aligned to a separate Participant-Role pattern."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Participant Role"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "dscdo:Agent",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "An entity capable of acting or participating in events"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/core/event"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "An entity participating in an event, such as a person, organization, or system."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Agent"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "dscdo:subEventOf",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/core/event"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:Event"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:Event"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Property expressing partonomic relation between two events. Domain and range are always Event."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "sub event of"
+            },
+            "@type": "rdf:Property"
+        },
+        {
+            "@id": "dscdo:Event",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A temporal entity that represents occurrences or happenings in time and space"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/core/event"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Represents any kind of events. An event possesses a spatiotemporal extent, provides at least one participant-role, which is performed by some entity (agents or otherwise), and may be a sub-event of another event. An event may also have additional descriptive information, which is consolidated through an information object."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Event"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "dscdo:hasInformationObject",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/core/event"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:InformationObject"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Property relating Event to InformationObject in this pattern. The domain of this property is not restricted to Event since it is possible that non-event to have an information object. The range is always InformationObject since it makes no sense to have a property named hasInformationObject to point to anything other than information object."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has information object"
+            },
+            "@type": "rdf:Property"
+        },
+        {
+            "@id": "dscdo:InformationObject",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "An object that carries descriptive information about an event"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/core/event"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "An entity that encapsulates all descriptive or non-defining information of the corresponding event, e.g., names, additional identifiers, textual descriptions, etc. Should normally be aligned to a separate Information Object pattern."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Information Object"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "dscdo:providesParticipantRole",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/core/event"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:ParticipantRole"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Property relating Event to ParticipantRole in this pattern. The range is always ParticipantRole since it makes no sense to have a property named as providesParticipantRole not to point to a participant role. The domain is not set to Event as non-Event may also provide a participant role."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "provides participant role"
+            },
+            "@type": "rdf:Property"
+        },
+        {
+            "@id": "dscdo:hasSpatioTemporalExtent",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/core/event"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:SpatioTemporalExtent"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Property relating Event to SpatioTemporalExtent in this pattern. The range is always SpatioTemporalExtent (globally) since it makes no sense to have a property named hasSpatioTemporalExtent to point to anything other than spatiotemporal extent. The domain is not set to Event as non-Event may also have spatiotemporal extent."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has spatiotemporal extent"
+            },
+            "@type": "rdf:Property"
+        },
+        {
+            "@id": "dscdo:SpatioTemporalExtent",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "The spatial and temporal boundaries of an event or entity"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/core/event"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Hook to a complex notion representing a unified spatial and temporal extent. Intended to cover non-static or discontinuous spatiotemporal extent. Should be aligned to a separate Spatiotemporal Extent pattern."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Spatiotemporal Extent"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "dscdo:TemporalExtent",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "The temporal boundaries of an event"
+            },
+            "rdfs:subClassOf": {
+                "@id": "dscdo:SpatioTemporalExtent"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/core/event"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Represents the temporal extent of an event."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Temporal Extent"
+            },
+            "@type": "rdfs:Class"
+        }
+    ],
+    "@context": {
+        "schema": "http://schema.org/",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "xml": "http://www.w3.org/XML/1998/namespace",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "dscdo": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "prov": "http://www.w3.org/ns/prov#",
+        "@vocab": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/"
+    }
+}

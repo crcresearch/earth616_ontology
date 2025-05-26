@@ -1,0 +1,47 @@
+# DSCDO CogitareLink
+
+> A drop-in bundle of the Defense Supply Chain and Documentation Ontology (DSCDO) packaged for CogitareLink agents. It provides Layer 0 context, an OPLaX-annotated index ontology, modules, patterns, Layer 2 shapes/rules, and example Layer 3 data.
+
+DSCDO enables agentic discovery and reasoning over supply-chain documentation.
+
+## Context
+- [Context (latest)](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/contexts/latest/context-base.jsonld): Core JSON-LD prefixes.
+- [Documents Context (latest)](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/contexts/latest/context-documents.jsonld): Document metadata terms.
+- [Workflow Context (latest)](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/contexts/latest/context-workflow.jsonld): Workflow modeling terms.
+
+## Ontology
+- [Index Ontology (TTL)](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/index.ttl): OPLaX-annotated index.
+- [Index Ontology (JSON-LD)](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/index.jsonld)
+- [Merged Ontology (TTL)](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/merged.ttl): Union of all modules.
+- [Ontology JSON-LD](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/ontology.jsonld)
+
+## Modules
+- [schema.org import](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/imports/schema.ttl)
+- [Prov-O import](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/imports/prov.ttl)
+- [OPLaX import](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/imports/oplax.owl)
+- [Metadata Module](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/core/metadata.ttl)
+- [Event Module](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/core/event.ttl)
+- [Identifier Module](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/core/identifier.ttl)
+- [Document Module](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/scdocumentation/document.ttl)
+- [Supply Chain Event Module](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule.ttl)
+
+## Patterns
+- [EventCore Pattern](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/EventCore.ttl)
+- [SemanticTrajectory Pattern](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/SemanticTrajectory.ttl)
+- [SpatioTemporalExtent Pattern](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/SpatioTemporalExtent.ttl)
+
+## Shapes & Rules
+- [DocumentShape-v1 (SHACL)](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/shapes/shacl/latest/DocumentShape-v1.jsonld): Validation of DSCDO documents.
+- [OWL-RL SHACL Rules](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/shapes/shacl/latest/RL_rules.shapes.ttl)
+
+## CogitareLink Bundle
+- [Layer 0 Context](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context.jsonld)
+- [Ontology TTL](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontology.ttl)
+- [Modules Index (JSON-LD)](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/modules.jsonld)
+- [SHACL Shapes](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes.ttl)
+- [Rules TTL](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/rules.ttl)
+- [Example Instance](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/instances/test1.jsonld): Sample DSCDO document.
+  
+## pyLODE Supermodel
+- [Supermodel Profile (TTL)](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/index-profile.ttl): pyLODE `supermodel` configuration for modules.
+- [Supermodel HTML](https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/index-supermodel.html): Multi-part ontology documentation via pyLODE supermodel mode.

@@ -1,0 +1,259 @@
+{
+    "@graph": [
+        {
+            "@id": "dscdo:ManufacturerRole",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A participant role representing an entity that creates or modifies products"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The role of an entity that produces or transforms goods in a supply chain event."
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Manufacturer Role"
+            },
+            "rdfs:subClassOf": {
+                "@id": "dscdo:ParticipantRole"
+            },
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:CarrierRole",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A participant role representing an entity responsible for moving items between locations"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The role of an entity that transports goods in a supply chain event."
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Carrier Role"
+            },
+            "rdfs:subClassOf": {
+                "@id": "dscdo:ParticipantRole"
+            },
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:CustomerRole",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A participant role representing an entity that receives outputs from the supply chain"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The role of an entity that receives goods or services in a supply chain event."
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Customer Role"
+            },
+            "rdfs:subClassOf": {
+                "@id": "dscdo:ParticipantRole"
+            },
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:SupplierRole",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A participant role representing an entity that provides inputs to the supply chain"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The role of an entity that provides goods or services in a supply chain event."
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Supplier Role"
+            },
+            "rdfs:subClassOf": {
+                "@id": "dscdo:ParticipantRole"
+            },
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:DisaggregationEvent",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "An event that records the separation of aggregated items back into individual units"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "An event representing the disaggregation of items from a container or package."
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Disaggregation Event"
+            },
+            "rdfs:subClassOf": {
+                "@id": "dscdo:SupplyChainEvent"
+            },
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:SupplyChainEvent",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A specialized event that occurs within supply chain operations, tracking the movement, transformation, or status changes of goods, materials, or information"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "An event occurring in a supply chain process."
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Supply Chain Event"
+            },
+            "rdfs:subClassOf": {
+                "@id": "dscdo:Event"
+            },
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:AggregationEvent",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "An event that records the grouping of individual items into larger units for handling or shipping"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "An event representing the aggregation of multiple items into a container or package."
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Aggregation Event"
+            },
+            "rdfs:subClassOf": {
+                "@id": "dscdo:SupplyChainEvent"
+            },
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:ObservationEvent",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "An event that records data collection or monitoring activities without altering the observed items"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "An event representing the observation or measurement of supply chain items without changing their state."
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Observation Event"
+            },
+            "rdfs:subClassOf": {
+                "@id": "dscdo:SupplyChainEvent"
+            },
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:TransportEvent",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "An event that tracks the physical movement of items through the supply chain network"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "An event representing the movement of goods from one location to another."
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Transport Event"
+            },
+            "rdfs:subClassOf": {
+                "@id": "dscdo:SupplyChainEvent"
+            },
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:TransformationEvent",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "An event that records the conversion of input materials into different output products through manufacturing or processing"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "An event representing the transformation of materials into new products or components."
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Transformation Event"
+            },
+            "rdfs:subClassOf": {
+                "@id": "dscdo:SupplyChainEvent"
+            },
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:TransferEvent",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "An event that records the change in custody or ownership of supply chain items"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "An event representing the transfer of goods or materials from one party to another."
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Transfer Event"
+            },
+            "rdfs:subClassOf": {
+                "@id": "dscdo:SupplyChainEvent"
+            },
+            "@type": "owl:Class"
+        }
+    ],
+    "@context": {
+        "schema": "http://schema.org/",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "xml": "http://www.w3.org/XML/1998/namespace",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "dscdo": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "prov": "http://www.w3.org/ns/prov#",
+        "@vocab": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/"
+    }
+}

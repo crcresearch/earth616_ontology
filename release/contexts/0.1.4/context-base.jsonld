@@ -15,7 +15,7 @@
       // References to modular context files - provided as metadata for documentation
       // These are not actual JSON-LD keywords but metadata terms for reference
       "documentContext": {
-        "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context/context-document.jsonld",
+        "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context/context-documents.jsonld",
         "description": "Context for SCDigitalDocument and related document concepts for supply chain documentation",
         "version": "0.1.4"
       },
@@ -39,6 +39,10 @@
         "description": "Context for ParticipantRole, SupplyChainRole and related role concepts",
         "version": "0.1.4"
       },
+      
+      // Cross-layer references
+      "shapesGraph": {"@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/", "@type": "@id"},
+      "rulesGraph": {"@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/rules/", "@type": "@id"},
       
       // Core RDFS/OWL vocabulary terms
       "label": {"@id": "rdfs:label"},

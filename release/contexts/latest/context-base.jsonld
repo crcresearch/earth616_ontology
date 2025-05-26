@@ -15,30 +15,34 @@
       // References to modular context files - provided as metadata for documentation
       // These are not actual JSON-LD keywords but metadata terms for reference
       "documentContext": {
-        "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context/context-document.jsonld",
+        "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context/context-documents.jsonld",
         "description": "Context for SCDigitalDocument and related document concepts for supply chain documentation",
-        "version": "0.1.3"
+        "version": "0.1.4"
       },
       "eventContext": {
         "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context/context-event.jsonld",
         "description": "Context for SupplyChainEvent and event types like TransferEvent, TransformationEvent",
-        "version": "0.1.3"
+        "version": "0.1.4"
       },
       "identifierContext": {
         "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context/context-identifier.jsonld",
         "description": "Context for Identifier pattern, IdentifierType, and IdentifierEncoding concepts",
-        "version": "0.1.3"
+        "version": "0.1.4"
       },
       "workflowContext": {
         "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context/context-workflow.jsonld",
         "description": "Context for InformationExtractionWorkflow and IEPipeline concepts",
-        "version": "0.1.3"
+        "version": "0.1.4"
       },
       "roleContext": {
         "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context/context-role.jsonld",
         "description": "Context for ParticipantRole, SupplyChainRole and related role concepts",
-        "version": "0.1.3"
+        "version": "0.1.4"
       },
+      
+      // Cross-layer references
+      "shapesGraph": {"@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/", "@type": "@id"},
+      "rulesGraph": {"@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/rules/", "@type": "@id"},
       
       // Core RDFS/OWL vocabulary terms
       "label": {"@id": "rdfs:label"},

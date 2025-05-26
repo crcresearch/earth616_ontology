@@ -1,0 +1,94 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dscdo: <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <https://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/> .
+
+# Shape Graph metadata
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/DocumentShape> a owl:Ontology, sh:ShapesGraph ;
+    rdfs:label "Document Shape Graph"@en ;
+    rdfs:comment "SHACL shapes for validating document instances in the DSCDO ontology"@en ;
+    owl:versionInfo "1.0" ;
+    dcterms:created "2025-05-23" ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> .
+
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/DocumentShape-v1> a sh:NodeShape ;
+    sh:targetClass dscdo:Digitaldocument ;
+    rdfs:label "Digital Document Shape"@en ;
+    rdfs:comment "SHACL shape for validating Digital Document instances in the DSCDO ontology"@en ;
+    skos:definition "Defines constraints for digital documents and their content in the supply chain documentation system"@en ;
+    dcterms:created "2025-05-23"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    dcterms:version "1.0" ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/DocumentShape> ;
+    
+    sh:property [
+        sh:path rdf:type ;
+        sh:hasValue dscdo:Digitaldocument ;
+        sh:minCount 1
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:hasDocumentContent ;
+        sh:nodeKind sh:IRI ;
+        sh:class dscdo:Documentcontent ;
+        sh:minCount 1 ;
+        rdfs:comment "Links to the content of the document"
+    ] ;
+    
+    sh:property [
+        sh:path schema:name ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        rdfs:comment "The name or title of the document"
+    ] ;
+    
+    sh:property [
+        sh:path schema:description ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        rdfs:comment "Description of the document purpose and content"
+    ] ;
+    
+    sh:property [
+        sh:path schema:dateCreated ;
+        sh:datatype xsd:dateTime ;
+        sh:maxCount 1 ;
+        rdfs:comment "Date when the document was created"
+    ] ;
+    
+    sh:property [
+        sh:path schema:dateModified ;
+        sh:datatype xsd:dateTime ;
+        sh:maxCount 1 ;
+        rdfs:comment "Date when the document was last modified"
+    ] ;
+    
+    sh:property [
+        sh:path schema:contentUrl ;
+        sh:nodeKind sh:IRI ;
+        sh:maxCount 1 ;
+        rdfs:comment "URL to access the document content"
+    ] ;
+    
+    sh:property [
+        sh:path schema:encodingFormat ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        rdfs:comment "The MIME type of the document"
+    ] ;
+    
+    sh:property [
+        sh:path schema:author ;
+        sh:nodeKind sh:IRI ;
+        rdfs:comment "The author(s) of the document"
+    ] ;
+    
+    sh:closed false ;
+    sh:ignoredProperties ( rdf:type rdfs:label rdfs:comment ) .

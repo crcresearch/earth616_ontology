@@ -1,0 +1,91 @@
+# === DSCDO Index Ontology ===
+# Automatically generated with OPLaX annotations
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dscdo: <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
+@prefix oplax: <https://w3id.org/OPLaX/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> a owl:Ontology, oplax:Ontology ;
+    rdfs:label "Defense Supply Chain and Documentation Ontology (DSCDO) Index"@en ;
+    dcterms:title "Defense Supply Chain and Documentation Ontology (DSCDO) Index"@en ;
+    dcterms:description "Index ontology for DSCDO that imports all modules"@en ;
+    dcterms:created "2025-05-08"^^xsd:date ;
+    owl:versionIRI <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/0.1.4> ;
+    owl:versionInfo "0.1.4"@en ;
+    oplax:hasIntent "This ontology models defense supply chain documentation, processes, and entities."@en ;
+    oplax:coversRequirement "How do I model supply chain events and their documentation?"@en ;
+    oplax:coversRequirement "How do I connect documents to the supply chain events they document?"@en ;
+    oplax:hasCompetencyQuestion "What types of documents are available for a given supply chain event?"@en ;
+    oplax:hasCompetencyQuestion "Who are the participants in a supply chain event?"@en ;
+    oplax:hasCompetencyQuestion "What is the provenance of a document?"@en ;
+    owl:imports <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/imports/oplax.owl> ;
+
+    # Core Modules
+    owl:imports <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/core/metadata> ;
+    owl:imports <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/core/event> ;
+    owl:imports <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/core/identifier> ;
+
+    # Documentation Modules
+    owl:imports <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/scdocumentation/document> ;
+
+    # Supply Chain Modules
+    owl:imports <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+
+    # External Ontologies
+    owl:imports <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/imports/schema> ;
+    owl:imports <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/imports/prov> ;
+
+    # Patterns
+    owl:imports <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/EventCore> ;
+    owl:imports <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/SemanticTrajectory> ;
+    owl:imports <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/SpatioTemporalExtent> .
+
+# === Module Descriptions ===
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/core/metadata> a oplax:Module ;
+    rdfs:label "DSCDO Metadata Module"@en ;
+    oplax:hasIntent "Provides core metadata for the DSCDO ontology."@en ;
+    skos:definition "Contains ontology metadata and core definitions."@en .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/core/event> a oplax:Module ;
+    rdfs:label "DSCDO Event Module"@en ;
+    oplax:hasIntent "Models events and event relations in the supply chain."@en ;
+    oplax:implementsConceptualComponent oplax:EventPattern ;
+    oplax:hasCompetencyQuestion "What are the participants in an event?"@en ;
+    oplax:hasCompetencyQuestion "When and where did an event occur?"@en ;
+    skos:definition "Contains classes and properties for representing events."@en .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/core/identifier> a oplax:Module ;
+    rdfs:label "DSCDO Identifier Module"@en ;
+    oplax:hasIntent "Models identifiers used in supply chain documentation."@en ;
+    oplax:hasCompetencyQuestion "What type of identifier is used for this entity?"@en ;
+    oplax:hasCompetencyQuestion "What is the encoding scheme for this identifier?"@en ;
+    skos:definition "Contains classes and properties for representing identifiers."@en .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/scdocumentation/document> a oplax:Module ;
+    rdfs:label "DSCDO Document Module"@en ;
+    oplax:hasIntent "Models supply chain documentation and content."@en ;
+    oplax:hasCompetencyQuestion "What is the content of this document?"@en ;
+    oplax:hasCompetencyQuestion "What type of document is this?"@en ;
+    skos:definition "Contains classes and properties for representing documentation."@en .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> a oplax:Module ;
+    rdfs:label "DSCDO Supply Chain Event Module"@en ;
+    oplax:hasIntent "Models specific supply chain event types and their properties."@en ;
+    oplax:hasCompetencyQuestion "What type of supply chain event is this?"@en ;
+    oplax:hasCompetencyQuestion "What resources are involved in this supply chain event?"@en ;
+    skos:definition "Contains classes and properties for specific supply chain events."@en .
+
+# === Pattern Descriptions ===
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/EventCore> a oplax:Pattern ;
+    rdfs:label "Event Core Pattern"@en ;
+    oplax:hasIntent "Models events with participants and spatiotemporal extent."@en ;
+    skos:definition "Core pattern for event representation."@en .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/SemanticTrajectory> a oplax:Pattern ;
+    rdfs:label "Semantic Trajectory Pattern"@en ;
+    oplax:hasIntent "Models trajectories of objects through space and time."@en ;
+    skos:definition "Pattern for representing trajectories with semantic annotations."@en .
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/SpatioTemporalExtent> a oplax:Pattern ;
+    rdfs:label "Spatiotemporal Extent Pattern"@en ;
+    oplax:hasIntent "Models the spatial and temporal context of entities."@en ;
+    skos:definition "Pattern for grounding entities in space and time."@en .

@@ -1,0 +1,71 @@
+# === PREFIXES ================================================================
+
+# --- Basic ---
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# --- Collections ---
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sdo: <https://schema.org/> .
+
+# --- Ontology Design Patterns ---
+@prefix oplax: <http://ontologydesignpatterns.org/opla-core#> .
+
+# --- DSCDO ---
+@prefix dscdo: <${ONTOLOGY_BASE}/> .
+@base <${ONTOLOGY_BASE}/> .
+
+# =============================================================================
+# DSCDO Patterns Index
+# =============================================================================
+
+<${ONTOLOGY_BASE}/patterns/>
+    a dcat:Catalog, skos:ConceptScheme ;
+    dcterms:title "DSCDO Ontology Design Patterns Catalog"@en ;
+    dcterms:description "Index of ontology design patterns used in the Defense Supply Chain and Documentation Ontology."@en ;
+    dcterms:creator [
+        a sdo:Person ;
+        rdfs:label "Charles F. Vardeman II" ;
+        sdo:name "Charles F. Vardeman II" ;
+        sdo:affiliation "University of Notre Dame" ;
+    ] ;
+    dcterms:created "2025-04-15"^^xsd:date ;
+    dcterms:modified "2025-04-15"^^xsd:date ;
+
+    # Pattern Entries
+    dcat:dataset <${ONTOLOGY_BASE}/patterns/EventCore> ;
+    dcat:dataset <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> ;
+    dcat:dataset <${ONTOLOGY_BASE}/patterns/SemanticTrajectory> ;
+
+    skos:hasTopConcept <${ONTOLOGY_BASE}/patterns/EventCore> ;
+    skos:hasTopConcept <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> ;
+    skos:hasTopConcept <${ONTOLOGY_BASE}/patterns/SemanticTrajectory> .
+
+# Pattern Concept Definitions for SKOS hierarchy
+<${ONTOLOGY_BASE}/patterns/EventCore>
+    a skos:Concept, oplax:Pattern ;
+    skos:inScheme <${ONTOLOGY_BASE}/patterns/> ;
+    skos:prefLabel "Event Core Pattern"@en ;
+    skos:definition "Minimalistic model of events with spatiotemporal extents and participants."@en ;
+    skos:topConceptOf <${ONTOLOGY_BASE}/patterns/> .
+
+<${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent>
+    a skos:Concept, oplax:Pattern ;
+    skos:inScheme <${ONTOLOGY_BASE}/patterns/> ;
+    skos:prefLabel "Spatiotemporal Extent Pattern"@en ;
+    skos:definition "Unified modeling of spatial and temporal extents."@en ;
+    skos:topConceptOf <${ONTOLOGY_BASE}/patterns/> ;
+    skos:related <${ONTOLOGY_BASE}/patterns/EventCore> .
+
+<${ONTOLOGY_BASE}/patterns/SemanticTrajectory>
+    a skos:Concept, oplax:Pattern ;
+    skos:inScheme <${ONTOLOGY_BASE}/patterns/> ;
+    skos:prefLabel "Semantic Trajectory Pattern"@en ;
+    skos:definition "Modeling movement through space, time, and semantic contexts."@en ;
+    skos:topConceptOf <${ONTOLOGY_BASE}/patterns/> ;
+    skos:related <${ONTOLOGY_BASE}/patterns/EventCore> ;
+    skos:related <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> .
