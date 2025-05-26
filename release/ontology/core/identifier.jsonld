@@ -1,0 +1,172 @@
+{
+    "@graph": [
+        {
+            "@id": "dscdo:hasIdentifierSource",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/core/identifier"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:IdentifierSource"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:Identifier"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Links an identifier to its issuing authority or source."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has identifier source"
+            },
+            "@type": "rdf:Property"
+        },
+        {
+            "@id": "dscdo:IdentifierSource",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/core/identifier"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "An organization or system that issues, maintains, or governs an identifier scheme"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The authority or organization that issued or manages the identifier."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Identifier Source"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "dscdo:Identifier",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/core/identifier"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A standardized code, number, or reference that uniquely identifies an entity, document, or resource. Holds the core identifier value (via schema:value) and type."
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A generic identifier for entities, aligned with ODP. Represents the abstract identifier value and its type."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Identifier"
+            },
+            "rdfs:subClassOf": {
+                "@id": "schema:PropertyValue"
+            }
+        },
+        {
+            "@id": "dscdo:hasIdentifierType",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/core/identifier"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:IdentifierType"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:Identifier"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Links an identifier to its type classification."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has identifier type"
+            },
+            "@type": "rdf:Property"
+        },
+        {
+            "@id": "dscdo:IdentifierType",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/core/identifier"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A classification of identifier types, specifying the standard or system used"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Represents the type or category of an identifier (e.g., GTIN, ISBN, DOI)."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Identifier Type"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "dscdo:hasIdentifierEncoding",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/core/identifier"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:IdentifierEncoding"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:Identifier"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Links an identifier to its physical or digital encoding."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has identifier encoding"
+            },
+            "@type": "rdf:Property"
+        },
+        {
+            "@id": "dscdo:IdentifierEncoding",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/core/identifier"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A physical or digital encoding of an identifier, such as a barcode, QR code, or RFID tag"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Represents a specific instance of how an identifier is encoded (e.g., a specific barcode instance, an RFID tag encoding)."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Identifier Encoding"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "dscdo:hasIdentifier",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/core/identifier"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:Identifier"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Links an entity to its identifier."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has identifier"
+            },
+            "@type": "rdf:Property"
+        }
+    ],
+    "@context": {
+        "schema": "https://schema.org/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "dscdo": "https://vocab.earth616.local/ont/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+    }
+}

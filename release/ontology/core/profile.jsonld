@@ -1,0 +1,209 @@
+{
+    "@graph": [
+        {
+            "@id": "_:b0",
+            "sh:order": {
+                "@value": "22",
+                "@type": "xsd:integer"
+            },
+            "prof:hasArtifact": {
+                "@id": "dscdo:patterns/SemanticTrajectory"
+            },
+            "prof:hasRole": {
+                "@id": "prof:guidance"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Pattern for modeling semantic trajectories and movement",
+            "rdfs:label": "Semantic Trajectory Pattern",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b1",
+            "sh:order": {
+                "@value": "21",
+                "@type": "xsd:integer"
+            },
+            "prof:hasArtifact": {
+                "@id": "dscdo:patterns/SpatioTemporalExtent"
+            },
+            "prof:hasRole": {
+                "@id": "prof:guidance"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Pattern for modeling unified spatial and temporal extents",
+            "rdfs:label": "Spatiotemporal Extent Pattern",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b2",
+            "sh:order": {
+                "@value": "20",
+                "@type": "xsd:integer"
+            },
+            "prof:hasArtifact": {
+                "@id": "dscdo:patterns/EventCore"
+            },
+            "prof:hasRole": {
+                "@id": "prof:guidance"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Core event modeling pattern from ontology design pattern library",
+            "rdfs:label": "Event Core Pattern",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b3",
+            "prof:hasArtifact": {
+                "@id": "dscdo:modules/imports/prov"
+            },
+            "prof:hasRole": {
+                "@id": "prof:vocabulary"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "W3C PROV-O provenance vocabulary",
+            "rdfs:label": "PROV Ontology",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b4",
+            "prof:hasArtifact": {
+                "@id": "dscdo:modules/imports/schema"
+            },
+            "prof:hasRole": {
+                "@id": "prof:vocabulary"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Schema.org terms used in the ontology",
+            "rdfs:label": "Schema.org Vocabulary",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b5",
+            "sh:order": {
+                "@value": "4",
+                "@type": "xsd:integer"
+            },
+            "prof:hasArtifact": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Supply chain specific event types and patterns",
+            "rdfs:label": "Supply Chain Event Module",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b6",
+            "sh:order": {
+                "@value": "3",
+                "@type": "xsd:integer"
+            },
+            "prof:hasArtifact": {
+                "@id": "dscdo:modules/scdocumentation/document"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Supply chain documentation modeling",
+            "rdfs:label": "Documentation Module",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b7",
+            "sh:order": {
+                "@value": "2",
+                "@type": "xsd:integer"
+            },
+            "prof:hasArtifact": {
+                "@id": "dscdo:modules/core/identifier"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Identifier patterns and encoding classes",
+            "rdfs:label": "Identifier Module",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b8",
+            "sh:order": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "prof:hasArtifact": {
+                "@id": "dscdo:modules/core/event"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Core event modeling patterns and classes",
+            "rdfs:label": "Core Event Module",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b9",
+            "prof:hasArtifact": {
+                "@id": "dscdo:pylode-config"
+            },
+            "prof:hasRole": {
+                "@id": "lode:config"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Configuration for pyLODE supermodel documentation generation",
+            "rdfs:label": "pyLODE Configuration",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "dscdo:profile/",
+            "prof:hasResource": [
+                {
+                    "@id": "_:b0"
+                },
+                {
+                    "@id": "_:b1"
+                },
+                {
+                    "@id": "_:b2"
+                },
+                {
+                    "@id": "_:b3"
+                },
+                {
+                    "@id": "_:b4"
+                },
+                {
+                    "@id": "_:b5"
+                },
+                {
+                    "@id": "_:b6"
+                },
+                {
+                    "@id": "_:b7"
+                },
+                {
+                    "@id": "_:b8"
+                },
+                {
+                    "@id": "_:b9"
+                }
+            ],
+            "prof:isProfileOf": {
+                "@id": "https://vocab.earth616.local/ont/"
+            },
+            "dcterms:description": {
+                "@language": "en",
+                "@value": "Profile defining modular implementation structure for the Defense Supply Chain and Documentation Ontology compatible with CogitareLink four-layer model."
+            },
+            "dcterms:title": {
+                "@language": "en",
+                "@value": "DSCDO CogitareLink Implementation Profile"
+            },
+            "@type": "prof:Profile"
+        }
+    ],
+    "@context": {
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "lode": "http://purl.org/lode/config#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "dscdo": "https://vocab.earth616.local/ont/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "prof": "http://www.w3.org/ns/dx/prof/",
+        "sdo": "https://schema.org/"
+    }
+}

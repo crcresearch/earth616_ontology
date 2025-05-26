@@ -1,0 +1,52 @@
+# === PREFIXES ================================================================
+
+# --- Basic ---
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# --- Ontology Design Patterns ---
+@prefix oplax: <http://ontologydesignpatterns.org/opla-core#> .
+@prefix oplax-sd: <http://ontologydesignpatterns.org/opla-sd#> .
+@prefix cpa: <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#> .
+
+# --- Documentation ---
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sdo: <https://schema.org/> .
+
+# --- DSCDO ---
+@prefix dscdo: <https://vocab.earth616.local/ont/> .
+@base <https://vocab.earth616.local/ont/> .
+
+# =============================================================================
+# SpatioTemporal Extent Pattern
+# =============================================================================
+
+<https://vocab.earth616.local/ont/patterns/SpatioTemporalExtent>
+    a owl:Ontology, oplax:Pattern ;
+    dcterms:title "Spatiotemporal Extent Pattern"@en ;
+    dcterms:description "Pattern for modeling unified spatial and temporal extents of events and entities."@en ;
+    dcterms:creator [
+        a sdo:Person ;
+        rdfs:label "Charles F. Vardeman II" ;
+        sdo:name "Charles F. Vardeman II" ;
+        sdo:affiliation "University of Notre Dame" ;
+    ] ;
+    
+    # OPLaX Pattern Metadata
+    oplax:hasPatternName "Spatiotemporal Extent"@en ;
+    oplax:addressesScenario "A supply chain event occurs at multiple locations over a specific time period, requiring unified spatiotemporal representation."@en ;
+    
+    cpa:hasIntent "To provide a unified model for representing both spatial and temporal aspects of entities and events, enabling queries that span both spatial and temporal dimensions."@en ;
+    
+    cpa:coversRequirements """What is the spatiotemporal extent of a supply chain event?
+Where and when did a transportation process take place?
+How do spatiotemporal extents of different events relate?"""@en ;
+    
+    cpa:hasConsequences "Enables unified spatiotemporal queries and reasoning. May require complex coordinate system handling for accurate spatial-temporal correlations."@en ;
+    
+    cpa:relatedCPs "EventCore, SemanticTrajectory"@en ;
+    
+    skos:note "This template defines the pattern metadata. The actual pattern implementation uses OWL-Time and GeoSPARQL vocabularies."@en .
