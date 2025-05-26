@@ -25,4 +25,4 @@ RULES_BASE: "https://vocab.earth616.local/rules"
 DATA_BASE: "https://vocab.earth616.local/data"
 
 # Version information
-version: "0.1.4"
+version: "0.2.0"
