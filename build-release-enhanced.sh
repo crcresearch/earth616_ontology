@@ -46,7 +46,7 @@ echo "  Rules: $RULES_BASE"
 # Directory paths
 SCRIPTS_DIR="./scripts"
 RELEASE_DIR="./release"
-VERSION=$(grep -i versionInfo modules/core/metadata.ttl | sed 's/[^"]*"\([^"]*\).*/\1/' || echo "0.1.4")
+VERSION=$(grep -i versionInfo templates/modules/core/ontology.ttl.template | sed 's/[^"]*"\([^"]*\).*/\1/' || echo "0.1.4")
 
 # Template directories
 TEMPLATES_DIR="./templates"

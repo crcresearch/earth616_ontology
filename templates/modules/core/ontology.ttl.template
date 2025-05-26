@@ -54,11 +54,11 @@ The ontology is designed to be extensible to support modeling of domain-specific
     skos:changeNote "0.1.1 - adding supply chain events from the supply chain pattern and connecting to the documentation extraction pattern"@en;
     skos:changeNote "0.1.2 - adding identifier patterns and beginning of shapes"@en;
     skos:changeNote "0.1.3 - chaning iri namespace and ontology prefix"@en;
-    skos:changeNote "0.1.4 - adding identifiers module, jsonld-context documents and shapes for validating JSON-LD contexts."@en;
+    skos:changeNote "0.1.4 - Template-based development migration: moved to enhanced build system with environment-configurable URIs, deprecated legacy modules directory, updated CogitareLink four-layer model implementation, added comprehensive import cache registry support."@en;
     bibo:status "Work in progress" ;
     owl:versionIRI <${ONTOLOGY_BASE}/0.1.4> ;
     owl:versionInfo "0.1.4"@en ;
-    dcterms:modified "2025-04-15"^^xsd:date ;
+    dcterms:modified "2025-05-26"^^xsd:date ;
     dcterms:created  "2024-04-09"^^xsd:date ;
 
     dcterms:publisher [
