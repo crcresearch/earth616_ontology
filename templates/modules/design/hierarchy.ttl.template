@@ -1,0 +1,407 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# --- DSCDO (environment-specific namespace) ---
+@prefix dscdo: <${ONTOLOGY_BASE}> .
+@prefix : <${ONTOLOGY_BASE}> .
+@base <${ONTOLOGY_BASE}> .
+
+# --- AMMO Ontology Reference ---
+@prefix ammo: <https://w3id.org/ammo/ont/> .
+
+# =============================================================================
+# Component Hierarchy Module
+# =============================================================================
+
+<${ONTOLOGY_BASE}/modules/design/hierarchy> rdf:type owl:Ontology ;
+    rdfs:label "Component Hierarchy Module"@en ;
+    rdfs:comment "Provides formal part-whole relationship modeling with antisymmetric and irreflexive constraints. Enables sophisticated component composition modeling for complex systems and assemblies. Derived from AMMO ontology part-whole patterns."@en ;
+    owl:versionInfo "1.0" ;
+    dcterms:created "2025-01-29"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    
+    # === Module Dependencies ===
+    owl:imports <${ONTOLOGY_BASE}/modules/core/event> ;
+    owl:imports <${ONTOLOGY_BASE}/modules/design/composition> ;
+    
+    # === AMMO Provenance ===
+    dcterms:source <https://w3id.org/ammo/ont/> ;
+    rdfs:seeAlso <https://la3d.github.io/ammo/> ;
+    skos:note "Component hierarchy patterns derived from AMMO part-whole relationship modeling, adapted for defense supply chain component tracking."@en .
+
+# =============================================================================
+# HIERARCHICAL ENTITIES
+# =============================================================================
+
+dscdo:PhysicalObject rdf:type rdfs:Class ;
+    rdfs:label "Physical Object"@en ;
+    rdfs:comment "A concrete, spatially extended entity that can exist as a whole or as a part of other physical objects."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/design/hierarchy> ;
+    skos:definition "A material entity with spatial extent that can participate in part-whole relationships"@en ;
+    skos:example "Steel component, electronic module, mechanical assembly, complete missile system"@en ;
+    
+    # === AMMO Provenance ===
+    dcterms:source ammo:PhysicalObject ;
+    skos:exactMatch ammo:PhysicalObject ;
+    skos:note "Derived from AMMO PhysicalObject: base class for spatial entities in part-whole hierarchies"@en .
+
+dscdo:Component rdf:type rdfs:Class ;
+    rdfs:subClassOf dscdo:PhysicalObject ;
+    rdfs:label "Component"@en ;
+    rdfs:comment "A physical object that serves a specific function within a larger system or assembly."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/design/hierarchy> ;
+    skos:definition "A functional part of a larger system, designed to perform a specific role"@en ;
+    skos:example "Engine component, circuit board, structural element, sensor module"@en ;
+    
+    # === AMMO Provenance ===
+    dcterms:source ammo:Component ;
+    skos:exactMatch ammo:Component ;
+    skos:note "Derived from AMMO Component class for functional parts of systems"@en .
+
+dscdo:DesignedComponent rdf:type rdfs:Class ;
+    rdfs:subClassOf dscdo:Component ;
+    rdfs:label "Designed Component"@en ;
+    rdfs:comment "A component that has been explicitly designed according to specifications and requirements."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/design/hierarchy> ;
+    skos:definition "A component with explicit design specifications and functional requirements"@en ;
+    skos:example "Custom-machined part, engineered subsystem, specified material component"@en ;
+    
+    # === AMMO Provenance ===
+    dcterms:source ammo:DesignedComponent ;
+    skos:exactMatch ammo:DesignedComponent ;
+    skos:note "Derived from AMMO DesignedComponent for components with explicit design specifications"@en .
+
+dscdo:DesignedPhysicalSystem rdf:type rdfs:Class ;
+    rdfs:subClassOf dscdo:PhysicalObject ;
+    rdfs:label "Designed Physical System"@en ;
+    rdfs:comment "A complex physical object composed of multiple components that work together to achieve system-level functionality."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/design/hierarchy> ;
+    skos:definition "A system composed of designed components working together to fulfill system requirements"@en ;
+    skos:example "Missile guidance system, manufacturing assembly line, integrated defense platform"@en ;
+    
+    # === AMMO Provenance ===
+    dcterms:source ammo:DesignedPhysicalSystem ;
+    skos:exactMatch ammo:DesignedPhysicalSystem ;
+    skos:note "Derived from AMMO DesignedPhysicalSystem for complex component assemblies"@en .
+
+# =============================================================================
+# FORMAL PART-WHOLE PROPERTIES
+# =============================================================================
+
+# === Core Part-Whole Properties ===
+
+dscdo:hasProperPart rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:PhysicalObject ;
+    rdfs:range dscdo:PhysicalObject ;
+    rdfs:label "has proper part"@en ;
+    rdfs:comment "Indicates that one physical object contains another as a proper part. A proper part is a part that is not identical to the whole."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/design/hierarchy> ;
+    skos:definition "A transitive, antisymmetric, and irreflexive relation indicating proper part containment"@en ;
+    
+    # === Formal Constraints ===
+    rdf:type owl:TransitiveProperty ;
+    rdf:type owl:IrreflexiveProperty ;
+    rdf:type owl:AsymmetricProperty ;
+    
+    # === AMMO Provenance ===
+    dcterms:source ammo:hasProperPart ;
+    skos:exactMatch ammo:hasProperPart ;
+    skos:note "Derived from AMMO hasProperPart with formal antisymmetric and irreflexive constraints"@en .
+
+dscdo:isProperPartOf rdf:type owl:ObjectProperty ;
+    owl:inverseOf dscdo:hasProperPart ;
+    rdfs:domain dscdo:PhysicalObject ;
+    rdfs:range dscdo:PhysicalObject ;
+    rdfs:label "is proper part of"@en ;
+    rdfs:comment "Indicates that this physical object is a proper part of another physical object."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/design/hierarchy> ;
+    skos:definition "Inverse of hasProperPart, indicating containment within a larger whole"@en ;
+    
+    # === Formal Constraints ===
+    rdf:type owl:TransitiveProperty ;
+    rdf:type owl:IrreflexiveProperty ;
+    rdf:type owl:AsymmetricProperty .
+
+dscdo:hasDirectPart rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf dscdo:hasProperPart ;
+    rdfs:domain dscdo:PhysicalObject ;
+    rdfs:range dscdo:PhysicalObject ;
+    rdfs:label "has direct part"@en ;
+    rdfs:comment "Indicates that one physical object contains another as an immediate part, without any intermediate part-whole relationships."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/design/hierarchy> ;
+    skos:definition "A non-transitive relation indicating direct part containment without intermediates"@en ;
+    
+    # === Formal Constraints ===
+    rdf:type owl:IrreflexiveProperty ;
+    rdf:type owl:AsymmetricProperty ;
+    
+    # === AMMO Provenance ===
+    dcterms:source ammo:hasDirectPart ;
+    skos:exactMatch ammo:hasDirectPart ;
+    skos:note "Derived from AMMO hasDirectPart for immediate part-whole relationships"@en .
+
+dscdo:isDirectPartOf rdf:type owl:ObjectProperty ;
+    owl:inverseOf dscdo:hasDirectPart ;
+    rdfs:subPropertyOf dscdo:isProperPartOf ;
+    rdfs:domain dscdo:PhysicalObject ;
+    rdfs:range dscdo:PhysicalObject ;
+    rdfs:label "is direct part of"@en ;
+    rdfs:comment "Indicates that this physical object is an immediate part of another physical object."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/design/hierarchy> ;
+    skos:definition "Inverse of hasDirectPart for immediate containment relationships"@en .
+
+# === Component-Specific Properties ===
+
+dscdo:hasComponent rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf dscdo:hasDirectPart ;
+    rdfs:domain dscdo:DesignedPhysicalSystem ;
+    rdfs:range dscdo:DesignedComponent ;
+    rdfs:label "has component"@en ;
+    rdfs:comment "Indicates that a designed physical system contains a designed component as a functional part."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/design/hierarchy> ;
+    skos:definition "Specialized relationship linking systems to their functional components"@en ;
+    
+    # === AMMO Provenance ===
+    dcterms:source ammo:hasComponent ;
+    skos:exactMatch ammo:hasComponent ;
+    skos:note "Derived from AMMO hasComponent for system-component relationships"@en .
+
+dscdo:isComponentOf rdf:type owl:ObjectProperty ;
+    owl:inverseOf dscdo:hasComponent ;
+    rdfs:subPropertyOf dscdo:isDirectPartOf ;
+    rdfs:domain dscdo:DesignedComponent ;
+    rdfs:range dscdo:DesignedPhysicalSystem ;
+    rdfs:label "is component of"@en ;
+    rdfs:comment "Indicates that this designed component is a functional part of a designed physical system."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/design/hierarchy> ;
+    skos:definition "Inverse relationship linking components to their containing systems"@en ;
+    
+    # === AMMO Provenance ===
+    dcterms:source ammo:isComponentOf ;
+    skos:exactMatch ammo:isComponentOf ;
+    skos:note "Derived from AMMO isComponentOf inverse relationship"@en .
+
+# =============================================================================
+# COMPONENT ROLES AND FUNCTIONS
+# =============================================================================
+
+dscdo:ComponentRole rdf:type rdfs:Class ;
+    rdfs:subClassOf dscdo:ParticipantRole ;
+    rdfs:label "Component Role"@en ;
+    rdfs:comment "A role played by a component within a system, defining its function and responsibilities."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/design/hierarchy> ;
+    skos:definition "A functional role that defines how a component contributes to system operation"@en ;
+    skos:example "Primary structural role, backup power role, sensor input role, control output role"@en .
+
+dscdo:playsRole rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:Component ;
+    rdfs:range dscdo:ComponentRole ;
+    rdfs:label "plays role"@en ;
+    rdfs:comment "Indicates that a component performs a specific functional role within a system."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/design/hierarchy> ;
+    skos:definition "Links components to the functional roles they perform"@en .
+
+dscdo:hasFunction rdf:type owl:DatatypeProperty ;
+    rdfs:domain dscdo:Component ;
+    rdfs:range xsd:string ;
+    rdfs:label "has function"@en ;
+    rdfs:comment "Describes the primary function or purpose of a component within a system."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/design/hierarchy> ;
+    skos:definition "Textual description of component functionality"@en ;
+    skos:example "structural support, power conversion, signal processing, environmental protection"@en .
+
+# =============================================================================
+# ASSEMBLY AND DISASSEMBLY TRACKING
+# =============================================================================
+
+dscdo:AssemblyEvent rdf:type rdfs:Class ;
+    rdfs:subClassOf dscdo:SupplyChainEvent ;
+    rdfs:label "Assembly Event"@en ;
+    rdfs:comment "An event that represents the assembly of multiple components into a larger system or sub-assembly."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/design/hierarchy> ;
+    skos:definition "An event tracking the composition of components into larger assemblies"@en ;
+    skos:example "Engine assembly process, circuit board population, missile integration"@en .
+
+dscdo:DisassemblyEvent rdf:type rdfs:Class ;
+    rdfs:subClassOf dscdo:SupplyChainEvent ;
+    rdfs:label "Disassembly Event"@en ;
+    rdfs:comment "An event that represents the disassembly of a system into its component parts."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/design/hierarchy> ;
+    skos:definition "An event tracking the decomposition of assemblies into individual components"@en ;
+    skos:example "Maintenance disassembly, component recycling, failure analysis"@en .
+
+dscdo:assembles rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:AssemblyEvent ;
+    rdfs:range dscdo:Component ;
+    rdfs:label "assembles"@en ;
+    rdfs:comment "Indicates that an assembly event combines specific components."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/design/hierarchy> ;
+    skos:definition "Links assembly events to the components being assembled"@en .
+
+dscdo:resultsInAssembly rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:AssemblyEvent ;
+    rdfs:range dscdo:DesignedPhysicalSystem ;
+    rdfs:label "results in assembly"@en ;
+    rdfs:comment "Indicates that an assembly event produces a specific assembled system."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/design/hierarchy> ;
+    skos:definition "Links assembly events to their resulting assembled systems"@en .
+
+dscdo:disassembles rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:DisassemblyEvent ;
+    rdfs:range dscdo:DesignedPhysicalSystem ;
+    rdfs:label "disassembles"@en ;
+    rdfs:comment "Indicates that a disassembly event breaks down a specific system."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/design/hierarchy> ;
+    skos:definition "Links disassembly events to the systems being disassembled"@en .
+
+dscdo:yieldsComponent rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:DisassemblyEvent ;
+    rdfs:range dscdo:Component ;
+    rdfs:label "yields component"@en ;
+    rdfs:comment "Indicates that a disassembly event produces specific components."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/design/hierarchy> ;
+    skos:definition "Links disassembly events to the components they produce"@en .
+
+# =============================================================================
+# TRU INTEGRATION WITH HIERARCHY
+# =============================================================================
+
+# Extend TraceableResourceUnit to work with component hierarchy
+
+dscdo:ComponentTRU rdf:type rdfs:Class ;
+    rdfs:subClassOf dscdo:TraceableResourceUnit, dscdo:Component ;
+    rdfs:label "Component TRU"@en ;
+    rdfs:comment "A traceable resource unit that functions as a component within a larger system, combining supply chain traceability with hierarchical relationships."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/design/hierarchy> ;
+    skos:definition "A TRU that participates in component hierarchies while maintaining traceability"@en ;
+    skos:example "Traceable steel bracket component, serialized electronic module, identified mechanical part"@en .
+
+dscdo:SystemTRU rdf:type rdfs:Class ;
+    rdfs:subClassOf dscdo:TraceableResourceUnit, dscdo:DesignedPhysicalSystem ;
+    rdfs:label "System TRU"@en ;
+    rdfs:comment "A traceable resource unit that represents a complete system composed of multiple component TRUs."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/design/hierarchy> ;
+    skos:definition "A TRU representing a system assembly with component traceability"@en ;
+    skos:example "Assembled missile system with traceable components, manufactured engine assembly"@en .
+
+# =============================================================================
+# EXAMPLES AND USAGE PATTERNS
+# =============================================================================
+
+# === Example Component Hierarchy ===
+<${ONTOLOGY_BASE}/examples/hierarchy/missile-guidance-system>
+    rdf:type dscdo:SystemTRU ;
+    rdfs:label "Missile Guidance System TRU"@en ;
+    rdfs:comment "Complete guidance system with traceable component hierarchy"@en ;
+    
+    dscdo:hasComponent <${ONTOLOGY_BASE}/examples/hierarchy/guidance-processor> ,
+                       <${ONTOLOGY_BASE}/examples/hierarchy/sensor-array> ,
+                       <${ONTOLOGY_BASE}/examples/hierarchy/control-actuator> ;
+    
+    dscdo:hasIdentifier [
+        rdf:type dscdo:Identifier ;
+        schema:value "MGS-2024-001" ;
+        schema:propertyID "SystemSerial" ;
+        schema:name "Missile Guidance System Serial Number"
+    ] ;
+    
+    # AMMO provenance
+    dcterms:source ammo:DesignedPhysicalSystem ;
+    skos:exactMatch ammo:DesignedPhysicalSystem .
+
+<${ONTOLOGY_BASE}/examples/hierarchy/guidance-processor>
+    rdf:type dscdo:ComponentTRU ;
+    rdfs:label "Guidance Processor Component"@en ;
+    rdfs:comment "Traceable guidance processor component"@en ;
+    
+    dscdo:isComponentOf <${ONTOLOGY_BASE}/examples/hierarchy/missile-guidance-system> ;
+    dscdo:hasFunction "primary navigation computation" ;
+    
+    dscdo:playsRole [
+        rdf:type dscdo:ComponentRole ;
+        rdfs:label "Primary Processor Role" ;
+        rdfs:comment "Handles main computational tasks for guidance"
+    ] ;
+    
+    dscdo:hasIdentifier [
+        rdf:type dscdo:Identifier ;
+        schema:value "GP-2024-001-A" ;
+        schema:propertyID "ComponentSerial" ;
+        schema:name "Guidance Processor Serial Number"
+    ] ;
+    
+    # AMMO provenance
+    dcterms:source ammo:DesignedComponent ;
+    skos:exactMatch ammo:DesignedComponent .
+
+# === Example Assembly Event ===
+<${ONTOLOGY_BASE}/examples/events/guidance-system-assembly>
+    rdf:type dscdo:AssemblyEvent ;
+    rdfs:label "Guidance System Assembly Event"@en ;
+    rdfs:comment "Assembly process for missile guidance system"@en ;
+    
+    dscdo:assembles <${ONTOLOGY_BASE}/examples/hierarchy/guidance-processor> ,
+                    <${ONTOLOGY_BASE}/examples/hierarchy/sensor-array> ,
+                    <${ONTOLOGY_BASE}/examples/hierarchy/control-actuator> ;
+    
+    dscdo:resultsInAssembly <${ONTOLOGY_BASE}/examples/hierarchy/missile-guidance-system> ;
+    
+    dscdo:hasSpatioTemporalExtent [
+        rdf:type dscdo:SpatioTemporalExtent ;
+        schema:startDate "2024-03-20T09:00:00Z" ;
+        schema:endDate "2024-03-20T15:30:00Z" ;
+        schema:location [
+            rdf:type schema:Place ;
+            schema:name "Assembly Bay 3 - Guidance Systems"
+        ]
+    ] .
+
+# =============================================================================
+# HIERARCHY GUIDELINES
+# =============================================================================
+
+<${ONTOLOGY_BASE}/design/hierarchy-guidelines>
+    rdf:type owl:NamedIndividual, skos:ConceptScheme ;
+    rdfs:label "Component Hierarchy Guidelines"@en ;
+    dcterms:description "Guidelines for modeling component hierarchies in Earth616 ontology"@en ;
+    skos:note """
+    Component Hierarchy Usage Guidelines:
+    
+    1. Part-Whole Relationships:
+       - Use hasProperPart for any part-whole relationship
+       - Use hasDirectPart for immediate containment only
+       - Use hasComponent for functional component relationships
+       - Respect antisymmetric and irreflexive constraints
+    
+    2. Component Types:
+       - Use Component for any functional part
+       - Use DesignedComponent for parts with explicit specifications
+       - Use DesignedPhysicalSystem for complex assemblies
+    
+    3. TRU Integration:
+       - Use ComponentTRU for traceable components
+       - Use SystemTRU for traceable assemblies
+       - Maintain hierarchy relationships alongside traceability
+    
+    4. Assembly Events:
+       - Use AssemblyEvent to track component integration
+       - Use DisassemblyEvent for maintenance or recycling
+       - Link events to specific components and results
+    
+    5. Formal Constraints:
+       - hasProperPart is transitive, antisymmetric, irreflexive
+       - hasDirectPart is antisymmetric, irreflexive, NOT transitive
+       - Components cannot be parts of themselves
+    
+    6. AMMO Provenance:
+       - All patterns derive from AMMO part-whole modeling
+       - Maintain dcterms:source references
+       - Preserve formal constraint semantics
+    """@en .

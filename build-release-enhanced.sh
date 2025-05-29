@@ -3,7 +3,7 @@ set -e
 
 # Enhanced build script with template support for URI resolution
 # Usage:
-#   build-release-enhanced.sh [--env=local|production] [--mode=standard|oplax] [--docs=widoco|pylode] [--layers=all|context,ontology,shapes,rules,imports]
+#   build-release-enhanced.sh [--env=local|production] [--mode=standard|oplax] [--docs=widoco|pylode] [--layers=all|context,ontology,shapes,rules,data,imports]
 
 # Parse options
 ENV=production
@@ -239,6 +239,54 @@ if [[ "$LAYERS" == "all" || "$LAYERS" == *"rules"* ]]; then
         done
     else
         echo "Warning: No rule templates found in ${TEMPLATES_DIR}/rules"
+    fi
+fi
+
+# Process Layer 3: Data Instances (JSON-LD)
+if [[ "$LAYERS" == "all" || "$LAYERS" == *"data"* ]]; then
+    echo "=== Building Layer 3: Data Instances ==="
+    
+    prepare_directory "${RELEASE_DIR}/data/${VERSION}"
+    prepare_directory "${RELEASE_DIR}/data/latest"
+    
+    if [ -d "${TEMPLATES_DIR}/data" ]; then
+        # Process data instance templates recursively
+        find "${TEMPLATES_DIR}/data" -name "*.jsonld.template" | while read -r template; do
+            if [ -f "$template" ]; then
+                # Preserve directory structure under templates/data/
+                rel_path=${template#${TEMPLATES_DIR}/data/}
+                rel_dir=$(dirname "$rel_path")
+                filename=$(basename "$template" .template)
+                
+                # Create target directories
+                mkdir -p "${RELEASE_DIR}/data/${VERSION}/${rel_dir}"
+                mkdir -p "${RELEASE_DIR}/data/latest/${rel_dir}"
+                
+                echo "Processing data template: $rel_path -> $filename"
+                
+                # Generate JSON-LD files
+                envsubst < "$template" > "${RELEASE_DIR}/data/${VERSION}/${rel_dir}/${filename}"
+                envsubst < "$template" > "${RELEASE_DIR}/data/latest/${rel_dir}/${filename}"
+            fi
+        done
+    else
+        echo "Warning: No data templates found in ${TEMPLATES_DIR}/data"
+    fi
+    
+    # Copy any existing static data files (non-templates)
+    if [ -d "data" ]; then
+        echo "Copying existing static data files"
+        find data -name "*.jsonld" -not -name "*.template" | while read -r file; do
+            rel_path=${file#data/}
+            rel_dir=$(dirname "$rel_path")
+            filename=$(basename "$file")
+            
+            mkdir -p "${RELEASE_DIR}/data/${VERSION}/${rel_dir}"
+            mkdir -p "${RELEASE_DIR}/data/latest/${rel_dir}"
+            
+            cp "$file" "${RELEASE_DIR}/data/${VERSION}/${rel_path}"
+            cp "$file" "${RELEASE_DIR}/data/latest/${rel_path}"
+        done
     fi
 fi
 

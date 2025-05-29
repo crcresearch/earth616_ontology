@@ -9,7 +9,7 @@
             "schema:creator": "STLab, ISTC-CNR",
             "schema:availability": "Research project - server unreliable",
             "schema:dateModified": {
-                "@value": "2025-05-26",
+                "@value": "2025-05-29",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "application/rdf+xml",
@@ -40,7 +40,7 @@
             "schema:creator": "Schema.org Community Group",
             "schema:availability": "Available",
             "schema:dateModified": {
-                "@value": "2025-05-26",
+                "@value": "2025-05-29",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "text/turtle",
@@ -63,7 +63,7 @@
             "schema:creator": "GS1 AISBL",
             "schema:availability": "Maintained - URI non-dereferenceable",
             "schema:dateModified": {
-                "@value": "2025-05-26",
+                "@value": "2025-05-29",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "text/turtle",
@@ -86,7 +86,7 @@
             "schema:creator": "GS1 AISBL",
             "schema:availability": "Maintained - URI non-dereferenceable",
             "schema:dateModified": {
-                "@value": "2025-05-26",
+                "@value": "2025-05-29",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "text/turtle",
@@ -109,7 +109,7 @@
             "schema:creator": "GS1 AISBL",
             "schema:availability": "Maintained - URI non-dereferenceable",
             "schema:dateModified": {
-                "@value": "2025-05-26",
+                "@value": "2025-05-29",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "text/turtle",
@@ -174,7 +174,7 @@
                 "@id": "https://vocab.earth616.local/ont/imports/"
             },
             "schema:dateModified": {
-                "@value": "2025-05-26",
+                "@value": "2025-05-29",
                 "@type": "xsd:date"
             },
             "schema:version": "0.2.0",

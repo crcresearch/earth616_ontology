@@ -40,10 +40,12 @@
     dcat:dataset <https://vocab.earth616.local/ont/patterns/EventCore> ;
     dcat:dataset <https://vocab.earth616.local/ont/patterns/SpatioTemporalExtent> ;
     dcat:dataset <https://vocab.earth616.local/ont/patterns/SemanticTrajectory> ;
+    dcat:dataset <https://vocab.earth616.local/ont/patterns/IEIntegration> ;
 
     skos:hasTopConcept <https://vocab.earth616.local/ont/patterns/EventCore> ;
     skos:hasTopConcept <https://vocab.earth616.local/ont/patterns/SpatioTemporalExtent> ;
-    skos:hasTopConcept <https://vocab.earth616.local/ont/patterns/SemanticTrajectory> .
+    skos:hasTopConcept <https://vocab.earth616.local/ont/patterns/SemanticTrajectory> ;
+    skos:hasTopConcept <https://vocab.earth616.local/ont/patterns/IEIntegration> .
 
 # Pattern Concept Definitions for SKOS hierarchy
 <https://vocab.earth616.local/ont/patterns/EventCore>
@@ -69,3 +71,11 @@
     skos:topConceptOf <https://vocab.earth616.local/ont/patterns/> ;
     skos:related <https://vocab.earth616.local/ont/patterns/EventCore> ;
     skos:related <https://vocab.earth616.local/ont/patterns/SpatioTemporalExtent> .
+
+<https://vocab.earth616.local/ont/patterns/IEIntegration>
+    a skos:Concept, oplax:Pattern ;
+    skos:inScheme <https://vocab.earth616.local/ont/patterns/> ;
+    skos:prefLabel "Information Extraction Integration Pattern"@en ;
+    skos:definition "Semantic hooks for LLM-based information extraction workflows to integrate with Earth616 vocabulary for document processing, compliance validation, and TRU specification conformance."@en ;
+    skos:topConceptOf <https://vocab.earth616.local/ont/patterns/> ;
+    skos:related <https://vocab.earth616.local/ont/patterns/EventCore> .

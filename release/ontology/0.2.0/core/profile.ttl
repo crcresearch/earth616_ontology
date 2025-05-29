@@ -79,6 +79,60 @@
         sh:order 4 ;
     ] ;
 
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "Traceable Resource Unit Module" ;
+        rdfs:comment "Traceable Resource Unit (TRU) modeling for supply chain traceability" ;
+        dcterms:format "text/turtle" ;
+        prof:hasArtifact <https://vocab.earth616.local/ont/modules/traceability/tru> ;
+        sh:order 5 ;
+    ] ;
+
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "TRU-AMMO Alignment Module" ;
+        rdfs:comment "Semantic alignment between TRU and AMMO ontology for additive manufacturing integration" ;
+        dcterms:format "text/turtle" ;
+        prof:hasArtifact <https://vocab.earth616.local/ont/modules/traceability/tru-ammo-alignment> ;
+        sh:order 6 ;
+    ] ;
+
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "Design Composition Module" ;
+        rdfs:comment "Design patterns, specifications, and versioning derived from AMMO ontology" ;
+        dcterms:format "text/turtle" ;
+        prof:hasArtifact <https://vocab.earth616.local/ont/modules/design/composition> ;
+        sh:order 7 ;
+    ] ;
+
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "Component Hierarchy Module" ;
+        rdfs:comment "Formal part-whole relationships with antisymmetric and irreflexive constraints" ;
+        dcterms:format "text/turtle" ;
+        prof:hasArtifact <https://vocab.earth616.local/ont/modules/design/hierarchy> ;
+        sh:order 8 ;
+    ] ;
+
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "Enhanced Specification Module" ;
+        rdfs:comment "Material and quantity specifications with validation and compliance tracking" ;
+        dcterms:format "text/turtle" ;
+        prof:hasArtifact <https://vocab.earth616.local/ont/modules/design/specification> ;
+        sh:order 9 ;
+    ] ;
+
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "State Transition Module" ;
+        rdfs:comment "Formal state modeling and transition tracking for supply chain entities" ;
+        dcterms:format "text/turtle" ;
+        prof:hasArtifact <https://vocab.earth616.local/ont/modules/design/transition> ;
+        sh:order 10 ;
+    ] ;
+
     # === Import Resource Descriptors ===
     
     prof:hasResource [

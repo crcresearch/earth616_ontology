@@ -11,7 +11,7 @@
     schema:name "Earth616 Ontology Import Cache" ;
     schema:description "Registry of cached ontology imports with alternative access methods for agents" ;
     schema:version "0.2.0" ;
-    schema:dateModified "2025-05-26"^^xsd:date ;
+    schema:dateModified "2025-05-29"^^xsd:date ;
     schema:url <https://vocab.earth616.local/ont/imports/> ;
     dct:creator <https://orcid.org/0000-0003-4091-6059> ;
     schema:license <https://creativecommons.org/licenses/by/4.0/> .
@@ -38,7 +38,7 @@
     :originalUrl <https://gs1.org/voc/> ;
     schema:contentUrl <https://vocab.earth616.local/ont/imports/GS1-voc.ttl> ;
     schema:encodingFormat "text/turtle" ;
-    schema:dateModified "2025-05-26"^^xsd:date ;
+    schema:dateModified "2025-05-29"^^xsd:date ;
     schema:availability "Maintained - URI non-dereferenceable" ;
     schema:creator "GS1 AISBL" ;
     schema:license <https://www.gs1.org/standards/gs1-general-specifications> ;
@@ -51,7 +51,7 @@
     :originalUrl <https://ref.gs1.org/standards/epcis/> ;
     schema:contentUrl <https://vocab.earth616.local/ont/imports/epcis-ontology.ttl> ;
     schema:encodingFormat "text/turtle" ;
-    schema:dateModified "2025-05-26"^^xsd:date ;
+    schema:dateModified "2025-05-29"^^xsd:date ;
     schema:availability "Maintained - URI non-dereferenceable" ;
     schema:creator "GS1 AISBL" ;
     schema:license <https://www.gs1.org/standards/gs1-general-specifications> ;
@@ -64,7 +64,7 @@
     :originalUrl <https://ref.gs1.org/standards/cbv/> ;
     schema:contentUrl <https://vocab.earth616.local/ont/imports/cbv-ontology.ttl> ;
     schema:encodingFormat "text/turtle" ;
-    schema:dateModified "2025-05-26"^^xsd:date ;
+    schema:dateModified "2025-05-29"^^xsd:date ;
     schema:availability "Maintained - URI non-dereferenceable" ;
     schema:creator "GS1 AISBL" ;
     schema:license <https://www.gs1.org/standards/gs1-general-specifications> ;
@@ -77,7 +77,7 @@
     :originalUrl <https://schema.org/> ;
     schema:contentUrl <https://vocab.earth616.local/ont/imports/schema.ttl> ;
     schema:encodingFormat "text/turtle" ;
-    schema:dateModified "2025-05-26"^^xsd:date ;
+    schema:dateModified "2025-05-29"^^xsd:date ;
     schema:availability "Available" ;
     schema:creator "Schema.org Community Group" ;
     schema:license <https://creativecommons.org/licenses/by-sa/3.0/> ;
@@ -90,7 +90,7 @@
     :originalUrl <http://ontologydesignpatterns.org/oplax/> ;
     schema:contentUrl <https://vocab.earth616.local/ont/imports/oplax.owl> ;
     schema:encodingFormat "application/rdf+xml" ;
-    schema:dateModified "2025-05-26"^^xsd:date ;
+    schema:dateModified "2025-05-29"^^xsd:date ;
     schema:availability "Research project - server unreliable" ;
     schema:creator "STLab, ISTC-CNR" ;
     schema:license <https://creativecommons.org/licenses/by/3.0/> ;

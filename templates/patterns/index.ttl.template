@@ -40,10 +40,12 @@
     dcat:dataset <${ONTOLOGY_BASE}/patterns/EventCore> ;
     dcat:dataset <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> ;
     dcat:dataset <${ONTOLOGY_BASE}/patterns/SemanticTrajectory> ;
+    dcat:dataset <${ONTOLOGY_BASE}/patterns/IEIntegration> ;
 
     skos:hasTopConcept <${ONTOLOGY_BASE}/patterns/EventCore> ;
     skos:hasTopConcept <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> ;
-    skos:hasTopConcept <${ONTOLOGY_BASE}/patterns/SemanticTrajectory> .
+    skos:hasTopConcept <${ONTOLOGY_BASE}/patterns/SemanticTrajectory> ;
+    skos:hasTopConcept <${ONTOLOGY_BASE}/patterns/IEIntegration> .
 
 # Pattern Concept Definitions for SKOS hierarchy
 <${ONTOLOGY_BASE}/patterns/EventCore>
@@ -69,3 +71,11 @@
     skos:topConceptOf <${ONTOLOGY_BASE}/patterns/> ;
     skos:related <${ONTOLOGY_BASE}/patterns/EventCore> ;
     skos:related <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> .
+
+<${ONTOLOGY_BASE}/patterns/IEIntegration>
+    a skos:Concept, oplax:Pattern ;
+    skos:inScheme <${ONTOLOGY_BASE}/patterns/> ;
+    skos:prefLabel "Information Extraction Integration Pattern"@en ;
+    skos:definition "Semantic hooks for LLM-based information extraction workflows to integrate with Earth616 vocabulary for document processing, compliance validation, and TRU specification conformance."@en ;
+    skos:topConceptOf <${ONTOLOGY_BASE}/patterns/> ;
+    skos:related <${ONTOLOGY_BASE}/patterns/EventCore> .

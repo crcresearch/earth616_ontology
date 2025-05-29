@@ -43,6 +43,60 @@
     dcterms:isPartOf <${ONTOLOGY_BASE}/> ;
 .
 
+# === Traceable Resource Unit Module ===
+<${ONTOLOGY_BASE}/modules/traceability/tru>
+    a prof:Profile, lode:Module ;
+    rdfs:label "Traceable Resource Unit Module" ;
+    dcterms:description "Traceable Resource Unit (TRU) modeling classes including TraceableResourceUnit, QuantityOfMaterial, Material, and TRU-specific events for supply chain traceability and tracking." ;
+    sh:order 5 ;
+    dcterms:isPartOf <${ONTOLOGY_BASE}/> ;
+.
+
+# === TRU-AMMO Alignment Module ===
+<${ONTOLOGY_BASE}/modules/traceability/tru-ammo-alignment>
+    a prof:Profile, lode:Module ;
+    rdfs:label "TRU-AMMO Alignment Module" ;
+    dcterms:description "Semantic alignment between the Traceable Resource Unit (TRU) module and the AMMO (Additive Manufacturing for Maintenance Operations) ontology. Provides mappings, examples, and interoperability guidelines for defense manufacturing contexts." ;
+    sh:order 6 ;
+    dcterms:isPartOf <${ONTOLOGY_BASE}/> ;
+.
+
+# === Design Composition Module ===
+<${ONTOLOGY_BASE}/modules/design/composition>
+    a prof:Profile, lode:Module ;
+    rdfs:label "Design Composition Module" ;
+    dcterms:description "Design patterns, specifications, and versioning classes derived from AMMO ontology. Includes Design, DesignSpecification, SystemDesign, and ComponentDesign with version management and TRU integration." ;
+    sh:order 7 ;
+    dcterms:isPartOf <${ONTOLOGY_BASE}/> ;
+.
+
+# === Component Hierarchy Module ===
+<${ONTOLOGY_BASE}/modules/design/hierarchy>
+    a prof:Profile, lode:Module ;
+    rdfs:label "Component Hierarchy Module" ;
+    dcterms:description "Formal part-whole relationship modeling with antisymmetric and irreflexive constraints. Includes hasComponent, hasDirectPart, hasProperPart properties and assembly/disassembly event tracking." ;
+    sh:order 8 ;
+    dcterms:isPartOf <${ONTOLOGY_BASE}/> ;
+.
+
+# === Enhanced Specification Module ===
+<${ONTOLOGY_BASE}/modules/design/specification>
+    a prof:Profile, lode:Module ;
+    rdfs:label "Enhanced Specification Module" ;
+    dcterms:description "Enhanced specification classes for materials, quantities, and design constraints. Includes MaterialDesignSpecification, QuantityDesignSpecification, ProcessDesignSpecification with validation and compliance tracking." ;
+    sh:order 9 ;
+    dcterms:isPartOf <${ONTOLOGY_BASE}/> ;
+.
+
+# === State Transition Module ===
+<${ONTOLOGY_BASE}/modules/design/transition>
+    a prof:Profile, lode:Module ;
+    rdfs:label "State Transition Module" ;
+    dcterms:description "Formal state modeling and transition tracking for supply chain entities. Includes State, Transition, StateOccurrence classes with temporal constraints and workflow integration." ;
+    sh:order 10 ;
+    dcterms:isPartOf <${ONTOLOGY_BASE}/> ;
+.
+
 # === Import Modules (Supporting Vocabularies) ===
 
 <${ONTOLOGY_BASE}/modules/imports/schema>

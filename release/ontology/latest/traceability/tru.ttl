@@ -1,0 +1,274 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix gs1: <https://gs1.org/voc/> .
+@prefix epcis: <https://ref.gs1.org/epcis/> .
+
+# --- DSCDO (environment-specific namespace) ---
+@prefix dscdo: <https://vocab.earth616.local/ont/> .
+@prefix : <https://vocab.earth616.local/ont/> .
+@base <https://vocab.earth616.local/ont/> .
+
+# =============================================================================
+# Traceable Resource Unit (TRU) Module
+# =============================================================================
+
+<https://vocab.earth616.local/ont/modules/traceability/tru> rdf:type owl:Ontology ;
+    rdfs:label "Traceable Resource Unit Module"@en ;
+    rdfs:comment "Defines classes and properties for modeling Traceable Resource Units (TRUs) in supply chain operations, including measurement integration with Schema.org patterns."@en ;
+    owl:versionInfo "1.0" ;
+    dcterms:created "2025-01-25"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    
+    # === Module Dependencies ===
+    owl:imports <https://vocab.earth616.local/ont/modules/core/event> ;
+    owl:imports <https://vocab.earth616.local/ont/modules/core/identifier> ;
+    owl:imports <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> ;
+    
+    # === Related Alignment Modules ===
+    rdfs:seeAlso <https://vocab.earth616.local/ont/modules/traceability/tru-ammo-alignment> ;
+    rdfs:seeAlso <https://w3id.org/ammo/ont/> .
+
+# === External Vocabulary Dependencies ===
+# Note: GS1 and EPCIS vocabularies are referenced but not imported directly
+# They should be available through the imports module infrastructure
+
+# === Supporting Classes ===
+
+dscdo:QuantityOfMaterial rdf:type rdfs:Class ;
+    rdfs:subClassOf prov:Entity, schema:QuantitativeValue ;
+    rdfs:label "Quantity Of Material"@en ;
+    rdfs:comment "Represents a specific quantity of material with defined properties and measurements. Inherits from schema:QuantitativeValue to support standard quantity expressions with value, unitCode, and measurement properties."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/traceability/tru> ;
+    skos:definition "A measurable amount of material that can be part of a traceable resource unit, expressed using Schema.org quantity patterns"@en ;
+    skos:example "25.5 kilograms of steel measured using industrial scale weighing, with unitCode 'KGM' per UN/CEFACT standards"@en .
+
+dscdo:Material rdf:type rdfs:Class ;
+    rdfs:label "Material"@en ;
+    rdfs:comment "The type or classification of material within a quantity of material."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/traceability/tru> ;
+    skos:definition "A classification of substance or material used in supply chain operations"@en ;
+    skos:example "Stainless Steel Grade 304, Aluminum Alloy 6061, Polymer ABS plastic"@en ;
+    
+    # === AMMO Alignment ===
+    skos:exactMatch <https://w3id.org/ammo/ont/Material> ;
+    skos:note "Aligns with AMMO Material concept: 'Substance that can occur in different amounts, all with some similar characteristics'. AMMO provides subclasses like Alloy, Polymer, and BaseMaterial."@en .
+
+# === TRU Core Class ===
+
+dscdo:TraceableResourceUnit rdf:type rdfs:Class ;
+    rdfs:subClassOf gs1:IndividualObject, prov:Entity ;
+    rdfs:label "Traceable Resource Unit"@en ;
+    rdfs:comment "A homogeneous collection of resources categorized by a class and quantified by its interaction with a primitive activity. A uniquely identifiable unit that carries essential information about a product as it moves through the supply chain."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/traceability/tru> ;
+    skos:definition "A fundamental traceability unit defined by batch number, trade unit, or logistics unit, used to track transformations like packaging or splitting."@en ;
+    skos:example "A batch of steel alloy with batch number 'SB-2024-001' containing 25.5 kg of Grade 304 stainless steel"@en ;
+    
+    # === AMMO Alignment ===
+    skos:closeMatch <https://w3id.org/ammo/ont/DesignedArtifact> ;
+    skos:note "Aligns with AMMO DesignedArtifact concept for traceable physical objects. AMMO emphasizes design specifications and manufacturing provenance, while TRU emphasizes supply chain traceability with batch/lot tracking."@en .
+
+# === TRU Event Extensions (reusing existing supply chain events) ===
+# Note: TRUs participate in existing TransferEvent, TransformationEvent, etc.
+# from the supplychain/eventmodule rather than defining new event types.
+
+# === TRU Participant Roles ===
+
+dscdo:TRURole rdf:type rdfs:Class ;
+    rdfs:subClassOf dscdo:ParticipantRole ;
+    rdfs:label "TRU Role"@en ;
+    rdfs:comment "Role played by a TRU in an event"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/traceability/tru> ;
+    skos:definition "A role performed by a traceable resource unit in a supply chain event"@en .
+
+dscdo:SourceTRURole rdf:type rdfs:Class ;
+    rdfs:subClassOf dscdo:TRURole ;
+    rdfs:label "Source TRU Role"@en ;
+    rdfs:comment "Role of TRU as input/source in a transformation event"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/traceability/tru> ;
+    skos:definition "The role of a TRU serving as input or source material in an event"@en .
+
+dscdo:TargetTRURole rdf:type rdfs:Class ;
+    rdfs:subClassOf dscdo:TRURole ;
+    rdfs:label "Target TRU Role"@en ;
+    rdfs:comment "Role of TRU as output/target in a transformation event"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/traceability/tru> ;
+    skos:definition "The role of a TRU serving as output or target result in an event"@en .
+
+# === TRU Data Properties ===
+
+dscdo:hasBatchNumber rdf:type owl:DatatypeProperty ;
+    rdfs:domain dscdo:TraceableResourceUnit ;
+    rdfs:range xsd:string ;
+    rdfs:label "has batch number"@en ;
+    rdfs:comment "Batch identifier for the TRU"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/traceability/tru> ;
+    skos:definition "A unique identifier for the batch or lot that the TRU belongs to"@en .
+
+dscdo:hasShelfLife rdf:type owl:DatatypeProperty ;
+    rdfs:domain dscdo:TraceableResourceUnit ;
+    rdfs:range xsd:duration ;
+    rdfs:label "has shelf life"@en ;
+    rdfs:comment "Expected shelf life or expiration duration"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/traceability/tru> ;
+    skos:definition "The duration for which the TRU remains suitable for use"@en .
+
+# === TRU Object Properties ===
+
+dscdo:consistsOf rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:TraceableResourceUnit ;
+    rdfs:range dscdo:QuantityOfMaterial ;
+    rdfs:label "consists of"@en ;
+    rdfs:comment "Material composition of the TRU"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/traceability/tru> ;
+    skos:definition "Links a TRU to the quantities of materials it contains"@en .
+
+dscdo:partOf rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:TraceableResourceUnit ;
+    rdfs:range dscdo:TraceableResourceUnit ;
+    rdfs:label "part of"@en ;
+    rdfs:comment "Hierarchical relationship between TRUs"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/traceability/tru> ;
+    skos:definition "Indicates that one TRU is a component or part of another TRU"@en .
+
+dscdo:predecessorOf rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:TraceableResourceUnit ;
+    rdfs:range dscdo:TraceableResourceUnit ;
+    rdfs:label "predecessor of"@en ;
+    rdfs:comment "Links TRU to its predecessor before transformation"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/traceability/tru> ;
+    skos:definition "Indicates the transformation lineage between TRUs across events"@en .
+
+dscdo:ofMaterialType rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:QuantityOfMaterial ;
+    rdfs:range dscdo:Material ;
+    rdfs:label "of material type"@en ;
+    rdfs:comment "Links a quantity of material to its material type"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/traceability/tru> ;
+    skos:definition "Specifies the type or classification of material in a quantity"@en .
+
+# === Event-TRU Integration Properties ===
+
+dscdo:involvesTRU rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf dscdo:providesParticipantRole ;
+    rdfs:domain dscdo:SupplyChainEvent ;
+    rdfs:range dscdo:TRURole ;
+    rdfs:label "involves TRU"@en ;
+    rdfs:comment "Links a supply chain event to the TRU roles it involves"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/traceability/tru> ;
+    skos:definition "Connects supply chain events to the TRU roles that participate in them"@en .
+
+dscdo:performsTRURole rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:TraceableResourceUnit ;
+    rdfs:range dscdo:TRURole ;
+    rdfs:label "performs TRU role"@en ;
+    rdfs:comment "Links a TRU to the role it performs in an event"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/traceability/tru> ;
+    skos:definition "Identifies which role a traceable resource unit performs in an event"@en .
+
+# === TRU-specific Event Properties ===
+
+dscdo:inputTRU rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:TransformationEvent ;
+    rdfs:range dscdo:TraceableResourceUnit ;
+    rdfs:label "input TRU"@en ;
+    rdfs:comment "TRU that serves as input to a transformation event"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/traceability/tru> .
+
+dscdo:outputTRU rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:TransformationEvent ;
+    rdfs:range dscdo:TraceableResourceUnit ;
+    rdfs:label "output TRU"@en ;
+    rdfs:comment "TRU that results from a transformation event"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/traceability/tru> .
+
+dscdo:transferredTRU rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:TransferEvent ;
+    rdfs:range dscdo:TraceableResourceUnit ;
+    rdfs:label "transferred TRU"@en ;
+    rdfs:comment "TRU that is transferred in a transfer event"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/traceability/tru> .
+
+# === Schema.org Measurement Integration ===
+# Note: QuantityOfMaterial inherits schema:QuantitativeValue properties:
+# - schema:value (numeric amount)
+# - schema:unitCode (UN/CEFACT unit codes like KGM, LTR, MTR)  
+# - schema:unitText (custom unit descriptions)
+# - schema:minValue / schema:maxValue (quantity ranges)
+
+dscdo:hasMeasurementMethod rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf schema:measurementMethod ;
+    rdfs:domain dscdo:QuantityOfMaterial ;
+    rdfs:label "has measurement method"@en ;
+    rdfs:comment "Specifies how the quantity measurement was obtained"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/traceability/tru> .
+
+dscdo:measuredProperty rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf schema:measuredProperty ;
+    rdfs:domain dscdo:QuantityOfMaterial ;
+    rdfs:label "measured property"@en ;
+    rdfs:comment "The specific property of the material being quantified"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/traceability/tru> .
+
+# === Structured Examples ===
+
+dscdo:TraceableResourceUnit skos:example """
+{
+  "@type": "TraceableResourceUnit",
+  "@id": "https://vocab.earth616.local/ont/examples/tru/steel-batch-001",
+  "hasIdentifier": {
+    "@type": "Identifier",
+    "value": "SB-2024-001",
+    "propertyID": "BatchNumber",
+    "name": "Steel Production Batch"
+  },
+  "hasBatchNumber": "SB-2024-001",
+  "hasShelfLife": "P2Y",
+  "consistsOf": {
+    "@type": "QuantityOfMaterial",
+    "value": 25.5,
+    "unitCode": "KGM",
+    "unitText": "kilograms",
+    "ofMaterialType": {
+      "@type": "Material",
+      "name": "Stainless Steel Grade 304"
+    },
+    "measuredProperty": "mass",
+    "hasMeasurementMethod": "industrial_scale_weighing"
+  }
+}
+"""@en .
+
+dscdo:inputTRU skos:example """
+{
+  "@type": "TransformationEvent",
+  "@id": "https://vocab.earth616.local/ont/examples/events/steel-cutting-001",
+  "startedAtTime": "2024-03-15T09:00:00Z",
+  "endedAtTime": "2024-03-15T11:30:00Z",
+  "inputTRU": {
+    "@type": "TraceableResourceUnit",
+    "hasIdentifier": {"value": "SB-2024-001", "propertyID": "BatchNumber"},
+    "consistsOf": {"value": 25.5, "unitCode": "KGM"}
+  },
+  "outputTRU": [
+    {
+      "@type": "TraceableResourceUnit", 
+      "hasIdentifier": {"value": "SC-001-2024", "propertyID": "ComponentSerial"},
+      "consistsOf": {"value": 12.2, "unitCode": "KGM"},
+      "predecessorOf": "https://vocab.earth616.local/ont/examples/tru/steel-batch-001"
+    },
+    {
+      "@type": "TraceableResourceUnit",
+      "hasIdentifier": {"value": "SC-002-2024", "propertyID": "ComponentSerial"}, 
+      "consistsOf": {"value": 13.3, "unitCode": "KGM"},
+      "predecessorOf": "https://vocab.earth616.local/ont/examples/tru/steel-batch-001"
+    }
+  ]
+}
+"""@en .

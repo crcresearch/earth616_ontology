@@ -1,0 +1,858 @@
+{
+    "@graph": [
+        {
+            "@id": "https://vocab.earth616.local/ont/design/hierarchy-guidelines",
+            "skos:note": {
+                "@language": "en",
+                "@value": "\n    Component Hierarchy Usage Guidelines:\n    \n    1. Part-Whole Relationships:\n       - Use hasProperPart for any part-whole relationship\n       - Use hasDirectPart for immediate containment only\n       - Use hasComponent for functional component relationships\n       - Respect antisymmetric and irreflexive constraints\n    \n    2. Component Types:\n       - Use Component for any functional part\n       - Use DesignedComponent for parts with explicit specifications\n       - Use DesignedPhysicalSystem for complex assemblies\n    \n    3. TRU Integration:\n       - Use ComponentTRU for traceable components\n       - Use SystemTRU for traceable assemblies\n       - Maintain hierarchy relationships alongside traceability\n    \n    4. Assembly Events:\n       - Use AssemblyEvent to track component integration\n       - Use DisassemblyEvent for maintenance or recycling\n       - Link events to specific components and results\n    \n    5. Formal Constraints:\n       - hasProperPart is transitive, antisymmetric, irreflexive\n       - hasDirectPart is antisymmetric, irreflexive, NOT transitive\n       - Components cannot be parts of themselves\n    \n    6. AMMO Provenance:\n       - All patterns derive from AMMO part-whole modeling\n       - Maintain dcterms:source references\n       - Preserve formal constraint semantics\n    "
+            },
+            "dcterms:description": {
+                "@language": "en",
+                "@value": "Guidelines for modeling component hierarchies in Earth616 ontology"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Component Hierarchy Guidelines"
+            },
+            "@type": [
+                "skos:ConceptScheme",
+                "owl:NamedIndividual"
+            ]
+        },
+        {
+            "@id": "_:b0",
+            "schema:name": "Assembly Bay 3 - Guidance Systems",
+            "@type": "schema:Place"
+        },
+        {
+            "@id": "_:b1",
+            "schema:location": {
+                "@id": "_:b0"
+            },
+            "schema:endDate": "2024-03-20T15:30:00Z",
+            "schema:startDate": "2024-03-20T09:00:00Z",
+            "@type": "SpatioTemporalExtent"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/examples/events/guidance-system-assembly",
+            "hasSpatioTemporalExtent": {
+                "@id": "_:b1"
+            },
+            "resultsInAssembly": {
+                "@id": "https://vocab.earth616.local/ont/examples/hierarchy/missile-guidance-system"
+            },
+            "assembles": [
+                {
+                    "@id": "https://vocab.earth616.local/ont/examples/hierarchy/control-actuator"
+                },
+                {
+                    "@id": "https://vocab.earth616.local/ont/examples/hierarchy/sensor-array"
+                },
+                {
+                    "@id": "https://vocab.earth616.local/ont/examples/hierarchy/guidance-processor"
+                }
+            ],
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Assembly process for missile guidance system"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Guidance System Assembly Event"
+            },
+            "@type": "AssemblyEvent"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/examples/hierarchy/missile-guidance-system",
+            "skos:exactMatch": {
+                "@id": "ammo:DesignedPhysicalSystem"
+            },
+            "dcterms:source": {
+                "@id": "ammo:DesignedPhysicalSystem"
+            },
+            "hasIdentifier": {
+                "@id": "_:b4"
+            },
+            "hasComponent": [
+                {
+                    "@id": "https://vocab.earth616.local/ont/examples/hierarchy/control-actuator"
+                },
+                {
+                    "@id": "https://vocab.earth616.local/ont/examples/hierarchy/sensor-array"
+                },
+                {
+                    "@id": "https://vocab.earth616.local/ont/examples/hierarchy/guidance-processor"
+                }
+            ],
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Complete guidance system with traceable component hierarchy"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Missile Guidance System TRU"
+            },
+            "@type": "SystemTRU"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/examples/hierarchy/guidance-processor",
+            "skos:exactMatch": {
+                "@id": "ammo:DesignedComponent"
+            },
+            "dcterms:source": {
+                "@id": "ammo:DesignedComponent"
+            },
+            "hasIdentifier": {
+                "@id": "_:b2"
+            },
+            "playsRole": {
+                "@id": "_:b3"
+            },
+            "hasFunction": "primary navigation computation",
+            "isComponentOf": {
+                "@id": "https://vocab.earth616.local/ont/examples/hierarchy/missile-guidance-system"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Traceable guidance processor component"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Guidance Processor Component"
+            },
+            "@type": "ComponentTRU"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontAssemblyEvent",
+            "skos:example": {
+                "@language": "en",
+                "@value": "Engine assembly process, circuit board population, missile integration"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "An event tracking the composition of components into larger assemblies"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/hierarchy"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "An event that represents the assembly of multiple components into a larger system or sub-assembly."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Assembly Event"
+            },
+            "rdfs:subClassOf": {
+                "@id": "https://vocab.earth616.local/ontSupplyChainEvent"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "_:b2",
+            "schema:name": "Guidance Processor Serial Number",
+            "schema:propertyID": "ComponentSerial",
+            "schema:value": "GP-2024-001-A",
+            "@type": "Identifier"
+        },
+        {
+            "@id": "_:b3",
+            "rdfs:comment": "Handles main computational tasks for guidance",
+            "rdfs:label": "Primary Processor Role",
+            "@type": "ComponentRole"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontComponentRole",
+            "skos:example": {
+                "@language": "en",
+                "@value": "Primary structural role, backup power role, sensor input role, control output role"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A functional role that defines how a component contributes to system operation"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/hierarchy"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A role played by a component within a system, defining its function and responsibilities."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Component Role"
+            },
+            "rdfs:subClassOf": {
+                "@id": "https://vocab.earth616.local/ontParticipantRole"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontComponentTRU",
+            "skos:example": {
+                "@language": "en",
+                "@value": "Traceable steel bracket component, serialized electronic module, identified mechanical part"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A TRU that participates in component hierarchies while maintaining traceability"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/hierarchy"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A traceable resource unit that functions as a component within a larger system, combining supply chain traceability with hierarchical relationships."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Component TRU"
+            },
+            "rdfs:subClassOf": [
+                {
+                    "@id": "https://vocab.earth616.local/ontComponent"
+                },
+                {
+                    "@id": "https://vocab.earth616.local/ontTraceableResourceUnit"
+                }
+            ],
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "_:b4",
+            "schema:name": "Missile Guidance System Serial Number",
+            "schema:propertyID": "SystemSerial",
+            "schema:value": "MGS-2024-001",
+            "@type": "Identifier"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontSystemTRU",
+            "skos:example": {
+                "@language": "en",
+                "@value": "Assembled missile system with traceable components, manufactured engine assembly"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A TRU representing a system assembly with component traceability"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/hierarchy"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A traceable resource unit that represents a complete system composed of multiple component TRUs."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "System TRU"
+            },
+            "rdfs:subClassOf": [
+                {
+                    "@id": "https://vocab.earth616.local/ontDesignedPhysicalSystem"
+                },
+                {
+                    "@id": "https://vocab.earth616.local/ontTraceableResourceUnit"
+                }
+            ],
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/modules/design/hierarchy",
+            "skos:note": {
+                "@language": "en",
+                "@value": "Component hierarchy patterns derived from AMMO part-whole relationship modeling, adapted for defense supply chain component tracking."
+            },
+            "rdfs:seeAlso": {
+                "@id": "https://la3d.github.io/ammo/"
+            },
+            "dcterms:source": {
+                "@id": "https://w3id.org/ammo/ont/"
+            },
+            "owl:imports": [
+                {
+                    "@id": "https://vocab.earth616.local/ont/modules/design/composition"
+                },
+                {
+                    "@id": "https://vocab.earth616.local/ont/modules/core/event"
+                }
+            ],
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-29",
+                "@type": "xsd:date"
+            },
+            "owl:versionInfo": "1.0",
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Provides formal part-whole relationship modeling with antisymmetric and irreflexive constraints. Enables sophisticated component composition modeling for complex systems and assemblies. Derived from AMMO ontology part-whole patterns."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Component Hierarchy Module"
+            },
+            "@type": "owl:Ontology"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontDesignedPhysicalSystem",
+            "skos:note": {
+                "@language": "en",
+                "@value": "Derived from AMMO DesignedPhysicalSystem for complex component assemblies"
+            },
+            "skos:exactMatch": {
+                "@id": "ammo:DesignedPhysicalSystem"
+            },
+            "dcterms:source": {
+                "@id": "ammo:DesignedPhysicalSystem"
+            },
+            "skos:example": {
+                "@language": "en",
+                "@value": "Missile guidance system, manufacturing assembly line, integrated defense platform"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A system composed of designed components working together to fulfill system requirements"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/hierarchy"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A complex physical object composed of multiple components that work together to achieve system-level functionality."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Designed Physical System"
+            },
+            "rdfs:subClassOf": {
+                "@id": "https://vocab.earth616.local/ontPhysicalObject"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontComponent",
+            "skos:note": {
+                "@language": "en",
+                "@value": "Derived from AMMO Component class for functional parts of systems"
+            },
+            "skos:exactMatch": {
+                "@id": "ammo:Component"
+            },
+            "dcterms:source": {
+                "@id": "ammo:Component"
+            },
+            "skos:example": {
+                "@language": "en",
+                "@value": "Engine component, circuit board, structural element, sensor module"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A functional part of a larger system, designed to perform a specific role"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/hierarchy"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A physical object that serves a specific function within a larger system or assembly."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Component"
+            },
+            "rdfs:subClassOf": {
+                "@id": "https://vocab.earth616.local/ontPhysicalObject"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontyieldsComponent",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Links disassembly events to the components they produce"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/hierarchy"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that a disassembly event produces specific components."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "yields component"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontComponent"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontDisassemblyEvent"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontDisassemblyEvent",
+            "skos:example": {
+                "@language": "en",
+                "@value": "Maintenance disassembly, component recycling, failure analysis"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "An event tracking the decomposition of assemblies into individual components"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/hierarchy"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "An event that represents the disassembly of a system into its component parts."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Disassembly Event"
+            },
+            "rdfs:subClassOf": {
+                "@id": "https://vocab.earth616.local/ontSupplyChainEvent"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontdisassembles",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Links disassembly events to the systems being disassembled"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/hierarchy"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that a disassembly event breaks down a specific system."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "disassembles"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontDesignedPhysicalSystem"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontDisassemblyEvent"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontresultsInAssembly",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Links assembly events to their resulting assembled systems"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/hierarchy"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that an assembly event produces a specific assembled system."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "results in assembly"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontDesignedPhysicalSystem"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontAssemblyEvent"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontassembles",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Links assembly events to the components being assembled"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/hierarchy"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that an assembly event combines specific components."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "assembles"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontComponent"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontAssemblyEvent"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/onthasFunction",
+            "skos:example": {
+                "@language": "en",
+                "@value": "structural support, power conversion, signal processing, environmental protection"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Textual description of component functionality"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/hierarchy"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Describes the primary function or purpose of a component within a system."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has function"
+            },
+            "rdfs:range": {
+                "@id": "xsd:string"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontComponent"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontplaysRole",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Links components to the functional roles they perform"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/hierarchy"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that a component performs a specific functional role within a system."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "plays role"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontComponentRole"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontComponent"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontisComponentOf",
+            "skos:note": {
+                "@language": "en",
+                "@value": "Derived from AMMO isComponentOf inverse relationship"
+            },
+            "skos:exactMatch": {
+                "@id": "ammo:isComponentOf"
+            },
+            "dcterms:source": {
+                "@id": "ammo:isComponentOf"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Inverse relationship linking components to their containing systems"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/hierarchy"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that this designed component is a functional part of a designed physical system."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "is component of"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontDesignedPhysicalSystem"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontDesignedComponent"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "https://vocab.earth616.local/ontisDirectPartOf"
+            },
+            "owl:inverseOf": {
+                "@id": "https://vocab.earth616.local/onthasComponent"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontDesignedComponent",
+            "skos:note": {
+                "@language": "en",
+                "@value": "Derived from AMMO DesignedComponent for components with explicit design specifications"
+            },
+            "skos:exactMatch": {
+                "@id": "ammo:DesignedComponent"
+            },
+            "dcterms:source": {
+                "@id": "ammo:DesignedComponent"
+            },
+            "skos:example": {
+                "@language": "en",
+                "@value": "Custom-machined part, engineered subsystem, specified material component"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A component with explicit design specifications and functional requirements"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/hierarchy"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A component that has been explicitly designed according to specifications and requirements."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Designed Component"
+            },
+            "rdfs:subClassOf": {
+                "@id": "https://vocab.earth616.local/ontComponent"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontisDirectPartOf",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Inverse of hasDirectPart for immediate containment relationships"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/hierarchy"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that this physical object is an immediate part of another physical object."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "is direct part of"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontPhysicalObject"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontPhysicalObject"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "https://vocab.earth616.local/ontisProperPartOf"
+            },
+            "owl:inverseOf": {
+                "@id": "https://vocab.earth616.local/onthasDirectPart"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/onthasComponent",
+            "skos:note": {
+                "@language": "en",
+                "@value": "Derived from AMMO hasComponent for system-component relationships"
+            },
+            "skos:exactMatch": {
+                "@id": "ammo:hasComponent"
+            },
+            "dcterms:source": {
+                "@id": "ammo:hasComponent"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Specialized relationship linking systems to their functional components"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/hierarchy"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that a designed physical system contains a designed component as a functional part."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has component"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontDesignedComponent"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontDesignedPhysicalSystem"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "https://vocab.earth616.local/onthasDirectPart"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/onthasDirectPart",
+            "skos:note": {
+                "@language": "en",
+                "@value": "Derived from AMMO hasDirectPart for immediate part-whole relationships"
+            },
+            "skos:exactMatch": {
+                "@id": "ammo:hasDirectPart"
+            },
+            "dcterms:source": {
+                "@id": "ammo:hasDirectPart"
+            },
+            "@type": [
+                "owl:AsymmetricProperty",
+                "owl:IrreflexiveProperty",
+                "owl:ObjectProperty"
+            ],
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A non-transitive relation indicating direct part containment without intermediates"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/hierarchy"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that one physical object contains another as an immediate part, without any intermediate part-whole relationships."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has direct part"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontPhysicalObject"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontPhysicalObject"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "https://vocab.earth616.local/onthasProperPart"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontPhysicalObject",
+            "skos:note": {
+                "@language": "en",
+                "@value": "Derived from AMMO PhysicalObject: base class for spatial entities in part-whole hierarchies"
+            },
+            "skos:exactMatch": {
+                "@id": "ammo:PhysicalObject"
+            },
+            "dcterms:source": {
+                "@id": "ammo:PhysicalObject"
+            },
+            "skos:example": {
+                "@language": "en",
+                "@value": "Steel component, electronic module, mechanical assembly, complete missile system"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A material entity with spatial extent that can participate in part-whole relationships"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/hierarchy"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A concrete, spatially extended entity that can exist as a whole or as a part of other physical objects."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Physical Object"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontisProperPartOf",
+            "@type": [
+                "owl:AsymmetricProperty",
+                "owl:IrreflexiveProperty",
+                "owl:TransitiveProperty",
+                "owl:ObjectProperty"
+            ],
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Inverse of hasProperPart, indicating containment within a larger whole"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/hierarchy"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that this physical object is a proper part of another physical object."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "is proper part of"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontPhysicalObject"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontPhysicalObject"
+            },
+            "owl:inverseOf": {
+                "@id": "https://vocab.earth616.local/onthasProperPart"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.local/onthasProperPart",
+            "skos:note": {
+                "@language": "en",
+                "@value": "Derived from AMMO hasProperPart with formal antisymmetric and irreflexive constraints"
+            },
+            "skos:exactMatch": {
+                "@id": "ammo:hasProperPart"
+            },
+            "dcterms:source": {
+                "@id": "ammo:hasProperPart"
+            },
+            "@type": [
+                "owl:AsymmetricProperty",
+                "owl:IrreflexiveProperty",
+                "owl:TransitiveProperty",
+                "owl:ObjectProperty"
+            ],
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A transitive, antisymmetric, and irreflexive relation indicating proper part containment"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/hierarchy"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that one physical object contains another as a proper part. A proper part is a part that is not identical to the whole."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has proper part"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontPhysicalObject"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontPhysicalObject"
+            }
+        }
+    ],
+    "@context": {
+        "schema": "http://schema.org/",
+        "ammo": "https://w3id.org/ammo/ont/",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "xml": "http://www.w3.org/XML/1998/namespace",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "dscdo": "https://vocab.earth616.local/ont",
+        "dcterms": "http://purl.org/dc/terms/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "prov": "http://www.w3.org/ns/prov#",
+        "@vocab": "https://vocab.earth616.local/ont"
+    }
+}

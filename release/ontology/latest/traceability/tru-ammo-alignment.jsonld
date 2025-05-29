@@ -1,0 +1,522 @@
+{
+    "@graph": [
+        {
+            "@id": "https://vocab.earth616.local/ont/alignment/ammo-tru-mapping-guidelines",
+            "skos:note": {
+                "@language": "en",
+                "@value": "\n    AMMO-TRU Alignment Strategy:\n    \n    1. Material Mapping:\n       - AMMO Material → TRU Material (skos:exactMatch)\n       - AMMO Alloy/Polymer/BaseMaterial → TRU Material with additionalProperty classification\n       - AMMO Quantity + Material → TRU QuantityOfMaterial\n       - Preserve QUDT units from AMMO using Schema.org unitCode mappings\n    \n    2. Process Integration:\n       - AMMO AMProcess → TRU TransformationEvent (skos:closeMatch)\n       - AMMO process types (PowderBed, MaterialExtrusion, etc.) → additionalProperty on TRU events\n       - AMMO MaterialTransformation → TRU TransformationEvent base pattern\n    \n    3. Artifact and Component Tracking:\n       - AMMO DesignedArtifact → TRU TraceableResourceUnit (skos:closeMatch)\n       - AMMO DesignSpecification → TRU Identifier with propertyID linkage\n       - Preserve AMMO design provenance in TRU predecessor/successor chains\n    \n    4. Property Mappings:\n       - ammo:hasBaseMaterial → dscdo:ofMaterialType (material composition)\n       - ammo:madeFromMaterial → dscdo:ofMaterialType (material source)\n       - ammo:ofQuantity → dscdo:consistsOf (quantity relationships)\n       - ammo:specifies → schema:additionalProperty (specification details)\n    \n    5. Namespace and URI Management:\n       - Use AMMO namespace: https://w3id.org/ammo/ont/\n       - Apply skos:exactMatch for direct concept equivalence\n       - Use skos:closeMatch for similar but not identical concepts\n       - Use skos:relatedMatch for conceptually related terms\n       - Use rdfs:seeAlso for reference relationships\n    \n    6. Validation Considerations:\n       - Ensure QUDT to UN/CEFACT unit code mappings are consistent\n       - Verify temporal alignment between AMMO process intervals and TRU event extents\n       - Validate material composition chains across transformation events\n       - Check design specification lineage preservation\n    "
+            },
+            "dcterms:description": {
+                "@language": "en",
+                "@value": "Comprehensive guidelines for mapping between AMMO and TRU concepts in defense manufacturing contexts"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "AMMO-TRU Mapping Guidelines"
+            },
+            "@type": [
+                "skos:ConceptScheme",
+                "owl:NamedIndividual"
+            ]
+        },
+        {
+            "@id": "_:b0",
+            "schema:description": "As-built surface roughness",
+            "schema:unitText": "micrometers",
+            "schema:unitCode": "MTM",
+            "schema:value": {
+                "@value": "12.5",
+                "@type": "xsd:decimal"
+            },
+            "schema:propertyID": "Surface_Finish_Ra",
+            "@type": "schema:PropertyValue"
+        },
+        {
+            "@id": "_:b1",
+            "schema:description": "Powder Bed Fusion additive manufacturing",
+            "schema:value": "Additive_Manufacturing_PBF",
+            "schema:propertyID": "Manufacturing_Method",
+            "@type": "schema:PropertyValue"
+        },
+        {
+            "@id": "_:b2",
+            "schema:description": "Links to AMMO DesignSpecification for this component",
+            "schema:value": "DS-COMP-2024-001",
+            "schema:propertyID": "Design_Specification_Reference",
+            "@type": "schema:PropertyValue"
+        },
+        {
+            "@id": "_:b3",
+            "schema:description": "Aligned with AMMO DesignedArtifact concept",
+            "schema:value": "ammo:DesignedArtifact",
+            "schema:propertyID": "AMMO_Artifact_Type",
+            "@type": "schema:PropertyValue"
+        },
+        {
+            "@id": "_:b4",
+            "hasMeasurementMethod": "precision_component_weighing",
+            "measuredProperty": "mass",
+            "ofMaterialType": {
+                "@id": "https://vocab.earth616.local/ont/examples/materials/steel-316l-powder"
+            },
+            "schema:unitText": "kilograms",
+            "schema:unitCode": "KGM",
+            "schema:value": {
+                "@value": "2.3",
+                "@type": "xsd:decimal"
+            },
+            "@type": "QuantityOfMaterial"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/examples/materials/steel-316l-powder",
+            "schema:additionalProperty": [
+                {
+                    "@id": "_:b13"
+                },
+                {
+                    "@id": "_:b14"
+                },
+                {
+                    "@id": "_:b15"
+                }
+            ],
+            "rdfs:seeAlso": {
+                "@id": "ammo:BaseMaterial"
+            },
+            "skos:broader": {
+                "@id": "ammo:Alloy"
+            },
+            "skos:exactMatch": {
+                "@id": "ammo:Material"
+            },
+            "schema:description": {
+                "@language": "en",
+                "@value": "Fine stainless steel powder optimized for additive manufacturing processes"
+            },
+            "schema:name": {
+                "@language": "en",
+                "@value": "Stainless Steel 316L Powder"
+            },
+            "@type": "Material"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontQuantityOfMaterial",
+            "rdfs:seeAlso": {
+                "@id": "ammo:Quantity"
+            },
+            "skos:note": {
+                "@language": "en",
+                "@value": "TRU QuantityOfMaterial combines material type with Schema.org QuantitativeValue patterns, while AMMO separates Material classification from Quantity measurement using QUDT standards."
+            },
+            "skos:relatedMatch": {
+                "@id": "ammo:Quantity"
+            },
+            "skos:closeMatch": {
+                "@id": "ammo:Material"
+            }
+        },
+        {
+            "@id": "_:b5",
+            "schema:name": "Additive Manufacturing Component Serial",
+            "schema:propertyID": "AMComponentSerial",
+            "schema:value": "AM-COMP-2024-001",
+            "@type": "Identifier"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontIdentifier",
+            "rdfs:seeAlso": {
+                "@id": "ammo:DesignSpecification"
+            },
+            "skos:note": {
+                "@language": "en",
+                "@value": "Both provide identification and specification information. AMMO DesignSpecification focuses on detailed technical documents while TRU Identifier provides traceability codes and metadata."
+            },
+            "skos:relatedMatch": {
+                "@id": "ammo:DesignSpecification"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/examples/ammo-alignment/steel-component-am-001",
+            "schema:additionalProperty": [
+                {
+                    "@id": "_:b0"
+                },
+                {
+                    "@id": "_:b1"
+                },
+                {
+                    "@id": "_:b2"
+                },
+                {
+                    "@id": "_:b3"
+                }
+            ],
+            "rdfs:seeAlso": {
+                "@id": "ammo:Component"
+            },
+            "skos:exactMatch": {
+                "@id": "ammo:DesignedArtifact"
+            },
+            "consistsOf": {
+                "@id": "_:b4"
+            },
+            "predecessorOf": {
+                "@id": "https://vocab.earth616.local/ont/examples/ammo-alignment/steel-powder-batch"
+            },
+            "hasIdentifier": {
+                "@id": "_:b5"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "TRU representing component produced via additive manufacturing, aligned with AMMO designed artifact concepts"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Additively Manufactured Steel Component"
+            },
+            "@type": "TraceableResourceUnit"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/examples/ammo-alignment/steel-powder-batch",
+            "schema:additionalProperty": [
+                {
+                    "@id": "_:b16"
+                },
+                {
+                    "@id": "_:b17"
+                }
+            ],
+            "rdfs:seeAlso": {
+                "@id": "ammo:DesignedArtifact"
+            },
+            "skos:exactMatch": {
+                "@id": "ammo:Material"
+            },
+            "consistsOf": {
+                "@id": "_:b18"
+            },
+            "hasShelfLife": "P1Y",
+            "hasBatchNumber": "AM-STEEL-316L-2024-001",
+            "hasIdentifier": {
+                "@id": "_:b19"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Example TRU representing steel powder batch aligned with AMMO material concepts"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Steel Powder Batch for Additive Manufacturing"
+            },
+            "@type": "TraceableResourceUnit"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontTraceableResourceUnit",
+            "rdfs:seeAlso": {
+                "@id": "ammo:DesignedArtifact"
+            },
+            "skos:note": {
+                "@language": "en",
+                "@value": "Both represent traceable physical objects. AMMO DesignedArtifact emphasizes design specifications and manufacturing provenance, while TRU emphasizes supply chain traceability with batch/lot tracking."
+            },
+            "skos:closeMatch": {
+                "@id": "ammo:DesignedArtifact"
+            }
+        },
+        {
+            "@id": "_:b6",
+            "schema:description": "Laser power setting for processing",
+            "schema:unitText": "watts",
+            "schema:unitCode": "WTT",
+            "schema:value": {
+                "@value": "285",
+                "@type": "xsd:integer"
+            },
+            "schema:propertyID": "Laser_Power",
+            "@type": "schema:PropertyValue"
+        },
+        {
+            "@id": "_:b7",
+            "schema:description": "Build layer thickness parameter",
+            "schema:unitText": "micrometers",
+            "schema:unitCode": "MTM",
+            "schema:value": {
+                "@value": "30",
+                "@type": "xsd:integer"
+            },
+            "schema:propertyID": "Layer_Height",
+            "@type": "schema:PropertyValue"
+        },
+        {
+            "@id": "_:b8",
+            "schema:description": "Specific powder bed fusion technology",
+            "schema:value": "Selective_Laser_Melting",
+            "schema:propertyID": "Manufacturing_Technology",
+            "@type": "schema:PropertyValue"
+        },
+        {
+            "@id": "_:b9",
+            "schema:description": "Aligned with AMMO PowderBed additive manufacturing process",
+            "schema:value": "ammo:PowderBed",
+            "schema:propertyID": "AMMO_Process_Type",
+            "@type": "schema:PropertyValue"
+        },
+        {
+            "@id": "_:b10",
+            "schema:addressLocality": "Defense Manufacturing Facility",
+            "@type": "schema:PostalAddress"
+        },
+        {
+            "@id": "_:b11",
+            "schema:address": {
+                "@id": "_:b10"
+            },
+            "schema:name": "Additive Manufacturing Lab - EOS M290",
+            "@type": "schema:Place"
+        },
+        {
+            "@id": "_:b12",
+            "schema:location": {
+                "@id": "_:b11"
+            },
+            "schema:endDate": "2024-03-20T14:30:00Z",
+            "schema:startDate": "2024-03-20T08:00:00Z",
+            "@type": "SpatioTemporalExtent"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/examples/events/powder-bed-fusion-001",
+            "schema:additionalProperty": [
+                {
+                    "@id": "_:b6"
+                },
+                {
+                    "@id": "_:b7"
+                },
+                {
+                    "@id": "_:b8"
+                },
+                {
+                    "@id": "_:b9"
+                }
+            ],
+            "skos:relatedMatch": {
+                "@id": "ammo:MaterialTransformation"
+            },
+            "skos:closeMatch": {
+                "@id": "ammo:PowderBed"
+            },
+            "skos:exactMatch": {
+                "@id": "ammo:AMProcess"
+            },
+            "outputTRU": {
+                "@id": "https://vocab.earth616.local/ont/examples/ammo-alignment/steel-component-am-001"
+            },
+            "inputTRU": {
+                "@id": "https://vocab.earth616.local/ont/examples/ammo-alignment/steel-powder-batch"
+            },
+            "hasSpatioTemporalExtent": {
+                "@id": "_:b12"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Additive manufacturing event aligned with AMMO PowderBed process concepts"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Powder Bed Fusion Manufacturing Process"
+            },
+            "@type": "TransformationEvent"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontTransformationEvent",
+            "rdfs:seeAlso": {
+                "@id": "ammo:AMProcess"
+            },
+            "skos:note": {
+                "@language": "en",
+                "@value": "Both represent material transformation processes. AMMO focuses on additive manufacturing processes (PowderBed, MaterialExtrusion, etc.) while TRU TransformationEvent is more general for supply chain operations."
+            },
+            "skos:closeMatch": [
+                {
+                    "@id": "ammo:MaterialTransformation"
+                },
+                {
+                    "@id": "ammo:AMProcess"
+                }
+            ]
+        },
+        {
+            "@id": "_:b13",
+            "schema:description": "Chemical composition aligned with ASTM A240 standard",
+            "schema:value": "17-20% Cr, 10-14% Ni, 2-3% Mo, <0.03% C",
+            "schema:propertyID": "Chemical_Composition_316L",
+            "@type": "schema:PropertyValue"
+        },
+        {
+            "@id": "_:b14",
+            "schema:description": "Particle size range suitable for powder bed fusion",
+            "schema:unitText": "micrometers",
+            "schema:value": "15-45 μm",
+            "schema:propertyID": "AM_Powder_Size_Distribution",
+            "@type": "schema:PropertyValue"
+        },
+        {
+            "@id": "_:b15",
+            "schema:description": "Classified as Alloy in AMMO ontology hierarchy",
+            "schema:value": "ammo:Alloy",
+            "schema:propertyID": "AMMO_Material_Classification",
+            "@type": "schema:PropertyValue"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontMaterial",
+            "rdfs:seeAlso": {
+                "@id": "ammo:Material"
+            },
+            "skos:note": {
+                "@language": "en",
+                "@value": "Both represent substance classifications that can occur in different amounts with similar characteristics. AMMO Material includes subclasses like Polymer, Alloy, and BaseMaterial."
+            },
+            "skos:exactMatch": {
+                "@id": "ammo:Material"
+            }
+        },
+        {
+            "@id": "_:b16",
+            "schema:description": "Aligned with AMMO Material concept for additive manufacturing applications",
+            "schema:value": "ammo:Material",
+            "schema:propertyID": "AMMO_Alignment",
+            "@type": "schema:PropertyValue"
+        },
+        {
+            "@id": "_:b17",
+            "rdfs:seeAlso": {
+                "@id": "ammo:Alloy"
+            },
+            "schema:value": "Alloy",
+            "schema:propertyID": "AMMO_Material_Type",
+            "@type": "schema:PropertyValue"
+        },
+        {
+            "@id": "_:b18",
+            "hasMeasurementMethod": "precision_powder_weighing",
+            "measuredProperty": "mass",
+            "ofMaterialType": {
+                "@id": "https://vocab.earth616.local/ont/examples/materials/steel-316l-powder"
+            },
+            "schema:unitText": "kilograms",
+            "schema:unitCode": "KGM",
+            "schema:value": {
+                "@value": "50.0",
+                "@type": "xsd:decimal"
+            },
+            "@type": "QuantityOfMaterial"
+        },
+        {
+            "@id": "_:b19",
+            "schema:name": "AM Steel Powder Batch Identifier",
+            "schema:propertyID": "AdditiveManufacturingBatch",
+            "schema:value": "AM-STEEL-316L-2024-001",
+            "@type": "Identifier"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/alignment/ammo-process-types",
+            "skos:note": {
+                "@language": "en",
+                "@value": "\n    AMMO Process Types and TRU Event Alignment:\n    \n    1. ammo:PowderBed → dscdo:TransformationEvent with additionalProperty 'AM_Process_Type: PowderBed'\n    2. ammo:MaterialExtrusion → dscdo:TransformationEvent with additionalProperty 'AM_Process_Type: MaterialExtrusion'\n    3. ammo:LightPolymerized → dscdo:TransformationEvent with additionalProperty 'AM_Process_Type: LightPolymerized'\n    4. ammo:PowderFed → dscdo:TransformationEvent with additionalProperty 'AM_Process_Type: PowderFed'\n    \n    Strategy: Use schema:additionalProperty to preserve AMMO process specificity within TRU event framework.\n    "
+            },
+            "dcterms:description": {
+                "@language": "en",
+                "@value": "Mapping of AMMO additive manufacturing process types to TRU transformation event patterns"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "AMMO Process Type Alignments"
+            },
+            "@type": [
+                "skos:ConceptScheme",
+                "owl:NamedIndividual"
+            ]
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontconsistsOf",
+            "rdfs:seeAlso": {
+                "@id": "ammo:ofQuantity"
+            },
+            "skos:note": {
+                "@language": "en",
+                "@value": "Both properties relate objects to their quantified composition. AMMO uses QUDT-based quantities while TRU uses Schema.org QuantitativeValue patterns."
+            },
+            "skos:relatedMatch": {
+                "@id": "ammo:ofQuantity"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontofMaterialType",
+            "rdfs:seeAlso": [
+                {
+                    "@id": "ammo:madeFromMaterial"
+                },
+                {
+                    "@id": "ammo:hasBaseMaterial"
+                }
+            ],
+            "skos:note": {
+                "@language": "en",
+                "@value": "All three properties link objects to their material composition. AMMO distinguishes base materials from general material composition."
+            },
+            "skos:closeMatch": [
+                {
+                    "@id": "ammo:madeFromMaterial"
+                },
+                {
+                    "@id": "ammo:hasBaseMaterial"
+                }
+            ]
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/modules/traceability/tru-ammo-alignment",
+            "rdfs:seeAlso": [
+                {
+                    "@id": "https://la3d.github.io/ammo/"
+                },
+                {
+                    "@id": "https://w3id.org/ammo/ont/"
+                }
+            ],
+            "owl:imports": {
+                "@id": "https://vocab.earth616.local/ont/modules/traceability/tru"
+            },
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-29",
+                "@type": "xsd:date"
+            },
+            "owl:versionInfo": "1.0",
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Provides semantic alignment between the Traceable Resource Unit (TRU) module and the AMMO (Additive Manufacturing for Maintenance Operations) ontology for interoperability in defense manufacturing contexts."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "TRU-AMMO Alignment Module"
+            },
+            "@type": "owl:Ontology"
+        }
+    ],
+    "@context": {
+        "schema": "http://schema.org/",
+        "ammo": "https://w3id.org/ammo/ont/",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "xml": "http://www.w3.org/XML/1998/namespace",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "dscdo": "https://vocab.earth616.local/ont",
+        "dcterms": "http://purl.org/dc/terms/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "prov": "http://www.w3.org/ns/prov#",
+        "@vocab": "https://vocab.earth616.local/ont"
+    }
+}

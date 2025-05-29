@@ -1,0 +1,562 @@
+{
+    "@graph": [
+        {
+            "@id": "_:b0",
+            "sh:message": {
+                "@language": "en",
+                "@value": "Transfer event should specify transferred TRUs for traceability"
+            },
+            "sh:severity": {
+                "@id": "sh:Warning"
+            },
+            "sh:class": {
+                "@id": "dscdo:TraceableResourceUnit"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Transfer should specify which TRUs are being transferred"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "transferred TRUs"
+            },
+            "sh:path": {
+                "@id": "dscdo:transferredTRU"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.local/shapes/TRUTransferEventShape",
+            "sh:property": {
+                "@id": "_:b0"
+            },
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-25",
+                "@type": "xsd:date"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/shapes/TRUShape"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Ensures transfer events specify which TRUs are being transferred"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Validates transfer events involving TRUs"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "TRU Transfer Event Shape"
+            },
+            "sh:targetClass": {
+                "@id": "dscdo:TransferEvent"
+            },
+            "@type": "sh:NodeShape"
+        },
+        {
+            "@id": "https://vocab.earth616.local/shapes/TRUShape",
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-25",
+                "@type": "xsd:date"
+            },
+            "owl:versionInfo": "1.0",
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "SHACL shapes for validating Traceable Resource Unit instances and measurements"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "TRU Shape Graph"
+            },
+            "@type": [
+                "sh:ShapesGraph",
+                "owl:Ontology"
+            ]
+        },
+        {
+            "@id": "_:b1",
+            "sh:message": {
+                "@language": "en",
+                "@value": "Transformation event should specify output TRUs for traceability"
+            },
+            "sh:severity": {
+                "@id": "sh:Warning"
+            },
+            "sh:class": {
+                "@id": "dscdo:TraceableResourceUnit"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Transformation should specify output TRUs"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "output TRUs"
+            },
+            "sh:path": {
+                "@id": "dscdo:outputTRU"
+            }
+        },
+        {
+            "@id": "_:b2",
+            "sh:message": {
+                "@language": "en",
+                "@value": "Transformation event should specify input TRUs for traceability"
+            },
+            "sh:severity": {
+                "@id": "sh:Warning"
+            },
+            "sh:class": {
+                "@id": "dscdo:TraceableResourceUnit"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Transformation should specify input TRUs"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "input TRUs"
+            },
+            "sh:path": {
+                "@id": "dscdo:inputTRU"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.local/shapes/TRUTransformationEventShape",
+            "sh:property": [
+                {
+                    "@id": "_:b1"
+                },
+                {
+                    "@id": "_:b2"
+                }
+            ],
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-25",
+                "@type": "xsd:date"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/shapes/TRUShape"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Ensures transformation events have proper TRU input/output relationships"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Validates transformation events involving TRUs"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "TRU Transformation Event Shape"
+            },
+            "sh:targetClass": {
+                "@id": "dscdo:TransformationEvent"
+            },
+            "@type": "sh:NodeShape"
+        },
+        {
+            "@id": "_:b3",
+            "sh:message": {
+                "@language": "en",
+                "@value": "Material should have a schema:name for identification"
+            },
+            "sh:severity": {
+                "@id": "sh:Warning"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Material should have a human-readable name"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "material name"
+            },
+            "sh:path": {
+                "@id": "schema:name"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.local/shapes/MaterialShape",
+            "sh:property": {
+                "@id": "_:b3"
+            },
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-25",
+                "@type": "xsd:date"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/shapes/TRUShape"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Ensures materials have proper naming and classification"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Validates material classification instances"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Material Shape"
+            },
+            "sh:targetClass": {
+                "@id": "dscdo:Material"
+            },
+            "@type": "sh:NodeShape"
+        },
+        {
+            "@id": "_:b4",
+            "sh:severity": {
+                "@id": "sh:Info"
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "What property is being quantified"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "measured property"
+            },
+            "sh:path": {
+                "@id": "dscdo:measuredProperty"
+            }
+        },
+        {
+            "@id": "_:b5",
+            "sh:severity": {
+                "@id": "sh:Info"
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "How the quantity was measured"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "measurement method"
+            },
+            "sh:path": {
+                "@id": "dscdo:hasMeasurementMethod"
+            }
+        },
+        {
+            "@id": "_:b6",
+            "sh:message": {
+                "@language": "en",
+                "@value": "Quantity of material must specify exactly one material type"
+            },
+            "sh:severity": {
+                "@id": "sh:Violation"
+            },
+            "sh:class": {
+                "@id": "dscdo:Material"
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Quantity must specify the type of material"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "material type"
+            },
+            "sh:path": {
+                "@id": "dscdo:ofMaterialType"
+            }
+        },
+        {
+            "@id": "_:b7",
+            "sh:message": {
+                "@language": "en",
+                "@value": "Quantity should specify unit using UN/CEFACT codes (e.g., KGM, LTR, MTR)"
+            },
+            "sh:severity": {
+                "@id": "sh:Warning"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Quantity should use UN/CEFACT unit codes"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "unit code"
+            },
+            "sh:path": {
+                "@id": "schema:unitCode"
+            }
+        },
+        {
+            "@id": "_:b8",
+            "sh:message": {
+                "@language": "en",
+                "@value": "Quantity of material must have exactly one numeric value"
+            },
+            "sh:severity": {
+                "@id": "sh:Violation"
+            },
+            "sh:datatype": {
+                "@id": "xsd:decimal"
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Material quantity must have a numeric value"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "quantity value"
+            },
+            "sh:path": {
+                "@id": "schema:value"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.local/shapes/QuantityOfMaterialShape",
+            "sh:property": [
+                {
+                    "@id": "_:b4"
+                },
+                {
+                    "@id": "_:b5"
+                },
+                {
+                    "@id": "_:b6"
+                },
+                {
+                    "@id": "_:b7"
+                },
+                {
+                    "@id": "_:b8"
+                }
+            ],
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-25",
+                "@type": "xsd:date"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/shapes/TRUShape"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Ensures material quantities follow Schema.org measurement patterns"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Validates Schema.org QuantitativeValue compliance for material quantities"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Quantity Of Material Shape"
+            },
+            "sh:targetClass": {
+                "@id": "dscdo:QuantityOfMaterial"
+            },
+            "@type": "sh:NodeShape"
+        },
+        {
+            "@id": "_:b9",
+            "sh:severity": {
+                "@id": "sh:Info"
+            },
+            "sh:datatype": {
+                "@id": "xsd:duration"
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Shelf life should be a duration"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "shelf life"
+            },
+            "sh:path": {
+                "@id": "dscdo:hasShelfLife"
+            }
+        },
+        {
+            "@id": "_:b10",
+            "sh:severity": {
+                "@id": "sh:Info"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Batch number should be a string"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "batch number"
+            },
+            "sh:path": {
+                "@id": "dscdo:hasBatchNumber"
+            }
+        },
+        {
+            "@id": "_:b11",
+            "sh:message": {
+                "@language": "en",
+                "@value": "Traceable Resource Unit must specify its material composition"
+            },
+            "sh:severity": {
+                "@id": "sh:Violation"
+            },
+            "sh:class": {
+                "@id": "dscdo:QuantityOfMaterial"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "TRU must specify what materials it consists of"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "material composition"
+            },
+            "sh:path": {
+                "@id": "dscdo:consistsOf"
+            }
+        },
+        {
+            "@id": "_:b12",
+            "sh:message": {
+                "@language": "en",
+                "@value": "Traceable Resource Unit must have at least one identifier"
+            },
+            "sh:severity": {
+                "@id": "sh:Violation"
+            },
+            "sh:class": {
+                "@id": "dscdo:Identifier"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "TRU must have at least one identifier"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "TRU identifier"
+            },
+            "sh:path": {
+                "@id": "dscdo:hasIdentifier"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.local/shapes/TraceableResourceUnitShape",
+            "sh:property": [
+                {
+                    "@id": "_:b9"
+                },
+                {
+                    "@id": "_:b10"
+                },
+                {
+                    "@id": "_:b11"
+                },
+                {
+                    "@id": "_:b12"
+                }
+            ],
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-25",
+                "@type": "xsd:date"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/shapes/TRUShape"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Ensures TRUs have proper identification and material composition"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Validates TRU instances for required identifiers and composition"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Traceable Resource Unit Shape"
+            },
+            "sh:targetClass": {
+                "@id": "dscdo:TraceableResourceUnit"
+            },
+            "@type": "sh:NodeShape"
+        }
+    ],
+    "@context": {
+        "schema": "https://schema.org/",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "dscdo": "https://vocab.earth616.local/ont/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+    }
+}

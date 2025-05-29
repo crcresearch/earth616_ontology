@@ -80,6 +80,90 @@
         {
             "@id": "_:b5",
             "sh:order": {
+                "@value": "10",
+                "@type": "xsd:integer"
+            },
+            "prof:hasArtifact": {
+                "@id": "dscdo:modules/design/transition"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Formal state modeling and transition tracking for supply chain entities",
+            "rdfs:label": "State Transition Module",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b6",
+            "sh:order": {
+                "@value": "9",
+                "@type": "xsd:integer"
+            },
+            "prof:hasArtifact": {
+                "@id": "dscdo:modules/design/specification"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Material and quantity specifications with validation and compliance tracking",
+            "rdfs:label": "Enhanced Specification Module",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b7",
+            "sh:order": {
+                "@value": "8",
+                "@type": "xsd:integer"
+            },
+            "prof:hasArtifact": {
+                "@id": "dscdo:modules/design/hierarchy"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Formal part-whole relationships with antisymmetric and irreflexive constraints",
+            "rdfs:label": "Component Hierarchy Module",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b8",
+            "sh:order": {
+                "@value": "7",
+                "@type": "xsd:integer"
+            },
+            "prof:hasArtifact": {
+                "@id": "dscdo:modules/design/composition"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Design patterns, specifications, and versioning derived from AMMO ontology",
+            "rdfs:label": "Design Composition Module",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b9",
+            "sh:order": {
+                "@value": "6",
+                "@type": "xsd:integer"
+            },
+            "prof:hasArtifact": {
+                "@id": "dscdo:modules/traceability/tru-ammo-alignment"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Semantic alignment between TRU and AMMO ontology for additive manufacturing integration",
+            "rdfs:label": "TRU-AMMO Alignment Module",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b10",
+            "sh:order": {
+                "@value": "5",
+                "@type": "xsd:integer"
+            },
+            "prof:hasArtifact": {
+                "@id": "dscdo:modules/traceability/tru"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Traceable Resource Unit (TRU) modeling for supply chain traceability",
+            "rdfs:label": "Traceable Resource Unit Module",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b11",
+            "sh:order": {
                 "@value": "4",
                 "@type": "xsd:integer"
             },
@@ -92,7 +176,7 @@
             "@type": "prof:ResourceDescriptor"
         },
         {
-            "@id": "_:b6",
+            "@id": "_:b12",
             "sh:order": {
                 "@value": "3",
                 "@type": "xsd:integer"
@@ -106,7 +190,7 @@
             "@type": "prof:ResourceDescriptor"
         },
         {
-            "@id": "_:b7",
+            "@id": "_:b13",
             "sh:order": {
                 "@value": "2",
                 "@type": "xsd:integer"
@@ -120,7 +204,7 @@
             "@type": "prof:ResourceDescriptor"
         },
         {
-            "@id": "_:b8",
+            "@id": "_:b14",
             "sh:order": {
                 "@value": "1",
                 "@type": "xsd:integer"
@@ -134,7 +218,7 @@
             "@type": "prof:ResourceDescriptor"
         },
         {
-            "@id": "_:b9",
+            "@id": "_:b15",
             "prof:hasArtifact": {
                 "@id": "dscdo:pylode-config"
             },
@@ -162,36 +246,54 @@
                     "@id": "_:b3"
                 },
                 {
-                    "@id": "_:b4"
+                    "@id": "_:b15"
                 },
                 {
-                    "@id": "_:b5"
+                    "@id": "_:b14"
                 },
                 {
-                    "@id": "_:b6"
+                    "@id": "_:b13"
                 },
                 {
-                    "@id": "_:b7"
+                    "@id": "_:b12"
+                },
+                {
+                    "@id": "_:b11"
+                },
+                {
+                    "@id": "_:b10"
+                },
+                {
+                    "@id": "_:b9"
                 },
                 {
                     "@id": "_:b8"
                 },
                 {
-                    "@id": "_:b9"
+                    "@id": "_:b7"
+                },
+                {
+                    "@id": "_:b6"
+                },
+                {
+                    "@id": "_:b5"
+                },
+                {
+                    "@id": "_:b4"
                 }
             ],
-            "prof:isProfileOf": {
-                "@id": "https://vocab.earth616.local/ont/"
+            "@type": "prof:Profile",
+            "dcterms:title": {
+                "@language": "en",
+                "@value": "DSCDO CogitareLink Implementation Profile"
             },
             "dcterms:description": {
                 "@language": "en",
                 "@value": "Profile defining modular implementation structure for the Defense Supply Chain and Documentation Ontology compatible with CogitareLink four-layer model."
             },
-            "dcterms:title": {
-                "@language": "en",
-                "@value": "DSCDO CogitareLink Implementation Profile"
-            },
-            "@type": "prof:Profile"
+            "prof:isProfileOf": {
+                "@id": "https://vocab.earth616.local/ont/"
+            }
         }
     ],
     "@context": {

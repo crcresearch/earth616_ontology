@@ -1,6 +1,105 @@
 {
     "@graph": [
         {
+            "@id": "dscdo:patterns/IEIntegration",
+            "skos:related": {
+                "@id": "dscdo:patterns/EventCore"
+            },
+            "skos:topConceptOf": {
+                "@id": "dscdo:patterns/"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Semantic hooks for LLM-based information extraction workflows to integrate with Earth616 vocabulary for document processing, compliance validation, and TRU specification conformance."
+            },
+            "skos:prefLabel": {
+                "@language": "en",
+                "@value": "Information Extraction Integration Pattern"
+            },
+            "skos:inScheme": {
+                "@id": "dscdo:patterns/"
+            },
+            "@type": [
+                "oplax:Pattern",
+                "skos:Concept"
+            ]
+        },
+        {
+            "@id": "dscdo:patterns/EventCore",
+            "skos:topConceptOf": {
+                "@id": "dscdo:patterns/"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Minimalistic model of events with spatiotemporal extents and participants."
+            },
+            "skos:prefLabel": {
+                "@language": "en",
+                "@value": "Event Core Pattern"
+            },
+            "skos:inScheme": {
+                "@id": "dscdo:patterns/"
+            },
+            "@type": [
+                "oplax:Pattern",
+                "skos:Concept"
+            ]
+        },
+        {
+            "@id": "dscdo:patterns/",
+            "skos:hasTopConcept": [
+                {
+                    "@id": "dscdo:patterns/IEIntegration"
+                },
+                {
+                    "@id": "dscdo:patterns/SemanticTrajectory"
+                },
+                {
+                    "@id": "dscdo:patterns/SpatioTemporalExtent"
+                },
+                {
+                    "@id": "dscdo:patterns/EventCore"
+                }
+            ],
+            "dcat:dataset": [
+                {
+                    "@id": "dscdo:patterns/IEIntegration"
+                },
+                {
+                    "@id": "dscdo:patterns/SemanticTrajectory"
+                },
+                {
+                    "@id": "dscdo:patterns/SpatioTemporalExtent"
+                },
+                {
+                    "@id": "dscdo:patterns/EventCore"
+                }
+            ],
+            "dcterms:modified": {
+                "@value": "2025-04-15",
+                "@type": "xsd:date"
+            },
+            "dcterms:created": {
+                "@value": "2025-04-15",
+                "@type": "xsd:date"
+            },
+            "dcterms:creator": {
+                "@id": "_:b0"
+            },
+            "dcterms:description": {
+                "@language": "en",
+                "@value": "Index of ontology design patterns used in the Defense Supply Chain and Documentation Ontology."
+            },
+            "dcterms:title": {
+                "@language": "en",
+                "@value": "DSCDO Ontology Design Patterns Catalog"
+            },
+            "@type": [
+                "skos:ConceptScheme",
+                "dcat:Catalog"
+            ]
+        },
+        {
             "@id": "dscdo:patterns/SemanticTrajectory",
             "skos:related": [
                 {
@@ -51,75 +150,6 @@
             "@type": [
                 "oplax:Pattern",
                 "skos:Concept"
-            ]
-        },
-        {
-            "@id": "dscdo:patterns/EventCore",
-            "skos:topConceptOf": {
-                "@id": "dscdo:patterns/"
-            },
-            "skos:definition": {
-                "@language": "en",
-                "@value": "Minimalistic model of events with spatiotemporal extents and participants."
-            },
-            "skos:prefLabel": {
-                "@language": "en",
-                "@value": "Event Core Pattern"
-            },
-            "skos:inScheme": {
-                "@id": "dscdo:patterns/"
-            },
-            "@type": [
-                "oplax:Pattern",
-                "skos:Concept"
-            ]
-        },
-        {
-            "@id": "dscdo:patterns/",
-            "skos:hasTopConcept": [
-                {
-                    "@id": "dscdo:patterns/SemanticTrajectory"
-                },
-                {
-                    "@id": "dscdo:patterns/SpatioTemporalExtent"
-                },
-                {
-                    "@id": "dscdo:patterns/EventCore"
-                }
-            ],
-            "dcat:dataset": [
-                {
-                    "@id": "dscdo:patterns/SemanticTrajectory"
-                },
-                {
-                    "@id": "dscdo:patterns/SpatioTemporalExtent"
-                },
-                {
-                    "@id": "dscdo:patterns/EventCore"
-                }
-            ],
-            "dcterms:modified": {
-                "@value": "2025-04-15",
-                "@type": "xsd:date"
-            },
-            "dcterms:created": {
-                "@value": "2025-04-15",
-                "@type": "xsd:date"
-            },
-            "dcterms:creator": {
-                "@id": "_:b0"
-            },
-            "dcterms:description": {
-                "@language": "en",
-                "@value": "Index of ontology design patterns used in the Defense Supply Chain and Documentation Ontology."
-            },
-            "dcterms:title": {
-                "@language": "en",
-                "@value": "DSCDO Ontology Design Patterns Catalog"
-            },
-            "@type": [
-                "skos:ConceptScheme",
-                "dcat:Catalog"
             ]
         },
         {

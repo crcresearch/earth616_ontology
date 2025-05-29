@@ -1,0 +1,276 @@
+{
+  "@context": [
+    "${CONTEXT_BASE}/context-base.jsonld",
+    {
+      "TraceableResourceUnit": "dscdo:TraceableResourceUnit",
+      "QuantityOfMaterial": "dscdo:QuantityOfMaterial", 
+      "Material": "dscdo:Material",
+      "TransformationEvent": "dscdo:TransformationEvent",
+      "TransferEvent": "dscdo:TransferEvent",
+      "SourceTRURole": "dscdo:SourceTRURole",
+      "TargetTRURole": "dscdo:TargetTRURole",
+      "ManufacturerRole": "dscdo:ManufacturerRole",
+      "SupplierRole": "dscdo:SupplierRole",
+      "CustomerRole": "dscdo:CustomerRole",
+      "hasIdentifier": {"@id": "dscdo:hasIdentifier", "@type": "@id"},
+      "hasBatchNumber": "dscdo:hasBatchNumber",
+      "hasShelfLife": "dscdo:hasShelfLife",
+      "consistsOf": {"@id": "dscdo:consistsOf", "@type": "@id"},
+      "ofMaterialType": {"@id": "dscdo:ofMaterialType", "@type": "@id"},
+      "partOf": {"@id": "dscdo:partOf", "@type": "@id"},
+      "predecessorOf": {"@id": "dscdo:predecessorOf", "@type": "@id"},
+      "inputTRU": {"@id": "dscdo:inputTRU", "@type": "@id"},
+      "outputTRU": {"@id": "dscdo:outputTRU", "@type": "@id"},
+      "transferredTRU": {"@id": "dscdo:transferredTRU", "@type": "@id"},
+      "involvesTRU": {"@id": "dscdo:involvesTRU", "@type": "@id"},
+      "performsTRURole": {"@id": "dscdo:performsTRURole", "@type": "@id"},
+      "hasMeasurementMethod": {"@id": "dscdo:hasMeasurementMethod", "@type": "@id"},
+      "measuredProperty": {"@id": "dscdo:measuredProperty", "@type": "@id"},
+      "hasSpatioTemporalExtent": {"@id": "dscdo:hasSpatioTemporalExtent", "@type": "@id"},
+      "providesParticipantRole": {"@id": "dscdo:providesParticipantRole", "@type": "@id"},
+      "assumesRole": {"@id": "dscdo:assumesRole", "@type": "@id"}
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "${ONTOLOGY_BASE}/examples/materials/steel-grade-304",
+      "@type": "Material",
+      "name": "Stainless Steel Grade 304",
+      "description": "Austenitic stainless steel alloy with excellent corrosion resistance",
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "ASTM_Grade",
+          "value": "304"
+        },
+        {
+          "@type": "PropertyValue", 
+          "propertyID": "Chemical_Composition",
+          "value": "18-20% Chromium, 8-10.5% Nickel, <0.08% Carbon"
+        }
+      ]
+    },
+    
+    {
+      "@id": "${ONTOLOGY_BASE}/examples/tru/steel-batch-sb-2024-001",
+      "@type": "TraceableResourceUnit",
+      "name": "Steel Batch SB-2024-001",
+      "description": "Raw steel batch from supplier for defense component manufacturing",
+      "hasIdentifier": {
+        "@type": "Identifier",
+        "value": "SB-2024-001",
+        "propertyID": "BatchNumber",
+        "name": "Steel Production Batch Identifier"
+      },
+      "hasBatchNumber": "SB-2024-001",
+      "hasShelfLife": "P2Y",
+      "consistsOf": {
+        "@id": "${ONTOLOGY_BASE}/examples/quantities/steel-quantity-001",
+        "@type": "QuantityOfMaterial",
+        "name": "25.5 kg Steel Alloy Grade 304",
+        "value": 25.5,
+        "unitCode": "KGM",
+        "unitText": "kilograms", 
+        "minValue": 25.3,
+        "maxValue": 25.7,
+        "ofMaterialType": "${ONTOLOGY_BASE}/examples/materials/steel-grade-304",
+        "measuredProperty": "mass",
+        "hasMeasurementMethod": "industrial_scale_weighing",
+        "valueReference": {
+          "@type": "PropertyValue",
+          "propertyID": "measurement_accuracy",
+          "value": "±0.1 kg"
+        }
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "supplier_certification",
+          "value": "ISO-9001-2015-CERT-12345"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "lot_number", 
+          "value": "LOT-304-2024-Q1-15"
+        }
+      ]
+    },
+    
+    {
+      "@id": "${ONTOLOGY_BASE}/examples/events/steel-cutting-transformation-001",
+      "@type": "TransformationEvent",
+      "name": "Steel Batch Cutting and Shaping Operation",
+      "description": "CNC cutting operation transforming steel batch into precision components",
+      "hasSpatioTemporalExtent": {
+        "@type": "SpatioTemporalExtent",
+        "startDate": "2024-03-15T09:00:00Z",
+        "endDate": "2024-03-15T11:30:00Z",
+        "location": {
+          "@type": "Place",
+          "name": "Factory Floor A - CNC Station 3",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Defense Manufacturing Facility",
+            "addressRegion": "Classified"
+          }
+        }
+      },
+      "inputTRU": "${ONTOLOGY_BASE}/examples/tru/steel-batch-sb-2024-001",
+      "outputTRU": [
+        "${ONTOLOGY_BASE}/examples/tru/steel-component-sc-001-2024",
+        "${ONTOLOGY_BASE}/examples/tru/steel-component-sc-002-2024",
+        "${ONTOLOGY_BASE}/examples/tru/steel-waste-sw-001-2024"
+      ],
+      "providesParticipantRole": [
+        {
+          "@type": "ManufacturerRole",
+          "name": "Primary Manufacturer",
+          "assumesRole": "${ONTOLOGY_BASE}/examples/agents/precision-manufacturing-corp"
+        },
+        {
+          "@type": "SourceTRURole",
+          "performsTRURole": "${ONTOLOGY_BASE}/examples/tru/steel-batch-sb-2024-001"
+        }
+      ],
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "operation_type",
+          "value": "CNC_CUTTING"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "quality_control_passed",
+          "value": true
+        }
+      ]
+    },
+    
+    {
+      "@id": "${ONTOLOGY_BASE}/examples/tru/steel-component-sc-001-2024",
+      "@type": "TraceableResourceUnit", 
+      "name": "Steel Component SC-001",
+      "description": "Precision-cut steel component for defense application",
+      "hasIdentifier": {
+        "@type": "Identifier",
+        "value": "SC-001-2024-001",
+        "propertyID": "ComponentSerial",
+        "name": "Component Serial Number"
+      },
+      "predecessorOf": "${ONTOLOGY_BASE}/examples/tru/steel-batch-sb-2024-001",
+      "consistsOf": {
+        "@type": "QuantityOfMaterial",
+        "value": 12.2,
+        "unitCode": "KGM", 
+        "unitText": "kilograms",
+        "ofMaterialType": "${ONTOLOGY_BASE}/examples/materials/steel-grade-304",
+        "measuredProperty": "mass",
+        "hasMeasurementMethod": "precision_scale_weighing"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "dimensions_length_mm",
+          "value": 500
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "dimensions_width_mm", 
+          "value": 200
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "dimensions_thickness_mm",
+          "value": 15
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "surface_finish",
+          "value": "Ra 1.6 μm"
+        }
+      ]
+    },
+    
+    {
+      "@id": "${ONTOLOGY_BASE}/examples/tru/steel-component-sc-002-2024",
+      "@type": "TraceableResourceUnit",
+      "name": "Steel Component SC-002", 
+      "description": "Secondary precision-cut steel component",
+      "hasIdentifier": {
+        "@type": "Identifier",
+        "value": "SC-002-2024-001",
+        "propertyID": "ComponentSerial",
+        "name": "Component Serial Number"
+      },
+      "predecessorOf": "${ONTOLOGY_BASE}/examples/tru/steel-batch-sb-2024-001",
+      "consistsOf": {
+        "@type": "QuantityOfMaterial",
+        "value": 13.0,
+        "unitCode": "KGM",
+        "unitText": "kilograms",
+        "ofMaterialType": "${ONTOLOGY_BASE}/examples/materials/steel-grade-304",
+        "measuredProperty": "mass",
+        "hasMeasurementMethod": "precision_scale_weighing"
+      }
+    },
+    
+    {
+      "@id": "${ONTOLOGY_BASE}/examples/tru/steel-waste-sw-001-2024",
+      "@type": "TraceableResourceUnit",
+      "name": "Steel Cutting Waste SW-001",
+      "description": "Material waste from cutting operation - recyclable",
+      "hasIdentifier": {
+        "@type": "Identifier", 
+        "value": "SW-001-2024-001",
+        "propertyID": "WasteID",
+        "name": "Waste Material Identifier"
+      },
+      "predecessorOf": "${ONTOLOGY_BASE}/examples/tru/steel-batch-sb-2024-001",
+      "consistsOf": {
+        "@type": "QuantityOfMaterial",
+        "value": 0.3,
+        "unitCode": "KGM",
+        "unitText": "kilograms",
+        "ofMaterialType": "${ONTOLOGY_BASE}/examples/materials/steel-grade-304",
+        "measuredProperty": "mass"
+      },
+      "additionalProperty": {
+        "@type": "PropertyValue",
+        "propertyID": "waste_disposition",
+        "value": "RECYCLING_QUEUE"
+      }
+    },
+    
+    {
+      "@id": "${ONTOLOGY_BASE}/examples/events/component-transfer-001",
+      "@type": "TransferEvent",
+      "name": "Component Transfer to Assembly Line",
+      "description": "Transfer of completed components to next manufacturing stage",
+      "hasSpatioTemporalExtent": {
+        "@type": "SpatioTemporalExtent", 
+        "startDate": "2024-03-15T14:00:00Z",
+        "endDate": "2024-03-15T14:15:00Z",
+        "location": {
+          "@type": "Place",
+          "name": "Factory Floor B - Assembly Station 1"
+        }
+      },
+      "transferredTRU": [
+        "${ONTOLOGY_BASE}/examples/tru/steel-component-sc-001-2024",
+        "${ONTOLOGY_BASE}/examples/tru/steel-component-sc-002-2024"
+      ],
+      "providesParticipantRole": [
+        {
+          "@type": "SupplierRole",
+          "name": "Component Supplier",
+          "assumesRole": "${ONTOLOGY_BASE}/examples/agents/precision-manufacturing-corp"
+        },
+        {
+          "@type": "CustomerRole", 
+          "name": "Assembly Line Receiver",
+          "assumesRole": "${ONTOLOGY_BASE}/examples/agents/final-assembly-division"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,344 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# --- DSCDO (environment-specific namespace) ---
+@prefix dscdo: <${ONTOLOGY_BASE}> .
+@prefix : <${ONTOLOGY_BASE}> .
+@base <${ONTOLOGY_BASE}> .
+
+# --- AMMO Ontology (Correct Namespace) ---
+@prefix ammo: <https://w3id.org/ammo/ont/> .
+
+# =============================================================================
+# TRU-AMMO Alignment Module
+# =============================================================================
+
+<${ONTOLOGY_BASE}/modules/traceability/tru-ammo-alignment> rdf:type owl:Ontology ;
+    rdfs:label "TRU-AMMO Alignment Module"@en ;
+    rdfs:comment "Provides semantic alignment between the Traceable Resource Unit (TRU) module and the AMMO (Additive Manufacturing for Maintenance Operations) ontology for interoperability in defense manufacturing contexts."@en ;
+    owl:versionInfo "1.0" ;
+    dcterms:created "2025-01-29"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    
+    # === Module Dependencies ===
+    owl:imports <${ONTOLOGY_BASE}/modules/traceability/tru> ;
+    
+    # === External Vocabulary Dependencies ===
+    # Note: AMMO ontology reference - not imported directly to avoid conflicts
+    rdfs:seeAlso <https://w3id.org/ammo/ont/> ;
+    rdfs:seeAlso <https://la3d.github.io/ammo/> .
+
+# =============================================================================
+# ALIGNMENT ANNOTATIONS
+# =============================================================================
+
+# === Material Alignments ===
+
+dscdo:Material 
+    skos:exactMatch ammo:Material ;
+    skos:note "Both represent substance classifications that can occur in different amounts with similar characteristics. AMMO Material includes subclasses like Polymer, Alloy, and BaseMaterial."@en ;
+    rdfs:seeAlso ammo:Material .
+
+dscdo:QuantityOfMaterial
+    skos:closeMatch ammo:Material ;
+    skos:relatedMatch ammo:Quantity ;
+    skos:note "TRU QuantityOfMaterial combines material type with Schema.org QuantitativeValue patterns, while AMMO separates Material classification from Quantity measurement using QUDT standards."@en ;
+    rdfs:seeAlso ammo:Quantity .
+
+# === Process/Event Alignments ===
+
+dscdo:TransformationEvent
+    skos:closeMatch ammo:AMProcess ;
+    skos:closeMatch ammo:MaterialTransformation ;
+    skos:note "Both represent material transformation processes. AMMO focuses on additive manufacturing processes (PowderBed, MaterialExtrusion, etc.) while TRU TransformationEvent is more general for supply chain operations."@en ;
+    rdfs:seeAlso ammo:AMProcess .
+
+dscdo:TraceableResourceUnit
+    skos:closeMatch ammo:DesignedArtifact ;
+    skos:note "Both represent traceable physical objects. AMMO DesignedArtifact emphasizes design specifications and manufacturing provenance, while TRU emphasizes supply chain traceability with batch/lot tracking."@en ;
+    rdfs:seeAlso ammo:DesignedArtifact .
+
+# === Property Alignments ===
+
+dscdo:ofMaterialType
+    skos:closeMatch ammo:hasBaseMaterial ;
+    skos:closeMatch ammo:madeFromMaterial ;
+    skos:note "All three properties link objects to their material composition. AMMO distinguishes base materials from general material composition."@en ;
+    rdfs:seeAlso ammo:hasBaseMaterial ;
+    rdfs:seeAlso ammo:madeFromMaterial .
+
+dscdo:consistsOf
+    skos:relatedMatch ammo:ofQuantity ;
+    skos:note "Both properties relate objects to their quantified composition. AMMO uses QUDT-based quantities while TRU uses Schema.org QuantitativeValue patterns."@en ;
+    rdfs:seeAlso ammo:ofQuantity .
+
+# === Specification and Design Alignments ===
+
+dscdo:Identifier
+    skos:relatedMatch ammo:DesignSpecification ;
+    skos:note "Both provide identification and specification information. AMMO DesignSpecification focuses on detailed technical documents while TRU Identifier provides traceability codes and metadata."@en ;
+    rdfs:seeAlso ammo:DesignSpecification .
+
+# =============================================================================
+# AMMO PROCESS TYPE ALIGNMENTS
+# =============================================================================
+
+# Map AMMO additive manufacturing process types to TRU event classifications
+
+<${ONTOLOGY_BASE}/alignment/ammo-process-types>
+    rdf:type owl:NamedIndividual, skos:ConceptScheme ;
+    rdfs:label "AMMO Process Type Alignments"@en ;
+    dcterms:description "Mapping of AMMO additive manufacturing process types to TRU transformation event patterns"@en ;
+    skos:note """
+    AMMO Process Types and TRU Event Alignment:
+    
+    1. ammo:PowderBed → dscdo:TransformationEvent with additionalProperty 'AM_Process_Type: PowderBed'
+    2. ammo:MaterialExtrusion → dscdo:TransformationEvent with additionalProperty 'AM_Process_Type: MaterialExtrusion'
+    3. ammo:LightPolymerized → dscdo:TransformationEvent with additionalProperty 'AM_Process_Type: LightPolymerized'
+    4. ammo:PowderFed → dscdo:TransformationEvent with additionalProperty 'AM_Process_Type: PowderFed'
+    
+    Strategy: Use schema:additionalProperty to preserve AMMO process specificity within TRU event framework.
+    """@en .
+
+# =============================================================================
+# INTEROPERABILITY EXAMPLES
+# =============================================================================
+
+# === Example: Steel Powder Batch for Additive Manufacturing ===
+
+<${ONTOLOGY_BASE}/examples/ammo-alignment/steel-powder-batch>
+    rdf:type dscdo:TraceableResourceUnit ;
+    rdfs:label "Steel Powder Batch for Additive Manufacturing"@en ;
+    rdfs:comment "Example TRU representing steel powder batch aligned with AMMO material concepts"@en ;
+    
+    # TRU properties
+    dscdo:hasIdentifier [
+        rdf:type dscdo:Identifier ;
+        schema:value "AM-STEEL-316L-2024-001" ;
+        schema:propertyID "AdditiveManufacturingBatch" ;
+        schema:name "AM Steel Powder Batch Identifier"
+    ] ;
+    
+    dscdo:hasBatchNumber "AM-STEEL-316L-2024-001" ;
+    dscdo:hasShelfLife "P1Y" ;
+    
+    dscdo:consistsOf [
+        rdf:type dscdo:QuantityOfMaterial ;
+        schema:value 50.0 ;
+        schema:unitCode "KGM" ;
+        schema:unitText "kilograms" ;
+        dscdo:ofMaterialType <${ONTOLOGY_BASE}/examples/materials/steel-316l-powder> ;
+        dscdo:measuredProperty "mass" ;
+        dscdo:hasMeasurementMethod "precision_powder_weighing"
+    ] ;
+    
+    # AMMO alignment annotations
+    skos:exactMatch ammo:Material ;
+    rdfs:seeAlso ammo:DesignedArtifact ;
+    
+    schema:additionalProperty [
+        rdf:type schema:PropertyValue ;
+        schema:propertyID "AMMO_Material_Type" ;
+        schema:value "Alloy" ;
+        rdfs:seeAlso ammo:Alloy
+    ] , [
+        rdf:type schema:PropertyValue ;
+        schema:propertyID "AMMO_Alignment" ;
+        schema:value "ammo:Material" ;
+        schema:description "Aligned with AMMO Material concept for additive manufacturing applications"
+    ] .
+
+# === Example: Material Definition with AMMO Alignment ===
+
+<${ONTOLOGY_BASE}/examples/materials/steel-316l-powder>
+    rdf:type dscdo:Material ;
+    schema:name "Stainless Steel 316L Powder"@en ;
+    schema:description "Fine stainless steel powder optimized for additive manufacturing processes"@en ;
+    
+    # AMMO material type alignment
+    skos:exactMatch ammo:Material ;
+    skos:broader ammo:Alloy ;
+    rdfs:seeAlso ammo:BaseMaterial ;
+    
+    schema:additionalProperty [
+        rdf:type schema:PropertyValue ;
+        schema:propertyID "AMMO_Material_Classification" ;
+        schema:value "ammo:Alloy" ;
+        schema:description "Classified as Alloy in AMMO ontology hierarchy"
+    ] , [
+        rdf:type schema:PropertyValue ;
+        schema:propertyID "AM_Powder_Size_Distribution" ;
+        schema:value "15-45 μm" ;
+        schema:unitText "micrometers" ;
+        schema:description "Particle size range suitable for powder bed fusion"
+    ] , [
+        rdf:type schema:PropertyValue ;
+        schema:propertyID "Chemical_Composition_316L" ;
+        schema:value "17-20% Cr, 10-14% Ni, 2-3% Mo, <0.03% C" ;
+        schema:description "Chemical composition aligned with ASTM A240 standard"
+    ] .
+
+# === Example: Powder Bed Fusion Process ===
+
+<${ONTOLOGY_BASE}/examples/events/powder-bed-fusion-001>
+    rdf:type dscdo:TransformationEvent ;
+    rdfs:label "Powder Bed Fusion Manufacturing Process"@en ;
+    rdfs:comment "Additive manufacturing event aligned with AMMO PowderBed process concepts"@en ;
+    
+    # TRU event properties
+    dscdo:hasSpatioTemporalExtent [
+        rdf:type dscdo:SpatioTemporalExtent ;
+        schema:startDate "2024-03-20T08:00:00Z" ;
+        schema:endDate "2024-03-20T14:30:00Z" ;
+        schema:location [
+            rdf:type schema:Place ;
+            schema:name "Additive Manufacturing Lab - EOS M290" ;
+            schema:address [
+                rdf:type schema:PostalAddress ;
+                schema:addressLocality "Defense Manufacturing Facility"
+            ]
+        ]
+    ] ;
+    
+    dscdo:inputTRU <${ONTOLOGY_BASE}/examples/ammo-alignment/steel-powder-batch> ;
+    dscdo:outputTRU <${ONTOLOGY_BASE}/examples/ammo-alignment/steel-component-am-001> ;
+    
+    # AMMO process alignment
+    skos:exactMatch ammo:AMProcess ;
+    skos:closeMatch ammo:PowderBed ;
+    skos:relatedMatch ammo:MaterialTransformation ;
+    
+    schema:additionalProperty [
+        rdf:type schema:PropertyValue ;
+        schema:propertyID "AMMO_Process_Type" ;
+        schema:value "ammo:PowderBed" ;
+        schema:description "Aligned with AMMO PowderBed additive manufacturing process"
+    ] , [
+        rdf:type schema:PropertyValue ;
+        schema:propertyID "Manufacturing_Technology" ;
+        schema:value "Selective_Laser_Melting" ;
+        schema:description "Specific powder bed fusion technology"
+    ] , [
+        rdf:type schema:PropertyValue ;
+        schema:propertyID "Layer_Height" ;
+        schema:value 30 ;
+        schema:unitCode "MTM" ;
+        schema:unitText "micrometers" ;
+        schema:description "Build layer thickness parameter"
+    ] , [
+        rdf:type schema:PropertyValue ;
+        schema:propertyID "Laser_Power" ;
+        schema:value 285 ;
+        schema:unitCode "WTT" ;
+        schema:unitText "watts" ;
+        schema:description "Laser power setting for processing"
+    ] .
+
+# === Example: Additively Manufactured Component ===
+
+<${ONTOLOGY_BASE}/examples/ammo-alignment/steel-component-am-001>
+    rdf:type dscdo:TraceableResourceUnit ;
+    rdfs:label "Additively Manufactured Steel Component"@en ;
+    rdfs:comment "TRU representing component produced via additive manufacturing, aligned with AMMO designed artifact concepts"@en ;
+    
+    # TRU properties
+    dscdo:hasIdentifier [
+        rdf:type dscdo:Identifier ;
+        schema:value "AM-COMP-2024-001" ;
+        schema:propertyID "AMComponentSerial" ;
+        schema:name "Additive Manufacturing Component Serial"
+    ] ;
+    
+    dscdo:predecessorOf <${ONTOLOGY_BASE}/examples/ammo-alignment/steel-powder-batch> ;
+    
+    dscdo:consistsOf [
+        rdf:type dscdo:QuantityOfMaterial ;
+        schema:value 2.3 ;
+        schema:unitCode "KGM" ;
+        schema:unitText "kilograms" ;
+        dscdo:ofMaterialType <${ONTOLOGY_BASE}/examples/materials/steel-316l-powder> ;
+        dscdo:measuredProperty "mass" ;
+        dscdo:hasMeasurementMethod "precision_component_weighing"
+    ] ;
+    
+    # AMMO designed artifact alignment
+    skos:exactMatch ammo:DesignedArtifact ;
+    rdfs:seeAlso ammo:Component ;
+    
+    schema:additionalProperty [
+        rdf:type schema:PropertyValue ;
+        schema:propertyID "AMMO_Artifact_Type" ;
+        schema:value "ammo:DesignedArtifact" ;
+        schema:description "Aligned with AMMO DesignedArtifact concept"
+    ] , [
+        rdf:type schema:PropertyValue ;
+        schema:propertyID "Design_Specification_Reference" ;
+        schema:value "DS-COMP-2024-001" ;
+        schema:description "Links to AMMO DesignSpecification for this component"
+    ] , [
+        rdf:type schema:PropertyValue ;
+        schema:propertyID "Manufacturing_Method" ;
+        schema:value "Additive_Manufacturing_PBF" ;
+        schema:description "Powder Bed Fusion additive manufacturing"
+    ] , [
+        rdf:type schema:PropertyValue ;
+        schema:propertyID "Surface_Finish_Ra" ;
+        schema:value 12.5 ;
+        schema:unitCode "MTM" ;
+        schema:unitText "micrometers" ;
+        schema:description "As-built surface roughness"
+    ] .
+
+# =============================================================================
+# MAPPING GUIDELINES AND VALIDATION
+# =============================================================================
+
+<${ONTOLOGY_BASE}/alignment/ammo-tru-mapping-guidelines>
+    rdf:type owl:NamedIndividual, skos:ConceptScheme ;
+    rdfs:label "AMMO-TRU Mapping Guidelines"@en ;
+    dcterms:description "Comprehensive guidelines for mapping between AMMO and TRU concepts in defense manufacturing contexts"@en ;
+    skos:note """
+    AMMO-TRU Alignment Strategy:
+    
+    1. Material Mapping:
+       - AMMO Material → TRU Material (skos:exactMatch)
+       - AMMO Alloy/Polymer/BaseMaterial → TRU Material with additionalProperty classification
+       - AMMO Quantity + Material → TRU QuantityOfMaterial
+       - Preserve QUDT units from AMMO using Schema.org unitCode mappings
+    
+    2. Process Integration:
+       - AMMO AMProcess → TRU TransformationEvent (skos:closeMatch)
+       - AMMO process types (PowderBed, MaterialExtrusion, etc.) → additionalProperty on TRU events
+       - AMMO MaterialTransformation → TRU TransformationEvent base pattern
+    
+    3. Artifact and Component Tracking:
+       - AMMO DesignedArtifact → TRU TraceableResourceUnit (skos:closeMatch)
+       - AMMO DesignSpecification → TRU Identifier with propertyID linkage
+       - Preserve AMMO design provenance in TRU predecessor/successor chains
+    
+    4. Property Mappings:
+       - ammo:hasBaseMaterial → dscdo:ofMaterialType (material composition)
+       - ammo:madeFromMaterial → dscdo:ofMaterialType (material source)
+       - ammo:ofQuantity → dscdo:consistsOf (quantity relationships)
+       - ammo:specifies → schema:additionalProperty (specification details)
+    
+    5. Namespace and URI Management:
+       - Use AMMO namespace: https://w3id.org/ammo/ont/
+       - Apply skos:exactMatch for direct concept equivalence
+       - Use skos:closeMatch for similar but not identical concepts
+       - Use skos:relatedMatch for conceptually related terms
+       - Use rdfs:seeAlso for reference relationships
+    
+    6. Validation Considerations:
+       - Ensure QUDT to UN/CEFACT unit code mappings are consistent
+       - Verify temporal alignment between AMMO process intervals and TRU event extents
+       - Validate material composition chains across transformation events
+       - Check design specification lineage preservation
+    """@en .

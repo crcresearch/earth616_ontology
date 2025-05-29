@@ -1,0 +1,798 @@
+{
+    "@graph": [
+        {
+            "@id": "https://vocab.earth616.local/ont/patterns/IEIntegration-usage",
+            "oplax:hasDescription": {
+                "@language": "en",
+                "@value": "\n    Information Extraction Integration Pattern Usage:\n    \n    1. Document Type Registration:\n       - Create subclass of dscdo:DocumentType\n       - Specify dscdo:hasStandardFamily (ISO, ASTM, MIL, etc.)\n       - Link to target specification types via dscdo:targetsSpecificationType\n       - Validate against DocumentTypeShape\n    \n    2. Extraction Template Creation:\n       - Create instance of dscdo:ExtractionTemplate\n       - Link to applicable document types via dscdo:applicableToDocumentType\n       - Specify extracted data type via dscdo:extractsDataType\n       - Include LLM guidance in schema:description\n    \n    3. Compliance Data Routing:\n       - Extract as dscdo:ComplianceInformation\n       - Link to specifications via dscdo:validatesSpecification\n       - Include extraction provenance via dscdo:extractedBy\n       - Route to validation events automatically\n    \n    4. Evidence Integration:\n       - Link validation events to source documents via dscdo:evidenceFrom\n       - Maintain complete audit trail from document to TRU compliance\n       - Use SPARQL queries for provenance tracking\n    \n    5. Discovery and Querying:\n       - Use provided SPARQL queries for capability discovery\n       - Query by standard family for processing specialization\n       - Trace evidence chains for compliance auditing\n    "
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "IE Integration Pattern Usage Guidelines"
+            },
+            "@type": [
+                "skos:ConceptScheme",
+                "owl:NamedIndividual"
+            ]
+        },
+        {
+            "@id": "_:b0",
+            "schema:propertyID": "Ni",
+            "schema:unitText": "percent",
+            "schema:value": {
+                "@value": "10.1",
+                "@type": "xsd:decimal"
+            },
+            "schema:name": "Nickel",
+            "@type": "schema:QuantitativeValue"
+        },
+        {
+            "@id": "_:b1",
+            "schema:propertyID": "Cr",
+            "schema:unitText": "percent",
+            "schema:value": {
+                "@value": "18.2",
+                "@type": "xsd:decimal"
+            },
+            "schema:name": "Chromium",
+            "@type": "schema:QuantitativeValue"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/examples/compliance/steel-316l-composition-data",
+            "hasCompositionElement": [
+                {
+                    "@id": "_:b0"
+                },
+                {
+                    "@id": "_:b1"
+                }
+            ],
+            "extractedBy": {
+                "@id": "https://vocab.earth616.local/ont/examples/workflows/materials-ie-workflow"
+            },
+            "validatesSpecification": {
+                "@id": "https://vocab.earth616.local/ont/examples/specifications/steel-316l-material-spec"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Example extracted composition data from ASTM A240 report."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Steel 316L Composition Data"
+            },
+            "@type": "ComplianceInformation"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontComplianceInformation",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Structured data extracted from compliance documents with semantic routing capabilities"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/patterns/IEIntegration"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Semantic hook for structured compliance data extracted from documents, designed for automatic routing to specification validation."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Compliance Information"
+            },
+            "rdfs:subClassOf": {
+                "@id": "https://vocab.earth616.local/ontDocumentContent"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/examples/templates/MaterialCompositionTemplate",
+            "schema:description": {
+                "@language": "en",
+                "@value": "\n    LLM Extraction Pattern:\n    1. Locate 'Chemical Composition' or 'Analysis' section\n    2. Extract percentage values for: Chromium (Cr), Nickel (Ni), Molybdenum (Mo), Carbon (C)\n    3. Structure as dscdo:ChemicalCompositionData with schema:QuantitativeValue for each element\n    4. Link to source document and extraction timestamp\n    "
+            },
+            "extractsDataType": {
+                "@id": "https://vocab.earth616.local/ontChemicalCompositionData"
+            },
+            "applicableToDocumentType": {
+                "@id": "https://vocab.earth616.local/ont/examples/document-types/ASTM_A240_Report"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Example template for extracting chemical composition data from ASTM material reports."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Material Composition Extraction Template"
+            },
+            "@type": "ExtractionTemplate"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/examples/document-types/ASTM_A240_Report",
+            "hasExtractionCapability": {
+                "@id": "https://vocab.earth616.local/ont/examples/templates/MaterialCompositionTemplate"
+            },
+            "targetsSpecificationType": {
+                "@id": "https://vocab.earth616.local/ontMaterialDesignSpecification"
+            },
+            "hasStandardFamily": "ASTM",
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Example document type for ASTM A240 stainless steel specification reports."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "ASTM A240 Material Test Report"
+            },
+            "rdfs:subClassOf": {
+                "@id": "https://vocab.earth616.local/ontSCDigitalDocument"
+            },
+            "@type": "DocumentType"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontExtractionTemplate",
+            "oplax:hasIntent": {
+                "@language": "en",
+                "@value": "Enable LLM agents to find appropriate extraction approaches for each document type"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A discoverable template providing extraction patterns for specific document types"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/patterns/IEIntegration"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Semantic hook for discoverable templates that guide LLM-based information extraction from specific document types."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Extraction Template"
+            },
+            "rdfs:subClassOf": {
+                "@id": "https://vocab.earth616.local/ontInformationObject"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/examples/document-types/ISO_9001_Certificate",
+            "targetsSpecificationType": {
+                "@id": "https://vocab.earth616.local/ontQualitySpecification"
+            },
+            "hasStandardFamily": "ISO",
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Example document type for ISO 9001 quality management system certificates."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "ISO 9001 Quality Management Certificate"
+            },
+            "rdfs:subClassOf": {
+                "@id": "https://vocab.earth616.local/ontSCDigitalDocument"
+            },
+            "@type": "DocumentType"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontDocumentType",
+            "oplax:hasIntent": {
+                "@language": "en",
+                "@value": "Enable automatic discovery of document processing capabilities"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A discoverable classification of document types with associated processing capabilities"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/patterns/IEIntegration"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Semantic hook enabling LLM agents to discover and classify document types processable by information extraction workflows."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Document Type"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "_:b2",
+            "sh:message": {
+                "@language": "en",
+                "@value": "Compliance information should specify its extraction workflow for provenance"
+            },
+            "sh:severity": {
+                "@id": "sh:Info"
+            },
+            "sh:class": {
+                "@id": "https://vocab.earth616.local/ontInformationExtractionWorkflow"
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Compliance information should specify which workflow extracted it"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "extracted by workflow"
+            },
+            "sh:path": {
+                "@id": "https://vocab.earth616.local/ontextractedBy"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontextractedBy",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Tracks which extraction workflow produced specific compliance information"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/patterns/IEIntegration"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Semantic hook linking extracted data to the workflow that produced it."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "extracted by"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontInformationExtractionWorkflow"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontComplianceInformation"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "_:b3",
+            "sh:message": {
+                "@language": "en",
+                "@value": "Compliance information must validate at least one design specification"
+            },
+            "sh:severity": {
+                "@id": "sh:Violation"
+            },
+            "sh:class": {
+                "@id": "https://vocab.earth616.local/ontDesignSpecification"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Compliance information must specify which specifications it validates"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "validates specifications"
+            },
+            "sh:path": {
+                "@id": "https://vocab.earth616.local/ontvalidatesSpecification"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontvalidatesSpecification",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Enables automatic routing of extracted data to specification validation"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/patterns/IEIntegration"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Semantic hook linking extracted compliance data to the specifications it provides evidence for."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "validates specification"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontDesignSpecification"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontComplianceInformation"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/shapes/ComplianceInformationShape",
+            "sh:property": [
+                {
+                    "@id": "_:b2"
+                },
+                {
+                    "@id": "_:b3"
+                }
+            ],
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "SHACL shape ensuring compliance information has proper routing metadata."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Compliance Information Validation Shape"
+            },
+            "sh:targetClass": {
+                "@id": "https://vocab.earth616.local/ontComplianceInformation"
+            },
+            "@type": "sh:NodeShape"
+        },
+        {
+            "@id": "_:b4",
+            "sh:message": {
+                "@language": "en",
+                "@value": "Extraction template must specify exactly one extracted data type"
+            },
+            "sh:severity": {
+                "@id": "sh:Violation"
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Template must specify the type of data it extracts"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "extracted data type"
+            },
+            "sh:path": {
+                "@id": "https://vocab.earth616.local/ontextractsDataType"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontextractsDataType",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Links templates to the classes of information they extract"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/patterns/IEIntegration"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Semantic hook indicating the type of structured data this template extracts from documents."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "extracts data type"
+            },
+            "rdfs:range": {
+                "@id": "rdfs:Class"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontExtractionTemplate"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "_:b5",
+            "sh:message": {
+                "@language": "en",
+                "@value": "Extraction template must be applicable to at least one document type"
+            },
+            "sh:severity": {
+                "@id": "sh:Violation"
+            },
+            "sh:class": {
+                "@id": "https://vocab.earth616.local/ontDocumentType"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Template must specify which document types it can process"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "applicable document types"
+            },
+            "sh:path": {
+                "@id": "https://vocab.earth616.local/ontapplicableToDocumentType"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontapplicableToDocumentType",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Enables template discovery via document type queries"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/patterns/IEIntegration"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Semantic hook linking extraction templates to the document types they can process."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "applicable to document type"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontDocumentType"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontExtractionTemplate"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/shapes/ExtractionTemplateShape",
+            "sh:property": [
+                {
+                    "@id": "_:b4"
+                },
+                {
+                    "@id": "_:b5"
+                }
+            ],
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "SHACL shape ensuring extraction templates have proper discovery and routing metadata."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Extraction Template Validation Shape"
+            },
+            "sh:targetClass": {
+                "@id": "https://vocab.earth616.local/ontExtractionTemplate"
+            },
+            "@type": "sh:NodeShape"
+        },
+        {
+            "@id": "_:b6",
+            "sh:message": {
+                "@language": "en",
+                "@value": "Document type should target at least one specification type for automatic routing"
+            },
+            "sh:severity": {
+                "@id": "sh:Warning"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Document type should specify what specifications it can validate"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "target specification type"
+            },
+            "sh:path": {
+                "@id": "https://vocab.earth616.local/onttargetsSpecificationType"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.local/onttargetsSpecificationType",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Links document types to the specification classes they can provide evidence for"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/patterns/IEIntegration"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Semantic hook indicating which specification types this document can validate, enabling automatic routing."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "targets specification type"
+            },
+            "rdfs:range": {
+                "@id": "rdfs:Class"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontDocumentType"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "_:b7",
+            "sh:message": {
+                "@language": "en",
+                "@value": "Document type must have exactly one standard family identifier"
+            },
+            "sh:severity": {
+                "@id": "sh:Violation"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:description": {
+                "@language": "en",
+                "@value": "Document type must specify its standards family for discovery"
+            },
+            "sh:name": {
+                "@language": "en",
+                "@value": "standard family"
+            },
+            "sh:path": {
+                "@id": "https://vocab.earth616.local/onthasStandardFamily"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.local/onthasStandardFamily",
+            "skos:example": {
+                "@language": "en",
+                "@value": "ISO, ASTM, MIL, ANSI, DIN"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/patterns/IEIntegration"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Links a document type to its standards organization family, enabling LLM agents to group processing approaches."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has standard family"
+            },
+            "rdfs:range": {
+                "@id": "xsd:string"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontDocumentType"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/shapes/DocumentTypeShape",
+            "sh:property": [
+                {
+                    "@id": "_:b6"
+                },
+                {
+                    "@id": "_:b7"
+                }
+            ],
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "SHACL shape ensuring document types have proper discovery metadata."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Document Type Validation Shape"
+            },
+            "sh:targetClass": {
+                "@id": "https://vocab.earth616.local/ontDocumentType"
+            },
+            "@type": "sh:NodeShape"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/queries/find-processing-capabilities",
+            "oplax:hasQueryText": {
+                "@language": "en",
+                "@value": "\n    PREFIX dscdo: <https://vocab.earth616.local/ont>\n    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n    \n    SELECT ?standardFamily ?docType ?template ?extractedDataType WHERE {\n        ?docType dscdo:hasStandardFamily ?standardFamily .\n        ?template dscdo:applicableToDocumentType ?docType .\n        ?template dscdo:extractsDataType ?extractedDataType .\n    }\n    ORDER BY ?standardFamily ?docType\n    "
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Query to discover processing capabilities organized by standards family."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Find Processing Capabilities by Standard Family"
+            },
+            "@type": "oplax:SPARQLQuery"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/queries/trace-validation-evidence",
+            "oplax:hasQueryText": {
+                "@language": "en",
+                "@value": "\n    PREFIX dscdo: <https://vocab.earth616.local/ont>\n    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n    \n    SELECT ?document ?extractedInfo ?validationEvent ?tru ?specification WHERE {\n        ?extractedInfo dscdo:extractedFrom ?document .\n        ?extractedInfo dscdo:validatesSpecification ?specification .\n        ?validationEvent dscdo:evidenceFrom ?document .\n        ?validationEvent dscdo:validatesAgainst ?specification .\n        ?tru dscdo:conformsToSpecification ?specification .\n    }\n    "
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Query to trace the complete evidence chain from document to TRU compliance."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Trace Validation Evidence Chain"
+            },
+            "@type": "oplax:SPARQLQuery"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/queries/find-extraction-templates",
+            "oplax:hasParameter": {
+                "@language": "en",
+                "@value": "?docType - The document type to find templates for"
+            },
+            "oplax:hasQueryText": {
+                "@language": "en",
+                "@value": "\n    PREFIX dscdo: <https://vocab.earth616.local/ont>\n    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n    \n    SELECT ?template ?templateLabel ?extractedDataType WHERE {\n        ?template dscdo:applicableToDocumentType ?docType .\n        ?template rdfs:label ?templateLabel .\n        ?template dscdo:extractsDataType ?extractedDataType .\n    }\n    "
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Query to find appropriate extraction templates for a specific document type."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Find Extraction Templates for Document Type"
+            },
+            "@type": "oplax:SPARQLQuery"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/queries/discover-document-types",
+            "oplax:hasQueryText": {
+                "@language": "en",
+                "@value": "\n    PREFIX dscdo: <https://vocab.earth616.local/ont>\n    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n    \n    SELECT ?docType ?label ?standardFamily ?targetSpecType WHERE {\n        ?docType rdfs:subClassOf dscdo:SCDigitalDocument .\n        ?docType rdfs:label ?label .\n        OPTIONAL { ?docType dscdo:hasStandardFamily ?standardFamily }\n        OPTIONAL { ?docType dscdo:targetsSpecificationType ?targetSpecType }\n    }\n    ORDER BY ?standardFamily ?label\n    "
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Query to discover all processable document types with their standard families and target specifications."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Discover Available Document Types"
+            },
+            "@type": "oplax:SPARQLQuery"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/patterns/IEIntegration",
+            "oplax:hasCompetencyQuestion": [
+                {
+                    "@language": "en",
+                    "@value": "What is the complete provenance chain from a certificate document to TRU specification conformance?"
+                },
+                {
+                    "@language": "en",
+                    "@value": "How do I route extracted test results to the appropriate TRU compliance validation?"
+                },
+                {
+                    "@language": "en",
+                    "@value": "What standards families are supported for compliance document processing?"
+                },
+                {
+                    "@language": "en",
+                    "@value": "Which workflows are capable of extracting material composition data?"
+                },
+                {
+                    "@language": "en",
+                    "@value": "What document types can be processed by the information extraction system?"
+                },
+                {
+                    "@language": "en",
+                    "@value": "Which extraction template should be used for an ASTM A240 material test report?"
+                },
+                {
+                    "@language": "en",
+                    "@value": "What type of specification can be validated using data extracted from ISO 9001 certificates?"
+                },
+                {
+                    "@language": "en",
+                    "@value": "How can I find all validation events that were based on evidence from a specific document?"
+                }
+            ],
+            "@type": [
+                "owl:Ontology",
+                "oplax:Pattern"
+            ],
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Information Extraction Integration Pattern"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "OPLaX pattern defining semantic hooks for LLM-based information extraction workflows to integrate with Earth616 vocabulary for document processing, compliance validation, and TRU specification conformance."
+            },
+            "oplax:hasIntent": {
+                "@language": "en",
+                "@value": "Provide discoverable semantic hooks that enable LLM-based agentic workflows to automatically integrate document processing, information extraction, and compliance validation with Earth616 supply chain traceability patterns."
+            },
+            "oplax:hasProblem": {
+                "@language": "en",
+                "@value": "\n    LLM-based information extraction workflows need to:\n    1. Discover what document types can be processed\n    2. Find appropriate extraction templates for each document type\n    3. Route extracted information to relevant specifications\n    4. Establish compliance evidence chains\n    5. Integrate with existing TRU traceability patterns\n    \n    Without semantic hooks, each new document type or standard requires custom integration code.\n    "
+            },
+            "oplax:hasSolution": {
+                "@language": "en",
+                "@value": "\n    Define a pattern of semantic hooks that enable:\n    - Document type discovery and classification\n    - Extraction template registry and querying\n    - Automatic routing from extracted data to specification validation\n    - Evidence integration with provenance tracking\n    - Extension points for new standards and document types\n    "
+            },
+            "owl:imports": [
+                {
+                    "@id": "https://vocab.earth616.local/ont/modules/core/event"
+                },
+                {
+                    "@id": "https://vocab.earth616.local/ont/modules/scdocumentation/document"
+                },
+                {
+                    "@id": "https://vocab.earth616.local/ont/modules/design/specification"
+                }
+            ],
+            "dcterms:created": {
+                "@value": "2025-01-29",
+                "@type": "xsd:date"
+            },
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontevidenceFrom",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Provides audit trail from validation results back to source documents"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/patterns/IEIntegration"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Semantic hook linking validation events to their source documents, establishing evidence provenance."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "evidence from"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontSCDigitalDocument"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontSpecificationValidationEvent"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontStandardFamily",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A classification scheme for grouping related standards and document types"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/patterns/IEIntegration"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Semantic hook for organizing document types by standards organizations (ISO, ASTM, Military, etc.)."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Standard Family"
+            },
+            "rdfs:subClassOf": {
+                "@id": "skos:ConceptScheme"
+            },
+            "@type": "rdfs:Class"
+        }
+    ],
+    "@context": {
+        "schema": "http://schema.org/",
+        "oplax": "http://www.ontologydesignpatterns.org/schemas/oplax.owl#",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "xml": "http://www.w3.org/XML/1998/namespace",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "dscdo": "https://vocab.earth616.local/ont",
+        "dcterms": "http://purl.org/dc/terms/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "@vocab": "https://vocab.earth616.local/ont"
+    }
+}

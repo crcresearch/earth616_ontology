@@ -1,0 +1,208 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dscdo: <https://vocab.earth616.local/ont/> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://vocab.earth616.local/shapes/> .
+
+# === TRU VALIDATION SHAPES =======================================
+
+# Shape Graph metadata
+<https://vocab.earth616.local/shapes/TRUShape> a owl:Ontology, sh:ShapesGraph ;
+    rdfs:label "TRU Shape Graph"@en ;
+    rdfs:comment "SHACL shapes for validating Traceable Resource Unit instances and measurements"@en ;
+    owl:versionInfo "1.0" ;
+    dcterms:created "2025-01-25"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> .
+
+# === TRU CORE SHAPES ===================================
+
+<https://vocab.earth616.local/shapes/TraceableResourceUnitShape> a sh:NodeShape ;
+    sh:targetClass dscdo:TraceableResourceUnit ;
+    rdfs:label "Traceable Resource Unit Shape"@en ;
+    rdfs:comment "Validates TRU instances for required identifiers and composition"@en ;
+    skos:definition "Ensures TRUs have proper identification and material composition"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/shapes/TRUShape> ;
+    dcterms:created "2025-01-25"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    
+    # Required identifier
+    sh:property [
+        sh:path dscdo:hasIdentifier ;
+        sh:name "TRU identifier"@en ;
+        sh:description "TRU must have at least one identifier"@en ;
+        sh:minCount 1 ;
+        sh:class dscdo:Identifier ;
+        sh:severity sh:Violation ;
+        sh:message "Traceable Resource Unit must have at least one identifier"@en
+    ] ;
+    
+    # Required composition
+    sh:property [
+        sh:path dscdo:consistsOf ;
+        sh:name "material composition"@en ;
+        sh:description "TRU must specify what materials it consists of"@en ;
+        sh:minCount 1 ;
+        sh:class dscdo:QuantityOfMaterial ;
+        sh:severity sh:Violation ;
+        sh:message "Traceable Resource Unit must specify its material composition"@en
+    ] ;
+    
+    # Optional batch number
+    sh:property [
+        sh:path dscdo:hasBatchNumber ;
+        sh:name "batch number"@en ;
+        sh:description "Batch number should be a string"@en ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Info
+    ] ;
+    
+    # Optional shelf life
+    sh:property [
+        sh:path dscdo:hasShelfLife ;
+        sh:name "shelf life"@en ;
+        sh:description "Shelf life should be a duration"@en ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:duration ;
+        sh:severity sh:Info
+    ] .
+
+# === QUANTITY OF MATERIAL SHAPES ===================================
+
+<https://vocab.earth616.local/shapes/QuantityOfMaterialShape> a sh:NodeShape ;
+    sh:targetClass dscdo:QuantityOfMaterial ;
+    rdfs:label "Quantity Of Material Shape"@en ;
+    rdfs:comment "Validates Schema.org QuantitativeValue compliance for material quantities"@en ;
+    skos:definition "Ensures material quantities follow Schema.org measurement patterns"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/shapes/TRUShape> ;
+    dcterms:created "2025-01-25"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    
+    # Required numeric value
+    sh:property [
+        sh:path schema:value ;
+        sh:name "quantity value"@en ;
+        sh:description "Material quantity must have a numeric value"@en ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:decimal ;
+        sh:severity sh:Violation ;
+        sh:message "Quantity of material must have exactly one numeric value"@en
+    ] ;
+    
+    # Recommended unit code
+    sh:property [
+        sh:path schema:unitCode ;
+        sh:name "unit code"@en ;
+        sh:description "Quantity should use UN/CEFACT unit codes"@en ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Warning ;
+        sh:message "Quantity should specify unit using UN/CEFACT codes (e.g., KGM, LTR, MTR)"@en
+    ] ;
+    
+    # Required material type
+    sh:property [
+        sh:path dscdo:ofMaterialType ;
+        sh:name "material type"@en ;
+        sh:description "Quantity must specify the type of material"@en ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class dscdo:Material ;
+        sh:severity sh:Violation ;
+        sh:message "Quantity of material must specify exactly one material type"@en
+    ] ;
+    
+    # Optional measurement method
+    sh:property [
+        sh:path dscdo:hasMeasurementMethod ;
+        sh:name "measurement method"@en ;
+        sh:description "How the quantity was measured"@en ;
+        sh:maxCount 1 ;
+        sh:severity sh:Info
+    ] ;
+    
+    # Optional measured property
+    sh:property [
+        sh:path dscdo:measuredProperty ;
+        sh:name "measured property"@en ;
+        sh:description "What property is being quantified"@en ;
+        sh:maxCount 1 ;
+        sh:severity sh:Info
+    ] .
+
+# === MATERIAL SHAPES ===================================
+
+<https://vocab.earth616.local/shapes/MaterialShape> a sh:NodeShape ;
+    sh:targetClass dscdo:Material ;
+    rdfs:label "Material Shape"@en ;
+    rdfs:comment "Validates material classification instances"@en ;
+    skos:definition "Ensures materials have proper naming and classification"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/shapes/TRUShape> ;
+    dcterms:created "2025-01-25"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    
+    # Recommended name
+    sh:property [
+        sh:path schema:name ;
+        sh:name "material name"@en ;
+        sh:description "Material should have a human-readable name"@en ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Warning ;
+        sh:message "Material should have a schema:name for identification"@en
+    ] .
+
+# === TRU EVENT INTEGRATION SHAPES ===================================
+
+<https://vocab.earth616.local/shapes/TRUTransformationEventShape> a sh:NodeShape ;
+    sh:targetClass dscdo:TransformationEvent ;
+    rdfs:label "TRU Transformation Event Shape"@en ;
+    rdfs:comment "Validates transformation events involving TRUs"@en ;
+    skos:definition "Ensures transformation events have proper TRU input/output relationships"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/shapes/TRUShape> ;
+    dcterms:created "2025-01-25"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    
+    # Input TRUs
+    sh:property [
+        sh:path dscdo:inputTRU ;
+        sh:name "input TRUs"@en ;
+        sh:description "Transformation should specify input TRUs"@en ;
+        sh:class dscdo:TraceableResourceUnit ;
+        sh:severity sh:Warning ;
+        sh:message "Transformation event should specify input TRUs for traceability"@en
+    ] ;
+    
+    # Output TRUs  
+    sh:property [
+        sh:path dscdo:outputTRU ;
+        sh:name "output TRUs"@en ;
+        sh:description "Transformation should specify output TRUs"@en ;
+        sh:class dscdo:TraceableResourceUnit ;
+        sh:severity sh:Warning ;
+        sh:message "Transformation event should specify output TRUs for traceability"@en
+    ] .
+
+<https://vocab.earth616.local/shapes/TRUTransferEventShape> a sh:NodeShape ;
+    sh:targetClass dscdo:TransferEvent ;
+    rdfs:label "TRU Transfer Event Shape"@en ;
+    rdfs:comment "Validates transfer events involving TRUs"@en ;
+    skos:definition "Ensures transfer events specify which TRUs are being transferred"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/shapes/TRUShape> ;
+    dcterms:created "2025-01-25"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    
+    # Transferred TRUs
+    sh:property [
+        sh:path dscdo:transferredTRU ;
+        sh:name "transferred TRUs"@en ;
+        sh:description "Transfer should specify which TRUs are being transferred"@en ;
+        sh:class dscdo:TraceableResourceUnit ;
+        sh:severity sh:Warning ;
+        sh:message "Transfer event should specify transferred TRUs for traceability"@en
+    ] .

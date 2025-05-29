@@ -1,0 +1,673 @@
+{
+    "@graph": [
+        {
+            "@id": "https://vocab.earth616.local/ont/design/composition-guidelines",
+            "skos:note": {
+                "@language": "en",
+                "@value": "\n    Design Composition Usage Guidelines:\n    \n    1. Design Hierarchy:\n       - Use Design for abstract blueprints\n       - Use ComponentDesign for individual part specifications\n       - Use SystemDesign for comprehensive system architectures\n    \n    2. Specification Patterns:\n       - Link designs to specifications using hasDesignSpecification\n       - Use DesignSpecification for formal requirement documents\n       - Connect specifications to TRUs via conformsToSpecification\n    \n    3. Version Management:\n       - Track design evolution using DesignVersion\n       - Use supersedes to link version sequences\n       - Include versionNumber for clear identification\n    \n    4. TRU Integration:\n       - Use implementsDesign to link TRUs to their blueprints\n       - Use conformsToSpecification for compliance tracking\n       - Connect manufacturing events via executesDesign\n    \n    5. AMMO Provenance:\n       - All classes include dcterms:source to AMMO\n       - Use skos:exactMatch for direct correspondences\n       - Preserve AMMO design pattern semantics\n    "
+            },
+            "dcterms:description": {
+                "@language": "en",
+                "@value": "Guidelines for using design composition patterns in Earth616 ontology"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Design Composition Guidelines"
+            },
+            "@type": [
+                "skos:ConceptScheme",
+                "owl:NamedIndividual"
+            ]
+        },
+        {
+            "@id": "_:b0",
+            "schema:description": "System-level requirements including performance, reliability, and integration specifications",
+            "schema:name": "Missile System Requirements Document",
+            "@type": "DesignSpecification"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontDesignSpecification",
+            "skos:note": {
+                "@language": "en",
+                "@value": "Derived from AMMO DesignSpecification: 'detailed document that sets out exactly what a product or process should present'"
+            },
+            "skos:exactMatch": {
+                "@id": "ammo:DesignSpecification"
+            },
+            "dcterms:source": {
+                "@id": "ammo:DesignSpecification"
+            },
+            "skos:example": {
+                "@language": "en",
+                "@value": "Technical specification document for steel alloy composition, CAD file with dimensional tolerances, quality control checklist for manufacturing process"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A formal document containing detailed requirements and constraints that must be satisfied by a design implementation"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/composition"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A detailed document that sets out exactly what a product, system, or process should present. Contains specific requirements, constraints, and implementation details."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Design Specification"
+            },
+            "rdfs:subClassOf": {
+                "@id": "https://vocab.earth616.local/ontInformationObject"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/examples/designs/missile-system-design",
+            "skos:exactMatch": {
+                "@id": "ammo:SystemDesign"
+            },
+            "dcterms:source": {
+                "@id": "ammo:SystemDesign"
+            },
+            "hasDesignSpecification": {
+                "@id": "_:b0"
+            },
+            "describes": {
+                "@id": "https://vocab.earth616.local/ont/examples/systems/guided-missile-system"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Comprehensive system design for guided missile assembly including all subsystems and components"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Missile System Design"
+            },
+            "@type": "SystemDesign"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontSystemDesign",
+            "skos:note": {
+                "@language": "en",
+                "@value": "Derived from AMMO SystemDesign class for comprehensive system-level design specifications"
+            },
+            "skos:exactMatch": {
+                "@id": "ammo:SystemDesign"
+            },
+            "dcterms:source": {
+                "@id": "ammo:SystemDesign"
+            },
+            "skos:example": {
+                "@language": "en",
+                "@value": "Defense system architecture, supply chain workflow design, integrated manufacturing system blueprint"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A comprehensive design that specifies system structure, component relationships, and functional requirements"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/composition"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A design that describes the architecture, components, modules, interfaces, and data flow for a system to satisfy specified requirements."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "System Design"
+            },
+            "rdfs:subClassOf": {
+                "@id": "https://vocab.earth616.local/ontDesign"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "_:b1",
+            "schema:description": "Implemented using AMMO design composition patterns",
+            "schema:value": "ammo:Design",
+            "schema:propertyID": "AMMO_Design_Pattern",
+            "@type": "schema:PropertyValue"
+        },
+        {
+            "@id": "_:b2",
+            "dcterms:creator": "Defense Engineering Division",
+            "dcterms:created": {
+                "@value": "2024-03-15T10:00:00Z",
+                "@type": "xsd:dateTime"
+            },
+            "versionNumber": "2.1",
+            "@type": "DesignVersion"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontDesignVersion",
+            "skos:note": {
+                "@language": "en",
+                "@value": "Extension of AMMO design patterns to support version control and design evolution tracking"
+            },
+            "skos:example": {
+                "@language": "en",
+                "@value": "Version 2.1 of missile component design, Revision C of manufacturing process specification"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A timestamped version of a design that supports version control and change tracking"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/composition"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A specific version or revision of a design, enabling tracking of design evolution and change management."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Design Version"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "_:b3",
+            "schema:description": "Detailed specifications for steel alloy composition, dimensional tolerances, and surface finish requirements",
+            "schema:name": "Technical Specification Document TC-001-2024",
+            "rdfs:label": "Steel Component Technical Specification",
+            "@type": "DesignSpecification"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/examples/designs/steel-component-design-001",
+            "schema:additionalProperty": {
+                "@id": "_:b1"
+            },
+            "skos:exactMatch": {
+                "@id": "ammo:Design"
+            },
+            "dcterms:source": {
+                "@id": "ammo:Design"
+            },
+            "hasVersion": {
+                "@id": "_:b2"
+            },
+            "hasDesignSpecification": {
+                "@id": "_:b3"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Design specification for precision steel component used in defense applications"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Steel Component Design 001"
+            },
+            "@type": "ComponentDesign"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontComponentDesign",
+            "skos:note": {
+                "@language": "en",
+                "@value": "Specialized from AMMO Design class for component-level design specifications"
+            },
+            "skos:closeMatch": {
+                "@id": "ammo:Design"
+            },
+            "dcterms:source": {
+                "@id": "ammo:Design"
+            },
+            "skos:example": {
+                "@language": "en",
+                "@value": "Design for a steel bracket component, specification for an electronic module, blueprint for a mechanical assembly"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A design focused on a specific component, including its interfaces, requirements, and implementation details"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/composition"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A design that specifies the structure, properties, and behavior of an individual component within a larger system."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Component Design"
+            },
+            "rdfs:subClassOf": {
+                "@id": "https://vocab.earth616.local/ontDesign"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontexecutesDesign",
+            "skos:example": {
+                "@language": "en",
+                "@value": "Manufacturing event executes assembly design plan"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Links events to the designs or process plans they execute"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/composition"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that a supply chain event follows or implements a specific design or process plan."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "executes design"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontDesign"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontSupplyChainEvent"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ont/modules/design/composition",
+            "skos:note": {
+                "@language": "en",
+                "@value": "Design patterns derived from AMMO (Additive Manufacturing for Maintenance Operations) ontology, adapted for defense supply chain traceability and documentation."
+            },
+            "rdfs:seeAlso": {
+                "@id": "https://la3d.github.io/ammo/"
+            },
+            "dcterms:source": {
+                "@id": "https://w3id.org/ammo/ont/"
+            },
+            "owl:imports": [
+                {
+                    "@id": "https://vocab.earth616.local/ont/modules/core/identifier"
+                },
+                {
+                    "@id": "https://vocab.earth616.local/ont/modules/core/event"
+                }
+            ],
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-29",
+                "@type": "xsd:date"
+            },
+            "owl:versionInfo": "1.0",
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Provides classes and properties for modeling design specifications, system designs, and their relationships to physical objects. Derived from AMMO ontology design patterns for defense supply chain applications."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Design Composition Module"
+            },
+            "@type": "owl:Ontology"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontDesign",
+            "skos:note": {
+                "@language": "en",
+                "@value": "Derived from AMMO Design class: 'A plan or specification for the construction of an object or system'"
+            },
+            "skos:exactMatch": {
+                "@id": "ammo:Design"
+            },
+            "dcterms:source": {
+                "@id": "ammo:Design"
+            },
+            "skos:example": {
+                "@language": "en",
+                "@value": "Engineering drawings for a defense component, software architecture for a supply chain system, assembly instructions for a traceable resource unit"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "An abstract plan or blueprint that specifies how to construct, assemble, or implement a physical or conceptual entity"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/composition"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A plan or specification for the construction of an object, system, or process. Represents the abstract blueprint that guides physical implementation."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Design"
+            },
+            "@type": "rdfs:Class"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontconformsToSpecification",
+            "skos:example": {
+                "@language": "en",
+                "@value": "Manufactured component conforms to military specification MIL-STD-810"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Links TRUs to the specifications they satisfy"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/composition"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that a traceable resource unit meets the requirements defined in a design specification."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "conforms to specification"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontDesignSpecification"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontTraceableResourceUnit"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontimplementsDesign",
+            "skos:example": {
+                "@language": "en",
+                "@value": "Steel component TRU implements Design XYZ-2024-001"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Links TRUs to the designs they implement or conform to"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/composition"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that a traceable resource unit is manufactured or assembled according to a specific design."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "implements design"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontDesign"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontTraceableResourceUnit"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontsupersedes",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Links newer design versions to the versions they replace"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/composition"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that one design version replaces or updates a previous version."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "supersedes"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontDesignVersion"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontDesignVersion"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontversionNumber",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Alphanumeric identifier for a specific version of a design"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/composition"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The version identifier for a design version (e.g., '2.1', 'Rev C', 'v1.0.3')."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "version number"
+            },
+            "rdfs:range": {
+                "@id": "xsd:string"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontDesignVersion"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/onthasVersion",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Connects designs to their versioned instances"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/composition"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Links a design to its specific versions or revisions."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has version"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontDesignVersion"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontDesign"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontisSpecifiedBy",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Links entities back to the specifications that define their requirements"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/composition"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that an entity is defined or constrained by a particular design specification."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "is specified by"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontDesignSpecification"
+            },
+            "owl:inverseOf": {
+                "@id": "https://vocab.earth616.local/ontspecifies"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontspecifies",
+            "skos:note": {
+                "@language": "en",
+                "@value": "Derived from AMMO specifies property linking DesignSpecification to components"
+            },
+            "skos:exactMatch": {
+                "@id": "ammo:specifies"
+            },
+            "dcterms:source": {
+                "@id": "ammo:specifies"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Links specifications to the entities they define requirements for"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/composition"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that a design specification defines requirements or constraints for a particular entity."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "specifies"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontDesignSpecification"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontisDescribedBy",
+            "skos:note": {
+                "@language": "en",
+                "@value": "Derived from AMMO isDescribedBy inverse property"
+            },
+            "skos:exactMatch": {
+                "@id": "ammo:isDescribedBy"
+            },
+            "dcterms:source": {
+                "@id": "ammo:isDescribedBy"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Links entities back to the designs that specify them"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/composition"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that an entity is specified or blueprinted by a particular design."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "is described by"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontDesign"
+            },
+            "owl:inverseOf": {
+                "@id": "https://vocab.earth616.local/ontdescribes"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontdescribes",
+            "skos:note": {
+                "@language": "en",
+                "@value": "Derived from AMMO describes property linking designs to components"
+            },
+            "skos:exactMatch": {
+                "@id": "ammo:describes"
+            },
+            "dcterms:source": {
+                "@id": "ammo:describes"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Links a design to the entities it specifies or blueprints"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/composition"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that a design provides the blueprint or specification for a physical or conceptual entity."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "describes"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontDesign"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/ontisDesignSpecificationOf",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Inverse property linking specifications back to the designs they define"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/composition"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that this specification defines requirements for a particular design."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "is design specification of"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontDesign"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontDesignSpecification"
+            },
+            "owl:inverseOf": {
+                "@id": "https://vocab.earth616.local/onthasDesignSpecification"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/onthasDesignSpecification",
+            "skos:note": {
+                "@language": "en",
+                "@value": "Derived from AMMO hasProperPart relationship between Design and DesignSpecification"
+            },
+            "skos:relatedMatch": {
+                "@id": "ammo:hasProperPart"
+            },
+            "dcterms:source": {
+                "@id": "ammo:hasProperPart"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Connects a design to the formal specifications that detail its implementation requirements"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/composition"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Links a design to one or more detailed specifications that define its requirements and constraints."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has design specification"
+            },
+            "rdfs:range": {
+                "@id": "https://vocab.earth616.local/ontDesignSpecification"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontDesign"
+            },
+            "@type": "owl:ObjectProperty"
+        }
+    ],
+    "@context": {
+        "schema": "http://schema.org/",
+        "ammo": "https://w3id.org/ammo/ont/",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "xml": "http://www.w3.org/XML/1998/namespace",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "dscdo": "https://vocab.earth616.local/ont",
+        "dcterms": "http://purl.org/dc/terms/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "prov": "http://www.w3.org/ns/prov#",
+        "@vocab": "https://vocab.earth616.local/ont"
+    }
+}

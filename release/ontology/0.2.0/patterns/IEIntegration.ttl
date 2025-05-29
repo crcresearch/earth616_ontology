@@ -1,0 +1,441 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix schema: <http://schema.org/> .
+
+# --- DSCDO (environment-specific namespace) ---
+@prefix dscdo: <https://vocab.earth616.local/ont> .
+@prefix : <https://vocab.earth616.local/ont> .
+@base <https://vocab.earth616.local/ont> .
+
+# --- OPLaX Pattern Language ---
+@prefix oplax: <http://www.ontologydesignpatterns.org/schemas/oplax.owl#> .
+
+# =============================================================================
+# Information Extraction Integration Pattern
+# =============================================================================
+
+<https://vocab.earth616.local/ont/patterns/IEIntegration> rdf:type owl:Ontology, oplax:Pattern ;
+    rdfs:label "Information Extraction Integration Pattern"@en ;
+    rdfs:comment "OPLaX pattern defining semantic hooks for LLM-based information extraction workflows to integrate with Earth616 vocabulary for document processing, compliance validation, and TRU specification conformance."@en ;
+    
+    # === OPLaX Pattern Metadata ===
+    oplax:hasIntent "Provide discoverable semantic hooks that enable LLM-based agentic workflows to automatically integrate document processing, information extraction, and compliance validation with Earth616 supply chain traceability patterns."@en ;
+    
+    oplax:hasProblem """
+    LLM-based information extraction workflows need to:
+    1. Discover what document types can be processed
+    2. Find appropriate extraction templates for each document type
+    3. Route extracted information to relevant specifications
+    4. Establish compliance evidence chains
+    5. Integrate with existing TRU traceability patterns
+    
+    Without semantic hooks, each new document type or standard requires custom integration code.
+    """@en ;
+    
+    oplax:hasSolution """
+    Define a pattern of semantic hooks that enable:
+    - Document type discovery and classification
+    - Extraction template registry and querying
+    - Automatic routing from extracted data to specification validation
+    - Evidence integration with provenance tracking
+    - Extension points for new standards and document types
+    """@en ;
+    
+    # === Pattern Dependencies ===
+    owl:imports <https://vocab.earth616.local/ont/modules/core/event> ;
+    owl:imports <https://vocab.earth616.local/ont/modules/scdocumentation/document> ;
+    owl:imports <https://vocab.earth616.local/ont/modules/design/specification> ;
+    
+    dcterms:created "2025-01-29"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> .
+
+# =============================================================================
+# SEMANTIC HOOK CLASSES
+# =============================================================================
+
+# === Document Type Discovery Hook ===
+
+dscdo:DocumentType rdf:type rdfs:Class ;
+    rdfs:label "Document Type"@en ;
+    rdfs:comment "Semantic hook enabling LLM agents to discover and classify document types processable by information extraction workflows."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/patterns/IEIntegration> ;
+    skos:definition "A discoverable classification of document types with associated processing capabilities"@en ;
+    oplax:hasIntent "Enable automatic discovery of document processing capabilities"@en .
+
+dscdo:StandardFamily rdf:type rdfs:Class ;
+    rdfs:subClassOf skos:ConceptScheme ;
+    rdfs:label "Standard Family"@en ;
+    rdfs:comment "Semantic hook for organizing document types by standards organizations (ISO, ASTM, Military, etc.)."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/patterns/IEIntegration> ;
+    skos:definition "A classification scheme for grouping related standards and document types"@en .
+
+# === Extraction Template Registry Hook ===
+
+dscdo:ExtractionTemplate rdf:type rdfs:Class ;
+    rdfs:subClassOf dscdo:InformationObject ;
+    rdfs:label "Extraction Template"@en ;
+    rdfs:comment "Semantic hook for discoverable templates that guide LLM-based information extraction from specific document types."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/patterns/IEIntegration> ;
+    skos:definition "A discoverable template providing extraction patterns for specific document types"@en ;
+    oplax:hasIntent "Enable LLM agents to find appropriate extraction approaches for each document type"@en .
+
+dscdo:ComplianceInformation rdf:type rdfs:Class ;
+    rdfs:subClassOf dscdo:DocumentContent ;
+    rdfs:label "Compliance Information"@en ;
+    rdfs:comment "Semantic hook for structured compliance data extracted from documents, designed for automatic routing to specification validation."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/patterns/IEIntegration> ;
+    skos:definition "Structured data extracted from compliance documents with semantic routing capabilities"@en .
+
+# =============================================================================
+# DISCOVERY AND ROUTING PROPERTIES
+# =============================================================================
+
+# === Document Classification Properties ===
+
+dscdo:hasStandardFamily rdf:type owl:DatatypeProperty ;
+    rdfs:domain dscdo:DocumentType ;
+    rdfs:range xsd:string ;
+    rdfs:label "has standard family"@en ;
+    rdfs:comment "Links a document type to its standards organization family, enabling LLM agents to group processing approaches."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/patterns/IEIntegration> ;
+    skos:example "ISO, ASTM, MIL, ANSI, DIN"@en .
+
+dscdo:targetsSpecificationType rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:DocumentType ;
+    rdfs:range rdfs:Class ;
+    rdfs:label "targets specification type"@en ;
+    rdfs:comment "Semantic hook indicating which specification types this document can validate, enabling automatic routing."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/patterns/IEIntegration> ;
+    skos:definition "Links document types to the specification classes they can provide evidence for"@en .
+
+# === Template Discovery Properties ===
+
+dscdo:applicableToDocumentType rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:ExtractionTemplate ;
+    rdfs:range dscdo:DocumentType ;
+    rdfs:label "applicable to document type"@en ;
+    rdfs:comment "Semantic hook linking extraction templates to the document types they can process."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/patterns/IEIntegration> ;
+    skos:definition "Enables template discovery via document type queries"@en .
+
+dscdo:extractsDataType rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:ExtractionTemplate ;
+    rdfs:range rdfs:Class ;
+    rdfs:label "extracts data type"@en ;
+    rdfs:comment "Semantic hook indicating the type of structured data this template extracts from documents."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/patterns/IEIntegration> ;
+    skos:definition "Links templates to the classes of information they extract"@en .
+
+# === Evidence Integration Properties ===
+
+dscdo:validatesSpecification rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:ComplianceInformation ;
+    rdfs:range dscdo:DesignSpecification ;
+    rdfs:label "validates specification"@en ;
+    rdfs:comment "Semantic hook linking extracted compliance data to the specifications it provides evidence for."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/patterns/IEIntegration> ;
+    skos:definition "Enables automatic routing of extracted data to specification validation"@en .
+
+dscdo:evidenceFrom rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:SpecificationValidationEvent ;
+    rdfs:range dscdo:SCDigitalDocument ;
+    rdfs:label "evidence from"@en ;
+    rdfs:comment "Semantic hook linking validation events to their source documents, establishing evidence provenance."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/patterns/IEIntegration> ;
+    skos:definition "Provides audit trail from validation results back to source documents"@en .
+
+dscdo:extractedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:ComplianceInformation ;
+    rdfs:range dscdo:InformationExtractionWorkflow ;
+    rdfs:label "extracted by"@en ;
+    rdfs:comment "Semantic hook linking extracted data to the workflow that produced it."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/patterns/IEIntegration> ;
+    skos:definition "Tracks which extraction workflow produced specific compliance information"@en .
+
+# =============================================================================
+# COMPETENCY QUESTIONS
+# =============================================================================
+
+<https://vocab.earth616.local/ont/patterns/IEIntegration> 
+    oplax:hasCompetencyQuestion "What document types can be processed by the information extraction system?"@en ;
+    oplax:hasCompetencyQuestion "Which extraction template should be used for an ASTM A240 material test report?"@en ;
+    oplax:hasCompetencyQuestion "What type of specification can be validated using data extracted from ISO 9001 certificates?"@en ;
+    oplax:hasCompetencyQuestion "How can I find all validation events that were based on evidence from a specific document?"@en ;
+    oplax:hasCompetencyQuestion "Which workflows are capable of extracting material composition data?"@en ;
+    oplax:hasCompetencyQuestion "What standards families are supported for compliance document processing?"@en ;
+    oplax:hasCompetencyQuestion "How do I route extracted test results to the appropriate TRU compliance validation?"@en ;
+    oplax:hasCompetencyQuestion "What is the complete provenance chain from a certificate document to TRU specification conformance?"@en .
+
+# =============================================================================
+# STANDARD SPARQL QUERIES
+# =============================================================================
+
+<https://vocab.earth616.local/ont/queries/discover-document-types>
+    rdf:type oplax:SPARQLQuery ;
+    rdfs:label "Discover Available Document Types"@en ;
+    rdfs:comment "Query to discover all processable document types with their standard families and target specifications."@en ;
+    oplax:hasQueryText """
+    PREFIX dscdo: <https://vocab.earth616.local/ont>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    
+    SELECT ?docType ?label ?standardFamily ?targetSpecType WHERE {
+        ?docType rdfs:subClassOf dscdo:SCDigitalDocument .
+        ?docType rdfs:label ?label .
+        OPTIONAL { ?docType dscdo:hasStandardFamily ?standardFamily }
+        OPTIONAL { ?docType dscdo:targetsSpecificationType ?targetSpecType }
+    }
+    ORDER BY ?standardFamily ?label
+    """@en .
+
+<https://vocab.earth616.local/ont/queries/find-extraction-templates>
+    rdf:type oplax:SPARQLQuery ;
+    rdfs:label "Find Extraction Templates for Document Type"@en ;
+    rdfs:comment "Query to find appropriate extraction templates for a specific document type."@en ;
+    oplax:hasQueryText """
+    PREFIX dscdo: <https://vocab.earth616.local/ont>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    
+    SELECT ?template ?templateLabel ?extractedDataType WHERE {
+        ?template dscdo:applicableToDocumentType ?docType .
+        ?template rdfs:label ?templateLabel .
+        ?template dscdo:extractsDataType ?extractedDataType .
+    }
+    """@en ;
+    oplax:hasParameter "?docType - The document type to find templates for"@en .
+
+<https://vocab.earth616.local/ont/queries/trace-validation-evidence>
+    rdf:type oplax:SPARQLQuery ;
+    rdfs:label "Trace Validation Evidence Chain"@en ;
+    rdfs:comment "Query to trace the complete evidence chain from document to TRU compliance."@en ;
+    oplax:hasQueryText """
+    PREFIX dscdo: <https://vocab.earth616.local/ont>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    
+    SELECT ?document ?extractedInfo ?validationEvent ?tru ?specification WHERE {
+        ?extractedInfo dscdo:extractedFrom ?document .
+        ?extractedInfo dscdo:validatesSpecification ?specification .
+        ?validationEvent dscdo:evidenceFrom ?document .
+        ?validationEvent dscdo:validatesAgainst ?specification .
+        ?tru dscdo:conformsToSpecification ?specification .
+    }
+    """@en .
+
+<https://vocab.earth616.local/ont/queries/find-processing-capabilities>
+    rdf:type oplax:SPARQLQuery ;
+    rdfs:label "Find Processing Capabilities by Standard Family"@en ;
+    rdfs:comment "Query to discover processing capabilities organized by standards family."@en ;
+    oplax:hasQueryText """
+    PREFIX dscdo: <https://vocab.earth616.local/ont>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    
+    SELECT ?standardFamily ?docType ?template ?extractedDataType WHERE {
+        ?docType dscdo:hasStandardFamily ?standardFamily .
+        ?template dscdo:applicableToDocumentType ?docType .
+        ?template dscdo:extractsDataType ?extractedDataType .
+    }
+    ORDER BY ?standardFamily ?docType
+    """@en .
+
+# =============================================================================
+# SHACL VALIDATION SHAPES
+# =============================================================================
+
+<https://vocab.earth616.local/ont/shapes/DocumentTypeShape>
+    rdf:type sh:NodeShape ;
+    sh:targetClass dscdo:DocumentType ;
+    rdfs:label "Document Type Validation Shape"@en ;
+    rdfs:comment "SHACL shape ensuring document types have proper discovery metadata."@en ;
+    
+    # Must have a standard family for discovery
+    sh:property [
+        sh:path dscdo:hasStandardFamily ;
+        sh:name "standard family"@en ;
+        sh:description "Document type must specify its standards family for discovery"@en ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "Document type must have exactly one standard family identifier"@en
+    ] ;
+    
+    # Should target at least one specification type
+    sh:property [
+        sh:path dscdo:targetsSpecificationType ;
+        sh:name "target specification type"@en ;
+        sh:description "Document type should specify what specifications it can validate"@en ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "Document type should target at least one specification type for automatic routing"@en
+    ] .
+
+<https://vocab.earth616.local/ont/shapes/ExtractionTemplateShape>
+    rdf:type sh:NodeShape ;
+    sh:targetClass dscdo:ExtractionTemplate ;
+    rdfs:label "Extraction Template Validation Shape"@en ;
+    rdfs:comment "SHACL shape ensuring extraction templates have proper discovery and routing metadata."@en ;
+    
+    # Must be applicable to at least one document type
+    sh:property [
+        sh:path dscdo:applicableToDocumentType ;
+        sh:name "applicable document types"@en ;
+        sh:description "Template must specify which document types it can process"@en ;
+        sh:minCount 1 ;
+        sh:class dscdo:DocumentType ;
+        sh:severity sh:Violation ;
+        sh:message "Extraction template must be applicable to at least one document type"@en
+    ] ;
+    
+    # Must specify what data type it extracts
+    sh:property [
+        sh:path dscdo:extractsDataType ;
+        sh:name "extracted data type"@en ;
+        sh:description "Template must specify the type of data it extracts"@en ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Extraction template must specify exactly one extracted data type"@en
+    ] .
+
+<https://vocab.earth616.local/ont/shapes/ComplianceInformationShape>
+    rdf:type sh:NodeShape ;
+    sh:targetClass dscdo:ComplianceInformation ;
+    rdfs:label "Compliance Information Validation Shape"@en ;
+    rdfs:comment "SHACL shape ensuring compliance information has proper routing metadata."@en ;
+    
+    # Must validate at least one specification
+    sh:property [
+        sh:path dscdo:validatesSpecification ;
+        sh:name "validates specifications"@en ;
+        sh:description "Compliance information must specify which specifications it validates"@en ;
+        sh:minCount 1 ;
+        sh:class dscdo:DesignSpecification ;
+        sh:severity sh:Violation ;
+        sh:message "Compliance information must validate at least one design specification"@en
+    ] ;
+    
+    # Should specify extraction workflow
+    sh:property [
+        sh:path dscdo:extractedBy ;
+        sh:name "extracted by workflow"@en ;
+        sh:description "Compliance information should specify which workflow extracted it"@en ;
+        sh:maxCount 1 ;
+        sh:class dscdo:InformationExtractionWorkflow ;
+        sh:severity sh:Info ;
+        sh:message "Compliance information should specify its extraction workflow for provenance"@en
+    ] .
+
+# =============================================================================
+# EXAMPLE IMPLEMENTATIONS
+# =============================================================================
+
+# === Example Document Types ===
+
+<https://vocab.earth616.local/ont/examples/document-types/ASTM_A240_Report>
+    rdf:type dscdo:DocumentType ;
+    rdfs:subClassOf dscdo:SCDigitalDocument ;
+    rdfs:label "ASTM A240 Material Test Report"@en ;
+    rdfs:comment "Example document type for ASTM A240 stainless steel specification reports."@en ;
+    
+    dscdo:hasStandardFamily "ASTM" ;
+    dscdo:targetsSpecificationType dscdo:MaterialDesignSpecification ;
+    
+    # Example of how this hooks into existing system
+    dscdo:hasExtractionCapability <https://vocab.earth616.local/ont/examples/templates/MaterialCompositionTemplate> .
+
+<https://vocab.earth616.local/ont/examples/document-types/ISO_9001_Certificate>
+    rdf:type dscdo:DocumentType ;
+    rdfs:subClassOf dscdo:SCDigitalDocument ;
+    rdfs:label "ISO 9001 Quality Management Certificate"@en ;
+    rdfs:comment "Example document type for ISO 9001 quality management system certificates."@en ;
+    
+    dscdo:hasStandardFamily "ISO" ;
+    dscdo:targetsSpecificationType dscdo:QualitySpecification .
+
+# === Example Extraction Templates ===
+
+<https://vocab.earth616.local/ont/examples/templates/MaterialCompositionTemplate>
+    rdf:type dscdo:ExtractionTemplate ;
+    rdfs:label "Material Composition Extraction Template"@en ;
+    rdfs:comment "Example template for extracting chemical composition data from ASTM material reports."@en ;
+    
+    dscdo:applicableToDocumentType <https://vocab.earth616.local/ont/examples/document-types/ASTM_A240_Report> ;
+    dscdo:extractsDataType dscdo:ChemicalCompositionData ;
+    
+    # Example template content (in practice, this would be more detailed)
+    schema:description """
+    LLM Extraction Pattern:
+    1. Locate 'Chemical Composition' or 'Analysis' section
+    2. Extract percentage values for: Chromium (Cr), Nickel (Ni), Molybdenum (Mo), Carbon (C)
+    3. Structure as dscdo:ChemicalCompositionData with schema:QuantitativeValue for each element
+    4. Link to source document and extraction timestamp
+    """@en .
+
+# === Example Compliance Information ===
+
+<https://vocab.earth616.local/ont/examples/compliance/steel-316l-composition-data>
+    rdf:type dscdo:ComplianceInformation ;
+    rdfs:label "Steel 316L Composition Data"@en ;
+    rdfs:comment "Example extracted composition data from ASTM A240 report."@en ;
+    
+    dscdo:validatesSpecification <https://vocab.earth616.local/ont/examples/specifications/steel-316l-material-spec> ;
+    dscdo:extractedBy <https://vocab.earth616.local/ont/examples/workflows/materials-ie-workflow> ;
+    
+    # Structured composition data
+    dscdo:hasCompositionElement [
+        rdf:type schema:QuantitativeValue ;
+        schema:name "Chromium" ;
+        schema:value 18.2 ;
+        schema:unitText "percent" ;
+        schema:propertyID "Cr"
+    ] , [
+        rdf:type schema:QuantitativeValue ;
+        schema:name "Nickel" ;
+        schema:value 10.1 ;
+        schema:unitText "percent" ;
+        schema:propertyID "Ni"
+    ] .
+
+# =============================================================================
+# USAGE GUIDELINES
+# =============================================================================
+
+<https://vocab.earth616.local/ont/patterns/IEIntegration-usage>
+    rdf:type owl:NamedIndividual, skos:ConceptScheme ;
+    rdfs:label "IE Integration Pattern Usage Guidelines"@en ;
+    oplax:hasDescription """
+    Information Extraction Integration Pattern Usage:
+    
+    1. Document Type Registration:
+       - Create subclass of dscdo:DocumentType
+       - Specify dscdo:hasStandardFamily (ISO, ASTM, MIL, etc.)
+       - Link to target specification types via dscdo:targetsSpecificationType
+       - Validate against DocumentTypeShape
+    
+    2. Extraction Template Creation:
+       - Create instance of dscdo:ExtractionTemplate
+       - Link to applicable document types via dscdo:applicableToDocumentType
+       - Specify extracted data type via dscdo:extractsDataType
+       - Include LLM guidance in schema:description
+    
+    3. Compliance Data Routing:
+       - Extract as dscdo:ComplianceInformation
+       - Link to specifications via dscdo:validatesSpecification
+       - Include extraction provenance via dscdo:extractedBy
+       - Route to validation events automatically
+    
+    4. Evidence Integration:
+       - Link validation events to source documents via dscdo:evidenceFrom
+       - Maintain complete audit trail from document to TRU compliance
+       - Use SPARQL queries for provenance tracking
+    
+    5. Discovery and Querying:
+       - Use provided SPARQL queries for capability discovery
+       - Query by standard family for processing specialization
+       - Trace evidence chains for compliance auditing
+    """@en .
