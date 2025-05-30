@@ -1,14 +1,39 @@
 {
     "@graph": [
         {
-            "@id": "_:b0",
-            "sdo:affiliation": "University of Notre Dame",
-            "sdo:name": "Charles F. Vardeman II",
-            "rdfs:label": "Charles F. Vardeman II",
-            "@type": "sdo:Person"
+            "@id": "dscdo:spatiallyIntersects",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:patterns/SpatioTemporalExtent"
+            },
+            "rdfs:range": {
+                "@id": "geo:SpatialObject"
+            },
+            "rdfs:domain": {
+                "@id": "geo:SpatialObject"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "geo:sfIntersects"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Spatial relationship indicating two spatial extents intersect."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "spatially intersects"
+            },
+            "@type": "owl:ObjectProperty"
         },
         {
             "@id": "dscdo:patterns/SpatioTemporalExtent",
+            "owl:imports": [
+                {
+                    "@id": "http://www.opengis.net/ont/geosparql"
+                },
+                {
+                    "@id": "http://www.w3.org/2006/time"
+                }
+            ],
             "skos:note": {
                 "@language": "en",
                 "@value": "This template defines the pattern metadata. The actual pattern implementation uses OWL-Time and GeoSPARQL vocabularies."
@@ -52,19 +77,353 @@
                 "oplax:Pattern",
                 "owl:Ontology"
             ]
+        },
+        {
+            "@id": "dscdo:spatiallyWithin",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:patterns/SpatioTemporalExtent"
+            },
+            "rdfs:range": {
+                "@id": "geo:SpatialObject"
+            },
+            "rdfs:domain": {
+                "@id": "geo:SpatialObject"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "geo:sfWithin"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Spatial relationship indicating one spatial extent is within another."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "spatially within"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:spatiallyContains",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:patterns/SpatioTemporalExtent"
+            },
+            "rdfs:range": {
+                "@id": "geo:SpatialObject"
+            },
+            "rdfs:domain": {
+                "@id": "geo:SpatialObject"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "geo:sfContains"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Spatial relationship indicating one spatial extent contains another."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "spatially contains"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:endsAt",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:patterns/SpatioTemporalExtent"
+            },
+            "rdfs:range": {
+                "@id": "time:Instant"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:TemporalExtent"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "time:hasEnd"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Relates a temporal extent to its ending instant."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "ends at"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:TemporalExtent",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "The temporal boundaries of an event or process"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:patterns/SpatioTemporalExtent"
+            },
+            "rdfs:subClassOf": {
+                "@id": "time:TemporalEntity"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The temporal aspect of a spatiotemporal extent, representing when something occurs."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Temporal Extent"
+            },
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:startsAt",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:patterns/SpatioTemporalExtent"
+            },
+            "rdfs:range": {
+                "@id": "time:Instant"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:TemporalExtent"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "time:hasBeginning"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Relates a temporal extent to its beginning instant."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "starts at"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:during",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:patterns/SpatioTemporalExtent"
+            },
+            "rdfs:range": {
+                "@id": "time:TemporalEntity"
+            },
+            "rdfs:domain": {
+                "@id": "time:TemporalEntity"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "time:inside"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Temporal relationship indicating one temporal extent occurs during another."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "during"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:atPlace",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:patterns/SpatioTemporalExtent"
+            },
+            "rdfs:range": {
+                "@id": "geo:Geometry"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:SpatioTemporalFix"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "geo:hasGeometry"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Relates a spatiotemporal fix to its spatial aspect using GeoSPARQL."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "at place"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:SpatioTemporalFix",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A spatiotemporal point that can be connected in sequences to form trajectories"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:patterns/SpatioTemporalExtent"
+            },
+            "rdfs:subClassOf": {
+                "@id": "dscdo:SpatioTemporalExtent"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A point in space and time that can be part of a trajectory. Integrates with the Semantic Trajectory pattern."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Spatiotemporal Fix"
+            },
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:atTime",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:patterns/SpatioTemporalExtent"
+            },
+            "rdfs:range": {
+                "@id": "time:TemporalEntity"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:SpatioTemporalFix"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "time:hasTime"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Relates a spatiotemporal fix to its temporal aspect using W3C Time."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "at time"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:SpatioTemporalExtent",
+            "skos:example": {
+                "@language": "en",
+                "@value": "A transportation event that occurs from warehouse A to warehouse B between 09:00 and 11:30 on 2024-03-15"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "The combined spatial and temporal boundaries of an event or process"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:patterns/SpatioTemporalExtent"
+            },
+            "rdfs:subClassOf": [
+                {
+                    "@id": "geo:SpatialObject"
+                },
+                {
+                    "@id": "time:TemporalEntity"
+                }
+            ],
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A unified spatial and temporal extent that combines both geometric and temporal aspects. Extends W3C Time and OGC GeoSPARQL vocabularies for supply chain domain modeling."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Spatiotemporal Extent"
+            },
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:hasSpatioTemporalExtent",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:patterns/SpatioTemporalExtent"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:SpatioTemporalExtent"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Relates an entity to its unified spatiotemporal extent."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has spatiotemporal extent"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:hasSpatialExtent",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:patterns/SpatioTemporalExtent"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:SpatialExtent"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "geo:hasGeometry"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Relates an entity to its spatial extent using GeoSPARQL vocabulary."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has spatial extent"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:SpatialExtent",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "The spatial boundaries of an event or process"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:patterns/SpatioTemporalExtent"
+            },
+            "rdfs:subClassOf": {
+                "@id": "geo:SpatialObject"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The spatial aspect of a spatiotemporal extent, representing where something occurs."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Spatial Extent"
+            },
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:hasTemporalExtent",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:patterns/SpatioTemporalExtent"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:TemporalExtent"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "time:hasTime"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Relates an entity to its temporal extent using W3C Time ontology."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has temporal extent"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "_:b0",
+            "sdo:affiliation": "University of Notre Dame",
+            "sdo:name": "Charles F. Vardeman II",
+            "rdfs:label": "Charles F. Vardeman II",
+            "@type": "sdo:Person"
         }
     ],
     "@context": {
-        "oplax": "http://ontologydesignpatterns.org/opla-core#",
-        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "owl": "http://www.w3.org/2002/07/owl#",
-        "cpa": "http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "oplax-sd": "http://ontologydesignpatterns.org/opla-sd#",
-        "dcterms": "http://purl.org/dc/terms/",
         "skos": "http://www.w3.org/2004/02/skos/core#",
         "dscdo": "https://vocab.earth616.local/ont/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "geo": "http://www.opengis.net/ont/geosparql#",
+        "oplax": "http://ontologydesignpatterns.org/opla-core#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "cpa": "http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "time": "http://www.w3.org/2006/time#",
         "sdo": "https://schema.org/"
     }
 }

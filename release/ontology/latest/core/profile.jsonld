@@ -1,7 +1,299 @@
 {
     "@graph": [
         {
-            "@id": "_:b0",
+            "@id": "dscdo:useCaseDescription",
+            "rdfs:range": {
+                "@id": "xsd:string"
+            },
+            "rdfs:domain": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Detailed description of how modules work together in this use case scenario"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "use case description"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:involvedModules",
+            "rdfs:domain": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "List of module names that participate in this use case or pattern"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "involved modules"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:workflowSteps",
+            "rdfs:domain": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Ordered list of steps in an integration workflow pattern"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "workflow steps"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:integratesModules",
+            "rdfs:domain": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Lists the modules that this integration pattern connects"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "integrates modules"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:constrainsModule",
+            "rdfs:range": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:domain": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that this module defines constraints or requirements for entities in another module"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "constrains module"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:extendsModule",
+            "rdfs:range": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:domain": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that this module extends or specializes concepts from another module"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "extends module"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:documentedBy",
+            "rdfs:range": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:domain": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that entities in this module are documented or specified by another module"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "documented by"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:validatesAgainst",
+            "rdfs:range": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:domain": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that entities in this module are validated against specifications from another module"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "validates against"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:providesEvidenceFor",
+            "rdfs:range": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:domain": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that this module provides validation evidence or documentation for another module"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "provides evidence for"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:enablesModule",
+            "rdfs:range": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:domain": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that this module provides foundational capabilities for another module"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "enables module"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "_:b3",
+            "sh:order": {
+                "@value": "42",
+                "@type": "xsd:integer"
+            },
+            "skos:example": "Quality specification document → acceptance criteria → TRU validation → compliance certification",
+            "dscdo:useCaseDescription": "Quality assurance teams use specification documents to define acceptance criteria for incoming TRUs. Each TRU must demonstrate compliance through validation events that reference specific quality standards and testing procedures documented in the specifications.",
+            "dscdo:involvedModules": {
+                "@list": [
+                    "documentation",
+                    "specification",
+                    "tru"
+                ]
+            },
+            "prof:hasRole": {
+                "@id": "prof:guidance"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Use case demonstrating how quality specifications constrain TRU acceptance criteria",
+            "rdfs:label": "Quality Assurance Use Case",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b8",
+            "sh:order": {
+                "@value": "41",
+                "@type": "xsd:integer"
+            },
+            "skos:example": "Component TRU → transformation events → source material TRU → specification documents → compliance evidence",
+            "dscdo:useCaseDescription": "During a supply chain audit, investigators trace a component TRU back through its transformation events to find the original material specification documents and validation evidence that prove compliance with defense standards.",
+            "dscdo:involvedModules": {
+                "@list": [
+                    "documentation",
+                    "specification",
+                    "tru",
+                    "supplychain"
+                ]
+            },
+            "prof:hasRole": {
+                "@id": "prof:guidance"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Use case showing how documents provide audit trails for TRU provenance and compliance",
+            "rdfs:label": "Supply Chain Audit Use Case",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b12",
+            "sh:order": {
+                "@value": "40",
+                "@type": "xsd:integer"
+            },
+            "skos:example": "MIL-STD steel specification → steel batch TRU → composition testing → compliance validation",
+            "dscdo:useCaseDescription": "A defense contractor receives material specifications requiring steel with specific composition. They create TRUs for steel batches and validate them against the specifications through testing events that reference the original specification documents as evidence.",
+            "dscdo:involvedModules": {
+                "@list": [
+                    "documentation",
+                    "specification",
+                    "tru"
+                ]
+            },
+            "prof:hasRole": {
+                "@id": "prof:guidance"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Use case demonstrating how material specifications documents validate TRU compliance",
+            "rdfs:label": "Material Compliance Use Case",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b17",
+            "sh:order": {
+                "@value": "31",
+                "@type": "xsd:integer"
+            },
+            "skos:example": "Steel specification document → validation testing → compliant steel quantity → certified TRU",
+            "dscdo:workflowSteps": {
+                "@list": [
+                    "Material Design Specification Document",
+                    "Specification Validation Event",
+                    "Specified Quantity Of Material",
+                    "Traceable Resource Unit with Compliance"
+                ]
+            },
+            "prof:hasRole": {
+                "@id": "prof:guidance"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Complete workflow pattern for material certification from specification to validated TRU",
+            "rdfs:label": "Material Certification Workflow Pattern",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b21",
+            "sh:order": {
+                "@value": "30",
+                "@type": "xsd:integer"
+            },
+            "skos:note": "Documents provide specifications that TRUs must satisfy through validation events and compliance tracking",
+            "dscdo:integratesModules": {
+                "@list": [
+                    {
+                        "@id": "dscdo:modules/scdocumentation/document"
+                    },
+                    {
+                        "@id": "dscdo:modules/design/specification"
+                    },
+                    {
+                        "@id": "dscdo:modules/traceability/tru"
+                    }
+                ]
+            },
+            "prof:hasRole": {
+                "@id": "prof:guidance"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Core integration pattern showing how documents define specifications that constrain and validate TRUs",
+            "rdfs:label": "Document-Specification-TRU Integration Pattern",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b22",
             "sh:order": {
                 "@value": "22",
                 "@type": "xsd:integer"
@@ -18,7 +310,7 @@
             "@type": "prof:ResourceDescriptor"
         },
         {
-            "@id": "_:b1",
+            "@id": "_:b23",
             "sh:order": {
                 "@value": "21",
                 "@type": "xsd:integer"
@@ -35,7 +327,7 @@
             "@type": "prof:ResourceDescriptor"
         },
         {
-            "@id": "_:b2",
+            "@id": "_:b24",
             "sh:order": {
                 "@value": "20",
                 "@type": "xsd:integer"
@@ -52,7 +344,7 @@
             "@type": "prof:ResourceDescriptor"
         },
         {
-            "@id": "_:b3",
+            "@id": "_:b25",
             "prof:hasArtifact": {
                 "@id": "dscdo:modules/imports/prov"
             },
@@ -65,7 +357,7 @@
             "@type": "prof:ResourceDescriptor"
         },
         {
-            "@id": "_:b4",
+            "@id": "_:b26",
             "prof:hasArtifact": {
                 "@id": "dscdo:modules/imports/schema"
             },
@@ -78,7 +370,7 @@
             "@type": "prof:ResourceDescriptor"
         },
         {
-            "@id": "_:b5",
+            "@id": "_:b27",
             "sh:order": {
                 "@value": "10",
                 "@type": "xsd:integer"
@@ -92,21 +384,30 @@
             "@type": "prof:ResourceDescriptor"
         },
         {
-            "@id": "_:b6",
+            "@id": "_:b28",
             "sh:order": {
                 "@value": "9",
                 "@type": "xsd:integer"
+            },
+            "dscdo:constrainsModule": {
+                "@id": "dscdo:modules/traceability/tru"
+            },
+            "dscdo:extendsModule": {
+                "@id": "dscdo:modules/scdocumentation/document"
+            },
+            "prof:hasRole": {
+                "@id": "prof:constraint"
             },
             "prof:hasArtifact": {
                 "@id": "dscdo:modules/design/specification"
             },
             "dcterms:format": "text/turtle",
-            "rdfs:comment": "Material and quantity specifications with validation and compliance tracking",
+            "rdfs:comment": "Material and quantity specifications with validation and compliance tracking - extends documentation patterns to constrain TRU properties",
             "rdfs:label": "Enhanced Specification Module",
             "@type": "prof:ResourceDescriptor"
         },
         {
-            "@id": "_:b7",
+            "@id": "_:b29",
             "sh:order": {
                 "@value": "8",
                 "@type": "xsd:integer"
@@ -120,7 +421,7 @@
             "@type": "prof:ResourceDescriptor"
         },
         {
-            "@id": "_:b8",
+            "@id": "_:b30",
             "sh:order": {
                 "@value": "7",
                 "@type": "xsd:integer"
@@ -134,7 +435,7 @@
             "@type": "prof:ResourceDescriptor"
         },
         {
-            "@id": "_:b9",
+            "@id": "_:b31",
             "sh:order": {
                 "@value": "6",
                 "@type": "xsd:integer"
@@ -148,21 +449,30 @@
             "@type": "prof:ResourceDescriptor"
         },
         {
-            "@id": "_:b10",
+            "@id": "_:b32",
             "sh:order": {
                 "@value": "5",
                 "@type": "xsd:integer"
+            },
+            "dscdo:documentedBy": {
+                "@id": "dscdo:modules/scdocumentation/document"
+            },
+            "dscdo:validatesAgainst": {
+                "@id": "dscdo:modules/design/specification"
+            },
+            "prof:hasRole": {
+                "@id": "prof:validation"
             },
             "prof:hasArtifact": {
                 "@id": "dscdo:modules/traceability/tru"
             },
             "dcterms:format": "text/turtle",
-            "rdfs:comment": "Traceable Resource Unit (TRU) modeling for supply chain traceability",
+            "rdfs:comment": "Traceable Resource Unit (TRU) modeling for supply chain traceability - validates against design specifications from documentation",
             "rdfs:label": "Traceable Resource Unit Module",
             "@type": "prof:ResourceDescriptor"
         },
         {
-            "@id": "_:b11",
+            "@id": "_:b33",
             "sh:order": {
                 "@value": "4",
                 "@type": "xsd:integer"
@@ -176,21 +486,30 @@
             "@type": "prof:ResourceDescriptor"
         },
         {
-            "@id": "_:b12",
+            "@id": "_:b34",
             "sh:order": {
                 "@value": "3",
                 "@type": "xsd:integer"
+            },
+            "dscdo:providesEvidenceFor": {
+                "@id": "dscdo:modules/traceability/tru"
+            },
+            "dscdo:enablesModule": {
+                "@id": "dscdo:modules/design/specification"
+            },
+            "prof:hasRole": {
+                "@id": "prof:specification"
             },
             "prof:hasArtifact": {
                 "@id": "dscdo:modules/scdocumentation/document"
             },
             "dcterms:format": "text/turtle",
-            "rdfs:comment": "Supply chain documentation modeling",
+            "rdfs:comment": "Supply chain documentation modeling - provides foundation for design specifications and TRU validation evidence",
             "rdfs:label": "Documentation Module",
             "@type": "prof:ResourceDescriptor"
         },
         {
-            "@id": "_:b13",
+            "@id": "_:b35",
             "sh:order": {
                 "@value": "2",
                 "@type": "xsd:integer"
@@ -204,7 +523,7 @@
             "@type": "prof:ResourceDescriptor"
         },
         {
-            "@id": "_:b14",
+            "@id": "_:b36",
             "sh:order": {
                 "@value": "1",
                 "@type": "xsd:integer"
@@ -218,7 +537,7 @@
             "@type": "prof:ResourceDescriptor"
         },
         {
-            "@id": "_:b15",
+            "@id": "_:b37",
             "prof:hasArtifact": {
                 "@id": "dscdo:pylode-config"
             },
@@ -234,52 +553,67 @@
             "@id": "dscdo:profile/",
             "prof:hasResource": [
                 {
-                    "@id": "_:b0"
-                },
-                {
-                    "@id": "_:b1"
-                },
-                {
-                    "@id": "_:b2"
-                },
-                {
                     "@id": "_:b3"
-                },
-                {
-                    "@id": "_:b15"
-                },
-                {
-                    "@id": "_:b14"
-                },
-                {
-                    "@id": "_:b13"
-                },
-                {
-                    "@id": "_:b12"
-                },
-                {
-                    "@id": "_:b11"
-                },
-                {
-                    "@id": "_:b10"
-                },
-                {
-                    "@id": "_:b9"
                 },
                 {
                     "@id": "_:b8"
                 },
                 {
-                    "@id": "_:b7"
+                    "@id": "_:b12"
                 },
                 {
-                    "@id": "_:b6"
+                    "@id": "_:b17"
                 },
                 {
-                    "@id": "_:b5"
+                    "@id": "_:b21"
                 },
                 {
-                    "@id": "_:b4"
+                    "@id": "_:b22"
+                },
+                {
+                    "@id": "_:b23"
+                },
+                {
+                    "@id": "_:b24"
+                },
+                {
+                    "@id": "_:b25"
+                },
+                {
+                    "@id": "_:b37"
+                },
+                {
+                    "@id": "_:b36"
+                },
+                {
+                    "@id": "_:b35"
+                },
+                {
+                    "@id": "_:b34"
+                },
+                {
+                    "@id": "_:b33"
+                },
+                {
+                    "@id": "_:b32"
+                },
+                {
+                    "@id": "_:b31"
+                },
+                {
+                    "@id": "_:b30"
+                },
+                {
+                    "@id": "_:b29"
+                },
+                {
+                    "@id": "_:b28"
+                },
+                {
+                    "@id": "_:b27"
+                },
+                {
+                    "@id": "_:b26"
                 }
             ],
             "@type": "prof:Profile",
@@ -304,6 +638,7 @@
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "dcterms": "http://purl.org/dc/terms/",
         "dscdo": "https://vocab.earth616.local/ont/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "prof": "http://www.w3.org/ns/dx/prof/",
         "sdo": "https://schema.org/"

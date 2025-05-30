@@ -1,6 +1,270 @@
 {
     "@graph": [
         {
+            "@id": "dscdo:duringTimeInterval",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:range": {
+                "@id": "time:ProperInterval"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:SupplyChainEvent"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "time:hasTime"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Relates a supply chain event to the time interval during which it occurs."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "during time interval"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:modules/supplychain/eventmodule",
+            "owl:imports": [
+                {
+                    "@id": "dscdo:modules/core/event"
+                },
+                {
+                    "@id": "dscdo:patterns/SpatioTemporalExtent"
+                }
+            ],
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Supply chain events with enhanced spatial and temporal capabilities using W3C Time and GeoSPARQL vocabularies"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Supply Chain Event Module"
+            },
+            "@type": "owl:Ontology"
+        },
+        {
+            "@id": "dscdo:SupplyChainEvent",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A specialized event that occurs within supply chain operations, tracking the movement, transformation, or status changes of goods, materials, or information"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "An event occurring in a supply chain process."
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Supply Chain Event"
+            },
+            "rdfs:subClassOf": {
+                "@id": "dscdo:Event"
+            },
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:precedesEvent",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:SupplyChainEvent"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:SupplyChainEvent"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "time:before"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates temporal precedence between supply chain events."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "precedes event"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:followsEvent",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:SupplyChainEvent"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:SupplyChainEvent"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "time:after"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates temporal ordering between supply chain events."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "follows event"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:hasEventSequence",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:SupplyChainEvent"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:SupplyChainEvent"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "time:hasPart"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Relates a complex supply chain process to a sequence of constituent events."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has event sequence"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:followsRoute",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:range": {
+                "@id": "geo:Geometry"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:TransportEvent"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "geo:hasGeometry"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Relates a transport event to the geometric route taken."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "follows route"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:TransportEvent",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "An event that tracks the physical movement of items through the supply chain network"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "An event representing the movement of goods from one location to another."
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Transport Event"
+            },
+            "rdfs:subClassOf": [
+                {
+                    "@id": "_:b0"
+                },
+                {
+                    "@id": "_:b1"
+                },
+                {
+                    "@id": "dscdo:SupplyChainEvent"
+                }
+            ],
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:hasCurrentLocation",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:range": {
+                "@id": "geo:Feature"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:SupplyChainEvent"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "geo:hasGeometry"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Relates a supply chain event to its current geographic location."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has current location"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:hasDestinationLocation",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:range": {
+                "@id": "geo:Feature"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:TransportEvent"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "geo:hasGeometry"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Relates a transport event to its ending geographic location."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has destination location"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:hasOriginLocation",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:range": {
+                "@id": "geo:Feature"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:TransportEvent"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "geo:hasGeometry"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Relates a transport event to its starting geographic location."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has origin location"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
             "@id": "dscdo:ManufacturerRole",
             "skos:definition": {
                 "@language": "en",
@@ -111,28 +375,6 @@
             "@type": "owl:Class"
         },
         {
-            "@id": "dscdo:SupplyChainEvent",
-            "skos:definition": {
-                "@language": "en",
-                "@value": "A specialized event that occurs within supply chain operations, tracking the movement, transformation, or status changes of goods, materials, or information"
-            },
-            "rdfs:comment": {
-                "@language": "en",
-                "@value": "An event occurring in a supply chain process."
-            },
-            "rdfs:isDefinedBy": {
-                "@id": "dscdo:modules/supplychain/eventmodule"
-            },
-            "rdfs:label": {
-                "@language": "en",
-                "@value": "Supply Chain Event"
-            },
-            "rdfs:subClassOf": {
-                "@id": "dscdo:Event"
-            },
-            "@type": "owl:Class"
-        },
-        {
             "@id": "dscdo:AggregationEvent",
             "skos:definition": {
                 "@language": "en",
@@ -177,26 +419,24 @@
             "@type": "owl:Class"
         },
         {
-            "@id": "dscdo:TransportEvent",
-            "skos:definition": {
-                "@language": "en",
-                "@value": "An event that tracks the physical movement of items through the supply chain network"
+            "@id": "_:b0",
+            "owl:someValuesFrom": {
+                "@id": "geo:Feature"
             },
-            "rdfs:comment": {
-                "@language": "en",
-                "@value": "An event representing the movement of goods from one location to another."
+            "owl:onProperty": {
+                "@id": "dscdo:hasDestinationLocation"
             },
-            "rdfs:isDefinedBy": {
-                "@id": "dscdo:modules/supplychain/eventmodule"
+            "@type": "owl:Restriction"
+        },
+        {
+            "@id": "_:b1",
+            "owl:someValuesFrom": {
+                "@id": "geo:Feature"
             },
-            "rdfs:label": {
-                "@language": "en",
-                "@value": "Transport Event"
+            "owl:onProperty": {
+                "@id": "dscdo:hasOriginLocation"
             },
-            "rdfs:subClassOf": {
-                "@id": "dscdo:SupplyChainEvent"
-            },
-            "@type": "owl:Class"
+            "@type": "owl:Restriction"
         },
         {
             "@id": "dscdo:TransformationEvent",
@@ -246,13 +486,15 @@
     "@context": {
         "schema": "http://schema.org/",
         "owl": "http://www.w3.org/2002/07/owl#",
-        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-        "xml": "http://www.w3.org/XML/1998/namespace",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
-        "dcterms": "http://purl.org/dc/terms/",
         "skos": "http://www.w3.org/2004/02/skos/core#",
         "dscdo": "https://vocab.earth616.local/ont/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "geo": "http://www.opengis.net/ont/geosparql#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "xml": "http://www.w3.org/XML/1998/namespace",
+        "dcterms": "http://purl.org/dc/terms/",
+        "time": "http://www.w3.org/2006/time#",
         "prov": "http://www.w3.org/ns/prov#",
         "@vocab": "https://vocab.earth616.local/ont/"
     }

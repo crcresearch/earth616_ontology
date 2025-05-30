@@ -6,6 +6,10 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+# --- Standard Vocabularies ---
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+
 # --- Ontology Design Patterns ---
 @prefix oplax: <http://ontologydesignpatterns.org/opla-core#> .
 @prefix oplax-sd: <http://ontologydesignpatterns.org/opla-sd#> .
@@ -49,4 +53,156 @@ How do spatiotemporal extents of different events relate?"""@en ;
     
     cpa:relatedCPs "EventCore, SemanticTrajectory"@en ;
     
-    skos:note "This template defines the pattern metadata. The actual pattern implementation uses OWL-Time and GeoSPARQL vocabularies."@en .
+    skos:note "This template defines the pattern metadata. The actual pattern implementation uses OWL-Time and GeoSPARQL vocabularies."@en ;
+    
+    # Imports for standard vocabularies
+    owl:imports <http://www.w3.org/2006/time> ;
+    owl:imports <http://www.opengis.net/ont/geosparql> .
+
+# =============================================================================
+# Pattern Implementation - Core Classes
+# =============================================================================
+
+dscdo:SpatioTemporalExtent
+    a owl:Class ;
+    rdfs:label "Spatiotemporal Extent"@en ;
+    rdfs:comment "A unified spatial and temporal extent that combines both geometric and temporal aspects. Extends W3C Time and OGC GeoSPARQL vocabularies for supply chain domain modeling."@en ;
+    rdfs:subClassOf time:TemporalEntity, geo:SpatialObject ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> ;
+    skos:definition "The combined spatial and temporal boundaries of an event or process"@en ;
+    skos:example "A transportation event that occurs from warehouse A to warehouse B between 09:00 and 11:30 on 2024-03-15"@en .
+
+dscdo:TemporalExtent
+    a owl:Class ;
+    rdfs:label "Temporal Extent"@en ;
+    rdfs:comment "The temporal aspect of a spatiotemporal extent, representing when something occurs."@en ;
+    rdfs:subClassOf time:TemporalEntity ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> ;
+    skos:definition "The temporal boundaries of an event or process"@en .
+
+dscdo:SpatialExtent
+    a owl:Class ;
+    rdfs:label "Spatial Extent"@en ;
+    rdfs:comment "The spatial aspect of a spatiotemporal extent, representing where something occurs."@en ;
+    rdfs:subClassOf geo:SpatialObject ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> ;
+    skos:definition "The spatial boundaries of an event or process"@en .
+
+# =============================================================================
+# Pattern Implementation - Properties
+# =============================================================================
+
+dscdo:hasTemporalExtent
+    a owl:ObjectProperty ;
+    rdfs:label "has temporal extent"@en ;
+    rdfs:comment "Relates an entity to its temporal extent using W3C Time ontology."@en ;
+    rdfs:subPropertyOf time:hasTime ;
+    rdfs:range dscdo:TemporalExtent ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> .
+
+dscdo:hasSpatialExtent
+    a owl:ObjectProperty ;
+    rdfs:label "has spatial extent"@en ;
+    rdfs:comment "Relates an entity to its spatial extent using GeoSPARQL vocabulary."@en ;
+    rdfs:subPropertyOf geo:hasGeometry ;
+    rdfs:range dscdo:SpatialExtent ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> .
+
+dscdo:hasSpatioTemporalExtent
+    a owl:ObjectProperty ;
+    rdfs:label "has spatiotemporal extent"@en ;
+    rdfs:comment "Relates an entity to its unified spatiotemporal extent."@en ;
+    rdfs:range dscdo:SpatioTemporalExtent ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> .
+
+# =============================================================================
+# Integration with Semantic Trajectory Pattern
+# =============================================================================
+
+dscdo:SpatioTemporalFix
+    a owl:Class ;
+    rdfs:label "Spatiotemporal Fix"@en ;
+    rdfs:comment "A point in space and time that can be part of a trajectory. Integrates with the Semantic Trajectory pattern."@en ;
+    rdfs:subClassOf dscdo:SpatioTemporalExtent ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> ;
+    skos:definition "A spatiotemporal point that can be connected in sequences to form trajectories"@en .
+
+dscdo:atTime
+    a owl:ObjectProperty ;
+    rdfs:label "at time"@en ;
+    rdfs:comment "Relates a spatiotemporal fix to its temporal aspect using W3C Time."@en ;
+    rdfs:subPropertyOf time:hasTime ;
+    rdfs:domain dscdo:SpatioTemporalFix ;
+    rdfs:range time:TemporalEntity ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> .
+
+dscdo:atPlace
+    a owl:ObjectProperty ;
+    rdfs:label "at place"@en ;
+    rdfs:comment "Relates a spatiotemporal fix to its spatial aspect using GeoSPARQL."@en ;
+    rdfs:subPropertyOf geo:hasGeometry ;
+    rdfs:domain dscdo:SpatioTemporalFix ;
+    rdfs:range geo:Geometry ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> .
+
+# =============================================================================
+# Temporal Modeling Integration
+# =============================================================================
+
+dscdo:during
+    a owl:ObjectProperty ;
+    rdfs:label "during"@en ;
+    rdfs:comment "Temporal relationship indicating one temporal extent occurs during another."@en ;
+    rdfs:subPropertyOf time:inside ;
+    rdfs:domain time:TemporalEntity ;
+    rdfs:range time:TemporalEntity ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> .
+
+dscdo:startsAt
+    a owl:ObjectProperty ;
+    rdfs:label "starts at"@en ;
+    rdfs:comment "Relates a temporal extent to its beginning instant."@en ;
+    rdfs:subPropertyOf time:hasBeginning ;
+    rdfs:domain dscdo:TemporalExtent ;
+    rdfs:range time:Instant ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> .
+
+dscdo:endsAt
+    a owl:ObjectProperty ;
+    rdfs:label "ends at"@en ;
+    rdfs:comment "Relates a temporal extent to its ending instant."@en ;
+    rdfs:subPropertyOf time:hasEnd ;
+    rdfs:domain dscdo:TemporalExtent ;
+    rdfs:range time:Instant ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> .
+
+# =============================================================================
+# Spatial Modeling Integration  
+# =============================================================================
+
+dscdo:spatiallyContains
+    a owl:ObjectProperty ;
+    rdfs:label "spatially contains"@en ;
+    rdfs:comment "Spatial relationship indicating one spatial extent contains another."@en ;
+    rdfs:subPropertyOf geo:sfContains ;
+    rdfs:domain geo:SpatialObject ;
+    rdfs:range geo:SpatialObject ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> .
+
+dscdo:spatiallyWithin
+    a owl:ObjectProperty ;
+    rdfs:label "spatially within"@en ;
+    rdfs:comment "Spatial relationship indicating one spatial extent is within another."@en ;
+    rdfs:subPropertyOf geo:sfWithin ;
+    rdfs:domain geo:SpatialObject ;
+    rdfs:range geo:SpatialObject ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> .
+
+dscdo:spatiallyIntersects
+    a owl:ObjectProperty ;
+    rdfs:label "spatially intersects"@en ;
+    rdfs:comment "Spatial relationship indicating two spatial extents intersect."@en ;
+    rdfs:subPropertyOf geo:sfIntersects ;
+    rdfs:domain geo:SpatialObject ;
+    rdfs:range geo:SpatialObject ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> .

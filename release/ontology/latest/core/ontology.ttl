@@ -96,10 +96,22 @@ The ontology is designed to be extensible to support modeling of domain-specific
     prof:hasProfile <https://vocab.earth616.local/ont/profile/> .
 
 # =============================================================================
-# Module Imports (for merged ontology)
+# Standard Vocabulary Imports
 # =============================================================================
 
 <https://vocab.earth616.local/ont/> owl:imports 
+    # Standard vocabularies through import cache
+    <https://vocab.earth616.local/ont/imports/time> ,
+    <https://vocab.earth616.local/ont/imports/geo> ,
+    <https://vocab.earth616.local/ont/imports/time-agg> ,
+    <https://vocab.earth616.local/ont/imports/time-prov> ,
+    
+    # Ontology design patterns
+    <https://vocab.earth616.local/ont/patterns/SpatioTemporalExtent> ,
+    <https://vocab.earth616.local/ont/patterns/EventCore> ,
+    <https://vocab.earth616.local/ont/patterns/SemanticTrajectory> ,
+    
+    # Core modules
     <https://vocab.earth616.local/ont/modules/core/event> ,
     <https://vocab.earth616.local/ont/modules/core/identifier> ,
     <https://vocab.earth616.local/ont/modules/scdocumentation/document> ,

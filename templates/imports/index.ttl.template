@@ -96,5 +96,70 @@
     schema:license <https://creativecommons.org/licenses/by/3.0/> ;
     rdfs:comment "Research project with unreliable server availability - cached for reliable agent access" .
 
+# OWL-Time Ontology
+:owl-time a :CachedImport ;
+    schema:name "OWL-Time Ontology" ;
+    schema:description "W3C ontology for temporal concepts" ;
+    :originalUrl <http://www.w3.org/2006/time> ;
+    schema:contentUrl <${ONTOLOGY_BASE_URI}/imports/time.ttl> ;
+    schema:encodingFormat "text/turtle" ;
+    schema:dateModified "${BUILD_DATE}"^^xsd:date ;
+    schema:availability "Available" ;
+    schema:creator "W3C/OGC" ;
+    schema:license <https://creativecommons.org/licenses/by/4.0/> ;
+    rdfs:comment "Canonical W3C temporal ontology for describing temporal properties and relationships" .
+
+# OWL-Time Temporal Aggregates Extension
+:owl-time-agg a :CachedImport ;
+    schema:name "OWL-Time Temporal Aggregates" ;
+    schema:description "Extension to OWL-Time for temporal aggregates" ;
+    :originalUrl <https://www.w3.org/2006/time/agg> ;
+    schema:contentUrl <${ONTOLOGY_BASE_URI}/imports/time-agg.ttl> ;
+    schema:encodingFormat "text/turtle" ;
+    schema:dateModified "${BUILD_DATE}"^^xsd:date ;
+    schema:availability "Available" ;
+    schema:creator "W3C/OGC" ;
+    schema:license <https://creativecommons.org/licenses/by/4.0/> ;
+    rdfs:comment "Extension module for OWL-Time supporting temporal aggregations" .
+
+# OWL-Time PROV-O Alignment
+:owl-time-prov a :CachedImport ;
+    schema:name "OWL-Time PROV-O Alignment" ;
+    schema:description "Alignment between OWL-Time and PROV-O ontologies" ;
+    :originalUrl <http://www.w3.org/2006/time/prov> ;
+    schema:contentUrl <${ONTOLOGY_BASE_URI}/imports/time-prov.ttl> ;
+    schema:encodingFormat "text/turtle" ;
+    schema:dateModified "${BUILD_DATE}"^^xsd:date ;
+    schema:availability "Available" ;
+    schema:creator "W3C/OGC" ;
+    schema:license <https://creativecommons.org/licenses/by/4.0/> ;
+    rdfs:comment "Ontology alignment connecting temporal concepts with provenance modeling" .
+
+# GeoSPARQL Ontology
+:geosparql a :CachedImport ;
+    schema:name "GeoSPARQL Ontology" ;
+    schema:description "OGC ontology for geographic information and spatial relationships" ;
+    :originalUrl <http://www.opengis.net/ont/geosparql> ;
+    schema:contentUrl <${ONTOLOGY_BASE_URI}/imports/geo.ttl> ;
+    schema:encodingFormat "text/turtle" ;
+    schema:dateModified "${BUILD_DATE}"^^xsd:date ;
+    schema:availability "Available" ;
+    schema:creator "OGC GeoSPARQL Standards Working Group" ;
+    schema:license <https://www.ogc.org/license> ;
+    rdfs:comment "Standard ontology for geographic information systems and spatial data representation" .
+
+# GeoSPARQL Profile Declaration
+:geosparql-profile a :CachedImport ;
+    schema:name "GeoSPARQL 1.1 Profile" ;
+    schema:description "W3C PROF profile declaration for GeoSPARQL 1.1 specification" ;
+    :originalUrl <http://www.opengis.net/def/geosparql> ;
+    schema:contentUrl <${ONTOLOGY_BASE_URI}/imports/profile.ttl> ;
+    schema:encodingFormat "text/turtle" ;
+    schema:dateModified "${BUILD_DATE}"^^xsd:date ;
+    schema:availability "Available" ;
+    schema:creator "OGC GeoSPARQL Standards Working Group" ;
+    schema:license <https://www.ogc.org/license> ;
+    rdfs:comment "Profile declaration describing GeoSPARQL specification parts and conformance classes" .
+
 # Registry metadata
-<${ONTOLOGY_BASE_URI}/imports/> schema:dataset :gs1-vocab, :epcis-ontology, :cbv-ontology, :schema-org, :oplax .
+<${ONTOLOGY_BASE_URI}/imports/> schema:dataset :gs1-vocab, :epcis-ontology, :cbv-ontology, :schema-org, :oplax, :owl-time, :owl-time-agg, :owl-time-prov, :geosparql, :geosparql-profile .

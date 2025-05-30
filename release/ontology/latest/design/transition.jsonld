@@ -79,6 +79,17 @@
             "rdfs:isDefinedBy": {
                 "@id": "https://vocab.earth616.local/ont/modules/design/transition"
             },
+            "rdfs:subClassOf": [
+                {
+                    "@id": "_:b9"
+                },
+                {
+                    "@id": "_:b10"
+                },
+                {
+                    "@id": "_:b11"
+                }
+            ],
             "rdfs:comment": {
                 "@language": "en",
                 "@value": "A change from one state to another, occurring over a specific time interval and potentially triggered by events or conditions."
@@ -432,6 +443,9 @@
             },
             "owl:imports": [
                 {
+                    "@id": "https://vocab.earth616.local/ont/patterns/SpatioTemporalExtent"
+                },
+                {
                     "@id": "https://vocab.earth616.local/ont/modules/traceability/tru"
                 },
                 {
@@ -605,24 +619,123 @@
             "@type": "owl:ObjectProperty"
         },
         {
+            "@id": "https://vocab.earth616.local/onttransitionDuration",
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/transition"
+            },
+            "rdfs:range": {
+                "@id": "xsd:duration"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontTransition"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "time:hasXSDDuration"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The duration of a state transition as an XSD duration."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "transition duration"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/onttransitionEndsAt",
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/transition"
+            },
+            "rdfs:range": {
+                "@id": "time:Instant"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontTransition"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "time:hasEnd"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The instant when a state transition completes."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "transition ends at"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/onttransitionStartsAt",
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/transition"
+            },
+            "rdfs:range": {
+                "@id": "time:Instant"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontTransition"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "time:hasBeginning"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The instant when a state transition begins."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "transition starts at"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "https://vocab.earth616.local/onttransitionDuring",
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.local/ont/modules/design/transition"
+            },
+            "rdfs:range": {
+                "@id": "time:ProperInterval"
+            },
+            "rdfs:domain": {
+                "@id": "https://vocab.earth616.local/ontTransition"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "time:hasTime"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The time interval during which a state transition occurs."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "transition during"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
             "@id": "https://vocab.earth616.local/ontoccurrenceInterval",
             "skos:definition": {
                 "@language": "en",
-                "@value": "Links state occurrences to their temporal extents"
+                "@value": "Links state occurrences to their temporal intervals using W3C Time"
             },
             "rdfs:isDefinedBy": {
                 "@id": "https://vocab.earth616.local/ont/modules/design/transition"
             },
             "rdfs:comment": {
                 "@language": "en",
-                "@value": "The time interval during which the state occurrence was active."
+                "@value": "The time interval during which the state occurrence was active, using W3C Time ontology."
             },
             "rdfs:label": {
                 "@language": "en",
                 "@value": "occurrence interval"
             },
+            "rdfs:subPropertyOf": {
+                "@id": "time:hasTime"
+            },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.local/ontSpatioTemporalExtent"
+                "@id": "time:ProperInterval"
             },
             "rdfs:domain": {
                 "@id": "https://vocab.earth616.local/ontStateOccurrence"
@@ -824,6 +937,38 @@
             ]
         },
         {
+            "@id": "_:b9",
+            "owl:cardinality": {
+                "@value": "1",
+                "@type": "xsd:nonNegativeInteger"
+            },
+            "owl:onProperty": {
+                "@id": "https://vocab.earth616.local/onttoState"
+            },
+            "@type": "owl:Restriction"
+        },
+        {
+            "@id": "_:b10",
+            "owl:cardinality": {
+                "@value": "1",
+                "@type": "xsd:nonNegativeInteger"
+            },
+            "owl:onProperty": {
+                "@id": "https://vocab.earth616.local/ontfromState"
+            },
+            "@type": "owl:Restriction"
+        },
+        {
+            "@id": "_:b11",
+            "owl:someValuesFrom": {
+                "@id": "time:ProperInterval"
+            },
+            "owl:onProperty": {
+                "@id": "https://vocab.earth616.local/onttransitionDuring"
+            },
+            "@type": "owl:Restriction"
+        },
+        {
             "@id": "https://vocab.earth616.local/ontMaterialState",
             "skos:example": {
                 "@language": "en",
@@ -854,13 +999,14 @@
         "schema": "http://schema.org/",
         "ammo": "https://w3id.org/ammo/ont/",
         "owl": "http://www.w3.org/2002/07/owl#",
-        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-        "xml": "http://www.w3.org/XML/1998/namespace",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "skos": "http://www.w3.org/2004/02/skos/core#",
         "dscdo": "https://vocab.earth616.local/ont",
-        "dcterms": "http://purl.org/dc/terms/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "xml": "http://www.w3.org/XML/1998/namespace",
+        "dcterms": "http://purl.org/dc/terms/",
+        "time": "http://www.w3.org/2006/time#",
         "prov": "http://www.w3.org/ns/prov#",
         "@vocab": "https://vocab.earth616.local/ont"
     }

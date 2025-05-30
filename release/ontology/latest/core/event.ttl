@@ -8,6 +8,10 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
+# --- Standard Vocabularies ---
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+
 # --- DSCDO (environment-specific namespace) ---
 @prefix dscdo: <https://vocab.earth616.local/ont/> .
 @prefix : <https://vocab.earth616.local/ont/> .
@@ -17,11 +21,33 @@
 # Core Event Module
 # =============================================================================
 
+<https://vocab.earth616.local/ont/modules/core/event>
+    a owl:Ontology ;
+    rdfs:label "Core Event Module"@en ;
+    rdfs:comment "Core event modeling with spatiotemporal extent patterns using W3C Time and GeoSPARQL vocabularies"@en ;
+    
+    # Import standard vocabularies through cached imports
+    owl:imports <https://vocab.earth616.local/ont/imports/time> ;
+    owl:imports <https://vocab.earth616.local/ont/imports/geo> ;
+    
+    # Import the enhanced spatiotemporal pattern
+    owl:imports <https://vocab.earth616.local/ont/patterns/SpatioTemporalExtent> .
+
 # === Classes ===
 
 dscdo:Event rdf:type rdfs:Class ;
     rdfs:label "Event"@en ;
     rdfs:comment "Represents any kind of events. An event possesses a spatiotemporal extent, provides at least one participant-role, which is performed by some entity (agents or otherwise), and may be a sub-event of another event. An event may also have additional descriptive information, which is consolidated through an information object."@en ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty dscdo:hasSpatioTemporalExtent ;
+        owl:someValuesFrom dscdo:SpatioTemporalExtent
+    ] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty dscdo:providesParticipantRole ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
     rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/event> ;
     skos:definition "A temporal entity that represents occurrences or happenings in time and space"@en .
 
@@ -31,18 +57,8 @@ dscdo:ParticipantRole rdf:type rdfs:Class ;
     rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/event> ;
     skos:definition "A role played by an agent or entity participating in an event"@en .
 
-dscdo:SpatioTemporalExtent rdf:type rdfs:Class ;
-    rdfs:label "Spatiotemporal Extent"@en ;
-    rdfs:comment "Hook to a complex notion representing a unified spatial and temporal extent. Intended to cover non-static or discontinuous spatiotemporal extent. Should be aligned to a separate Spatiotemporal Extent pattern."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/event> ;
-    skos:definition "The spatial and temporal boundaries of an event or entity"@en .
-
-dscdo:TemporalExtent rdf:type rdfs:Class ;
-    rdfs:label "Temporal Extent"@en ;
-    rdfs:comment "Represents the temporal extent of an event."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/event> ;
-    rdfs:subClassOf dscdo:SpatioTemporalExtent ;
-    skos:definition "The temporal boundaries of an event"@en .
+# Note: SpatioTemporalExtent and TemporalExtent classes are now defined 
+# in the SpatioTemporalExtent pattern and imported above
 
 dscdo:InformationObject rdf:type rdfs:Class ;
     rdfs:label "Information Object"@en ;
@@ -58,11 +74,8 @@ dscdo:Agent rdf:type rdfs:Class ;
 
 # === Object Properties ===
 
-dscdo:hasSpatioTemporalExtent rdf:type rdf:Property ;
-    rdfs:label "has spatiotemporal extent"@en ;
-    rdfs:comment "Property relating Event to SpatioTemporalExtent in this pattern. The range is always SpatioTemporalExtent (globally) since it makes no sense to have a property named hasSpatioTemporalExtent to point to anything other than spatiotemporal extent. The domain is not set to Event as non-Event may also have spatiotemporal extent."@en ;
-    rdfs:range dscdo:SpatioTemporalExtent ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/event> .
+# Note: hasSpatioTemporalExtent and related properties are now defined 
+# in the SpatioTemporalExtent pattern and imported above
 
 dscdo:providesParticipantRole rdf:type rdf:Property ;
     rdfs:label "provides participant role"@en ;

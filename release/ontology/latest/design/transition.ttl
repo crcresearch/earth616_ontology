@@ -8,6 +8,9 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
+# --- Standard Vocabularies ---
+@prefix time: <http://www.w3.org/2006/time#> .
+
 # --- DSCDO (environment-specific namespace) ---
 @prefix dscdo: <https://vocab.earth616.local/ont> .
 @prefix : <https://vocab.earth616.local/ont> .
@@ -30,6 +33,7 @@
     # === Module Dependencies ===
     owl:imports <https://vocab.earth616.local/ont/modules/core/event> ;
     owl:imports <https://vocab.earth616.local/ont/modules/traceability/tru> ;
+    owl:imports <https://vocab.earth616.local/ont/patterns/SpatioTemporalExtent> ;
     
     # === AMMO Provenance ===
     dcterms:source <https://w3id.org/ammo/ont/> ;
@@ -83,6 +87,21 @@ dscdo:LifecycleState rdf:type rdfs:Class ;
 dscdo:Transition rdf:type rdfs:Class ;
     rdfs:label "Transition"@en ;
     rdfs:comment "A change from one state to another, occurring over a specific time interval and potentially triggered by events or conditions."@en ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty dscdo:transitionDuring ;
+        owl:someValuesFrom time:ProperInterval
+    ] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty dscdo:fromState ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty dscdo:toState ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger
+    ] ;
     rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
     skos:definition "A state change process with defined source and target states"@en ;
     skos:example "Raw material to in-process transition, Testing to approved transition, Manufacturing to quality control transition"@en ;
@@ -165,11 +184,52 @@ dscdo:occurrenceState rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
 
 dscdo:occurrenceInterval rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
     rdfs:domain dscdo:StateOccurrence ;
-    rdfs:range dscdo:SpatioTemporalExtent ;
+    rdfs:range time:ProperInterval ;
+    rdfs:subPropertyOf time:hasTime ;
     rdfs:label "occurrence interval"@en ;
-    rdfs:comment "The time interval during which the state occurrence was active."@en ;
+    rdfs:comment "The time interval during which the state occurrence was active, using W3C Time ontology."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
-    skos:definition "Links state occurrences to their temporal extents"@en .
+    skos:definition "Links state occurrences to their temporal intervals using W3C Time"@en .
+
+# =============================================================================
+# Temporal Properties for Transitions
+# =============================================================================
+
+dscdo:transitionDuring
+    a owl:ObjectProperty ;
+    rdfs:label "transition during"@en ;
+    rdfs:comment "The time interval during which a state transition occurs."@en ;
+    rdfs:subPropertyOf time:hasTime ;
+    rdfs:domain dscdo:Transition ;
+    rdfs:range time:ProperInterval ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> .
+
+dscdo:transitionStartsAt
+    a owl:ObjectProperty ;
+    rdfs:label "transition starts at"@en ;
+    rdfs:comment "The instant when a state transition begins."@en ;
+    rdfs:subPropertyOf time:hasBeginning ;
+    rdfs:domain dscdo:Transition ;
+    rdfs:range time:Instant ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> .
+
+dscdo:transitionEndsAt
+    a owl:ObjectProperty ;
+    rdfs:label "transition ends at"@en ;
+    rdfs:comment "The instant when a state transition completes."@en ;
+    rdfs:subPropertyOf time:hasEnd ;
+    rdfs:domain dscdo:Transition ;
+    rdfs:range time:Instant ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> .
+
+dscdo:transitionDuration
+    a owl:DatatypeProperty ;
+    rdfs:label "transition duration"@en ;
+    rdfs:comment "The duration of a state transition as an XSD duration."@en ;
+    rdfs:subPropertyOf time:hasXSDDuration ;
+    rdfs:domain dscdo:Transition ;
+    rdfs:range xsd:duration ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> .
 
 # =============================================================================
 # TRANSITION EVENTS

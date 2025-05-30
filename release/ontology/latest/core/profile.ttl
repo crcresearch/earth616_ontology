@@ -17,6 +17,7 @@
 
 # --- DSCDO (environment-specific namespace) ---
 @prefix dscdo: <https://vocab.earth616.local/ont/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @base <https://vocab.earth616.local/ont/> .
 
 # =============================================================================
@@ -64,9 +65,12 @@
     prof:hasResource [
         a prof:ResourceDescriptor ;
         rdfs:label "Documentation Module" ;
-        rdfs:comment "Supply chain documentation modeling" ;
+        rdfs:comment "Supply chain documentation modeling - provides foundation for design specifications and TRU validation evidence" ;
         dcterms:format "text/turtle" ;
         prof:hasArtifact <https://vocab.earth616.local/ont/modules/scdocumentation/document> ;
+        prof:hasRole prof:specification ;
+        dscdo:enablesModule <https://vocab.earth616.local/ont/modules/design/specification> ;
+        dscdo:providesEvidenceFor <https://vocab.earth616.local/ont/modules/traceability/tru> ;
         sh:order 3 ;
     ] ;
 
@@ -82,9 +86,12 @@
     prof:hasResource [
         a prof:ResourceDescriptor ;
         rdfs:label "Traceable Resource Unit Module" ;
-        rdfs:comment "Traceable Resource Unit (TRU) modeling for supply chain traceability" ;
+        rdfs:comment "Traceable Resource Unit (TRU) modeling for supply chain traceability - validates against design specifications from documentation" ;
         dcterms:format "text/turtle" ;
         prof:hasArtifact <https://vocab.earth616.local/ont/modules/traceability/tru> ;
+        prof:hasRole prof:validation ;
+        dscdo:validatesAgainst <https://vocab.earth616.local/ont/modules/design/specification> ;
+        dscdo:documentedBy <https://vocab.earth616.local/ont/modules/scdocumentation/document> ;
         sh:order 5 ;
     ] ;
 
@@ -118,9 +125,12 @@
     prof:hasResource [
         a prof:ResourceDescriptor ;
         rdfs:label "Enhanced Specification Module" ;
-        rdfs:comment "Material and quantity specifications with validation and compliance tracking" ;
+        rdfs:comment "Material and quantity specifications with validation and compliance tracking - extends documentation patterns to constrain TRU properties" ;
         dcterms:format "text/turtle" ;
         prof:hasArtifact <https://vocab.earth616.local/ont/modules/design/specification> ;
+        prof:hasRole prof:constraint ;
+        dscdo:extendsModule <https://vocab.earth616.local/ont/modules/scdocumentation/document> ;
+        dscdo:constrainsModule <https://vocab.earth616.local/ont/modules/traceability/tru> ;
         sh:order 9 ;
     ] ;
 
@@ -183,4 +193,137 @@
         prof:hasRole prof:guidance ;
         prof:hasArtifact <https://vocab.earth616.local/ont/patterns/SemanticTrajectory> ;
         sh:order 22 ;
+    ] ;
+
+    # === Integration Patterns ===
+    
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "Document-Specification-TRU Integration Pattern" ;
+        rdfs:comment "Core integration pattern showing how documents define specifications that constrain and validate TRUs" ;
+        dcterms:format "text/turtle" ;
+        prof:hasRole prof:guidance ;
+        dscdo:integratesModules ( 
+            <https://vocab.earth616.local/ont/modules/scdocumentation/document>
+            <https://vocab.earth616.local/ont/modules/design/specification> 
+            <https://vocab.earth616.local/ont/modules/traceability/tru>
+        ) ;
+        skos:note "Documents provide specifications that TRUs must satisfy through validation events and compliance tracking" ;
+        sh:order 30 ;
+    ] ;
+
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "Material Certification Workflow Pattern" ;
+        rdfs:comment "Complete workflow pattern for material certification from specification to validated TRU" ;
+        dcterms:format "text/turtle" ;
+        prof:hasRole prof:guidance ;
+        dscdo:workflowSteps ( 
+            "Material Design Specification Document"
+            "Specification Validation Event"
+            "Specified Quantity Of Material"
+            "Traceable Resource Unit with Compliance"
+        ) ;
+        skos:example "Steel specification document → validation testing → compliant steel quantity → certified TRU" ;
+        sh:order 31 ;
+    ] ;
+
+    # === Use Case Patterns ===
+    
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "Material Compliance Use Case" ;
+        rdfs:comment "Use case demonstrating how material specifications documents validate TRU compliance" ;
+        dcterms:format "text/turtle" ;
+        prof:hasRole prof:guidance ;
+        dscdo:involvedModules ( "documentation" "specification" "tru" ) ;
+        dscdo:useCaseDescription "A defense contractor receives material specifications requiring steel with specific composition. They create TRUs for steel batches and validate them against the specifications through testing events that reference the original specification documents as evidence." ;
+        skos:example "MIL-STD steel specification → steel batch TRU → composition testing → compliance validation" ;
+        sh:order 40 ;
+    ] ;
+
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "Supply Chain Audit Use Case" ;
+        rdfs:comment "Use case showing how documents provide audit trails for TRU provenance and compliance" ;
+        dcterms:format "text/turtle" ;
+        prof:hasRole prof:guidance ;
+        dscdo:involvedModules ( "documentation" "specification" "tru" "supplychain" ) ;
+        dscdo:useCaseDescription "During a supply chain audit, investigators trace a component TRU back through its transformation events to find the original material specification documents and validation evidence that prove compliance with defense standards." ;
+        skos:example "Component TRU → transformation events → source material TRU → specification documents → compliance evidence" ;
+        sh:order 41 ;
+    ] ;
+
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "Quality Assurance Use Case" ;
+        rdfs:comment "Use case demonstrating how quality specifications constrain TRU acceptance criteria" ;
+        dcterms:format "text/turtle" ;
+        prof:hasRole prof:guidance ;
+        dscdo:involvedModules ( "documentation" "specification" "tru" ) ;
+        dscdo:useCaseDescription "Quality assurance teams use specification documents to define acceptance criteria for incoming TRUs. Each TRU must demonstrate compliance through validation events that reference specific quality standards and testing procedures documented in the specifications." ;
+        skos:example "Quality specification document → acceptance criteria → TRU validation → compliance certification" ;
+        sh:order 42 ;
     ] .
+
+# =============================================================================
+# Cross-Module Integration Properties
+# =============================================================================
+
+# Properties for describing module relationships
+dscdo:enablesModule rdf:type owl:ObjectProperty ;
+    rdfs:label "enables module"@en ;
+    rdfs:comment "Indicates that this module provides foundational capabilities for another module"@en ;
+    rdfs:domain prof:ResourceDescriptor ;
+    rdfs:range prof:ResourceDescriptor .
+
+dscdo:providesEvidenceFor rdf:type owl:ObjectProperty ;
+    rdfs:label "provides evidence for"@en ;
+    rdfs:comment "Indicates that this module provides validation evidence or documentation for another module"@en ;
+    rdfs:domain prof:ResourceDescriptor ;
+    rdfs:range prof:ResourceDescriptor .
+
+dscdo:validatesAgainst rdf:type owl:ObjectProperty ;
+    rdfs:label "validates against"@en ;
+    rdfs:comment "Indicates that entities in this module are validated against specifications from another module"@en ;
+    rdfs:domain prof:ResourceDescriptor ;
+    rdfs:range prof:ResourceDescriptor .
+
+dscdo:documentedBy rdf:type owl:ObjectProperty ;
+    rdfs:label "documented by"@en ;
+    rdfs:comment "Indicates that entities in this module are documented or specified by another module"@en ;
+    rdfs:domain prof:ResourceDescriptor ;
+    rdfs:range prof:ResourceDescriptor .
+
+dscdo:extendsModule rdf:type owl:ObjectProperty ;
+    rdfs:label "extends module"@en ;
+    rdfs:comment "Indicates that this module extends or specializes concepts from another module"@en ;
+    rdfs:domain prof:ResourceDescriptor ;
+    rdfs:range prof:ResourceDescriptor .
+
+dscdo:constrainsModule rdf:type owl:ObjectProperty ;
+    rdfs:label "constrains module"@en ;
+    rdfs:comment "Indicates that this module defines constraints or requirements for entities in another module"@en ;
+    rdfs:domain prof:ResourceDescriptor ;
+    rdfs:range prof:ResourceDescriptor .
+
+dscdo:integratesModules rdf:type owl:ObjectProperty ;
+    rdfs:label "integrates modules"@en ;
+    rdfs:comment "Lists the modules that this integration pattern connects"@en ;
+    rdfs:domain prof:ResourceDescriptor .
+
+dscdo:workflowSteps rdf:type owl:DatatypeProperty ;
+    rdfs:label "workflow steps"@en ;
+    rdfs:comment "Ordered list of steps in an integration workflow pattern"@en ;
+    rdfs:domain prof:ResourceDescriptor .
+
+dscdo:involvedModules rdf:type owl:DatatypeProperty ;
+    rdfs:label "involved modules"@en ;
+    rdfs:comment "List of module names that participate in this use case or pattern"@en ;
+    rdfs:domain prof:ResourceDescriptor .
+
+dscdo:useCaseDescription rdf:type owl:DatatypeProperty ;
+    rdfs:label "use case description"@en ;
+    rdfs:comment "Detailed description of how modules work together in this use case scenario"@en ;
+    rdfs:domain prof:ResourceDescriptor ;
+    rdfs:range xsd:string .

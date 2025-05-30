@@ -8,6 +8,10 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
+# --- Standard Vocabularies ---
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+
 # --- DSCDO (environment-specific namespace) ---
 @prefix dscdo: <https://vocab.earth616.local/ont/> .
 @prefix : <https://vocab.earth616.local/ont/> .
@@ -16,6 +20,15 @@
 # =============================================================================
 # Supply Chain Event Module
 # =============================================================================
+
+<https://vocab.earth616.local/ont/modules/supplychain/eventmodule>
+    a owl:Ontology ;
+    rdfs:label "Supply Chain Event Module"@en ;
+    rdfs:comment "Supply chain events with enhanced spatial and temporal capabilities using W3C Time and GeoSPARQL vocabularies"@en ;
+    
+    # Import enhanced spatiotemporal pattern
+    owl:imports <https://vocab.earth616.local/ont/patterns/SpatioTemporalExtent> ;
+    owl:imports <https://vocab.earth616.local/ont/modules/core/event> .
 
 # === Classes ===
 
@@ -42,6 +55,16 @@ dscdo:TransformationEvent rdf:type owl:Class ;
 
 dscdo:TransportEvent rdf:type owl:Class ;
     rdfs:subClassOf dscdo:SupplyChainEvent ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty dscdo:hasOriginLocation ;
+        owl:someValuesFrom geo:Feature
+    ] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty dscdo:hasDestinationLocation ;
+        owl:someValuesFrom geo:Feature
+    ] ;
     rdfs:label "Transport Event"@en ;
     rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> ;
     rdfs:comment "An event representing the movement of goods from one location to another."@en ;
@@ -97,3 +120,83 @@ dscdo:ManufacturerRole rdf:type owl:Class ;
     rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> ;
     rdfs:comment "The role of an entity that produces or transforms goods in a supply chain event."@en ;
     skos:definition "A participant role representing an entity that creates or modifies products"@en .
+
+# =============================================================================
+# Spatial Properties for Supply Chain Events
+# =============================================================================
+
+dscdo:hasOriginLocation
+    a owl:ObjectProperty ;
+    rdfs:label "has origin location"@en ;
+    rdfs:comment "Relates a transport event to its starting geographic location."@en ;
+    rdfs:subPropertyOf geo:hasGeometry ;
+    rdfs:domain dscdo:TransportEvent ;
+    rdfs:range geo:Feature ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> .
+
+dscdo:hasDestinationLocation
+    a owl:ObjectProperty ;
+    rdfs:label "has destination location"@en ;
+    rdfs:comment "Relates a transport event to its ending geographic location."@en ;
+    rdfs:subPropertyOf geo:hasGeometry ;
+    rdfs:domain dscdo:TransportEvent ;
+    rdfs:range geo:Feature ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> .
+
+dscdo:hasCurrentLocation
+    a owl:ObjectProperty ;
+    rdfs:label "has current location"@en ;
+    rdfs:comment "Relates a supply chain event to its current geographic location."@en ;
+    rdfs:subPropertyOf geo:hasGeometry ;
+    rdfs:domain dscdo:SupplyChainEvent ;
+    rdfs:range geo:Feature ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> .
+
+dscdo:followsRoute
+    a owl:ObjectProperty ;
+    rdfs:label "follows route"@en ;
+    rdfs:comment "Relates a transport event to the geometric route taken."@en ;
+    rdfs:subPropertyOf geo:hasGeometry ;
+    rdfs:domain dscdo:TransportEvent ;
+    rdfs:range geo:Geometry ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> .
+
+# =============================================================================
+# Temporal Aggregation Properties for Supply Chain Events
+# =============================================================================
+
+dscdo:hasEventSequence
+    a owl:ObjectProperty ;
+    rdfs:label "has event sequence"@en ;
+    rdfs:comment "Relates a complex supply chain process to a sequence of constituent events."@en ;
+    rdfs:subPropertyOf time:hasPart ;
+    rdfs:domain dscdo:SupplyChainEvent ;
+    rdfs:range dscdo:SupplyChainEvent ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> .
+
+dscdo:followsEvent
+    a owl:ObjectProperty ;
+    rdfs:label "follows event"@en ;
+    rdfs:comment "Indicates temporal ordering between supply chain events."@en ;
+    rdfs:subPropertyOf time:after ;
+    rdfs:domain dscdo:SupplyChainEvent ;
+    rdfs:range dscdo:SupplyChainEvent ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> .
+
+dscdo:precedesEvent
+    a owl:ObjectProperty ;
+    rdfs:label "precedes event"@en ;
+    rdfs:comment "Indicates temporal precedence between supply chain events."@en ;
+    rdfs:subPropertyOf time:before ;
+    rdfs:domain dscdo:SupplyChainEvent ;
+    rdfs:range dscdo:SupplyChainEvent ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> .
+
+dscdo:duringTimeInterval
+    a owl:ObjectProperty ;
+    rdfs:label "during time interval"@en ;
+    rdfs:comment "Relates a supply chain event to the time interval during which it occurs."@en ;
+    rdfs:subPropertyOf time:hasTime ;
+    rdfs:domain dscdo:SupplyChainEvent ;
+    rdfs:range time:ProperInterval ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> .

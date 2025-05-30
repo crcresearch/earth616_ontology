@@ -96,10 +96,22 @@ The ontology is designed to be extensible to support modeling of domain-specific
     prof:hasProfile <${ONTOLOGY_BASE}/profile/> .
 
 # =============================================================================
-# Module Imports (for merged ontology)
+# Standard Vocabulary Imports
 # =============================================================================
 
 <${ONTOLOGY_BASE}/> owl:imports 
+    # Standard vocabularies through import cache
+    <${ONTOLOGY_BASE}/imports/time> ,
+    <${ONTOLOGY_BASE}/imports/geo> ,
+    <${ONTOLOGY_BASE}/imports/time-agg> ,
+    <${ONTOLOGY_BASE}/imports/time-prov> ,
+    
+    # Ontology design patterns
+    <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> ,
+    <${ONTOLOGY_BASE}/patterns/EventCore> ,
+    <${ONTOLOGY_BASE}/patterns/SemanticTrajectory> ,
+    
+    # Core modules
     <${ONTOLOGY_BASE}/modules/core/event> ,
     <${ONTOLOGY_BASE}/modules/core/identifier> ,
     <${ONTOLOGY_BASE}/modules/scdocumentation/document> ,

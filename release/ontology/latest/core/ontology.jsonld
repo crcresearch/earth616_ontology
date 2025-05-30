@@ -49,6 +49,27 @@
                 },
                 {
                     "@id": "dscdo:modules/core/event"
+                },
+                {
+                    "@id": "dscdo:patterns/SemanticTrajectory"
+                },
+                {
+                    "@id": "dscdo:patterns/EventCore"
+                },
+                {
+                    "@id": "dscdo:patterns/SpatioTemporalExtent"
+                },
+                {
+                    "@id": "dscdo:imports/time-prov"
+                },
+                {
+                    "@id": "dscdo:imports/time-agg"
+                },
+                {
+                    "@id": "dscdo:imports/geo"
+                },
+                {
+                    "@id": "dscdo:imports/time"
                 }
             ],
             "prof:hasProfile": {
