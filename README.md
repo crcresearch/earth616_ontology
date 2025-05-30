@@ -166,25 +166,6 @@ Schema.org provides a collection of schemas for structured data on the Internet.
 
 The Provenance Ontology (Prov-O) supports the representation of provenance information. Aligning DSCDO with Prov-O ensures that the ontology can capture the provenance of supply chain data, enhancing transparency, accountability, and trust in the data.
 
-### ProvOne Workflow
-
-ProvOne extends the Provenance Ontology (Prov-O) to describe scientific workflows. Within the DSCDO project, ProvOne is essential for documenting the automated Knowledge Extraction (KE) and Knowledge Graph (KG) Construction workflows. 
-
-#### Key Features for DSCDO
-
-- **Detailed Process Documentation**: ProvOne provides a comprehensive framework for capturing the workflow steps, inputs, outputs, and dependencies, ensuring transparency and traceability in the KE and KG construction processes.
-- **Enhanced Traceability**: By documenting every action and decision in the workflow, ProvOne enables rigorous auditing and verification, supporting the accuracy and trustworthiness of the extracted knowledge and constructed graphs.
-
-### ML Commons Croissant
-
-ML Commons Croissant is a standard for documenting machine learning datasets, ensuring comprehensive and consistent metadata. In the DSCDO project, it plays a vital role in the automated Knowledge Extraction (KE) and Knowledge Graph (KG) Construction workflows.
-
-#### Key Features for DSCDO
-
-- **Comprehensive Metadata**: ML Commons Croissant provides detailed metadata about datasets, including their provenance, structure, and preprocessing steps, crucial for understanding the context and quality of the extracted knowledge.
-- **Dataset Traceability**: By documenting every aspect of the datasets used, ML Commons Croissant enhances traceability, making it easier to track the origin and transformations of data throughout the KE and KG workflows.
-
-These alignments ensure robust documentation, traceability, and quality control in the automated KE and KG construction processes, enhancing the transparency and reliability of the DSCDO project.
 
 
 ### SPDX Version 3.0
@@ -224,10 +205,6 @@ GeoSPARQL provides an [Open Geospatial Consortium (OGC)](https://docs.ogc.org/is
 ### W3C OWL Time and OWL Time Temporal Aggregates
 
 The W3C OWL Time ontology provides a vocabulary for expressing temporal concepts. Aligning DSCDO with OWL Time and OWL Time Temporal Aggregates ensures that the ontology can accurately represent and reason about temporal data, which is crucial for managing and analyzing time-sensitive supply chain events.
-
-### Semantic Sensor Network Ontology (SOSA)
-
-The Semantic Sensor Network Ontology (SOSA) provides a standard for describing sensors and their observations. By aligning DSCDO with SOSA, the ontology can integrate sensor data, enhancing the ability to monitor and analyze real-time conditions within the supply chain.
 
 These alignments ensure that DSCDO is built on a foundation of proven standards and best practices, enhancing its utility, reliability, and interoperability across diverse systems and applications.
 

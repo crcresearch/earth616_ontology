@@ -216,6 +216,25 @@ dscdo:measuredProperty rdf:type owl:ObjectProperty ;
     rdfs:comment "The specific property of the material being quantified"@en ;
     rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/traceability/tru> .
 
+# === Observation Event Integration ===
+
+dscdo:measurementObservation rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:QuantityOfMaterial ;
+    rdfs:range schema:Observation ;
+    rdfs:label "measurement observation"@en ;
+    rdfs:comment "Links a quantity of material to the schema.org observation that captured its measurement data."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/traceability/tru> ;
+    skos:definition "Connects material quantities to their observational provenance following schema.org patterns"@en .
+
+dscdo:observedQuantity rdf:type owl:ObjectProperty ;
+    rdfs:domain schema:Observation ;
+    rdfs:range dscdo:QuantityOfMaterial ;
+    rdfs:label "observed quantity"@en ;
+    rdfs:comment "Links a schema.org observation to the quantity of material that was measured."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/traceability/tru> ;
+    skos:definition "Inverse relationship connecting observations to their material quantity results"@en ;
+    owl:inverseOf dscdo:measurementObservation .
+
 # === Structured Examples ===
 
 dscdo:TraceableResourceUnit skos:example """
@@ -268,6 +287,48 @@ dscdo:inputTRU skos:example """
       "hasIdentifier": {"value": "SC-002-2024", "propertyID": "ComponentSerial"}, 
       "consistsOf": {"value": 13.3, "unitCode": "KGM"},
       "predecessorOf": "${ONTOLOGY_BASE}/examples/tru/steel-batch-001"
+    }
+  ]
+}
+"""@en .
+
+# === Schema.org Observation Integration Example ===
+
+dscdo:observationIntegration skos:example """
+{
+  "@context": {
+    "@vocab": "${ONTOLOGY_BASE}/",
+    "schema": "http://schema.org/",
+    "Observation": "schema:Observation",
+    "observationAbout": "schema:observationAbout",
+    "observationDate": "schema:observationDate",
+    "measuredProperty": "schema:measuredProperty",
+    "value": "schema:value"
+  },
+  "@graph": [
+    {
+      "@type": "ObservationEvent",
+      "@id": "${ONTOLOGY_BASE}/examples/events/mass-measurement-001",
+      "startedAtTime": "2024-03-15T08:45:00Z",
+      "observationAbout": "${ONTOLOGY_BASE}/examples/tru/steel-batch-001",
+      "observationDate": "2024-03-15T08:45:00Z",
+      "hasObservationResult": {
+        "@type": "Observation",
+        "@id": "${ONTOLOGY_BASE}/examples/observations/mass-obs-001",
+        "observationAbout": "${ONTOLOGY_BASE}/examples/tru/steel-batch-001",
+        "observationDate": "2024-03-15T08:45:00Z",
+        "measuredProperty": "mass",
+        "value": {
+          "@type": "QuantityOfMaterial",
+          "value": 25.5,
+          "unitCode": "KGM",
+          "unitText": "kilograms",
+          "hasMeasurementMethod": "industrial_scale_weighing",
+          "measurementObservation": "${ONTOLOGY_BASE}/examples/observations/mass-obs-001"
+        },
+        "observationMethod": "digital_industrial_scale",
+        "marginOfError": 0.1
+      }
     }
   ]
 }

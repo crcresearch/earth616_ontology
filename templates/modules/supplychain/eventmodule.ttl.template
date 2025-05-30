@@ -72,10 +72,20 @@ dscdo:TransportEvent rdf:type owl:Class ;
 
 dscdo:ObservationEvent rdf:type owl:Class ;
     rdfs:subClassOf dscdo:SupplyChainEvent ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty dscdo:observationAbout ;
+        owl:someValuesFrom owl:Thing
+    ] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty dscdo:hasObservationResult ;
+        owl:someValuesFrom schema:Observation
+    ] ;
     rdfs:label "Observation Event"@en ;
     rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/supplychain/eventmodule> ;
-    rdfs:comment "An event representing the observation or measurement of supply chain items without changing their state."@en ;
-    skos:definition "An event that records data collection or monitoring activities without altering the observed items"@en .
+    rdfs:comment "An event representing the observation or measurement of supply chain items without changing their state, aligned with schema.org observation patterns."@en ;
+    skos:definition "An event that records data collection or monitoring activities without altering the observed items, producing structured observations following schema.org standards"@en .
 
 dscdo:AggregationEvent rdf:type owl:Class ;
     rdfs:subClassOf dscdo:SupplyChainEvent ;
@@ -200,3 +210,69 @@ dscdo:duringTimeInterval
     rdfs:domain dscdo:SupplyChainEvent ;
     rdfs:range time:ProperInterval ;
     rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/supplychain/eventmodule> .
+
+# =============================================================================
+# Schema.org Observation Integration Properties
+# =============================================================================
+
+dscdo:observationAbout
+    a owl:ObjectProperty ;
+    rdfs:label "observation about"@en ;
+    rdfs:comment "Relates an observation event to the entity being observed, aligned with schema.org observationAbout."@en ;
+    rdfs:subPropertyOf schema:observationAbout ;
+    rdfs:domain dscdo:ObservationEvent ;
+    rdfs:range owl:Thing ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/supplychain/eventmodule> ;
+    skos:definition "Links an observation event to the supply chain entity that is the subject of observation"@en .
+
+dscdo:hasObservationResult
+    a owl:ObjectProperty ;
+    rdfs:label "has observation result"@en ;
+    rdfs:comment "Links an observation event to the structured observation data produced, typically a schema:Observation instance."@en ;
+    rdfs:domain dscdo:ObservationEvent ;
+    rdfs:range schema:Observation ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/supplychain/eventmodule> ;
+    skos:definition "Connects an observation event to its structured result following schema.org observation patterns"@en .
+
+dscdo:observationDate
+    a owl:DatatypeProperty ;
+    rdfs:label "observation date"@en ;
+    rdfs:comment "The date/time when the observation was made, aligned with schema.org observationDate."@en ;
+    rdfs:subPropertyOf schema:observationDate ;
+    rdfs:domain dscdo:ObservationEvent ;
+    rdfs:range xsd:dateTime ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/supplychain/eventmodule> ;
+    skos:definition "Timestamp indicating when the observation was recorded"@en .
+
+dscdo:measuredProperty
+    a owl:ObjectProperty ;
+    rdfs:label "measured property"@en ;
+    rdfs:comment "The property or characteristic being measured in the observation, aligned with schema.org measuredProperty."@en ;
+    rdfs:subPropertyOf schema:measuredProperty ;
+    rdfs:domain schema:Observation ;
+    rdfs:range owl:Thing ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/supplychain/eventmodule> ;
+    skos:definition "Specifies what characteristic is being measured (e.g., temperature, weight, location)"@en .
+
+dscdo:measurementValue
+    a owl:ObjectProperty ;
+    rdfs:label "measurement value"@en ;
+    rdfs:comment "The quantitative or qualitative value resulting from the observation, typically a QuantitativeValue."@en ;
+    rdfs:subPropertyOf schema:value ;
+    rdfs:domain schema:Observation ;
+    rdfs:range [ owl:unionOf ( schema:QuantitativeValue schema:PropertyValue xsd:string xsd:boolean ) ] ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/supplychain/eventmodule> ;
+    skos:definition "The measured value or result of the observation activity"@en .
+
+dscdo:observationMethod
+    a rdf:Property ;
+    rdfs:label "observation method"@en ;
+    rdfs:comment "The technique or method used to make the observation, extending schema.org measurementTechnique. Can be a string (e.g., 'digital_scale') or a structured object describing the method."@en ;
+    rdfs:subPropertyOf schema:measurementTechnique ;
+    rdfs:domain schema:Observation ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/supplychain/eventmodule> ;
+    skos:definition "Describes how the observation was performed (sensor type, inspection method, etc.)"@en ;
+    skos:example '"digital_industrial_scale"'@en ;
+    skos:example '<http://www.wikidata.org/entity/Q134566>'@en ;
+    skos:example '<http://www.wikidata.org/entity/Q1402042>'@en ;
+    rdfs:comment "Recommended to use Wikidata URIs for standardized measurement techniques (e.g., Q134566 for weighing scale, Q1402042 for precision balance, Q180809 for mass spectrometry)"@en .

@@ -96,6 +96,26 @@ dscdo:ComplianceInformation rdf:type rdfs:Class ;
 # DISCOVERY AND ROUTING PROPERTIES
 # =============================================================================
 
+# === Workflow Capability Discovery (inspired by ProvOne) ===
+
+dscdo:hasInputType rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:InformationExtractionWorkflow ;
+    rdfs:range rdfs:Class ;
+    rdfs:label "has input type"@en ;
+    rdfs:comment "Semantic hook specifying what types of data this workflow can process, enabling LLM agents to discover workflow capabilities."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/patterns/IEIntegration> ;
+    skos:definition "Links workflows to the classes of data they can process as input"@en ;
+    oplax:hasIntent "Enable automatic workflow capability discovery and chaining"@en .
+
+dscdo:hasOutputType rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:InformationExtractionWorkflow ;
+    rdfs:range rdfs:Class ;
+    rdfs:label "has output type"@en ;
+    rdfs:comment "Semantic hook specifying what types of data this workflow produces, enabling automatic workflow chaining and output routing."@en ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/patterns/IEIntegration> ;
+    skos:definition "Links workflows to the classes of data they produce as output"@en ;
+    oplax:hasIntent "Enable automatic workflow output discovery and chaining"@en .
+
 # === Document Classification Properties ===
 
 dscdo:hasStandardFamily rdf:type owl:DatatypeProperty ;
@@ -170,7 +190,10 @@ dscdo:extractedBy rdf:type owl:ObjectProperty ;
     oplax:hasCompetencyQuestion "Which workflows are capable of extracting material composition data?"@en ;
     oplax:hasCompetencyQuestion "What standards families are supported for compliance document processing?"@en ;
     oplax:hasCompetencyQuestion "How do I route extracted test results to the appropriate TRU compliance validation?"@en ;
-    oplax:hasCompetencyQuestion "What is the complete provenance chain from a certificate document to TRU specification conformance?"@en .
+    oplax:hasCompetencyQuestion "What is the complete provenance chain from a certificate document to TRU specification conformance?"@en ;
+    oplax:hasCompetencyQuestion "What workflows can process documents of type X as input?"@en ;
+    oplax:hasCompetencyQuestion "What types of data will workflow Y produce as output?"@en ;
+    oplax:hasCompetencyQuestion "Which workflows can I chain together to process data from type A to type B?"@en .
 
 # =============================================================================
 # STANDARD SPARQL QUERIES
@@ -240,6 +263,45 @@ dscdo:extractedBy rdf:type owl:ObjectProperty ;
         ?template dscdo:extractsDataType ?extractedDataType .
     }
     ORDER BY ?standardFamily ?docType
+    """@en .
+
+<${ONTOLOGY_BASE}/queries/discover-workflow-capabilities>
+    rdf:type oplax:SPARQLQuery ;
+    rdfs:label "Discover Workflow Input/Output Capabilities"@en ;
+    rdfs:comment "Query to discover what data types workflows can process as input and produce as output, enabling automatic workflow chaining."@en ;
+    oplax:hasQueryText """
+    PREFIX dscdo: <${ONTOLOGY_BASE}>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    
+    SELECT ?workflow ?workflowLabel ?inputType ?outputType WHERE {
+        ?workflow rdf:type dscdo:InformationExtractionWorkflow .
+        ?workflow rdfs:label ?workflowLabel .
+        OPTIONAL { ?workflow dscdo:hasInputType ?inputType }
+        OPTIONAL { ?workflow dscdo:hasOutputType ?outputType }
+    }
+    ORDER BY ?workflowLabel
+    """@en .
+
+<${ONTOLOGY_BASE}/queries/find-workflow-chain>
+    rdf:type oplax:SPARQLQuery ;
+    rdfs:label "Find Workflow Chaining Opportunities"@en ;
+    rdfs:comment "Query to find workflows that can be chained together based on matching output/input types."@en ;
+    oplax:hasQueryText """
+    PREFIX dscdo: <${ONTOLOGY_BASE}>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    
+    SELECT ?firstWorkflow ?firstLabel ?secondWorkflow ?secondLabel ?dataType WHERE {
+        ?firstWorkflow rdf:type dscdo:InformationExtractionWorkflow .
+        ?firstWorkflow rdfs:label ?firstLabel .
+        ?firstWorkflow dscdo:hasOutputType ?dataType .
+        
+        ?secondWorkflow rdf:type dscdo:InformationExtractionWorkflow .
+        ?secondWorkflow rdfs:label ?secondLabel .
+        ?secondWorkflow dscdo:hasInputType ?dataType .
+        
+        FILTER(?firstWorkflow != ?secondWorkflow)
+    }
+    ORDER BY ?dataType ?firstLabel ?secondLabel
     """@en .
 
 # =============================================================================
@@ -330,6 +392,32 @@ dscdo:extractedBy rdf:type owl:ObjectProperty ;
         sh:message "Compliance information should specify its extraction workflow for provenance"@en
     ] .
 
+<${ONTOLOGY_BASE}/shapes/WorkflowCapabilityShape>
+    rdf:type sh:NodeShape ;
+    sh:targetClass dscdo:InformationExtractionWorkflow ;
+    rdfs:label "Workflow Capability Validation Shape"@en ;
+    rdfs:comment "SHACL shape ensuring workflows declare their input/output capabilities for automatic discovery and chaining."@en ;
+    
+    # Should specify input types for discoverability
+    sh:property [
+        sh:path dscdo:hasInputType ;
+        sh:name "input data types"@en ;
+        sh:description "Workflow should specify what types of data it can process as input"@en ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "Workflow should declare at least one input type for automatic discovery"@en
+    ] ;
+    
+    # Should specify output types for chaining
+    sh:property [
+        sh:path dscdo:hasOutputType ;
+        sh:name "output data types"@en ;
+        sh:description "Workflow should specify what types of data it produces as output"@en ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "Workflow should declare at least one output type for automatic chaining"@en
+    ] .
+
 # =============================================================================
 # EXAMPLE IMPLEMENTATIONS
 # =============================================================================
@@ -401,6 +489,36 @@ dscdo:extractedBy rdf:type owl:ObjectProperty ;
         schema:propertyID "Ni"
     ] .
 
+# === Example Workflows with Capability Discovery ===
+
+<${ONTOLOGY_BASE}/examples/workflows/materials-ie-workflow>
+    rdf:type dscdo:InformationExtractionWorkflow ;
+    rdfs:label "Materials Information Extraction Workflow"@en ;
+    rdfs:comment "Example workflow that processes material test reports and extracts chemical composition data."@en ;
+    
+    # Capability discovery properties (inspired by ProvOne)
+    dscdo:hasInputType <${ONTOLOGY_BASE}/examples/document-types/ASTM_A240_Report> ;
+    dscdo:hasInputType dscdo:SCDigitalDocument ;
+    dscdo:hasOutputType dscdo:ChemicalCompositionData ;
+    dscdo:hasOutputType dscdo:ComplianceInformation ;
+    
+    # Traditional workflow properties
+    schema:description "Extracts chemical composition data from ASTM material test reports using LLM-based document analysis."@en ;
+    dscdo:containerSbom <${ONTOLOGY_BASE}/examples/sboms/materials-workflow-sbom> .
+
+<${ONTOLOGY_BASE}/examples/workflows/validation-workflow>
+    rdf:type dscdo:InformationExtractionWorkflow ;
+    rdfs:label "Specification Validation Workflow"@en ;
+    rdfs:comment "Example workflow that validates extracted compliance data against design specifications."@en ;
+    
+    # Capability discovery - this workflow chains with the materials workflow
+    dscdo:hasInputType dscdo:ComplianceInformation ;
+    dscdo:hasInputType dscdo:ChemicalCompositionData ;
+    dscdo:hasOutputType dscdo:SpecificationValidationEvent ;
+    dscdo:hasOutputType dscdo:ValidationResult ;
+    
+    schema:description "Validates extracted material composition data against TRU design specifications."@en .
+
 # =============================================================================
 # USAGE GUIDELINES
 # =============================================================================
@@ -423,19 +541,26 @@ dscdo:extractedBy rdf:type owl:ObjectProperty ;
        - Specify extracted data type via dscdo:extractsDataType
        - Include LLM guidance in schema:description
     
-    3. Compliance Data Routing:
+    3. Workflow Capability Declaration (inspired by ProvOne):
+       - Declare input types via dscdo:hasInputType
+       - Declare output types via dscdo:hasOutputType
+       - Enable automatic workflow discovery and chaining
+       - Validate against WorkflowCapabilityShape
+    
+    4. Compliance Data Routing:
        - Extract as dscdo:ComplianceInformation
        - Link to specifications via dscdo:validatesSpecification
        - Include extraction provenance via dscdo:extractedBy
        - Route to validation events automatically
     
-    4. Evidence Integration:
+    5. Evidence Integration:
        - Link validation events to source documents via dscdo:evidenceFrom
        - Maintain complete audit trail from document to TRU compliance
        - Use SPARQL queries for provenance tracking
     
-    5. Discovery and Querying:
+    6. Discovery and Querying:
        - Use provided SPARQL queries for capability discovery
        - Query by standard family for processing specialization
        - Trace evidence chains for compliance auditing
+       - Use workflow capability queries for automatic chaining
     """@en .
