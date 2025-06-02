@@ -1,7 +1,7 @@
 {
     "@graph": [
         {
-            "@id": "https://vocab.earth616.local/ont/imports/geosparql-profile",
+            "@id": "https://vocab.earth616.localhost/ont/imports/geosparql-profile",
             "rdfs:comment": "Profile declaration describing GeoSPARQL specification parts and conformance classes",
             "schema:license": {
                 "@id": "https://www.ogc.org/license"
@@ -9,12 +9,12 @@
             "schema:creator": "OGC GeoSPARQL Standards Working Group",
             "schema:availability": "Available",
             "schema:dateModified": {
-                "@value": "2025-05-30",
+                "@value": "2025-06-02",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "text/turtle",
             "schema:contentUrl": {
-                "@id": "https://vocab.earth616.local/ont/imports/profile.ttl"
+                "@id": "https://vocab.earth616.localhost/ont/imports/profile.ttl"
             },
             "originalUrl": {
                 "@id": "http://www.opengis.net/def/geosparql"
@@ -24,7 +24,7 @@
             "@type": "CachedImport"
         },
         {
-            "@id": "https://vocab.earth616.local/ont/imports/CachedImport",
+            "@id": "https://vocab.earth616.localhost/ont/imports/CachedImport",
             "schema:description": "An ontology import that provides alternative resolution mechanisms for agents",
             "rdfs:subClassOf": {
                 "@id": "schema:Dataset"
@@ -32,7 +32,7 @@
             "@type": "owl:Class"
         },
         {
-            "@id": "https://vocab.earth616.local/ont/imports/geosparql",
+            "@id": "https://vocab.earth616.localhost/ont/imports/geosparql",
             "rdfs:comment": "Standard ontology for geographic information systems and spatial data representation",
             "schema:license": {
                 "@id": "https://www.ogc.org/license"
@@ -40,12 +40,12 @@
             "schema:creator": "OGC GeoSPARQL Standards Working Group",
             "schema:availability": "Available",
             "schema:dateModified": {
-                "@value": "2025-05-30",
+                "@value": "2025-06-02",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "text/turtle",
             "schema:contentUrl": {
-                "@id": "https://vocab.earth616.local/ont/imports/geo.ttl"
+                "@id": "https://vocab.earth616.localhost/ont/imports/geo.ttl"
             },
             "originalUrl": {
                 "@id": "http://www.opengis.net/ont/geosparql"
@@ -55,7 +55,7 @@
             "@type": "CachedImport"
         },
         {
-            "@id": "https://vocab.earth616.local/ont/imports/owl-time-prov",
+            "@id": "https://vocab.earth616.localhost/ont/imports/owl-time-prov",
             "rdfs:comment": "Ontology alignment connecting temporal concepts with provenance modeling",
             "schema:license": {
                 "@id": "https://creativecommons.org/licenses/by/4.0/"
@@ -63,12 +63,12 @@
             "schema:creator": "W3C/OGC",
             "schema:availability": "Available",
             "schema:dateModified": {
-                "@value": "2025-05-30",
+                "@value": "2025-06-02",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "text/turtle",
             "schema:contentUrl": {
-                "@id": "https://vocab.earth616.local/ont/imports/time-prov.ttl"
+                "@id": "https://vocab.earth616.localhost/ont/imports/time-prov.ttl"
             },
             "originalUrl": {
                 "@id": "http://www.w3.org/2006/time/prov"
@@ -78,7 +78,7 @@
             "@type": "CachedImport"
         },
         {
-            "@id": "https://vocab.earth616.local/ont/imports/owl-time-agg",
+            "@id": "https://vocab.earth616.localhost/ont/imports/owl-time-agg",
             "rdfs:comment": "Extension module for OWL-Time supporting temporal aggregations",
             "schema:license": {
                 "@id": "https://creativecommons.org/licenses/by/4.0/"
@@ -86,12 +86,12 @@
             "schema:creator": "W3C/OGC",
             "schema:availability": "Available",
             "schema:dateModified": {
-                "@value": "2025-05-30",
+                "@value": "2025-06-02",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "text/turtle",
             "schema:contentUrl": {
-                "@id": "https://vocab.earth616.local/ont/imports/time-agg.ttl"
+                "@id": "https://vocab.earth616.localhost/ont/imports/time-agg.ttl"
             },
             "originalUrl": {
                 "@id": "https://www.w3.org/2006/time/agg"
@@ -101,7 +101,7 @@
             "@type": "CachedImport"
         },
         {
-            "@id": "https://vocab.earth616.local/ont/imports/owl-time",
+            "@id": "https://vocab.earth616.localhost/ont/imports/owl-time",
             "rdfs:comment": "Canonical W3C temporal ontology for describing temporal properties and relationships",
             "schema:license": {
                 "@id": "https://creativecommons.org/licenses/by/4.0/"
@@ -109,12 +109,12 @@
             "schema:creator": "W3C/OGC",
             "schema:availability": "Available",
             "schema:dateModified": {
-                "@value": "2025-05-30",
+                "@value": "2025-06-02",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "text/turtle",
             "schema:contentUrl": {
-                "@id": "https://vocab.earth616.local/ont/imports/time.ttl"
+                "@id": "https://vocab.earth616.localhost/ont/imports/time.ttl"
             },
             "originalUrl": {
                 "@id": "http://www.w3.org/2006/time"
@@ -124,7 +124,7 @@
             "@type": "CachedImport"
         },
         {
-            "@id": "https://vocab.earth616.local/ont/imports/oplax",
+            "@id": "https://vocab.earth616.localhost/ont/imports/oplax",
             "rdfs:comment": "Research project with unreliable server availability - cached for reliable agent access",
             "schema:license": {
                 "@id": "https://creativecommons.org/licenses/by/3.0/"
@@ -132,12 +132,12 @@
             "schema:creator": "STLab, ISTC-CNR",
             "schema:availability": "Research project - server unreliable",
             "schema:dateModified": {
-                "@value": "2025-05-30",
+                "@value": "2025-06-02",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "application/rdf+xml",
             "schema:contentUrl": {
-                "@id": "https://vocab.earth616.local/ont/imports/oplax.owl"
+                "@id": "https://vocab.earth616.localhost/ont/imports/oplax.owl"
             },
             "originalUrl": {
                 "@id": "http://ontologydesignpatterns.org/oplax/"
@@ -147,7 +147,7 @@
             "@type": "CachedImport"
         },
         {
-            "@id": "https://vocab.earth616.local/ont/imports/schema-org",
+            "@id": "https://vocab.earth616.localhost/ont/imports/schema-org",
             "rdfs:comment": "Cached due to non-standard Link header dereferencing instead of direct RDF content negotiation",
             "schema:license": {
                 "@id": "https://creativecommons.org/licenses/by-sa/3.0/"
@@ -155,12 +155,12 @@
             "schema:creator": "Schema.org Community Group",
             "schema:availability": "Available",
             "schema:dateModified": {
-                "@value": "2025-05-30",
+                "@value": "2025-06-02",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "text/turtle",
             "schema:contentUrl": {
-                "@id": "https://vocab.earth616.local/ont/imports/schema.ttl"
+                "@id": "https://vocab.earth616.localhost/ont/imports/schema.ttl"
             },
             "originalUrl": {
                 "@id": "https://schema.org/"
@@ -170,7 +170,7 @@
             "@type": "CachedImport"
         },
         {
-            "@id": "https://vocab.earth616.local/ont/imports/cbv-ontology",
+            "@id": "https://vocab.earth616.localhost/ont/imports/cbv-ontology",
             "rdfs:comment": "Actively maintained by GS1 but canonical URI not directly dereferenceable - cached for reliable agent access",
             "schema:license": {
                 "@id": "https://www.gs1.org/standards/gs1-general-specifications"
@@ -178,12 +178,12 @@
             "schema:creator": "GS1 AISBL",
             "schema:availability": "Maintained - URI non-dereferenceable",
             "schema:dateModified": {
-                "@value": "2025-05-30",
+                "@value": "2025-06-02",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "text/turtle",
             "schema:contentUrl": {
-                "@id": "https://vocab.earth616.local/ont/imports/cbv-ontology.ttl"
+                "@id": "https://vocab.earth616.localhost/ont/imports/cbv-ontology.ttl"
             },
             "originalUrl": {
                 "@id": "https://ref.gs1.org/standards/cbv/"
@@ -193,7 +193,7 @@
             "@type": "CachedImport"
         },
         {
-            "@id": "https://vocab.earth616.local/ont/imports/epcis-ontology",
+            "@id": "https://vocab.earth616.localhost/ont/imports/epcis-ontology",
             "rdfs:comment": "Actively maintained by GS1 but canonical URI not directly dereferenceable - cached for reliable agent access",
             "schema:license": {
                 "@id": "https://www.gs1.org/standards/gs1-general-specifications"
@@ -201,12 +201,12 @@
             "schema:creator": "GS1 AISBL",
             "schema:availability": "Maintained - URI non-dereferenceable",
             "schema:dateModified": {
-                "@value": "2025-05-30",
+                "@value": "2025-06-02",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "text/turtle",
             "schema:contentUrl": {
-                "@id": "https://vocab.earth616.local/ont/imports/epcis-ontology.ttl"
+                "@id": "https://vocab.earth616.localhost/ont/imports/epcis-ontology.ttl"
             },
             "originalUrl": {
                 "@id": "https://ref.gs1.org/standards/epcis/"
@@ -216,7 +216,7 @@
             "@type": "CachedImport"
         },
         {
-            "@id": "https://vocab.earth616.local/ont/imports/gs1-vocab",
+            "@id": "https://vocab.earth616.localhost/ont/imports/gs1-vocab",
             "rdfs:comment": "Actively maintained by GS1 but canonical URI not directly dereferenceable - cached for reliable agent access",
             "schema:license": {
                 "@id": "https://www.gs1.org/standards/gs1-general-specifications"
@@ -224,12 +224,12 @@
             "schema:creator": "GS1 AISBL",
             "schema:availability": "Maintained - URI non-dereferenceable",
             "schema:dateModified": {
-                "@value": "2025-05-30",
+                "@value": "2025-06-02",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "text/turtle",
             "schema:contentUrl": {
-                "@id": "https://vocab.earth616.local/ont/imports/GS1-voc.ttl"
+                "@id": "https://vocab.earth616.localhost/ont/imports/GS1-voc.ttl"
             },
             "originalUrl": {
                 "@id": "https://gs1.org/voc/"
@@ -239,7 +239,7 @@
             "@type": "CachedImport"
         },
         {
-            "@id": "https://vocab.earth616.local/ont/imports/originalUrl",
+            "@id": "https://vocab.earth616.localhost/ont/imports/originalUrl",
             "rdfs:range": {
                 "@id": "xsd:anyURI"
             },
@@ -247,9 +247,9 @@
             "@type": "owl:DatatypeProperty"
         },
         {
-            "@id": "https://vocab.earth616.local/ont/imports/cachedImports",
+            "@id": "https://vocab.earth616.localhost/ont/imports/cachedImports",
             "rdfs:range": {
-                "@id": "https://vocab.earth616.local/ont/imports/CachedImport"
+                "@id": "https://vocab.earth616.localhost/ont/imports/CachedImport"
             },
             "rdfs:domain": {
                 "@id": "owl:Ontology"
@@ -261,37 +261,37 @@
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.local/ont/imports/",
+            "@id": "https://vocab.earth616.localhost/ont/imports/",
             "schema:dataset": [
                 {
-                    "@id": "https://vocab.earth616.local/ont/imports/geosparql-profile"
+                    "@id": "https://vocab.earth616.localhost/ont/imports/geosparql-profile"
                 },
                 {
-                    "@id": "https://vocab.earth616.local/ont/imports/geosparql"
+                    "@id": "https://vocab.earth616.localhost/ont/imports/geosparql"
                 },
                 {
-                    "@id": "https://vocab.earth616.local/ont/imports/gs1-vocab"
+                    "@id": "https://vocab.earth616.localhost/ont/imports/gs1-vocab"
                 },
                 {
-                    "@id": "https://vocab.earth616.local/ont/imports/epcis-ontology"
+                    "@id": "https://vocab.earth616.localhost/ont/imports/epcis-ontology"
                 },
                 {
-                    "@id": "https://vocab.earth616.local/ont/imports/cbv-ontology"
+                    "@id": "https://vocab.earth616.localhost/ont/imports/cbv-ontology"
                 },
                 {
-                    "@id": "https://vocab.earth616.local/ont/imports/schema-org"
+                    "@id": "https://vocab.earth616.localhost/ont/imports/schema-org"
                 },
                 {
-                    "@id": "https://vocab.earth616.local/ont/imports/oplax"
+                    "@id": "https://vocab.earth616.localhost/ont/imports/oplax"
                 },
                 {
-                    "@id": "https://vocab.earth616.local/ont/imports/owl-time"
+                    "@id": "https://vocab.earth616.localhost/ont/imports/owl-time"
                 },
                 {
-                    "@id": "https://vocab.earth616.local/ont/imports/owl-time-agg"
+                    "@id": "https://vocab.earth616.localhost/ont/imports/owl-time-agg"
                 },
                 {
-                    "@id": "https://vocab.earth616.local/ont/imports/owl-time-prov"
+                    "@id": "https://vocab.earth616.localhost/ont/imports/owl-time-prov"
                 }
             ],
             "@type": "schema:DataCatalog",
@@ -299,11 +299,11 @@
             "schema:description": "Registry of cached ontology imports with alternative access methods for agents",
             "schema:version": "0.2.0",
             "schema:dateModified": {
-                "@value": "2025-05-30",
+                "@value": "2025-06-02",
                 "@type": "xsd:date"
             },
             "schema:url": {
-                "@id": "https://vocab.earth616.local/ont/imports/"
+                "@id": "https://vocab.earth616.localhost/ont/imports/"
             },
             "dct:creator": {
                 "@id": "https://orcid.org/0000-0003-4091-6059"
@@ -320,6 +320,6 @@
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-        "@vocab": "https://vocab.earth616.local/ont/imports/"
+        "@vocab": "https://vocab.earth616.localhost/ont/imports/"
     }
 }

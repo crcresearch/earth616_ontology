@@ -9,9 +9,9 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 # --- DSCDO (environment-specific namespace) ---
-@prefix dscdo: <https://vocab.earth616.local/ont> .
-@prefix : <https://vocab.earth616.local/ont> .
-@base <https://vocab.earth616.local/ont> .
+@prefix dscdo: <https://vocab.earth616.localhost/ont> .
+@prefix : <https://vocab.earth616.localhost/ont> .
+@base <https://vocab.earth616.localhost/ont> .
 
 # --- AMMO Ontology (Correct Namespace) ---
 @prefix ammo: <https://w3id.org/ammo/ont/> .
@@ -20,7 +20,7 @@
 # TRU-AMMO Alignment Module
 # =============================================================================
 
-<https://vocab.earth616.local/ont/modules/traceability/tru-ammo-alignment> rdf:type owl:Ontology ;
+<https://vocab.earth616.localhost/ont/modules/traceability/tru-ammo-alignment> rdf:type owl:Ontology ;
     rdfs:label "TRU-AMMO Alignment Module"@en ;
     rdfs:comment "Provides semantic alignment between the Traceable Resource Unit (TRU) module and the AMMO (Additive Manufacturing for Maintenance Operations) ontology for interoperability in defense manufacturing contexts."@en ;
     owl:versionInfo "1.0" ;
@@ -28,7 +28,7 @@
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
     
     # === Module Dependencies ===
-    owl:imports <https://vocab.earth616.local/ont/modules/traceability/tru> ;
+    owl:imports <https://vocab.earth616.localhost/ont/modules/traceability/tru> ;
     
     # === External Vocabulary Dependencies ===
     # Note: AMMO ontology reference - not imported directly to avoid conflicts
@@ -92,7 +92,7 @@ dscdo:Identifier
 
 # Map AMMO additive manufacturing process types to TRU event classifications
 
-<https://vocab.earth616.local/ont/alignment/ammo-process-types>
+<https://vocab.earth616.localhost/ont/alignment/ammo-process-types>
     rdf:type owl:NamedIndividual, skos:ConceptScheme ;
     rdfs:label "AMMO Process Type Alignments"@en ;
     dcterms:description "Mapping of AMMO additive manufacturing process types to TRU transformation event patterns"@en ;
@@ -113,7 +113,7 @@ dscdo:Identifier
 
 # === Example: Steel Powder Batch for Additive Manufacturing ===
 
-<https://vocab.earth616.local/ont/examples/ammo-alignment/steel-powder-batch>
+<https://vocab.earth616.localhost/ont/examples/ammo-alignment/steel-powder-batch>
     rdf:type dscdo:TraceableResourceUnit ;
     rdfs:label "Steel Powder Batch for Additive Manufacturing"@en ;
     rdfs:comment "Example TRU representing steel powder batch aligned with AMMO material concepts"@en ;
@@ -134,7 +134,7 @@ dscdo:Identifier
         schema:value 50.0 ;
         schema:unitCode "KGM" ;
         schema:unitText "kilograms" ;
-        dscdo:ofMaterialType <https://vocab.earth616.local/ont/examples/materials/steel-316l-powder> ;
+        dscdo:ofMaterialType <https://vocab.earth616.localhost/ont/examples/materials/steel-316l-powder> ;
         dscdo:measuredProperty "mass" ;
         dscdo:hasMeasurementMethod "precision_powder_weighing"
     ] ;
@@ -157,7 +157,7 @@ dscdo:Identifier
 
 # === Example: Material Definition with AMMO Alignment ===
 
-<https://vocab.earth616.local/ont/examples/materials/steel-316l-powder>
+<https://vocab.earth616.localhost/ont/examples/materials/steel-316l-powder>
     rdf:type dscdo:Material ;
     schema:name "Stainless Steel 316L Powder"@en ;
     schema:description "Fine stainless steel powder optimized for additive manufacturing processes"@en ;
@@ -187,7 +187,7 @@ dscdo:Identifier
 
 # === Example: Powder Bed Fusion Process ===
 
-<https://vocab.earth616.local/ont/examples/events/powder-bed-fusion-001>
+<https://vocab.earth616.localhost/ont/examples/events/powder-bed-fusion-001>
     rdf:type dscdo:TransformationEvent ;
     rdfs:label "Powder Bed Fusion Manufacturing Process"@en ;
     rdfs:comment "Additive manufacturing event aligned with AMMO PowderBed process concepts"@en ;
@@ -207,8 +207,8 @@ dscdo:Identifier
         ]
     ] ;
     
-    dscdo:inputTRU <https://vocab.earth616.local/ont/examples/ammo-alignment/steel-powder-batch> ;
-    dscdo:outputTRU <https://vocab.earth616.local/ont/examples/ammo-alignment/steel-component-am-001> ;
+    dscdo:inputTRU <https://vocab.earth616.localhost/ont/examples/ammo-alignment/steel-powder-batch> ;
+    dscdo:outputTRU <https://vocab.earth616.localhost/ont/examples/ammo-alignment/steel-component-am-001> ;
     
     # AMMO process alignment
     skos:exactMatch ammo:AMProcess ;
@@ -243,7 +243,7 @@ dscdo:Identifier
 
 # === Example: Additively Manufactured Component ===
 
-<https://vocab.earth616.local/ont/examples/ammo-alignment/steel-component-am-001>
+<https://vocab.earth616.localhost/ont/examples/ammo-alignment/steel-component-am-001>
     rdf:type dscdo:TraceableResourceUnit ;
     rdfs:label "Additively Manufactured Steel Component"@en ;
     rdfs:comment "TRU representing component produced via additive manufacturing, aligned with AMMO designed artifact concepts"@en ;
@@ -256,14 +256,14 @@ dscdo:Identifier
         schema:name "Additive Manufacturing Component Serial"
     ] ;
     
-    dscdo:predecessorOf <https://vocab.earth616.local/ont/examples/ammo-alignment/steel-powder-batch> ;
+    dscdo:predecessorOf <https://vocab.earth616.localhost/ont/examples/ammo-alignment/steel-powder-batch> ;
     
     dscdo:consistsOf [
         rdf:type dscdo:QuantityOfMaterial ;
         schema:value 2.3 ;
         schema:unitCode "KGM" ;
         schema:unitText "kilograms" ;
-        dscdo:ofMaterialType <https://vocab.earth616.local/ont/examples/materials/steel-316l-powder> ;
+        dscdo:ofMaterialType <https://vocab.earth616.localhost/ont/examples/materials/steel-316l-powder> ;
         dscdo:measuredProperty "mass" ;
         dscdo:hasMeasurementMethod "precision_component_weighing"
     ] ;
@@ -300,7 +300,7 @@ dscdo:Identifier
 # MAPPING GUIDELINES AND VALIDATION
 # =============================================================================
 
-<https://vocab.earth616.local/ont/alignment/ammo-tru-mapping-guidelines>
+<https://vocab.earth616.localhost/ont/alignment/ammo-tru-mapping-guidelines>
     rdf:type owl:NamedIndividual, skos:ConceptScheme ;
     rdfs:label "AMMO-TRU Mapping Guidelines"@en ;
     dcterms:description "Comprehensive guidelines for mapping between AMMO and TRU concepts in defense manufacturing contexts"@en ;

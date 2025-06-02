@@ -1,6 +1,6 @@
 {
     "@context": [
-      "https://vocab.earth616.local/context/context-base.jsonld",
+      "https://vocab.earth616.localhost/context/context-base.jsonld",
       {
         // Workflow-specific class terms
         "InformationExtractionWorkflow": "dscdo:Informationextractionworkflow",
@@ -71,10 +71,36 @@
           "@type": "@id"
         },
         
+        // Schema.org Observation integration terms
+        "Observation": "schema:Observation",
+        "ObservationEvent": "dscdo:ObservationEvent",
+        "observationAbout": {
+          "@id": "schema:observationAbout",
+          "@type": "@id"
+        },
+        "observationDate": {
+          "@id": "schema:observationDate",
+          "@type": "xsd:dateTime"
+        },
+        "hasObservationResult": {
+          "@id": "dscdo:hasObservationResult",
+          "@type": "@id"
+        },
+        "measuredProperty": "schema:measuredProperty",
+        "measurementValue": {
+          "@id": "dscdo:measurementValue",
+          "@type": "@id"
+        },
+        "observationMethod": "schema:measurementTechnique",
+        "measurementObservation": {
+          "@id": "dscdo:measurementObservation", 
+          "@type": "@id"
+        },
+        
         // Additional metadata for this context
         "contextMetadata": {
           "title": "DSCDO Workflow Context",
-          "description": "JSON-LD context for DSCDO workflow-related concepts including InformationExtractionWorkflow, IEPipeline, and SPDX SBOM integration",
+          "description": "JSON-LD context for DSCDO workflow-related concepts including InformationExtractionWorkflow, IEPipeline, SPDX SBOM integration, and schema.org observation patterns",
           "version": "0.1.3",
           "created": "2025-04-01",
           "creator": "https://orcid.org/0000-0003-4091-6059",
@@ -88,13 +114,19 @@
         "@id": "dscdo:Informationextractionworkflow",
         "rdfs:label": "InformationExtractionWorkflow",
         "rdfs:comment": "Represents a workflow or process of extracting information from documents.",
-        "sh:shapesGraph": "https://vocab.earth616.local/shapes/WorkflowShape-v1.jsonld"
+        "sh:shapesGraph": "https://vocab.earth616.localhost/shapes/WorkflowShape-v1.jsonld"
       },
       {
         "@id": "dscdo:Iepipeline",
         "rdfs:label": "IEPipeline",
         "rdfs:comment": "Represents a pipeline used in the information extraction process.",
-        "sh:shapesGraph": "https://vocab.earth616.local/shapes/PipelineShape-v1.jsonld"
+        "sh:shapesGraph": "https://vocab.earth616.localhost/shapes/PipelineShape-v1.jsonld"
+      },
+      {
+        "@id": "dscdo:ObservationEvent",
+        "rdfs:label": "ObservationEvent", 
+        "rdfs:comment": "Represents a supply chain observation event that produces structured observations following schema.org patterns.",
+        "sh:shapesGraph": "https://vocab.earth616.localhost/shapes/ObservationEventShape-v1.jsonld"
       }
     ]
   }

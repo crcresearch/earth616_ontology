@@ -25,4 +25,4 @@ RULES_BASE: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/rules"
 DATA_BASE: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/data"
 
 # Version information
-version: "0.1.4"
+version: "0.2.0"

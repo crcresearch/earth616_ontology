@@ -17,14 +17,14 @@
 @prefix sdo: <https://schema.org/> .
 
 # --- DSCDO ---
-@prefix dscdo: <https://vocab.earth616.local/ont/> .
-@base <https://vocab.earth616.local/ont/> .
+@prefix dscdo: <https://vocab.earth616.localhost/ont/> .
+@base <https://vocab.earth616.localhost/ont/> .
 
 # =============================================================================
 # Event Core Pattern
 # =============================================================================
 
-<https://vocab.earth616.local/ont/patterns/EventCore>
+<https://vocab.earth616.localhost/ont/patterns/EventCore>
     a owl:Ontology, oplax:Pattern ;
     dcterms:title "Event Core Pattern"@en ;
     dcterms:description "A minimalistic model of event where it is not always possible to separate its spatial and temporal aspects, thus can model events that move or possess discontinuous temporal extent."@en ;

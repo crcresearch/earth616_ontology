@@ -12,9 +12,9 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 
 # --- DSCDO (environment-specific namespace) ---
-@prefix dscdo: <https://vocab.earth616.local/ont> .
-@prefix : <https://vocab.earth616.local/ont> .
-@base <https://vocab.earth616.local/ont> .
+@prefix dscdo: <https://vocab.earth616.localhost/ont> .
+@prefix : <https://vocab.earth616.localhost/ont> .
+@base <https://vocab.earth616.localhost/ont> .
 
 # --- AMMO Ontology Reference ---
 @prefix ammo: <https://w3id.org/ammo/ont/> .
@@ -23,7 +23,7 @@
 # State Transition Module
 # =============================================================================
 
-<https://vocab.earth616.local/ont/modules/design/transition> rdf:type owl:Ontology ;
+<https://vocab.earth616.localhost/ont/modules/design/transition> rdf:type owl:Ontology ;
     rdfs:label "State Transition Module"@en ;
     rdfs:comment "Provides formal state modeling and transition tracking for supply chain entities. Enables explicit state representation and transition validation with temporal constraints. Derived from AMMO ontology state and transition patterns."@en ;
     owl:versionInfo "1.0" ;
@@ -31,9 +31,9 @@
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
     
     # === Module Dependencies ===
-    owl:imports <https://vocab.earth616.local/ont/modules/core/event> ;
-    owl:imports <https://vocab.earth616.local/ont/modules/traceability/tru> ;
-    owl:imports <https://vocab.earth616.local/ont/patterns/SpatioTemporalExtent> ;
+    owl:imports <https://vocab.earth616.localhost/ont/modules/core/event> ;
+    owl:imports <https://vocab.earth616.localhost/ont/modules/traceability/tru> ;
+    owl:imports <https://vocab.earth616.localhost/ont/patterns/SpatioTemporalExtent> ;
     
     # === AMMO Provenance ===
     dcterms:source <https://w3id.org/ammo/ont/> ;
@@ -47,7 +47,7 @@
 dscdo:State rdf:type rdfs:Class ;
     rdfs:label "State"@en ;
     rdfs:comment "A condition or mode of being that an entity can exist in at a particular point in time. States are discrete and mutually exclusive."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> ;
     skos:definition "A discrete condition or configuration that characterizes an entity at a specific time"@en ;
     skos:example "Raw material state, In-process state, Completed state, Shipped state, Installed state"@en ;
     
@@ -60,7 +60,7 @@ dscdo:ProcessState rdf:type rdfs:Class ;
     rdfs:subClassOf dscdo:State ;
     rdfs:label "Process State"@en ;
     rdfs:comment "A state that represents a particular phase or condition within a process or workflow."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> ;
     skos:definition "A state specific to process phases and workflow conditions"@en ;
     skos:example "Manufacturing state, Quality control state, Assembly state, Testing state"@en .
 
@@ -68,7 +68,7 @@ dscdo:MaterialState rdf:type rdfs:Class ;
     rdfs:subClassOf dscdo:State ;
     rdfs:label "Material State"@en ;
     rdfs:comment "A state that represents the condition or phase of a material or substance."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> ;
     skos:definition "A state describing material conditions and phases"@en ;
     skos:example "Solid state, Liquid state, Powder state, Molten state, Cured state"@en .
 
@@ -76,7 +76,7 @@ dscdo:LifecycleState rdf:type rdfs:Class ;
     rdfs:subClassOf dscdo:State ;
     rdfs:label "Lifecycle State"@en ;
     rdfs:comment "A state that represents a phase in the lifecycle of a traceable resource unit or component."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> ;
     skos:definition "A state representing lifecycle phases for supply chain entities"@en ;
     skos:example "Designed, Manufactured, Tested, Delivered, Deployed, Maintained, Retired"@en .
 
@@ -102,7 +102,7 @@ dscdo:Transition rdf:type rdfs:Class ;
         owl:onProperty dscdo:toState ;
         owl:cardinality "1"^^xsd:nonNegativeInteger
     ] ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> ;
     skos:definition "A state change process with defined source and target states"@en ;
     skos:example "Raw material to in-process transition, Testing to approved transition, Manufacturing to quality control transition"@en ;
     
@@ -116,7 +116,7 @@ dscdo:fromState rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
     rdfs:range dscdo:State ;
     rdfs:label "from state"@en ;
     rdfs:comment "The initial state before a transition occurs. Each transition has exactly one source state."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> ;
     skos:definition "Links transitions to their source states"@en ;
     
     # === AMMO Provenance ===
@@ -129,7 +129,7 @@ dscdo:toState rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
     rdfs:range dscdo:State ;
     rdfs:label "to state"@en ;
     rdfs:comment "The target state after a transition occurs. Each transition has exactly one target state."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> ;
     skos:definition "Links transitions to their target states"@en ;
     
     # === AMMO Provenance ===
@@ -141,7 +141,7 @@ dscdo:hasTransition rdf:type owl:ObjectProperty ;
     rdfs:range dscdo:Transition ;
     rdfs:label "has transition"@en ;
     rdfs:comment "Indicates that an entity undergoes a specific state transition."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> ;
     skos:definition "Links entities to the transitions they undergo"@en ;
     
     # === AMMO Provenance ===
@@ -157,20 +157,20 @@ dscdo:currentState rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
     rdfs:range dscdo:State ;
     rdfs:label "current state"@en ;
     rdfs:comment "The current state of an entity at the present time. Each entity has exactly one current state."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> ;
     skos:definition "Links entities to their present state"@en .
 
 dscdo:stateHistory rdf:type owl:ObjectProperty ;
     rdfs:range dscdo:StateOccurrence ;
     rdfs:label "state history"@en ;
     rdfs:comment "Links an entity to its historical state occurrences, providing a complete state timeline."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> ;
     skos:definition "Connects entities to their state history records"@en .
 
 dscdo:StateOccurrence rdf:type rdfs:Class ;
     rdfs:label "State Occurrence"@en ;
     rdfs:comment "A specific instance of an entity being in a particular state during a defined time interval."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> ;
     skos:definition "A timestamped record of an entity being in a specific state"@en ;
     skos:example "Component was in 'Testing' state from 2024-03-15 to 2024-03-16"@en .
 
@@ -179,7 +179,7 @@ dscdo:occurrenceState rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
     rdfs:range dscdo:State ;
     rdfs:label "occurrence state"@en ;
     rdfs:comment "The specific state associated with a state occurrence."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> ;
     skos:definition "Links state occurrences to their specific states"@en .
 
 dscdo:occurrenceInterval rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
@@ -188,7 +188,7 @@ dscdo:occurrenceInterval rdf:type owl:ObjectProperty, owl:FunctionalProperty ;
     rdfs:subPropertyOf time:hasTime ;
     rdfs:label "occurrence interval"@en ;
     rdfs:comment "The time interval during which the state occurrence was active, using W3C Time ontology."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> ;
     skos:definition "Links state occurrences to their temporal intervals using W3C Time"@en .
 
 # =============================================================================
@@ -202,7 +202,7 @@ dscdo:transitionDuring
     rdfs:subPropertyOf time:hasTime ;
     rdfs:domain dscdo:Transition ;
     rdfs:range time:ProperInterval ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> .
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> .
 
 dscdo:transitionStartsAt
     a owl:ObjectProperty ;
@@ -211,7 +211,7 @@ dscdo:transitionStartsAt
     rdfs:subPropertyOf time:hasBeginning ;
     rdfs:domain dscdo:Transition ;
     rdfs:range time:Instant ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> .
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> .
 
 dscdo:transitionEndsAt
     a owl:ObjectProperty ;
@@ -220,7 +220,7 @@ dscdo:transitionEndsAt
     rdfs:subPropertyOf time:hasEnd ;
     rdfs:domain dscdo:Transition ;
     rdfs:range time:Instant ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> .
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> .
 
 dscdo:transitionDuration
     a owl:DatatypeProperty ;
@@ -229,7 +229,7 @@ dscdo:transitionDuration
     rdfs:subPropertyOf time:hasXSDDuration ;
     rdfs:domain dscdo:Transition ;
     rdfs:range xsd:duration ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> .
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> .
 
 # =============================================================================
 # TRANSITION EVENTS
@@ -239,7 +239,7 @@ dscdo:StateTransitionEvent rdf:type rdfs:Class ;
     rdfs:subClassOf dscdo:SupplyChainEvent ;
     rdfs:label "State Transition Event"@en ;
     rdfs:comment "A supply chain event that represents a state transition for one or more entities."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> ;
     skos:definition "An event that triggers or records state changes"@en ;
     skos:example "Quality approval event, Manufacturing completion event, Shipping initiation event"@en .
 
@@ -248,14 +248,14 @@ dscdo:triggersTransition rdf:type owl:ObjectProperty ;
     rdfs:range dscdo:Transition ;
     rdfs:label "triggers transition"@en ;
     rdfs:comment "Indicates that an event causes a specific state transition to occur."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> ;
     skos:definition "Links events to the transitions they cause"@en .
 
 dscdo:transitionSubject rdf:type owl:ObjectProperty ;
     rdfs:domain dscdo:StateTransitionEvent ;
     rdfs:label "transition subject"@en ;
     rdfs:comment "The entity or entities that undergo the state transition during this event."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> ;
     skos:definition "Links transition events to the entities changing state"@en .
 
 # =============================================================================
@@ -268,7 +268,7 @@ dscdo:StatefulTRU rdf:type rdfs:Class ;
     rdfs:subClassOf dscdo:TraceableResourceUnit ;
     rdfs:label "Stateful TRU"@en ;
     rdfs:comment "A traceable resource unit with explicit state tracking throughout its lifecycle."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> ;
     skos:definition "A TRU with formal state management and transition tracking"@en ;
     skos:example "Steel component TRU with states: Raw → Machined → Tested → Approved → Shipped"@en .
 
@@ -288,7 +288,7 @@ dscdo:WorkflowState rdf:type rdfs:Class ;
     rdfs:subClassOf dscdo:ProcessState ;
     rdfs:label "Workflow State"@en ;
     rdfs:comment "A state that represents a step or phase within a defined workflow or process sequence."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> ;
     skos:definition "A state representing workflow phases and process steps"@en ;
     skos:example "Pending approval, In review, Approved, Rejected, On hold"@en .
 
@@ -296,7 +296,7 @@ dscdo:WorkflowTransition rdf:type rdfs:Class ;
     rdfs:subClassOf dscdo:Transition ;
     rdfs:label "Workflow Transition"@en ;
     rdfs:comment "A transition that moves a workflow or process from one step to the next."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> ;
     skos:definition "A transition specific to workflow progression"@en ;
     skos:example "Submit for review transition, Approval transition, Rejection transition"@en .
 
@@ -305,7 +305,7 @@ dscdo:transitionCondition rdf:type owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:label "transition condition"@en ;
     rdfs:comment "A condition that must be satisfied for the workflow transition to occur."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> ;
     skos:definition "Textual description of conditions required for transition"@en ;
     skos:example "All tests pass, Manager approval received, Quality criteria met"@en .
 
@@ -314,7 +314,7 @@ dscdo:transitionAction rdf:type owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:label "transition action"@en ;
     rdfs:comment "An action that occurs as part of the workflow transition."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/transition> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/design/transition> ;
     skos:definition "Textual description of actions performed during transition"@en ;
     skos:example "Send notification, Update database, Generate certificate, Schedule inspection"@en .
 
@@ -323,7 +323,7 @@ dscdo:transitionAction rdf:type owl:DatatypeProperty ;
 # =============================================================================
 
 # === Example Lifecycle States ===
-<https://vocab.earth616.local/ont/examples/states/raw-material>
+<https://vocab.earth616.localhost/ont/examples/states/raw-material>
     rdf:type dscdo:LifecycleState ;
     rdfs:label "Raw Material State"@en ;
     rdfs:comment "Initial state for materials before processing"@en ;
@@ -334,14 +334,14 @@ dscdo:transitionAction rdf:type owl:DatatypeProperty ;
     dcterms:source ammo:State ;
     skos:exactMatch ammo:State .
 
-<https://vocab.earth616.local/ont/examples/states/in-process>
+<https://vocab.earth616.localhost/ont/examples/states/in-process>
     rdf:type dscdo:ProcessState ;
     rdfs:label "In Process State"@en ;
     rdfs:comment "State indicating active manufacturing or processing"@en ;
     
     schema:description "Material or component is currently undergoing processing or manufacturing" .
 
-<https://vocab.earth616.local/ont/examples/states/quality-approved>
+<https://vocab.earth616.localhost/ont/examples/states/quality-approved>
     rdf:type dscdo:LifecycleState ;
     rdfs:label "Quality Approved State"@en ;
     rdfs:comment "State indicating successful quality validation"@en ;
@@ -349,13 +349,13 @@ dscdo:transitionAction rdf:type owl:DatatypeProperty ;
     schema:description "Component has passed all quality checks and is approved for use" .
 
 # === Example Transition ===
-<https://vocab.earth616.local/ont/examples/transitions/manufacturing-completion>
+<https://vocab.earth616.localhost/ont/examples/transitions/manufacturing-completion>
     rdf:type dscdo:WorkflowTransition ;
     rdfs:label "Manufacturing Completion Transition"@en ;
     rdfs:comment "Transition from in-process to quality control state"@en ;
     
-    dscdo:fromState <https://vocab.earth616.local/ont/examples/states/in-process> ;
-    dscdo:toState <https://vocab.earth616.local/ont/examples/states/quality-control> ;
+    dscdo:fromState <https://vocab.earth616.localhost/ont/examples/states/in-process> ;
+    dscdo:toState <https://vocab.earth616.localhost/ont/examples/states/quality-control> ;
     
     dscdo:transitionCondition "Manufacturing process completed according to specifications" ;
     dscdo:transitionAction "Move component to quality control queue, Update tracking system" ;
@@ -365,7 +365,7 @@ dscdo:transitionAction rdf:type owl:DatatypeProperty ;
     skos:exactMatch ammo:Transition .
 
 # === Example Stateful TRU ===
-<https://vocab.earth616.local/ont/examples/stateful-tru/steel-component-001>
+<https://vocab.earth616.localhost/ont/examples/stateful-tru/steel-component-001>
     rdf:type dscdo:StatefulTRU ;
     rdfs:label "Steel Component 001 - Stateful TRU"@en ;
     rdfs:comment "Steel component with full state tracking"@en ;
@@ -379,12 +379,12 @@ dscdo:transitionAction rdf:type owl:DatatypeProperty ;
     ] ;
     
     # Current state
-    dscdo:currentState <https://vocab.earth616.local/ont/examples/states/quality-approved> ;
+    dscdo:currentState <https://vocab.earth616.localhost/ont/examples/states/quality-approved> ;
     
     # State history
     dscdo:stateHistory [
         rdf:type dscdo:StateOccurrence ;
-        dscdo:occurrenceState <https://vocab.earth616.local/ont/examples/states/raw-material> ;
+        dscdo:occurrenceState <https://vocab.earth616.localhost/ont/examples/states/raw-material> ;
         dscdo:occurrenceInterval [
             rdf:type dscdo:SpatioTemporalExtent ;
             schema:startDate "2024-03-15T08:00:00Z" ;
@@ -392,7 +392,7 @@ dscdo:transitionAction rdf:type owl:DatatypeProperty ;
         ]
     ] , [
         rdf:type dscdo:StateOccurrence ;
-        dscdo:occurrenceState <https://vocab.earth616.local/ont/examples/states/in-process> ;
+        dscdo:occurrenceState <https://vocab.earth616.localhost/ont/examples/states/in-process> ;
         dscdo:occurrenceInterval [
             rdf:type dscdo:SpatioTemporalExtent ;
             schema:startDate "2024-03-15T12:00:00Z" ;
@@ -401,21 +401,21 @@ dscdo:transitionAction rdf:type owl:DatatypeProperty ;
     ] ;
     
     # Recent transition
-    dscdo:hasTransition <https://vocab.earth616.local/ont/examples/transitions/manufacturing-completion> .
+    dscdo:hasTransition <https://vocab.earth616.localhost/ont/examples/transitions/manufacturing-completion> .
 
 # === Example State Transition Event ===
-<https://vocab.earth616.local/ont/examples/events/quality-approval-event>
+<https://vocab.earth616.localhost/ont/examples/events/quality-approval-event>
     rdf:type dscdo:StateTransitionEvent ;
     rdfs:label "Quality Approval Event"@en ;
     rdfs:comment "Event representing quality approval state transition"@en ;
     
     dscdo:triggersTransition [
         rdf:type dscdo:Transition ;
-        dscdo:fromState <https://vocab.earth616.local/ont/examples/states/quality-control> ;
-        dscdo:toState <https://vocab.earth616.local/ont/examples/states/quality-approved>
+        dscdo:fromState <https://vocab.earth616.localhost/ont/examples/states/quality-control> ;
+        dscdo:toState <https://vocab.earth616.localhost/ont/examples/states/quality-approved>
     ] ;
     
-    dscdo:transitionSubject <https://vocab.earth616.local/ont/examples/stateful-tru/steel-component-001> ;
+    dscdo:transitionSubject <https://vocab.earth616.localhost/ont/examples/stateful-tru/steel-component-001> ;
     
     dscdo:hasSpatioTemporalExtent [
         rdf:type dscdo:SpatioTemporalExtent ;
@@ -431,7 +431,7 @@ dscdo:transitionAction rdf:type owl:DatatypeProperty ;
 # STATE TRANSITION GUIDELINES
 # =============================================================================
 
-<https://vocab.earth616.local/ont/design/transition-guidelines>
+<https://vocab.earth616.localhost/ont/design/transition-guidelines>
     rdf:type owl:NamedIndividual, skos:ConceptScheme ;
     rdfs:label "State Transition Guidelines"@en ;
     dcterms:description "Guidelines for modeling state transitions in Earth616 ontology"@en ;

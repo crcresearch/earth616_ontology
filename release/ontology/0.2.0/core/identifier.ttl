@@ -6,8 +6,8 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
 # --- DSCDO (environment-specific namespace) ---
-@prefix dscdo: <https://vocab.earth616.local/ont/> .
-@base <https://vocab.earth616.local/ont/> .
+@prefix dscdo: <https://vocab.earth616.localhost/ont/> .
+@base <https://vocab.earth616.localhost/ont/> .
 
 # =============================================================================
 # Identifier Module
@@ -18,28 +18,28 @@ dscdo:Identifier rdfs:subClassOf schema:PropertyValue ;
     rdfs:label "Identifier"@en ;
     rdfs:comment "A generic identifier for entities, aligned with ODP. Represents the abstract identifier value and its type."@en ;
     skos:definition "A standardized code, number, or reference that uniquely identifies an entity, document, or resource. Holds the core identifier value (via schema:value) and type."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/identifier> .
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/core/identifier> .
 
 # === Identifier Encoding Class ===
 dscdo:IdentifierEncoding rdf:type rdfs:Class ;
     rdfs:label "Identifier Encoding"@en ;
     rdfs:comment "Represents a specific instance of how an identifier is encoded (e.g., a specific barcode instance, an RFID tag encoding)."@en ;
     skos:definition "A physical or digital encoding of an identifier, such as a barcode, QR code, or RFID tag"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/identifier> .
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/core/identifier> .
 
 # === Identifier Type Class ===
 dscdo:IdentifierType rdf:type rdfs:Class ;
     rdfs:label "Identifier Type"@en ;
     rdfs:comment "Represents the type or category of an identifier (e.g., GTIN, ISBN, DOI)."@en ;
     skos:definition "A classification of identifier types, specifying the standard or system used"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/identifier> .
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/core/identifier> .
 
 # === Identifier Source Class ===
 dscdo:IdentifierSource rdf:type rdfs:Class ;
     rdfs:label "Identifier Source"@en ;
     rdfs:comment "The authority or organization that issued or manages the identifier."@en ;
     skos:definition "An organization or system that issues, maintains, or governs an identifier scheme"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/identifier> .
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/core/identifier> .
 
 # === Object Properties ===
 
@@ -47,25 +47,25 @@ dscdo:hasIdentifier rdf:type rdf:Property ;
     rdfs:label "has identifier"@en ;
     rdfs:comment "Links an entity to its identifier."@en ;
     rdfs:range dscdo:Identifier ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/identifier> .
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/core/identifier> .
 
 dscdo:hasIdentifierEncoding rdf:type rdf:Property ;
     rdfs:label "has identifier encoding"@en ;
     rdfs:comment "Links an identifier to its physical or digital encoding."@en ;
     rdfs:domain dscdo:Identifier ;
     rdfs:range dscdo:IdentifierEncoding ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/identifier> .
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/core/identifier> .
 
 dscdo:hasIdentifierType rdf:type rdf:Property ;
     rdfs:label "has identifier type"@en ;
     rdfs:comment "Links an identifier to its type classification."@en ;
     rdfs:domain dscdo:Identifier ;
     rdfs:range dscdo:IdentifierType ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/identifier> .
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/core/identifier> .
 
 dscdo:hasIdentifierSource rdf:type rdf:Property ;
     rdfs:label "has identifier source"@en ;
     rdfs:comment "Links an identifier to its issuing authority or source."@en ;
     rdfs:domain dscdo:Identifier ;
     rdfs:range dscdo:IdentifierSource ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/identifier> .
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/ont/modules/core/identifier> .

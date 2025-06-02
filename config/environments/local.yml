@@ -3,11 +3,11 @@ environment: local
 
 # Persistent URI bases (what external clients use)
 uri_bases:
-  context: "https://vocab.earth616.local/context"
-  ontology: "https://vocab.earth616.local/ont" 
-  shapes: "https://vocab.earth616.local/shapes"
-  rules: "https://vocab.earth616.local/rules"
-  data: "https://vocab.earth616.local/data"
+  context: "https://vocab.earth616.localhost/context"
+  ontology: "https://vocab.earth616.localhost/ont" 
+  shapes: "https://vocab.earth616.localhost/shapes"
+  rules: "https://vocab.earth616.localhost/rules"
+  data: "https://vocab.earth616.localhost/data"
 
 # Deployment bases (where files are actually served from)
 deployment_bases:
@@ -18,11 +18,11 @@ deployment_bases:
   data: "http://localhost:8080/release/data/latest"
 
 # Template variable mappings for envsubst
-CONTEXT_BASE: "https://vocab.earth616.local/context"
-ONTOLOGY_BASE: "https://vocab.earth616.local/ont"
-SHAPES_BASE: "https://vocab.earth616.local/shapes"
-RULES_BASE: "https://vocab.earth616.local/rules"
-DATA_BASE: "https://vocab.earth616.local/data"
+CONTEXT_BASE: "https://vocab.earth616.localhost/context"
+ONTOLOGY_BASE: "https://vocab.earth616.localhost/ont"
+SHAPES_BASE: "https://vocab.earth616.localhost/shapes"
+RULES_BASE: "https://vocab.earth616.localhost/rules"
+DATA_BASE: "https://vocab.earth616.localhost/data"
 
 # Version information
 version: "0.2.0"

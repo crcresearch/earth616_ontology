@@ -62,7 +62,7 @@
             }
         },
         {
-            "@id": "https://vocab.earth616.local/shapes/PackageRelationshipShape",
+            "@id": "https://vocab.earth616.localhost/shapes/PackageRelationshipShape",
             "sh:property": [
                 {
                     "@id": "_:b0"
@@ -72,7 +72,7 @@
                 }
             ],
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.local/shapes/SbomWorkflowShape"
+                "@id": "https://vocab.earth616.localhost/shapes/SbomWorkflowShape"
             },
             "dcterms:creator": {
                 "@id": "https://orcid.org/0000-0003-4091-6059"
@@ -99,7 +99,7 @@
             "@type": "sh:NodeShape"
         },
         {
-            "@id": "https://vocab.earth616.local/shapes/SbomWorkflowShape",
+            "@id": "https://vocab.earth616.localhost/shapes/SbomWorkflowShape",
             "rdfs:seeAlso": {
                 "@id": "https://spdx.github.io/spdx-spec/v3.0.1/"
             },
@@ -174,7 +174,7 @@
             }
         },
         {
-            "@id": "https://vocab.earth616.local/shapes/CreationInfoShape",
+            "@id": "https://vocab.earth616.localhost/shapes/CreationInfoShape",
             "sh:property": [
                 {
                     "@id": "_:b2"
@@ -184,7 +184,7 @@
                 }
             ],
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.local/shapes/SbomWorkflowShape"
+                "@id": "https://vocab.earth616.localhost/shapes/SbomWorkflowShape"
             },
             "dcterms:creator": {
                 "@id": "https://orcid.org/0000-0003-4091-6059"
@@ -231,12 +231,12 @@
             }
         },
         {
-            "@id": "https://vocab.earth616.local/shapes/SoftwareAgentSbomShape",
+            "@id": "https://vocab.earth616.localhost/shapes/SoftwareAgentSbomShape",
             "sh:property": {
                 "@id": "_:b4"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.local/shapes/SbomWorkflowShape"
+                "@id": "https://vocab.earth616.localhost/shapes/SbomWorkflowShape"
             },
             "dcterms:creator": {
                 "@id": "https://orcid.org/0000-0003-4091-6059"
@@ -351,7 +351,7 @@
             }
         },
         {
-            "@id": "https://vocab.earth616.local/shapes/PackageShape",
+            "@id": "https://vocab.earth616.localhost/shapes/PackageShape",
             "sh:property": [
                 {
                     "@id": "_:b5"
@@ -364,7 +364,7 @@
                 }
             ],
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.local/shapes/SbomWorkflowShape"
+                "@id": "https://vocab.earth616.localhost/shapes/SbomWorkflowShape"
             },
             "dcterms:creator": {
                 "@id": "https://orcid.org/0000-0003-4091-6059"
@@ -479,7 +479,7 @@
             }
         },
         {
-            "@id": "https://vocab.earth616.local/shapes/SbomShape",
+            "@id": "https://vocab.earth616.localhost/shapes/SbomShape",
             "sh:property": [
                 {
                     "@id": "_:b8"
@@ -492,7 +492,7 @@
                 }
             ],
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.local/shapes/SbomWorkflowShape"
+                "@id": "https://vocab.earth616.localhost/shapes/SbomWorkflowShape"
             },
             "dcterms:creator": {
                 "@id": "https://orcid.org/0000-0003-4091-6059"
@@ -623,7 +623,7 @@
             }
         },
         {
-            "@id": "https://vocab.earth616.local/shapes/InformationExtractionWorkflowSbomShape",
+            "@id": "https://vocab.earth616.localhost/shapes/InformationExtractionWorkflowSbomShape",
             "sh:property": [
                 {
                     "@id": "_:b11"
@@ -639,7 +639,7 @@
                 }
             ],
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.local/shapes/SbomWorkflowShape"
+                "@id": "https://vocab.earth616.localhost/shapes/SbomWorkflowShape"
             },
             "dcterms:creator": {
                 "@id": "https://orcid.org/0000-0003-4091-6059"
@@ -672,7 +672,7 @@
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "owl": "http://www.w3.org/2002/07/owl#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
-        "dscdo": "https://vocab.earth616.local/ont/",
+        "dscdo": "https://vocab.earth616.localhost/ont/",
         "skos": "http://www.w3.org/2004/02/skos/core#",
         "dcterms": "http://purl.org/dc/terms/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",

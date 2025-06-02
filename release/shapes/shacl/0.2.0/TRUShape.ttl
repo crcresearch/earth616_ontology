@@ -3,16 +3,16 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dscdo: <https://vocab.earth616.local/ont/> .
+@prefix dscdo: <https://vocab.earth616.localhost/ont/> .
 @prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <https://vocab.earth616.local/shapes/> .
+@base <https://vocab.earth616.localhost/shapes/> .
 
 # === TRU VALIDATION SHAPES =======================================
 
 # Shape Graph metadata
-<https://vocab.earth616.local/shapes/TRUShape> a owl:Ontology, sh:ShapesGraph ;
+<https://vocab.earth616.localhost/shapes/TRUShape> a owl:Ontology, sh:ShapesGraph ;
     rdfs:label "TRU Shape Graph"@en ;
     rdfs:comment "SHACL shapes for validating Traceable Resource Unit instances and measurements"@en ;
     owl:versionInfo "1.0" ;
@@ -21,12 +21,12 @@
 
 # === TRU CORE SHAPES ===================================
 
-<https://vocab.earth616.local/shapes/TraceableResourceUnitShape> a sh:NodeShape ;
+<https://vocab.earth616.localhost/shapes/TraceableResourceUnitShape> a sh:NodeShape ;
     sh:targetClass dscdo:TraceableResourceUnit ;
     rdfs:label "Traceable Resource Unit Shape"@en ;
     rdfs:comment "Validates TRU instances for required identifiers and composition"@en ;
     skos:definition "Ensures TRUs have proper identification and material composition"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/shapes/TRUShape> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/shapes/TRUShape> ;
     dcterms:created "2025-01-25"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
     
@@ -74,12 +74,12 @@
 
 # === QUANTITY OF MATERIAL SHAPES ===================================
 
-<https://vocab.earth616.local/shapes/QuantityOfMaterialShape> a sh:NodeShape ;
+<https://vocab.earth616.localhost/shapes/QuantityOfMaterialShape> a sh:NodeShape ;
     sh:targetClass dscdo:QuantityOfMaterial ;
     rdfs:label "Quantity Of Material Shape"@en ;
     rdfs:comment "Validates Schema.org QuantitativeValue compliance for material quantities"@en ;
     skos:definition "Ensures material quantities follow Schema.org measurement patterns"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/shapes/TRUShape> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/shapes/TRUShape> ;
     dcterms:created "2025-01-25"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
     
@@ -138,12 +138,12 @@
 
 # === MATERIAL SHAPES ===================================
 
-<https://vocab.earth616.local/shapes/MaterialShape> a sh:NodeShape ;
+<https://vocab.earth616.localhost/shapes/MaterialShape> a sh:NodeShape ;
     sh:targetClass dscdo:Material ;
     rdfs:label "Material Shape"@en ;
     rdfs:comment "Validates material classification instances"@en ;
     skos:definition "Ensures materials have proper naming and classification"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/shapes/TRUShape> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/shapes/TRUShape> ;
     dcterms:created "2025-01-25"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
     
@@ -159,12 +159,12 @@
 
 # === TRU EVENT INTEGRATION SHAPES ===================================
 
-<https://vocab.earth616.local/shapes/TRUTransformationEventShape> a sh:NodeShape ;
+<https://vocab.earth616.localhost/shapes/TRUTransformationEventShape> a sh:NodeShape ;
     sh:targetClass dscdo:TransformationEvent ;
     rdfs:label "TRU Transformation Event Shape"@en ;
     rdfs:comment "Validates transformation events involving TRUs"@en ;
     skos:definition "Ensures transformation events have proper TRU input/output relationships"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/shapes/TRUShape> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/shapes/TRUShape> ;
     dcterms:created "2025-01-25"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
     
@@ -188,12 +188,12 @@
         sh:message "Transformation event should specify output TRUs for traceability"@en
     ] .
 
-<https://vocab.earth616.local/shapes/TRUTransferEventShape> a sh:NodeShape ;
+<https://vocab.earth616.localhost/shapes/TRUTransferEventShape> a sh:NodeShape ;
     sh:targetClass dscdo:TransferEvent ;
     rdfs:label "TRU Transfer Event Shape"@en ;
     rdfs:comment "Validates transfer events involving TRUs"@en ;
     skos:definition "Ensures transfer events specify which TRUs are being transferred"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/shapes/TRUShape> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/shapes/TRUShape> ;
     dcterms:created "2025-01-25"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
     

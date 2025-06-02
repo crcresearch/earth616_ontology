@@ -1,7 +1,7 @@
 {
     "@context": {
       // Core namespace definitions
-      "dscdo": "https://vocab.earth616.local/ont/",
+      "dscdo": "https://vocab.earth616.localhost/ont/",
       "schema": "https://schema.org/",
       "prov": "http://www.w3.org/ns/prov#",
       "skos": "http://www.w3.org/2004/02/skos/core#",
@@ -15,34 +15,34 @@
       // References to modular context files - provided as metadata for documentation
       // These are not actual JSON-LD keywords but metadata terms for reference
       "documentContext": {
-        "@id": "https://vocab.earth616.local/context/context-documents.jsonld",
+        "@id": "https://vocab.earth616.localhost/context/context-documents.jsonld",
         "description": "Context for SCDigitalDocument and related document concepts for supply chain documentation",
         "version": "0.1.4"
       },
       "eventContext": {
-        "@id": "https://vocab.earth616.local/context/context-event.jsonld",
+        "@id": "https://vocab.earth616.localhost/context/context-event.jsonld",
         "description": "Context for SupplyChainEvent and event types like TransferEvent, TransformationEvent",
         "version": "0.1.4"
       },
       "identifierContext": {
-        "@id": "https://vocab.earth616.local/context/context-identifier.jsonld",
+        "@id": "https://vocab.earth616.localhost/context/context-identifier.jsonld",
         "description": "Context for Identifier pattern, IdentifierType, and IdentifierEncoding concepts",
         "version": "0.1.4"
       },
       "workflowContext": {
-        "@id": "https://vocab.earth616.local/context/context-workflow.jsonld",
+        "@id": "https://vocab.earth616.localhost/context/context-workflow.jsonld",
         "description": "Context for InformationExtractionWorkflow and IEPipeline concepts",
         "version": "0.1.4"
       },
       "roleContext": {
-        "@id": "https://vocab.earth616.local/context/context-role.jsonld",
+        "@id": "https://vocab.earth616.localhost/context/context-role.jsonld",
         "description": "Context for ParticipantRole, SupplyChainRole and related role concepts",
         "version": "0.1.4"
       },
       
       // Cross-layer references
-      "shapesGraph": {"@id": "https://vocab.earth616.local/shapes/", "@type": "@id"},
-      "rulesGraph": {"@id": "https://vocab.earth616.local/rules/", "@type": "@id"},
+      "shapesGraph": {"@id": "https://vocab.earth616.localhost/shapes/", "@type": "@id"},
+      "rulesGraph": {"@id": "https://vocab.earth616.localhost/rules/", "@type": "@id"},
       
       // Core RDFS/OWL vocabulary terms
       "label": {"@id": "rdfs:label"},
