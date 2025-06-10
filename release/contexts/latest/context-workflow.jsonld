@@ -2,11 +2,8 @@
     "@context": [
       "https://vocab.earth616.localhost/nd/scdoc/context/context-base.jsonld",
       {
-        // Workflow-specific class terms
         "InformationExtractionWorkflow": "dscdo:Informationextractionworkflow",
         "IEPipeline": "dscdo:Iepipeline",
-        
-        // Workflow-specific properties
         "hasWorkflow": {
           "@id": "dscdo:hasWorkflow",
           "@type": "@id"
@@ -15,8 +12,6 @@
           "@id": "dscdo:workflowExecution",
           "@type": "@id"
         },
-        
-        // PROV-O terms specifically relevant to workflows
         "SoftwareAgent": "prov:SoftwareAgent",
         "Person": "prov:Person",
         "Organization": "prov:Organization",
@@ -40,8 +35,6 @@
           "@id": "prov:wasInformedBy",
           "@type": "@id"
         },
-        
-        // SPDX SBOM integration terms for container workflows
         "spdx": "https://spdx.org/rdf/3.0.1/terms/",
         "Sbom": "spdx:Sbom",
         "Package": "spdx:Package", 
@@ -70,8 +63,6 @@
           "@id": "dscdo:containerSbom",
           "@type": "@id"
         },
-        
-        // Schema.org Observation integration terms
         "Observation": "schema:Observation",
         "ObservationEvent": "dscdo:ObservationEvent",
         "observationAbout": {
@@ -96,8 +87,6 @@
           "@id": "dscdo:measurementObservation", 
           "@type": "@id"
         },
-        
-        // Additional metadata for this context
         "contextMetadata": {
           "title": "DSCDO Workflow Context",
           "description": "JSON-LD context for DSCDO workflow-related concepts including InformationExtractionWorkflow, IEPipeline, SPDX SBOM integration, and schema.org observation patterns",
