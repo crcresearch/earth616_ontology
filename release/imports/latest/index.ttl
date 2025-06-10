@@ -161,5 +161,44 @@
     schema:license <https://www.ogc.org/license> ;
     rdfs:comment "Profile declaration describing GeoSPARQL specification parts and conformance classes" .
 
+# W3C PROV-O Ontology
+:prov-o a :CachedImport ;
+    schema:name "PROV-O: The PROV Ontology" ;
+    schema:description "W3C provenance ontology for describing the provenance of entities" ;
+    :originalUrl <http://www.w3.org/ns/prov-o#> ;
+    schema:contentUrl <https://vocab.earth616.localhost/nd/scdoc/ont/imports/prov-o.ttl> ;
+    schema:encodingFormat "text/turtle" ;
+    schema:dateModified "2025-06-10"^^xsd:date ;
+    schema:availability "Available" ;
+    schema:creator "W3C Provenance Working Group" ;
+    schema:license <https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;
+    rdfs:comment "W3C standard ontology for expressing provenance information" .
+
+# Schema.org Extended Vocabulary (v26)
+:schema-org-extended a :CachedImport ;
+    schema:name "Schema.org Extended Vocabulary v26" ;
+    schema:description "Extended Schema.org vocabulary with additional terms and pending terms" ;
+    :originalUrl <https://schema.org/version/26.0/> ;
+    schema:contentUrl <https://vocab.earth616.localhost/nd/scdoc/ont/imports/sdo-26.ttl> ;
+    schema:encodingFormat "text/turtle" ;
+    schema:dateModified "2025-06-10"^^xsd:date ;
+    schema:availability "Available" ;
+    schema:creator "Schema.org Community Group" ;
+    schema:license <https://creativecommons.org/licenses/by-sa/3.0/> ;
+    rdfs:comment "Extended Schema.org vocabulary including pending and proposed terms" .
+
+# Schema.org OWL Vocabulary (v26)
+:schema-org-owl a :CachedImport ;
+    schema:name "Schema.org OWL Vocabulary v26" ;
+    schema:description "Schema.org vocabulary expressed in OWL format with additional constraints" ;
+    :originalUrl <https://schema.org/version/26.0/> ;
+    schema:contentUrl <https://vocab.earth616.localhost/nd/scdoc/ont/imports/sdo-owl-26l.ttl> ;
+    schema:encodingFormat "text/turtle" ;
+    schema:dateModified "2025-06-10"^^xsd:date ;
+    schema:availability "Available" ;
+    schema:creator "Schema.org Community Group" ;
+    schema:license <https://creativecommons.org/licenses/by-sa/3.0/> ;
+    rdfs:comment "Schema.org vocabulary with OWL constraints and formal semantics" .
+
 # Registry metadata
-<https://vocab.earth616.localhost/nd/scdoc/ont/imports/> schema:dataset :gs1-vocab, :epcis-ontology, :cbv-ontology, :schema-org, :oplax, :owl-time, :owl-time-agg, :owl-time-prov, :geosparql, :geosparql-profile .
+<https://vocab.earth616.localhost/nd/scdoc/ont/imports/> schema:dataset :gs1-vocab, :epcis-ontology, :cbv-ontology, :schema-org, :prov-o, :schema-org-extended, :schema-org-owl, :oplax, :owl-time, :owl-time-agg, :owl-time-prov, :geosparql, :geosparql-profile .

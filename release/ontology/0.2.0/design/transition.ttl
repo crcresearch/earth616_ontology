@@ -12,9 +12,9 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 
 # --- DSCDO (environment-specific namespace) ---
-@prefix dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont> .
-@prefix : <https://vocab.earth616.localhost/nd/scdoc/ont> .
-@base <https://vocab.earth616.localhost/nd/scdoc/ont> .
+@prefix dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont/> .
+@prefix : <https://vocab.earth616.localhost/nd/scdoc/ont/> .
+@base <https://vocab.earth616.localhost/nd/scdoc/ont/> .
 
 # --- AMMO Ontology Reference ---
 @prefix ammo: <https://w3id.org/ammo/ont/> .

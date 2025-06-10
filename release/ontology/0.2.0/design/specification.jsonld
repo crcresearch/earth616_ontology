@@ -1,7 +1,7 @@
 {
     "@graph": [
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/design/specification-guidelines",
+            "@id": "dscdo:design/specification-guidelines",
             "skos:note": {
                 "@language": "en",
                 "@value": "\n    Enhanced Specification Usage Guidelines:\n    \n    1. Specification Types:\n       - Use MaterialDesignSpecification for material requirements\n       - Use QuantityDesignSpecification for dimensional/measurement constraints\n       - Use ProcessDesignSpecification for manufacturing parameters\n       - Use QualitySpecification for compliance and testing requirements\n    \n    2. TRU Enhancement:\n       - Use SpecifiedQuantityOfMaterial for validated quantities\n       - Link to specifications via meetsSpecification, quantityCompliance, qualityCompliance\n       - Include validation evidence for compliance claims\n    \n    3. Validation Tracking:\n       - Use SpecificationValidationEvent for compliance testing\n       - Link to specific specifications being validated\n       - Include validation results and supporting evidence\n    \n    4. Tolerance and Constraints:\n       - Use nominalValue, minimumValue, maximumValue for quantity constraints\n       - Include toleranceSpec for precision requirements\n       - Reference applicable standards via qualityStandard\n    \n    5. AMMO Provenance:\n       - MaterialDesignSpecification and QuantityDesignSpecification derive from AMMO\n       - Maintain dcterms:source references\n       - Preserve AMMO semantic patterns\n    \n    6. Integration Strategy:\n       - Specifications extend basic TRU capabilities\n       - Enable design-driven traceability\n       - Support compliance-aware supply chain tracking\n    "
@@ -34,17 +34,17 @@
             "@type": "SpatioTemporalExtent"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/events/steel-component-validation",
+            "@id": "dscdo:examples/events/steel-component-validation",
             "hasSpatioTemporalExtent": {
                 "@id": "_:b1"
             },
             "validationResult": "PASS - All specifications met",
             "validatesAgainst": [
                 {
-                    "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/specifications/component-weight-spec"
+                    "@id": "dscdo:examples/specifications/component-weight-spec"
                 },
                 {
-                    "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/specifications/steel-316l-material-spec"
+                    "@id": "dscdo:examples/specifications/steel-316l-material-spec"
                 }
             ],
             "rdfs:comment": {
@@ -58,7 +58,7 @@
             "@type": "SpecificationValidationEvent"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/specifications/component-weight-spec",
+            "@id": "dscdo:examples/specifications/component-weight-spec",
             "skos:exactMatch": {
                 "@id": "ammo:QuantityDesignSpecification"
             },
@@ -91,7 +91,7 @@
             "@type": "QuantityDesignSpecification"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/specifications/steel-316l-material-spec",
+            "@id": "dscdo:examples/specifications/steel-316l-material-spec",
             "skos:exactMatch": {
                 "@id": "ammo:MaterialDesignSpecification"
             },
@@ -109,7 +109,7 @@
             ],
             "compositionRequirement": "17-20% Chromium, 10-14% Nickel, 2-3% Molybdenum, <0.03% Carbon",
             "specifiedMaterial": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/materials/steel-316l-powder"
+                "@id": "dscdo:examples/materials/steel-316l-powder"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -122,7 +122,7 @@
             "@type": "MaterialDesignSpecification"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontSpecificationValidationEvent",
+            "@id": "dscdo:SpecificationValidationEvent",
             "skos:example": {
                 "@language": "en",
                 "@value": "Material composition testing, dimensional inspection, quality assurance validation"
@@ -132,7 +132,7 @@
                 "@value": "An event tracking compliance verification against formal specifications"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -143,7 +143,7 @@
                 "@value": "Specification Validation Event"
             },
             "rdfs:subClassOf": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontSupplyChainEvent"
+                "@id": "dscdo:SupplyChainEvent"
             },
             "@type": "rdfs:Class"
         },
@@ -154,18 +154,18 @@
             "@type": "InformationObject"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/specified-quantities/validated-steel-component",
+            "@id": "dscdo:examples/specified-quantities/validated-steel-component",
             "validationEvidence": {
                 "@id": "_:b2"
             },
             "quantityCompliance": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/specifications/component-weight-spec"
+                "@id": "dscdo:examples/specifications/component-weight-spec"
             },
             "meetsSpecification": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/specifications/steel-316l-material-spec"
+                "@id": "dscdo:examples/specifications/steel-316l-material-spec"
             },
             "ofMaterialType": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/materials/steel-316l-powder"
+                "@id": "dscdo:examples/materials/steel-316l-powder"
             },
             "schema:unitText": "kilograms",
             "schema:unitCode": "KGM",
@@ -184,7 +184,7 @@
             "@type": "SpecifiedQuantityOfMaterial"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontSpecifiedQuantityOfMaterial",
+            "@id": "dscdo:SpecifiedQuantityOfMaterial",
             "skos:example": {
                 "@language": "en",
                 "@value": "Steel quantity verified against MIL-STD composition requirements"
@@ -194,7 +194,7 @@
                 "@value": "A material quantity with formal specification compliance"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -205,7 +205,7 @@
                 "@value": "Specified Quantity Of Material"
             },
             "rdfs:subClassOf": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontQuantityOfMaterial"
+                "@id": "dscdo:QuantityOfMaterial"
             },
             "@type": "rdfs:Class"
         },
@@ -221,7 +221,7 @@
             "@type": "schema:QuantitativeValue"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontQuantityDesignSpecification",
+            "@id": "dscdo:QuantityDesignSpecification",
             "skos:note": {
                 "@language": "en",
                 "@value": "Derived from AMMO QuantityDesignSpecification for quantity requirement definition"
@@ -241,7 +241,7 @@
                 "@value": "A formal specification document that details quantity requirements including dimensions, tolerances, and measurement criteria"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -252,7 +252,7 @@
                 "@value": "Quantity Design Specification"
             },
             "rdfs:subClassOf": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesignSpecification"
+                "@id": "dscdo:DesignSpecification"
             },
             "@type": "rdfs:Class"
         },
@@ -271,7 +271,7 @@
             "@type": "schema:PropertyValue"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontMaterialDesignSpecification",
+            "@id": "dscdo:MaterialDesignSpecification",
             "skos:note": {
                 "@language": "en",
                 "@value": "Derived from AMMO MaterialDesignSpecification for material requirement definition"
@@ -291,7 +291,7 @@
                 "@value": "A formal specification document that details material requirements including composition, properties, and performance criteria"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -302,18 +302,18 @@
                 "@value": "Material Design Specification"
             },
             "rdfs:subClassOf": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesignSpecification"
+                "@id": "dscdo:DesignSpecification"
             },
             "@type": "rdfs:Class"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontvalidationEvidence",
+            "@id": "dscdo:validationEvidence",
             "skos:definition": {
                 "@language": "en",
                 "@value": "References evidence supporting validation outcomes"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -324,15 +324,15 @@
                 "@value": "validation evidence"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontInformationObject"
+                "@id": "dscdo:InformationObject"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontSpecificationValidationEvent"
+                "@id": "dscdo:SpecificationValidationEvent"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification",
+            "@id": "dscdo:modules/design/specification",
             "skos:note": {
                 "@language": "en",
                 "@value": "Enhanced specification patterns derived from AMMO MaterialDesignSpecification and QuantityDesignSpecification classes."
@@ -345,13 +345,13 @@
             },
             "owl:imports": [
                 {
-                    "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition"
+                    "@id": "dscdo:modules/design/composition"
                 },
                 {
-                    "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru"
+                    "@id": "dscdo:modules/traceability/tru"
                 },
                 {
-                    "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event"
+                    "@id": "dscdo:modules/core/event"
                 }
             ],
             "dcterms:creator": {
@@ -373,7 +373,7 @@
             "@type": "owl:Ontology"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontvalidationResult",
+            "@id": "dscdo:validationResult",
             "skos:example": {
                 "@language": "en",
                 "@value": "PASS - All requirements met, FAIL - Composition out of tolerance, CONDITIONAL - Requires additional testing"
@@ -383,7 +383,7 @@
                 "@value": "Textual result of specification validation testing"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -397,18 +397,18 @@
                 "@id": "xsd:string"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontSpecificationValidationEvent"
+                "@id": "dscdo:SpecificationValidationEvent"
             },
             "@type": "owl:DatatypeProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontvalidatesAgainst",
+            "@id": "dscdo:validatesAgainst",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Links validation events to the specifications being tested"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -419,21 +419,21 @@
                 "@value": "validates against"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesignSpecification"
+                "@id": "dscdo:DesignSpecification"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontSpecificationValidationEvent"
+                "@id": "dscdo:SpecificationValidationEvent"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontqualityCompliance",
+            "@id": "dscdo:qualityCompliance",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Links material quantities to quality specifications they satisfy"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -444,15 +444,15 @@
                 "@value": "quality compliance"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontQualitySpecification"
+                "@id": "dscdo:QualitySpecification"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontSpecifiedQuantityOfMaterial"
+                "@id": "dscdo:SpecifiedQuantityOfMaterial"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontQualitySpecification",
+            "@id": "dscdo:QualitySpecification",
             "skos:example": {
                 "@language": "en",
                 "@value": "Military standard compliance, testing protocols, acceptance criteria"
@@ -462,7 +462,7 @@
                 "@value": "A formal specification document that details quality requirements and validation procedures"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -473,18 +473,18 @@
                 "@value": "Quality Specification"
             },
             "rdfs:subClassOf": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesignSpecification"
+                "@id": "dscdo:DesignSpecification"
             },
             "@type": "rdfs:Class"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontquantityCompliance",
+            "@id": "dscdo:quantityCompliance",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Links material quantities to quantity specifications they comply with"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -495,21 +495,21 @@
                 "@value": "quantity compliance"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontQuantityDesignSpecification"
+                "@id": "dscdo:QuantityDesignSpecification"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontSpecifiedQuantityOfMaterial"
+                "@id": "dscdo:SpecifiedQuantityOfMaterial"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontmeetsSpecification",
+            "@id": "dscdo:meetsSpecification",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Links material quantities to the specifications they satisfy"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -520,15 +520,15 @@
                 "@value": "meets specification"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontMaterialDesignSpecification"
+                "@id": "dscdo:MaterialDesignSpecification"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontSpecifiedQuantityOfMaterial"
+                "@id": "dscdo:SpecifiedQuantityOfMaterial"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontacceptanceCriteria",
+            "@id": "dscdo:acceptanceCriteria",
             "skos:example": {
                 "@language": "en",
                 "@value": "Surface roughness < 1.6 μm, No visible defects, Dimensional accuracy ± 0.1mm"
@@ -538,7 +538,7 @@
                 "@value": "Textual description of acceptance requirements"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -552,18 +552,18 @@
                 "@id": "xsd:string"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontQualitySpecification"
+                "@id": "dscdo:QualitySpecification"
             },
             "@type": "owl:DatatypeProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/onttestingProcedure",
+            "@id": "dscdo:testingProcedure",
             "skos:definition": {
                 "@language": "en",
                 "@value": "References procedures for quality validation"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -574,12 +574,12 @@
                 "@value": "testing procedure"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontQualitySpecification"
+                "@id": "dscdo:QualitySpecification"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontqualityStandard",
+            "@id": "dscdo:qualityStandard",
             "skos:example": {
                 "@language": "en",
                 "@value": "MIL-STD-810, ISO-9001, ASTM-A240"
@@ -589,7 +589,7 @@
                 "@value": "Identifier for applicable quality standards"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -603,12 +603,12 @@
                 "@id": "xsd:string"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontQualitySpecification"
+                "@id": "dscdo:QualitySpecification"
             },
             "@type": "owl:DatatypeProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontoperatingCondition",
+            "@id": "dscdo:operatingCondition",
             "skos:example": {
                 "@language": "en",
                 "@value": "Temperature: 850°C ± 25°C, Pressure: 1.2 ATM, Inert atmosphere"
@@ -618,7 +618,7 @@
                 "@value": "Textual description of required process operating conditions"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -632,12 +632,12 @@
                 "@id": "xsd:string"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontProcessDesignSpecification"
+                "@id": "dscdo:ProcessDesignSpecification"
             },
             "@type": "owl:DatatypeProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontProcessDesignSpecification",
+            "@id": "dscdo:ProcessDesignSpecification",
             "skos:example": {
                 "@language": "en",
                 "@value": "Manufacturing process parameters, assembly procedures, quality control workflows"
@@ -647,7 +647,7 @@
                 "@value": "A formal specification document that details process requirements including parameters, sequences, and quality criteria"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -658,18 +658,18 @@
                 "@value": "Process Design Specification"
             },
             "rdfs:subClassOf": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesignSpecification"
+                "@id": "dscdo:DesignSpecification"
             },
             "@type": "rdfs:Class"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontprocessParameter",
+            "@id": "dscdo:processParameter",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Links process specifications to their required parameters"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -683,18 +683,18 @@
                 "@id": "schema:PropertyValue"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontProcessDesignSpecification"
+                "@id": "dscdo:ProcessDesignSpecification"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontnominalValue",
+            "@id": "dscdo:nominalValue",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Target value for quantity measurements"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -708,18 +708,18 @@
                 "@id": "xsd:decimal"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontQuantityDesignSpecification"
+                "@id": "dscdo:QuantityDesignSpecification"
             },
             "@type": "owl:DatatypeProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontmaximumValue",
+            "@id": "dscdo:maximumValue",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Upper bound for acceptable quantity values"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -733,18 +733,18 @@
                 "@id": "xsd:decimal"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontQuantityDesignSpecification"
+                "@id": "dscdo:QuantityDesignSpecification"
             },
             "@type": "owl:DatatypeProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontminimumValue",
+            "@id": "dscdo:minimumValue",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Lower bound for acceptable quantity values"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -758,18 +758,18 @@
                 "@id": "xsd:decimal"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontQuantityDesignSpecification"
+                "@id": "dscdo:QuantityDesignSpecification"
             },
             "@type": "owl:DatatypeProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/onttoleranceSpec",
+            "@id": "dscdo:toleranceSpec",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Specifies measurement tolerance using Schema.org QuantitativeValue patterns"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -783,12 +783,12 @@
                 "@id": "schema:QuantitativeValue"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontQuantityDesignSpecification"
+                "@id": "dscdo:QuantityDesignSpecification"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontspecifiedQuantity",
+            "@id": "dscdo:specifiedQuantity",
             "skos:note": {
                 "@language": "en",
                 "@value": "Derived from AMMO ofQuantity property linking QuantityDesignSpecification to Quantity"
@@ -804,7 +804,7 @@
                 "@value": "Connects quantity specifications to the measurements they constrain"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -815,15 +815,15 @@
                 "@value": "specified quantity"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontQuantityOfMaterial"
+                "@id": "dscdo:QuantityOfMaterial"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontQuantityDesignSpecification"
+                "@id": "dscdo:QuantityDesignSpecification"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontcompositionRequirement",
+            "@id": "dscdo:compositionRequirement",
             "skos:example": {
                 "@language": "en",
                 "@value": "18-20% Chromium, 8-10.5% Nickel, <0.08% Carbon"
@@ -833,7 +833,7 @@
                 "@value": "Textual specification of required material composition"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -847,18 +847,18 @@
                 "@id": "xsd:string"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontMaterialDesignSpecification"
+                "@id": "dscdo:MaterialDesignSpecification"
             },
             "@type": "owl:DatatypeProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontmaterialProperty",
+            "@id": "dscdo:materialProperty",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Connects specifications to the material properties they define"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -869,12 +869,12 @@
                 "@value": "material property"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontMaterialDesignSpecification"
+                "@id": "dscdo:MaterialDesignSpecification"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontspecifiedMaterial",
+            "@id": "dscdo:specifiedMaterial",
             "skos:note": {
                 "@language": "en",
                 "@value": "Derived from AMMO hasMaterial property linking MaterialDesignSpecification to Material"
@@ -890,7 +890,7 @@
                 "@value": "Connects material specifications to the materials they constrain"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                "@id": "dscdo:modules/design/specification"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -901,10 +901,10 @@
                 "@value": "specified material"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontMaterial"
+                "@id": "dscdo:Material"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontMaterialDesignSpecification"
+                "@id": "dscdo:MaterialDesignSpecification"
             },
             "@type": "owl:ObjectProperty"
         }
@@ -917,10 +917,10 @@
         "xml": "http://www.w3.org/XML/1998/namespace",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "skos": "http://www.w3.org/2004/02/skos/core#",
-        "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont",
+        "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont/",
         "dcterms": "http://purl.org/dc/terms/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "prov": "http://www.w3.org/ns/prov#",
-        "@vocab": "https://vocab.earth616.localhost/nd/scdoc/ont"
+        "@vocab": "https://vocab.earth616.localhost/nd/scdoc/ont/"
     }
 }

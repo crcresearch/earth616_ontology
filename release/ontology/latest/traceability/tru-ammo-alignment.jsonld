@@ -1,7 +1,7 @@
 {
     "@graph": [
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/alignment/ammo-tru-mapping-guidelines",
+            "@id": "dscdo:alignment/ammo-tru-mapping-guidelines",
             "skos:note": {
                 "@language": "en",
                 "@value": "\n    AMMO-TRU Alignment Strategy:\n    \n    1. Material Mapping:\n       - AMMO Material → TRU Material (skos:exactMatch)\n       - AMMO Alloy/Polymer/BaseMaterial → TRU Material with additionalProperty classification\n       - AMMO Quantity + Material → TRU QuantityOfMaterial\n       - Preserve QUDT units from AMMO using Schema.org unitCode mappings\n    \n    2. Process Integration:\n       - AMMO AMProcess → TRU TransformationEvent (skos:closeMatch)\n       - AMMO process types (PowderBed, MaterialExtrusion, etc.) → additionalProperty on TRU events\n       - AMMO MaterialTransformation → TRU TransformationEvent base pattern\n    \n    3. Artifact and Component Tracking:\n       - AMMO DesignedArtifact → TRU TraceableResourceUnit (skos:closeMatch)\n       - AMMO DesignSpecification → TRU Identifier with propertyID linkage\n       - Preserve AMMO design provenance in TRU predecessor/successor chains\n    \n    4. Property Mappings:\n       - ammo:hasBaseMaterial → dscdo:ofMaterialType (material composition)\n       - ammo:madeFromMaterial → dscdo:ofMaterialType (material source)\n       - ammo:ofQuantity → dscdo:consistsOf (quantity relationships)\n       - ammo:specifies → schema:additionalProperty (specification details)\n    \n    5. Namespace and URI Management:\n       - Use AMMO namespace: https://w3id.org/ammo/ont/\n       - Apply skos:exactMatch for direct concept equivalence\n       - Use skos:closeMatch for similar but not identical concepts\n       - Use skos:relatedMatch for conceptually related terms\n       - Use rdfs:seeAlso for reference relationships\n    \n    6. Validation Considerations:\n       - Ensure QUDT to UN/CEFACT unit code mappings are consistent\n       - Verify temporal alignment between AMMO process intervals and TRU event extents\n       - Validate material composition chains across transformation events\n       - Check design specification lineage preservation\n    "
@@ -57,7 +57,7 @@
             "hasMeasurementMethod": "precision_component_weighing",
             "measuredProperty": "mass",
             "ofMaterialType": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/materials/steel-316l-powder"
+                "@id": "dscdo:examples/materials/steel-316l-powder"
             },
             "schema:unitText": "kilograms",
             "schema:unitCode": "KGM",
@@ -68,7 +68,7 @@
             "@type": "QuantityOfMaterial"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/materials/steel-316l-powder",
+            "@id": "dscdo:examples/materials/steel-316l-powder",
             "schema:additionalProperty": [
                 {
                     "@id": "_:b13"
@@ -100,7 +100,7 @@
             "@type": "Material"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontQuantityOfMaterial",
+            "@id": "dscdo:QuantityOfMaterial",
             "rdfs:seeAlso": {
                 "@id": "ammo:Quantity"
             },
@@ -123,7 +123,7 @@
             "@type": "Identifier"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontIdentifier",
+            "@id": "dscdo:Identifier",
             "rdfs:seeAlso": {
                 "@id": "ammo:DesignSpecification"
             },
@@ -136,7 +136,7 @@
             }
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/ammo-alignment/steel-component-am-001",
+            "@id": "dscdo:examples/ammo-alignment/steel-component-am-001",
             "schema:additionalProperty": [
                 {
                     "@id": "_:b0"
@@ -161,7 +161,7 @@
                 "@id": "_:b4"
             },
             "predecessorOf": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/ammo-alignment/steel-powder-batch"
+                "@id": "dscdo:examples/ammo-alignment/steel-powder-batch"
             },
             "hasIdentifier": {
                 "@id": "_:b5"
@@ -177,7 +177,7 @@
             "@type": "TraceableResourceUnit"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/ammo-alignment/steel-powder-batch",
+            "@id": "dscdo:examples/ammo-alignment/steel-powder-batch",
             "schema:additionalProperty": [
                 {
                     "@id": "_:b16"
@@ -211,7 +211,7 @@
             "@type": "TraceableResourceUnit"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontTraceableResourceUnit",
+            "@id": "dscdo:TraceableResourceUnit",
             "rdfs:seeAlso": {
                 "@id": "ammo:DesignedArtifact"
             },
@@ -284,7 +284,7 @@
             "@type": "SpatioTemporalExtent"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/events/powder-bed-fusion-001",
+            "@id": "dscdo:examples/events/powder-bed-fusion-001",
             "schema:additionalProperty": [
                 {
                     "@id": "_:b6"
@@ -309,10 +309,10 @@
                 "@id": "ammo:AMProcess"
             },
             "outputTRU": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/ammo-alignment/steel-component-am-001"
+                "@id": "dscdo:examples/ammo-alignment/steel-component-am-001"
             },
             "inputTRU": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/ammo-alignment/steel-powder-batch"
+                "@id": "dscdo:examples/ammo-alignment/steel-powder-batch"
             },
             "hasSpatioTemporalExtent": {
                 "@id": "_:b12"
@@ -328,7 +328,7 @@
             "@type": "TransformationEvent"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontTransformationEvent",
+            "@id": "dscdo:TransformationEvent",
             "rdfs:seeAlso": {
                 "@id": "ammo:AMProcess"
             },
@@ -368,7 +368,7 @@
             "@type": "schema:PropertyValue"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontMaterial",
+            "@id": "dscdo:Material",
             "rdfs:seeAlso": {
                 "@id": "ammo:Material"
             },
@@ -401,7 +401,7 @@
             "hasMeasurementMethod": "precision_powder_weighing",
             "measuredProperty": "mass",
             "ofMaterialType": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/materials/steel-316l-powder"
+                "@id": "dscdo:examples/materials/steel-316l-powder"
             },
             "schema:unitText": "kilograms",
             "schema:unitCode": "KGM",
@@ -419,7 +419,7 @@
             "@type": "Identifier"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/alignment/ammo-process-types",
+            "@id": "dscdo:alignment/ammo-process-types",
             "skos:note": {
                 "@language": "en",
                 "@value": "\n    AMMO Process Types and TRU Event Alignment:\n    \n    1. ammo:PowderBed → dscdo:TransformationEvent with additionalProperty 'AM_Process_Type: PowderBed'\n    2. ammo:MaterialExtrusion → dscdo:TransformationEvent with additionalProperty 'AM_Process_Type: MaterialExtrusion'\n    3. ammo:LightPolymerized → dscdo:TransformationEvent with additionalProperty 'AM_Process_Type: LightPolymerized'\n    4. ammo:PowderFed → dscdo:TransformationEvent with additionalProperty 'AM_Process_Type: PowderFed'\n    \n    Strategy: Use schema:additionalProperty to preserve AMMO process specificity within TRU event framework.\n    "
@@ -438,7 +438,7 @@
             ]
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontconsistsOf",
+            "@id": "dscdo:consistsOf",
             "rdfs:seeAlso": {
                 "@id": "ammo:ofQuantity"
             },
@@ -451,7 +451,7 @@
             }
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontofMaterialType",
+            "@id": "dscdo:ofMaterialType",
             "rdfs:seeAlso": [
                 {
                     "@id": "ammo:madeFromMaterial"
@@ -474,7 +474,7 @@
             ]
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru-ammo-alignment",
+            "@id": "dscdo:modules/traceability/tru-ammo-alignment",
             "rdfs:seeAlso": [
                 {
                     "@id": "https://la3d.github.io/ammo/"
@@ -484,7 +484,7 @@
                 }
             ],
             "owl:imports": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru"
+                "@id": "dscdo:modules/traceability/tru"
             },
             "dcterms:creator": {
                 "@id": "https://orcid.org/0000-0003-4091-6059"
@@ -513,10 +513,10 @@
         "xml": "http://www.w3.org/XML/1998/namespace",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "skos": "http://www.w3.org/2004/02/skos/core#",
-        "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont",
+        "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont/",
         "dcterms": "http://purl.org/dc/terms/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "prov": "http://www.w3.org/ns/prov#",
-        "@vocab": "https://vocab.earth616.localhost/nd/scdoc/ont"
+        "@vocab": "https://vocab.earth616.localhost/nd/scdoc/ont/"
     }
 }

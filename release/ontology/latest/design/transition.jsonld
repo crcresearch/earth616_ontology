@@ -1,7 +1,7 @@
 {
     "@graph": [
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/design/transition-guidelines",
+            "@id": "dscdo:design/transition-guidelines",
             "skos:note": {
                 "@language": "en",
                 "@value": "\n    State Transition Usage Guidelines:\n    \n    1. State Modeling:\n       - Use State for general entity conditions\n       - Use ProcessState for workflow phases\n       - Use MaterialState for material conditions\n       - Use LifecycleState for supply chain phases\n    \n    2. Transition Constraints:\n       - fromState and toState are functional properties (exactly one each)\n       - Transitions should be logically valid (valid state progressions)\n       - Include transition conditions and actions for workflow transitions\n    \n    3. State Tracking:\n       - Use currentState for present entity state\n       - Use stateHistory for complete state timeline\n       - Create StateOccurrence records with temporal intervals\n    \n    4. TRU Integration:\n       - Use StatefulTRU for TRUs requiring state tracking\n       - Integrate state transitions with supply chain events\n       - Maintain state history for audit and compliance\n    \n    5. Event Integration:\n       - Use StateTransitionEvent for events causing state changes\n       - Link events to specific transitions via triggersTransition\n       - Identify entities changing state via transitionSubject\n    \n    6. AMMO Provenance:\n       - State and Transition classes derive from AMMO\n       - Maintain dcterms:source references\n       - Preserve AMMO semantic patterns for state modeling\n    \n    7. Validation Patterns:\n       - Ensure state consistency (no impossible transitions)\n       - Validate temporal ordering of state occurrences\n       - Check transition condition satisfaction\n    "
@@ -36,15 +36,15 @@
         {
             "@id": "_:b2",
             "toState": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/states/quality-approved"
+                "@id": "dscdo:examples/states/quality-approved"
             },
             "fromState": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/states/quality-control"
+                "@id": "dscdo:examples/states/quality-control"
             },
             "@type": "Transition"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/states/quality-approved",
+            "@id": "dscdo:examples/states/quality-approved",
             "schema:description": "Component has passed all quality checks and is approved for use",
             "rdfs:comment": {
                 "@language": "en",
@@ -57,7 +57,7 @@
             "@type": "LifecycleState"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontTransition",
+            "@id": "dscdo:Transition",
             "skos:note": {
                 "@language": "en",
                 "@value": "Derived from AMMO Transition class for state change modeling"
@@ -77,7 +77,7 @@
                 "@value": "A state change process with defined source and target states"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:subClassOf": [
                 {
@@ -101,12 +101,12 @@
             "@type": "rdfs:Class"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/events/quality-approval-event",
+            "@id": "dscdo:examples/events/quality-approval-event",
             "hasSpatioTemporalExtent": {
                 "@id": "_:b1"
             },
             "transitionSubject": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/stateful-tru/steel-component-001"
+                "@id": "dscdo:examples/stateful-tru/steel-component-001"
             },
             "triggersTransition": {
                 "@id": "_:b2"
@@ -122,9 +122,9 @@
             "@type": "StateTransitionEvent"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/stateful-tru/steel-component-001",
+            "@id": "dscdo:examples/stateful-tru/steel-component-001",
             "hasTransition": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/transitions/manufacturing-completion"
+                "@id": "dscdo:examples/transitions/manufacturing-completion"
             },
             "stateHistory": [
                 {
@@ -135,7 +135,7 @@
                 }
             ],
             "currentState": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/states/quality-approved"
+                "@id": "dscdo:examples/states/quality-approved"
             },
             "hasIdentifier": {
                 "@id": "_:b7"
@@ -151,7 +151,7 @@
             "@type": "StatefulTRU"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontStateTransitionEvent",
+            "@id": "dscdo:StateTransitionEvent",
             "skos:example": {
                 "@language": "en",
                 "@value": "Quality approval event, Manufacturing completion event, Shipping initiation event"
@@ -161,7 +161,7 @@
                 "@value": "An event that triggers or records state changes"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -172,7 +172,7 @@
                 "@value": "State Transition Event"
             },
             "rdfs:subClassOf": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontSupplyChainEvent"
+                "@id": "dscdo:SupplyChainEvent"
             },
             "@type": "rdfs:Class"
         },
@@ -188,12 +188,12 @@
                 "@id": "_:b3"
             },
             "occurrenceState": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/states/in-process"
+                "@id": "dscdo:examples/states/in-process"
             },
             "@type": "StateOccurrence"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/states/in-process",
+            "@id": "dscdo:examples/states/in-process",
             "schema:description": "Material or component is currently undergoing processing or manufacturing",
             "rdfs:comment": {
                 "@language": "en",
@@ -206,7 +206,7 @@
             "@type": "ProcessState"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontStateOccurrence",
+            "@id": "dscdo:StateOccurrence",
             "skos:example": {
                 "@language": "en",
                 "@value": "Component was in 'Testing' state from 2024-03-15 to 2024-03-16"
@@ -216,7 +216,7 @@
                 "@value": "A timestamped record of an entity being in a specific state"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -240,12 +240,12 @@
                 "@id": "_:b5"
             },
             "occurrenceState": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/states/raw-material"
+                "@id": "dscdo:examples/states/raw-material"
             },
             "@type": "StateOccurrence"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/states/raw-material",
+            "@id": "dscdo:examples/states/raw-material",
             "skos:exactMatch": {
                 "@id": "ammo:State"
             },
@@ -271,7 +271,7 @@
             "@type": "Identifier"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/transitions/manufacturing-completion",
+            "@id": "dscdo:examples/transitions/manufacturing-completion",
             "skos:exactMatch": {
                 "@id": "ammo:Transition"
             },
@@ -281,10 +281,10 @@
             "transitionAction": "Move component to quality control queue, Update tracking system",
             "transitionCondition": "Manufacturing process completed according to specifications",
             "toState": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/states/quality-control"
+                "@id": "dscdo:examples/states/quality-control"
             },
             "fromState": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/states/in-process"
+                "@id": "dscdo:examples/states/in-process"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -297,7 +297,7 @@
             "@type": "WorkflowTransition"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontStatefulTRU",
+            "@id": "dscdo:StatefulTRU",
             "skos:example": {
                 "@language": "en",
                 "@value": "Steel component TRU with states: Raw → Machined → Tested → Approved → Shipped"
@@ -307,7 +307,7 @@
                 "@value": "A TRU with formal state management and transition tracking"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -318,12 +318,12 @@
                 "@value": "Stateful TRU"
             },
             "rdfs:subClassOf": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontTraceableResourceUnit"
+                "@id": "dscdo:TraceableResourceUnit"
             },
             "@type": "rdfs:Class"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontWorkflowTransition",
+            "@id": "dscdo:WorkflowTransition",
             "skos:example": {
                 "@language": "en",
                 "@value": "Submit for review transition, Approval transition, Rejection transition"
@@ -333,7 +333,7 @@
                 "@value": "A transition specific to workflow progression"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -344,12 +344,12 @@
                 "@value": "Workflow Transition"
             },
             "rdfs:subClassOf": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontTransition"
+                "@id": "dscdo:Transition"
             },
             "@type": "rdfs:Class"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontLifecycleState",
+            "@id": "dscdo:LifecycleState",
             "skos:example": {
                 "@language": "en",
                 "@value": "Designed, Manufactured, Tested, Delivered, Deployed, Maintained, Retired"
@@ -359,7 +359,7 @@
                 "@value": "A state representing lifecycle phases for supply chain entities"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -370,12 +370,12 @@
                 "@value": "Lifecycle State"
             },
             "rdfs:subClassOf": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontState"
+                "@id": "dscdo:State"
             },
             "@type": "rdfs:Class"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontProcessState",
+            "@id": "dscdo:ProcessState",
             "skos:example": {
                 "@language": "en",
                 "@value": "Manufacturing state, Quality control state, Assembly state, Testing state"
@@ -385,7 +385,7 @@
                 "@value": "A state specific to process phases and workflow conditions"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -396,12 +396,12 @@
                 "@value": "Process State"
             },
             "rdfs:subClassOf": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontState"
+                "@id": "dscdo:State"
             },
             "@type": "rdfs:Class"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/onttransitionAction",
+            "@id": "dscdo:transitionAction",
             "skos:example": {
                 "@language": "en",
                 "@value": "Send notification, Update database, Generate certificate, Schedule inspection"
@@ -411,7 +411,7 @@
                 "@value": "Textual description of actions performed during transition"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -425,12 +425,12 @@
                 "@id": "xsd:string"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontWorkflowTransition"
+                "@id": "dscdo:WorkflowTransition"
             },
             "@type": "owl:DatatypeProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition",
+            "@id": "dscdo:modules/design/transition",
             "skos:note": {
                 "@language": "en",
                 "@value": "State transition patterns derived from AMMO Transition and temporal modeling classes."
@@ -443,13 +443,13 @@
             },
             "owl:imports": [
                 {
-                    "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/patterns/SpatioTemporalExtent"
+                    "@id": "dscdo:patterns/SpatioTemporalExtent"
                 },
                 {
-                    "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru"
+                    "@id": "dscdo:modules/traceability/tru"
                 },
                 {
-                    "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event"
+                    "@id": "dscdo:modules/core/event"
                 }
             ],
             "dcterms:creator": {
@@ -471,7 +471,7 @@
             "@type": "owl:Ontology"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/onttransitionCondition",
+            "@id": "dscdo:transitionCondition",
             "skos:example": {
                 "@language": "en",
                 "@value": "All tests pass, Manager approval received, Quality criteria met"
@@ -481,7 +481,7 @@
                 "@value": "Textual description of conditions required for transition"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -495,12 +495,12 @@
                 "@id": "xsd:string"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontWorkflowTransition"
+                "@id": "dscdo:WorkflowTransition"
             },
             "@type": "owl:DatatypeProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontWorkflowState",
+            "@id": "dscdo:WorkflowState",
             "skos:example": {
                 "@language": "en",
                 "@value": "Pending approval, In review, Approved, Rejected, On hold"
@@ -510,7 +510,7 @@
                 "@value": "A state representing workflow phases and process steps"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -521,12 +521,12 @@
                 "@value": "Workflow State"
             },
             "rdfs:subClassOf": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontProcessState"
+                "@id": "dscdo:ProcessState"
             },
             "@type": "rdfs:Class"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontTraceableResourceUnit",
+            "@id": "dscdo:TraceableResourceUnit",
             "rdfs:subClassOf": {
                 "@id": "_:b8"
             }
@@ -542,18 +542,18 @@
                 "@type": "xsd:integer"
             },
             "owl:onProperty": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontcurrentState"
+                "@id": "dscdo:currentState"
             },
             "@type": "owl:Restriction"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontcurrentState",
+            "@id": "dscdo:currentState",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Links entities to their present state"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -564,7 +564,7 @@
                 "@value": "current state"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontState"
+                "@id": "dscdo:State"
             },
             "@type": [
                 "owl:FunctionalProperty",
@@ -572,13 +572,13 @@
             ]
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/onttransitionSubject",
+            "@id": "dscdo:transitionSubject",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Links transition events to the entities changing state"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -589,18 +589,18 @@
                 "@value": "transition subject"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontStateTransitionEvent"
+                "@id": "dscdo:StateTransitionEvent"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/onttriggersTransition",
+            "@id": "dscdo:triggersTransition",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Links events to the transitions they cause"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -611,23 +611,23 @@
                 "@value": "triggers transition"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontTransition"
+                "@id": "dscdo:Transition"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontStateTransitionEvent"
+                "@id": "dscdo:StateTransitionEvent"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/onttransitionDuration",
+            "@id": "dscdo:transitionDuration",
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:range": {
                 "@id": "xsd:duration"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontTransition"
+                "@id": "dscdo:Transition"
             },
             "rdfs:subPropertyOf": {
                 "@id": "time:hasXSDDuration"
@@ -643,15 +643,15 @@
             "@type": "owl:DatatypeProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/onttransitionEndsAt",
+            "@id": "dscdo:transitionEndsAt",
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:range": {
                 "@id": "time:Instant"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontTransition"
+                "@id": "dscdo:Transition"
             },
             "rdfs:subPropertyOf": {
                 "@id": "time:hasEnd"
@@ -667,15 +667,15 @@
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/onttransitionStartsAt",
+            "@id": "dscdo:transitionStartsAt",
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:range": {
                 "@id": "time:Instant"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontTransition"
+                "@id": "dscdo:Transition"
             },
             "rdfs:subPropertyOf": {
                 "@id": "time:hasBeginning"
@@ -691,15 +691,15 @@
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/onttransitionDuring",
+            "@id": "dscdo:transitionDuring",
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:range": {
                 "@id": "time:ProperInterval"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontTransition"
+                "@id": "dscdo:Transition"
             },
             "rdfs:subPropertyOf": {
                 "@id": "time:hasTime"
@@ -715,13 +715,13 @@
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontoccurrenceInterval",
+            "@id": "dscdo:occurrenceInterval",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Links state occurrences to their temporal intervals using W3C Time"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -738,7 +738,7 @@
                 "@id": "time:ProperInterval"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontStateOccurrence"
+                "@id": "dscdo:StateOccurrence"
             },
             "@type": [
                 "owl:FunctionalProperty",
@@ -746,13 +746,13 @@
             ]
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontoccurrenceState",
+            "@id": "dscdo:occurrenceState",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Links state occurrences to their specific states"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -763,10 +763,10 @@
                 "@value": "occurrence state"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontState"
+                "@id": "dscdo:State"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontStateOccurrence"
+                "@id": "dscdo:StateOccurrence"
             },
             "@type": [
                 "owl:FunctionalProperty",
@@ -774,7 +774,7 @@
             ]
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontState",
+            "@id": "dscdo:State",
             "skos:note": {
                 "@language": "en",
                 "@value": "Derived from AMMO State class for entity condition modeling"
@@ -794,7 +794,7 @@
                 "@value": "A discrete condition or configuration that characterizes an entity at a specific time"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -807,13 +807,13 @@
             "@type": "rdfs:Class"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontstateHistory",
+            "@id": "dscdo:stateHistory",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Connects entities to their state history records"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -824,12 +824,12 @@
                 "@value": "state history"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontStateOccurrence"
+                "@id": "dscdo:StateOccurrence"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/onthasTransition",
+            "@id": "dscdo:hasTransition",
             "skos:note": {
                 "@language": "en",
                 "@value": "Derived from AMMO hasTransition property"
@@ -845,7 +845,7 @@
                 "@value": "Links entities to the transitions they undergo"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -856,12 +856,12 @@
                 "@value": "has transition"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontTransition"
+                "@id": "dscdo:Transition"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/onttoState",
+            "@id": "dscdo:toState",
             "skos:note": {
                 "@language": "en",
                 "@value": "Derived from AMMO toState with functional property constraint"
@@ -877,7 +877,7 @@
                 "@value": "Links transitions to their target states"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -888,10 +888,10 @@
                 "@value": "to state"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontState"
+                "@id": "dscdo:State"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontTransition"
+                "@id": "dscdo:Transition"
             },
             "@type": [
                 "owl:FunctionalProperty",
@@ -899,7 +899,7 @@
             ]
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontfromState",
+            "@id": "dscdo:fromState",
             "skos:note": {
                 "@language": "en",
                 "@value": "Derived from AMMO fromState with functional property constraint"
@@ -915,7 +915,7 @@
                 "@value": "Links transitions to their source states"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -926,10 +926,10 @@
                 "@value": "from state"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontState"
+                "@id": "dscdo:State"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontTransition"
+                "@id": "dscdo:Transition"
             },
             "@type": [
                 "owl:FunctionalProperty",
@@ -943,7 +943,7 @@
                 "@type": "xsd:nonNegativeInteger"
             },
             "owl:onProperty": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/onttoState"
+                "@id": "dscdo:toState"
             },
             "@type": "owl:Restriction"
         },
@@ -954,7 +954,7 @@
                 "@type": "xsd:nonNegativeInteger"
             },
             "owl:onProperty": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontfromState"
+                "@id": "dscdo:fromState"
             },
             "@type": "owl:Restriction"
         },
@@ -964,12 +964,12 @@
                 "@id": "time:ProperInterval"
             },
             "owl:onProperty": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/onttransitionDuring"
+                "@id": "dscdo:transitionDuring"
             },
             "@type": "owl:Restriction"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontMaterialState",
+            "@id": "dscdo:MaterialState",
             "skos:example": {
                 "@language": "en",
                 "@value": "Solid state, Liquid state, Powder state, Molten state, Cured state"
@@ -979,7 +979,7 @@
                 "@value": "A state describing material conditions and phases"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition"
+                "@id": "dscdo:modules/design/transition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -990,7 +990,7 @@
                 "@value": "Material State"
             },
             "rdfs:subClassOf": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontState"
+                "@id": "dscdo:State"
             },
             "@type": "rdfs:Class"
         }
@@ -1001,13 +1001,13 @@
         "owl": "http://www.w3.org/2002/07/owl#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "skos": "http://www.w3.org/2004/02/skos/core#",
-        "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont",
+        "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "xml": "http://www.w3.org/XML/1998/namespace",
         "dcterms": "http://purl.org/dc/terms/",
         "time": "http://www.w3.org/2006/time#",
         "prov": "http://www.w3.org/ns/prov#",
-        "@vocab": "https://vocab.earth616.localhost/nd/scdoc/ont"
+        "@vocab": "https://vocab.earth616.localhost/nd/scdoc/ont/"
     }
 }

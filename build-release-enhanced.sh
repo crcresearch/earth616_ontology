@@ -173,7 +173,7 @@ if [[ "$LAYERS" == "all" || "$LAYERS" == *"ontology"* ]]; then
             fi
             
             if [ ! -z "$FILES" ]; then
-                python3 "${SCRIPTS_DIR}/merge_ontology.py" "${RELEASE_DIR}/ontology/${VERSION}/merged.ttl" $FILES || echo "Warning: Merge failed"
+                uv run python "${SCRIPTS_DIR}/merge_ontology.py" "${RELEASE_DIR}/ontology/${VERSION}/merged.ttl" $FILES || echo "Warning: Merge failed"
                 cp "${RELEASE_DIR}/ontology/${VERSION}/merged.ttl" "${RELEASE_DIR}/ontology/latest/merged.ttl" 2>/dev/null || true
             fi
         fi
