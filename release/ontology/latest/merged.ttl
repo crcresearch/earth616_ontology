@@ -1,150 +1,26 @@
-@prefix : <https://vocab.earth616.localhost/nd/scdoc/ont> .
-@prefix ammo: <https://w3id.org/ammo/ont/> .
-@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix : <https://vocab.earth616.localhost/nd/scdoc/ont/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix default1: <https://vocab.earth616.localhost/nd/scdoc/ont/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix gs11: <https://gs1.org/voc/> .
-@prefix lode: <http://purl.org/lode/config#> .
+@prefix ns1: <http://purl.org/ontology/bibo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prof: <http://www.w3.org/ns/dx/prof/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix schema: <http://schema.org/> .
-@prefix sdo: <https://schema.org/> .
+@prefix schema: <https://schema.org/> .
+@prefix schema1: <http://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix spdx: <https://spdx.org/rdf/3.0.1/terms/> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
-@prefix voaf: <http://purl.org/vocommons/voaf#> .
-@prefix wd: <http://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont/> .
 
-default1:Agent a rdfs:Class ;
+:Agent a rdfs:Class ;
     rdfs:label "Agent"@en ;
     rdfs:comment "An entity participating in an event, such as a person, organization, or system."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> ;
     skos:definition "An entity capable of acting or participating in events"@en .
-
-default1:Event a rdfs:Class ;
-    rdfs:label "Event"@en ;
-    rdfs:comment "Represents any kind of events. An event possesses a spatiotemporal extent, provides at least one participant-role, which is performed by some entity (agents or otherwise), and may be a sub-event of another event. An event may also have additional descriptive information, which is consolidated through an information object."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty default1:hasSpatioTemporalExtent ;
-            owl:someValuesFrom default1:SpatioTemporalExtent ],
-        [ a owl:Restriction ;
-            owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onProperty default1:providesParticipantRole ] ;
-    skos:definition "A temporal entity that represents occurrences or happenings in time and space"@en .
-
-default1:IdentifierEncoding a rdfs:Class ;
-    rdfs:label "Identifier Encoding"@en ;
-    rdfs:comment "Represents a specific instance of how an identifier is encoded (e.g., a specific barcode instance, an RFID tag encoding)."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/identifier> ;
-    skos:definition "A physical or digital encoding of an identifier, such as a barcode, QR code, or RFID tag"@en .
-
-default1:IdentifierSource a rdfs:Class ;
-    rdfs:label "Identifier Source"@en ;
-    rdfs:comment "The authority or organization that issued or manages the identifier."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/identifier> ;
-    skos:definition "An organization or system that issues, maintains, or governs an identifier scheme"@en .
-
-default1:IdentifierType a rdfs:Class ;
-    rdfs:label "Identifier Type"@en ;
-    rdfs:comment "Represents the type or category of an identifier (e.g., GTIN, ISBN, DOI)."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/identifier> ;
-    skos:definition "A classification of identifier types, specifying the standard or system used"@en .
-
-default1:InformationObject a rdfs:Class ;
-    rdfs:label "Information Object"@en ;
-    rdfs:comment "An entity that encapsulates all descriptive or non-defining information of the corresponding event, e.g., names, additional identifiers, textual descriptions, etc. Should normally be aligned to a separate Information Object pattern."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> ;
-    skos:definition "An object that carries descriptive information about an event"@en .
-
-default1:Material a rdfs:Class ;
-    rdfs:label "Material"@en ;
-    rdfs:comment "The type or classification of material within a quantity of material."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
-    skos:definition "A classification of substance or material used in supply chain operations"@en ;
-    skos:exactMatch ammo:Material ;
-    skos:example "Stainless Steel Grade 304, Aluminum Alloy 6061, Polymer ABS plastic"@en ;
-    skos:note "Aligns with AMMO Material concept: 'Substance that can occur in different amounts, all with some similar characteristics'. AMMO provides subclasses like Alloy, Polymer, and BaseMaterial."@en .
-
-default1:ParticipantRole a rdfs:Class ;
-    rdfs:label "Participant Role"@en ;
-    rdfs:comment "Every ParticipantRole represents a reified relationship between an event and one of its participants. Should normally be aligned to a separate Participant-Role pattern."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> ;
-    skos:definition "A role played by an agent or entity participating in an event"@en .
-
-default1:QuantityOfMaterial a rdfs:Class ;
-    rdfs:label "Quantity Of Material"@en ;
-    rdfs:comment "Represents a specific quantity of material with defined properties and measurements. Inherits from schema:QuantitativeValue to support standard quantity expressions with value, unitCode, and measurement properties."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
-    rdfs:subClassOf schema:QuantitativeValue,
-        prov:Entity ;
-    skos:definition "A measurable amount of material that can be part of a traceable resource unit, expressed using Schema.org quantity patterns"@en ;
-    skos:example "25.5 kilograms of steel measured using industrial scale weighing, with unitCode 'KGM' per UN/CEFACT standards"@en .
-
-default1:SourceTRURole a rdfs:Class ;
-    rdfs:label "Source TRU Role"@en ;
-    rdfs:comment "Role of TRU as input/source in a transformation event"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
-    rdfs:subClassOf default1:TRURole ;
-    skos:definition "The role of a TRU serving as input or source material in an event"@en .
-
-default1:TRURole a rdfs:Class ;
-    rdfs:label "TRU Role"@en ;
-    rdfs:comment "Role played by a TRU in an event"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
-    rdfs:subClassOf default1:ParticipantRole ;
-    skos:definition "A role performed by a traceable resource unit in a supply chain event"@en .
-
-default1:TargetTRURole a rdfs:Class ;
-    rdfs:label "Target TRU Role"@en ;
-    rdfs:comment "Role of TRU as output/target in a transformation event"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
-    rdfs:subClassOf default1:TRURole ;
-    skos:definition "The role of a TRU serving as output or target result in an event"@en .
-
-default1:TraceableResourceUnit a rdfs:Class ;
-    rdfs:label "Traceable Resource Unit"@en ;
-    rdfs:comment "A homogeneous collection of resources categorized by a class and quantified by its interaction with a primitive activity. A uniquely identifiable unit that carries essential information about a product as it moves through the supply chain."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
-    rdfs:subClassOf prov:Entity,
-        gs11:IndividualObject ;
-    skos:closeMatch ammo:DesignedArtifact ;
-    skos:definition "A fundamental traceability unit defined by batch number, trade unit, or logistics unit, used to track transformations like packaging or splitting."@en ;
-    skos:example """
-{
-  "@type": "TraceableResourceUnit",
-  "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/tru/steel-batch-001",
-  "hasIdentifier": {
-    "@type": "Identifier",
-    "value": "SB-2024-001",
-    "propertyID": "BatchNumber",
-    "name": "Steel Production Batch"
-  },
-  "hasBatchNumber": "SB-2024-001",
-  "hasShelfLife": "P2Y",
-  "consistsOf": {
-    "@type": "QuantityOfMaterial",
-    "value": 25.5,
-    "unitCode": "KGM",
-    "unitText": "kilograms",
-    "ofMaterialType": {
-      "@type": "Material",
-      "name": "Stainless Steel Grade 304"
-    },
-    "measuredProperty": "mass",
-    "hasMeasurementMethod": "industrial_scale_weighing"
-  }
-}
-"""@en,
-        "A batch of steel alloy with batch number 'SB-2024-001' containing 25.5 kg of Grade 304 stainless steel"@en ;
-    skos:note "Aligns with AMMO DesignedArtifact concept for traceable physical objects. AMMO emphasizes design specifications and manufacturing provenance, while TRU emphasizes supply chain traceability with batch/lot tracking."@en .
 
 :AssemblyEvent a rdfs:Class ;
     rdfs:label "Assembly Event"@en ;
@@ -156,22 +32,22 @@ default1:TraceableResourceUnit a rdfs:Class ;
 
 :Component a rdfs:Class ;
     rdfs:label "Component"@en ;
-    dcterms:source ammo:Component ;
+    dcterms:source <https://w3id.org/ammo/ont/Component> ;
     rdfs:comment "A physical object that serves a specific function within a larger system or assembly."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> ;
     rdfs:subClassOf :PhysicalObject ;
     skos:definition "A functional part of a larger system, designed to perform a specific role"@en ;
-    skos:exactMatch ammo:Component ;
+    skos:exactMatch <https://w3id.org/ammo/ont/Component> ;
     skos:example "Engine component, circuit board, structural element, sensor module"@en ;
     skos:note "Derived from AMMO Component class for functional parts of systems"@en .
 
 :ComponentDesign a rdfs:Class ;
     rdfs:label "Component Design"@en ;
-    dcterms:source ammo:Design ;
+    dcterms:source <https://w3id.org/ammo/ont/Design> ;
     rdfs:comment "A design that specifies the structure, properties, and behavior of an individual component within a larger system."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
     rdfs:subClassOf :Design ;
-    skos:closeMatch ammo:Design ;
+    skos:closeMatch <https://w3id.org/ammo/ont/Design> ;
     skos:definition "A design focused on a specific component, including its interfaces, requirements, and implementation details"@en ;
     skos:example "Design for a steel bracket component, specification for an electronic module, blueprint for a mechanical assembly"@en ;
     skos:note "Specialized from AMMO Design class for component-level design specifications"@en .
@@ -195,22 +71,22 @@ default1:TraceableResourceUnit a rdfs:Class ;
 
 :Design a rdfs:Class ;
     rdfs:label "Design"@en ;
-    dcterms:source ammo:Design ;
+    dcterms:source <https://w3id.org/ammo/ont/Design> ;
     rdfs:comment "A plan or specification for the construction of an object, system, or process. Represents the abstract blueprint that guides physical implementation."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
     skos:definition "An abstract plan or blueprint that specifies how to construct, assemble, or implement a physical or conceptual entity"@en ;
-    skos:exactMatch ammo:Design ;
+    skos:exactMatch <https://w3id.org/ammo/ont/Design> ;
     skos:example "Engineering drawings for a defense component, software architecture for a supply chain system, assembly instructions for a traceable resource unit"@en ;
     skos:note "Derived from AMMO Design class: 'A plan or specification for the construction of an object or system'"@en .
 
 :DesignSpecification a rdfs:Class ;
     rdfs:label "Design Specification"@en ;
-    dcterms:source ammo:DesignSpecification ;
+    dcterms:source <https://w3id.org/ammo/ont/DesignSpecification> ;
     rdfs:comment "A detailed document that sets out exactly what a product, system, or process should present. Contains specific requirements, constraints, and implementation details."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
     rdfs:subClassOf :InformationObject ;
     skos:definition "A formal document containing detailed requirements and constraints that must be satisfied by a design implementation"@en ;
-    skos:exactMatch ammo:DesignSpecification ;
+    skos:exactMatch <https://w3id.org/ammo/ont/DesignSpecification> ;
     skos:example "Technical specification document for steel alloy composition, CAD file with dimensional tolerances, quality control checklist for manufacturing process"@en ;
     skos:note "Derived from AMMO DesignSpecification: 'detailed document that sets out exactly what a product or process should present'"@en .
 
@@ -224,23 +100,23 @@ default1:TraceableResourceUnit a rdfs:Class ;
 
 :DesignedComponent a rdfs:Class ;
     rdfs:label "Designed Component"@en ;
-    dcterms:source ammo:DesignedComponent ;
+    dcterms:source <https://w3id.org/ammo/ont/DesignedComponent> ;
     rdfs:comment "A component that has been explicitly designed according to specifications and requirements."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> ;
     rdfs:subClassOf :Component ;
     skos:definition "A component with explicit design specifications and functional requirements"@en ;
-    skos:exactMatch ammo:DesignedComponent ;
+    skos:exactMatch <https://w3id.org/ammo/ont/DesignedComponent> ;
     skos:example "Custom-machined part, engineered subsystem, specified material component"@en ;
     skos:note "Derived from AMMO DesignedComponent for components with explicit design specifications"@en .
 
 :DesignedPhysicalSystem a rdfs:Class ;
     rdfs:label "Designed Physical System"@en ;
-    dcterms:source ammo:DesignedPhysicalSystem ;
+    dcterms:source <https://w3id.org/ammo/ont/DesignedPhysicalSystem> ;
     rdfs:comment "A complex physical object composed of multiple components that work together to achieve system-level functionality."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> ;
     rdfs:subClassOf :PhysicalObject ;
     skos:definition "A system composed of designed components working together to fulfill system requirements"@en ;
-    skos:exactMatch ammo:DesignedPhysicalSystem ;
+    skos:exactMatch <https://w3id.org/ammo/ont/DesignedPhysicalSystem> ;
     skos:example "Missile guidance system, manufacturing assembly line, integrated defense platform"@en ;
     skos:note "Derived from AMMO DesignedPhysicalSystem for complex component assemblies"@en .
 
@@ -252,6 +128,42 @@ default1:TraceableResourceUnit a rdfs:Class ;
     skos:definition "An event tracking the decomposition of assemblies into individual components"@en ;
     skos:example "Maintenance disassembly, component recycling, failure analysis"@en .
 
+:Event a rdfs:Class ;
+    rdfs:label "Event"@en ;
+    rdfs:comment "Represents any kind of events. An event possesses a spatiotemporal extent, provides at least one participant-role, which is performed by some entity (agents or otherwise), and may be a sub-event of another event. An event may also have additional descriptive information, which is consolidated through an information object."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :hasSpatioTemporalExtent ;
+            owl:someValuesFrom :SpatioTemporalExtent ],
+        [ a owl:Restriction ;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :providesParticipantRole ] ;
+    skos:definition "A temporal entity that represents occurrences or happenings in time and space"@en .
+
+:IdentifierEncoding a rdfs:Class ;
+    rdfs:label "Identifier Encoding"@en ;
+    rdfs:comment "Represents a specific instance of how an identifier is encoded (e.g., a specific barcode instance, an RFID tag encoding)."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/identifier> ;
+    skos:definition "A physical or digital encoding of an identifier, such as a barcode, QR code, or RFID tag"@en .
+
+:IdentifierSource a rdfs:Class ;
+    rdfs:label "Identifier Source"@en ;
+    rdfs:comment "The authority or organization that issued or manages the identifier."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/identifier> ;
+    skos:definition "An organization or system that issues, maintains, or governs an identifier scheme"@en .
+
+:IdentifierType a rdfs:Class ;
+    rdfs:label "Identifier Type"@en ;
+    rdfs:comment "Represents the type or category of an identifier (e.g., GTIN, ISBN, DOI)."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/identifier> ;
+    skos:definition "A classification of identifier types, specifying the standard or system used"@en .
+
+:InformationObject a rdfs:Class ;
+    rdfs:label "Information Object"@en ;
+    rdfs:comment "An entity that encapsulates all descriptive or non-defining information of the corresponding event, e.g., names, additional identifiers, textual descriptions, etc. Should normally be aligned to a separate Information Object pattern."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> ;
+    skos:definition "An object that carries descriptive information about an event"@en .
+
 :LifecycleState a rdfs:Class ;
     rdfs:label "Lifecycle State"@en ;
     rdfs:comment "A state that represents a phase in the lifecycle of a traceable resource unit or component."@en ;
@@ -260,14 +172,25 @@ default1:TraceableResourceUnit a rdfs:Class ;
     skos:definition "A state representing lifecycle phases for supply chain entities"@en ;
     skos:example "Designed, Manufactured, Tested, Delivered, Deployed, Maintained, Retired"@en .
 
+:Material a rdfs:Class ;
+    rdfs:label "Material"@en ;
+    rdfs:comment "The type or classification of material within a quantity of material."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
+    rdfs:seeAlso <https://w3id.org/ammo/ont/Material> ;
+    skos:definition "A classification of substance or material used in supply chain operations"@en ;
+    skos:exactMatch <https://w3id.org/ammo/ont/Material> ;
+    skos:example "Stainless Steel Grade 304, Aluminum Alloy 6061, Polymer ABS plastic"@en ;
+    skos:note "Aligns with AMMO Material concept: 'Substance that can occur in different amounts, all with some similar characteristics'. AMMO provides subclasses like Alloy, Polymer, and BaseMaterial."@en,
+        "Both represent substance classifications that can occur in different amounts with similar characteristics. AMMO Material includes subclasses like Polymer, Alloy, and BaseMaterial."@en .
+
 :MaterialDesignSpecification a rdfs:Class ;
     rdfs:label "Material Design Specification"@en ;
-    dcterms:source ammo:MaterialDesignSpecification ;
+    dcterms:source <https://w3id.org/ammo/ont/MaterialDesignSpecification> ;
     rdfs:comment "A design specification that defines requirements and constraints for material properties, composition, and behavior."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     rdfs:subClassOf :DesignSpecification ;
     skos:definition "A formal specification document that details material requirements including composition, properties, and performance criteria"@en ;
-    skos:exactMatch ammo:MaterialDesignSpecification ;
+    skos:exactMatch <https://w3id.org/ammo/ont/MaterialDesignSpecification> ;
     skos:example "Steel alloy composition specification, polymer property requirements, ceramic performance criteria"@en ;
     skos:note "Derived from AMMO MaterialDesignSpecification for material requirement definition"@en .
 
@@ -279,13 +202,19 @@ default1:TraceableResourceUnit a rdfs:Class ;
     skos:definition "A state describing material conditions and phases"@en ;
     skos:example "Solid state, Liquid state, Powder state, Molten state, Cured state"@en .
 
+:ParticipantRole a rdfs:Class ;
+    rdfs:label "Participant Role"@en ;
+    rdfs:comment "Every ParticipantRole represents a reified relationship between an event and one of its participants. Should normally be aligned to a separate Participant-Role pattern."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> ;
+    skos:definition "A role played by an agent or entity participating in an event"@en .
+
 :PhysicalObject a rdfs:Class ;
     rdfs:label "Physical Object"@en ;
-    dcterms:source ammo:PhysicalObject ;
+    dcterms:source <https://w3id.org/ammo/ont/PhysicalObject> ;
     rdfs:comment "A concrete, spatially extended entity that can exist as a whole or as a part of other physical objects."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> ;
     skos:definition "A material entity with spatial extent that can participate in part-whole relationships"@en ;
-    skos:exactMatch ammo:PhysicalObject ;
+    skos:exactMatch <https://w3id.org/ammo/ont/PhysicalObject> ;
     skos:example "Steel component, electronic module, mechanical assembly, complete missile system"@en ;
     skos:note "Derived from AMMO PhysicalObject: base class for spatial entities in part-whole hierarchies"@en .
 
@@ -315,14 +244,34 @@ default1:TraceableResourceUnit a rdfs:Class ;
 
 :QuantityDesignSpecification a rdfs:Class ;
     rdfs:label "Quantity Design Specification"@en ;
-    dcterms:source ammo:QuantityDesignSpecification ;
+    dcterms:source <https://w3id.org/ammo/ont/QuantityDesignSpecification> ;
     rdfs:comment "A design specification that defines requirements and constraints for quantities, measurements, and dimensional properties."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     rdfs:subClassOf :DesignSpecification ;
     skos:definition "A formal specification document that details quantity requirements including dimensions, tolerances, and measurement criteria"@en ;
-    skos:exactMatch ammo:QuantityDesignSpecification ;
+    skos:exactMatch <https://w3id.org/ammo/ont/QuantityDesignSpecification> ;
     skos:example "Dimensional tolerance specification, weight requirements, volume constraints"@en ;
     skos:note "Derived from AMMO QuantityDesignSpecification for quantity requirement definition"@en .
+
+:QuantityOfMaterial a rdfs:Class ;
+    rdfs:label "Quantity Of Material"@en ;
+    rdfs:comment "Represents a specific quantity of material with defined properties and measurements. Inherits from schema:QuantitativeValue to support standard quantity expressions with value, unitCode, and measurement properties."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
+    rdfs:seeAlso <https://w3id.org/ammo/ont/Quantity> ;
+    rdfs:subClassOf schema1:QuantitativeValue,
+        prov:Entity ;
+    skos:closeMatch <https://w3id.org/ammo/ont/Material> ;
+    skos:definition "A measurable amount of material that can be part of a traceable resource unit, expressed using Schema.org quantity patterns"@en ;
+    skos:example "25.5 kilograms of steel measured using industrial scale weighing, with unitCode 'KGM' per UN/CEFACT standards"@en ;
+    skos:note "TRU QuantityOfMaterial combines material type with Schema.org QuantitativeValue patterns, while AMMO separates Material classification from Quantity measurement using QUDT standards."@en ;
+    skos:relatedMatch <https://w3id.org/ammo/ont/Quantity> .
+
+:SourceTRURole a rdfs:Class ;
+    rdfs:label "Source TRU Role"@en ;
+    rdfs:comment "Role of TRU as input/source in a transformation event"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
+    rdfs:subClassOf :TRURole ;
+    skos:definition "The role of a TRU serving as input or source material in an event"@en .
 
 :SpecificationValidationEvent a rdfs:Class ;
     rdfs:label "Specification Validation Event"@en ;
@@ -342,11 +291,11 @@ default1:TraceableResourceUnit a rdfs:Class ;
 
 :State a rdfs:Class ;
     rdfs:label "State"@en ;
-    dcterms:source ammo:State ;
+    dcterms:source <https://w3id.org/ammo/ont/State> ;
     rdfs:comment "A condition or mode of being that an entity can exist in at a particular point in time. States are discrete and mutually exclusive."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition> ;
     skos:definition "A discrete condition or configuration that characterizes an entity at a specific time"@en ;
-    skos:exactMatch ammo:State ;
+    skos:exactMatch <https://w3id.org/ammo/ont/State> ;
     skos:example "Raw material state, In-process state, Completed state, Shipped state, Installed state"@en ;
     skos:note "Derived from AMMO State class for entity condition modeling"@en .
 
@@ -375,12 +324,12 @@ default1:TraceableResourceUnit a rdfs:Class ;
 
 :SystemDesign a rdfs:Class ;
     rdfs:label "System Design"@en ;
-    dcterms:source ammo:SystemDesign ;
+    dcterms:source <https://w3id.org/ammo/ont/SystemDesign> ;
     rdfs:comment "A design that describes the architecture, components, modules, interfaces, and data flow for a system to satisfy specified requirements."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
     rdfs:subClassOf :Design ;
     skos:definition "A comprehensive design that specifies system structure, component relationships, and functional requirements"@en ;
-    skos:exactMatch ammo:SystemDesign ;
+    skos:exactMatch <https://w3id.org/ammo/ont/SystemDesign> ;
     skos:example "Defense system architecture, supply chain workflow design, integrated manufacturing system blueprint"@en ;
     skos:note "Derived from AMMO SystemDesign class for comprehensive system-level design specifications"@en .
 
@@ -393,9 +342,66 @@ default1:TraceableResourceUnit a rdfs:Class ;
     skos:definition "A TRU representing a system assembly with component traceability"@en ;
     skos:example "Assembled missile system with traceable components, manufactured engine assembly"@en .
 
+:TRURole a rdfs:Class ;
+    rdfs:label "TRU Role"@en ;
+    rdfs:comment "Role played by a TRU in an event"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
+    rdfs:subClassOf :ParticipantRole ;
+    skos:definition "A role performed by a traceable resource unit in a supply chain event"@en .
+
+:TargetTRURole a rdfs:Class ;
+    rdfs:label "Target TRU Role"@en ;
+    rdfs:comment "Role of TRU as output/target in a transformation event"@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
+    rdfs:subClassOf :TRURole ;
+    skos:definition "The role of a TRU serving as output or target result in an event"@en .
+
+:TraceableResourceUnit a rdfs:Class ;
+    rdfs:label "Traceable Resource Unit"@en ;
+    rdfs:comment "A homogeneous collection of resources categorized by a class and quantified by its interaction with a primitive activity. A uniquely identifiable unit that carries essential information about a product as it moves through the supply chain."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
+    rdfs:seeAlso <https://w3id.org/ammo/ont/DesignedArtifact> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            rdfs:comment "TRUs may have at most one current state"@en ;
+            owl:maxCardinality 1 ;
+            owl:onProperty :currentState ],
+        prov:Entity,
+        <https://gs1.org/voc/IndividualObject> ;
+    skos:closeMatch <https://w3id.org/ammo/ont/DesignedArtifact> ;
+    skos:definition "A fundamental traceability unit defined by batch number, trade unit, or logistics unit, used to track transformations like packaging or splitting."@en ;
+    skos:example """
+{
+  "@type": "TraceableResourceUnit",
+  "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/tru/steel-batch-001",
+  "hasIdentifier": {
+    "@type": "Identifier",
+    "value": "SB-2024-001",
+    "propertyID": "BatchNumber",
+    "name": "Steel Production Batch"
+  },
+  "hasBatchNumber": "SB-2024-001",
+  "hasShelfLife": "P2Y",
+  "consistsOf": {
+    "@type": "QuantityOfMaterial",
+    "value": 25.5,
+    "unitCode": "KGM",
+    "unitText": "kilograms",
+    "ofMaterialType": {
+      "@type": "Material",
+      "name": "Stainless Steel Grade 304"
+    },
+    "measuredProperty": "mass",
+    "hasMeasurementMethod": "industrial_scale_weighing"
+  }
+}
+"""@en,
+        "A batch of steel alloy with batch number 'SB-2024-001' containing 25.5 kg of Grade 304 stainless steel"@en ;
+    skos:note "Aligns with AMMO DesignedArtifact concept for traceable physical objects. AMMO emphasizes design specifications and manufacturing provenance, while TRU emphasizes supply chain traceability with batch/lot tracking."@en,
+        "Both represent traceable physical objects. AMMO DesignedArtifact emphasizes design specifications and manufacturing provenance, while TRU emphasizes supply chain traceability with batch/lot tracking."@en .
+
 :Transition a rdfs:Class ;
     rdfs:label "Transition"@en ;
-    dcterms:source ammo:Transition ;
+    dcterms:source <https://w3id.org/ammo/ont/Transition> ;
     rdfs:comment "A change from one state to another, occurring over a specific time interval and potentially triggered by events or conditions."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition> ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -408,7 +414,7 @@ default1:TraceableResourceUnit a rdfs:Class ;
             owl:cardinality "1"^^xsd:nonNegativeInteger ;
             owl:onProperty :toState ] ;
     skos:definition "A state change process with defined source and target states"@en ;
-    skos:exactMatch ammo:Transition ;
+    skos:exactMatch <https://w3id.org/ammo/ont/Transition> ;
     skos:example "Raw material to in-process transition, Testing to approved transition, Manufacturing to quality control transition"@en ;
     skos:note "Derived from AMMO Transition class for state change modeling"@en .
 
@@ -428,44 +434,44 @@ default1:TraceableResourceUnit a rdfs:Class ;
     skos:definition "A transition specific to workflow progression"@en ;
     skos:example "Submit for review transition, Approval transition, Rejection transition"@en .
 
-default1:AggregationEvent a owl:Class ;
+:AggregationEvent a owl:Class ;
     rdfs:label "Aggregation Event"@en ;
     rdfs:comment "An event representing the aggregation of multiple items into a container or package."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
-    rdfs:subClassOf default1:SupplyChainEvent ;
+    rdfs:subClassOf :SupplyChainEvent ;
     skos:definition "An event that records the grouping of individual items into larger units for handling or shipping"@en .
 
-default1:CarrierRole a owl:Class ;
+:CarrierRole a owl:Class ;
     rdfs:label "Carrier Role"@en ;
     rdfs:comment "The role of an entity that transports goods in a supply chain event."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
-    rdfs:subClassOf default1:ParticipantRole ;
+    rdfs:subClassOf :ParticipantRole ;
     skos:definition "A participant role representing an entity responsible for moving items between locations"@en .
 
-default1:CustomerRole a owl:Class ;
+:CustomerRole a owl:Class ;
     rdfs:label "Customer Role"@en ;
     rdfs:comment "The role of an entity that receives goods or services in a supply chain event."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
-    rdfs:subClassOf default1:ParticipantRole ;
+    rdfs:subClassOf :ParticipantRole ;
     skos:definition "A participant role representing an entity that receives outputs from the supply chain"@en .
 
-default1:DisaggregationEvent a owl:Class ;
+:DisaggregationEvent a owl:Class ;
     rdfs:label "Disaggregation Event"@en ;
     rdfs:comment "An event representing the disaggregation of items from a container or package."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
-    rdfs:subClassOf default1:SupplyChainEvent ;
+    rdfs:subClassOf :SupplyChainEvent ;
     skos:definition "An event that records the separation of aggregated items back into individual units"@en .
 
-default1:ManufacturerRole a owl:Class ;
+:ManufacturerRole a owl:Class ;
     rdfs:label "Manufacturer Role"@en ;
     rdfs:comment "The role of an entity that produces or transforms goods in a supply chain event."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
-    rdfs:subClassOf default1:ParticipantRole ;
+    rdfs:subClassOf :ParticipantRole ;
     skos:definition "A participant role representing an entity that creates or modifies products"@en .
 
-default1:SbomIntegrationPattern a skos:Concept ;
+:SbomIntegrationPattern a skos:Concept ;
     rdfs:label "SBOM Integration Pattern"@en ;
-    skos:broader default1:ProvenancePattern ;
+    skos:broader :ProvenancePattern ;
     skos:definition "Design pattern for integrating SPDX Software Bills of Materials with workflow provenance tracking in containerized AI systems."@en ;
     skos:example """
     {
@@ -479,15 +485,24 @@ default1:SbomIntegrationPattern a skos:Concept ;
       }
     }
     """@en ;
-    skos:related spdx:Sbom,
-        default1:InformationExtractionWorkflow .
+    skos:related <https://spdx.org/rdf/3.0.1/terms/Sbom>,
+        :InformationExtractionWorkflow .
 
-default1:SupplierRole a owl:Class ;
+:SupplierRole a owl:Class ;
     rdfs:label "Supplier Role"@en ;
     rdfs:comment "The role of an entity that provides goods or services in a supply chain event."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
-    rdfs:subClassOf default1:ParticipantRole ;
+    rdfs:subClassOf :ParticipantRole ;
     skos:definition "A participant role representing an entity that provides inputs to the supply chain"@en .
+
+:acceptanceCriteria a owl:DatatypeProperty ;
+    rdfs:label "acceptance criteria"@en ;
+    rdfs:comment "Defines the specific criteria that must be met for acceptance or approval."@en ;
+    rdfs:domain :QualitySpecification ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
+    rdfs:range xsd:string ;
+    skos:definition "Textual description of acceptance requirements"@en ;
+    skos:example "Surface roughness < 1.6 μm, No visible defects, Dimensional accuracy ± 0.1mm"@en .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/alignment/ammo-process-types> a owl:NamedIndividual,
         skos:ConceptScheme ;
@@ -547,27 +562,56 @@ default1:SupplierRole a owl:Class ;
        - Check design specification lineage preservation
     """@en .
 
-default1:assumesRole a rdf:Property ;
+:assembles a owl:ObjectProperty ;
+    rdfs:label "assembles"@en ;
+    rdfs:comment "Indicates that an assembly event combines specific components."@en ;
+    rdfs:domain :AssemblyEvent ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> ;
+    rdfs:range :Component ;
+    skos:definition "Links assembly events to the components being assembled"@en .
+
+:assumesRole a rdf:Property ;
     rdfs:label "assumes role"@en ;
     rdfs:comment "Relates an agent to the role it plays in an event."@en ;
-    rdfs:domain default1:Agent ;
+    rdfs:domain :Agent ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> ;
-    rdfs:range default1:ParticipantRole .
+    rdfs:range :ParticipantRole .
 
-default1:consistsOf a owl:ObjectProperty ;
+:compositionRequirement a owl:DatatypeProperty ;
+    rdfs:label "composition requirement"@en ;
+    rdfs:comment "Specifies the required chemical or physical composition for a material."@en ;
+    rdfs:domain :MaterialDesignSpecification ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
+    rdfs:range xsd:string ;
+    skos:definition "Textual specification of required material composition"@en ;
+    skos:example "18-20% Chromium, 8-10.5% Nickel, <0.08% Carbon"@en .
+
+:conformsToSpecification a owl:ObjectProperty ;
+    rdfs:label "conforms to specification"@en ;
+    rdfs:comment "Indicates that a traceable resource unit meets the requirements defined in a design specification."@en ;
+    rdfs:domain :TraceableResourceUnit ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:range :DesignSpecification ;
+    skos:definition "Links TRUs to the specifications they satisfy"@en ;
+    skos:example "Manufactured component conforms to military specification MIL-STD-810"@en .
+
+:consistsOf a owl:ObjectProperty ;
     rdfs:label "consists of"@en ;
     rdfs:comment "Material composition of the TRU"@en ;
-    rdfs:domain default1:TraceableResourceUnit ;
+    rdfs:domain :TraceableResourceUnit ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
-    rdfs:range default1:QuantityOfMaterial ;
-    skos:definition "Links a TRU to the quantities of materials it contains"@en .
+    rdfs:range :QuantityOfMaterial ;
+    rdfs:seeAlso <https://w3id.org/ammo/ont/ofQuantity> ;
+    skos:definition "Links a TRU to the quantities of materials it contains"@en ;
+    skos:note "Both properties relate objects to their quantified composition. AMMO uses QUDT-based quantities while TRU uses Schema.org QuantitativeValue patterns."@en ;
+    skos:relatedMatch <https://w3id.org/ammo/ont/ofQuantity> .
 
-default1:contentExtractedFrom a owl:ObjectProperty ;
+:contentExtractedFrom a owl:ObjectProperty ;
     rdfs:label "content extracted from"@en ;
     rdfs:comment "Indicates that the document content was derived from a specific digital document."@en ;
-    rdfs:domain default1:DocumentContent ;
+    rdfs:domain :DocumentContent ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
-    rdfs:range default1:SCDigitalDocument ;
+    rdfs:range :SCDigitalDocument ;
     rdfs:subPropertyOf prov:wasDerivedFrom .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/design/composition-guidelines> a owl:NamedIndividual,
@@ -725,37 +769,45 @@ default1:contentExtractedFrom a owl:ObjectProperty ;
        - Check transition condition satisfaction
     """@en .
 
-default1:duringTimeInterval a owl:ObjectProperty ;
+:disassembles a owl:ObjectProperty ;
+    rdfs:label "disassembles"@en ;
+    rdfs:comment "Indicates that a disassembly event breaks down a specific system."@en ;
+    rdfs:domain :DisassemblyEvent ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> ;
+    rdfs:range :DesignedPhysicalSystem ;
+    skos:definition "Links disassembly events to the systems being disassembled"@en .
+
+:duringTimeInterval a owl:ObjectProperty ;
     rdfs:label "during time interval"@en ;
     rdfs:comment "Relates a supply chain event to the time interval during which it occurs."@en ;
-    rdfs:domain default1:SupplyChainEvent ;
+    rdfs:domain :SupplyChainEvent ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     rdfs:range time:ProperInterval ;
     rdfs:subPropertyOf time:hasTime .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/examples/designs/missile-system-design> a :SystemDesign ;
     rdfs:label "Missile System Design"@en ;
-    dcterms:source ammo:SystemDesign ;
+    dcterms:source <https://w3id.org/ammo/ont/SystemDesign> ;
     rdfs:comment "Comprehensive system design for guided missile assembly including all subsystems and components"@en ;
-    skos:exactMatch ammo:SystemDesign ;
+    skos:exactMatch <https://w3id.org/ammo/ont/SystemDesign> ;
     :describes <https://vocab.earth616.localhost/nd/scdoc/ont/examples/systems/guided-missile-system> ;
     :hasDesignSpecification [ a :DesignSpecification ;
-            schema:description "System-level requirements including performance, reliability, and integration specifications" ;
-            schema:name "Missile System Requirements Document" ] .
+            schema1:description "System-level requirements including performance, reliability, and integration specifications" ;
+            schema1:name "Missile System Requirements Document" ] .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/examples/designs/steel-component-design-001> a :ComponentDesign ;
     rdfs:label "Steel Component Design 001"@en ;
-    dcterms:source ammo:Design ;
-    schema:additionalProperty [ a schema:PropertyValue ;
-            schema:description "Implemented using AMMO design composition patterns" ;
-            schema:propertyID "AMMO_Design_Pattern" ;
-            schema:value "ammo:Design" ] ;
+    dcterms:source <https://w3id.org/ammo/ont/Design> ;
+    schema1:additionalProperty [ a schema1:PropertyValue ;
+            schema1:description "Implemented using AMMO design composition patterns" ;
+            schema1:propertyID "AMMO_Design_Pattern" ;
+            schema1:value "ammo:Design" ] ;
     rdfs:comment "Design specification for precision steel component used in defense applications"@en ;
-    skos:exactMatch ammo:Design ;
+    skos:exactMatch <https://w3id.org/ammo/ont/Design> ;
     :hasDesignSpecification [ a :DesignSpecification ;
             rdfs:label "Steel Component Technical Specification" ;
-            schema:description "Detailed specifications for steel alloy composition, dimensional tolerances, and surface finish requirements" ;
-            schema:name "Technical Specification Document TC-001-2024" ] ;
+            schema1:description "Detailed specifications for steel alloy composition, dimensional tolerances, and surface finish requirements" ;
+            schema1:name "Technical Specification Document TC-001-2024" ] ;
     :hasVersion [ a :DesignVersion ;
             dcterms:created "2024-03-15T10:00:00+00:00"^^xsd:dateTime ;
             dcterms:creator "Defense Engineering Division" ;
@@ -768,45 +820,45 @@ default1:duringTimeInterval a owl:ObjectProperty ;
         <https://vocab.earth616.localhost/nd/scdoc/ont/examples/hierarchy/guidance-processor>,
         <https://vocab.earth616.localhost/nd/scdoc/ont/examples/hierarchy/sensor-array> ;
     :hasSpatioTemporalExtent [ a :SpatioTemporalExtent ;
-            schema:endDate "2024-03-20T15:30:00Z" ;
-            schema:location [ a schema:Place ;
-                    schema:name "Assembly Bay 3 - Guidance Systems" ] ;
-            schema:startDate "2024-03-20T09:00:00Z" ] ;
+            schema1:endDate "2024-03-20T15:30:00Z" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Assembly Bay 3 - Guidance Systems" ] ;
+            schema1:startDate "2024-03-20T09:00:00Z" ] ;
     :resultsInAssembly <https://vocab.earth616.localhost/nd/scdoc/ont/examples/hierarchy/missile-guidance-system> .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/examples/events/powder-bed-fusion-001> a :TransformationEvent ;
     rdfs:label "Powder Bed Fusion Manufacturing Process"@en ;
-    schema:additionalProperty [ a schema:PropertyValue ;
-            schema:description "Aligned with AMMO PowderBed additive manufacturing process" ;
-            schema:propertyID "AMMO_Process_Type" ;
-            schema:value "ammo:PowderBed" ],
-        [ a schema:PropertyValue ;
-            schema:description "Specific powder bed fusion technology" ;
-            schema:propertyID "Manufacturing_Technology" ;
-            schema:value "Selective_Laser_Melting" ],
-        [ a schema:PropertyValue ;
-            schema:description "Build layer thickness parameter" ;
-            schema:propertyID "Layer_Height" ;
-            schema:unitCode "MTM" ;
-            schema:unitText "micrometers" ;
-            schema:value 30 ],
-        [ a schema:PropertyValue ;
-            schema:description "Laser power setting for processing" ;
-            schema:propertyID "Laser_Power" ;
-            schema:unitCode "WTT" ;
-            schema:unitText "watts" ;
-            schema:value 285 ] ;
+    schema1:additionalProperty [ a schema1:PropertyValue ;
+            schema1:description "Aligned with AMMO PowderBed additive manufacturing process" ;
+            schema1:propertyID "AMMO_Process_Type" ;
+            schema1:value "ammo:PowderBed" ],
+        [ a schema1:PropertyValue ;
+            schema1:description "Specific powder bed fusion technology" ;
+            schema1:propertyID "Manufacturing_Technology" ;
+            schema1:value "Selective_Laser_Melting" ],
+        [ a schema1:PropertyValue ;
+            schema1:description "Build layer thickness parameter" ;
+            schema1:propertyID "Layer_Height" ;
+            schema1:unitCode "MTM" ;
+            schema1:unitText "micrometers" ;
+            schema1:value 30 ],
+        [ a schema1:PropertyValue ;
+            schema1:description "Laser power setting for processing" ;
+            schema1:propertyID "Laser_Power" ;
+            schema1:unitCode "WTT" ;
+            schema1:unitText "watts" ;
+            schema1:value 285 ] ;
     rdfs:comment "Additive manufacturing event aligned with AMMO PowderBed process concepts"@en ;
-    skos:closeMatch ammo:PowderBed ;
-    skos:exactMatch ammo:AMProcess ;
-    skos:relatedMatch ammo:MaterialTransformation ;
+    skos:closeMatch <https://w3id.org/ammo/ont/PowderBed> ;
+    skos:exactMatch <https://w3id.org/ammo/ont/AMProcess> ;
+    skos:relatedMatch <https://w3id.org/ammo/ont/MaterialTransformation> ;
     :hasSpatioTemporalExtent [ a :SpatioTemporalExtent ;
-            schema:endDate "2024-03-20T14:30:00Z" ;
-            schema:location [ a schema:Place ;
-                    schema:address [ a schema:PostalAddress ;
-                            schema:addressLocality "Defense Manufacturing Facility" ] ;
-                    schema:name "Additive Manufacturing Lab - EOS M290" ] ;
-            schema:startDate "2024-03-20T08:00:00Z" ] ;
+            schema1:endDate "2024-03-20T14:30:00Z" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:address [ a schema1:PostalAddress ;
+                            schema1:addressLocality "Defense Manufacturing Facility" ] ;
+                    schema1:name "Additive Manufacturing Lab - EOS M290" ] ;
+            schema1:startDate "2024-03-20T08:00:00Z" ] ;
     :inputTRU <https://vocab.earth616.localhost/nd/scdoc/ont/examples/ammo-alignment/steel-powder-batch> ;
     :outputTRU <https://vocab.earth616.localhost/nd/scdoc/ont/examples/ammo-alignment/steel-component-am-001> .
 
@@ -814,10 +866,10 @@ default1:duringTimeInterval a owl:ObjectProperty ;
     rdfs:label "Quality Approval Event"@en ;
     rdfs:comment "Event representing quality approval state transition"@en ;
     :hasSpatioTemporalExtent [ a :SpatioTemporalExtent ;
-            schema:endDate "2024-03-16T14:15:00Z" ;
-            schema:location [ a schema:Place ;
-                    schema:name "Quality Control Station 2" ] ;
-            schema:startDate "2024-03-16T14:00:00Z" ] ;
+            schema1:endDate "2024-03-16T14:15:00Z" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Quality Control Station 2" ] ;
+            schema1:startDate "2024-03-16T14:00:00Z" ] ;
     :transitionSubject <https://vocab.earth616.localhost/nd/scdoc/ont/examples/stateful-tru/steel-component-001> ;
     :triggersTransition [ a :Transition ;
             :fromState <https://vocab.earth616.localhost/nd/scdoc/ont/examples/states/quality-control> ;
@@ -827,143 +879,188 @@ default1:duringTimeInterval a owl:ObjectProperty ;
     rdfs:label "Steel Component Validation"@en ;
     rdfs:comment "Validation event for steel component against specifications"@en ;
     :hasSpatioTemporalExtent [ a :SpatioTemporalExtent ;
-            schema:endDate "2024-03-22T14:00:00Z" ;
-            schema:location [ a schema:Place ;
-                    schema:name "Quality Control Laboratory" ] ;
-            schema:startDate "2024-03-22T10:00:00Z" ] ;
+            schema1:endDate "2024-03-22T14:00:00Z" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Quality Control Laboratory" ] ;
+            schema1:startDate "2024-03-22T10:00:00Z" ] ;
     :validatesAgainst <https://vocab.earth616.localhost/nd/scdoc/ont/examples/specifications/component-weight-spec>,
         <https://vocab.earth616.localhost/nd/scdoc/ont/examples/specifications/steel-316l-material-spec> ;
     :validationResult "PASS - All specifications met" .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/examples/specified-quantities/validated-steel-component> a :SpecifiedQuantityOfMaterial ;
     rdfs:label "Validated Steel Component Quantity"@en ;
-    schema:unitCode "KGM" ;
-    schema:unitText "kilograms" ;
-    schema:value 2.4 ;
+    schema1:unitCode "KGM" ;
+    schema1:unitText "kilograms" ;
+    schema1:value 2.4 ;
     rdfs:comment "Steel component quantity validated against design specifications"@en ;
     :meetsSpecification <https://vocab.earth616.localhost/nd/scdoc/ont/examples/specifications/steel-316l-material-spec> ;
     :ofMaterialType <https://vocab.earth616.localhost/nd/scdoc/ont/examples/materials/steel-316l-powder> ;
     :quantityCompliance <https://vocab.earth616.localhost/nd/scdoc/ont/examples/specifications/component-weight-spec> ;
     :validationEvidence [ a :InformationObject ;
             rdfs:label "Material Test Certificate MTC-2024-001" ;
-            schema:description "Laboratory analysis confirming material composition and properties" ] .
+            schema1:description "Laboratory analysis confirming material composition and properties" ] .
 
-default1:followsEvent a owl:ObjectProperty ;
+:executesDesign a owl:ObjectProperty ;
+    rdfs:label "executes design"@en ;
+    rdfs:comment "Indicates that a supply chain event follows or implements a specific design or process plan."@en ;
+    rdfs:domain :SupplyChainEvent ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:range :Design ;
+    skos:definition "Links events to the designs or process plans they execute"@en ;
+    skos:example "Manufacturing event executes assembly design plan"@en .
+
+:followsEvent a owl:ObjectProperty ;
     rdfs:label "follows event"@en ;
     rdfs:comment "Indicates temporal ordering between supply chain events."@en ;
-    rdfs:domain default1:SupplyChainEvent ;
+    rdfs:domain :SupplyChainEvent ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
-    rdfs:range default1:SupplyChainEvent ;
+    rdfs:range :SupplyChainEvent ;
     rdfs:subPropertyOf time:after .
 
-default1:followsRoute a owl:ObjectProperty ;
+:followsRoute a owl:ObjectProperty ;
     rdfs:label "follows route"@en ;
     rdfs:comment "Relates a transport event to the geometric route taken."@en ;
-    rdfs:domain default1:TransportEvent ;
+    rdfs:domain :TransportEvent ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     rdfs:range geo:Geometry ;
     rdfs:subPropertyOf geo:hasGeometry .
 
-default1:hasBatchNumber a owl:DatatypeProperty ;
+:hasBatchNumber a owl:DatatypeProperty ;
     rdfs:label "has batch number"@en ;
     rdfs:comment "Batch identifier for the TRU"@en ;
-    rdfs:domain default1:TraceableResourceUnit ;
+    rdfs:domain :TraceableResourceUnit ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
     rdfs:range xsd:string ;
     skos:definition "A unique identifier for the batch or lot that the TRU belongs to"@en .
 
-default1:hasCurrentLocation a owl:ObjectProperty ;
+:hasCurrentLocation a owl:ObjectProperty ;
     rdfs:label "has current location"@en ;
     rdfs:comment "Relates a supply chain event to its current geographic location."@en ;
-    rdfs:domain default1:SupplyChainEvent ;
+    rdfs:domain :SupplyChainEvent ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     rdfs:range geo:Feature ;
     rdfs:subPropertyOf geo:hasGeometry .
 
-default1:hasDocumentContent a owl:ObjectProperty ;
+:hasDocumentContent a owl:ObjectProperty ;
     rdfs:label "has document content"@en ;
     rdfs:comment "Links a digital document to its content extracted via OCR."@en ;
-    rdfs:domain default1:SCDigitalDocument ;
+    rdfs:domain :SCDigitalDocument ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
-    rdfs:range default1:DocumentContent .
+    rdfs:range :DocumentContent .
 
-default1:hasDocumentType a owl:ObjectProperty ;
+:hasDocumentType a owl:ObjectProperty ;
     rdfs:label "has document type"@en ;
     rdfs:comment "Specifies the type or category of a digital document."@en ;
-    rdfs:domain default1:SCDigitalDocument ;
+    rdfs:domain :SCDigitalDocument ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
-    rdfs:range default1:DocumentType .
+    rdfs:range :DocumentType .
 
-default1:hasEventSequence a owl:ObjectProperty ;
+:hasEventSequence a owl:ObjectProperty ;
     rdfs:label "has event sequence"@en ;
     rdfs:comment "Relates a complex supply chain process to a sequence of constituent events."@en ;
-    rdfs:domain default1:SupplyChainEvent ;
+    rdfs:domain :SupplyChainEvent ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
-    rdfs:range default1:SupplyChainEvent ;
+    rdfs:range :SupplyChainEvent ;
     rdfs:subPropertyOf time:hasPart .
 
-default1:hasIdentifier a rdf:Property ;
+:hasFunction a owl:DatatypeProperty ;
+    rdfs:label "has function"@en ;
+    rdfs:comment "Describes the primary function or purpose of a component within a system."@en ;
+    rdfs:domain :Component ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> ;
+    rdfs:range xsd:string ;
+    skos:definition "Textual description of component functionality"@en ;
+    skos:example "structural support, power conversion, signal processing, environmental protection"@en .
+
+:hasIdentifier a rdf:Property ;
     rdfs:label "has identifier"@en ;
     rdfs:comment "Links an entity to its identifier."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/identifier> ;
-    rdfs:range default1:Identifier .
+    rdfs:range :Identifier .
 
-default1:hasIdentifierEncoding a rdf:Property ;
+:hasIdentifierEncoding a rdf:Property ;
     rdfs:label "has identifier encoding"@en ;
     rdfs:comment "Links an identifier to its physical or digital encoding."@en ;
-    rdfs:domain default1:Identifier ;
+    rdfs:domain :Identifier ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/identifier> ;
-    rdfs:range default1:IdentifierEncoding .
+    rdfs:range :IdentifierEncoding .
 
-default1:hasIdentifierSource a rdf:Property ;
+:hasIdentifierSource a rdf:Property ;
     rdfs:label "has identifier source"@en ;
     rdfs:comment "Links an identifier to its issuing authority or source."@en ;
-    rdfs:domain default1:Identifier ;
+    rdfs:domain :Identifier ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/identifier> ;
-    rdfs:range default1:IdentifierSource .
+    rdfs:range :IdentifierSource .
 
-default1:hasIdentifierType a rdf:Property ;
+:hasIdentifierType a rdf:Property ;
     rdfs:label "has identifier type"@en ;
     rdfs:comment "Links an identifier to its type classification."@en ;
-    rdfs:domain default1:Identifier ;
+    rdfs:domain :Identifier ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/identifier> ;
-    rdfs:range default1:IdentifierType .
+    rdfs:range :IdentifierType .
 
-default1:hasInformationObject a rdf:Property ;
+:hasInformationObject a rdf:Property ;
     rdfs:label "has information object"@en ;
     rdfs:comment "Property relating Event to InformationObject in this pattern. The domain of this property is not restricted to Event since it is possible that non-event to have an information object. The range is always InformationObject since it makes no sense to have a property named hasInformationObject to point to anything other than information object."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> ;
-    rdfs:range default1:InformationObject .
+    rdfs:range :InformationObject .
 
-default1:hasMeasurementMethod a owl:ObjectProperty ;
+:hasMeasurementMethod a owl:ObjectProperty ;
     rdfs:label "has measurement method"@en ;
     rdfs:comment "Specifies how the quantity measurement was obtained"@en ;
-    rdfs:domain default1:QuantityOfMaterial ;
+    rdfs:domain :QuantityOfMaterial ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
-    rdfs:subPropertyOf schema:measurementMethod .
+    rdfs:subPropertyOf schema1:measurementMethod .
 
-default1:hasShelfLife a owl:DatatypeProperty ;
+:hasShelfLife a owl:DatatypeProperty ;
     rdfs:label "has shelf life"@en ;
     rdfs:comment "Expected shelf life or expiration duration"@en ;
-    rdfs:domain default1:TraceableResourceUnit ;
+    rdfs:domain :TraceableResourceUnit ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
     rdfs:range xsd:duration ;
     skos:definition "The duration for which the TRU remains suitable for use"@en .
 
-default1:hasWorkflow a owl:ObjectProperty ;
+:hasTransition a owl:ObjectProperty ;
+    rdfs:label "has transition"@en ;
+    dcterms:source <https://w3id.org/ammo/ont/hasTransition> ;
+    rdfs:comment "Indicates that an entity undergoes a specific state transition."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition> ;
+    rdfs:range :Transition ;
+    skos:definition "Links entities to the transitions they undergo"@en ;
+    skos:exactMatch <https://w3id.org/ammo/ont/hasTransition> ;
+    skos:note "Derived from AMMO hasTransition property"@en .
+
+:hasVersion a owl:ObjectProperty ;
+    rdfs:label "has version"@en ;
+    rdfs:comment "Links a design to its specific versions or revisions."@en ;
+    rdfs:domain :Design ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:range :DesignVersion ;
+    skos:definition "Connects designs to their versioned instances"@en .
+
+:hasWorkflow a owl:ObjectProperty ;
     rdfs:label "has workflow"@en ;
     rdfs:comment "Associates an information extraction workflow with a specific pipeline."@en ;
-    rdfs:domain default1:InformationExtractionWorkflow ;
+    rdfs:domain :InformationExtractionWorkflow ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
-    rdfs:range default1:IEPipeline ;
+    rdfs:range :IEPipeline ;
     rdfs:subPropertyOf prov:wasAssociatedWith .
 
-default1:inputTRU a owl:ObjectProperty ;
+:implementsDesign a owl:ObjectProperty ;
+    rdfs:label "implements design"@en ;
+    rdfs:comment "Indicates that a traceable resource unit is manufactured or assembled according to a specific design."@en ;
+    rdfs:domain :TraceableResourceUnit ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:range :Design ;
+    skos:definition "Links TRUs to the designs they implement or conform to"@en ;
+    skos:example "Steel component TRU implements Design XYZ-2024-001"@en .
+
+:inputTRU a owl:ObjectProperty ;
     rdfs:label "input TRU"@en ;
     rdfs:comment "TRU that serves as input to a transformation event"@en ;
-    rdfs:domain default1:TransformationEvent ;
+    rdfs:domain :TransformationEvent ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
-    rdfs:range default1:TraceableResourceUnit ;
+    rdfs:range :TraceableResourceUnit ;
     skos:example """
 {
   "@type": "TransformationEvent",
@@ -992,35 +1089,107 @@ default1:inputTRU a owl:ObjectProperty ;
 }
 """@en .
 
-default1:involvesTRU a owl:ObjectProperty ;
+:involvesTRU a owl:ObjectProperty ;
     rdfs:label "involves TRU"@en ;
     rdfs:comment "Links a supply chain event to the TRU roles it involves"@en ;
-    rdfs:domain default1:SupplyChainEvent ;
+    rdfs:domain :SupplyChainEvent ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
-    rdfs:range default1:TRURole ;
-    rdfs:subPropertyOf default1:providesParticipantRole ;
+    rdfs:range :TRURole ;
+    rdfs:subPropertyOf :providesParticipantRole ;
     skos:definition "Connects supply chain events to the TRU roles that participate in them"@en .
 
-default1:measuredProperty a owl:ObjectProperty ;
+:isComponentOf a owl:ObjectProperty ;
+    rdfs:label "is component of"@en ;
+    dcterms:source <https://w3id.org/ammo/ont/isComponentOf> ;
+    rdfs:comment "Indicates that this designed component is a functional part of a designed physical system."@en ;
+    rdfs:domain :DesignedComponent ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> ;
+    rdfs:range :DesignedPhysicalSystem ;
+    rdfs:subPropertyOf :isDirectPartOf ;
+    owl:inverseOf :hasComponent ;
+    skos:definition "Inverse relationship linking components to their containing systems"@en ;
+    skos:exactMatch <https://w3id.org/ammo/ont/isComponentOf> ;
+    skos:note "Derived from AMMO isComponentOf inverse relationship"@en .
+
+:isDescribedBy a owl:ObjectProperty ;
+    rdfs:label "is described by"@en ;
+    dcterms:source <https://w3id.org/ammo/ont/isDescribedBy> ;
+    rdfs:comment "Indicates that an entity is specified or blueprinted by a particular design."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:range :Design ;
+    owl:inverseOf :describes ;
+    skos:definition "Links entities back to the designs that specify them"@en ;
+    skos:exactMatch <https://w3id.org/ammo/ont/isDescribedBy> ;
+    skos:note "Derived from AMMO isDescribedBy inverse property"@en .
+
+:isDesignSpecificationOf a owl:ObjectProperty ;
+    rdfs:label "is design specification of"@en ;
+    rdfs:comment "Indicates that this specification defines requirements for a particular design."@en ;
+    rdfs:domain :DesignSpecification ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:range :Design ;
+    owl:inverseOf :hasDesignSpecification ;
+    skos:definition "Inverse property linking specifications back to the designs they define"@en .
+
+:isSpecifiedBy a owl:ObjectProperty ;
+    rdfs:label "is specified by"@en ;
+    rdfs:comment "Indicates that an entity is defined or constrained by a particular design specification."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:range :DesignSpecification ;
+    owl:inverseOf :specifies ;
+    skos:definition "Links entities back to the specifications that define their requirements"@en .
+
+:materialProperty a owl:ObjectProperty ;
+    rdfs:label "material property"@en ;
+    rdfs:comment "Links a material specification to specific properties that must be satisfied."@en ;
+    rdfs:domain :MaterialDesignSpecification ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
+    skos:definition "Connects specifications to the material properties they define"@en .
+
+:maximumValue a owl:DatatypeProperty ;
+    rdfs:label "maximum value"@en ;
+    rdfs:comment "The maximum acceptable value for a quantity measurement."@en ;
+    rdfs:domain :QuantityDesignSpecification ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
+    rdfs:range xsd:decimal ;
+    skos:definition "Upper bound for acceptable quantity values"@en .
+
+:measuredProperty a owl:ObjectProperty ;
     rdfs:label "measured property"@en ;
     rdfs:comment "The property or characteristic being measured in the observation, aligned with schema.org measuredProperty."@en,
         "The specific property of the material being quantified"@en ;
-    rdfs:domain schema:Observation,
-        default1:QuantityOfMaterial ;
+    rdfs:domain schema1:Observation,
+        :QuantityOfMaterial ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule>,
         <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
     rdfs:range owl:Thing ;
-    rdfs:subPropertyOf schema:measuredProperty ;
+    rdfs:subPropertyOf schema1:measuredProperty ;
     skos:definition "Specifies what characteristic is being measured (e.g., temperature, weight, location)"@en .
 
-default1:measurementValue a owl:ObjectProperty ;
+:measurementValue a owl:ObjectProperty ;
     rdfs:label "measurement value"@en ;
     rdfs:comment "The quantitative or qualitative value resulting from the observation, typically a QuantitativeValue."@en ;
-    rdfs:domain schema:Observation ;
+    rdfs:domain schema1:Observation ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
-    rdfs:range [ owl:unionOf ( schema:QuantitativeValue schema:PropertyValue xsd:string xsd:boolean ) ] ;
-    rdfs:subPropertyOf schema:value ;
+    rdfs:range [ owl:unionOf ( schema1:QuantitativeValue schema1:PropertyValue xsd:string xsd:boolean ) ] ;
+    rdfs:subPropertyOf schema1:value ;
     skos:definition "The measured value or result of the observation activity"@en .
+
+:meetsSpecification a owl:ObjectProperty ;
+    rdfs:label "meets specification"@en ;
+    rdfs:comment "Indicates that a material quantity satisfies the requirements defined in a material design specification."@en ;
+    rdfs:domain :SpecifiedQuantityOfMaterial ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
+    rdfs:range :MaterialDesignSpecification ;
+    skos:definition "Links material quantities to the specifications they satisfy"@en .
+
+:minimumValue a owl:DatatypeProperty ;
+    rdfs:label "minimum value"@en ;
+    rdfs:comment "The minimum acceptable value for a quantity measurement."@en ;
+    rdfs:domain :QuantityDesignSpecification ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
+    rdfs:range xsd:decimal ;
+    skos:definition "Lower bound for acceptable quantity values"@en .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/modules/spdx/sbom-integration> a owl:Ontology ;
     rdfs:label "DSCDO SPDX SBOM Integration Module"@en ;
@@ -1029,20 +1198,28 @@ default1:measurementValue a owl:ObjectProperty ;
     dcterms:modified "2025-01-25"^^xsd:date ;
     rdfs:comment "Integrates SPDX 3.0.1 Software Bill of Materials (SBOM) concepts with DSCDO workflow ontology for container-based AI agent provenance tracking."@en ;
     rdfs:seeAlso <https://spdx.github.io/spdx-spec/v3.0.1/> ;
-    owl:imports spdx:,
+    owl:imports <https://spdx.org/rdf/3.0.1/terms/>,
         <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> ;
     owl:versionInfo "0.1.0" .
 
-default1:observationDate a owl:DatatypeProperty ;
+:nominalValue a owl:DatatypeProperty ;
+    rdfs:label "nominal value"@en ;
+    rdfs:comment "The target or ideal value for a quantity measurement."@en ;
+    rdfs:domain :QuantityDesignSpecification ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
+    rdfs:range xsd:decimal ;
+    skos:definition "Target value for quantity measurements"@en .
+
+:observationDate a owl:DatatypeProperty ;
     rdfs:label "observation date"@en ;
     rdfs:comment "The date/time when the observation was made, aligned with schema.org observationDate."@en ;
-    rdfs:domain default1:ObservationEvent ;
+    rdfs:domain :ObservationEvent ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     rdfs:range xsd:dateTime ;
-    rdfs:subPropertyOf schema:observationDate ;
+    rdfs:subPropertyOf schema1:observationDate ;
     skos:definition "Timestamp indicating when the observation was recorded"@en .
 
-default1:observationIntegration skos:example """
+:observationIntegration skos:example """
 {
   "@context": {
     "@vocab": "https://vocab.earth616.localhost/nd/scdoc/ont/",
@@ -1082,282 +1259,26 @@ default1:observationIntegration skos:example """
 }
 """@en .
 
-default1:observationMethod a rdf:Property ;
+:observationMethod a rdf:Property ;
     rdfs:label "observation method"@en ;
     rdfs:comment "Recommended to use Wikidata URIs for standardized measurement techniques (e.g., Q134566 for weighing scale, Q1402042 for precision balance, Q180809 for mass spectrometry)"@en,
         "The technique or method used to make the observation, extending schema.org measurementTechnique. Can be a string (e.g., 'digital_scale') or a structured object describing the method."@en ;
-    rdfs:domain schema:Observation ;
+    rdfs:domain schema1:Observation ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
-    rdfs:subPropertyOf schema:measurementTechnique ;
+    rdfs:subPropertyOf schema1:measurementTechnique ;
     skos:definition "Describes how the observation was performed (sensor type, inspection method, etc.)"@en ;
     skos:example "\"digital_industrial_scale\""@en,
         "<http://www.wikidata.org/entity/Q134566>"@en,
         "<http://www.wikidata.org/entity/Q1402042>"@en .
 
-default1:observedQuantity a owl:ObjectProperty ;
+:observedQuantity a owl:ObjectProperty ;
     rdfs:label "observed quantity"@en ;
     rdfs:comment "Links a schema.org observation to the quantity of material that was measured."@en ;
-    rdfs:domain schema:Observation ;
+    rdfs:domain schema1:Observation ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
-    rdfs:range default1:QuantityOfMaterial ;
-    owl:inverseOf default1:measurementObservation ;
+    rdfs:range :QuantityOfMaterial ;
+    owl:inverseOf :measurementObservation ;
     skos:definition "Inverse relationship connecting observations to their material quantity results"@en .
-
-default1:ofMaterialType a owl:ObjectProperty ;
-    rdfs:label "of material type"@en ;
-    rdfs:comment "Links a quantity of material to its material type"@en ;
-    rdfs:domain default1:QuantityOfMaterial ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
-    rdfs:range default1:Material ;
-    skos:definition "Specifies the type or classification of material in a quantity"@en .
-
-default1:outputTRU a owl:ObjectProperty ;
-    rdfs:label "output TRU"@en ;
-    rdfs:comment "TRU that results from a transformation event"@en ;
-    rdfs:domain default1:TransformationEvent ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
-    rdfs:range default1:TraceableResourceUnit .
-
-default1:partOf a owl:ObjectProperty ;
-    rdfs:label "part of"@en ;
-    rdfs:comment "Hierarchical relationship between TRUs"@en ;
-    rdfs:domain default1:TraceableResourceUnit ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
-    rdfs:range default1:TraceableResourceUnit ;
-    skos:definition "Indicates that one TRU is a component or part of another TRU"@en .
-
-default1:performsTRURole a owl:ObjectProperty ;
-    rdfs:label "performs TRU role"@en ;
-    rdfs:comment "Links a TRU to the role it performs in an event"@en ;
-    rdfs:domain default1:TraceableResourceUnit ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
-    rdfs:range default1:TRURole ;
-    skos:definition "Identifies which role a traceable resource unit performs in an event"@en .
-
-default1:precedesEvent a owl:ObjectProperty ;
-    rdfs:label "precedes event"@en ;
-    rdfs:comment "Indicates temporal precedence between supply chain events."@en ;
-    rdfs:domain default1:SupplyChainEvent ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
-    rdfs:range default1:SupplyChainEvent ;
-    rdfs:subPropertyOf time:before .
-
-default1:predecessorOf a owl:ObjectProperty ;
-    rdfs:label "predecessor of"@en ;
-    rdfs:comment "Links TRU to its predecessor before transformation"@en ;
-    rdfs:domain default1:TraceableResourceUnit ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
-    rdfs:range default1:TraceableResourceUnit ;
-    skos:definition "Indicates the transformation lineage between TRUs across events"@en .
-
-default1:processedText a owl:DatatypeProperty ;
-    rdfs:label "processed text"@en ;
-    rdfs:comment "The processed text of a digitized document."@en ;
-    rdfs:domain default1:DocumentContent ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
-    rdfs:range xsd:string .
-
-default1:sbomGeneratedBy a owl:ObjectProperty ;
-    rdfs:label "SBOM generated by"@en ;
-    rdfs:comment "Links an SBOM to the tool or agent that generated it, extending SPDX creation info with DSCDO agent concepts."@en ;
-    rdfs:domain spdx:Sbom ;
-    rdfs:range [ owl:unionOf ( prov:SoftwareAgent default1:SoftwareAgent ) ] ;
-    rdfs:subPropertyOf prov:wasGeneratedBy ;
-    skos:definition "Tracks which scanning tools, container runtimes, or AI agents were responsible for generating SBOM data."@en .
-
-default1:subEventOf a rdf:Property ;
-    rdfs:label "sub event of"@en ;
-    rdfs:comment "Property expressing partonomic relation between two events. Domain and range are always Event."@en ;
-    rdfs:domain default1:Event ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> ;
-    rdfs:range default1:Event .
-
-default1:transferredTRU a owl:ObjectProperty ;
-    rdfs:label "transferred TRU"@en ;
-    rdfs:comment "TRU that is transferred in a transfer event"@en ;
-    rdfs:domain default1:TransferEvent ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
-    rdfs:range default1:TraceableResourceUnit .
-
-default1:workflowExecution a owl:ObjectProperty ;
-    rdfs:label "workflow execution"@en ;
-    rdfs:comment "Connects the document content to the workflow that processed it."@en ;
-    rdfs:domain default1:DocumentContent ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
-    rdfs:range default1:InformationExtractionWorkflow ;
-    rdfs:subPropertyOf prov:wasGeneratedBy .
-
-:acceptanceCriteria a owl:DatatypeProperty ;
-    rdfs:label "acceptance criteria"@en ;
-    rdfs:comment "Defines the specific criteria that must be met for acceptance or approval."@en ;
-    rdfs:domain :QualitySpecification ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
-    rdfs:range xsd:string ;
-    skos:definition "Textual description of acceptance requirements"@en ;
-    skos:example "Surface roughness < 1.6 μm, No visible defects, Dimensional accuracy ± 0.1mm"@en .
-
-:assembles a owl:ObjectProperty ;
-    rdfs:label "assembles"@en ;
-    rdfs:comment "Indicates that an assembly event combines specific components."@en ;
-    rdfs:domain :AssemblyEvent ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> ;
-    rdfs:range :Component ;
-    skos:definition "Links assembly events to the components being assembled"@en .
-
-:compositionRequirement a owl:DatatypeProperty ;
-    rdfs:label "composition requirement"@en ;
-    rdfs:comment "Specifies the required chemical or physical composition for a material."@en ;
-    rdfs:domain :MaterialDesignSpecification ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
-    rdfs:range xsd:string ;
-    skos:definition "Textual specification of required material composition"@en ;
-    skos:example "18-20% Chromium, 8-10.5% Nickel, <0.08% Carbon"@en .
-
-:conformsToSpecification a owl:ObjectProperty ;
-    rdfs:label "conforms to specification"@en ;
-    rdfs:comment "Indicates that a traceable resource unit meets the requirements defined in a design specification."@en ;
-    rdfs:domain :TraceableResourceUnit ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
-    rdfs:range :DesignSpecification ;
-    skos:definition "Links TRUs to the specifications they satisfy"@en ;
-    skos:example "Manufactured component conforms to military specification MIL-STD-810"@en .
-
-:consistsOf rdfs:seeAlso ammo:ofQuantity ;
-    skos:note "Both properties relate objects to their quantified composition. AMMO uses QUDT-based quantities while TRU uses Schema.org QuantitativeValue patterns."@en ;
-    skos:relatedMatch ammo:ofQuantity .
-
-:disassembles a owl:ObjectProperty ;
-    rdfs:label "disassembles"@en ;
-    rdfs:comment "Indicates that a disassembly event breaks down a specific system."@en ;
-    rdfs:domain :DisassemblyEvent ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> ;
-    rdfs:range :DesignedPhysicalSystem ;
-    skos:definition "Links disassembly events to the systems being disassembled"@en .
-
-:executesDesign a owl:ObjectProperty ;
-    rdfs:label "executes design"@en ;
-    rdfs:comment "Indicates that a supply chain event follows or implements a specific design or process plan."@en ;
-    rdfs:domain :SupplyChainEvent ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
-    rdfs:range :Design ;
-    skos:definition "Links events to the designs or process plans they execute"@en ;
-    skos:example "Manufacturing event executes assembly design plan"@en .
-
-:hasFunction a owl:DatatypeProperty ;
-    rdfs:label "has function"@en ;
-    rdfs:comment "Describes the primary function or purpose of a component within a system."@en ;
-    rdfs:domain :Component ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> ;
-    rdfs:range xsd:string ;
-    skos:definition "Textual description of component functionality"@en ;
-    skos:example "structural support, power conversion, signal processing, environmental protection"@en .
-
-:hasTransition a owl:ObjectProperty ;
-    rdfs:label "has transition"@en ;
-    dcterms:source ammo:hasTransition ;
-    rdfs:comment "Indicates that an entity undergoes a specific state transition."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition> ;
-    rdfs:range :Transition ;
-    skos:definition "Links entities to the transitions they undergo"@en ;
-    skos:exactMatch ammo:hasTransition ;
-    skos:note "Derived from AMMO hasTransition property"@en .
-
-:hasVersion a owl:ObjectProperty ;
-    rdfs:label "has version"@en ;
-    rdfs:comment "Links a design to its specific versions or revisions."@en ;
-    rdfs:domain :Design ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
-    rdfs:range :DesignVersion ;
-    skos:definition "Connects designs to their versioned instances"@en .
-
-:implementsDesign a owl:ObjectProperty ;
-    rdfs:label "implements design"@en ;
-    rdfs:comment "Indicates that a traceable resource unit is manufactured or assembled according to a specific design."@en ;
-    rdfs:domain :TraceableResourceUnit ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
-    rdfs:range :Design ;
-    skos:definition "Links TRUs to the designs they implement or conform to"@en ;
-    skos:example "Steel component TRU implements Design XYZ-2024-001"@en .
-
-:isComponentOf a owl:ObjectProperty ;
-    rdfs:label "is component of"@en ;
-    dcterms:source ammo:isComponentOf ;
-    rdfs:comment "Indicates that this designed component is a functional part of a designed physical system."@en ;
-    rdfs:domain :DesignedComponent ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> ;
-    rdfs:range :DesignedPhysicalSystem ;
-    rdfs:subPropertyOf :isDirectPartOf ;
-    owl:inverseOf :hasComponent ;
-    skos:definition "Inverse relationship linking components to their containing systems"@en ;
-    skos:exactMatch ammo:isComponentOf ;
-    skos:note "Derived from AMMO isComponentOf inverse relationship"@en .
-
-:isDescribedBy a owl:ObjectProperty ;
-    rdfs:label "is described by"@en ;
-    dcterms:source ammo:isDescribedBy ;
-    rdfs:comment "Indicates that an entity is specified or blueprinted by a particular design."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
-    rdfs:range :Design ;
-    owl:inverseOf :describes ;
-    skos:definition "Links entities back to the designs that specify them"@en ;
-    skos:exactMatch ammo:isDescribedBy ;
-    skos:note "Derived from AMMO isDescribedBy inverse property"@en .
-
-:isDesignSpecificationOf a owl:ObjectProperty ;
-    rdfs:label "is design specification of"@en ;
-    rdfs:comment "Indicates that this specification defines requirements for a particular design."@en ;
-    rdfs:domain :DesignSpecification ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
-    rdfs:range :Design ;
-    owl:inverseOf :hasDesignSpecification ;
-    skos:definition "Inverse property linking specifications back to the designs they define"@en .
-
-:isSpecifiedBy a owl:ObjectProperty ;
-    rdfs:label "is specified by"@en ;
-    rdfs:comment "Indicates that an entity is defined or constrained by a particular design specification."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
-    rdfs:range :DesignSpecification ;
-    owl:inverseOf :specifies ;
-    skos:definition "Links entities back to the specifications that define their requirements"@en .
-
-:materialProperty a owl:ObjectProperty ;
-    rdfs:label "material property"@en ;
-    rdfs:comment "Links a material specification to specific properties that must be satisfied."@en ;
-    rdfs:domain :MaterialDesignSpecification ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
-    skos:definition "Connects specifications to the material properties they define"@en .
-
-:maximumValue a owl:DatatypeProperty ;
-    rdfs:label "maximum value"@en ;
-    rdfs:comment "The maximum acceptable value for a quantity measurement."@en ;
-    rdfs:domain :QuantityDesignSpecification ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
-    rdfs:range xsd:decimal ;
-    skos:definition "Upper bound for acceptable quantity values"@en .
-
-:meetsSpecification a owl:ObjectProperty ;
-    rdfs:label "meets specification"@en ;
-    rdfs:comment "Indicates that a material quantity satisfies the requirements defined in a material design specification."@en ;
-    rdfs:domain :SpecifiedQuantityOfMaterial ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
-    rdfs:range :MaterialDesignSpecification ;
-    skos:definition "Links material quantities to the specifications they satisfy"@en .
-
-:minimumValue a owl:DatatypeProperty ;
-    rdfs:label "minimum value"@en ;
-    rdfs:comment "The minimum acceptable value for a quantity measurement."@en ;
-    rdfs:domain :QuantityDesignSpecification ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
-    rdfs:range xsd:decimal ;
-    skos:definition "Lower bound for acceptable quantity values"@en .
-
-:nominalValue a owl:DatatypeProperty ;
-    rdfs:label "nominal value"@en ;
-    rdfs:comment "The target or ideal value for a quantity measurement."@en ;
-    rdfs:domain :QuantityDesignSpecification ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
-    rdfs:range xsd:decimal ;
-    skos:definition "Target value for quantity measurements"@en .
 
 :occurrenceInterval a owl:FunctionalProperty,
         owl:ObjectProperty ;
@@ -1378,10 +1299,17 @@ default1:workflowExecution a owl:ObjectProperty ;
     rdfs:range :State ;
     skos:definition "Links state occurrences to their specific states"@en .
 
-:ofMaterialType rdfs:seeAlso ammo:hasBaseMaterial,
-        ammo:madeFromMaterial ;
-    skos:closeMatch ammo:hasBaseMaterial,
-        ammo:madeFromMaterial ;
+:ofMaterialType a owl:ObjectProperty ;
+    rdfs:label "of material type"@en ;
+    rdfs:comment "Links a quantity of material to its material type"@en ;
+    rdfs:domain :QuantityOfMaterial ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
+    rdfs:range :Material ;
+    rdfs:seeAlso <https://w3id.org/ammo/ont/hasBaseMaterial>,
+        <https://w3id.org/ammo/ont/madeFromMaterial> ;
+    skos:closeMatch <https://w3id.org/ammo/ont/hasBaseMaterial>,
+        <https://w3id.org/ammo/ont/madeFromMaterial> ;
+    skos:definition "Specifies the type or classification of material in a quantity"@en ;
     skos:note "All three properties link objects to their material composition. AMMO distinguishes base materials from general material composition."@en .
 
 :operatingCondition a owl:DatatypeProperty ;
@@ -1393,6 +1321,29 @@ default1:workflowExecution a owl:ObjectProperty ;
     skos:definition "Textual description of required process operating conditions"@en ;
     skos:example "Temperature: 850°C ± 25°C, Pressure: 1.2 ATM, Inert atmosphere"@en .
 
+:outputTRU a owl:ObjectProperty ;
+    rdfs:label "output TRU"@en ;
+    rdfs:comment "TRU that results from a transformation event"@en ;
+    rdfs:domain :TransformationEvent ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
+    rdfs:range :TraceableResourceUnit .
+
+:partOf a owl:ObjectProperty ;
+    rdfs:label "part of"@en ;
+    rdfs:comment "Hierarchical relationship between TRUs"@en ;
+    rdfs:domain :TraceableResourceUnit ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
+    rdfs:range :TraceableResourceUnit ;
+    skos:definition "Indicates that one TRU is a component or part of another TRU"@en .
+
+:performsTRURole a owl:ObjectProperty ;
+    rdfs:label "performs TRU role"@en ;
+    rdfs:comment "Links a TRU to the role it performs in an event"@en ;
+    rdfs:domain :TraceableResourceUnit ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
+    rdfs:range :TRURole ;
+    skos:definition "Identifies which role a traceable resource unit performs in an event"@en .
+
 :playsRole a owl:ObjectProperty ;
     rdfs:label "plays role"@en ;
     rdfs:comment "Indicates that a component performs a specific functional role within a system."@en ;
@@ -1401,13 +1352,36 @@ default1:workflowExecution a owl:ObjectProperty ;
     rdfs:range :ComponentRole ;
     skos:definition "Links components to the functional roles they perform"@en .
 
+:precedesEvent a owl:ObjectProperty ;
+    rdfs:label "precedes event"@en ;
+    rdfs:comment "Indicates temporal precedence between supply chain events."@en ;
+    rdfs:domain :SupplyChainEvent ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+    rdfs:range :SupplyChainEvent ;
+    rdfs:subPropertyOf time:before .
+
+:predecessorOf a owl:ObjectProperty ;
+    rdfs:label "predecessor of"@en ;
+    rdfs:comment "Links TRU to its predecessor before transformation"@en ;
+    rdfs:domain :TraceableResourceUnit ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
+    rdfs:range :TraceableResourceUnit ;
+    skos:definition "Indicates the transformation lineage between TRUs across events"@en .
+
 :processParameter a owl:ObjectProperty ;
     rdfs:label "process parameter"@en ;
     rdfs:comment "Defines a specific parameter requirement for a manufacturing or operational process."@en ;
     rdfs:domain :ProcessDesignSpecification ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
-    rdfs:range schema:PropertyValue ;
+    rdfs:range schema1:PropertyValue ;
     skos:definition "Links process specifications to their required parameters"@en .
+
+:processedText a owl:DatatypeProperty ;
+    rdfs:label "processed text"@en ;
+    rdfs:comment "The processed text of a digitized document."@en ;
+    rdfs:domain :DocumentContent ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
+    rdfs:range xsd:string .
 
 :qualityCompliance a owl:ObjectProperty ;
     rdfs:label "quality compliance"@en ;
@@ -1442,26 +1416,34 @@ default1:workflowExecution a owl:ObjectProperty ;
     rdfs:range :DesignedPhysicalSystem ;
     skos:definition "Links assembly events to their resulting assembled systems"@en .
 
+:sbomGeneratedBy a owl:ObjectProperty ;
+    rdfs:label "SBOM generated by"@en ;
+    rdfs:comment "Links an SBOM to the tool or agent that generated it, extending SPDX creation info with DSCDO agent concepts."@en ;
+    rdfs:domain <https://spdx.org/rdf/3.0.1/terms/Sbom> ;
+    rdfs:range [ owl:unionOf ( prov:SoftwareAgent :SoftwareAgent ) ] ;
+    rdfs:subPropertyOf prov:wasGeneratedBy ;
+    skos:definition "Tracks which scanning tools, container runtimes, or AI agents were responsible for generating SBOM data."@en .
+
 :specifiedMaterial a owl:ObjectProperty ;
     rdfs:label "specified material"@en ;
-    dcterms:source ammo:hasMaterial ;
+    dcterms:source <https://w3id.org/ammo/ont/hasMaterial> ;
     rdfs:comment "Links a material design specification to the specific material it defines requirements for."@en ;
     rdfs:domain :MaterialDesignSpecification ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     rdfs:range :Material ;
     skos:definition "Connects material specifications to the materials they constrain"@en ;
-    skos:exactMatch ammo:hasMaterial ;
+    skos:exactMatch <https://w3id.org/ammo/ont/hasMaterial> ;
     skos:note "Derived from AMMO hasMaterial property linking MaterialDesignSpecification to Material"@en .
 
 :specifiedQuantity a owl:ObjectProperty ;
     rdfs:label "specified quantity"@en ;
-    dcterms:source ammo:ofQuantity ;
+    dcterms:source <https://w3id.org/ammo/ont/ofQuantity> ;
     rdfs:comment "Links a quantity design specification to the specific quantity measurement it defines requirements for."@en ;
     rdfs:domain :QuantityDesignSpecification ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     rdfs:range :QuantityOfMaterial ;
     skos:definition "Connects quantity specifications to the measurements they constrain"@en ;
-    skos:exactMatch ammo:ofQuantity ;
+    skos:exactMatch <https://w3id.org/ammo/ont/ofQuantity> ;
     skos:note "Derived from AMMO ofQuantity property linking QuantityDesignSpecification to Quantity"@en .
 
 :stateHistory a owl:ObjectProperty ;
@@ -1470,6 +1452,13 @@ default1:workflowExecution a owl:ObjectProperty ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition> ;
     rdfs:range :StateOccurrence ;
     skos:definition "Connects entities to their state history records"@en .
+
+:subEventOf a rdf:Property ;
+    rdfs:label "sub event of"@en ;
+    rdfs:comment "Property expressing partonomic relation between two events. Domain and range are always Event."@en ;
+    rdfs:domain :Event ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> ;
+    rdfs:range :Event .
 
 :supersedes a owl:ObjectProperty ;
     rdfs:label "supersedes"@en ;
@@ -1491,8 +1480,15 @@ default1:workflowExecution a owl:ObjectProperty ;
     rdfs:comment "Defines the acceptable tolerance range for a quantity measurement."@en ;
     rdfs:domain :QuantityDesignSpecification ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
-    rdfs:range schema:QuantitativeValue ;
+    rdfs:range schema1:QuantitativeValue ;
     skos:definition "Specifies measurement tolerance using Schema.org QuantitativeValue patterns"@en .
+
+:transferredTRU a owl:ObjectProperty ;
+    rdfs:label "transferred TRU"@en ;
+    rdfs:comment "TRU that is transferred in a transfer event"@en ;
+    rdfs:domain :TransferEvent ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
+    rdfs:range :TraceableResourceUnit .
 
 :transitionAction a owl:DatatypeProperty ;
     rdfs:label "transition action"@en ;
@@ -1584,6 +1580,14 @@ default1:workflowExecution a owl:ObjectProperty ;
     rdfs:range xsd:string ;
     skos:definition "Alphanumeric identifier for a specific version of a design"@en .
 
+:workflowExecution a owl:ObjectProperty ;
+    rdfs:label "workflow execution"@en ;
+    rdfs:comment "Connects the document content to the workflow that processed it."@en ;
+    rdfs:domain :DocumentContent ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
+    rdfs:range :InformationExtractionWorkflow ;
+    rdfs:subPropertyOf prov:wasGeneratedBy .
+
 :yieldsComponent a owl:ObjectProperty ;
     rdfs:label "yields component"@en ;
     rdfs:comment "Indicates that a disassembly event produces specific components."@en ;
@@ -1592,21 +1596,21 @@ default1:workflowExecution a owl:ObjectProperty ;
     rdfs:range :Component ;
     skos:definition "Links disassembly events to the components they produce"@en .
 
-default1: a voaf:Vocabulary,
+: a <http://purl.org/vocommons/voaf#Vocabulary>,
         owl:Ontology ;
     dcterms:created "2024-04-09"^^xsd:date ;
-    dcterms:creator [ a sdo:Person ;
+    dcterms:creator [ a schema:Person ;
             rdfs:label "Charles F. Vardeman II" ;
-            sdo:affiliation "University of Notre Dame" ;
-            sdo:email "cvardema@nd.edu"^^xsd:anyURI ;
-            sdo:name "Charles F. Vardeman II" ;
-            sdo:url "https://orcid.org/0000-0003-4091-6059"^^xsd:anyURI ],
-        [ a sdo:Person ;
+            schema:affiliation "University of Notre Dame" ;
+            schema:email "cvardema@nd.edu"^^xsd:anyURI ;
+            schema:name "Charles F. Vardeman II" ;
+            schema:url "https://orcid.org/0000-0003-4091-6059"^^xsd:anyURI ],
+        [ a schema:Person ;
             rdfs:label "Charles F. Vardeman II" ;
-            sdo:affiliation "University of Notre Dame" ;
-            sdo:email "cvardema@nd.edu"^^xsd:anyURI ;
-            sdo:name "Charles F. Vardeman II" ;
-            sdo:url "https://orcid.org/0000-0003-4091-6059"^^xsd:anyURI ] ;
+            schema:affiliation "University of Notre Dame" ;
+            schema:email "cvardema@nd.edu"^^xsd:anyURI ;
+            schema:name "Charles F. Vardeman II" ;
+            schema:url "https://orcid.org/0000-0003-4091-6059"^^xsd:anyURI ] ;
     dcterms:description """The Defense Supply Chain and Documentation Ontology (DSCDO) provides a formal model for representing knowledge about supply chain networks, processes, and entities. It enables interoperability and knowledge sharing between supply chain information systems by providing a common vocabulary and conceptual structure and supporting documentation providing supply chain provenance.
 
 Key concepts modeled include:
@@ -1619,28 +1623,28 @@ The ontology is designed to be extensible to support modeling of domain-specific
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
     dcterms:modified "2025-04-15"^^xsd:date,
         "2025-05-26"^^xsd:date ;
-    dcterms:publisher [ a sdo:Organization ;
+    dcterms:publisher [ a schema:Organization ;
             rdfs:label "Center for Research Computing, University of Notre Dame" ;
-            owl:sameAs wd:Q178848 ;
-            sdo:name "Center for Research Computing, University of Notre Dame" ;
-            sdo:url "https://crc.nd.edu"^^xsd:anyURI ],
-        [ a sdo:Organization ;
+            owl:sameAs <http://www.wikidata.org/entity/Q178848> ;
+            schema:name "Center for Research Computing, University of Notre Dame" ;
+            schema:url "https://crc.nd.edu"^^xsd:anyURI ],
+        [ a schema:Organization ;
             rdfs:label "Simba Chain" ;
-            sdo:name "Simba Chain" ;
-            sdo:url "https://simbachain.com/" ],
-        [ a sdo:Organization ;
+            schema:name "Simba Chain" ;
+            schema:url "https://simbachain.com/" ],
+        [ a schema:Organization ;
             rdfs:label "Center for Research Computing, University of Notre Dame" ;
-            owl:sameAs wd:Q178848 ;
-            sdo:name "Center for Research Computing, University of Notre Dame" ;
-            sdo:url "https://crc.nd.edu"^^xsd:anyURI ],
-        [ a sdo:Organization ;
+            owl:sameAs <http://www.wikidata.org/entity/Q178848> ;
+            schema:name "Center for Research Computing, University of Notre Dame" ;
+            schema:url "https://crc.nd.edu"^^xsd:anyURI ],
+        [ a schema:Organization ;
             rdfs:label "Simba Chain" ;
-            sdo:name "Simba Chain" ;
-            sdo:url "https://simbachain.com/" ] ;
+            schema:name "Simba Chain" ;
+            schema:url "https://simbachain.com/" ] ;
     dcterms:rights "This work is licensed under a Creative Commons Attribution 4.0 International License."@en ;
     dcterms:rightsHolder "SIMBA Chain, University of Notre Dame" ;
     dcterms:title "Defense Supply Chain and Documentation Ontology (DSCDO)"@en ;
-    bibo:status "Work in progress" ;
+    ns1:status "Work in progress" ;
     vann:preferredNamespacePrefix "dscdo" ;
     vann:preferredNamespaceUri "https://vocab.earth616.localhost/nd/scdoc/ont/" ;
     owl:imports <https://vocab.earth616.localhost/nd/scdoc/ont/imports/geo>,
@@ -1654,8 +1658,8 @@ The ontology is designed to be extensible to support modeling of domain-specific
         <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/EventCore>,
         <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/SemanticTrajectory>,
         <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/SpatioTemporalExtent> ;
-    owl:versionIRI default1:0.1.4,
-        default1:0.2.0 ;
+    owl:versionIRI :0.1.4,
+        :0.2.0 ;
     owl:versionInfo "0.1.4"@en,
         "0.2.0"@en ;
     skos:changeNote "0.1.0 - intial release of pattern skeletons"@en,
@@ -1666,78 +1670,96 @@ The ontology is designed to be extensible to support modeling of domain-specific
         "0.1.4 - adding identifiers module, jsonld-context documents and shapes for validating JSON-LD contexts."@en,
         "0.2.0 - Development version: ongoing enhancements to template system and ontology extensions."@en ;
     prof:hasProfile <https://vocab.earth616.localhost/nd/scdoc/ont/profile/> ;
-    sdo:codeRepository "https://github.com/crcresearch/earth616_ontology"^^xsd:anyURI .
+    schema:codeRepository "https://github.com/crcresearch/earth616_ontology"^^xsd:anyURI .
 
-default1:DigitalDocument a owl:Class ;
+:DigitalDocument a owl:Class ;
     rdfs:label "Digital Document"@en ;
     rdfs:comment "Represents a digital document that has been scanned and digitized, and is part of the broader document processing workflow."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
-    rdfs:subClassOf schema:DigitalDocument,
+    rdfs:subClassOf schema1:DigitalDocument,
         prov:Entity,
-        default1:Document ;
+        :Document ;
     skos:definition "A document that exists in digital form and can be processed by automated systems"@en .
 
-default1:Document a owl:Class ;
+:Document a owl:Class ;
     rdfs:label "Document"@en ;
     rdfs:comment "A general class for documents."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
     skos:definition "An abstract class representing any type of document in the supply chain"@en .
 
-default1:DocumentType a owl:Class ;
+:DocumentType a owl:Class ;
     rdfs:label "Document Type"@en ;
     rdfs:comment "Represents the type or classification of a document."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
-    rdfs:subClassOf schema:Enumeration ;
+    rdfs:subClassOf schema1:Enumeration ;
     skos:definition "A classification scheme for different types of supply chain documents"@en .
 
-default1:IEPipeline a owl:Class ;
+:IEPipeline a owl:Class ;
     rdfs:label "Information Extraction Pipeline"@en ;
     rdfs:comment "Represents a pipeline used in the information extraction process."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
     rdfs:subClassOf prov:SoftwareAgent ;
     skos:definition "A software system or workflow that processes documents to extract structured information"@en .
 
-default1:TransferEvent a owl:Class ;
+:TransferEvent a owl:Class ;
     rdfs:label "Transfer Event"@en ;
     rdfs:comment "An event representing the transfer of goods or materials from one party to another."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
-    rdfs:subClassOf default1:SupplyChainEvent ;
+    rdfs:subClassOf :SupplyChainEvent ;
     skos:definition "An event that records the change in custody or ownership of supply chain items"@en .
+
+:currentState a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "current state"@en ;
+    rdfs:comment "The current state of an entity at the present time. Each entity has exactly one current state."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition> ;
+    rdfs:range :State ;
+    skos:definition "Links entities to their present state"@en .
+
+:describes a owl:ObjectProperty ;
+    rdfs:label "describes"@en ;
+    dcterms:source <https://w3id.org/ammo/ont/describes> ;
+    rdfs:comment "Indicates that a design provides the blueprint or specification for a physical or conceptual entity."@en ;
+    rdfs:domain :Design ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    skos:definition "Links a design to the entities it specifies or blueprints"@en ;
+    skos:exactMatch <https://w3id.org/ammo/ont/describes> ;
+    skos:note "Derived from AMMO describes property linking designs to components"@en .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/examples/ammo-alignment/steel-component-am-001> a :TraceableResourceUnit ;
     rdfs:label "Additively Manufactured Steel Component"@en ;
-    schema:additionalProperty [ a schema:PropertyValue ;
-            schema:description "Aligned with AMMO DesignedArtifact concept" ;
-            schema:propertyID "AMMO_Artifact_Type" ;
-            schema:value "ammo:DesignedArtifact" ],
-        [ a schema:PropertyValue ;
-            schema:description "Links to AMMO DesignSpecification for this component" ;
-            schema:propertyID "Design_Specification_Reference" ;
-            schema:value "DS-COMP-2024-001" ],
-        [ a schema:PropertyValue ;
-            schema:description "Powder Bed Fusion additive manufacturing" ;
-            schema:propertyID "Manufacturing_Method" ;
-            schema:value "Additive_Manufacturing_PBF" ],
-        [ a schema:PropertyValue ;
-            schema:description "As-built surface roughness" ;
-            schema:propertyID "Surface_Finish_Ra" ;
-            schema:unitCode "MTM" ;
-            schema:unitText "micrometers" ;
-            schema:value 12.5 ] ;
+    schema1:additionalProperty [ a schema1:PropertyValue ;
+            schema1:description "Aligned with AMMO DesignedArtifact concept" ;
+            schema1:propertyID "AMMO_Artifact_Type" ;
+            schema1:value "ammo:DesignedArtifact" ],
+        [ a schema1:PropertyValue ;
+            schema1:description "Links to AMMO DesignSpecification for this component" ;
+            schema1:propertyID "Design_Specification_Reference" ;
+            schema1:value "DS-COMP-2024-001" ],
+        [ a schema1:PropertyValue ;
+            schema1:description "Powder Bed Fusion additive manufacturing" ;
+            schema1:propertyID "Manufacturing_Method" ;
+            schema1:value "Additive_Manufacturing_PBF" ],
+        [ a schema1:PropertyValue ;
+            schema1:description "As-built surface roughness" ;
+            schema1:propertyID "Surface_Finish_Ra" ;
+            schema1:unitCode "MTM" ;
+            schema1:unitText "micrometers" ;
+            schema1:value 12.5 ] ;
     rdfs:comment "TRU representing component produced via additive manufacturing, aligned with AMMO designed artifact concepts"@en ;
-    rdfs:seeAlso ammo:Component ;
-    skos:exactMatch ammo:DesignedArtifact ;
+    rdfs:seeAlso <https://w3id.org/ammo/ont/Component> ;
+    skos:exactMatch <https://w3id.org/ammo/ont/DesignedArtifact> ;
     :consistsOf [ a :QuantityOfMaterial ;
-            schema:unitCode "KGM" ;
-            schema:unitText "kilograms" ;
-            schema:value 2.3 ;
+            schema1:unitCode "KGM" ;
+            schema1:unitText "kilograms" ;
+            schema1:value 2.3 ;
             :hasMeasurementMethod "precision_component_weighing" ;
             :measuredProperty "mass" ;
             :ofMaterialType <https://vocab.earth616.localhost/nd/scdoc/ont/examples/materials/steel-316l-powder> ] ;
     :hasIdentifier [ a :Identifier ;
-            schema:name "Additive Manufacturing Component Serial" ;
-            schema:propertyID "AMComponentSerial" ;
-            schema:value "AM-COMP-2024-001" ] ;
+            schema1:name "Additive Manufacturing Component Serial" ;
+            schema1:propertyID "AMComponentSerial" ;
+            schema1:value "AM-COMP-2024-001" ] ;
     :predecessorOf <https://vocab.earth616.localhost/nd/scdoc/ont/examples/ammo-alignment/steel-powder-batch> .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/examples/stateful-tru/steel-component-001> a :StatefulTRU ;
@@ -1745,68 +1767,125 @@ default1:TransferEvent a owl:Class ;
     rdfs:comment "Steel component with full state tracking"@en ;
     :currentState <https://vocab.earth616.localhost/nd/scdoc/ont/examples/states/quality-approved> ;
     :hasIdentifier [ a :Identifier ;
-            schema:name "Steel Component Serial Number" ;
-            schema:propertyID "ComponentSerial" ;
-            schema:value "SC-001-2024" ] ;
+            schema1:name "Steel Component Serial Number" ;
+            schema1:propertyID "ComponentSerial" ;
+            schema1:value "SC-001-2024" ] ;
     :hasTransition <https://vocab.earth616.localhost/nd/scdoc/ont/examples/transitions/manufacturing-completion> ;
     :stateHistory [ a :StateOccurrence ;
             :occurrenceInterval [ a :SpatioTemporalExtent ;
-                    schema:endDate "2024-03-15T12:00:00Z" ;
-                    schema:startDate "2024-03-15T08:00:00Z" ] ;
+                    schema1:endDate "2024-03-15T12:00:00Z" ;
+                    schema1:startDate "2024-03-15T08:00:00Z" ] ;
             :occurrenceState <https://vocab.earth616.localhost/nd/scdoc/ont/examples/states/raw-material> ],
         [ a :StateOccurrence ;
             :occurrenceInterval [ a :SpatioTemporalExtent ;
-                    schema:endDate "2024-03-16T14:00:00Z" ;
-                    schema:startDate "2024-03-15T12:00:00Z" ] ;
+                    schema1:endDate "2024-03-16T14:00:00Z" ;
+                    schema1:startDate "2024-03-15T12:00:00Z" ] ;
             :occurrenceState <https://vocab.earth616.localhost/nd/scdoc/ont/examples/states/in-process> ] .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/examples/states/raw-material> a :LifecycleState ;
     rdfs:label "Raw Material State"@en ;
-    dcterms:source ammo:State ;
-    schema:description "Material is in its raw, unprocessed form ready for manufacturing" ;
+    dcterms:source <https://w3id.org/ammo/ont/State> ;
+    schema1:description "Material is in its raw, unprocessed form ready for manufacturing" ;
     rdfs:comment "Initial state for materials before processing"@en ;
-    skos:exactMatch ammo:State .
+    skos:exactMatch <https://w3id.org/ammo/ont/State> .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/examples/transitions/manufacturing-completion> a :WorkflowTransition ;
     rdfs:label "Manufacturing Completion Transition"@en ;
-    dcterms:source ammo:Transition ;
+    dcterms:source <https://w3id.org/ammo/ont/Transition> ;
     rdfs:comment "Transition from in-process to quality control state"@en ;
-    skos:exactMatch ammo:Transition ;
+    skos:exactMatch <https://w3id.org/ammo/ont/Transition> ;
     :fromState <https://vocab.earth616.localhost/nd/scdoc/ont/examples/states/in-process> ;
     :toState <https://vocab.earth616.localhost/nd/scdoc/ont/examples/states/quality-control> ;
     :transitionAction "Move component to quality control queue, Update tracking system" ;
     :transitionCondition "Manufacturing process completed according to specifications" .
 
-default1:hasDestinationLocation a owl:ObjectProperty ;
+:fromState a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "from state"@en ;
+    dcterms:source <https://w3id.org/ammo/ont/fromState> ;
+    rdfs:comment "The initial state before a transition occurs. Each transition has exactly one source state."@en ;
+    rdfs:domain :Transition ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition> ;
+    rdfs:range :State ;
+    skos:definition "Links transitions to their source states"@en ;
+    skos:exactMatch <https://w3id.org/ammo/ont/fromState> ;
+    skos:note "Derived from AMMO fromState with functional property constraint"@en .
+
+:hasComponent a owl:ObjectProperty ;
+    rdfs:label "has component"@en ;
+    dcterms:source <https://w3id.org/ammo/ont/hasComponent> ;
+    rdfs:comment "Indicates that a designed physical system contains a designed component as a functional part."@en ;
+    rdfs:domain :DesignedPhysicalSystem ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> ;
+    rdfs:range :DesignedComponent ;
+    rdfs:subPropertyOf :hasDirectPart ;
+    skos:definition "Specialized relationship linking systems to their functional components"@en ;
+    skos:exactMatch <https://w3id.org/ammo/ont/hasComponent> ;
+    skos:note "Derived from AMMO hasComponent for system-component relationships"@en .
+
+:hasDesignSpecification a owl:ObjectProperty ;
+    rdfs:label "has design specification"@en ;
+    dcterms:source <https://w3id.org/ammo/ont/hasProperPart> ;
+    rdfs:comment "Links a design to one or more detailed specifications that define its requirements and constraints."@en ;
+    rdfs:domain :Design ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:range :DesignSpecification ;
+    skos:definition "Connects a design to the formal specifications that detail its implementation requirements"@en ;
+    skos:note "Derived from AMMO hasProperPart relationship between Design and DesignSpecification"@en ;
+    skos:relatedMatch <https://w3id.org/ammo/ont/hasProperPart> .
+
+:hasDestinationLocation a owl:ObjectProperty ;
     rdfs:label "has destination location"@en ;
     rdfs:comment "Relates a transport event to its ending geographic location."@en ;
-    rdfs:domain default1:TransportEvent ;
+    rdfs:domain :TransportEvent ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     rdfs:range geo:Feature ;
     rdfs:subPropertyOf geo:hasGeometry .
 
-default1:hasObservationResult a owl:ObjectProperty ;
+:hasObservationResult a owl:ObjectProperty ;
     rdfs:label "has observation result"@en ;
     rdfs:comment "Links an observation event to the structured observation data produced, typically a schema:Observation instance."@en ;
-    rdfs:domain default1:ObservationEvent ;
+    rdfs:domain :ObservationEvent ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
-    rdfs:range schema:Observation ;
+    rdfs:range schema1:Observation ;
     skos:definition "Connects an observation event to its structured result following schema.org observation patterns"@en .
 
-default1:hasOriginLocation a owl:ObjectProperty ;
+:hasOriginLocation a owl:ObjectProperty ;
     rdfs:label "has origin location"@en ;
     rdfs:comment "Relates a transport event to its starting geographic location."@en ;
-    rdfs:domain default1:TransportEvent ;
+    rdfs:domain :TransportEvent ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     rdfs:range geo:Feature ;
     rdfs:subPropertyOf geo:hasGeometry .
 
-default1:measurementObservation a owl:ObjectProperty ;
+:isDirectPartOf a owl:ObjectProperty ;
+    rdfs:label "is direct part of"@en ;
+    rdfs:comment "Indicates that this physical object is an immediate part of another physical object."@en ;
+    rdfs:domain :PhysicalObject ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> ;
+    rdfs:range :PhysicalObject ;
+    rdfs:subPropertyOf :isProperPartOf ;
+    owl:inverseOf :hasDirectPart ;
+    skos:definition "Inverse of hasDirectPart for immediate containment relationships"@en .
+
+:isProperPartOf a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "is proper part of"@en ;
+    rdfs:comment "Indicates that this physical object is a proper part of another physical object."@en ;
+    rdfs:domain :PhysicalObject ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> ;
+    rdfs:range :PhysicalObject ;
+    owl:inverseOf :hasProperPart ;
+    skos:definition "Inverse of hasProperPart, indicating containment within a larger whole"@en .
+
+:measurementObservation a owl:ObjectProperty ;
     rdfs:label "measurement observation"@en ;
     rdfs:comment "Links a quantity of material to the schema.org observation that captured its measurement data."@en ;
-    rdfs:domain default1:QuantityOfMaterial ;
+    rdfs:domain :QuantityOfMaterial ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
-    rdfs:range schema:Observation ;
+    rdfs:range schema1:Observation ;
     skos:definition "Connects material quantities to their observational provenance following schema.org patterns"@en .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru-ammo-alignment> a owl:Ontology ;
@@ -1815,17 +1894,17 @@ default1:measurementObservation a owl:ObjectProperty ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
     rdfs:comment "Provides semantic alignment between the Traceable Resource Unit (TRU) module and the AMMO (Additive Manufacturing for Maintenance Operations) ontology for interoperability in defense manufacturing contexts."@en ;
     rdfs:seeAlso <https://la3d.github.io/ammo/>,
-        ammo: ;
+        <https://w3id.org/ammo/ont/> ;
     owl:imports <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
     owl:versionInfo "1.0" .
 
-default1:observationAbout a owl:ObjectProperty ;
+:observationAbout a owl:ObjectProperty ;
     rdfs:label "observation about"@en ;
     rdfs:comment "Relates an observation event to the entity being observed, aligned with schema.org observationAbout."@en ;
-    rdfs:domain default1:ObservationEvent ;
+    rdfs:domain :ObservationEvent ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     rdfs:range owl:Thing ;
-    rdfs:subPropertyOf schema:observationAbout ;
+    rdfs:subPropertyOf schema1:observationAbout ;
     skos:definition "Links an observation event to the supply chain entity that is the subject of observation"@en .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/profile/> a prof:Profile ;
@@ -1862,8 +1941,8 @@ default1:observationAbout a owl:ObjectProperty ;
             rdfs:label "pyLODE Configuration" ;
             dcterms:format "text/turtle" ;
             rdfs:comment "Configuration for pyLODE supermodel documentation generation" ;
-            prof:hasArtifact default1:pylode-config ;
-            prof:hasRole lode:config ],
+            prof:hasArtifact :pylode-config ;
+            prof:hasRole <http://purl.org/lode/config#config> ],
         [ a prof:ResourceDescriptor ;
             rdfs:label "Core Event Module" ;
             dcterms:format "text/turtle" ;
@@ -1894,108 +1973,28 @@ default1:observationAbout a owl:ObjectProperty ;
             rdfs:comment "Schema.org terms used in the ontology" ;
             prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/imports/schema> ;
             prof:hasRole prof:vocabulary ] ;
-    prof:isProfileOf default1: .
-
-:TransformationEvent rdfs:seeAlso ammo:AMProcess ;
-    skos:closeMatch ammo:AMProcess,
-        ammo:MaterialTransformation ;
-    skos:note "Both represent material transformation processes. AMMO focuses on additive manufacturing processes (PowderBed, MaterialExtrusion, etc.) while TRU TransformationEvent is more general for supply chain operations."@en .
-
-:currentState a owl:FunctionalProperty,
-        owl:ObjectProperty ;
-    rdfs:label "current state"@en ;
-    rdfs:comment "The current state of an entity at the present time. Each entity has exactly one current state."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition> ;
-    rdfs:range :State ;
-    skos:definition "Links entities to their present state"@en .
-
-:describes a owl:ObjectProperty ;
-    rdfs:label "describes"@en ;
-    dcterms:source ammo:describes ;
-    rdfs:comment "Indicates that a design provides the blueprint or specification for a physical or conceptual entity."@en ;
-    rdfs:domain :Design ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
-    skos:definition "Links a design to the entities it specifies or blueprints"@en ;
-    skos:exactMatch ammo:describes ;
-    skos:note "Derived from AMMO describes property linking designs to components"@en .
-
-:fromState a owl:FunctionalProperty,
-        owl:ObjectProperty ;
-    rdfs:label "from state"@en ;
-    dcterms:source ammo:fromState ;
-    rdfs:comment "The initial state before a transition occurs. Each transition has exactly one source state."@en ;
-    rdfs:domain :Transition ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition> ;
-    rdfs:range :State ;
-    skos:definition "Links transitions to their source states"@en ;
-    skos:exactMatch ammo:fromState ;
-    skos:note "Derived from AMMO fromState with functional property constraint"@en .
-
-:hasComponent a owl:ObjectProperty ;
-    rdfs:label "has component"@en ;
-    dcterms:source ammo:hasComponent ;
-    rdfs:comment "Indicates that a designed physical system contains a designed component as a functional part."@en ;
-    rdfs:domain :DesignedPhysicalSystem ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> ;
-    rdfs:range :DesignedComponent ;
-    rdfs:subPropertyOf :hasDirectPart ;
-    skos:definition "Specialized relationship linking systems to their functional components"@en ;
-    skos:exactMatch ammo:hasComponent ;
-    skos:note "Derived from AMMO hasComponent for system-component relationships"@en .
-
-:hasDesignSpecification a owl:ObjectProperty ;
-    rdfs:label "has design specification"@en ;
-    dcterms:source ammo:hasProperPart ;
-    rdfs:comment "Links a design to one or more detailed specifications that define its requirements and constraints."@en ;
-    rdfs:domain :Design ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
-    rdfs:range :DesignSpecification ;
-    skos:definition "Connects a design to the formal specifications that detail its implementation requirements"@en ;
-    skos:note "Derived from AMMO hasProperPart relationship between Design and DesignSpecification"@en ;
-    skos:relatedMatch ammo:hasProperPart .
-
-:isDirectPartOf a owl:ObjectProperty ;
-    rdfs:label "is direct part of"@en ;
-    rdfs:comment "Indicates that this physical object is an immediate part of another physical object."@en ;
-    rdfs:domain :PhysicalObject ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> ;
-    rdfs:range :PhysicalObject ;
-    rdfs:subPropertyOf :isProperPartOf ;
-    owl:inverseOf :hasDirectPart ;
-    skos:definition "Inverse of hasDirectPart for immediate containment relationships"@en .
-
-:isProperPartOf a owl:AsymmetricProperty,
-        owl:IrreflexiveProperty,
-        owl:ObjectProperty,
-        owl:TransitiveProperty ;
-    rdfs:label "is proper part of"@en ;
-    rdfs:comment "Indicates that this physical object is a proper part of another physical object."@en ;
-    rdfs:domain :PhysicalObject ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> ;
-    rdfs:range :PhysicalObject ;
-    owl:inverseOf :hasProperPart ;
-    skos:definition "Inverse of hasProperPart, indicating containment within a larger whole"@en .
+    prof:isProfileOf : .
 
 :specifies a owl:ObjectProperty ;
     rdfs:label "specifies"@en ;
-    dcterms:source ammo:specifies ;
+    dcterms:source <https://w3id.org/ammo/ont/specifies> ;
     rdfs:comment "Indicates that a design specification defines requirements or constraints for a particular entity."@en ;
     rdfs:domain :DesignSpecification ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
     skos:definition "Links specifications to the entities they define requirements for"@en ;
-    skos:exactMatch ammo:specifies ;
+    skos:exactMatch <https://w3id.org/ammo/ont/specifies> ;
     skos:note "Derived from AMMO specifies property linking DesignSpecification to components"@en .
 
 :toState a owl:FunctionalProperty,
         owl:ObjectProperty ;
     rdfs:label "to state"@en ;
-    dcterms:source ammo:toState ;
+    dcterms:source <https://w3id.org/ammo/ont/toState> ;
     rdfs:comment "The target state after a transition occurs. Each transition has exactly one target state."@en ;
     rdfs:domain :Transition ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition> ;
     rdfs:range :State ;
     skos:definition "Links transitions to their target states"@en ;
-    skos:exactMatch ammo:toState ;
+    skos:exactMatch <https://w3id.org/ammo/ont/toState> ;
     skos:note "Derived from AMMO toState with functional property constraint"@en .
 
 :transitionDuring a owl:ObjectProperty ;
@@ -2006,72 +2005,65 @@ default1:observationAbout a owl:ObjectProperty ;
     rdfs:range time:ProperInterval ;
     rdfs:subPropertyOf time:hasTime .
 
-default1:TransformationEvent a owl:Class ;
-    rdfs:label "Transformation Event"@en ;
-    rdfs:comment "An event representing the transformation of materials into new products or components."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
-    rdfs:subClassOf default1:SupplyChainEvent ;
-    skos:definition "An event that records the conversion of input materials into different output products through manufacturing or processing"@en .
-
-default1:containerSbom a owl:ObjectProperty ;
+:containerSbom a owl:ObjectProperty ;
     rdfs:label "container SBOM"@en ;
     dcterms:subject "SBOM"@en,
         "container security"@en,
         "software supply chain"@en ;
     rdfs:comment "Links a workflow execution to the Software Bill of Materials (SBOM) describing the container runtime environment and its software components."@en ;
-    rdfs:domain default1:InformationExtractionWorkflow ;
-    rdfs:range spdx:Sbom ;
+    rdfs:domain :InformationExtractionWorkflow ;
+    rdfs:range <https://spdx.org/rdf/3.0.1/terms/Sbom> ;
     rdfs:seeAlso <https://www.cisa.gov/sbom> ;
     rdfs:subPropertyOf prov:used ;
     skos:broader "software provenance pattern"@en ;
     skos:definition "A property that associates a containerized workflow with its SBOM, providing full software provenance for compliance and security analysis."@en ;
     skos:example "An AI document processing workflow references the SBOM of its container image containing Python, transformers library, and other dependencies."@en .
 
-default1:dependsOnPackage a owl:ObjectProperty ;
+:dependsOnPackage a owl:ObjectProperty ;
     rdfs:label "depends on package"@en ;
     rdfs:comment "Indicates that a software agent or workflow depends on a specific software package for its execution."@en ;
-    rdfs:domain [ owl:unionOf ( prov:SoftwareAgent default1:InformationExtractionWorkflow ) ] ;
-    rdfs:range spdx:Package ;
+    rdfs:domain [ owl:unionOf ( prov:SoftwareAgent :InformationExtractionWorkflow ) ] ;
+    rdfs:range <https://spdx.org/rdf/3.0.1/terms/Package> ;
     rdfs:subPropertyOf prov:used ;
     skos:definition "Establishes explicit dependencies between DSCDO workflows/agents and SPDX software packages."@en .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/examples/ammo-alignment/steel-powder-batch> a :TraceableResourceUnit ;
     rdfs:label "Steel Powder Batch for Additive Manufacturing"@en ;
-    schema:additionalProperty [ a schema:PropertyValue ;
-            schema:propertyID "AMMO_Material_Type" ;
-            schema:value "Alloy" ;
-            rdfs:seeAlso ammo:Alloy ],
-        [ a schema:PropertyValue ;
-            schema:description "Aligned with AMMO Material concept for additive manufacturing applications" ;
-            schema:propertyID "AMMO_Alignment" ;
-            schema:value "ammo:Material" ] ;
+    schema1:additionalProperty [ a schema1:PropertyValue ;
+            schema1:propertyID "AMMO_Material_Type" ;
+            schema1:value "Alloy" ;
+            rdfs:seeAlso <https://w3id.org/ammo/ont/Alloy> ],
+        [ a schema1:PropertyValue ;
+            schema1:description "Aligned with AMMO Material concept for additive manufacturing applications" ;
+            schema1:propertyID "AMMO_Alignment" ;
+            schema1:value "ammo:Material" ] ;
     rdfs:comment "Example TRU representing steel powder batch aligned with AMMO material concepts"@en ;
-    rdfs:seeAlso ammo:DesignedArtifact ;
-    skos:exactMatch ammo:Material ;
+    rdfs:seeAlso <https://w3id.org/ammo/ont/DesignedArtifact> ;
+    skos:exactMatch <https://w3id.org/ammo/ont/Material> ;
     :consistsOf [ a :QuantityOfMaterial ;
-            schema:unitCode "KGM" ;
-            schema:unitText "kilograms" ;
-            schema:value 50.0 ;
+            schema1:unitCode "KGM" ;
+            schema1:unitText "kilograms" ;
+            schema1:value 50.0 ;
             :hasMeasurementMethod "precision_powder_weighing" ;
             :measuredProperty "mass" ;
             :ofMaterialType <https://vocab.earth616.localhost/nd/scdoc/ont/examples/materials/steel-316l-powder> ] ;
     :hasBatchNumber "AM-STEEL-316L-2024-001" ;
     :hasIdentifier [ a :Identifier ;
-            schema:name "AM Steel Powder Batch Identifier" ;
-            schema:propertyID "AdditiveManufacturingBatch" ;
-            schema:value "AM-STEEL-316L-2024-001" ] ;
+            schema1:name "AM Steel Powder Batch Identifier" ;
+            schema1:propertyID "AdditiveManufacturingBatch" ;
+            schema1:value "AM-STEEL-316L-2024-001" ] ;
     :hasShelfLife "P1Y" .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/examples/hierarchy/guidance-processor> a :ComponentTRU ;
     rdfs:label "Guidance Processor Component"@en ;
-    dcterms:source ammo:DesignedComponent ;
+    dcterms:source <https://w3id.org/ammo/ont/DesignedComponent> ;
     rdfs:comment "Traceable guidance processor component"@en ;
-    skos:exactMatch ammo:DesignedComponent ;
+    skos:exactMatch <https://w3id.org/ammo/ont/DesignedComponent> ;
     :hasFunction "primary navigation computation" ;
     :hasIdentifier [ a :Identifier ;
-            schema:name "Guidance Processor Serial Number" ;
-            schema:propertyID "ComponentSerial" ;
-            schema:value "GP-2024-001-A" ] ;
+            schema1:name "Guidance Processor Serial Number" ;
+            schema1:propertyID "ComponentSerial" ;
+            schema1:value "GP-2024-001-A" ] ;
     :isComponentOf <https://vocab.earth616.localhost/nd/scdoc/ont/examples/hierarchy/missile-guidance-system> ;
     :playsRole [ a :ComponentRole ;
             rdfs:label "Primary Processor Role" ;
@@ -2079,80 +2071,70 @@ default1:dependsOnPackage a owl:ObjectProperty ;
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/examples/hierarchy/missile-guidance-system> a :SystemTRU ;
     rdfs:label "Missile Guidance System TRU"@en ;
-    dcterms:source ammo:DesignedPhysicalSystem ;
+    dcterms:source <https://w3id.org/ammo/ont/DesignedPhysicalSystem> ;
     rdfs:comment "Complete guidance system with traceable component hierarchy"@en ;
-    skos:exactMatch ammo:DesignedPhysicalSystem ;
+    skos:exactMatch <https://w3id.org/ammo/ont/DesignedPhysicalSystem> ;
     :hasComponent <https://vocab.earth616.localhost/nd/scdoc/ont/examples/hierarchy/control-actuator>,
         <https://vocab.earth616.localhost/nd/scdoc/ont/examples/hierarchy/guidance-processor>,
         <https://vocab.earth616.localhost/nd/scdoc/ont/examples/hierarchy/sensor-array> ;
     :hasIdentifier [ a :Identifier ;
-            schema:name "Missile Guidance System Serial Number" ;
-            schema:propertyID "SystemSerial" ;
-            schema:value "MGS-2024-001" ] .
+            schema1:name "Missile Guidance System Serial Number" ;
+            schema1:propertyID "SystemSerial" ;
+            schema1:value "MGS-2024-001" ] .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/examples/specifications/component-weight-spec> a :QuantityDesignSpecification ;
     rdfs:label "Component Weight Specification"@en ;
-    dcterms:source ammo:QuantityDesignSpecification ;
+    dcterms:source <https://w3id.org/ammo/ont/QuantityDesignSpecification> ;
     rdfs:comment "Weight specification for steel component"@en ;
-    skos:exactMatch ammo:QuantityDesignSpecification ;
+    skos:exactMatch <https://w3id.org/ammo/ont/QuantityDesignSpecification> ;
     :maximumValue 2.7 ;
     :minimumValue 2.3 ;
     :nominalValue 2.5 ;
-    :toleranceSpec [ a schema:QuantitativeValue ;
-            schema:name "Weight tolerance range" ;
-            schema:unitCode "KGM" ;
-            schema:unitText "kilograms" ;
-            schema:value 0.2 ] .
+    :toleranceSpec [ a schema1:QuantitativeValue ;
+            schema1:name "Weight tolerance range" ;
+            schema1:unitCode "KGM" ;
+            schema1:unitText "kilograms" ;
+            schema1:value 0.2 ] .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/examples/specifications/steel-316l-material-spec> a :MaterialDesignSpecification ;
     rdfs:label "Steel 316L Material Specification"@en ;
-    dcterms:source ammo:MaterialDesignSpecification ;
+    dcterms:source <https://w3id.org/ammo/ont/MaterialDesignSpecification> ;
     rdfs:comment "Material specification for stainless steel 316L used in defense applications"@en ;
-    skos:exactMatch ammo:MaterialDesignSpecification ;
+    skos:exactMatch <https://w3id.org/ammo/ont/MaterialDesignSpecification> ;
     :compositionRequirement "17-20% Chromium, 10-14% Nickel, 2-3% Molybdenum, <0.03% Carbon" ;
-    :materialProperty [ a schema:PropertyValue ;
-            schema:propertyID "Tensile_Strength" ;
-            schema:unitCode "MPA" ;
-            schema:unitText "megapascals" ;
-            schema:value "515-620" ],
-        [ a schema:PropertyValue ;
-            schema:propertyID "Corrosion_Resistance" ;
-            schema:value "Excellent in marine environments" ] ;
+    :materialProperty [ a schema1:PropertyValue ;
+            schema1:propertyID "Tensile_Strength" ;
+            schema1:unitCode "MPA" ;
+            schema1:unitText "megapascals" ;
+            schema1:value "515-620" ],
+        [ a schema1:PropertyValue ;
+            schema1:propertyID "Corrosion_Resistance" ;
+            schema1:value "Excellent in marine environments" ] ;
     :qualityStandard "ASTM A240/A240M-20a" ;
     :specifiedMaterial <https://vocab.earth616.localhost/nd/scdoc/ont/examples/materials/steel-316l-powder> .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/examples/states/in-process> a :ProcessState ;
     rdfs:label "In Process State"@en ;
-    schema:description "Material or component is currently undergoing processing or manufacturing" ;
+    schema1:description "Material or component is currently undergoing processing or manufacturing" ;
     rdfs:comment "State indicating active manufacturing or processing"@en .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/examples/states/quality-approved> a :LifecycleState ;
     rdfs:label "Quality Approved State"@en ;
-    schema:description "Component has passed all quality checks and is approved for use" ;
+    schema1:description "Component has passed all quality checks and is approved for use" ;
     rdfs:comment "State indicating successful quality validation"@en .
-
-default1:providesParticipantRole a rdf:Property ;
-    rdfs:label "provides participant role"@en ;
-    rdfs:comment "Property relating Event to ParticipantRole in this pattern. The range is always ParticipantRole since it makes no sense to have a property named as providesParticipantRole not to point to a participant role. The domain is not set to Event as non-Event may also provide a participant role."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> ;
-    rdfs:range default1:ParticipantRole .
-
-:Material rdfs:seeAlso ammo:Material ;
-    skos:exactMatch ammo:Material ;
-    skos:note "Both represent substance classifications that can occur in different amounts with similar characteristics. AMMO Material includes subclasses like Polymer, Alloy, and BaseMaterial."@en .
 
 :hasDirectPart a owl:AsymmetricProperty,
         owl:IrreflexiveProperty,
         owl:ObjectProperty ;
     rdfs:label "has direct part"@en ;
-    dcterms:source ammo:hasDirectPart ;
+    dcterms:source <https://w3id.org/ammo/ont/hasDirectPart> ;
     rdfs:comment "Indicates that one physical object contains another as an immediate part, without any intermediate part-whole relationships."@en ;
     rdfs:domain :PhysicalObject ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> ;
     rdfs:range :PhysicalObject ;
     rdfs:subPropertyOf :hasProperPart ;
     skos:definition "A non-transitive relation indicating direct part containment without intermediates"@en ;
-    skos:exactMatch ammo:hasDirectPart ;
+    skos:exactMatch <https://w3id.org/ammo/ont/hasDirectPart> ;
     skos:note "Derived from AMMO hasDirectPart for immediate part-whole relationships"@en .
 
 :hasProperPart a owl:AsymmetricProperty,
@@ -2160,120 +2142,116 @@ default1:providesParticipantRole a rdf:Property ;
         owl:ObjectProperty,
         owl:TransitiveProperty ;
     rdfs:label "has proper part"@en ;
-    dcterms:source ammo:hasProperPart ;
+    dcterms:source <https://w3id.org/ammo/ont/hasProperPart> ;
     rdfs:comment "Indicates that one physical object contains another as a proper part. A proper part is a part that is not identical to the whole."@en ;
     rdfs:domain :PhysicalObject ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> ;
     rdfs:range :PhysicalObject ;
     skos:definition "A transitive, antisymmetric, and irreflexive relation indicating proper part containment"@en ;
-    skos:exactMatch ammo:hasProperPart ;
+    skos:exactMatch <https://w3id.org/ammo/ont/hasProperPart> ;
     skos:note "Derived from AMMO hasProperPart with formal antisymmetric and irreflexive constraints"@en .
+
+:providesParticipantRole a rdf:Property ;
+    rdfs:label "provides participant role"@en ;
+    rdfs:comment "Property relating Event to ParticipantRole in this pattern. The range is always ParticipantRole since it makes no sense to have a property named as providesParticipantRole not to point to a participant role. The domain is not set to Event as non-Event may also provide a participant role."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> ;
+    rdfs:range :ParticipantRole .
 
 prov:SoftwareAgent rdfs:subClassOf [ a owl:Restriction ;
             rdfs:comment "Software agents may depend on zero or more SPDX packages"@en ;
-            owl:allValuesFrom spdx:Package ;
-            owl:onProperty default1:dependsOnPackage ] .
+            owl:allValuesFrom <https://spdx.org/rdf/3.0.1/terms/Package> ;
+            owl:onProperty :dependsOnPackage ] .
 
-default1:ObservationEvent a owl:Class ;
+:ObservationEvent a owl:Class ;
     rdfs:label "Observation Event"@en ;
     rdfs:comment "An event representing the observation or measurement of supply chain items without changing their state, aligned with schema.org observation patterns."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty default1:observationAbout ;
+            owl:onProperty :observationAbout ;
             owl:someValuesFrom owl:Thing ],
         [ a owl:Restriction ;
-            owl:onProperty default1:hasObservationResult ;
-            owl:someValuesFrom schema:Observation ],
-        default1:SupplyChainEvent ;
+            owl:onProperty :hasObservationResult ;
+            owl:someValuesFrom schema1:Observation ],
+        :SupplyChainEvent ;
     skos:definition "An event that records data collection or monitoring activities without altering the observed items, producing structured observations following schema.org standards"@en .
 
-default1:SCDigitalDocument a owl:Class ;
+:SCDigitalDocument a owl:Class ;
     rdfs:label "Supply Chain Digital Document"@en ;
     rdfs:comment "Represents digital document that is supply chain documentation."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
-    rdfs:subClassOf default1:DigitalDocument ;
+    rdfs:subClassOf :DigitalDocument ;
     skos:definition "A digitized document specifically related to supply chain operations and processes"@en .
 
-default1:TransportEvent a owl:Class ;
+:TransformationEvent a owl:Class ;
+    rdfs:label "Transformation Event"@en ;
+    rdfs:comment "An event representing the transformation of materials into new products or components."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+    rdfs:seeAlso <https://w3id.org/ammo/ont/AMProcess> ;
+    rdfs:subClassOf :SupplyChainEvent ;
+    skos:closeMatch <https://w3id.org/ammo/ont/AMProcess>,
+        <https://w3id.org/ammo/ont/MaterialTransformation> ;
+    skos:definition "An event that records the conversion of input materials into different output products through manufacturing or processing"@en ;
+    skos:note "Both represent material transformation processes. AMMO focuses on additive manufacturing processes (PowderBed, MaterialExtrusion, etc.) while TRU TransformationEvent is more general for supply chain operations."@en .
+
+:TransportEvent a owl:Class ;
     rdfs:label "Transport Event"@en ;
     rdfs:comment "An event representing the movement of goods from one location to another."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty default1:hasOriginLocation ;
+            owl:onProperty :hasOriginLocation ;
             owl:someValuesFrom geo:Feature ],
         [ a owl:Restriction ;
-            owl:onProperty default1:hasDestinationLocation ;
+            owl:onProperty :hasDestinationLocation ;
             owl:someValuesFrom geo:Feature ],
-        default1:SupplyChainEvent ;
+        :SupplyChainEvent ;
     skos:definition "An event that tracks the physical movement of items through the supply chain network"@en .
 
-default1:DocumentContent a owl:Class ;
+:DocumentContent a owl:Class ;
     rdfs:label "Document Content"@en ;
     rdfs:comment "Represents the content extracted from a document."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
     rdfs:subClassOf prov:Entity ;
     skos:definition "The structured content extracted from a supply chain document through processing workflows"@en .
 
-default1:Identifier rdfs:label "Identifier"@en ;
-    rdfs:comment "A generic identifier for entities, aligned with ODP. Represents the abstract identifier value and its type."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/identifier> ;
-    rdfs:subClassOf sdo:PropertyValue ;
-    skos:definition "A standardized code, number, or reference that uniquely identifies an entity, document, or resource. Holds the core identifier value (via schema:value) and type."@en .
-
 <https://vocab.earth616.localhost/nd/scdoc/ont/examples/materials/steel-316l-powder> a :Material ;
-    schema:additionalProperty [ a schema:PropertyValue ;
-            schema:description "Classified as Alloy in AMMO ontology hierarchy" ;
-            schema:propertyID "AMMO_Material_Classification" ;
-            schema:value "ammo:Alloy" ],
-        [ a schema:PropertyValue ;
-            schema:description "Particle size range suitable for powder bed fusion" ;
-            schema:propertyID "AM_Powder_Size_Distribution" ;
-            schema:unitText "micrometers" ;
-            schema:value "15-45 μm" ],
-        [ a schema:PropertyValue ;
-            schema:description "Chemical composition aligned with ASTM A240 standard" ;
-            schema:propertyID "Chemical_Composition_316L" ;
-            schema:value "17-20% Cr, 10-14% Ni, 2-3% Mo, <0.03% C" ] ;
-    schema:description "Fine stainless steel powder optimized for additive manufacturing processes"@en ;
-    schema:name "Stainless Steel 316L Powder"@en ;
-    rdfs:seeAlso ammo:BaseMaterial ;
-    skos:broader ammo:Alloy ;
-    skos:exactMatch ammo:Material .
+    schema1:additionalProperty [ a schema1:PropertyValue ;
+            schema1:description "Classified as Alloy in AMMO ontology hierarchy" ;
+            schema1:propertyID "AMMO_Material_Classification" ;
+            schema1:value "ammo:Alloy" ],
+        [ a schema1:PropertyValue ;
+            schema1:description "Particle size range suitable for powder bed fusion" ;
+            schema1:propertyID "AM_Powder_Size_Distribution" ;
+            schema1:unitText "micrometers" ;
+            schema1:value "15-45 μm" ],
+        [ a schema1:PropertyValue ;
+            schema1:description "Chemical composition aligned with ASTM A240 standard" ;
+            schema1:propertyID "Chemical_Composition_316L" ;
+            schema1:value "17-20% Cr, 10-14% Ni, 2-3% Mo, <0.03% C" ] ;
+    schema1:description "Fine stainless steel powder optimized for additive manufacturing processes"@en ;
+    schema1:name "Stainless Steel 316L Powder"@en ;
+    rdfs:seeAlso <https://w3id.org/ammo/ont/BaseMaterial> ;
+    skos:broader <https://w3id.org/ammo/ont/Alloy> ;
+    skos:exactMatch <https://w3id.org/ammo/ont/Material> .
 
-:QuantityOfMaterial rdfs:seeAlso ammo:Quantity ;
-    skos:closeMatch ammo:Material ;
-    skos:note "TRU QuantityOfMaterial combines material type with Schema.org QuantitativeValue patterns, while AMMO separates Material classification from Quantity measurement using QUDT standards."@en ;
-    skos:relatedMatch ammo:Quantity .
-
-default1:InformationExtractionWorkflow a owl:Class ;
+:InformationExtractionWorkflow a owl:Class ;
     rdfs:label "Information Extraction Workflow"@en ;
     rdfs:comment "Represents a workflow or process of extracting information from documents."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
     rdfs:subClassOf [ a owl:Restriction ;
             rdfs:comment "A workflow may reference at most one container SBOM"@en ;
             owl:maxCardinality 1 ;
-            owl:onProperty default1:containerSbom ],
+            owl:onProperty :containerSbom ],
         prov:Activity ;
     skos:definition "An organized sequence of activities for extracting structured data from supply chain documents"@en .
 
-:Identifier rdfs:seeAlso ammo:DesignSpecification ;
+:Identifier rdfs:label "Identifier"@en ;
+    rdfs:comment "A generic identifier for entities, aligned with ODP. Represents the abstract identifier value and its type."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/identifier> ;
+    rdfs:seeAlso <https://w3id.org/ammo/ont/DesignSpecification> ;
+    rdfs:subClassOf schema:PropertyValue ;
+    skos:definition "A standardized code, number, or reference that uniquely identifies an entity, document, or resource. Holds the core identifier value (via schema:value) and type."@en ;
     skos:note "Both provide identification and specification information. AMMO DesignSpecification focuses on detailed technical documents while TRU Identifier provides traceability codes and metadata."@en ;
-    skos:relatedMatch ammo:DesignSpecification .
-
-:TraceableResourceUnit rdfs:seeAlso ammo:DesignedArtifact ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            rdfs:comment "TRUs may have at most one current state"@en ;
-            owl:maxCardinality 1 ;
-            owl:onProperty :currentState ] ;
-    skos:closeMatch ammo:DesignedArtifact ;
-    skos:note "Both represent traceable physical objects. AMMO DesignedArtifact emphasizes design specifications and manufacturing provenance, while TRU emphasizes supply chain traceability with batch/lot tracking."@en .
-
-default1:SupplyChainEvent a owl:Class ;
-    rdfs:label "Supply Chain Event"@en ;
-    rdfs:comment "An event occurring in a supply chain process."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
-    rdfs:subClassOf default1:Event ;
-    skos:definition "A specialized event that occurs within supply chain operations, tracking the movement, transformation, or status changes of goods, materials, or information"@en .
+    skos:relatedMatch <https://w3id.org/ammo/ont/DesignSpecification> .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> a owl:Ontology ;
     rdfs:label "Core Event Module"@en ;
@@ -2286,7 +2264,7 @@ default1:SupplyChainEvent a owl:Class ;
     rdfs:label "Design Composition Module"@en ;
     dcterms:created "2025-01-29"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
-    dcterms:source ammo: ;
+    dcterms:source <https://w3id.org/ammo/ont/> ;
     rdfs:comment "Provides classes and properties for modeling design specifications, system designs, and their relationships to physical objects. Derived from AMMO ontology design patterns for defense supply chain applications."@en ;
     rdfs:seeAlso <https://la3d.github.io/ammo/> ;
     owl:imports <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event>,
@@ -2294,11 +2272,18 @@ default1:SupplyChainEvent a owl:Class ;
     owl:versionInfo "1.0" ;
     skos:note "Design patterns derived from AMMO (Additive Manufacturing for Maintenance Operations) ontology, adapted for defense supply chain traceability and documentation."@en .
 
+:SupplyChainEvent a owl:Class ;
+    rdfs:label "Supply Chain Event"@en ;
+    rdfs:comment "An event occurring in a supply chain process."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+    rdfs:subClassOf :Event ;
+    skos:definition "A specialized event that occurs within supply chain operations, tracking the movement, transformation, or status changes of goods, materials, or information"@en .
+
 <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> a owl:Ontology ;
     rdfs:label "Component Hierarchy Module"@en ;
     dcterms:created "2025-01-29"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
-    dcterms:source ammo: ;
+    dcterms:source <https://w3id.org/ammo/ont/> ;
     rdfs:comment "Provides formal part-whole relationship modeling with antisymmetric and irreflexive constraints. Enables sophisticated component composition modeling for complex systems and assemblies. Derived from AMMO ontology part-whole patterns."@en ;
     rdfs:seeAlso <https://la3d.github.io/ammo/> ;
     owl:imports <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event>,
@@ -2312,7 +2297,7 @@ default1:SupplyChainEvent a owl:Class ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
     rdfs:comment "Defines classes and properties for modeling Traceable Resource Units (TRUs) in supply chain operations, including measurement integration with Schema.org patterns."@en ;
     rdfs:seeAlso <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru-ammo-alignment>,
-        ammo: ;
+        <https://w3id.org/ammo/ont/> ;
     owl:imports <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event>,
         <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/identifier>,
         <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
@@ -2322,7 +2307,7 @@ default1:SupplyChainEvent a owl:Class ;
     rdfs:label "Enhanced Specification Module"@en ;
     dcterms:created "2025-01-29"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
-    dcterms:source ammo: ;
+    dcterms:source <https://w3id.org/ammo/ont/> ;
     rdfs:comment "Provides enhanced specification classes for materials, quantities, and design constraints. Extends basic TRU quantities with formal design specification patterns derived from AMMO ontology."@en ;
     rdfs:seeAlso <https://la3d.github.io/ammo/> ;
     owl:imports <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event>,
@@ -2335,7 +2320,7 @@ default1:SupplyChainEvent a owl:Class ;
     rdfs:label "State Transition Module"@en ;
     dcterms:created "2025-01-29"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
-    dcterms:source ammo: ;
+    dcterms:source <https://w3id.org/ammo/ont/> ;
     rdfs:comment "Provides formal state modeling and transition tracking for supply chain entities. Enables explicit state representation and transition validation with temporal constraints. Derived from AMMO ontology state and transition patterns."@en ;
     rdfs:seeAlso <https://la3d.github.io/ammo/> ;
     owl:imports <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event>,
@@ -2352,9 +2337,9 @@ default1:SupplyChainEvent a owl:Class ;
 
 [] a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty default1:dependsOnPackage ;
-            owl:someValuesFrom spdx:Package ] ;
+            owl:onProperty :dependsOnPackage ;
+            owl:someValuesFrom <https://spdx.org/rdf/3.0.1/terms/Package> ] ;
     owl:equivalentClass [ a owl:Restriction ;
-            owl:onProperty [ owl:propertyChainAxiom ( default1:containerSbom spdx:hasElement ) ] ;
-            owl:someValuesFrom spdx:Package ] .
+            owl:onProperty [ owl:propertyChainAxiom ( :containerSbom <https://spdx.org/rdf/3.0.1/terms/hasElement> ) ] ;
+            owl:someValuesFrom <https://spdx.org/rdf/3.0.1/terms/Package> ] .
 
