@@ -16,19 +16,19 @@
 @prefix lode: <http://purl.org/lode/config#> .
 
 # --- DSCDO (environment-specific namespace) ---
-@prefix dscdo: <https://vocab.earth616.localhost/ont/> .
+@prefix dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@base <https://vocab.earth616.localhost/ont/> .
+@base <https://vocab.earth616.localhost/nd/scdoc/ont/> .
 
 # =============================================================================
 # Profile Declaration - Modular Implementation Structure
 # =============================================================================
 
-<https://vocab.earth616.localhost/ont/profile/>
+<https://vocab.earth616.localhost/nd/scdoc/ont/profile/>
     a prof:Profile ;
     dcterms:title "DSCDO CogitareLink Implementation Profile"@en ;
     dcterms:description "Profile defining modular implementation structure for the Defense Supply Chain and Documentation Ontology compatible with CogitareLink four-layer model."@en ;
-    prof:isProfileOf <https://vocab.earth616.localhost/ont/> ;
+    prof:isProfileOf <https://vocab.earth616.localhost/nd/scdoc/ont/> ;
 
     # === PROF Profile Resources ===
     
@@ -39,7 +39,7 @@
         rdfs:comment "Configuration for pyLODE supermodel documentation generation" ;
         dcterms:format "text/turtle" ;
         prof:hasRole lode:config ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/pylode-config> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/pylode-config> ;
     ] ;
 
     # === Module Resource Descriptors ===
@@ -49,7 +49,7 @@
         rdfs:label "Core Event Module" ;
         rdfs:comment "Core event modeling patterns and classes" ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/modules/core/event> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> ;
         sh:order 1 ;
     ] ;
 
@@ -58,7 +58,7 @@
         rdfs:label "Identifier Module" ;
         rdfs:comment "Identifier patterns and encoding classes" ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/modules/core/identifier> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/identifier> ;
         sh:order 2 ;
     ] ;
 
@@ -67,10 +67,10 @@
         rdfs:label "Documentation Module" ;
         rdfs:comment "Supply chain documentation modeling - provides foundation for design specifications and TRU validation evidence" ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/modules/scdocumentation/document> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
         prof:hasRole prof:specification ;
-        dscdo:enablesModule <https://vocab.earth616.localhost/ont/modules/design/specification> ;
-        dscdo:providesEvidenceFor <https://vocab.earth616.localhost/ont/modules/traceability/tru> ;
+        dscdo:enablesModule <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
+        dscdo:providesEvidenceFor <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
         sh:order 3 ;
     ] ;
 
@@ -79,7 +79,7 @@
         rdfs:label "Supply Chain Event Module" ;
         rdfs:comment "Supply chain specific event types and patterns" ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/modules/supplychain/eventmodule> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
         sh:order 4 ;
     ] ;
 
@@ -88,10 +88,10 @@
         rdfs:label "Traceable Resource Unit Module" ;
         rdfs:comment "Traceable Resource Unit (TRU) modeling for supply chain traceability - validates against design specifications from documentation" ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/modules/traceability/tru> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
         prof:hasRole prof:validation ;
-        dscdo:validatesAgainst <https://vocab.earth616.localhost/ont/modules/design/specification> ;
-        dscdo:documentedBy <https://vocab.earth616.localhost/ont/modules/scdocumentation/document> ;
+        dscdo:validatesAgainst <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
+        dscdo:documentedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
         sh:order 5 ;
     ] ;
 
@@ -100,7 +100,7 @@
         rdfs:label "TRU-AMMO Alignment Module" ;
         rdfs:comment "Semantic alignment between TRU and AMMO ontology for additive manufacturing integration" ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/modules/traceability/tru-ammo-alignment> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru-ammo-alignment> ;
         sh:order 6 ;
     ] ;
 
@@ -109,7 +109,7 @@
         rdfs:label "Design Composition Module" ;
         rdfs:comment "Design patterns, specifications, and versioning derived from AMMO ontology" ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/modules/design/composition> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
         sh:order 7 ;
     ] ;
 
@@ -118,7 +118,7 @@
         rdfs:label "Component Hierarchy Module" ;
         rdfs:comment "Formal part-whole relationships with antisymmetric and irreflexive constraints" ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/modules/design/hierarchy> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> ;
         sh:order 8 ;
     ] ;
 
@@ -127,10 +127,10 @@
         rdfs:label "Enhanced Specification Module" ;
         rdfs:comment "Material and quantity specifications with validation and compliance tracking - extends documentation patterns to constrain TRU properties" ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/modules/design/specification> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
         prof:hasRole prof:constraint ;
-        dscdo:extendsModule <https://vocab.earth616.localhost/ont/modules/scdocumentation/document> ;
-        dscdo:constrainsModule <https://vocab.earth616.localhost/ont/modules/traceability/tru> ;
+        dscdo:extendsModule <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
+        dscdo:constrainsModule <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
         sh:order 9 ;
     ] ;
 
@@ -139,7 +139,7 @@
         rdfs:label "State Transition Module" ;
         rdfs:comment "Formal state modeling and transition tracking for supply chain entities" ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/modules/design/transition> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition> ;
         sh:order 10 ;
     ] ;
 
@@ -151,7 +151,7 @@
         rdfs:comment "Schema.org terms used in the ontology" ;
         dcterms:format "text/turtle" ;
         prof:hasRole prof:vocabulary ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/modules/imports/schema> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/imports/schema> ;
     ] ;
 
     prof:hasResource [
@@ -160,7 +160,7 @@
         rdfs:comment "W3C PROV-O provenance vocabulary" ;
         dcterms:format "text/turtle" ;
         prof:hasRole prof:vocabulary ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/modules/imports/prov> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/imports/prov> ;
     ] ;
 
     # === OPLaX Pattern Resource Descriptors ===
@@ -171,7 +171,7 @@
         rdfs:comment "Core event modeling pattern from ontology design pattern library" ;
         dcterms:format "text/turtle" ;
         prof:hasRole prof:guidance ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/patterns/EventCore> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/EventCore> ;
         sh:order 20 ;
     ] ;
 
@@ -181,7 +181,7 @@
         rdfs:comment "Pattern for modeling unified spatial and temporal extents" ;
         dcterms:format "text/turtle" ;
         prof:hasRole prof:guidance ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/patterns/SpatioTemporalExtent> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/SpatioTemporalExtent> ;
         sh:order 21 ;
     ] ;
 
@@ -191,7 +191,7 @@
         rdfs:comment "Pattern for modeling semantic trajectories and movement" ;
         dcterms:format "text/turtle" ;
         prof:hasRole prof:guidance ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/patterns/SemanticTrajectory> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/SemanticTrajectory> ;
         sh:order 22 ;
     ] ;
 
@@ -204,9 +204,9 @@
         dcterms:format "text/turtle" ;
         prof:hasRole prof:guidance ;
         dscdo:integratesModules ( 
-            <https://vocab.earth616.localhost/ont/modules/scdocumentation/document>
-            <https://vocab.earth616.localhost/ont/modules/design/specification> 
-            <https://vocab.earth616.localhost/ont/modules/traceability/tru>
+            <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document>
+            <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> 
+            <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru>
         ) ;
         skos:note "Documents provide specifications that TRUs must satisfy through validation events and compliance tracking" ;
         sh:order 30 ;

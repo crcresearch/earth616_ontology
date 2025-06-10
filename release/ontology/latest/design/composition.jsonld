@@ -1,7 +1,7 @@
 {
     "@graph": [
         {
-            "@id": "https://vocab.earth616.localhost/ont/design/composition-guidelines",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/design/composition-guidelines",
             "skos:note": {
                 "@language": "en",
                 "@value": "\n    Design Composition Usage Guidelines:\n    \n    1. Design Hierarchy:\n       - Use Design for abstract blueprints\n       - Use ComponentDesign for individual part specifications\n       - Use SystemDesign for comprehensive system architectures\n    \n    2. Specification Patterns:\n       - Link designs to specifications using hasDesignSpecification\n       - Use DesignSpecification for formal requirement documents\n       - Connect specifications to TRUs via conformsToSpecification\n    \n    3. Version Management:\n       - Track design evolution using DesignVersion\n       - Use supersedes to link version sequences\n       - Include versionNumber for clear identification\n    \n    4. TRU Integration:\n       - Use implementsDesign to link TRUs to their blueprints\n       - Use conformsToSpecification for compliance tracking\n       - Connect manufacturing events via executesDesign\n    \n    5. AMMO Provenance:\n       - All classes include dcterms:source to AMMO\n       - Use skos:exactMatch for direct correspondences\n       - Preserve AMMO design pattern semantics\n    "
@@ -26,7 +26,7 @@
             "@type": "DesignSpecification"
         },
         {
-            "@id": "https://vocab.earth616.localhost/ontDesignSpecification",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesignSpecification",
             "skos:note": {
                 "@language": "en",
                 "@value": "Derived from AMMO DesignSpecification: 'detailed document that sets out exactly what a product or process should present'"
@@ -46,7 +46,7 @@
                 "@value": "A formal document containing detailed requirements and constraints that must be satisfied by a design implementation"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/ont/modules/design/composition"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -57,12 +57,12 @@
                 "@value": "Design Specification"
             },
             "rdfs:subClassOf": {
-                "@id": "https://vocab.earth616.localhost/ontInformationObject"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontInformationObject"
             },
             "@type": "rdfs:Class"
         },
         {
-            "@id": "https://vocab.earth616.localhost/ont/examples/designs/missile-system-design",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/designs/missile-system-design",
             "skos:exactMatch": {
                 "@id": "ammo:SystemDesign"
             },
@@ -73,7 +73,7 @@
                 "@id": "_:b0"
             },
             "describes": {
-                "@id": "https://vocab.earth616.localhost/ont/examples/systems/guided-missile-system"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/systems/guided-missile-system"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -86,7 +86,7 @@
             "@type": "SystemDesign"
         },
         {
-            "@id": "https://vocab.earth616.localhost/ontSystemDesign",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontSystemDesign",
             "skos:note": {
                 "@language": "en",
                 "@value": "Derived from AMMO SystemDesign class for comprehensive system-level design specifications"
@@ -106,7 +106,7 @@
                 "@value": "A comprehensive design that specifies system structure, component relationships, and functional requirements"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/ont/modules/design/composition"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -117,7 +117,7 @@
                 "@value": "System Design"
             },
             "rdfs:subClassOf": {
-                "@id": "https://vocab.earth616.localhost/ontDesign"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesign"
             },
             "@type": "rdfs:Class"
         },
@@ -139,7 +139,7 @@
             "@type": "DesignVersion"
         },
         {
-            "@id": "https://vocab.earth616.localhost/ontDesignVersion",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesignVersion",
             "skos:note": {
                 "@language": "en",
                 "@value": "Extension of AMMO design patterns to support version control and design evolution tracking"
@@ -153,7 +153,7 @@
                 "@value": "A timestamped version of a design that supports version control and change tracking"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/ont/modules/design/composition"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -173,7 +173,7 @@
             "@type": "DesignSpecification"
         },
         {
-            "@id": "https://vocab.earth616.localhost/ont/examples/designs/steel-component-design-001",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/designs/steel-component-design-001",
             "schema:additionalProperty": {
                 "@id": "_:b1"
             },
@@ -200,7 +200,7 @@
             "@type": "ComponentDesign"
         },
         {
-            "@id": "https://vocab.earth616.localhost/ontComponentDesign",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontComponentDesign",
             "skos:note": {
                 "@language": "en",
                 "@value": "Specialized from AMMO Design class for component-level design specifications"
@@ -220,7 +220,7 @@
                 "@value": "A design focused on a specific component, including its interfaces, requirements, and implementation details"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/ont/modules/design/composition"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -231,12 +231,12 @@
                 "@value": "Component Design"
             },
             "rdfs:subClassOf": {
-                "@id": "https://vocab.earth616.localhost/ontDesign"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesign"
             },
             "@type": "rdfs:Class"
         },
         {
-            "@id": "https://vocab.earth616.localhost/ontexecutesDesign",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontexecutesDesign",
             "skos:example": {
                 "@language": "en",
                 "@value": "Manufacturing event executes assembly design plan"
@@ -246,7 +246,7 @@
                 "@value": "Links events to the designs or process plans they execute"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/ont/modules/design/composition"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -257,15 +257,15 @@
                 "@value": "executes design"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/ontDesign"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesign"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/ontSupplyChainEvent"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontSupplyChainEvent"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/ont/modules/design/composition",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition",
             "skos:note": {
                 "@language": "en",
                 "@value": "Design patterns derived from AMMO (Additive Manufacturing for Maintenance Operations) ontology, adapted for defense supply chain traceability and documentation."
@@ -278,10 +278,10 @@
             },
             "owl:imports": [
                 {
-                    "@id": "https://vocab.earth616.localhost/ont/modules/core/identifier"
+                    "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/identifier"
                 },
                 {
-                    "@id": "https://vocab.earth616.localhost/ont/modules/core/event"
+                    "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event"
                 }
             ],
             "dcterms:creator": {
@@ -303,7 +303,7 @@
             "@type": "owl:Ontology"
         },
         {
-            "@id": "https://vocab.earth616.localhost/ontDesign",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesign",
             "skos:note": {
                 "@language": "en",
                 "@value": "Derived from AMMO Design class: 'A plan or specification for the construction of an object or system'"
@@ -323,7 +323,7 @@
                 "@value": "An abstract plan or blueprint that specifies how to construct, assemble, or implement a physical or conceptual entity"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/ont/modules/design/composition"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -336,7 +336,7 @@
             "@type": "rdfs:Class"
         },
         {
-            "@id": "https://vocab.earth616.localhost/ontconformsToSpecification",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontconformsToSpecification",
             "skos:example": {
                 "@language": "en",
                 "@value": "Manufactured component conforms to military specification MIL-STD-810"
@@ -346,7 +346,7 @@
                 "@value": "Links TRUs to the specifications they satisfy"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/ont/modules/design/composition"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -357,15 +357,15 @@
                 "@value": "conforms to specification"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/ontDesignSpecification"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesignSpecification"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/ontTraceableResourceUnit"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontTraceableResourceUnit"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/ontimplementsDesign",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontimplementsDesign",
             "skos:example": {
                 "@language": "en",
                 "@value": "Steel component TRU implements Design XYZ-2024-001"
@@ -375,7 +375,7 @@
                 "@value": "Links TRUs to the designs they implement or conform to"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/ont/modules/design/composition"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -386,21 +386,21 @@
                 "@value": "implements design"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/ontDesign"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesign"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/ontTraceableResourceUnit"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontTraceableResourceUnit"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/ontsupersedes",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontsupersedes",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Links newer design versions to the versions they replace"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/ont/modules/design/composition"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -411,21 +411,21 @@
                 "@value": "supersedes"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/ontDesignVersion"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesignVersion"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/ontDesignVersion"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesignVersion"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/ontversionNumber",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontversionNumber",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Alphanumeric identifier for a specific version of a design"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/ont/modules/design/composition"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -439,18 +439,18 @@
                 "@id": "xsd:string"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/ontDesignVersion"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesignVersion"
             },
             "@type": "owl:DatatypeProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/onthasVersion",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/onthasVersion",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Connects designs to their versioned instances"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/ont/modules/design/composition"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -461,21 +461,21 @@
                 "@value": "has version"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/ontDesignVersion"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesignVersion"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/ontDesign"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesign"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/ontisSpecifiedBy",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontisSpecifiedBy",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Links entities back to the specifications that define their requirements"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/ont/modules/design/composition"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -486,15 +486,15 @@
                 "@value": "is specified by"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/ontDesignSpecification"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesignSpecification"
             },
             "owl:inverseOf": {
-                "@id": "https://vocab.earth616.localhost/ontspecifies"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontspecifies"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/ontspecifies",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontspecifies",
             "skos:note": {
                 "@language": "en",
                 "@value": "Derived from AMMO specifies property linking DesignSpecification to components"
@@ -510,7 +510,7 @@
                 "@value": "Links specifications to the entities they define requirements for"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/ont/modules/design/composition"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -521,12 +521,12 @@
                 "@value": "specifies"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/ontDesignSpecification"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesignSpecification"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/ontisDescribedBy",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontisDescribedBy",
             "skos:note": {
                 "@language": "en",
                 "@value": "Derived from AMMO isDescribedBy inverse property"
@@ -542,7 +542,7 @@
                 "@value": "Links entities back to the designs that specify them"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/ont/modules/design/composition"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -553,15 +553,15 @@
                 "@value": "is described by"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/ontDesign"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesign"
             },
             "owl:inverseOf": {
-                "@id": "https://vocab.earth616.localhost/ontdescribes"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontdescribes"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/ontdescribes",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontdescribes",
             "skos:note": {
                 "@language": "en",
                 "@value": "Derived from AMMO describes property linking designs to components"
@@ -577,7 +577,7 @@
                 "@value": "Links a design to the entities it specifies or blueprints"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/ont/modules/design/composition"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -588,18 +588,18 @@
                 "@value": "describes"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/ontDesign"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesign"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/ontisDesignSpecificationOf",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontisDesignSpecificationOf",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Inverse property linking specifications back to the designs they define"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/ont/modules/design/composition"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -610,18 +610,18 @@
                 "@value": "is design specification of"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/ontDesign"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesign"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/ontDesignSpecification"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesignSpecification"
             },
             "owl:inverseOf": {
-                "@id": "https://vocab.earth616.localhost/onthasDesignSpecification"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/onthasDesignSpecification"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/onthasDesignSpecification",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/onthasDesignSpecification",
             "skos:note": {
                 "@language": "en",
                 "@value": "Derived from AMMO hasProperPart relationship between Design and DesignSpecification"
@@ -637,7 +637,7 @@
                 "@value": "Connects a design to the formal specifications that detail its implementation requirements"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/ont/modules/design/composition"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -648,10 +648,10 @@
                 "@value": "has design specification"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/ontDesignSpecification"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesignSpecification"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/ontDesign"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesign"
             },
             "@type": "owl:ObjectProperty"
         }
@@ -664,10 +664,10 @@
         "xml": "http://www.w3.org/XML/1998/namespace",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "skos": "http://www.w3.org/2004/02/skos/core#",
-        "dscdo": "https://vocab.earth616.localhost/ont",
+        "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont",
         "dcterms": "http://purl.org/dc/terms/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "prov": "http://www.w3.org/ns/prov#",
-        "@vocab": "https://vocab.earth616.localhost/ont"
+        "@vocab": "https://vocab.earth616.localhost/nd/scdoc/ont"
     }
 }

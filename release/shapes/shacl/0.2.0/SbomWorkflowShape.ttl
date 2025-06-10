@@ -3,17 +3,17 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dscdo: <https://vocab.earth616.localhost/ont/> .
+@prefix dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix spdx: <https://spdx.org/rdf/3.0.1/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <https://vocab.earth616.localhost/shapes/> .
+@base <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/> .
 
 # === SBOM WORKFLOW VALIDATION SHAPES =======================================
 
 # Shape Graph metadata
-<https://vocab.earth616.localhost/shapes/SbomWorkflowShape> a owl:Ontology, sh:ShapesGraph ;
+<https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/SbomWorkflowShape> a owl:Ontology, sh:ShapesGraph ;
     rdfs:label "SBOM Workflow Shape Graph"@en ;
     rdfs:comment "SHACL shapes for validating SPDX SBOM integration with DSCDO workflow instances"@en ;
     owl:versionInfo "1.0" ;
@@ -23,14 +23,14 @@
 
 # === WORKFLOW SBOM INTEGRATION SHAPES ===================================
 
-<https://vocab.earth616.localhost/shapes/InformationExtractionWorkflowSbomShape> a sh:NodeShape ;
+<https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/InformationExtractionWorkflowSbomShape> a sh:NodeShape ;
     sh:targetClass dscdo:InformationExtractionWorkflow ;
     rdfs:label "Information Extraction Workflow SBOM Shape"@en ;
     rdfs:comment "Validates SBOM integration for containerized information extraction workflows"@en ;
     skos:definition "Ensures workflows with container execution provide proper SBOM references for compliance and security tracking"@en ;
     dcterms:created "2025-01-25"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/shapes/SbomWorkflowShape> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/SbomWorkflowShape> ;
     
     # Container SBOM property validation
     sh:property [
@@ -75,14 +75,14 @@
 
 # === SBOM VALIDATION SHAPES =============================================
 
-<https://vocab.earth616.localhost/shapes/SbomShape> a sh:NodeShape ;
+<https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/SbomShape> a sh:NodeShape ;
     sh:targetClass spdx:Sbom ;
     rdfs:label "SPDX SBOM Shape"@en ;
     rdfs:comment "Validates SPDX Software Bill of Materials structure for DSCDO integration"@en ;
     skos:definition "Ensures SBOM instances contain required elements and provenance for supply chain compliance"@en ;
     dcterms:created "2025-01-25"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/shapes/SbomWorkflowShape> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/SbomWorkflowShape> ;
     
     # Required elements
     sh:property [
@@ -120,14 +120,14 @@
 
 # === PACKAGE VALIDATION SHAPES ==========================================
 
-<https://vocab.earth616.localhost/shapes/PackageShape> a sh:NodeShape ;
+<https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/PackageShape> a sh:NodeShape ;
     sh:targetClass spdx:Package ;
     rdfs:label "SPDX Package Shape"@en ;
     rdfs:comment "Validates SPDX Package instances for DSCDO SBOM integration"@en ;
     skos:definition "Ensures software packages have required identification and provenance metadata"@en ;
     dcterms:created "2025-01-25"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/shapes/SbomWorkflowShape> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/SbomWorkflowShape> ;
     
     # Package name requirement
     sh:property [
@@ -165,14 +165,14 @@
 
 # === SOFTWARE AGENT ENHANCEMENT SHAPES =================================
 
-<https://vocab.earth616.localhost/shapes/SoftwareAgentSbomShape> a sh:NodeShape ;
+<https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/SoftwareAgentSbomShape> a sh:NodeShape ;
     sh:targetClass prov:SoftwareAgent ;
     rdfs:label "Software Agent SBOM Enhancement Shape"@en ;
     rdfs:comment "Validates software agent package dependencies for SBOM integration"@en ;
     skos:definition "Ensures software agents properly declare their software package dependencies"@en ;
     dcterms:created "2025-01-25"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/shapes/SbomWorkflowShape> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/SbomWorkflowShape> ;
     
     # Package dependencies
     sh:property [
@@ -185,14 +185,14 @@
 
 # === CREATION INFO VALIDATION SHAPES ====================================
 
-<https://vocab.earth616.localhost/shapes/CreationInfoShape> a sh:NodeShape ;
+<https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/CreationInfoShape> a sh:NodeShape ;
     sh:targetClass spdx:CreationInfo ;
     rdfs:label "SPDX Creation Info Shape"@en ;
     rdfs:comment "Validates SPDX CreationInfo for SBOM provenance tracking"@en ;
     skos:definition "Ensures SBOM creation information includes proper attribution and temporal metadata"@en ;
     dcterms:created "2025-01-25"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/shapes/SbomWorkflowShape> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/SbomWorkflowShape> ;
     
     # Attribution requirement
     sh:property [
@@ -216,14 +216,14 @@
 
 # === RELATIONSHIP VALIDATION SHAPES =====================================
 
-<https://vocab.earth616.localhost/shapes/PackageRelationshipShape> a sh:NodeShape ;
+<https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/PackageRelationshipShape> a sh:NodeShape ;
     sh:targetClass spdx:Relationship ;
     rdfs:label "SPDX Package Relationship Shape"@en ;
     rdfs:comment "Validates relationships between software packages in SBOM"@en ;
     skos:definition "Ensures package dependency relationships are properly structured"@en ;
     dcterms:created "2025-01-25"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/shapes/SbomWorkflowShape> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/SbomWorkflowShape> ;
     
     # Relationship type requirement
     sh:property [

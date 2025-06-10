@@ -32,15 +32,15 @@
 @prefix gs1: <http://gs1.org/voc/> .
 
 # --- DSCDO (environment-specific namespace) ---
-@prefix dscdo: <https://vocab.earth616.localhost/ont/> .
-@base <https://vocab.earth616.localhost/ont/> .
+@prefix dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont/> .
+@base <https://vocab.earth616.localhost/nd/scdoc/ont/> .
 
 # =============================================================================
 # Hybrid Profile + Ontology for pyLODE Supermodel Support
 # =============================================================================
 
 # === Ontology Declaration (with all metadata) ===
-<https://vocab.earth616.localhost/ont/>  
+<https://vocab.earth616.localhost/nd/scdoc/ont/>  
     a voaf:Vocabulary, owl:Ontology ;
     dcterms:title "Defense Supply Chain and Documentation Ontology (DSCDO)"@en ;
     dcterms:description """The Defense Supply Chain and Documentation Ontology (DSCDO) provides a formal model for representing knowledge about supply chain networks, processes, and entities. It enables interoperability and knowledge sharing between supply chain information systems by providing a common vocabulary and conceptual structure and supporting documentation providing supply chain provenance.
@@ -58,7 +58,7 @@ The ontology is designed to be extensible to support modeling of domain-specific
     skos:changeNote "0.1.3 - chaning iri namespace and ontology prefix"@en;
     skos:changeNote "0.1.4 - adding identifiers module, jsonld-context documents and shapes for validating JSON-LD contexts."@en;
     bibo:status "Work in progress" ;
-    owl:versionIRI <https://vocab.earth616.localhost/ont/0.1.4> ;
+    owl:versionIRI <https://vocab.earth616.localhost/nd/scdoc/ont/0.1.4> ;
     owl:versionInfo "0.1.4"@en ;
     dcterms:modified "2025-04-15"^^xsd:date ;
 
@@ -92,14 +92,14 @@ The ontology is designed to be extensible to support modeling of domain-specific
     dcterms:rightsHolder "SIMBA Chain, University of Notre Dame" ;
     sdo:codeRepository "https://github.com/crcresearch/earth616_ontology"^^xsd:anyURI;
     vann:preferredNamespacePrefix "dscdo" ;
-    vann:preferredNamespaceUri "https://vocab.earth616.localhost/ont/" .
+    vann:preferredNamespaceUri "https://vocab.earth616.localhost/nd/scdoc/ont/" .
 
 # === Profile Declaration (separate resource describing modular structure) ===
-<https://vocab.earth616.localhost/ont/profile/>
+<https://vocab.earth616.localhost/nd/scdoc/ont/profile/>
     a prof:Profile ;
     dcterms:title "DSCDO CogitareLink Implementation Profile"@en ;
     dcterms:description "Profile defining modular implementation structure for the Defense Supply Chain and Documentation Ontology compatible with CogitareLink four-layer model."@en ;
-    prof:isProfileOf <https://vocab.earth616.localhost/ont/> ;
+    prof:isProfileOf <https://vocab.earth616.localhost/nd/scdoc/ont/> ;
 
     # === PROF Profile Resources ===
     
@@ -110,7 +110,7 @@ The ontology is designed to be extensible to support modeling of domain-specific
         rdfs:comment "Configuration for pyLODE supermodel documentation generation" ;
         dcterms:format "text/turtle" ;
         prof:hasRole lode:config ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/pylode-config> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/pylode-config> ;
     ] ;
 
     # === Module Resource Descriptors ===
@@ -120,7 +120,7 @@ The ontology is designed to be extensible to support modeling of domain-specific
         rdfs:label "Core Event Module" ;
         rdfs:comment "Core event modeling patterns and classes" ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/modules/core/event> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> ;
         sh:order 1 ;
     ] ;
 
@@ -129,7 +129,7 @@ The ontology is designed to be extensible to support modeling of domain-specific
         rdfs:label "Identifier Module" ;
         rdfs:comment "Identifier patterns and encoding classes" ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/modules/core/identifier> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/identifier> ;
         sh:order 2 ;
     ] ;
 
@@ -138,7 +138,7 @@ The ontology is designed to be extensible to support modeling of domain-specific
         rdfs:label "Documentation Module" ;
         rdfs:comment "Supply chain documentation modeling" ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/modules/scdocumentation/document> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
         sh:order 3 ;
     ] ;
 
@@ -147,7 +147,7 @@ The ontology is designed to be extensible to support modeling of domain-specific
         rdfs:label "Supply Chain Event Module" ;
         rdfs:comment "Supply chain specific event types and patterns" ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/modules/supplychain/eventmodule> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
         sh:order 4 ;
     ] ;
 
@@ -159,7 +159,7 @@ The ontology is designed to be extensible to support modeling of domain-specific
         rdfs:comment "Schema.org terms used in the ontology" ;
         dcterms:format "text/turtle" ;
         prof:hasRole prof:vocabulary ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/modules/imports/schema> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/imports/schema> ;
     ] ;
 
     prof:hasResource [
@@ -168,7 +168,7 @@ The ontology is designed to be extensible to support modeling of domain-specific
         rdfs:comment "W3C PROV-O provenance vocabulary" ;
         dcterms:format "text/turtle" ;
         prof:hasRole prof:vocabulary ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/modules/imports/prov> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/imports/prov> ;
     ] ;
 
     # === OPLaX Pattern Resource Descriptors ===
@@ -179,7 +179,7 @@ The ontology is designed to be extensible to support modeling of domain-specific
         rdfs:comment "Core event modeling pattern from ontology design pattern library" ;
         dcterms:format "text/turtle" ;
         prof:hasRole prof:guidance ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/patterns/EventCore> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/EventCore> ;
         sh:order 20 ;
     ] ;
 
@@ -189,7 +189,7 @@ The ontology is designed to be extensible to support modeling of domain-specific
         rdfs:comment "Pattern for modeling unified spatial and temporal extents" ;
         dcterms:format "text/turtle" ;
         prof:hasRole prof:guidance ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/patterns/SpatioTemporalExtent> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/SpatioTemporalExtent> ;
         sh:order 21 ;
     ] ;
 
@@ -199,6 +199,6 @@ The ontology is designed to be extensible to support modeling of domain-specific
         rdfs:comment "Pattern for modeling semantic trajectories and movement" ;
         dcterms:format "text/turtle" ;
         prof:hasRole prof:guidance ;
-        prof:hasArtifact <https://vocab.earth616.localhost/ont/patterns/SemanticTrajectory> ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/SemanticTrajectory> ;
         sh:order 22 ;
     ] .

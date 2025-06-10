@@ -181,7 +181,7 @@
                 }
             ],
             "prof:isProfileOf": {
-                "@id": "https://vocab.earth616.localhost/ont/"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/"
             },
             "dcterms:description": {
                 "@language": "en",
@@ -194,8 +194,8 @@
             "@type": "prof:Profile"
         },
         {
-            "@id": "https://vocab.earth616.localhost/ont/",
-            "vann:preferredNamespaceUri": "https://vocab.earth616.localhost/ont/",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/",
+            "vann:preferredNamespaceUri": "https://vocab.earth616.localhost/nd/scdoc/ont/",
             "vann:preferredNamespacePrefix": "dscdo",
             "sdo:codeRepository": {
                 "@value": "https://github.com/crcresearch/earth616_ontology",
@@ -312,7 +312,7 @@
         "owl": "http://www.w3.org/2002/07/owl#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "skos": "http://www.w3.org/2004/02/skos/core#",
-        "dscdo": "https://vocab.earth616.localhost/ont/",
+        "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont/",
         "voaf": "http://purl.org/vocommons/voaf#",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "vcard": "http://www.w3.org/2006/vcard/ns#",

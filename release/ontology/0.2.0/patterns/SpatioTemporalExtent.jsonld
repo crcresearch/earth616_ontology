@@ -416,7 +416,7 @@
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "oplax-sd": "http://ontologydesignpatterns.org/opla-sd#",
         "skos": "http://www.w3.org/2004/02/skos/core#",
-        "dscdo": "https://vocab.earth616.localhost/ont/",
+        "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "geo": "http://www.opengis.net/ont/geosparql#",
         "oplax": "http://ontologydesignpatterns.org/opla-core#",

@@ -2,22 +2,22 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dscdo: <https://vocab.earth616.localhost/ont/> .
+@prefix dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix schema: <https://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <https://vocab.earth616.localhost/shapes/> .
+@base <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/> .
 
 # Shape Graph metadata
-<https://vocab.earth616.localhost/shapes/DocumentShape> a owl:Ontology, sh:ShapesGraph ;
+<https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentShape> a owl:Ontology, sh:ShapesGraph ;
     rdfs:label "Document Shape Graph"@en ;
     rdfs:comment "SHACL shapes for validating document instances in the DSCDO ontology"@en ;
     owl:versionInfo "1.0" ;
     dcterms:created "2025-05-23" ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> .
 
-<https://vocab.earth616.localhost/shapes/DocumentShape-v1> a sh:NodeShape ;
+<https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentShape-v1> a sh:NodeShape ;
     sh:targetClass dscdo:Digitaldocument ;
     rdfs:label "Digital Document Shape"@en ;
     rdfs:comment "SHACL shape for validating Digital Document instances in the DSCDO ontology"@en ;
@@ -25,7 +25,7 @@
     dcterms:created "2025-05-23"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
     dcterms:version "1.0" ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/shapes/DocumentShape> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentShape> ;
     
     sh:property [
         sh:path rdf:type ;

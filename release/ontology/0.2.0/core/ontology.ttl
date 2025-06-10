@@ -31,14 +31,14 @@
 @prefix gs1: <http://gs1.org/voc/> .
 
 # --- DSCDO (environment-specific namespace) ---
-@prefix dscdo: <https://vocab.earth616.localhost/ont/> .
-@base <https://vocab.earth616.localhost/ont/> .
+@prefix dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont/> .
+@base <https://vocab.earth616.localhost/nd/scdoc/ont/> .
 
 # =============================================================================
 # Ontology Declaration with Complete Metadata
 # =============================================================================
 
-<https://vocab.earth616.localhost/ont/>  
+<https://vocab.earth616.localhost/nd/scdoc/ont/>  
     a voaf:Vocabulary, owl:Ontology ;
     dcterms:title "Defense Supply Chain and Documentation Ontology (DSCDO)"@en ;
     dcterms:description """The Defense Supply Chain and Documentation Ontology (DSCDO) provides a formal model for representing knowledge about supply chain networks, processes, and entities. It enables interoperability and knowledge sharing between supply chain information systems by providing a common vocabulary and conceptual structure and supporting documentation providing supply chain provenance.
@@ -57,7 +57,7 @@ The ontology is designed to be extensible to support modeling of domain-specific
     skos:changeNote "0.1.4 - Template-based development migration: moved to enhanced build system with environment-configurable URIs, deprecated legacy modules directory, updated CogitareLink four-layer model implementation, added comprehensive import cache registry support."@en;
     skos:changeNote "0.2.0 - Development version: ongoing enhancements to template system and ontology extensions."@en;
     bibo:status "Work in progress" ;
-    owl:versionIRI <https://vocab.earth616.localhost/ont/0.2.0> ;
+    owl:versionIRI <https://vocab.earth616.localhost/nd/scdoc/ont/0.2.0> ;
     owl:versionInfo "0.2.0"@en ;
     dcterms:modified "2025-05-26"^^xsd:date ;
     dcterms:created  "2024-04-09"^^xsd:date ;
@@ -90,29 +90,29 @@ The ontology is designed to be extensible to support modeling of domain-specific
     dcterms:rightsHolder "SIMBA Chain, University of Notre Dame" ;
     sdo:codeRepository "https://github.com/crcresearch/earth616_ontology"^^xsd:anyURI;
     vann:preferredNamespacePrefix "dscdo" ;
-    vann:preferredNamespaceUri "https://vocab.earth616.localhost/ont/" ;
+    vann:preferredNamespaceUri "https://vocab.earth616.localhost/nd/scdoc/ont/" ;
     
     # Cross-reference to profile
-    prof:hasProfile <https://vocab.earth616.localhost/ont/profile/> .
+    prof:hasProfile <https://vocab.earth616.localhost/nd/scdoc/ont/profile/> .
 
 # =============================================================================
 # Standard Vocabulary Imports
 # =============================================================================
 
-<https://vocab.earth616.localhost/ont/> owl:imports 
+<https://vocab.earth616.localhost/nd/scdoc/ont/> owl:imports 
     # Standard vocabularies through import cache
-    <https://vocab.earth616.localhost/ont/imports/time> ,
-    <https://vocab.earth616.localhost/ont/imports/geo> ,
-    <https://vocab.earth616.localhost/ont/imports/time-agg> ,
-    <https://vocab.earth616.localhost/ont/imports/time-prov> ,
+    <https://vocab.earth616.localhost/nd/scdoc/ont/imports/time> ,
+    <https://vocab.earth616.localhost/nd/scdoc/ont/imports/geo> ,
+    <https://vocab.earth616.localhost/nd/scdoc/ont/imports/time-agg> ,
+    <https://vocab.earth616.localhost/nd/scdoc/ont/imports/time-prov> ,
     
     # Ontology design patterns
-    <https://vocab.earth616.localhost/ont/patterns/SpatioTemporalExtent> ,
-    <https://vocab.earth616.localhost/ont/patterns/EventCore> ,
-    <https://vocab.earth616.localhost/ont/patterns/SemanticTrajectory> ,
+    <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/SpatioTemporalExtent> ,
+    <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/EventCore> ,
+    <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/SemanticTrajectory> ,
     
     # Core modules
-    <https://vocab.earth616.localhost/ont/modules/core/event> ,
-    <https://vocab.earth616.localhost/ont/modules/core/identifier> ,
-    <https://vocab.earth616.localhost/ont/modules/scdocumentation/document> ,
-    <https://vocab.earth616.localhost/ont/modules/supplychain/eventmodule> .
+    <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> ,
+    <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/identifier> ,
+    <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ,
+    <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> .

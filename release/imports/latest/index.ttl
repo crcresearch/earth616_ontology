@@ -1,4 +1,4 @@
-@prefix : <https://vocab.earth616.localhost/ont/imports/> .
+@prefix : <https://vocab.earth616.localhost/nd/scdoc/ont/imports/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -7,12 +7,12 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 
 # Import Cache Registry
-<https://vocab.earth616.localhost/ont/imports/> a schema:DataCatalog ;
+<https://vocab.earth616.localhost/nd/scdoc/ont/imports/> a schema:DataCatalog ;
     schema:name "Earth616 Ontology Import Cache" ;
     schema:description "Registry of cached ontology imports with alternative access methods for agents" ;
     schema:version "0.2.0" ;
-    schema:dateModified "2025-06-02"^^xsd:date ;
-    schema:url <https://vocab.earth616.localhost/ont/imports/> ;
+    schema:dateModified "2025-06-10"^^xsd:date ;
+    schema:url <https://vocab.earth616.localhost/nd/scdoc/ont/imports/> ;
     dct:creator <https://orcid.org/0000-0003-4091-6059> ;
     schema:license <https://creativecommons.org/licenses/by/4.0/> .
 
@@ -36,9 +36,9 @@
     schema:name "GS1 Web Vocabulary" ;
     schema:description "GS1 vocabulary for supply chain identification and product information" ;
     :originalUrl <https://gs1.org/voc/> ;
-    schema:contentUrl <https://vocab.earth616.localhost/ont/imports/GS1-voc.ttl> ;
+    schema:contentUrl <https://vocab.earth616.localhost/nd/scdoc/ont/imports/GS1-voc.ttl> ;
     schema:encodingFormat "text/turtle" ;
-    schema:dateModified "2025-06-02"^^xsd:date ;
+    schema:dateModified "2025-06-10"^^xsd:date ;
     schema:availability "Maintained - URI non-dereferenceable" ;
     schema:creator "GS1 AISBL" ;
     schema:license <https://www.gs1.org/standards/gs1-general-specifications> ;
@@ -49,9 +49,9 @@
     schema:name "EPCIS Ontology" ;
     schema:description "Electronic Product Code Information Services ontology for supply chain visibility" ;
     :originalUrl <https://ref.gs1.org/standards/epcis/> ;
-    schema:contentUrl <https://vocab.earth616.localhost/ont/imports/epcis-ontology.ttl> ;
+    schema:contentUrl <https://vocab.earth616.localhost/nd/scdoc/ont/imports/epcis-ontology.ttl> ;
     schema:encodingFormat "text/turtle" ;
-    schema:dateModified "2025-06-02"^^xsd:date ;
+    schema:dateModified "2025-06-10"^^xsd:date ;
     schema:availability "Maintained - URI non-dereferenceable" ;
     schema:creator "GS1 AISBL" ;
     schema:license <https://www.gs1.org/standards/gs1-general-specifications> ;
@@ -62,9 +62,9 @@
     schema:name "Core Business Vocabulary" ;
     schema:description "GS1 Core Business Vocabulary for standardized business terms and concepts" ;
     :originalUrl <https://ref.gs1.org/standards/cbv/> ;
-    schema:contentUrl <https://vocab.earth616.localhost/ont/imports/cbv-ontology.ttl> ;
+    schema:contentUrl <https://vocab.earth616.localhost/nd/scdoc/ont/imports/cbv-ontology.ttl> ;
     schema:encodingFormat "text/turtle" ;
-    schema:dateModified "2025-06-02"^^xsd:date ;
+    schema:dateModified "2025-06-10"^^xsd:date ;
     schema:availability "Maintained - URI non-dereferenceable" ;
     schema:creator "GS1 AISBL" ;
     schema:license <https://www.gs1.org/standards/gs1-general-specifications> ;
@@ -75,9 +75,9 @@
     schema:name "Schema.org Vocabulary" ;
     schema:description "Schema.org structured data vocabulary for web content" ;
     :originalUrl <https://schema.org/> ;
-    schema:contentUrl <https://vocab.earth616.localhost/ont/imports/schema.ttl> ;
+    schema:contentUrl <https://vocab.earth616.localhost/nd/scdoc/ont/imports/schema.ttl> ;
     schema:encodingFormat "text/turtle" ;
-    schema:dateModified "2025-06-02"^^xsd:date ;
+    schema:dateModified "2025-06-10"^^xsd:date ;
     schema:availability "Available" ;
     schema:creator "Schema.org Community Group" ;
     schema:license <https://creativecommons.org/licenses/by-sa/3.0/> ;
@@ -88,9 +88,9 @@
     schema:name "OPLaX Ontology Patterns" ;
     schema:description "Ontology Pattern Language eXtended for design pattern metadata" ;
     :originalUrl <http://ontologydesignpatterns.org/oplax/> ;
-    schema:contentUrl <https://vocab.earth616.localhost/ont/imports/oplax.owl> ;
+    schema:contentUrl <https://vocab.earth616.localhost/nd/scdoc/ont/imports/oplax.owl> ;
     schema:encodingFormat "application/rdf+xml" ;
-    schema:dateModified "2025-06-02"^^xsd:date ;
+    schema:dateModified "2025-06-10"^^xsd:date ;
     schema:availability "Research project - server unreliable" ;
     schema:creator "STLab, ISTC-CNR" ;
     schema:license <https://creativecommons.org/licenses/by/3.0/> ;
@@ -101,9 +101,9 @@
     schema:name "OWL-Time Ontology" ;
     schema:description "W3C ontology for temporal concepts" ;
     :originalUrl <http://www.w3.org/2006/time> ;
-    schema:contentUrl <https://vocab.earth616.localhost/ont/imports/time.ttl> ;
+    schema:contentUrl <https://vocab.earth616.localhost/nd/scdoc/ont/imports/time.ttl> ;
     schema:encodingFormat "text/turtle" ;
-    schema:dateModified "2025-06-02"^^xsd:date ;
+    schema:dateModified "2025-06-10"^^xsd:date ;
     schema:availability "Available" ;
     schema:creator "W3C/OGC" ;
     schema:license <https://creativecommons.org/licenses/by/4.0/> ;
@@ -114,9 +114,9 @@
     schema:name "OWL-Time Temporal Aggregates" ;
     schema:description "Extension to OWL-Time for temporal aggregates" ;
     :originalUrl <https://www.w3.org/2006/time/agg> ;
-    schema:contentUrl <https://vocab.earth616.localhost/ont/imports/time-agg.ttl> ;
+    schema:contentUrl <https://vocab.earth616.localhost/nd/scdoc/ont/imports/time-agg.ttl> ;
     schema:encodingFormat "text/turtle" ;
-    schema:dateModified "2025-06-02"^^xsd:date ;
+    schema:dateModified "2025-06-10"^^xsd:date ;
     schema:availability "Available" ;
     schema:creator "W3C/OGC" ;
     schema:license <https://creativecommons.org/licenses/by/4.0/> ;
@@ -127,9 +127,9 @@
     schema:name "OWL-Time PROV-O Alignment" ;
     schema:description "Alignment between OWL-Time and PROV-O ontologies" ;
     :originalUrl <http://www.w3.org/2006/time/prov> ;
-    schema:contentUrl <https://vocab.earth616.localhost/ont/imports/time-prov.ttl> ;
+    schema:contentUrl <https://vocab.earth616.localhost/nd/scdoc/ont/imports/time-prov.ttl> ;
     schema:encodingFormat "text/turtle" ;
-    schema:dateModified "2025-06-02"^^xsd:date ;
+    schema:dateModified "2025-06-10"^^xsd:date ;
     schema:availability "Available" ;
     schema:creator "W3C/OGC" ;
     schema:license <https://creativecommons.org/licenses/by/4.0/> ;
@@ -140,9 +140,9 @@
     schema:name "GeoSPARQL Ontology" ;
     schema:description "OGC ontology for geographic information and spatial relationships" ;
     :originalUrl <http://www.opengis.net/ont/geosparql> ;
-    schema:contentUrl <https://vocab.earth616.localhost/ont/imports/geo.ttl> ;
+    schema:contentUrl <https://vocab.earth616.localhost/nd/scdoc/ont/imports/geo.ttl> ;
     schema:encodingFormat "text/turtle" ;
-    schema:dateModified "2025-06-02"^^xsd:date ;
+    schema:dateModified "2025-06-10"^^xsd:date ;
     schema:availability "Available" ;
     schema:creator "OGC GeoSPARQL Standards Working Group" ;
     schema:license <https://www.ogc.org/license> ;
@@ -153,13 +153,13 @@
     schema:name "GeoSPARQL 1.1 Profile" ;
     schema:description "W3C PROF profile declaration for GeoSPARQL 1.1 specification" ;
     :originalUrl <http://www.opengis.net/def/geosparql> ;
-    schema:contentUrl <https://vocab.earth616.localhost/ont/imports/profile.ttl> ;
+    schema:contentUrl <https://vocab.earth616.localhost/nd/scdoc/ont/imports/profile.ttl> ;
     schema:encodingFormat "text/turtle" ;
-    schema:dateModified "2025-06-02"^^xsd:date ;
+    schema:dateModified "2025-06-10"^^xsd:date ;
     schema:availability "Available" ;
     schema:creator "OGC GeoSPARQL Standards Working Group" ;
     schema:license <https://www.ogc.org/license> ;
     rdfs:comment "Profile declaration describing GeoSPARQL specification parts and conformance classes" .
 
 # Registry metadata
-<https://vocab.earth616.localhost/ont/imports/> schema:dataset :gs1-vocab, :epcis-ontology, :cbv-ontology, :schema-org, :oplax, :owl-time, :owl-time-agg, :owl-time-prov, :geosparql, :geosparql-profile .
+<https://vocab.earth616.localhost/nd/scdoc/ont/imports/> schema:dataset :gs1-vocab, :epcis-ontology, :cbv-ontology, :schema-org, :oplax, :owl-time, :owl-time-agg, :owl-time-prov, :geosparql, :geosparql-profile .

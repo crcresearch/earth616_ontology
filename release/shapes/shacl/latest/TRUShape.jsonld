@@ -25,7 +25,7 @@
             }
         },
         {
-            "@id": "https://vocab.earth616.localhost/shapes/TRUTransferEventShape",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/TRUTransferEventShape",
             "sh:property": {
                 "@id": "_:b0"
             },
@@ -37,7 +37,7 @@
                 "@type": "xsd:date"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/shapes/TRUShape"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/TRUShape"
             },
             "skos:definition": {
                 "@language": "en",
@@ -57,7 +57,7 @@
             "@type": "sh:NodeShape"
         },
         {
-            "@id": "https://vocab.earth616.localhost/shapes/TRUShape",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/TRUShape",
             "dcterms:creator": {
                 "@id": "https://orcid.org/0000-0003-4091-6059"
             },
@@ -128,7 +128,7 @@
             }
         },
         {
-            "@id": "https://vocab.earth616.localhost/shapes/TRUTransformationEventShape",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/TRUTransformationEventShape",
             "sh:property": [
                 {
                     "@id": "_:b1"
@@ -145,7 +145,7 @@
                 "@type": "xsd:date"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/shapes/TRUShape"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/TRUShape"
             },
             "skos:definition": {
                 "@language": "en",
@@ -189,7 +189,7 @@
             }
         },
         {
-            "@id": "https://vocab.earth616.localhost/shapes/MaterialShape",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/MaterialShape",
             "sh:property": {
                 "@id": "_:b3"
             },
@@ -201,7 +201,7 @@
                 "@type": "xsd:date"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/shapes/TRUShape"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/TRUShape"
             },
             "skos:definition": {
                 "@language": "en",
@@ -355,7 +355,7 @@
             }
         },
         {
-            "@id": "https://vocab.earth616.localhost/shapes/QuantityOfMaterialShape",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/QuantityOfMaterialShape",
             "sh:property": [
                 {
                     "@id": "_:b4"
@@ -381,7 +381,7 @@
                 "@type": "xsd:date"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/shapes/TRUShape"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/TRUShape"
             },
             "skos:definition": {
                 "@language": "en",
@@ -505,7 +505,7 @@
             }
         },
         {
-            "@id": "https://vocab.earth616.localhost/shapes/TraceableResourceUnitShape",
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/TraceableResourceUnitShape",
             "sh:property": [
                 {
                     "@id": "_:b9"
@@ -528,7 +528,7 @@
                 "@type": "xsd:date"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/shapes/TRUShape"
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/TRUShape"
             },
             "skos:definition": {
                 "@language": "en",
@@ -554,7 +554,7 @@
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "owl": "http://www.w3.org/2002/07/owl#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
-        "dscdo": "https://vocab.earth616.localhost/ont/",
+        "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont/",
         "skos": "http://www.w3.org/2004/02/skos/core#",
         "dcterms": "http://purl.org/dc/terms/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#"

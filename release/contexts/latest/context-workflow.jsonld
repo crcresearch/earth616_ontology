@@ -1,6 +1,6 @@
 {
     "@context": [
-      "https://vocab.earth616.localhost/context/context-base.jsonld",
+      "https://vocab.earth616.localhost/nd/scdoc/context/context-base.jsonld",
       {
         // Workflow-specific class terms
         "InformationExtractionWorkflow": "dscdo:Informationextractionworkflow",
@@ -114,19 +114,19 @@
         "@id": "dscdo:Informationextractionworkflow",
         "rdfs:label": "InformationExtractionWorkflow",
         "rdfs:comment": "Represents a workflow or process of extracting information from documents.",
-        "sh:shapesGraph": "https://vocab.earth616.localhost/shapes/WorkflowShape-v1.jsonld"
+        "sh:shapesGraph": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/WorkflowShape-v1.jsonld"
       },
       {
         "@id": "dscdo:Iepipeline",
         "rdfs:label": "IEPipeline",
         "rdfs:comment": "Represents a pipeline used in the information extraction process.",
-        "sh:shapesGraph": "https://vocab.earth616.localhost/shapes/PipelineShape-v1.jsonld"
+        "sh:shapesGraph": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/PipelineShape-v1.jsonld"
       },
       {
         "@id": "dscdo:ObservationEvent",
         "rdfs:label": "ObservationEvent", 
         "rdfs:comment": "Represents a supply chain observation event that produces structured observations following schema.org patterns.",
-        "sh:shapesGraph": "https://vocab.earth616.localhost/shapes/ObservationEventShape-v1.jsonld"
+        "sh:shapesGraph": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/ObservationEventShape-v1.jsonld"
       }
     ]
   }
