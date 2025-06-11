@@ -2,16 +2,16 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dscdo: <${ONTOLOGY_BASE}/> .
+@prefix dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix schema: <https://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@base <${SHAPES_BASE}/> .
+@base <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/> .
 
 # Shape Graph metadata
-<${SHAPES_BASE}/DocumentChunkShape> a owl:Ontology, sh:ShapesGraph ;
+<https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentChunkShape> a owl:Ontology, sh:ShapesGraph ;
     rdfs:label "Document Chunk Shape Graph"@en ;
     rdfs:comment "SHACL shapes for validating document chunk instances in the DSCDO ontology"@en ;
     owl:versionInfo "1.0" ;
@@ -19,7 +19,7 @@
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> .
 
 # Document Chunk Shape
-<${SHAPES_BASE}/DocumentChunkShape-v1> a sh:NodeShape ;
+<https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentChunkShape-v1> a sh:NodeShape ;
     sh:targetClass dscdo:DocumentChunk ;
     rdfs:label "Document Chunk Shape"@en ;
     rdfs:comment "SHACL shape for validating Document Chunk instances in the DSCDO ontology"@en ;
@@ -27,7 +27,7 @@
     dcterms:created "2025-01-11"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
     dcterms:version "1.0" ;
-    rdfs:isDefinedBy <${SHAPES_BASE}/DocumentChunkShape> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentChunkShape> ;
     
     sh:property [
         sh:path rdf:type ;
@@ -152,7 +152,7 @@
     sh:ignoredProperties ( rdf:type rdfs:label rdfs:comment ) .
 
 # Chunk Relationship Shape
-<${SHAPES_BASE}/ChunkRelationshipShape-v1> a sh:NodeShape ;
+<https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/ChunkRelationshipShape-v1> a sh:NodeShape ;
     sh:targetClass dscdo:ChunkRelationship ;
     rdfs:label "Chunk Relationship Shape"@en ;
     rdfs:comment "SHACL shape for validating Chunk Relationship instances"@en ;
@@ -160,7 +160,7 @@
     dcterms:created "2025-01-11"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
     dcterms:version "1.0" ;
-    rdfs:isDefinedBy <${SHAPES_BASE}/DocumentChunkShape> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentChunkShape> ;
     
     sh:property [
         sh:path rdf:type ;
@@ -190,7 +190,7 @@
     sh:ignoredProperties ( rdf:type rdfs:label rdfs:comment ) .
 
 # Concept Collection Shape
-<${SHAPES_BASE}/ConceptCollectionShape-v1> a sh:NodeShape ;
+<https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/ConceptCollectionShape-v1> a sh:NodeShape ;
     sh:targetClass dscdo:ConceptCollection ;
     rdfs:label "Concept Collection Shape"@en ;
     rdfs:comment "SHACL shape for validating Concept Collection instances"@en ;
@@ -198,7 +198,7 @@
     dcterms:created "2025-01-11"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
     dcterms:version "1.0" ;
-    rdfs:isDefinedBy <${SHAPES_BASE}/DocumentChunkShape> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentChunkShape> ;
     
     sh:property [
         sh:path rdf:type ;
@@ -223,7 +223,7 @@
     sh:ignoredProperties ( rdf:type rdfs:label rdfs:comment ) .
 
 # Schema.org PropertyValue Shape
-<${SHAPES_BASE}/PropertyValueShape-v1> a sh:NodeShape ;
+<https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/PropertyValueShape-v1> a sh:NodeShape ;
     sh:targetClass schema:PropertyValue ;
     rdfs:label "Property Value Shape"@en ;
     rdfs:comment "SHACL shape for validating Schema.org PropertyValue instances"@en ;
@@ -231,7 +231,7 @@
     dcterms:created "2025-01-11"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
     dcterms:version "1.0" ;
-    rdfs:isDefinedBy <${SHAPES_BASE}/DocumentChunkShape> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentChunkShape> ;
     
     sh:property [
         sh:path rdf:type ;
@@ -259,7 +259,7 @@
     sh:ignoredProperties ( rdf:type rdfs:label rdfs:comment ) .
 
 # Extracted Concept Shape
-<${SHAPES_BASE}/ExtractedConceptShape-v1> a sh:NodeShape ;
+<https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/ExtractedConceptShape-v1> a sh:NodeShape ;
     sh:targetClass dscdo:ExtractedConcept ;
     rdfs:label "Extracted Concept Shape"@en ;
     rdfs:comment "SHACL shape for validating Extracted Concept instances"@en ;
@@ -267,7 +267,7 @@
     dcterms:created "2025-01-11"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
     dcterms:version "1.0" ;
-    rdfs:isDefinedBy <${SHAPES_BASE}/DocumentChunkShape> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentChunkShape> ;
     
     sh:property [
         sh:path rdf:type ;
@@ -312,7 +312,7 @@
     sh:ignoredProperties ( rdf:type rdfs:label rdfs:comment ) .
 
 # Concept Relationship Shape
-<${SHAPES_BASE}/ConceptRelationshipShape-v1> a sh:NodeShape ;
+<https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/ConceptRelationshipShape-v1> a sh:NodeShape ;
     sh:targetClass dscdo:ConceptRelationship ;
     rdfs:label "Concept Relationship Shape"@en ;
     rdfs:comment "SHACL shape for validating Concept Relationship instances"@en ;
@@ -320,7 +320,7 @@
     dcterms:created "2025-01-11"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
     dcterms:version "1.0" ;
-    rdfs:isDefinedBy <${SHAPES_BASE}/DocumentChunkShape> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentChunkShape> ;
     
     sh:property [
         sh:path rdf:type ;

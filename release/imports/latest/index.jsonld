@@ -9,7 +9,7 @@
             "schema:creator": "OGC GeoSPARQL Standards Working Group",
             "schema:availability": "Available",
             "schema:dateModified": {
-                "@value": "2025-06-10",
+                "@value": "2025-06-11",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "text/turtle",
@@ -40,7 +40,7 @@
             "schema:creator": "OGC GeoSPARQL Standards Working Group",
             "schema:availability": "Available",
             "schema:dateModified": {
-                "@value": "2025-06-10",
+                "@value": "2025-06-11",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "text/turtle",
@@ -63,7 +63,7 @@
             "schema:creator": "W3C/OGC",
             "schema:availability": "Available",
             "schema:dateModified": {
-                "@value": "2025-06-10",
+                "@value": "2025-06-11",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "text/turtle",
@@ -86,7 +86,7 @@
             "schema:creator": "W3C/OGC",
             "schema:availability": "Available",
             "schema:dateModified": {
-                "@value": "2025-06-10",
+                "@value": "2025-06-11",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "text/turtle",
@@ -109,7 +109,7 @@
             "schema:creator": "W3C/OGC",
             "schema:availability": "Available",
             "schema:dateModified": {
-                "@value": "2025-06-10",
+                "@value": "2025-06-11",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "text/turtle",
@@ -132,7 +132,7 @@
             "schema:creator": "STLab, ISTC-CNR",
             "schema:availability": "Research project - server unreliable",
             "schema:dateModified": {
-                "@value": "2025-06-10",
+                "@value": "2025-06-11",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "application/rdf+xml",
@@ -155,7 +155,7 @@
             "schema:creator": "Schema.org Community Group",
             "schema:availability": "Available",
             "schema:dateModified": {
-                "@value": "2025-06-10",
+                "@value": "2025-06-11",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "text/turtle",
@@ -178,7 +178,7 @@
             "schema:creator": "GS1 AISBL",
             "schema:availability": "Maintained - URI non-dereferenceable",
             "schema:dateModified": {
-                "@value": "2025-06-10",
+                "@value": "2025-06-11",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "text/turtle",
@@ -201,7 +201,7 @@
             "schema:creator": "GS1 AISBL",
             "schema:availability": "Maintained - URI non-dereferenceable",
             "schema:dateModified": {
-                "@value": "2025-06-10",
+                "@value": "2025-06-11",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "text/turtle",
@@ -224,7 +224,7 @@
             "schema:creator": "GS1 AISBL",
             "schema:availability": "Maintained - URI non-dereferenceable",
             "schema:dateModified": {
-                "@value": "2025-06-10",
+                "@value": "2025-06-11",
                 "@type": "xsd:date"
             },
             "schema:encodingFormat": "text/turtle",
@@ -299,7 +299,7 @@
             "schema:description": "Registry of cached ontology imports with alternative access methods for agents",
             "schema:version": "0.2.0",
             "schema:dateModified": {
-                "@value": "2025-06-10",
+                "@value": "2025-06-11",
                 "@type": "xsd:date"
             },
             "schema:url": {

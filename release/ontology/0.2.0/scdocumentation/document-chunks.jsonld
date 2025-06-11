@@ -197,6 +197,55 @@
             "@type": "DocumentChunk"
         },
         {
+            "@id": "dscdo:ConceptRelationship",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A structured representation of semantic relationships between SKOS concepts extracted from document content"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A semantic relationship between extracted concepts."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Concept Relationship"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:subClassOf": {
+                "@id": "prov:Entity"
+            },
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:ExtractedConcept",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A SKOS concept that has been identified and extracted from document text during information extraction processing"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A semantic concept extracted from document content."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Extracted Concept"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:subClassOf": [
+                {
+                    "@id": "prov:Entity"
+                },
+                {
+                    "@id": "skos:Concept"
+                }
+            ],
+            "@type": "owl:Class"
+        },
+        {
             "@id": "dscdo:ConceptCollection",
             "skos:definition": {
                 "@language": "en",
@@ -217,6 +266,131 @@
                 "@id": "prov:Collection"
             },
             "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:conceptType",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A classification indicating the semantic type of the extracted concept"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The type classification of the extracted concept (entity, date, location, etc.)."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "concept type"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "xsd:string"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:ExtractedConcept"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:extractionConfidence",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A numerical confidence score indicating the reliability of concept extraction"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Confidence score for concept extraction (0.0 to 1.0)."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "extraction confidence"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "xsd:decimal"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:ExtractedConcept"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:conceptTarget",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Identifies the target SKOS concept in a semantic relationship"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The target concept in a relationship."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "concept target"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "skos:Concept"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:ConceptRelationship"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:conceptSource",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Identifies the source SKOS concept in a semantic relationship"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The source concept in a relationship."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "concept source"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "skos:Concept"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:ConceptRelationship"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:conceptRelationshipType",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Specifies the semantic relationship type between extracted SKOS concepts"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The type of semantic relationship between concepts."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "concept relationship type"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "xsd:string"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:ConceptRelationship"
+            },
+            "@type": "owl:DatatypeProperty"
         },
         {
             "@id": "dscdo:relationshipType",
@@ -445,6 +619,56 @@
                 "@id": "dscdo:processedText"
             },
             "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:hasConceptRelationship",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Connects SKOS concepts to their semantic relationships within document context"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Links a concept to its relationships with other concepts."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has concept relationship"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:ConceptRelationship"
+            },
+            "rdfs:domain": {
+                "@id": "skos:Concept"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:hasConcept",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Associates a document chunk with SKOS concepts extracted from its content"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Links a chunk to extracted semantic concepts."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has concept"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "skos:Concept"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:DocumentChunk"
+            },
+            "@type": "owl:ObjectProperty"
         },
         {
             "@id": "dscdo:hasSupportingChunk",

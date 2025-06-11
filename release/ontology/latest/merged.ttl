@@ -691,6 +691,38 @@
     skos:definition "Textual specification of required material composition"@en ;
     skos:example "18-20% Chromium, 8-10.5% Nickel, <0.08% Carbon"@en .
 
+:conceptRelationshipType a owl:DatatypeProperty ;
+    rdfs:label "concept relationship type"@en ;
+    rdfs:comment "The type of semantic relationship between concepts."@en ;
+    rdfs:domain :ConceptRelationship ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:range xsd:string ;
+    skos:definition "Specifies the semantic relationship type between extracted SKOS concepts"@en .
+
+:conceptSource a owl:ObjectProperty ;
+    rdfs:label "concept source"@en ;
+    rdfs:comment "The source concept in a relationship."@en ;
+    rdfs:domain :ConceptRelationship ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:range skos:Concept ;
+    skos:definition "Identifies the source SKOS concept in a semantic relationship"@en .
+
+:conceptTarget a owl:ObjectProperty ;
+    rdfs:label "concept target"@en ;
+    rdfs:comment "The target concept in a relationship."@en ;
+    rdfs:domain :ConceptRelationship ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:range skos:Concept ;
+    skos:definition "Identifies the target SKOS concept in a semantic relationship"@en .
+
+:conceptType a owl:DatatypeProperty ;
+    rdfs:label "concept type"@en ;
+    rdfs:comment "The type classification of the extracted concept (entity, date, location, etc.)."@en ;
+    rdfs:domain :ExtractedConcept ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:range xsd:string ;
+    skos:definition "A classification indicating the semantic type of the extracted concept"@en .
+
 :conformsToSpecification a owl:ObjectProperty ;
     rdfs:label "conforms to specification"@en ;
     rdfs:comment "Indicates that a traceable resource unit meets the requirements defined in a design specification."@en ;
@@ -1014,6 +1046,14 @@
     skos:definition "Links events to the designs or process plans they execute"@en ;
     skos:example "Manufacturing event executes assembly design plan"@en .
 
+:extractionConfidence a owl:DatatypeProperty ;
+    rdfs:label "extraction confidence"@en ;
+    rdfs:comment "Confidence score for concept extraction (0.0 to 1.0)."@en ;
+    rdfs:domain :ExtractedConcept ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:range xsd:decimal ;
+    skos:definition "A numerical confidence score indicating the reliability of concept extraction"@en .
+
 :followsEvent a owl:ObjectProperty ;
     rdfs:label "follows event"@en ;
     rdfs:comment "Indicates temporal ordering between supply chain events."@en ;
@@ -1053,6 +1093,22 @@
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
     rdfs:range :ChunkRelationship ;
     skos:definition "Connects a document chunk to its relationships with other chunks in the document"@en .
+
+:hasConcept a owl:ObjectProperty ;
+    rdfs:label "has concept"@en ;
+    rdfs:comment "Links a chunk to extracted semantic concepts."@en ;
+    rdfs:domain :DocumentChunk ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:range skos:Concept ;
+    skos:definition "Associates a document chunk with SKOS concepts extracted from its content"@en .
+
+:hasConceptRelationship a owl:ObjectProperty ;
+    rdfs:label "has concept relationship"@en ;
+    rdfs:comment "Links a concept to its relationships with other concepts."@en ;
+    rdfs:domain skos:Concept ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:range :ConceptRelationship ;
+    skos:definition "Connects SKOS concepts to their semantic relationships within document context"@en .
 
 :hasCurrentLocation a owl:ObjectProperty ;
     rdfs:label "has current location"@en ;
@@ -2182,6 +2238,14 @@ The ontology is designed to be extensible to support modeling of domain-specific
     rdfs:range time:ProperInterval ;
     rdfs:subPropertyOf time:hasTime .
 
+:ExtractedConcept a owl:Class ;
+    rdfs:label "Extracted Concept"@en ;
+    rdfs:comment "A semantic concept extracted from document content."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:subClassOf skos:Concept,
+        prov:Entity ;
+    skos:definition "A SKOS concept that has been identified and extracted from document text during information extraction processing"@en .
+
 :containerSbom a owl:ObjectProperty ;
     rdfs:label "container SBOM"@en ;
     dcterms:subject "SBOM"@en,
@@ -2382,6 +2446,13 @@ prov:SoftwareAgent rdfs:subClassOf [ a owl:Restriction ;
             owl:someValuesFrom geo:Feature ],
         :SupplyChainEvent ;
     skos:definition "An event that tracks the physical movement of items through the supply chain network"@en .
+
+:ConceptRelationship a owl:Class ;
+    rdfs:label "Concept Relationship"@en ;
+    rdfs:comment "A semantic relationship between extracted concepts."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:subClassOf prov:Entity ;
+    skos:definition "A structured representation of semantic relationships between SKOS concepts extracted from document content"@en .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/examples/materials/steel-316l-powder> a :Material ;
     schema1:additionalProperty [ a schema1:PropertyValue ;

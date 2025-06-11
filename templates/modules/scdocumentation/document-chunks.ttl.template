@@ -74,6 +74,24 @@ dscdo:hasSupportingChunk rdf:type owl:ObjectProperty ;
     rdfs:comment "Links a chunk to other chunks that provide supporting context."@en ;
     skos:definition "Connects a document chunk to other chunks that provide contextual support or additional information"@en .
 
+# Object property for concepts extracted from chunks
+dscdo:hasConcept rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:DocumentChunk ;
+    rdfs:range skos:Concept ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "has concept"@en ;
+    rdfs:comment "Links a chunk to extracted semantic concepts."@en ;
+    skos:definition "Associates a document chunk with SKOS concepts extracted from its content"@en .
+
+# Object property for concept relationships
+dscdo:hasConceptRelationship rdf:type owl:ObjectProperty ;
+    rdfs:domain skos:Concept ;
+    rdfs:range dscdo:ConceptRelationship ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "has concept relationship"@en ;
+    rdfs:comment "Links a concept to its relationships with other concepts."@en ;
+    skos:definition "Connects SKOS concepts to their semantic relationships within document context"@en .
+
 # === Data Properties ===
 
 dscdo:chunkMainText rdf:type owl:DatatypeProperty ;
@@ -149,6 +167,48 @@ dscdo:relationshipType rdf:type owl:DatatypeProperty ;
     rdfs:comment "The type of relationship between chunks (above, below, left, right, overlaps)."@en ;
     skos:definition "Specifies the spatial or semantic type of relationship between document chunks"@en .
 
+# Properties for concept relationships
+dscdo:conceptRelationshipType rdf:type owl:DatatypeProperty ;
+    rdfs:domain dscdo:ConceptRelationship ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "concept relationship type"@en ;
+    rdfs:comment "The type of semantic relationship between concepts."@en ;
+    skos:definition "Specifies the semantic relationship type between extracted SKOS concepts"@en .
+
+dscdo:conceptSource rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:ConceptRelationship ;
+    rdfs:range skos:Concept ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "concept source"@en ;
+    rdfs:comment "The source concept in a relationship."@en ;
+    skos:definition "Identifies the source SKOS concept in a semantic relationship"@en .
+
+dscdo:conceptTarget rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:ConceptRelationship ;
+    rdfs:range skos:Concept ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "concept target"@en ;
+    rdfs:comment "The target concept in a relationship."@en ;
+    skos:definition "Identifies the target SKOS concept in a semantic relationship"@en .
+
+# Properties for concept parameters and confidence
+dscdo:extractionConfidence rdf:type owl:DatatypeProperty ;
+    rdfs:domain dscdo:ExtractedConcept ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "extraction confidence"@en ;
+    rdfs:comment "Confidence score for concept extraction (0.0 to 1.0)."@en ;
+    skos:definition "A numerical confidence score indicating the reliability of concept extraction"@en .
+
+dscdo:conceptType rdf:type owl:DatatypeProperty ;
+    rdfs:domain dscdo:ExtractedConcept ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "concept type"@en ;
+    rdfs:comment "The type classification of the extracted concept (entity, date, location, etc.)."@en ;
+    skos:definition "A classification indicating the semantic type of the extracted concept"@en .
+
 # === Classes ===
 
 dscdo:DocumentChunk rdf:type owl:Class ;
@@ -171,6 +231,22 @@ dscdo:ConceptCollection rdf:type owl:Class ;
     rdfs:label "Concept Collection"@en ;
     rdfs:comment "A collection of concepts and relationships extracted from a document chunk."@en ;
     skos:definition "An organized collection of semantic concepts and their relationships extracted from document content during information extraction processes"@en .
+
+# SKOS-aligned concept classes
+dscdo:ExtractedConcept rdf:type owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "Extracted Concept"@en ;
+    rdfs:comment "A semantic concept extracted from document content."@en ;
+    skos:definition "A SKOS concept that has been identified and extracted from document text during information extraction processing"@en .
+
+dscdo:ConceptRelationship rdf:type owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "Concept Relationship"@en ;
+    rdfs:comment "A semantic relationship between extracted concepts."@en ;
+    skos:definition "A structured representation of semantic relationships between SKOS concepts extracted from document content"@en .
 
 # === Chunk Type Individuals ===
 

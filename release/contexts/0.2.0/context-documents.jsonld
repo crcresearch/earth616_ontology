@@ -1,0 +1,187 @@
+{
+    "@context": [
+      "https://vocab.earth616.localhost/nd/scdoc/context/context-base.jsonld",
+      {
+        // Document-specific class terms
+        "Document": "dscdo:Document",
+        "DigitalDocument": "dscdo:DigitalDocument",
+        "SCDigitalDocument": "dscdo:SCDigitalDocument",
+        "DocumentContent": "dscdo:DocumentContent",
+        "DocumentChunk": "dscdo:DocumentChunk",
+        "DocumentType": "dscdo:DocumentType",
+        "ConceptCollection": "dscdo:ConceptCollection",
+        "ExtractedConcept": "dscdo:ExtractedConcept",
+        "ConceptRelationship": "dscdo:ConceptRelationship",
+        "ChunkRelationship": "dscdo:ChunkRelationship",
+        
+        // Schema.org PropertyValue support
+        "PropertyValue": "schema:PropertyValue",
+        "propertyID": "schema:propertyID",
+        "additionalProperty": {
+          "@id": "schema:additionalProperty",
+          "@type": "@id"
+        },
+        
+        // Document-specific properties
+        "hasDocumentType": {
+          "@id": "dscdo:hasDocumentType",
+          "@type": "@id"
+        },
+        "hasDocumentContent": {
+          "@id": "dscdo:hasDocumentContent",
+          "@type": "@id"
+        },
+        "processedText": {
+          "@id": "dscdo:processedText", 
+          "@type": "xsd:string"
+        },
+        "chunkMainText": {
+          "@id": "dscdo:chunkMainText",
+          "@type": "xsd:string"
+        },
+        "chunkSummary": {
+          "@id": "dscdo:chunkSummary",
+          "@type": "xsd:string"
+        },
+        "contentExtractedFrom": {
+          "@id": "dscdo:contentExtractedFrom",
+          "@type": "@id"
+        },
+        "workflowExecution": {
+          "@id": "dscdo:workflowExecution",
+          "@type": "@id"
+        },
+        "hasDocument": {
+          "@id": "dscdo:hasDocument",
+          "@type": "@id"
+        },
+        
+        // Chunk-specific properties
+        "hasChunk": {
+          "@id": "dscdo:hasChunk",
+          "@type": "@id"
+        },
+        "isChunkOf": {
+          "@id": "dscdo:isChunkOf",
+          "@type": "@id"
+        },
+        "hasChunkRelationship": {
+          "@id": "dscdo:hasChunkRelationship",
+          "@type": "@id"
+        },
+        "hasRelationshipTarget": {
+          "@id": "dscdo:hasRelationshipTarget",
+          "@type": "@id"
+        },
+        "relationshipType": {
+          "@id": "dscdo:relationshipType",
+          "@type": "xsd:string"
+        },
+        "hasChunkConcepts": {
+          "@id": "dscdo:hasChunkConcepts",
+          "@type": "@id"
+        },
+        "hasSupportingChunk": {
+          "@id": "dscdo:hasSupportingChunk",
+          "@type": "@id"
+        },
+        "regionId": {
+          "@id": "dscdo:regionId",
+          "@type": "xsd:string"
+        },
+        "chunkPosition": {
+          "@id": "dscdo:chunkPosition",
+          "@type": "xsd:string"
+        },
+        "boundingBox": {
+          "@id": "dscdo:boundingBox",
+          "@type": "xsd:string"
+        },
+        "belongsTo": {
+          "@id": "dscdo:belongsTo",
+          "@type": "xsd:string"
+        },
+        "chunkType": {
+          "@id": "dscdo:chunkType",
+          "@type": "xsd:string"
+        },
+        "chunkIndex": {
+          "@id": "dscdo:chunkIndex",
+          "@type": "xsd:integer"
+        },
+        
+        // SKOS-aligned concept properties
+        "hasConcept": {
+          "@id": "dscdo:hasConcept",
+          "@type": "@id"
+        },
+        "hasConceptRelationship": {
+          "@id": "dscdo:hasConceptRelationship",
+          "@type": "@id"
+        },
+        "conceptType": {
+          "@id": "dscdo:conceptType",
+          "@type": "xsd:string"
+        },
+        "extractionConfidence": {
+          "@id": "dscdo:extractionConfidence",
+          "@type": "xsd:decimal"
+        },
+        "conceptRelationshipType": {
+          "@id": "dscdo:conceptRelationshipType",
+          "@type": "xsd:string"
+        },
+        "conceptSource": {
+          "@id": "dscdo:conceptSource",
+          "@type": "@id"
+        },
+        "conceptTarget": {
+          "@id": "dscdo:conceptTarget",
+          "@type": "@id"
+        },
+        
+        // Additional metadata for this context
+        "contextMetadata": {
+          "title": "DSCDO Document Context",
+          "description": "JSON-LD context for DSCDO document-related concepts including SCDigitalDocument, DocumentContent, DocumentChunk, and Schema.org PropertyValue integration",
+          "version": "0.2.0",
+          "created": "2025-01-11",
+          "creator": "https://orcid.org/0000-0003-4091-6059",
+          "publisher": "Center for Research Computing, University of Notre Dame"
+        }
+      }
+    ],
+    
+    "@graph": [
+      {
+        "@id": "dscdo:SCDigitalDocument",
+        "rdfs:label": "SCDigitalDocument",
+        "rdfs:comment": "Represents digital document that is supply chain documentation",
+        "sh:shapesGraph": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentShape-v1.jsonld"
+      },
+      {
+        "@id": "dscdo:DocumentContent",
+        "rdfs:label": "DocumentContent",
+        "rdfs:comment": "Represents the content extracted from a document.",
+        "sh:shapesGraph": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentContentShape-v1.jsonld"
+      },
+      {
+        "@id": "dscdo:DocumentChunk",
+        "rdfs:label": "DocumentChunk",
+        "rdfs:comment": "A segment or portion of document content with spatial and semantic boundaries.",
+        "sh:shapesGraph": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentChunkShape-v1.jsonld"
+      },
+      {
+        "@id": "dscdo:ExtractedConcept",
+        "rdfs:label": "ExtractedConcept",
+        "rdfs:comment": "A SKOS concept extracted from document content.",
+        "sh:shapesGraph": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/ExtractedConceptShape-v1.jsonld"
+      },
+      {
+        "@id": "schema:PropertyValue",
+        "rdfs:label": "PropertyValue",
+        "rdfs:comment": "A property-value pair for structured key-value data.",
+        "sh:shapesGraph": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/PropertyValueShape-v1.jsonld"
+      }
+    ]
+  }
