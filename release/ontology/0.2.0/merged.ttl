@@ -462,6 +462,12 @@
     rdfs:subClassOf :SupplyChainEvent ;
     skos:definition "An event that records the separation of aggregated items back into individual units"@en .
 
+:ImageChunk a :DocumentChunk ;
+    rdfs:label "Image Chunk"@en ;
+    rdfs:comment "A chunk containing image or graphical content."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    skos:definition "A document chunk that represents image, diagram, or other visual content within a document"@en .
+
 :ManufacturerRole a owl:Class ;
     rdfs:label "Manufacturer Role"@en ;
     rdfs:comment "The role of an entity that produces or transforms goods in a supply chain event."@en ;
@@ -488,12 +494,54 @@
     skos:related <https://spdx.org/rdf/3.0.1/terms/Sbom>,
         :InformationExtractionWorkflow .
 
+:SpatialAbove a :ChunkRelationship ;
+    rdfs:label "Spatial Above"@en ;
+    rdfs:comment "Indicates that one chunk is spatially positioned above another."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    skos:definition "A spatial relationship indicating that one document chunk is positioned above another in the document layout"@en .
+
+:SpatialBelow a :ChunkRelationship ;
+    rdfs:label "Spatial Below"@en ;
+    rdfs:comment "Indicates that one chunk is spatially positioned below another."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    skos:definition "A spatial relationship indicating that one document chunk is positioned below another in the document layout"@en .
+
+:SpatialLeft a :ChunkRelationship ;
+    rdfs:label "Spatial Left"@en ;
+    rdfs:comment "Indicates that one chunk is spatially positioned to the left of another."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    skos:definition "A spatial relationship indicating that one document chunk is positioned to the left of another in the document layout"@en .
+
+:SpatialOverlaps a :ChunkRelationship ;
+    rdfs:label "Spatial Overlaps"@en ;
+    rdfs:comment "Indicates that one chunk spatially overlaps with another."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    skos:definition "A spatial relationship indicating that one document chunk overlaps spatially with another in the document layout"@en .
+
+:SpatialRight a :ChunkRelationship ;
+    rdfs:label "Spatial Right"@en ;
+    rdfs:comment "Indicates that one chunk is spatially positioned to the right of another."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    skos:definition "A spatial relationship indicating that one document chunk is positioned to the right of another in the document layout"@en .
+
 :SupplierRole a owl:Class ;
     rdfs:label "Supplier Role"@en ;
     rdfs:comment "The role of an entity that provides goods or services in a supply chain event."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     rdfs:subClassOf :ParticipantRole ;
     skos:definition "A participant role representing an entity that provides inputs to the supply chain"@en .
+
+:TableChunk a :DocumentChunk ;
+    rdfs:label "Table Chunk"@en ;
+    rdfs:comment "A chunk containing tabular data."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    skos:definition "A document chunk that represents structured tabular data or table content within a document"@en .
+
+:TextChunk a :DocumentChunk ;
+    rdfs:label "Text Chunk"@en ;
+    rdfs:comment "A chunk containing primarily textual content."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    skos:definition "A document chunk that consists primarily of textual content extracted through OCR or document processing"@en .
 
 :acceptanceCriteria a owl:DatatypeProperty ;
     rdfs:label "acceptance criteria"@en ;
@@ -576,6 +624,63 @@
     rdfs:domain :Agent ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> ;
     rdfs:range :ParticipantRole .
+
+:belongsTo a owl:DatatypeProperty ;
+    rdfs:label "belongs to"@en ;
+    rdfs:comment "Indicates the category or section that the chunk belongs to."@en ;
+    rdfs:domain :DocumentChunk ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:range xsd:string ;
+    skos:definition "Specifies the document section or category classification for the chunk content"@en .
+
+:boundingBox a owl:DatatypeProperty ;
+    rdfs:label "bounding box"@en ;
+    rdfs:comment "The coordinate bounding box of the chunk in the original document."@en ;
+    rdfs:domain :DocumentChunk ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:range xsd:string ;
+    skos:definition "Spatial coordinates defining the rectangular boundary of the chunk within the source document"@en .
+
+:chunkIndex a owl:DatatypeProperty ;
+    rdfs:label "chunk index"@en ;
+    rdfs:comment "The sequential index or order of the chunk within the document."@en ;
+    rdfs:domain :DocumentChunk ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:range xsd:integer ;
+    skos:definition "A numerical index indicating the position or sequence of a chunk within its parent document"@en .
+
+:chunkMainText a owl:DatatypeProperty ;
+    rdfs:label "chunk main text"@en ;
+    rdfs:comment "The primary text content of a document chunk."@en ;
+    rdfs:domain :DocumentChunk ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf :processedText ;
+    skos:definition "The main textual content extracted from a specific chunk or segment of a document"@en .
+
+:chunkPosition a owl:DatatypeProperty ;
+    rdfs:label "chunk position"@en ;
+    rdfs:comment "Describes the position of the chunk within the document layout."@en ;
+    rdfs:domain :DocumentChunk ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:range xsd:string ;
+    skos:definition "A textual description of the chunk's position within the document's spatial layout"@en .
+
+:chunkSummary a owl:DatatypeProperty ;
+    rdfs:label "chunk summary"@en ;
+    rdfs:comment "A summary of the chunk's content."@en ;
+    rdfs:domain :DocumentChunk ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:range xsd:string ;
+    skos:definition "A concise summary describing the content and purpose of a document chunk"@en .
+
+:chunkType a owl:DatatypeProperty ;
+    rdfs:label "chunk type"@en ;
+    rdfs:comment "The type classification of the chunk content."@en ;
+    rdfs:domain :DocumentChunk ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:range xsd:string ;
+    skos:definition "A classification indicating the type or nature of content within the chunk"@en .
 
 :compositionRequirement a owl:DatatypeProperty ;
     rdfs:label "composition requirement"@en ;
@@ -933,6 +1038,22 @@
     rdfs:range xsd:string ;
     skos:definition "A unique identifier for the batch or lot that the TRU belongs to"@en .
 
+:hasChunkConcepts a owl:ObjectProperty ;
+    rdfs:label "has chunk concepts"@en ;
+    rdfs:comment "Links a chunk to its extracted concepts and relationships."@en ;
+    rdfs:domain :DocumentChunk ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:range :ConceptCollection ;
+    skos:definition "Associates a document chunk with its collection of extracted semantic concepts"@en .
+
+:hasChunkRelationship a owl:ObjectProperty ;
+    rdfs:label "has chunk relationship"@en ;
+    rdfs:comment "Links a chunk to its spatial or semantic relationships with other chunks."@en ;
+    rdfs:domain :DocumentChunk ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:range :ChunkRelationship ;
+    skos:definition "Connects a document chunk to its relationships with other chunks in the document"@en .
+
 :hasCurrentLocation a owl:ObjectProperty ;
     rdfs:label "has current location"@en ;
     rdfs:comment "Relates a supply chain event to its current geographic location."@en ;
@@ -1012,6 +1133,14 @@
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
     rdfs:subPropertyOf schema1:measurementMethod .
 
+:hasRelationshipTarget a owl:ObjectProperty ;
+    rdfs:label "has relationship target"@en ;
+    rdfs:comment "Specifies the target chunk in a chunk relationship."@en ;
+    rdfs:domain :ChunkRelationship ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:range :DocumentChunk ;
+    skos:definition "Identifies the target chunk in a spatial or semantic relationship"@en .
+
 :hasShelfLife a owl:DatatypeProperty ;
     rdfs:label "has shelf life"@en ;
     rdfs:comment "Expected shelf life or expiration duration"@en ;
@@ -1019,6 +1148,14 @@
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
     rdfs:range xsd:duration ;
     skos:definition "The duration for which the TRU remains suitable for use"@en .
+
+:hasSupportingChunk a owl:ObjectProperty ;
+    rdfs:label "has supporting chunk"@en ;
+    rdfs:comment "Links a chunk to other chunks that provide supporting context."@en ;
+    rdfs:domain :DocumentChunk ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:range :DocumentChunk ;
+    skos:definition "Connects a document chunk to other chunks that provide contextual support or additional information"@en .
 
 :hasTransition a owl:ObjectProperty ;
     rdfs:label "has transition"@en ;
@@ -1097,6 +1234,15 @@
     rdfs:range :TRURole ;
     rdfs:subPropertyOf :providesParticipantRole ;
     skos:definition "Connects supply chain events to the TRU roles that participate in them"@en .
+
+:isChunkOf a owl:ObjectProperty ;
+    rdfs:label "is chunk of"@en ;
+    rdfs:comment "Indicates that a chunk is part of a larger document content."@en ;
+    rdfs:domain :DocumentChunk ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:range :DocumentContent ;
+    owl:inverseOf :hasChunk ;
+    skos:definition "Establishes that a document chunk is a constituent part of a larger document content entity"@en .
 
 :isComponentOf a owl:ObjectProperty ;
     rdfs:label "is component of"@en ;
@@ -1376,13 +1522,6 @@
     rdfs:range schema1:PropertyValue ;
     skos:definition "Links process specifications to their required parameters"@en .
 
-:processedText a owl:DatatypeProperty ;
-    rdfs:label "processed text"@en ;
-    rdfs:comment "The processed text of a digitized document."@en ;
-    rdfs:domain :DocumentContent ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
-    rdfs:range xsd:string .
-
 :qualityCompliance a owl:ObjectProperty ;
     rdfs:label "quality compliance"@en ;
     rdfs:comment "Indicates that a material quantity meets the requirements defined in a quality specification."@en ;
@@ -1407,6 +1546,22 @@
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     rdfs:range :QuantityDesignSpecification ;
     skos:definition "Links material quantities to quantity specifications they comply with"@en .
+
+:regionId a owl:DatatypeProperty ;
+    rdfs:label "region ID"@en ;
+    rdfs:comment "The OCR region identifier associated with this chunk."@en ;
+    rdfs:domain :DocumentChunk ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:range xsd:string ;
+    skos:definition "An identifier for the OCR processing region that corresponds to this document chunk"@en .
+
+:relationshipType a owl:DatatypeProperty ;
+    rdfs:label "relationship type"@en ;
+    rdfs:comment "The type of relationship between chunks (above, below, left, right, overlaps)."@en ;
+    rdfs:domain :ChunkRelationship ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:range xsd:string ;
+    skos:definition "Specifies the spatial or semantic type of relationship between document chunks"@en .
 
 :resultsInAssembly a owl:ObjectProperty ;
     rdfs:label "results in assembly"@en ;
@@ -1672,6 +1827,13 @@ The ontology is designed to be extensible to support modeling of domain-specific
     prof:hasProfile <https://vocab.earth616.localhost/nd/scdoc/ont/profile/> ;
     schema:codeRepository "https://github.com/crcresearch/earth616_ontology"^^xsd:anyURI .
 
+:ConceptCollection a owl:Class ;
+    rdfs:label "Concept Collection"@en ;
+    rdfs:comment "A collection of concepts and relationships extracted from a document chunk."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:subClassOf prov:Collection ;
+    skos:definition "An organized collection of semantic concepts and their relationships extracted from document content during information extraction processes"@en .
+
 :DigitalDocument a owl:Class ;
     rdfs:label "Digital Document"@en ;
     rdfs:comment "Represents a digital document that has been scanned and digitized, and is part of the broader document processing workflow."@en ;
@@ -1811,6 +1973,14 @@ The ontology is designed to be extensible to support modeling of domain-specific
     skos:exactMatch <https://w3id.org/ammo/ont/fromState> ;
     skos:note "Derived from AMMO fromState with functional property constraint"@en .
 
+:hasChunk a owl:ObjectProperty ;
+    rdfs:label "has chunk"@en ;
+    rdfs:comment "Links document content to its constituent chunks or segments."@en ;
+    rdfs:domain :DocumentContent ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:range :DocumentChunk ;
+    skos:definition "Relates a document content entity to its individual chunks or segments extracted during processing"@en .
+
 :hasComponent a owl:ObjectProperty ;
     rdfs:label "has component"@en ;
     dcterms:source <https://w3id.org/ammo/ont/hasComponent> ;
@@ -1906,6 +2076,13 @@ The ontology is designed to be extensible to support modeling of domain-specific
     rdfs:range owl:Thing ;
     rdfs:subPropertyOf schema1:observationAbout ;
     skos:definition "Links an observation event to the supply chain entity that is the subject of observation"@en .
+
+:processedText a owl:DatatypeProperty ;
+    rdfs:label "processed text"@en ;
+    rdfs:comment "The processed text of a digitized document."@en ;
+    rdfs:domain :DocumentContent ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
+    rdfs:range xsd:string .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/profile/> a prof:Profile ;
     dcterms:description "Profile defining modular implementation structure for the Defense Supply Chain and Documentation Ontology compatible with CogitareLink four-layer model."@en ;
@@ -2206,13 +2383,6 @@ prov:SoftwareAgent rdfs:subClassOf [ a owl:Restriction ;
         :SupplyChainEvent ;
     skos:definition "An event that tracks the physical movement of items through the supply chain network"@en .
 
-:DocumentContent a owl:Class ;
-    rdfs:label "Document Content"@en ;
-    rdfs:comment "Represents the content extracted from a document."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
-    rdfs:subClassOf prov:Entity ;
-    skos:definition "The structured content extracted from a supply chain document through processing workflows"@en .
-
 <https://vocab.earth616.localhost/nd/scdoc/ont/examples/materials/steel-316l-powder> a :Material ;
     schema1:additionalProperty [ a schema1:PropertyValue ;
             schema1:description "Classified as Alloy in AMMO ontology hierarchy" ;
@@ -2244,6 +2414,20 @@ prov:SoftwareAgent rdfs:subClassOf [ a owl:Restriction ;
         prov:Activity ;
     skos:definition "An organized sequence of activities for extracting structured data from supply chain documents"@en .
 
+:DocumentContent a owl:Class ;
+    rdfs:label "Document Content"@en ;
+    rdfs:comment "Represents the content extracted from a document."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
+    rdfs:subClassOf prov:Entity ;
+    skos:definition "The structured content extracted from a supply chain document through processing workflows"@en .
+
+:ChunkRelationship a owl:Class ;
+    rdfs:label "Chunk Relationship"@en ;
+    rdfs:comment "Represents a spatial or semantic relationship between document chunks."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:subClassOf prov:Entity ;
+    skos:definition "A structured representation of the relationship between two or more document chunks, including spatial positioning and semantic connections"@en .
+
 :Identifier rdfs:label "Identifier"@en ;
     rdfs:comment "A generic identifier for entities, aligned with ODP. Represents the abstract identifier value and its type."@en ;
     rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/identifier> ;
@@ -2259,6 +2443,13 @@ prov:SoftwareAgent rdfs:subClassOf [ a owl:Restriction ;
     owl:imports <https://vocab.earth616.localhost/nd/scdoc/ont/imports/geo>,
         <https://vocab.earth616.localhost/nd/scdoc/ont/imports/time>,
         <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/SpatioTemporalExtent> .
+
+:DocumentChunk a owl:Class ;
+    rdfs:label "Document Chunk"@en ;
+    rdfs:comment "A segment or portion of document content with spatial and semantic boundaries."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> ;
+    rdfs:subClassOf :DocumentContent ;
+    skos:definition "A discrete segment of document content that represents a meaningful unit for processing, analysis, or storage"@en .
 
 <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> a owl:Ontology ;
     rdfs:label "Design Composition Module"@en ;

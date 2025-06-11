@@ -1,0 +1,225 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# --- DSCDO (environment-specific namespace) ---
+@prefix dscdo: <${ONTOLOGY_BASE}/> .
+@prefix : <${ONTOLOGY_BASE}/> .
+@base <${ONTOLOGY_BASE}/> .
+
+# =============================================================================
+# Supply Chain Documentation Module - Document Chunks
+# =============================================================================
+
+# === Object Properties ===
+
+# Object property to link document content to its chunks
+dscdo:hasChunk rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:DocumentContent ;
+    rdfs:range dscdo:DocumentChunk ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "has chunk"@en ;
+    rdfs:comment "Links document content to its constituent chunks or segments."@en ;
+    skos:definition "Relates a document content entity to its individual chunks or segments extracted during processing"@en .
+
+# Inverse property - chunk is part of content
+dscdo:isChunkOf rdf:type owl:ObjectProperty ;
+    owl:inverseOf dscdo:hasChunk ;
+    rdfs:domain dscdo:DocumentChunk ;
+    rdfs:range dscdo:DocumentContent ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "is chunk of"@en ;
+    rdfs:comment "Indicates that a chunk is part of a larger document content."@en ;
+    skos:definition "Establishes that a document chunk is a constituent part of a larger document content entity"@en .
+
+# Object property for spatial relationships between chunks
+dscdo:hasChunkRelationship rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:DocumentChunk ;
+    rdfs:range dscdo:ChunkRelationship ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "has chunk relationship"@en ;
+    rdfs:comment "Links a chunk to its spatial or semantic relationships with other chunks."@en ;
+    skos:definition "Connects a document chunk to its relationships with other chunks in the document"@en .
+
+# Object property to specify relationship target
+dscdo:hasRelationshipTarget rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:ChunkRelationship ;
+    rdfs:range dscdo:DocumentChunk ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "has relationship target"@en ;
+    rdfs:comment "Specifies the target chunk in a chunk relationship."@en ;
+    skos:definition "Identifies the target chunk in a spatial or semantic relationship"@en .
+
+# Object property for chunk concepts
+dscdo:hasChunkConcepts rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:DocumentChunk ;
+    rdfs:range dscdo:ConceptCollection ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "has chunk concepts"@en ;
+    rdfs:comment "Links a chunk to its extracted concepts and relationships."@en ;
+    skos:definition "Associates a document chunk with its collection of extracted semantic concepts"@en .
+
+# Object property for supporting chunks
+dscdo:hasSupportingChunk rdf:type owl:ObjectProperty ;
+    rdfs:domain dscdo:DocumentChunk ;
+    rdfs:range dscdo:DocumentChunk ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "has supporting chunk"@en ;
+    rdfs:comment "Links a chunk to other chunks that provide supporting context."@en ;
+    skos:definition "Connects a document chunk to other chunks that provide contextual support or additional information"@en .
+
+# === Data Properties ===
+
+dscdo:chunkMainText rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf dscdo:processedText ;
+    rdfs:domain dscdo:DocumentChunk ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "chunk main text"@en ;
+    rdfs:comment "The primary text content of a document chunk."@en ;
+    skos:definition "The main textual content extracted from a specific chunk or segment of a document"@en .
+
+dscdo:chunkSummary rdf:type owl:DatatypeProperty ;
+    rdfs:domain dscdo:DocumentChunk ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "chunk summary"@en ;
+    rdfs:comment "A summary of the chunk's content."@en ;
+    skos:definition "A concise summary describing the content and purpose of a document chunk"@en .
+
+dscdo:chunkIndex rdf:type owl:DatatypeProperty ;
+    rdfs:domain dscdo:DocumentChunk ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "chunk index"@en ;
+    rdfs:comment "The sequential index or order of the chunk within the document."@en ;
+    skos:definition "A numerical index indicating the position or sequence of a chunk within its parent document"@en .
+
+dscdo:regionId rdf:type owl:DatatypeProperty ;
+    rdfs:domain dscdo:DocumentChunk ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "region ID"@en ;
+    rdfs:comment "The OCR region identifier associated with this chunk."@en ;
+    skos:definition "An identifier for the OCR processing region that corresponds to this document chunk"@en .
+
+dscdo:chunkPosition rdf:type owl:DatatypeProperty ;
+    rdfs:domain dscdo:DocumentChunk ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "chunk position"@en ;
+    rdfs:comment "Describes the position of the chunk within the document layout."@en ;
+    skos:definition "A textual description of the chunk's position within the document's spatial layout"@en .
+
+dscdo:boundingBox rdf:type owl:DatatypeProperty ;
+    rdfs:domain dscdo:DocumentChunk ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "bounding box"@en ;
+    rdfs:comment "The coordinate bounding box of the chunk in the original document."@en ;
+    skos:definition "Spatial coordinates defining the rectangular boundary of the chunk within the source document"@en .
+
+dscdo:belongsTo rdf:type owl:DatatypeProperty ;
+    rdfs:domain dscdo:DocumentChunk ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "belongs to"@en ;
+    rdfs:comment "Indicates the category or section that the chunk belongs to."@en ;
+    skos:definition "Specifies the document section or category classification for the chunk content"@en .
+
+dscdo:chunkType rdf:type owl:DatatypeProperty ;
+    rdfs:domain dscdo:DocumentChunk ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "chunk type"@en ;
+    rdfs:comment "The type classification of the chunk content."@en ;
+    skos:definition "A classification indicating the type or nature of content within the chunk"@en .
+
+dscdo:relationshipType rdf:type owl:DatatypeProperty ;
+    rdfs:domain dscdo:ChunkRelationship ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "relationship type"@en ;
+    rdfs:comment "The type of relationship between chunks (above, below, left, right, overlaps)."@en ;
+    skos:definition "Specifies the spatial or semantic type of relationship between document chunks"@en .
+
+# === Classes ===
+
+dscdo:DocumentChunk rdf:type owl:Class ;
+    rdfs:subClassOf dscdo:DocumentContent ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "Document Chunk"@en ;
+    rdfs:comment "A segment or portion of document content with spatial and semantic boundaries."@en ;
+    skos:definition "A discrete segment of document content that represents a meaningful unit for processing, analysis, or storage"@en .
+
+dscdo:ChunkRelationship rdf:type owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "Chunk Relationship"@en ;
+    rdfs:comment "Represents a spatial or semantic relationship between document chunks."@en ;
+    skos:definition "A structured representation of the relationship between two or more document chunks, including spatial positioning and semantic connections"@en .
+
+dscdo:ConceptCollection rdf:type owl:Class ;
+    rdfs:subClassOf prov:Collection ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "Concept Collection"@en ;
+    rdfs:comment "A collection of concepts and relationships extracted from a document chunk."@en ;
+    skos:definition "An organized collection of semantic concepts and their relationships extracted from document content during information extraction processes"@en .
+
+# === Chunk Type Individuals ===
+
+dscdo:TextChunk rdf:type dscdo:DocumentChunk ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "Text Chunk"@en ;
+    rdfs:comment "A chunk containing primarily textual content."@en ;
+    skos:definition "A document chunk that consists primarily of textual content extracted through OCR or document processing"@en .
+
+dscdo:ImageChunk rdf:type dscdo:DocumentChunk ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "Image Chunk"@en ;
+    rdfs:comment "A chunk containing image or graphical content."@en ;
+    skos:definition "A document chunk that represents image, diagram, or other visual content within a document"@en .
+
+dscdo:TableChunk rdf:type dscdo:DocumentChunk ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "Table Chunk"@en ;
+    rdfs:comment "A chunk containing tabular data."@en ;
+    skos:definition "A document chunk that represents structured tabular data or table content within a document"@en .
+
+# === Relationship Type Individuals ===
+
+dscdo:SpatialAbove rdf:type dscdo:ChunkRelationship ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "Spatial Above"@en ;
+    rdfs:comment "Indicates that one chunk is spatially positioned above another."@en ;
+    skos:definition "A spatial relationship indicating that one document chunk is positioned above another in the document layout"@en .
+
+dscdo:SpatialBelow rdf:type dscdo:ChunkRelationship ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "Spatial Below"@en ;
+    rdfs:comment "Indicates that one chunk is spatially positioned below another."@en ;
+    skos:definition "A spatial relationship indicating that one document chunk is positioned below another in the document layout"@en .
+
+dscdo:SpatialLeft rdf:type dscdo:ChunkRelationship ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "Spatial Left"@en ;
+    rdfs:comment "Indicates that one chunk is spatially positioned to the left of another."@en ;
+    skos:definition "A spatial relationship indicating that one document chunk is positioned to the left of another in the document layout"@en .
+
+dscdo:SpatialRight rdf:type dscdo:ChunkRelationship ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "Spatial Right"@en ;
+    rdfs:comment "Indicates that one chunk is spatially positioned to the right of another."@en ;
+    skos:definition "A spatial relationship indicating that one document chunk is positioned to the right of another in the document layout"@en .
+
+dscdo:SpatialOverlaps rdf:type dscdo:ChunkRelationship ;
+    rdfs:isDefinedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+    rdfs:label "Spatial Overlaps"@en ;
+    rdfs:comment "Indicates that one chunk spatially overlaps with another."@en ;
+    skos:definition "A spatial relationship indicating that one document chunk overlaps spatially with another in the document layout"@en .
