@@ -2,6 +2,7 @@
   "@context": {
     "@vocab": "http://www.w3.org/ns/dx/prof/",
     "prof": "http://www.w3.org/ns/dx/prof/",
+    "role": "http://www.w3.org/ns/dx/prof/role/",
     "dct": "http://purl.org/dc/terms/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
@@ -33,7 +34,7 @@
       "rdfs:label": "Base Context",
       "rdfs:comment": "Core JSON-LD context for basic DSCDO terms, namespaces, and fundamental vocabulary mappings",
       "dct:format": "application/ld+json",
-      "hasRole": "validation",
+      "hasRole": "role:validation",
       "hasArtifact": "https://vocab.earth616.localhost/nd/scdoc/context/context-base.jsonld",
       "sdo:contentSize": "Small (<5KB)"
     },
@@ -42,7 +43,7 @@
       "rdfs:label": "Documents Context",
       "rdfs:comment": "JSON-LD context for document processing, content extraction, and supply chain documentation workflows",
       "dct:format": "application/ld+json",
-      "hasRole": "validation",
+      "hasRole": "role:validation",
       "hasArtifact": "https://vocab.earth616.localhost/nd/scdoc/context/context-documents.jsonld",
       "sdo:contentSize": "Small (<5KB)"
     },
@@ -51,7 +52,7 @@
       "rdfs:label": "Workflow Context", 
       "rdfs:comment": "JSON-LD context for workflow operations, process management, and agentic workflow integration",
       "dct:format": "application/ld+json",
-      "hasRole": "validation",
+      "hasRole": "role:validation",
       "hasArtifact": "https://vocab.earth616.localhost/nd/scdoc/context/context-workflow.jsonld", 
       "sdo:contentSize": "Small (<5KB)"
     }
