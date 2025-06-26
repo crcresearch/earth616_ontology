@@ -1,0 +1,522 @@
+@prefix : <https://vocab.earth616.local/ont/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix lode: <http://purl.org/lode/config#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prof: <http://www.w3.org/ns/dx/prof/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sdo: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix spdx: <https://spdx.org/rdf/3.0.1/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Agent a rdfs:Class ;
+    rdfs:label "Agent"@en ;
+    rdfs:comment "An entity participating in an event, such as a person, organization, or system."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/event> ;
+    skos:definition "An entity capable of acting or participating in events"@en .
+
+:Event a rdfs:Class ;
+    rdfs:label "Event"@en ;
+    rdfs:comment "Represents any kind of events. An event possesses a spatiotemporal extent, provides at least one participant-role, which is performed by some entity (agents or otherwise), and may be a sub-event of another event. An event may also have additional descriptive information, which is consolidated through an information object."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/event> ;
+    skos:definition "A temporal entity that represents occurrences or happenings in time and space"@en .
+
+:IdentifierEncoding a rdfs:Class ;
+    rdfs:label "Identifier Encoding"@en ;
+    rdfs:comment "Represents a specific instance of how an identifier is encoded (e.g., a specific barcode instance, an RFID tag encoding)."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/identifier> ;
+    skos:definition "A physical or digital encoding of an identifier, such as a barcode, QR code, or RFID tag"@en .
+
+:IdentifierSource a rdfs:Class ;
+    rdfs:label "Identifier Source"@en ;
+    rdfs:comment "The authority or organization that issued or manages the identifier."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/identifier> ;
+    skos:definition "An organization or system that issues, maintains, or governs an identifier scheme"@en .
+
+:IdentifierType a rdfs:Class ;
+    rdfs:label "Identifier Type"@en ;
+    rdfs:comment "Represents the type or category of an identifier (e.g., GTIN, ISBN, DOI)."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/identifier> ;
+    skos:definition "A classification of identifier types, specifying the standard or system used"@en .
+
+:InformationObject a rdfs:Class ;
+    rdfs:label "Information Object"@en ;
+    rdfs:comment "An entity that encapsulates all descriptive or non-defining information of the corresponding event, e.g., names, additional identifiers, textual descriptions, etc. Should normally be aligned to a separate Information Object pattern."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/event> ;
+    skos:definition "An object that carries descriptive information about an event"@en .
+
+:ParticipantRole a rdfs:Class ;
+    rdfs:label "Participant Role"@en ;
+    rdfs:comment "Every ParticipantRole represents a reified relationship between an event and one of its participants. Should normally be aligned to a separate Participant-Role pattern."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/event> ;
+    skos:definition "A role played by an agent or entity participating in an event"@en .
+
+:SpatioTemporalExtent a rdfs:Class ;
+    rdfs:label "Spatiotemporal Extent"@en ;
+    rdfs:comment "Hook to a complex notion representing a unified spatial and temporal extent. Intended to cover non-static or discontinuous spatiotemporal extent. Should be aligned to a separate Spatiotemporal Extent pattern."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/event> ;
+    skos:definition "The spatial and temporal boundaries of an event or entity"@en .
+
+:TemporalExtent a rdfs:Class ;
+    rdfs:label "Temporal Extent"@en ;
+    rdfs:comment "Represents the temporal extent of an event."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/event> ;
+    rdfs:subClassOf :SpatioTemporalExtent ;
+    skos:definition "The temporal boundaries of an event"@en .
+
+:AggregationEvent a owl:Class ;
+    rdfs:label "Aggregation Event"@en ;
+    rdfs:comment "An event representing the aggregation of multiple items into a container or package."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> ;
+    rdfs:subClassOf :SupplyChainEvent ;
+    skos:definition "An event that records the grouping of individual items into larger units for handling or shipping"@en .
+
+:CarrierRole a owl:Class ;
+    rdfs:label "Carrier Role"@en ;
+    rdfs:comment "The role of an entity that transports goods in a supply chain event."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> ;
+    rdfs:subClassOf :ParticipantRole ;
+    skos:definition "A participant role representing an entity responsible for moving items between locations"@en .
+
+:CustomerRole a owl:Class ;
+    rdfs:label "Customer Role"@en ;
+    rdfs:comment "The role of an entity that receives goods or services in a supply chain event."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> ;
+    rdfs:subClassOf :ParticipantRole ;
+    skos:definition "A participant role representing an entity that receives outputs from the supply chain"@en .
+
+:DisaggregationEvent a owl:Class ;
+    rdfs:label "Disaggregation Event"@en ;
+    rdfs:comment "An event representing the disaggregation of items from a container or package."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> ;
+    rdfs:subClassOf :SupplyChainEvent ;
+    skos:definition "An event that records the separation of aggregated items back into individual units"@en .
+
+:ManufacturerRole a owl:Class ;
+    rdfs:label "Manufacturer Role"@en ;
+    rdfs:comment "The role of an entity that produces or transforms goods in a supply chain event."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> ;
+    rdfs:subClassOf :ParticipantRole ;
+    skos:definition "A participant role representing an entity that creates or modifies products"@en .
+
+:ObservationEvent a owl:Class ;
+    rdfs:label "Observation Event"@en ;
+    rdfs:comment "An event representing the observation or measurement of supply chain items without changing their state."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> ;
+    rdfs:subClassOf :SupplyChainEvent ;
+    skos:definition "An event that records data collection or monitoring activities without altering the observed items"@en .
+
+:SbomIntegrationPattern a skos:Concept ;
+    rdfs:label "SBOM Integration Pattern"@en ;
+    skos:broader :ProvenancePattern ;
+    skos:definition "Design pattern for integrating SPDX Software Bills of Materials with workflow provenance tracking in containerized AI systems."@en ;
+    skos:example """
+    {
+      "@type": "InformationExtractionWorkflow",
+      "containerSbom": {
+        "@type": "Sbom",
+        "hasElement": [
+          {"@type": "Package", "packageName": "python", "packageVersion": "3.11.7"},
+          {"@type": "Package", "packageName": "transformers", "packageVersion": "4.36.0"}
+        ]
+      }
+    }
+    """@en ;
+    skos:related spdx:Sbom,
+        :InformationExtractionWorkflow .
+
+:SupplierRole a owl:Class ;
+    rdfs:label "Supplier Role"@en ;
+    rdfs:comment "The role of an entity that provides goods or services in a supply chain event."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> ;
+    rdfs:subClassOf :ParticipantRole ;
+    skos:definition "A participant role representing an entity that provides inputs to the supply chain"@en .
+
+:TransferEvent a owl:Class ;
+    rdfs:label "Transfer Event"@en ;
+    rdfs:comment "An event representing the transfer of goods or materials from one party to another."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> ;
+    rdfs:subClassOf :SupplyChainEvent ;
+    skos:definition "An event that records the change in custody or ownership of supply chain items"@en .
+
+:TransformationEvent a owl:Class ;
+    rdfs:label "Transformation Event"@en ;
+    rdfs:comment "An event representing the transformation of materials into new products or components."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> ;
+    rdfs:subClassOf :SupplyChainEvent ;
+    skos:definition "An event that records the conversion of input materials into different output products through manufacturing or processing"@en .
+
+:TransportEvent a owl:Class ;
+    rdfs:label "Transport Event"@en ;
+    rdfs:comment "An event representing the movement of goods from one location to another."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> ;
+    rdfs:subClassOf :SupplyChainEvent ;
+    skos:definition "An event that tracks the physical movement of items through the supply chain network"@en .
+
+:assumesRole a rdf:Property ;
+    rdfs:label "assumes role"@en ;
+    rdfs:comment "Relates an agent to the role it plays in an event."@en ;
+    rdfs:domain :Agent ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/event> ;
+    rdfs:range :ParticipantRole .
+
+:contentExtractedFrom a owl:ObjectProperty ;
+    rdfs:label "content extracted from"@en ;
+    rdfs:comment "Indicates that the document content was derived from a specific digital document."@en ;
+    rdfs:domain :DocumentContent ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/scdocumentation/document> ;
+    rdfs:range :SCDigitalDocument ;
+    rdfs:subPropertyOf prov:wasDerivedFrom .
+
+:hasDocumentContent a owl:ObjectProperty ;
+    rdfs:label "has document content"@en ;
+    rdfs:comment "Links a digital document to its content extracted via OCR."@en ;
+    rdfs:domain :SCDigitalDocument ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/scdocumentation/document> ;
+    rdfs:range :DocumentContent .
+
+:hasDocumentType a owl:ObjectProperty ;
+    rdfs:label "has document type"@en ;
+    rdfs:comment "Specifies the type or category of a digital document."@en ;
+    rdfs:domain :SCDigitalDocument ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/scdocumentation/document> ;
+    rdfs:range :DocumentType .
+
+:hasIdentifier a rdf:Property ;
+    rdfs:label "has identifier"@en ;
+    rdfs:comment "Links an entity to its identifier."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/identifier> ;
+    rdfs:range :Identifier .
+
+:hasIdentifierEncoding a rdf:Property ;
+    rdfs:label "has identifier encoding"@en ;
+    rdfs:comment "Links an identifier to its physical or digital encoding."@en ;
+    rdfs:domain :Identifier ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/identifier> ;
+    rdfs:range :IdentifierEncoding .
+
+:hasIdentifierSource a rdf:Property ;
+    rdfs:label "has identifier source"@en ;
+    rdfs:comment "Links an identifier to its issuing authority or source."@en ;
+    rdfs:domain :Identifier ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/identifier> ;
+    rdfs:range :IdentifierSource .
+
+:hasIdentifierType a rdf:Property ;
+    rdfs:label "has identifier type"@en ;
+    rdfs:comment "Links an identifier to its type classification."@en ;
+    rdfs:domain :Identifier ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/identifier> ;
+    rdfs:range :IdentifierType .
+
+:hasInformationObject a rdf:Property ;
+    rdfs:label "has information object"@en ;
+    rdfs:comment "Property relating Event to InformationObject in this pattern. The domain of this property is not restricted to Event since it is possible that non-event to have an information object. The range is always InformationObject since it makes no sense to have a property named hasInformationObject to point to anything other than information object."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/event> ;
+    rdfs:range :InformationObject .
+
+:hasSpatioTemporalExtent a rdf:Property ;
+    rdfs:label "has spatiotemporal extent"@en ;
+    rdfs:comment "Property relating Event to SpatioTemporalExtent in this pattern. The range is always SpatioTemporalExtent (globally) since it makes no sense to have a property named hasSpatioTemporalExtent to point to anything other than spatiotemporal extent. The domain is not set to Event as non-Event may also have spatiotemporal extent."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/event> ;
+    rdfs:range :SpatioTemporalExtent .
+
+:hasWorkflow a owl:ObjectProperty ;
+    rdfs:label "has workflow"@en ;
+    rdfs:comment "Associates an information extraction workflow with a specific pipeline."@en ;
+    rdfs:domain :InformationExtractionWorkflow ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/scdocumentation/document> ;
+    rdfs:range :IEPipeline ;
+    rdfs:subPropertyOf prov:wasAssociatedWith .
+
+<https://vocab.earth616.local/ont/modules/spdx/sbom-integration> a owl:Ontology ;
+    rdfs:label "DSCDO SPDX SBOM Integration Module"@en ;
+    dcterms:created "2025-01-25"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    dcterms:modified "2025-01-25"^^xsd:date ;
+    rdfs:comment "Integrates SPDX 3.0.1 Software Bill of Materials (SBOM) concepts with DSCDO workflow ontology for container-based AI agent provenance tracking."@en ;
+    rdfs:seeAlso <https://spdx.github.io/spdx-spec/v3.0.1/> ;
+    owl:imports spdx:,
+        <https://vocab.earth616.local/ont/modules/core/event> ;
+    owl:versionInfo "0.1.0" .
+
+:processedText a owl:DatatypeProperty ;
+    rdfs:label "processed text"@en ;
+    rdfs:comment "The processed text of a digitized document."@en ;
+    rdfs:domain :DocumentContent ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/scdocumentation/document> ;
+    rdfs:range xsd:string .
+
+:providesParticipantRole a rdf:Property ;
+    rdfs:label "provides participant role"@en ;
+    rdfs:comment "Property relating Event to ParticipantRole in this pattern. The range is always ParticipantRole since it makes no sense to have a property named as providesParticipantRole not to point to a participant role. The domain is not set to Event as non-Event may also provide a participant role."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/event> ;
+    rdfs:range :ParticipantRole .
+
+:sbomGeneratedBy a owl:ObjectProperty ;
+    rdfs:label "SBOM generated by"@en ;
+    rdfs:comment "Links an SBOM to the tool or agent that generated it, extending SPDX creation info with DSCDO agent concepts."@en ;
+    rdfs:domain spdx:Sbom ;
+    rdfs:range [ owl:unionOf ( prov:SoftwareAgent :SoftwareAgent ) ] ;
+    rdfs:subPropertyOf prov:wasGeneratedBy ;
+    skos:definition "Tracks which scanning tools, container runtimes, or AI agents were responsible for generating SBOM data."@en .
+
+:subEventOf a rdf:Property ;
+    rdfs:label "sub event of"@en ;
+    rdfs:comment "Property expressing partonomic relation between two events. Domain and range are always Event."@en ;
+    rdfs:domain :Event ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/event> ;
+    rdfs:range :Event .
+
+:workflowExecution a owl:ObjectProperty ;
+    rdfs:label "workflow execution"@en ;
+    rdfs:comment "Connects the document content to the workflow that processed it."@en ;
+    rdfs:domain :DocumentContent ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/scdocumentation/document> ;
+    rdfs:range :InformationExtractionWorkflow ;
+    rdfs:subPropertyOf prov:wasGeneratedBy .
+
+: a voaf:Vocabulary,
+        owl:Ontology ;
+    dcterms:created "2024-04-09"^^xsd:date ;
+    dcterms:creator [ a sdo:Person ;
+            rdfs:label "Charles F. Vardeman II" ;
+            sdo:affiliation "University of Notre Dame" ;
+            sdo:email "cvardema@nd.edu"^^xsd:anyURI ;
+            sdo:name "Charles F. Vardeman II" ;
+            sdo:url "https://orcid.org/0000-0003-4091-6059"^^xsd:anyURI ],
+        [ a sdo:Person ;
+            rdfs:label "Charles F. Vardeman II" ;
+            sdo:affiliation "University of Notre Dame" ;
+            sdo:email "cvardema@nd.edu"^^xsd:anyURI ;
+            sdo:name "Charles F. Vardeman II" ;
+            sdo:url "https://orcid.org/0000-0003-4091-6059"^^xsd:anyURI ] ;
+    dcterms:description """The Defense Supply Chain and Documentation Ontology (DSCDO) provides a formal model for representing knowledge about supply chain networks, processes, and entities. It enables interoperability and knowledge sharing between supply chain information systems by providing a common vocabulary and conceptual structure and supporting documentation providing supply chain provenance.
+
+Key concepts modeled include:
+
+- Supply chain stages such as suppliers, manufacturers
+- Products, materials, and information flows between supply chain stages  
+- Supply chain processes such as procurement, production, and transportation
+
+The ontology is designed to be extensible to support modeling of domain-specific supply chains and integration with other enterprise ontologies. It aims to facilitate supply chain analytics, decision support, knowledge management, and semantic integration of heterogeneous supply chain data sources."""@en ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:modified "2025-04-15"^^xsd:date,
+        "2025-05-26"^^xsd:date ;
+    dcterms:publisher [ a sdo:Organization ;
+            rdfs:label "Center for Research Computing, University of Notre Dame" ;
+            owl:sameAs wd:Q178848 ;
+            sdo:name "Center for Research Computing, University of Notre Dame" ;
+            sdo:url "https://crc.nd.edu"^^xsd:anyURI ],
+        [ a sdo:Organization ;
+            rdfs:label "Simba Chain" ;
+            sdo:name "Simba Chain" ;
+            sdo:url "https://simbachain.com/" ],
+        [ a sdo:Organization ;
+            rdfs:label "Center for Research Computing, University of Notre Dame" ;
+            owl:sameAs wd:Q178848 ;
+            sdo:name "Center for Research Computing, University of Notre Dame" ;
+            sdo:url "https://crc.nd.edu"^^xsd:anyURI ],
+        [ a sdo:Organization ;
+            rdfs:label "Simba Chain" ;
+            sdo:name "Simba Chain" ;
+            sdo:url "https://simbachain.com/" ] ;
+    dcterms:rights "This work is licensed under a Creative Commons Attribution 4.0 International License."@en ;
+    dcterms:rightsHolder "SIMBA Chain, University of Notre Dame" ;
+    dcterms:title "Defense Supply Chain and Documentation Ontology (DSCDO)"@en ;
+    bibo:status "Work in progress" ;
+    vann:preferredNamespacePrefix "dscdo" ;
+    vann:preferredNamespaceUri "https://vocab.earth616.local/ont/" ;
+    owl:imports <https://vocab.earth616.local/ont/modules/core/event>,
+        <https://vocab.earth616.local/ont/modules/core/identifier>,
+        <https://vocab.earth616.local/ont/modules/scdocumentation/document>,
+        <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> ;
+    owl:versionIRI :0.1.4 ;
+    owl:versionInfo "0.1.4"@en ;
+    skos:changeNote "0.1.0 - intial release of pattern skeletons"@en,
+        "0.1.1 - adding supply chain events from the supply chain pattern and connecting to the documentation extraction pattern"@en,
+        "0.1.2 - adding identifier patterns and beginning of shapes"@en,
+        "0.1.3 - chaning iri namespace and ontology prefix"@en,
+        "0.1.4 - Template-based development migration: moved to enhanced build system with environment-configurable URIs, deprecated legacy modules directory, updated CogitareLink four-layer model implementation, added comprehensive import cache registry support."@en,
+        "0.1.4 - adding identifiers module, jsonld-context documents and shapes for validating JSON-LD contexts."@en ;
+    prof:hasProfile <https://vocab.earth616.local/ont/profile/> ;
+    sdo:codeRepository "https://github.com/crcresearch/earth616_ontology"^^xsd:anyURI .
+
+:DigitalDocument a owl:Class ;
+    rdfs:label "Digital Document"@en ;
+    rdfs:comment "Represents a digital document that has been scanned and digitized, and is part of the broader document processing workflow."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/scdocumentation/document> ;
+    rdfs:subClassOf schema:DigitalDocument,
+        prov:Entity,
+        :Document ;
+    skos:definition "A document that exists in digital form and can be processed by automated systems"@en .
+
+:Document a owl:Class ;
+    rdfs:label "Document"@en ;
+    rdfs:comment "A general class for documents."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/scdocumentation/document> ;
+    skos:definition "An abstract class representing any type of document in the supply chain"@en .
+
+:DocumentType a owl:Class ;
+    rdfs:label "Document Type"@en ;
+    rdfs:comment "Represents the type or classification of a document."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/scdocumentation/document> ;
+    rdfs:subClassOf schema:Enumeration ;
+    skos:definition "A classification scheme for different types of supply chain documents"@en .
+
+:IEPipeline a owl:Class ;
+    rdfs:label "Information Extraction Pipeline"@en ;
+    rdfs:comment "Represents a pipeline used in the information extraction process."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/scdocumentation/document> ;
+    rdfs:subClassOf prov:SoftwareAgent ;
+    skos:definition "A software system or workflow that processes documents to extract structured information"@en .
+
+<https://vocab.earth616.local/ont/profile/> a prof:Profile ;
+    dcterms:description "Profile defining modular implementation structure for the Defense Supply Chain and Documentation Ontology compatible with CogitareLink four-layer model."@en ;
+    dcterms:title "DSCDO CogitareLink Implementation Profile"@en ;
+    prof:hasResource [ a prof:ResourceDescriptor ;
+            rdfs:label "PROV Ontology" ;
+            dcterms:format "text/turtle" ;
+            rdfs:comment "W3C PROV-O provenance vocabulary" ;
+            prof:hasArtifact <https://vocab.earth616.local/ont/modules/imports/prov> ;
+            prof:hasRole prof:vocabulary ],
+        [ a prof:ResourceDescriptor ;
+            rdfs:label "Event Core Pattern" ;
+            dcterms:format "text/turtle" ;
+            rdfs:comment "Core event modeling pattern from ontology design pattern library" ;
+            prof:hasArtifact <https://vocab.earth616.local/ont/patterns/EventCore> ;
+            prof:hasRole prof:guidance ;
+            sh:order 20 ],
+        [ a prof:ResourceDescriptor ;
+            rdfs:label "Spatiotemporal Extent Pattern" ;
+            dcterms:format "text/turtle" ;
+            rdfs:comment "Pattern for modeling unified spatial and temporal extents" ;
+            prof:hasArtifact <https://vocab.earth616.local/ont/patterns/SpatioTemporalExtent> ;
+            prof:hasRole prof:guidance ;
+            sh:order 21 ],
+        [ a prof:ResourceDescriptor ;
+            rdfs:label "Semantic Trajectory Pattern" ;
+            dcterms:format "text/turtle" ;
+            rdfs:comment "Pattern for modeling semantic trajectories and movement" ;
+            prof:hasArtifact <https://vocab.earth616.local/ont/patterns/SemanticTrajectory> ;
+            prof:hasRole prof:guidance ;
+            sh:order 22 ],
+        [ a prof:ResourceDescriptor ;
+            rdfs:label "pyLODE Configuration" ;
+            dcterms:format "text/turtle" ;
+            rdfs:comment "Configuration for pyLODE supermodel documentation generation" ;
+            prof:hasArtifact :pylode-config ;
+            prof:hasRole lode:config ],
+        [ a prof:ResourceDescriptor ;
+            rdfs:label "Core Event Module" ;
+            dcterms:format "text/turtle" ;
+            rdfs:comment "Core event modeling patterns and classes" ;
+            prof:hasArtifact <https://vocab.earth616.local/ont/modules/core/event> ;
+            sh:order 1 ],
+        [ a prof:ResourceDescriptor ;
+            rdfs:label "Identifier Module" ;
+            dcterms:format "text/turtle" ;
+            rdfs:comment "Identifier patterns and encoding classes" ;
+            prof:hasArtifact <https://vocab.earth616.local/ont/modules/core/identifier> ;
+            sh:order 2 ],
+        [ a prof:ResourceDescriptor ;
+            rdfs:label "Documentation Module" ;
+            dcterms:format "text/turtle" ;
+            rdfs:comment "Supply chain documentation modeling" ;
+            prof:hasArtifact <https://vocab.earth616.local/ont/modules/scdocumentation/document> ;
+            sh:order 3 ],
+        [ a prof:ResourceDescriptor ;
+            rdfs:label "Supply Chain Event Module" ;
+            dcterms:format "text/turtle" ;
+            rdfs:comment "Supply chain specific event types and patterns" ;
+            prof:hasArtifact <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> ;
+            sh:order 4 ],
+        [ a prof:ResourceDescriptor ;
+            rdfs:label "Schema.org Vocabulary" ;
+            dcterms:format "text/turtle" ;
+            rdfs:comment "Schema.org terms used in the ontology" ;
+            prof:hasArtifact <https://vocab.earth616.local/ont/modules/imports/schema> ;
+            prof:hasRole prof:vocabulary ] ;
+    prof:isProfileOf : .
+
+:containerSbom a owl:ObjectProperty ;
+    rdfs:label "container SBOM"@en ;
+    dcterms:subject "SBOM"@en,
+        "container security"@en,
+        "software supply chain"@en ;
+    rdfs:comment "Links a workflow execution to the Software Bill of Materials (SBOM) describing the container runtime environment and its software components."@en ;
+    rdfs:domain :InformationExtractionWorkflow ;
+    rdfs:range spdx:Sbom ;
+    rdfs:seeAlso <https://www.cisa.gov/sbom> ;
+    rdfs:subPropertyOf prov:used ;
+    skos:broader "software provenance pattern"@en ;
+    skos:definition "A property that associates a containerized workflow with its SBOM, providing full software provenance for compliance and security analysis."@en ;
+    skos:example "An AI document processing workflow references the SBOM of its container image containing Python, transformers library, and other dependencies."@en .
+
+:dependsOnPackage a owl:ObjectProperty ;
+    rdfs:label "depends on package"@en ;
+    rdfs:comment "Indicates that a software agent or workflow depends on a specific software package for its execution."@en ;
+    rdfs:domain [ owl:unionOf ( prov:SoftwareAgent :InformationExtractionWorkflow ) ] ;
+    rdfs:range spdx:Package ;
+    rdfs:subPropertyOf prov:used ;
+    skos:definition "Establishes explicit dependencies between DSCDO workflows/agents and SPDX software packages."@en .
+
+prov:SoftwareAgent rdfs:subClassOf [ a owl:Restriction ;
+            rdfs:comment "Software agents may depend on zero or more SPDX packages"@en ;
+            owl:allValuesFrom spdx:Package ;
+            owl:onProperty :dependsOnPackage ] .
+
+:SCDigitalDocument a owl:Class ;
+    rdfs:label "Supply Chain Digital Document"@en ;
+    rdfs:comment "Represents digital document that is supply chain documentation."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/scdocumentation/document> ;
+    rdfs:subClassOf :DigitalDocument ;
+    skos:definition "A digitized document specifically related to supply chain operations and processes"@en .
+
+:DocumentContent a owl:Class ;
+    rdfs:label "Document Content"@en ;
+    rdfs:comment "Represents the content extracted from a document."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/scdocumentation/document> ;
+    rdfs:subClassOf prov:Entity ;
+    skos:definition "The structured content extracted from a supply chain document through processing workflows"@en .
+
+:Identifier rdfs:label "Identifier"@en ;
+    rdfs:comment "A generic identifier for entities, aligned with ODP. Represents the abstract identifier value and its type."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/core/identifier> ;
+    rdfs:subClassOf sdo:PropertyValue ;
+    skos:definition "A standardized code, number, or reference that uniquely identifies an entity, document, or resource. Holds the core identifier value (via schema:value) and type."@en .
+
+:InformationExtractionWorkflow a owl:Class ;
+    rdfs:label "Information Extraction Workflow"@en ;
+    rdfs:comment "Represents a workflow or process of extracting information from documents."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/scdocumentation/document> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            rdfs:comment "A workflow may reference at most one container SBOM"@en ;
+            owl:maxCardinality 1 ;
+            owl:onProperty :containerSbom ],
+        prov:Activity ;
+    skos:definition "An organized sequence of activities for extracting structured data from supply chain documents"@en .
+
+:SupplyChainEvent a owl:Class ;
+    rdfs:label "Supply Chain Event"@en ;
+    rdfs:comment "An event occurring in a supply chain process."@en ;
+    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/supplychain/eventmodule> ;
+    rdfs:subClassOf :Event ;
+    skos:definition "A specialized event that occurs within supply chain operations, tracking the movement, transformation, or status changes of goods, materials, or information"@en .
+
+[] a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :dependsOnPackage ;
+            owl:someValuesFrom spdx:Package ] ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:onProperty [ owl:propertyChainAxiom ( :containerSbom spdx:hasElement ) ] ;
+            owl:someValuesFrom spdx:Package ] .
+
