@@ -396,7 +396,7 @@
                 "@id": "dscdo:modules/scdocumentation/document"
             },
             "prof:hasRole": {
-                "@id": "prof:constraint"
+                "@id": "prof:constraints"
             },
             "prof:hasArtifact": {
                 "@id": "dscdo:modules/design/specification"
@@ -580,6 +580,9 @@
                     "@id": "_:b25"
                 },
                 {
+                    "@id": "_:b26"
+                },
+                {
                     "@id": "_:b37"
                 },
                 {
@@ -611,9 +614,6 @@
                 },
                 {
                     "@id": "_:b27"
-                },
-                {
-                    "@id": "_:b26"
                 }
             ],
             "@type": "prof:Profile",
@@ -625,6 +625,7 @@
                 "@language": "en",
                 "@value": "Profile defining modular implementation structure for the Defense Supply Chain and Documentation Ontology compatible with CogitareLink four-layer model."
             },
+            "prof:hasToken": "dscdo-cogitarelink",
             "prof:isProfileOf": {
                 "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/"
             }

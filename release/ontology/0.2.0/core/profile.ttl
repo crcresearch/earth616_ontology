@@ -28,6 +28,7 @@
     a prof:Profile ;
     dcterms:title "DSCDO CogitareLink Implementation Profile"@en ;
     dcterms:description "Profile defining modular implementation structure for the Defense Supply Chain and Documentation Ontology compatible with CogitareLink four-layer model."@en ;
+    prof:hasToken "dscdo-cogitarelink" ;
     prof:isProfileOf <https://vocab.earth616.localhost/nd/scdoc/ont/> ;
 
     # === PROF Profile Resources ===
@@ -128,7 +129,7 @@
         rdfs:comment "Material and quantity specifications with validation and compliance tracking - extends documentation patterns to constrain TRU properties" ;
         dcterms:format "text/turtle" ;
         prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
-        prof:hasRole prof:constraint ;
+        prof:hasRole prof:constraints ;
         dscdo:extendsModule <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
         dscdo:constrainsModule <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
         sh:order 9 ;
