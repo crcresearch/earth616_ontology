@@ -214,7 +214,7 @@
                 "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/"
             },
             "prof:hasRole": {
-                "@id": "prof:constraints"
+                "@id": "prof:role/constraints"
             },
             "dcterms:format": "text/turtle",
             "rdfs:comment": "Available SHACL validation shapes for data quality assurance and constraint checking",
@@ -228,7 +228,7 @@
                 "@id": "https://vocab.earth616.localhost/nd/scdoc/context/"
             },
             "prof:hasRole": {
-                "@id": "prof:validation"
+                "@id": "prof:role/validation"
             },
             "dcterms:format": "application/ld+json",
             "rdfs:comment": "Available JSON-LD contexts for semantic data processing and API integration",
@@ -251,7 +251,7 @@
                 ]
             },
             "prof:hasRole": {
-                "@id": "prof:guidance"
+                "@id": "prof:role/guidance"
             },
             "dcterms:format": "text/turtle",
             "rdfs:comment": "Use case demonstrating how quality specifications constrain TRU acceptance criteria",
@@ -275,7 +275,7 @@
                 ]
             },
             "prof:hasRole": {
-                "@id": "prof:guidance"
+                "@id": "prof:role/guidance"
             },
             "dcterms:format": "text/turtle",
             "rdfs:comment": "Use case showing how documents provide audit trails for TRU provenance and compliance",
@@ -298,7 +298,7 @@
                 ]
             },
             "prof:hasRole": {
-                "@id": "prof:guidance"
+                "@id": "prof:role/guidance"
             },
             "dcterms:format": "text/turtle",
             "rdfs:comment": "Use case demonstrating how material specifications documents validate TRU compliance",
@@ -321,7 +321,7 @@
                 ]
             },
             "prof:hasRole": {
-                "@id": "prof:guidance"
+                "@id": "prof:role/guidance"
             },
             "dcterms:format": "text/turtle",
             "rdfs:comment": "Complete workflow pattern for material certification from specification to validated TRU",
@@ -349,7 +349,7 @@
                 ]
             },
             "prof:hasRole": {
-                "@id": "prof:guidance"
+                "@id": "prof:role/guidance"
             },
             "dcterms:format": "text/turtle",
             "rdfs:comment": "Core integration pattern showing how documents define specifications that constrain and validate TRUs",
@@ -366,7 +366,7 @@
                 "@id": "dscdo:patterns/SemanticTrajectory"
             },
             "prof:hasRole": {
-                "@id": "prof:guidance"
+                "@id": "prof:role/guidance"
             },
             "dcterms:format": "text/turtle",
             "rdfs:comment": "Pattern for modeling semantic trajectories and movement",
@@ -383,7 +383,7 @@
                 "@id": "dscdo:patterns/SpatioTemporalExtent"
             },
             "prof:hasRole": {
-                "@id": "prof:guidance"
+                "@id": "prof:role/guidance"
             },
             "dcterms:format": "text/turtle",
             "rdfs:comment": "Pattern for modeling unified spatial and temporal extents",
@@ -400,7 +400,7 @@
                 "@id": "dscdo:patterns/EventCore"
             },
             "prof:hasRole": {
-                "@id": "prof:guidance"
+                "@id": "prof:role/guidance"
             },
             "dcterms:format": "text/turtle",
             "rdfs:comment": "Core event modeling pattern from ontology design pattern library",
@@ -413,7 +413,7 @@
                 "@id": "dscdo:modules/imports/prov"
             },
             "prof:hasRole": {
-                "@id": "prof:vocabulary"
+                "@id": "prof:role/vocabulary"
             },
             "dcterms:format": "text/turtle",
             "rdfs:comment": "W3C PROV-O provenance vocabulary",
@@ -426,7 +426,7 @@
                 "@id": "dscdo:modules/imports/schema"
             },
             "prof:hasRole": {
-                "@id": "prof:vocabulary"
+                "@id": "prof:role/vocabulary"
             },
             "dcterms:format": "text/turtle",
             "rdfs:comment": "Schema.org terms used in the ontology",
@@ -460,7 +460,7 @@
                 "@id": "dscdo:modules/scdocumentation/document"
             },
             "prof:hasRole": {
-                "@id": "prof:constraints"
+                "@id": "prof:role/constraints"
             },
             "prof:hasArtifact": {
                 "@id": "dscdo:modules/design/specification"
@@ -525,7 +525,7 @@
                 "@id": "dscdo:modules/design/specification"
             },
             "prof:hasRole": {
-                "@id": "prof:validation"
+                "@id": "prof:role/validation"
             },
             "prof:hasArtifact": {
                 "@id": "dscdo:modules/traceability/tru"
@@ -562,7 +562,7 @@
                 "@id": "dscdo:modules/design/specification"
             },
             "prof:hasRole": {
-                "@id": "prof:specification"
+                "@id": "prof:role/specification"
             },
             "prof:hasArtifact": {
                 "@id": "dscdo:modules/scdocumentation/document"
@@ -710,14 +710,15 @@
         }
     ],
     "@context": {
-        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "role": "http://www.w3.org/ns/dx/prof/role/",
         "owl": "http://www.w3.org/2002/07/owl#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "sh": "http://www.w3.org/ns/shacl#",
         "lode": "http://purl.org/lode/config#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
-        "dcterms": "http://purl.org/dc/terms/",
         "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont/",
         "skos": "http://www.w3.org/2004/02/skos/core#",
+        "dcterms": "http://purl.org/dc/terms/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "prof": "http://www.w3.org/ns/dx/prof/",
         "sdo": "https://schema.org/"

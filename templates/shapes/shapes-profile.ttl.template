@@ -13,6 +13,7 @@
 
 # --- PROF ---
 @prefix prof: <http://www.w3.org/ns/dx/prof/> .
+@prefix role: <http://www.w3.org/ns/dx/prof/role/> .
 
 # --- DSCDO (environment-specific namespace) ---
 @prefix dscdo: <${ONTOLOGY_BASE}/> .
@@ -39,7 +40,7 @@
         rdfs:label "Document Shape" ;
         rdfs:comment "SHACL constraints for document entities, metadata validation, and supply chain documentation requirements" ;
         dcterms:format "text/turtle" ;
-        prof:hasRole prof:constraints ;
+        prof:hasRole role:constraints ;
         prof:hasArtifact <${SHAPES_BASE}/DocumentShape.ttl> ;
         dcterms:conformsTo sh:NodeShape ;
         dscdo:validatesModule <${ONTOLOGY_BASE}/modules/scdocumentation/document> ;
@@ -50,7 +51,7 @@
         rdfs:label "TRU Shape" ;
         rdfs:comment "SHACL constraints for Traceable Resource Units, traceability data validation, and supply chain compliance checking" ;
         dcterms:format "text/turtle" ;
-        prof:hasRole prof:constraints ;
+        prof:hasRole role:constraints ;
         prof:hasArtifact <${SHAPES_BASE}/TRUShape.ttl> ;
         dcterms:conformsTo sh:NodeShape ;
         dscdo:validatesModule <${ONTOLOGY_BASE}/modules/traceability/tru> ;
@@ -61,7 +62,7 @@
         rdfs:label "Document Chunk Shape" ;
         rdfs:comment "SHACL constraints for document chunks, content segmentation validation, and text processing workflows" ;
         dcterms:format "text/turtle" ;
-        prof:hasRole prof:constraints ;
+        prof:hasRole role:constraints ;
         prof:hasArtifact <${SHAPES_BASE}/DocumentChunkShape.ttl> ;
         dcterms:conformsTo sh:NodeShape ;
         dscdo:validatesModule <${ONTOLOGY_BASE}/modules/scdocumentation/document> ;
@@ -72,7 +73,7 @@
         rdfs:label "SBOM Workflow Shape" ;
         rdfs:comment "SHACL constraints for Software Bill of Materials workflow validation, SPDX integration, and supply chain security compliance" ;
         dcterms:format "text/turtle" ;
-        prof:hasRole prof:constraints ;
+        prof:hasRole role:constraints ;
         prof:hasArtifact <${SHAPES_BASE}/SbomWorkflowShape.ttl> ;
         dcterms:conformsTo sh:NodeShape ;
         dscdo:validatesModule <${ONTOLOGY_BASE}/modules/spdx/sbom-integration> ;

@@ -13,6 +13,7 @@
 
 # --- PROF and pyLODE ---
 @prefix prof: <http://www.w3.org/ns/dx/prof/> .
+@prefix role: <http://www.w3.org/ns/dx/prof/role/> .
 @prefix lode: <http://purl.org/lode/config#> .
 
 # --- DSCDO (environment-specific namespace) ---
@@ -69,7 +70,7 @@
         rdfs:comment "Supply chain documentation modeling - provides foundation for design specifications and TRU validation evidence" ;
         dcterms:format "text/turtle" ;
         prof:hasArtifact <${ONTOLOGY_BASE}/modules/scdocumentation/document> ;
-        prof:hasRole prof:specification ;
+        prof:hasRole role:specification ;
         dscdo:enablesModule <${ONTOLOGY_BASE}/modules/design/specification> ;
         dscdo:providesEvidenceFor <${ONTOLOGY_BASE}/modules/traceability/tru> ;
         sh:order 3 ;
@@ -90,7 +91,7 @@
         rdfs:comment "Traceable Resource Unit (TRU) modeling for supply chain traceability - validates against design specifications from documentation" ;
         dcterms:format "text/turtle" ;
         prof:hasArtifact <${ONTOLOGY_BASE}/modules/traceability/tru> ;
-        prof:hasRole prof:validation ;
+        prof:hasRole role:validation ;
         dscdo:validatesAgainst <${ONTOLOGY_BASE}/modules/design/specification> ;
         dscdo:documentedBy <${ONTOLOGY_BASE}/modules/scdocumentation/document> ;
         sh:order 5 ;
@@ -129,7 +130,7 @@
         rdfs:comment "Material and quantity specifications with validation and compliance tracking - extends documentation patterns to constrain TRU properties" ;
         dcterms:format "text/turtle" ;
         prof:hasArtifact <${ONTOLOGY_BASE}/modules/design/specification> ;
-        prof:hasRole prof:constraints ;
+        prof:hasRole role:constraints ;
         dscdo:extendsModule <${ONTOLOGY_BASE}/modules/scdocumentation/document> ;
         dscdo:constrainsModule <${ONTOLOGY_BASE}/modules/traceability/tru> ;
         sh:order 9 ;
@@ -151,7 +152,7 @@
         rdfs:label "Schema.org Vocabulary" ;
         rdfs:comment "Schema.org terms used in the ontology" ;
         dcterms:format "text/turtle" ;
-        prof:hasRole prof:vocabulary ;
+        prof:hasRole role:vocabulary ;
         prof:hasArtifact <${ONTOLOGY_BASE}/modules/imports/schema> ;
     ] ;
 
@@ -160,7 +161,7 @@
         rdfs:label "PROV Ontology" ;
         rdfs:comment "W3C PROV-O provenance vocabulary" ;
         dcterms:format "text/turtle" ;
-        prof:hasRole prof:vocabulary ;
+        prof:hasRole role:vocabulary ;
         prof:hasArtifact <${ONTOLOGY_BASE}/modules/imports/prov> ;
     ] ;
 
@@ -171,7 +172,7 @@
         rdfs:label "Event Core Pattern" ;
         rdfs:comment "Core event modeling pattern from ontology design pattern library" ;
         dcterms:format "text/turtle" ;
-        prof:hasRole prof:guidance ;
+        prof:hasRole role:guidance ;
         prof:hasArtifact <${ONTOLOGY_BASE}/patterns/EventCore> ;
         sh:order 20 ;
     ] ;
@@ -181,7 +182,7 @@
         rdfs:label "Spatiotemporal Extent Pattern" ;
         rdfs:comment "Pattern for modeling unified spatial and temporal extents" ;
         dcterms:format "text/turtle" ;
-        prof:hasRole prof:guidance ;
+        prof:hasRole role:guidance ;
         prof:hasArtifact <${ONTOLOGY_BASE}/patterns/SpatioTemporalExtent> ;
         sh:order 21 ;
     ] ;
@@ -191,7 +192,7 @@
         rdfs:label "Semantic Trajectory Pattern" ;
         rdfs:comment "Pattern for modeling semantic trajectories and movement" ;
         dcterms:format "text/turtle" ;
-        prof:hasRole prof:guidance ;
+        prof:hasRole role:guidance ;
         prof:hasArtifact <${ONTOLOGY_BASE}/patterns/SemanticTrajectory> ;
         sh:order 22 ;
     ] ;
@@ -203,7 +204,7 @@
         rdfs:label "Document-Specification-TRU Integration Pattern" ;
         rdfs:comment "Core integration pattern showing how documents define specifications that constrain and validate TRUs" ;
         dcterms:format "text/turtle" ;
-        prof:hasRole prof:guidance ;
+        prof:hasRole role:guidance ;
         dscdo:integratesModules ( 
             <${ONTOLOGY_BASE}/modules/scdocumentation/document>
             <${ONTOLOGY_BASE}/modules/design/specification> 
@@ -218,7 +219,7 @@
         rdfs:label "Material Certification Workflow Pattern" ;
         rdfs:comment "Complete workflow pattern for material certification from specification to validated TRU" ;
         dcterms:format "text/turtle" ;
-        prof:hasRole prof:guidance ;
+        prof:hasRole role:guidance ;
         dscdo:workflowSteps ( 
             "Material Design Specification Document"
             "Specification Validation Event"
@@ -236,7 +237,7 @@
         rdfs:label "Material Compliance Use Case" ;
         rdfs:comment "Use case demonstrating how material specifications documents validate TRU compliance" ;
         dcterms:format "text/turtle" ;
-        prof:hasRole prof:guidance ;
+        prof:hasRole role:guidance ;
         dscdo:involvedModules ( "documentation" "specification" "tru" ) ;
         dscdo:useCaseDescription "A defense contractor receives material specifications requiring steel with specific composition. They create TRUs for steel batches and validate them against the specifications through testing events that reference the original specification documents as evidence." ;
         skos:example "MIL-STD steel specification → steel batch TRU → composition testing → compliance validation" ;
@@ -248,7 +249,7 @@
         rdfs:label "Supply Chain Audit Use Case" ;
         rdfs:comment "Use case showing how documents provide audit trails for TRU provenance and compliance" ;
         dcterms:format "text/turtle" ;
-        prof:hasRole prof:guidance ;
+        prof:hasRole role:guidance ;
         dscdo:involvedModules ( "documentation" "specification" "tru" "supplychain" ) ;
         dscdo:useCaseDescription "During a supply chain audit, investigators trace a component TRU back through its transformation events to find the original material specification documents and validation evidence that prove compliance with defense standards." ;
         skos:example "Component TRU → transformation events → source material TRU → specification documents → compliance evidence" ;
@@ -260,7 +261,7 @@
         rdfs:label "Quality Assurance Use Case" ;
         rdfs:comment "Use case demonstrating how quality specifications constrain TRU acceptance criteria" ;
         dcterms:format "text/turtle" ;
-        prof:hasRole prof:guidance ;
+        prof:hasRole role:guidance ;
         dscdo:involvedModules ( "documentation" "specification" "tru" ) ;
         dscdo:useCaseDescription "Quality assurance teams use specification documents to define acceptance criteria for incoming TRUs. Each TRU must demonstrate compliance through validation events that reference specific quality standards and testing procedures documented in the specifications." ;
         skos:example "Quality specification document → acceptance criteria → TRU validation → compliance certification" ;
@@ -279,7 +280,7 @@
         rdfs:label "JSON-LD Contexts Collection" ;
         rdfs:comment "Available JSON-LD contexts for semantic data processing and API integration" ;
         dcterms:format "application/ld+json" ;
-        prof:hasRole prof:validation ;
+        prof:hasRole role:validation ;
         prof:hasArtifact <${CONTEXT_BASE}/> ;
         dscdo:profileToken "dscdo-contexts" ;
     ] ;
@@ -289,7 +290,7 @@
         rdfs:label "SHACL Shapes Collection" ;
         rdfs:comment "Available SHACL validation shapes for data quality assurance and constraint checking" ;
         dcterms:format "text/turtle" ;
-        prof:hasRole prof:constraints ;
+        prof:hasRole role:constraints ;
         prof:hasArtifact <${SHAPES_BASE}/> ;
         dscdo:profileToken "dscdo-shapes" ;
     ] .

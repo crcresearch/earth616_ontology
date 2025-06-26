@@ -12,7 +12,7 @@
                 "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/SbomWorkflowShape.ttl"
             },
             "prof:hasRole": {
-                "@id": "prof:constraints"
+                "@id": "prof:role/constraints"
             },
             "dcterms:format": "text/turtle",
             "rdfs:comment": "SHACL constraints for Software Bill of Materials workflow validation, SPDX integration, and supply chain security compliance",
@@ -31,7 +31,7 @@
                 "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentChunkShape.ttl"
             },
             "prof:hasRole": {
-                "@id": "prof:constraints"
+                "@id": "prof:role/constraints"
             },
             "dcterms:format": "text/turtle",
             "rdfs:comment": "SHACL constraints for document chunks, content segmentation validation, and text processing workflows",
@@ -50,7 +50,7 @@
                 "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/TRUShape.ttl"
             },
             "prof:hasRole": {
-                "@id": "prof:constraints"
+                "@id": "prof:role/constraints"
             },
             "dcterms:format": "text/turtle",
             "rdfs:comment": "SHACL constraints for Traceable Resource Units, traceability data validation, and supply chain compliance checking",
@@ -69,7 +69,7 @@
                 "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentShape.ttl"
             },
             "prof:hasRole": {
-                "@id": "prof:constraints"
+                "@id": "prof:role/constraints"
             },
             "dcterms:format": "text/turtle",
             "rdfs:comment": "SHACL constraints for document entities, metadata validation, and supply chain documentation requirements",
@@ -114,6 +114,7 @@
         }
     ],
     "@context": {
+        "role": "http://www.w3.org/ns/dx/prof/role/",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "owl": "http://www.w3.org/2002/07/owl#",
         "sh": "http://www.w3.org/ns/shacl#",

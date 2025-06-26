@@ -12,6 +12,7 @@
 
 # --- PROF ---
 @prefix prof: <http://www.w3.org/ns/dx/prof/> .
+@prefix role: <http://www.w3.org/ns/dx/prof/role/> .
 
 # --- DSCDO (environment-specific namespace) ---
 @prefix dscdo: <${ONTOLOGY_BASE}/> .
@@ -38,7 +39,7 @@
         rdfs:label "Base Context" ;
         rdfs:comment "Core JSON-LD context for basic DSCDO terms, namespaces, and fundamental vocabulary mappings" ;
         dcterms:format "application/ld+json" ;
-        prof:hasRole prof:validation ;
+        prof:hasRole role:validation ;
         prof:hasArtifact <${CONTEXT_BASE}/context-base.jsonld> ;
         sdo:contentSize "Small (<5KB)" ;
     ] ;
@@ -48,7 +49,7 @@
         rdfs:label "Documents Context" ;
         rdfs:comment "JSON-LD context for document processing, content extraction, and supply chain documentation workflows" ;
         dcterms:format "application/ld+json" ;
-        prof:hasRole prof:validation ;
+        prof:hasRole role:validation ;
         prof:hasArtifact <${CONTEXT_BASE}/context-documents.jsonld> ;
         sdo:contentSize "Small (<5KB)" ;
     ] ;
@@ -58,7 +59,7 @@
         rdfs:label "Workflow Context" ;
         rdfs:comment "JSON-LD context for workflow operations, process management, and agentic workflow integration" ;
         dcterms:format "application/ld+json" ;
-        prof:hasRole prof:validation ;
+        prof:hasRole role:validation ;
         prof:hasArtifact <${CONTEXT_BASE}/context-workflow.jsonld> ;
         sdo:contentSize "Small (<5KB)" ;
     ] .
