@@ -1,0 +1,1015 @@
+{
+    "@graph": [
+        {
+            "@id": "_:b3",
+            "rdfs:comment": "Target concept in the relationship",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:class": {
+                "@id": "skos:Concept"
+            },
+            "sh:nodeKind": {
+                "@id": "sh:IRI"
+            },
+            "sh:path": {
+                "@id": "dscdo:conceptTarget"
+            }
+        },
+        {
+            "@id": "_:b4",
+            "rdfs:comment": "Source concept in the relationship",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:class": {
+                "@id": "skos:Concept"
+            },
+            "sh:nodeKind": {
+                "@id": "sh:IRI"
+            },
+            "sh:path": {
+                "@id": "dscdo:conceptSource"
+            }
+        },
+        {
+            "@id": "_:b13",
+            "rdfs:comment": "Type of semantic relationship between concepts",
+            "sh:in": {
+                "@list": [
+                    "relatedTo",
+                    "partOf",
+                    "instanceOf",
+                    "causedBy",
+                    "locatedIn",
+                    "occurredAt",
+                    "associatedWith",
+                    "similarTo"
+                ]
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "dscdo:conceptRelationshipType"
+            }
+        },
+        {
+            "@id": "_:b14",
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:hasValue": {
+                "@id": "dscdo:ConceptRelationship"
+            },
+            "sh:path": {
+                "@id": "rdf:type"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/ConceptRelationshipShape-v1",
+            "sh:ignoredProperties": {
+                "@list": [
+                    {
+                        "@id": "rdf:type"
+                    },
+                    {
+                        "@id": "rdfs:label"
+                    },
+                    {
+                        "@id": "rdfs:comment"
+                    }
+                ]
+            },
+            "sh:closed": {
+                "@value": "false",
+                "@type": "xsd:boolean"
+            },
+            "sh:property": [
+                {
+                    "@id": "_:b3"
+                },
+                {
+                    "@id": "_:b4"
+                },
+                {
+                    "@id": "_:b13"
+                },
+                {
+                    "@id": "_:b14"
+                }
+            ],
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentChunkShape"
+            },
+            "dcterms:version": "1.0",
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-11",
+                "@type": "xsd:date"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Defines constraints for semantic relationships between concepts"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "SHACL shape for validating Concept Relationship instances"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Concept Relationship Shape"
+            },
+            "sh:targetClass": {
+                "@id": "dscdo:ConceptRelationship"
+            },
+            "@type": "sh:NodeShape"
+        },
+        {
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentChunkShape",
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": "2025-01-11",
+            "owl:versionInfo": "1.0",
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "SHACL shapes for validating document chunk instances in the DSCDO ontology"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Document Chunk Shape Graph"
+            },
+            "@type": [
+                "sh:ShapesGraph",
+                "owl:Ontology"
+            ]
+        },
+        {
+            "@id": "_:b18",
+            "rdfs:comment": "Definition or description of the concept",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "skos:definition"
+            }
+        },
+        {
+            "@id": "_:b19",
+            "rdfs:comment": "Confidence score for concept extraction (0.0 to 1.0)",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:maxInclusive": {
+                "@value": "1.0",
+                "@type": "xsd:decimal"
+            },
+            "sh:minInclusive": {
+                "@value": "0.0",
+                "@type": "xsd:decimal"
+            },
+            "sh:datatype": {
+                "@id": "xsd:decimal"
+            },
+            "sh:path": {
+                "@id": "dscdo:extractionConfidence"
+            }
+        },
+        {
+            "@id": "_:b28",
+            "rdfs:comment": "The type classification of the extracted concept",
+            "sh:in": {
+                "@list": [
+                    "entity",
+                    "date",
+                    "location",
+                    "person",
+                    "organization",
+                    "event",
+                    "quantity",
+                    "other"
+                ]
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "dscdo:conceptType"
+            }
+        },
+        {
+            "@id": "_:b29",
+            "rdfs:comment": "The preferred label for the concept",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "skos:prefLabel"
+            }
+        },
+        {
+            "@id": "_:b30",
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:hasValue": {
+                "@id": "dscdo:ExtractedConcept"
+            },
+            "sh:path": {
+                "@id": "rdf:type"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/ExtractedConceptShape-v1",
+            "sh:ignoredProperties": {
+                "@list": [
+                    {
+                        "@id": "rdf:type"
+                    },
+                    {
+                        "@id": "rdfs:label"
+                    },
+                    {
+                        "@id": "rdfs:comment"
+                    }
+                ]
+            },
+            "sh:closed": {
+                "@value": "false",
+                "@type": "xsd:boolean"
+            },
+            "sh:property": [
+                {
+                    "@id": "_:b18"
+                },
+                {
+                    "@id": "_:b19"
+                },
+                {
+                    "@id": "_:b28"
+                },
+                {
+                    "@id": "_:b29"
+                },
+                {
+                    "@id": "_:b30"
+                }
+            ],
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentChunkShape"
+            },
+            "dcterms:version": "1.0",
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-11",
+                "@type": "xsd:date"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Defines constraints for SKOS concepts extracted from document content"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "SHACL shape for validating Extracted Concept instances"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Extracted Concept Shape"
+            },
+            "sh:targetClass": {
+                "@id": "dscdo:ExtractedConcept"
+            },
+            "@type": "sh:NodeShape"
+        },
+        {
+            "@id": "_:b34",
+            "rdfs:comment": "The property value as string",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "schema:value"
+            }
+        },
+        {
+            "@id": "_:b35",
+            "rdfs:comment": "The property identifier or name",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "schema:propertyID"
+            }
+        },
+        {
+            "@id": "_:b36",
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:hasValue": {
+                "@id": "schema:PropertyValue"
+            },
+            "sh:path": {
+                "@id": "rdf:type"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/PropertyValueShape-v1",
+            "sh:ignoredProperties": {
+                "@list": [
+                    {
+                        "@id": "rdf:type"
+                    },
+                    {
+                        "@id": "rdfs:label"
+                    },
+                    {
+                        "@id": "rdfs:comment"
+                    }
+                ]
+            },
+            "sh:closed": {
+                "@value": "false",
+                "@type": "xsd:boolean"
+            },
+            "sh:property": [
+                {
+                    "@id": "_:b34"
+                },
+                {
+                    "@id": "_:b35"
+                },
+                {
+                    "@id": "_:b36"
+                }
+            ],
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentChunkShape"
+            },
+            "dcterms:version": "1.0",
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-11",
+                "@type": "xsd:date"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Defines constraints for structured key-value properties"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "SHACL shape for validating Schema.org PropertyValue instances"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Property Value Shape"
+            },
+            "sh:targetClass": {
+                "@id": "schema:PropertyValue"
+            },
+            "@type": "sh:NodeShape"
+        },
+        {
+            "@id": "_:b40",
+            "rdfs:comment": "Concepts that are members of this collection",
+            "sh:nodeKind": {
+                "@id": "sh:IRI"
+            },
+            "sh:path": {
+                "@id": "prov:hadMember"
+            }
+        },
+        {
+            "@id": "_:b41",
+            "rdfs:comment": "Description of the concept collection",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "schema:description"
+            }
+        },
+        {
+            "@id": "_:b42",
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:hasValue": {
+                "@id": "dscdo:ConceptCollection"
+            },
+            "sh:path": {
+                "@id": "rdf:type"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/ConceptCollectionShape-v1",
+            "sh:ignoredProperties": {
+                "@list": [
+                    {
+                        "@id": "rdf:type"
+                    },
+                    {
+                        "@id": "rdfs:label"
+                    },
+                    {
+                        "@id": "rdfs:comment"
+                    }
+                ]
+            },
+            "sh:closed": {
+                "@value": "false",
+                "@type": "xsd:boolean"
+            },
+            "sh:property": [
+                {
+                    "@id": "_:b40"
+                },
+                {
+                    "@id": "_:b41"
+                },
+                {
+                    "@id": "_:b42"
+                }
+            ],
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentChunkShape"
+            },
+            "dcterms:version": "1.0",
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-11",
+                "@type": "xsd:date"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Defines constraints for collections of extracted concepts"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "SHACL shape for validating Concept Collection instances"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Concept Collection Shape"
+            },
+            "sh:targetClass": {
+                "@id": "dscdo:ConceptCollection"
+            },
+            "@type": "sh:NodeShape"
+        },
+        {
+            "@id": "_:b46",
+            "rdfs:comment": "Target chunk in the relationship",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:class": {
+                "@id": "dscdo:DocumentChunk"
+            },
+            "sh:nodeKind": {
+                "@id": "sh:IRI"
+            },
+            "sh:path": {
+                "@id": "dscdo:hasRelationshipTarget"
+            }
+        },
+        {
+            "@id": "_:b54",
+            "rdfs:comment": "Type of spatial or semantic relationship",
+            "sh:in": {
+                "@list": [
+                    "above",
+                    "below",
+                    "left",
+                    "right",
+                    "overlaps",
+                    "contains",
+                    "adjacent"
+                ]
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "dscdo:relationshipType"
+            }
+        },
+        {
+            "@id": "_:b55",
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:hasValue": {
+                "@id": "dscdo:ChunkRelationship"
+            },
+            "sh:path": {
+                "@id": "rdf:type"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/ChunkRelationshipShape-v1",
+            "sh:ignoredProperties": {
+                "@list": [
+                    {
+                        "@id": "rdf:type"
+                    },
+                    {
+                        "@id": "rdfs:label"
+                    },
+                    {
+                        "@id": "rdfs:comment"
+                    }
+                ]
+            },
+            "sh:closed": {
+                "@value": "false",
+                "@type": "xsd:boolean"
+            },
+            "sh:property": [
+                {
+                    "@id": "_:b46"
+                },
+                {
+                    "@id": "_:b54"
+                },
+                {
+                    "@id": "_:b55"
+                }
+            ],
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentChunkShape"
+            },
+            "dcterms:version": "1.0",
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-11",
+                "@type": "xsd:date"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Defines constraints for relationships between document chunks"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "SHACL shape for validating Chunk Relationship instances"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Chunk Relationship Shape"
+            },
+            "sh:targetClass": {
+                "@id": "dscdo:ChunkRelationship"
+            },
+            "@type": "sh:NodeShape"
+        },
+        {
+            "@id": "_:b59",
+            "rdfs:comment": "SKOS concepts extracted from this chunk",
+            "sh:class": {
+                "@id": "skos:Concept"
+            },
+            "sh:nodeKind": {
+                "@id": "sh:IRI"
+            },
+            "sh:path": {
+                "@id": "dscdo:hasConcept"
+            }
+        },
+        {
+            "@id": "_:b60",
+            "rdfs:comment": "Structured key-value properties extracted from chunk",
+            "sh:class": {
+                "@id": "schema:PropertyValue"
+            },
+            "sh:nodeKind": {
+                "@id": "sh:IRI"
+            },
+            "sh:path": {
+                "@id": "schema:additionalProperty"
+            }
+        },
+        {
+            "@id": "_:b61",
+            "rdfs:comment": "Concepts extracted from this chunk",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:class": {
+                "@id": "dscdo:ConceptCollection"
+            },
+            "sh:nodeKind": {
+                "@id": "sh:IRI"
+            },
+            "sh:path": {
+                "@id": "dscdo:hasChunkConcepts"
+            }
+        },
+        {
+            "@id": "_:b62",
+            "rdfs:comment": "Other chunks that provide supporting context",
+            "sh:class": {
+                "@id": "dscdo:DocumentChunk"
+            },
+            "sh:nodeKind": {
+                "@id": "sh:IRI"
+            },
+            "sh:path": {
+                "@id": "dscdo:hasSupportingChunk"
+            }
+        },
+        {
+            "@id": "_:b63",
+            "rdfs:comment": "Spatial or semantic relationships with other chunks",
+            "sh:class": {
+                "@id": "dscdo:ChunkRelationship"
+            },
+            "sh:nodeKind": {
+                "@id": "sh:IRI"
+            },
+            "sh:path": {
+                "@id": "dscdo:hasChunkRelationship"
+            }
+        },
+        {
+            "@id": "_:b64",
+            "rdfs:comment": "The document content this chunk belongs to",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:class": {
+                "@id": "dscdo:DocumentContent"
+            },
+            "sh:nodeKind": {
+                "@id": "sh:IRI"
+            },
+            "sh:path": {
+                "@id": "dscdo:isChunkOf"
+            }
+        },
+        {
+            "@id": "_:b65",
+            "rdfs:comment": "Sequential index of the chunk within the document",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minInclusive": {
+                "@value": "0",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:integer"
+            },
+            "sh:path": {
+                "@id": "dscdo:chunkIndex"
+            }
+        },
+        {
+            "@id": "_:b66",
+            "rdfs:comment": "Document section or category the chunk belongs to",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "dscdo:belongsTo"
+            }
+        },
+        {
+            "@id": "_:b67",
+            "rdfs:comment": "Comma-separated bounding box coordinates (x1,y1,x2,y2)",
+            "sh:pattern": "^[0-9]+(\\.[0-9]+)?,[0-9]+(\\.[0-9]+)?,[0-9]+(\\.[0-9]+)?,[0-9]+(\\.[0-9]+)?$",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "dscdo:boundingBox"
+            }
+        },
+        {
+            "@id": "_:b68",
+            "rdfs:comment": "Position description within the document",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "dscdo:chunkPosition"
+            }
+        },
+        {
+            "@id": "_:b69",
+            "rdfs:comment": "OCR region identifier for the chunk",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "dscdo:regionId"
+            }
+        },
+        {
+            "@id": "_:b76",
+            "rdfs:comment": "The type classification of the chunk",
+            "sh:in": {
+                "@list": [
+                    "text",
+                    "image",
+                    "table",
+                    "header",
+                    "footer",
+                    "form"
+                ]
+            },
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "dscdo:chunkType"
+            }
+        },
+        {
+            "@id": "_:b77",
+            "rdfs:comment": "Description of the chunk content and purpose",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "schema:description"
+            }
+        },
+        {
+            "@id": "_:b78",
+            "rdfs:comment": "A summary of the chunk content",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "dscdo:chunkSummary"
+            }
+        },
+        {
+            "@id": "_:b79",
+            "rdfs:comment": "The primary text content of the chunk",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "dscdo:chunkMainText"
+            }
+        },
+        {
+            "@id": "_:b80",
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:hasValue": {
+                "@id": "dscdo:DocumentChunk"
+            },
+            "sh:path": {
+                "@id": "rdf:type"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentChunkShape-v1",
+            "sh:ignoredProperties": {
+                "@list": [
+                    {
+                        "@id": "rdf:type"
+                    },
+                    {
+                        "@id": "rdfs:label"
+                    },
+                    {
+                        "@id": "rdfs:comment"
+                    }
+                ]
+            },
+            "sh:closed": {
+                "@value": "false",
+                "@type": "xsd:boolean"
+            },
+            "sh:property": [
+                {
+                    "@id": "_:b59"
+                },
+                {
+                    "@id": "_:b60"
+                },
+                {
+                    "@id": "_:b61"
+                },
+                {
+                    "@id": "_:b62"
+                },
+                {
+                    "@id": "_:b63"
+                },
+                {
+                    "@id": "_:b64"
+                },
+                {
+                    "@id": "_:b65"
+                },
+                {
+                    "@id": "_:b66"
+                },
+                {
+                    "@id": "_:b67"
+                },
+                {
+                    "@id": "_:b80"
+                },
+                {
+                    "@id": "_:b79"
+                },
+                {
+                    "@id": "_:b78"
+                },
+                {
+                    "@id": "_:b77"
+                },
+                {
+                    "@id": "_:b76"
+                },
+                {
+                    "@id": "_:b69"
+                },
+                {
+                    "@id": "_:b68"
+                }
+            ],
+            "@type": "sh:NodeShape",
+            "sh:targetClass": {
+                "@id": "dscdo:DocumentChunk"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Document Chunk Shape"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "SHACL shape for validating Document Chunk instances in the DSCDO ontology"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Defines constraints for document chunks and their properties in the supply chain documentation system"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-11",
+                "@type": "xsd:date"
+            },
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:version": "1.0",
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentChunkShape"
+            }
+        }
+    ],
+    "@context": {
+        "schema": "https://schema.org/",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "prov": "http://www.w3.org/ns/prov#"
+    }
+}

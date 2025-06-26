@@ -5,7 +5,7 @@ environment: production
 uri_bases:
   context: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context"
   ontology: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont"
-  shapes: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes"
+  shapes: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/shacl"
   rules: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/rules" 
   data: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/data"
 
@@ -20,9 +20,9 @@ deployment_bases:
 # Template variable mappings for envsubst
 CONTEXT_BASE: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context"
 ONTOLOGY_BASE: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont"
-SHAPES_BASE: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes"
+SHAPES_BASE: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/shacl"
 RULES_BASE: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/rules"
 DATA_BASE: "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/data"
 
 # Version information
-version: "0.1.4"
+version: "0.2.0"

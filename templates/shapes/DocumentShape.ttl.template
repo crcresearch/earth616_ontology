@@ -7,6 +7,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix schema: <https://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @base <${SHAPES_BASE}/> .
 
 # Shape Graph metadata
@@ -17,27 +18,28 @@
     dcterms:created "2025-05-23" ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> .
 
-<${SHAPES_BASE}/DocumentShape-v1> a sh:NodeShape ;
-    sh:targetClass dscdo:Digitaldocument ;
-    rdfs:label "Digital Document Shape"@en ;
-    rdfs:comment "SHACL shape for validating Digital Document instances in the DSCDO ontology"@en ;
-    skos:definition "Defines constraints for digital documents and their content in the supply chain documentation system"@en ;
-    dcterms:created "2025-05-23"^^xsd:date ;
+<${SHAPES_BASE}/SCDigitalDocumentShape-v1> a sh:NodeShape ;
+    sh:targetClass dscdo:SCDigitalDocument ;
+    rdfs:label "Supply Chain Digital Document Shape"@en ;
+    rdfs:comment "SHACL shape for validating Supply Chain Digital Document instances in the DSCDO ontology"@en ;
+    skos:definition "Defines constraints for supply chain digital documents and their content in the supply chain documentation system"@en ;
+    dcterms:created "2025-01-11"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
     dcterms:version "1.0" ;
     rdfs:isDefinedBy <${SHAPES_BASE}/DocumentShape> ;
     
     sh:property [
         sh:path rdf:type ;
-        sh:hasValue dscdo:Digitaldocument ;
+        sh:hasValue dscdo:SCDigitalDocument ;
         sh:minCount 1
     ] ;
     
     sh:property [
         sh:path dscdo:hasDocumentContent ;
         sh:nodeKind sh:IRI ;
-        sh:class dscdo:Documentcontent ;
+        sh:class dscdo:DocumentContent ;
         sh:minCount 1 ;
+        sh:maxCount 1 ;
         rdfs:comment "Links to the content of the document"
     ] ;
     
@@ -88,6 +90,66 @@
         sh:path schema:author ;
         sh:nodeKind sh:IRI ;
         rdfs:comment "The author(s) of the document"
+    ] ;
+    
+    sh:closed false ;
+    sh:ignoredProperties ( rdf:type rdfs:label rdfs:comment ) .
+
+# Document Content Shape
+<${SHAPES_BASE}/DocumentContentShape-v1> a sh:NodeShape ;
+    sh:targetClass dscdo:DocumentContent ;
+    rdfs:label "Document Content Shape"@en ;
+    rdfs:comment "SHACL shape for validating Document Content instances in the DSCDO ontology"@en ;
+    skos:definition "Defines constraints for document content and its relationship to chunks in the supply chain documentation system"@en ;
+    dcterms:created "2025-01-11"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    dcterms:version "1.0" ;
+    rdfs:isDefinedBy <${SHAPES_BASE}/DocumentShape> ;
+    
+    sh:property [
+        sh:path rdf:type ;
+        sh:hasValue dscdo:DocumentContent ;
+        sh:minCount 1
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:processedText ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        rdfs:comment "The processed text content extracted from the document"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:hasChunk ;
+        sh:nodeKind sh:IRI ;
+        sh:class dscdo:DocumentChunk ;
+        sh:minCount 1 ;
+        rdfs:comment "Links to document chunks that comprise this content"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:contentExtractedFrom ;
+        sh:nodeKind sh:IRI ;
+        sh:class dscdo:SCDigitalDocument ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        rdfs:comment "The source document this content was extracted from"
+    ] ;
+    
+    sh:property [
+        sh:path schema:description ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        rdfs:comment "Description of the document content"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:workflowExecution ;
+        sh:nodeKind sh:IRI ;
+        sh:class dscdo:InformationExtractionWorkflow ;
+        sh:maxCount 1 ;
+        rdfs:comment "The workflow that generated this content"
     ] ;
     
     sh:closed false ;

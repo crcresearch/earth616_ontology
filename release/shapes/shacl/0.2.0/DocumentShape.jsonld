@@ -1,2 +1,411 @@
 {
+    "@graph": [
+        {
+            "@id": "_:b3",
+            "rdfs:comment": "The workflow that generated this content",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:class": {
+                "@id": "dscdo:InformationExtractionWorkflow"
+            },
+            "sh:nodeKind": {
+                "@id": "sh:IRI"
+            },
+            "sh:path": {
+                "@id": "dscdo:workflowExecution"
+            }
+        },
+        {
+            "@id": "_:b4",
+            "rdfs:comment": "Description of the document content",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "schema:description"
+            }
+        },
+        {
+            "@id": "_:b5",
+            "rdfs:comment": "The source document this content was extracted from",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:class": {
+                "@id": "dscdo:SCDigitalDocument"
+            },
+            "sh:nodeKind": {
+                "@id": "sh:IRI"
+            },
+            "sh:path": {
+                "@id": "dscdo:contentExtractedFrom"
+            }
+        },
+        {
+            "@id": "_:b6",
+            "rdfs:comment": "Links to document chunks that comprise this content",
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:class": {
+                "@id": "dscdo:DocumentChunk"
+            },
+            "sh:nodeKind": {
+                "@id": "sh:IRI"
+            },
+            "sh:path": {
+                "@id": "dscdo:hasChunk"
+            }
+        },
+        {
+            "@id": "_:b7",
+            "rdfs:comment": "The processed text content extracted from the document",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "dscdo:processedText"
+            }
+        },
+        {
+            "@id": "_:b8",
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:hasValue": {
+                "@id": "dscdo:DocumentContent"
+            },
+            "sh:path": {
+                "@id": "rdf:type"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentContentShape-v1",
+            "sh:ignoredProperties": {
+                "@list": [
+                    {
+                        "@id": "rdf:type"
+                    },
+                    {
+                        "@id": "rdfs:label"
+                    },
+                    {
+                        "@id": "rdfs:comment"
+                    }
+                ]
+            },
+            "@type": "sh:NodeShape",
+            "sh:targetClass": {
+                "@id": "dscdo:DocumentContent"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Document Content Shape"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "SHACL shape for validating Document Content instances in the DSCDO ontology"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Defines constraints for document content and its relationship to chunks in the supply chain documentation system"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-11",
+                "@type": "xsd:date"
+            },
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:version": "1.0",
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentShape"
+            },
+            "sh:property": [
+                {
+                    "@id": "_:b8"
+                },
+                {
+                    "@id": "_:b7"
+                },
+                {
+                    "@id": "_:b6"
+                },
+                {
+                    "@id": "_:b5"
+                },
+                {
+                    "@id": "_:b4"
+                },
+                {
+                    "@id": "_:b3"
+                }
+            ],
+            "sh:closed": {
+                "@value": "false",
+                "@type": "xsd:boolean"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentShape",
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": "2025-05-23",
+            "owl:versionInfo": "1.0",
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "SHACL shapes for validating document instances in the DSCDO ontology"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Document Shape Graph"
+            },
+            "@type": [
+                "sh:ShapesGraph",
+                "owl:Ontology"
+            ]
+        },
+        {
+            "@id": "_:b12",
+            "rdfs:comment": "The author(s) of the document",
+            "sh:nodeKind": {
+                "@id": "sh:IRI"
+            },
+            "sh:path": {
+                "@id": "schema:author"
+            }
+        },
+        {
+            "@id": "_:b13",
+            "rdfs:comment": "The MIME type of the document",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "schema:encodingFormat"
+            }
+        },
+        {
+            "@id": "_:b14",
+            "rdfs:comment": "URL to access the document content",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:nodeKind": {
+                "@id": "sh:IRI"
+            },
+            "sh:path": {
+                "@id": "schema:contentUrl"
+            }
+        },
+        {
+            "@id": "_:b15",
+            "rdfs:comment": "Date when the document was last modified",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:dateTime"
+            },
+            "sh:path": {
+                "@id": "schema:dateModified"
+            }
+        },
+        {
+            "@id": "_:b16",
+            "rdfs:comment": "Date when the document was created",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:dateTime"
+            },
+            "sh:path": {
+                "@id": "schema:dateCreated"
+            }
+        },
+        {
+            "@id": "_:b17",
+            "rdfs:comment": "Description of the document purpose and content",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "schema:description"
+            }
+        },
+        {
+            "@id": "_:b18",
+            "rdfs:comment": "The name or title of the document",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:datatype": {
+                "@id": "xsd:string"
+            },
+            "sh:path": {
+                "@id": "schema:name"
+            }
+        },
+        {
+            "@id": "_:b19",
+            "rdfs:comment": "Links to the content of the document",
+            "sh:maxCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:class": {
+                "@id": "dscdo:DocumentContent"
+            },
+            "sh:nodeKind": {
+                "@id": "sh:IRI"
+            },
+            "sh:path": {
+                "@id": "dscdo:hasDocumentContent"
+            }
+        },
+        {
+            "@id": "_:b20",
+            "sh:minCount": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "sh:hasValue": {
+                "@id": "dscdo:SCDigitalDocument"
+            },
+            "sh:path": {
+                "@id": "rdf:type"
+            }
+        },
+        {
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/SCDigitalDocumentShape-v1",
+            "sh:ignoredProperties": {
+                "@list": [
+                    {
+                        "@id": "rdf:type"
+                    },
+                    {
+                        "@id": "rdfs:label"
+                    },
+                    {
+                        "@id": "rdfs:comment"
+                    }
+                ]
+            },
+            "sh:closed": {
+                "@value": "false",
+                "@type": "xsd:boolean"
+            },
+            "sh:property": [
+                {
+                    "@id": "_:b12"
+                },
+                {
+                    "@id": "_:b13"
+                },
+                {
+                    "@id": "_:b20"
+                },
+                {
+                    "@id": "_:b19"
+                },
+                {
+                    "@id": "_:b18"
+                },
+                {
+                    "@id": "_:b17"
+                },
+                {
+                    "@id": "_:b16"
+                },
+                {
+                    "@id": "_:b15"
+                },
+                {
+                    "@id": "_:b14"
+                }
+            ],
+            "@type": "sh:NodeShape",
+            "sh:targetClass": {
+                "@id": "dscdo:SCDigitalDocument"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Supply Chain Digital Document Shape"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "SHACL shape for validating Supply Chain Digital Document instances in the DSCDO ontology"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Defines constraints for supply chain digital documents and their content in the supply chain documentation system"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-11",
+                "@type": "xsd:date"
+            },
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:version": "1.0",
+            "rdfs:isDefinedBy": {
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentShape"
+            }
+        }
+    ],
+    "@context": {
+        "schema": "https://schema.org/",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "prov": "http://www.w3.org/ns/prov#"
+    }
 }

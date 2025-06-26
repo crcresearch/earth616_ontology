@@ -12,9 +12,9 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 
 # --- DSCDO (environment-specific namespace) ---
-@prefix dscdo: <${ONTOLOGY_BASE}> .
-@prefix : <${ONTOLOGY_BASE}> .
-@base <${ONTOLOGY_BASE}> .
+@prefix dscdo: <${ONTOLOGY_BASE}/> .
+@prefix : <${ONTOLOGY_BASE}/> .
+@base <${ONTOLOGY_BASE}/> .
 
 # --- AMMO Ontology Reference ---
 @prefix ammo: <https://w3id.org/ammo/ont/> .

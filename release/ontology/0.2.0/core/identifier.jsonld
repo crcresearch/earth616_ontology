@@ -166,7 +166,7 @@
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "skos": "http://www.w3.org/2004/02/skos/core#",
         "dcterms": "http://purl.org/dc/terms/",
-        "dscdo": "https://vocab.earth616.local/ont/",
+        "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
     }
 }

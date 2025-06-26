@@ -1,0 +1,840 @@
+{
+    "@graph": [
+        {
+            "@id": "dscdo:SpatialOverlaps",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A spatial relationship indicating that one document chunk overlaps spatially with another in the document layout"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that one chunk spatially overlaps with another."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Spatial Overlaps"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "@type": "ChunkRelationship"
+        },
+        {
+            "@id": "dscdo:ChunkRelationship",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A structured representation of the relationship between two or more document chunks, including spatial positioning and semantic connections"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Represents a spatial or semantic relationship between document chunks."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Chunk Relationship"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:subClassOf": {
+                "@id": "prov:Entity"
+            },
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:SpatialRight",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A spatial relationship indicating that one document chunk is positioned to the right of another in the document layout"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that one chunk is spatially positioned to the right of another."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Spatial Right"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "@type": "ChunkRelationship"
+        },
+        {
+            "@id": "dscdo:SpatialLeft",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A spatial relationship indicating that one document chunk is positioned to the left of another in the document layout"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that one chunk is spatially positioned to the left of another."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Spatial Left"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "@type": "ChunkRelationship"
+        },
+        {
+            "@id": "dscdo:SpatialBelow",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A spatial relationship indicating that one document chunk is positioned below another in the document layout"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that one chunk is spatially positioned below another."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Spatial Below"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "@type": "ChunkRelationship"
+        },
+        {
+            "@id": "dscdo:SpatialAbove",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A spatial relationship indicating that one document chunk is positioned above another in the document layout"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that one chunk is spatially positioned above another."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Spatial Above"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "@type": "ChunkRelationship"
+        },
+        {
+            "@id": "dscdo:TableChunk",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A document chunk that represents structured tabular data or table content within a document"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A chunk containing tabular data."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Table Chunk"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "@type": "DocumentChunk"
+        },
+        {
+            "@id": "dscdo:DocumentChunk",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A discrete segment of document content that represents a meaningful unit for processing, analysis, or storage"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A segment or portion of document content with spatial and semantic boundaries."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Document Chunk"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:subClassOf": {
+                "@id": "dscdo:DocumentContent"
+            },
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:ImageChunk",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A document chunk that represents image, diagram, or other visual content within a document"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A chunk containing image or graphical content."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Image Chunk"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "@type": "DocumentChunk"
+        },
+        {
+            "@id": "dscdo:TextChunk",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A document chunk that consists primarily of textual content extracted through OCR or document processing"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A chunk containing primarily textual content."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Text Chunk"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "@type": "DocumentChunk"
+        },
+        {
+            "@id": "dscdo:ConceptRelationship",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A structured representation of semantic relationships between SKOS concepts extracted from document content"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A semantic relationship between extracted concepts."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Concept Relationship"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:subClassOf": {
+                "@id": "prov:Entity"
+            },
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:ExtractedConcept",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A SKOS concept that has been identified and extracted from document text during information extraction processing"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A semantic concept extracted from document content."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Extracted Concept"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:subClassOf": [
+                {
+                    "@id": "prov:Entity"
+                },
+                {
+                    "@id": "skos:Concept"
+                }
+            ],
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:ConceptCollection",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "An organized collection of semantic concepts and their relationships extracted from document content during information extraction processes"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A collection of concepts and relationships extracted from a document chunk."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Concept Collection"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:subClassOf": {
+                "@id": "prov:Collection"
+            },
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:conceptType",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A classification indicating the semantic type of the extracted concept"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The type classification of the extracted concept (entity, date, location, etc.)."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "concept type"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "xsd:string"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:ExtractedConcept"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:extractionConfidence",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A numerical confidence score indicating the reliability of concept extraction"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Confidence score for concept extraction (0.0 to 1.0)."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "extraction confidence"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "xsd:decimal"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:ExtractedConcept"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:conceptTarget",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Identifies the target SKOS concept in a semantic relationship"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The target concept in a relationship."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "concept target"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "skos:Concept"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:ConceptRelationship"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:conceptSource",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Identifies the source SKOS concept in a semantic relationship"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The source concept in a relationship."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "concept source"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "skos:Concept"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:ConceptRelationship"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:conceptRelationshipType",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Specifies the semantic relationship type between extracted SKOS concepts"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The type of semantic relationship between concepts."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "concept relationship type"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "xsd:string"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:ConceptRelationship"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:relationshipType",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Specifies the spatial or semantic type of relationship between document chunks"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The type of relationship between chunks (above, below, left, right, overlaps)."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "relationship type"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "xsd:string"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:ChunkRelationship"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:chunkType",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A classification indicating the type or nature of content within the chunk"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The type classification of the chunk content."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "chunk type"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "xsd:string"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:DocumentChunk"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:belongsTo",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Specifies the document section or category classification for the chunk content"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates the category or section that the chunk belongs to."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "belongs to"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "xsd:string"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:DocumentChunk"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:boundingBox",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Spatial coordinates defining the rectangular boundary of the chunk within the source document"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The coordinate bounding box of the chunk in the original document."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "bounding box"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "xsd:string"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:DocumentChunk"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:chunkPosition",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A textual description of the chunk's position within the document's spatial layout"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Describes the position of the chunk within the document layout."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "chunk position"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "xsd:string"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:DocumentChunk"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:regionId",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "An identifier for the OCR processing region that corresponds to this document chunk"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The OCR region identifier associated with this chunk."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "region ID"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "xsd:string"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:DocumentChunk"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:chunkIndex",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A numerical index indicating the position or sequence of a chunk within its parent document"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The sequential index or order of the chunk within the document."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "chunk index"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "xsd:integer"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:DocumentChunk"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:chunkSummary",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "A concise summary describing the content and purpose of a document chunk"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "A summary of the chunk's content."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "chunk summary"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "xsd:string"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:DocumentChunk"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:chunkMainText",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "The main textual content extracted from a specific chunk or segment of a document"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The primary text content of a document chunk."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "chunk main text"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "xsd:string"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:DocumentChunk"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "dscdo:processedText"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:hasConceptRelationship",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Connects SKOS concepts to their semantic relationships within document context"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Links a concept to its relationships with other concepts."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has concept relationship"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:ConceptRelationship"
+            },
+            "rdfs:domain": {
+                "@id": "skos:Concept"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:hasConcept",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Associates a document chunk with SKOS concepts extracted from its content"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Links a chunk to extracted semantic concepts."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has concept"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "skos:Concept"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:DocumentChunk"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:hasSupportingChunk",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Connects a document chunk to other chunks that provide contextual support or additional information"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Links a chunk to other chunks that provide supporting context."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has supporting chunk"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:DocumentChunk"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:DocumentChunk"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:hasChunkConcepts",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Associates a document chunk with its collection of extracted semantic concepts"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Links a chunk to its extracted concepts and relationships."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has chunk concepts"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:ConceptCollection"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:DocumentChunk"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:hasRelationshipTarget",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Identifies the target chunk in a spatial or semantic relationship"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Specifies the target chunk in a chunk relationship."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has relationship target"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:DocumentChunk"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:ChunkRelationship"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:hasChunkRelationship",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Connects a document chunk to its relationships with other chunks in the document"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Links a chunk to its spatial or semantic relationships with other chunks."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has chunk relationship"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:ChunkRelationship"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:DocumentChunk"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:isChunkOf",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Establishes that a document chunk is a constituent part of a larger document content entity"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that a chunk is part of a larger document content."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "is chunk of"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:DocumentContent"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:DocumentChunk"
+            },
+            "owl:inverseOf": {
+                "@id": "dscdo:hasChunk"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:hasChunk",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Relates a document content entity to its individual chunks or segments extracted during processing"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Links document content to its constituent chunks or segments."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has chunk"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/scdocumentation/document-chunks"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:DocumentChunk"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:DocumentContent"
+            },
+            "@type": "owl:ObjectProperty"
+        }
+    ],
+    "@context": {
+        "schema": "http://schema.org/",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "xml": "http://www.w3.org/XML/1998/namespace",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "prov": "http://www.w3.org/ns/prov#",
+        "@vocab": "https://vocab.earth616.localhost/nd/scdoc/ont/"
+    }
+}

@@ -2,42 +2,44 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dscdo: <https://vocab.earth616.local/ont/> .
+@prefix dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix schema: <https://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <https://vocab.earth616.local/shapes/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@base <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/> .
 
 # Shape Graph metadata
-<https://vocab.earth616.local/shapes/DocumentShape> a owl:Ontology, sh:ShapesGraph ;
+<https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentShape> a owl:Ontology, sh:ShapesGraph ;
     rdfs:label "Document Shape Graph"@en ;
     rdfs:comment "SHACL shapes for validating document instances in the DSCDO ontology"@en ;
     owl:versionInfo "1.0" ;
     dcterms:created "2025-05-23" ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> .
 
-<https://vocab.earth616.local/shapes/DocumentShape-v1> a sh:NodeShape ;
-    sh:targetClass dscdo:Digitaldocument ;
-    rdfs:label "Digital Document Shape"@en ;
-    rdfs:comment "SHACL shape for validating Digital Document instances in the DSCDO ontology"@en ;
-    skos:definition "Defines constraints for digital documents and their content in the supply chain documentation system"@en ;
-    dcterms:created "2025-05-23"^^xsd:date ;
+<https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/SCDigitalDocumentShape-v1> a sh:NodeShape ;
+    sh:targetClass dscdo:SCDigitalDocument ;
+    rdfs:label "Supply Chain Digital Document Shape"@en ;
+    rdfs:comment "SHACL shape for validating Supply Chain Digital Document instances in the DSCDO ontology"@en ;
+    skos:definition "Defines constraints for supply chain digital documents and their content in the supply chain documentation system"@en ;
+    dcterms:created "2025-01-11"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
     dcterms:version "1.0" ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/shapes/DocumentShape> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentShape> ;
     
     sh:property [
         sh:path rdf:type ;
-        sh:hasValue dscdo:Digitaldocument ;
+        sh:hasValue dscdo:SCDigitalDocument ;
         sh:minCount 1
     ] ;
     
     sh:property [
         sh:path dscdo:hasDocumentContent ;
         sh:nodeKind sh:IRI ;
-        sh:class dscdo:Documentcontent ;
+        sh:class dscdo:DocumentContent ;
         sh:minCount 1 ;
+        sh:maxCount 1 ;
         rdfs:comment "Links to the content of the document"
     ] ;
     
@@ -88,6 +90,66 @@
         sh:path schema:author ;
         sh:nodeKind sh:IRI ;
         rdfs:comment "The author(s) of the document"
+    ] ;
+    
+    sh:closed false ;
+    sh:ignoredProperties ( rdf:type rdfs:label rdfs:comment ) .
+
+# Document Content Shape
+<https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentContentShape-v1> a sh:NodeShape ;
+    sh:targetClass dscdo:DocumentContent ;
+    rdfs:label "Document Content Shape"@en ;
+    rdfs:comment "SHACL shape for validating Document Content instances in the DSCDO ontology"@en ;
+    skos:definition "Defines constraints for document content and its relationship to chunks in the supply chain documentation system"@en ;
+    dcterms:created "2025-01-11"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    dcterms:version "1.0" ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentShape> ;
+    
+    sh:property [
+        sh:path rdf:type ;
+        sh:hasValue dscdo:DocumentContent ;
+        sh:minCount 1
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:processedText ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        rdfs:comment "The processed text content extracted from the document"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:hasChunk ;
+        sh:nodeKind sh:IRI ;
+        sh:class dscdo:DocumentChunk ;
+        sh:minCount 1 ;
+        rdfs:comment "Links to document chunks that comprise this content"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:contentExtractedFrom ;
+        sh:nodeKind sh:IRI ;
+        sh:class dscdo:SCDigitalDocument ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        rdfs:comment "The source document this content was extracted from"
+    ] ;
+    
+    sh:property [
+        sh:path schema:description ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        rdfs:comment "Description of the document content"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:workflowExecution ;
+        sh:nodeKind sh:IRI ;
+        sh:class dscdo:InformationExtractionWorkflow ;
+        sh:maxCount 1 ;
+        rdfs:comment "The workflow that generated this content"
     ] ;
     
     sh:closed false ;

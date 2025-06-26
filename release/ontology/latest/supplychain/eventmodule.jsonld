@@ -1,6 +1,257 @@
 {
     "@graph": [
         {
+            "@id": "dscdo:observationMethod",
+            "rdfs:comment": [
+                {
+                    "@language": "en",
+                    "@value": "Recommended to use Wikidata URIs for standardized measurement techniques (e.g., Q134566 for weighing scale, Q1402042 for precision balance, Q180809 for mass spectrometry)"
+                },
+                {
+                    "@language": "en",
+                    "@value": "The technique or method used to make the observation, extending schema.org measurementTechnique. Can be a string (e.g., 'digital_scale') or a structured object describing the method."
+                }
+            ],
+            "skos:example": [
+                {
+                    "@language": "en",
+                    "@value": "<http://www.wikidata.org/entity/Q1402042>"
+                },
+                {
+                    "@language": "en",
+                    "@value": "<http://www.wikidata.org/entity/Q134566>"
+                },
+                {
+                    "@language": "en",
+                    "@value": "\"digital_industrial_scale\""
+                }
+            ],
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Describes how the observation was performed (sensor type, inspection method, etc.)"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:domain": {
+                "@id": "schema:Observation"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "schema:measurementTechnique"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "observation method"
+            },
+            "@type": "rdf:Property"
+        },
+        {
+            "@id": "dscdo:modules/supplychain/eventmodule",
+            "owl:imports": [
+                {
+                    "@id": "dscdo:modules/core/event"
+                },
+                {
+                    "@id": "dscdo:patterns/SpatioTemporalExtent"
+                }
+            ],
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Supply chain events with enhanced spatial and temporal capabilities using W3C Time and GeoSPARQL vocabularies"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Supply Chain Event Module"
+            },
+            "@type": "owl:Ontology"
+        },
+        {
+            "@id": "_:b0",
+            "owl:unionOf": {
+                "@list": [
+                    {
+                        "@id": "schema:QuantitativeValue"
+                    },
+                    {
+                        "@id": "schema:PropertyValue"
+                    },
+                    {
+                        "@id": "xsd:string"
+                    },
+                    {
+                        "@id": "xsd:boolean"
+                    }
+                ]
+            }
+        },
+        {
+            "@id": "dscdo:measurementValue",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "The measured value or result of the observation activity"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:range": {
+                "@id": "_:b0"
+            },
+            "rdfs:domain": {
+                "@id": "schema:Observation"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "schema:value"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The quantitative or qualitative value resulting from the observation, typically a QuantitativeValue."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "measurement value"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:measuredProperty",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Specifies what characteristic is being measured (e.g., temperature, weight, location)"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:range": {
+                "@id": "owl:Thing"
+            },
+            "rdfs:domain": {
+                "@id": "schema:Observation"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "schema:measuredProperty"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The property or characteristic being measured in the observation, aligned with schema.org measuredProperty."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "measured property"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:observationDate",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Timestamp indicating when the observation was recorded"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:range": {
+                "@id": "xsd:dateTime"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:ObservationEvent"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "schema:observationDate"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The date/time when the observation was made, aligned with schema.org observationDate."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "observation date"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:ObservationEvent",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "An event that records data collection or monitoring activities without altering the observed items, producing structured observations following schema.org standards"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "An event representing the observation or measurement of supply chain items without changing their state, aligned with schema.org observation patterns."
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Observation Event"
+            },
+            "rdfs:subClassOf": [
+                {
+                    "@id": "_:b5"
+                },
+                {
+                    "@id": "_:b6"
+                },
+                {
+                    "@id": "dscdo:SupplyChainEvent"
+                }
+            ],
+            "@type": "owl:Class"
+        },
+        {
+            "@id": "dscdo:hasObservationResult",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Connects an observation event to its structured result following schema.org observation patterns"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:range": {
+                "@id": "schema:Observation"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:ObservationEvent"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Links an observation event to the structured observation data produced, typically a schema:Observation instance."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "has observation result"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:observationAbout",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Links an observation event to the supply chain entity that is the subject of observation"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/supplychain/eventmodule"
+            },
+            "rdfs:range": {
+                "@id": "owl:Thing"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:ObservationEvent"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "schema:observationAbout"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Relates an observation event to the entity being observed, aligned with schema.org observationAbout."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "observation about"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
             "@id": "dscdo:duringTimeInterval",
             "rdfs:isDefinedBy": {
                 "@id": "dscdo:modules/supplychain/eventmodule"
@@ -23,26 +274,6 @@
                 "@value": "during time interval"
             },
             "@type": "owl:ObjectProperty"
-        },
-        {
-            "@id": "dscdo:modules/supplychain/eventmodule",
-            "owl:imports": [
-                {
-                    "@id": "dscdo:modules/core/event"
-                },
-                {
-                    "@id": "dscdo:patterns/SpatioTemporalExtent"
-                }
-            ],
-            "rdfs:comment": {
-                "@language": "en",
-                "@value": "Supply chain events with enhanced spatial and temporal capabilities using W3C Time and GeoSPARQL vocabularies"
-            },
-            "rdfs:label": {
-                "@language": "en",
-                "@value": "Supply Chain Event Module"
-            },
-            "@type": "owl:Ontology"
         },
         {
             "@id": "dscdo:SupplyChainEvent",
@@ -181,10 +412,10 @@
             },
             "rdfs:subClassOf": [
                 {
-                    "@id": "_:b0"
+                    "@id": "_:b7"
                 },
                 {
-                    "@id": "_:b1"
+                    "@id": "_:b8"
                 },
                 {
                     "@id": "dscdo:SupplyChainEvent"
@@ -397,29 +628,27 @@
             "@type": "owl:Class"
         },
         {
-            "@id": "dscdo:ObservationEvent",
-            "skos:definition": {
-                "@language": "en",
-                "@value": "An event that records data collection or monitoring activities without altering the observed items"
+            "@id": "_:b5",
+            "owl:someValuesFrom": {
+                "@id": "schema:Observation"
             },
-            "rdfs:comment": {
-                "@language": "en",
-                "@value": "An event representing the observation or measurement of supply chain items without changing their state."
+            "owl:onProperty": {
+                "@id": "dscdo:hasObservationResult"
             },
-            "rdfs:isDefinedBy": {
-                "@id": "dscdo:modules/supplychain/eventmodule"
-            },
-            "rdfs:label": {
-                "@language": "en",
-                "@value": "Observation Event"
-            },
-            "rdfs:subClassOf": {
-                "@id": "dscdo:SupplyChainEvent"
-            },
-            "@type": "owl:Class"
+            "@type": "owl:Restriction"
         },
         {
-            "@id": "_:b0",
+            "@id": "_:b6",
+            "owl:someValuesFrom": {
+                "@id": "owl:Thing"
+            },
+            "owl:onProperty": {
+                "@id": "dscdo:observationAbout"
+            },
+            "@type": "owl:Restriction"
+        },
+        {
+            "@id": "_:b7",
             "owl:someValuesFrom": {
                 "@id": "geo:Feature"
             },
@@ -429,7 +658,7 @@
             "@type": "owl:Restriction"
         },
         {
-            "@id": "_:b1",
+            "@id": "_:b8",
             "owl:someValuesFrom": {
                 "@id": "geo:Feature"
             },
@@ -488,7 +717,7 @@
         "owl": "http://www.w3.org/2002/07/owl#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "skos": "http://www.w3.org/2004/02/skos/core#",
-        "dscdo": "https://vocab.earth616.local/ont/",
+        "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "geo": "http://www.opengis.net/ont/geosparql#",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -496,6 +725,6 @@
         "dcterms": "http://purl.org/dc/terms/",
         "time": "http://www.w3.org/2006/time#",
         "prov": "http://www.w3.org/ns/prov#",
-        "@vocab": "https://vocab.earth616.local/ont/"
+        "@vocab": "https://vocab.earth616.localhost/nd/scdoc/ont/"
     }
 }

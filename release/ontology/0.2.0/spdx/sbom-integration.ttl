@@ -16,14 +16,14 @@
 @prefix spdx: <https://spdx.org/rdf/3.0.1/terms/> .
 
 # --- DSCDO ---
-@prefix dscdo: <https://vocab.earth616.local/ont/> .
-@prefix : <https://vocab.earth616.local/ont/> .
-@base <https://vocab.earth616.local/ont/> .
+@prefix dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont/> .
+@prefix : <https://vocab.earth616.localhost/nd/scdoc/ont/> .
+@base <https://vocab.earth616.localhost/nd/scdoc/ont/> .
 
 # === SPDX SBOM INTEGRATION MODULE ==========================================
 
 # --- Module Metadata ---
-<https://vocab.earth616.local/ont/modules/spdx/sbom-integration> rdf:type owl:Ontology ;
+<https://vocab.earth616.localhost/nd/scdoc/ont/modules/spdx/sbom-integration> rdf:type owl:Ontology ;
     rdfs:label "DSCDO SPDX SBOM Integration Module"@en ;
     rdfs:comment "Integrates SPDX 3.0.1 Software Bill of Materials (SBOM) concepts with DSCDO workflow ontology for container-based AI agent provenance tracking."@en ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
@@ -31,7 +31,7 @@
     dcterms:modified "2025-01-25"^^xsd:date ;
     owl:versionInfo "0.1.0" ;
     owl:imports <https://spdx.org/rdf/3.0.1/terms/> ;
-    owl:imports <https://vocab.earth616.local/ont/modules/core/event> ;
+    owl:imports <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> ;
     rdfs:seeAlso <https://spdx.github.io/spdx-spec/v3.0.1/> .
 
 # === PROPERTY EXTENSIONS ====================================================

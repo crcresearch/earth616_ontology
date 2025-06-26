@@ -1,7 +1,6 @@
 {
     "@context": {
-      // Core namespace definitions
-      "dscdo": "https://vocab.earth616.local/ont/",
+      "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont/",
       "schema": "https://schema.org/",
       "prov": "http://www.w3.org/ns/prov#",
       "skos": "http://www.w3.org/2004/02/skos/core#",
@@ -11,40 +10,33 @@
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "sh": "http://www.w3.org/ns/shacl#",
       "dcterms": "http://purl.org/dc/terms/",
-      
-      // References to modular context files - provided as metadata for documentation
-      // These are not actual JSON-LD keywords but metadata terms for reference
       "documentContext": {
-        "@id": "https://vocab.earth616.local/context/context-documents.jsonld",
+        "@id": "https://vocab.earth616.localhost/nd/scdoc/context/context-documents.jsonld",
         "description": "Context for SCDigitalDocument and related document concepts for supply chain documentation",
         "version": "0.1.4"
       },
       "eventContext": {
-        "@id": "https://vocab.earth616.local/context/context-event.jsonld",
+        "@id": "https://vocab.earth616.localhost/nd/scdoc/context/context-event.jsonld",
         "description": "Context for SupplyChainEvent and event types like TransferEvent, TransformationEvent",
         "version": "0.1.4"
       },
       "identifierContext": {
-        "@id": "https://vocab.earth616.local/context/context-identifier.jsonld",
+        "@id": "https://vocab.earth616.localhost/nd/scdoc/context/context-identifier.jsonld",
         "description": "Context for Identifier pattern, IdentifierType, and IdentifierEncoding concepts",
         "version": "0.1.4"
       },
       "workflowContext": {
-        "@id": "https://vocab.earth616.local/context/context-workflow.jsonld",
+        "@id": "https://vocab.earth616.localhost/nd/scdoc/context/context-workflow.jsonld",
         "description": "Context for InformationExtractionWorkflow and IEPipeline concepts",
         "version": "0.1.4"
       },
       "roleContext": {
-        "@id": "https://vocab.earth616.local/context/context-role.jsonld",
+        "@id": "https://vocab.earth616.localhost/nd/scdoc/context/context-role.jsonld",
         "description": "Context for ParticipantRole, SupplyChainRole and related role concepts",
         "version": "0.1.4"
       },
-      
-      // Cross-layer references
-      "shapesGraph": {"@id": "https://vocab.earth616.local/shapes/", "@type": "@id"},
-      "rulesGraph": {"@id": "https://vocab.earth616.local/rules/", "@type": "@id"},
-      
-      // Core RDFS/OWL vocabulary terms
+      "shapesGraph": {"@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/", "@type": "@id"},
+      "rulesGraph": {"@id": "https://vocab.earth616.localhost/nd/scdoc/rules/", "@type": "@id"},
       "label": {"@id": "rdfs:label"},
       "comment": {"@id": "rdfs:comment"},
       "subClassOf": {"@id": "rdfs:subClassOf", "@type": "@id"},
@@ -52,16 +44,12 @@
       "range": {"@id": "rdfs:range", "@type": "@id"},
       "type": {"@id": "rdf:type", "@type": "@id"},
       "value": {"@id": "schema:value"},
-      
-      // SKOS vocabulary for annotations
       "definition": {"@id": "skos:definition"},
       "prefLabel": {"@id": "skos:prefLabel"},
       "example": {"@id": "skos:example"},
       "note": {"@id": "skos:note"},
       "inScheme": {"@id": "skos:inScheme", "@type": "@id"},
       "changeNote": {"@id": "skos:changeNote"},
-      
-      // PROV vocabulary for provenance
       "Activity": {"@id": "prov:Activity"},
       "Entity": {"@id": "prov:Entity"},
       "Agent": {"@id": "prov:Agent"},
@@ -69,8 +57,6 @@
       "wasAssociatedWith": {"@id": "prov:wasAssociatedWith", "@type": "@id"},
       "wasDerivedFrom": {"@id": "prov:wasDerivedFrom", "@type": "@id"},
       "used": {"@id": "prov:used", "@type": "@id"},
-      
-      // SHACL vocabulary for shapes/validation
       "targetClass": {"@id": "sh:targetClass", "@type": "@id"},
       "property": {"@id": "sh:property", "@type": "@id"},
       "path": {"@id": "sh:path", "@type": "@id"},
@@ -80,20 +66,14 @@
       "nodeKind": {"@id": "sh:nodeKind", "@type": "@id"},
       "class": {"@id": "sh:class", "@type": "@id"},
       "shapesGraph": {"@id": "sh:shapesGraph", "@type": "@id"},
-      
-      // Dublin Core terms for metadata
       "created": {"@id": "dcterms:created", "@type": "xsd:date"},
       "modified": {"@id": "dcterms:modified", "@type": "xsd:date"},
       "creator": {"@id": "dcterms:creator"},
       "description": {"@id": "dcterms:description"},
-      
-      // Common DSCDO superclasses and patterns
       "Event": {"@id": "dscdo:Event"},
       "InformationObject": {"@id": "dscdo:InformationObject"},
       "ParticipantRole": {"@id": "dscdo:ParticipantRole"},
       "SpatioTemporalExtent": {"@id": "dscdo:SpatioTemporalExtent"},
-      
-      // Common DSCDO properties
       "hasSpatioTemporalExtent": {"@id": "dscdo:hasSpatioTemporalExtent", "@type": "@id"},
       "providesParticipantRole": {"@id": "dscdo:providesParticipantRole", "@type": "@id"},
       "hasInformationObject": {"@id": "dscdo:hasInformationObject", "@type": "@id"},

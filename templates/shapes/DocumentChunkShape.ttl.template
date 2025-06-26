@@ -1,0 +1,359 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dscdo: <${ONTOLOGY_BASE}/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <https://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@base <${SHAPES_BASE}/> .
+
+# Shape Graph metadata
+<${SHAPES_BASE}/DocumentChunkShape> a owl:Ontology, sh:ShapesGraph ;
+    rdfs:label "Document Chunk Shape Graph"@en ;
+    rdfs:comment "SHACL shapes for validating document chunk instances in the DSCDO ontology"@en ;
+    owl:versionInfo "1.0" ;
+    dcterms:created "2025-01-11" ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> .
+
+# Document Chunk Shape
+<${SHAPES_BASE}/DocumentChunkShape-v1> a sh:NodeShape ;
+    sh:targetClass dscdo:DocumentChunk ;
+    rdfs:label "Document Chunk Shape"@en ;
+    rdfs:comment "SHACL shape for validating Document Chunk instances in the DSCDO ontology"@en ;
+    skos:definition "Defines constraints for document chunks and their properties in the supply chain documentation system"@en ;
+    dcterms:created "2025-01-11"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    dcterms:version "1.0" ;
+    rdfs:isDefinedBy <${SHAPES_BASE}/DocumentChunkShape> ;
+    
+    sh:property [
+        sh:path rdf:type ;
+        sh:hasValue dscdo:DocumentChunk ;
+        sh:minCount 1
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:chunkMainText ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        rdfs:comment "The primary text content of the chunk"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:chunkSummary ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        rdfs:comment "A summary of the chunk content"
+    ] ;
+    
+    sh:property [
+        sh:path schema:description ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        rdfs:comment "Description of the chunk content and purpose"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:chunkType ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:in ("text" "image" "table" "header" "footer" "form") ;
+        rdfs:comment "The type classification of the chunk"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:regionId ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        rdfs:comment "OCR region identifier for the chunk"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:chunkPosition ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        rdfs:comment "Position description within the document"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:boundingBox ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:pattern "^[0-9]+(\\.[0-9]+)?,[0-9]+(\\.[0-9]+)?,[0-9]+(\\.[0-9]+)?,[0-9]+(\\.[0-9]+)?$" ;
+        rdfs:comment "Comma-separated bounding box coordinates (x1,y1,x2,y2)"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:belongsTo ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        rdfs:comment "Document section or category the chunk belongs to"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:chunkIndex ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 0 ;
+        sh:maxCount 1 ;
+        rdfs:comment "Sequential index of the chunk within the document"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:isChunkOf ;
+        sh:nodeKind sh:IRI ;
+        sh:class dscdo:DocumentContent ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        rdfs:comment "The document content this chunk belongs to"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:hasChunkRelationship ;
+        sh:nodeKind sh:IRI ;
+        sh:class dscdo:ChunkRelationship ;
+        rdfs:comment "Spatial or semantic relationships with other chunks"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:hasSupportingChunk ;
+        sh:nodeKind sh:IRI ;
+        sh:class dscdo:DocumentChunk ;
+        rdfs:comment "Other chunks that provide supporting context"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:hasChunkConcepts ;
+        sh:nodeKind sh:IRI ;
+        sh:class dscdo:ConceptCollection ;
+        sh:maxCount 1 ;
+        rdfs:comment "Concepts extracted from this chunk"
+    ] ;
+    
+    sh:property [
+        sh:path schema:additionalProperty ;
+        sh:nodeKind sh:IRI ;
+        sh:class schema:PropertyValue ;
+        rdfs:comment "Structured key-value properties extracted from chunk"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:hasConcept ;
+        sh:nodeKind sh:IRI ;
+        sh:class skos:Concept ;
+        rdfs:comment "SKOS concepts extracted from this chunk"
+    ] ;
+    
+    sh:closed false ;
+    sh:ignoredProperties ( rdf:type rdfs:label rdfs:comment ) .
+
+# Chunk Relationship Shape
+<${SHAPES_BASE}/ChunkRelationshipShape-v1> a sh:NodeShape ;
+    sh:targetClass dscdo:ChunkRelationship ;
+    rdfs:label "Chunk Relationship Shape"@en ;
+    rdfs:comment "SHACL shape for validating Chunk Relationship instances"@en ;
+    skos:definition "Defines constraints for relationships between document chunks"@en ;
+    dcterms:created "2025-01-11"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    dcterms:version "1.0" ;
+    rdfs:isDefinedBy <${SHAPES_BASE}/DocumentChunkShape> ;
+    
+    sh:property [
+        sh:path rdf:type ;
+        sh:hasValue dscdo:ChunkRelationship ;
+        sh:minCount 1
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:relationshipType ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:in ("above" "below" "left" "right" "overlaps" "contains" "adjacent") ;
+        rdfs:comment "Type of spatial or semantic relationship"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:hasRelationshipTarget ;
+        sh:nodeKind sh:IRI ;
+        sh:class dscdo:DocumentChunk ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        rdfs:comment "Target chunk in the relationship"
+    ] ;
+    
+    sh:closed false ;
+    sh:ignoredProperties ( rdf:type rdfs:label rdfs:comment ) .
+
+# Concept Collection Shape
+<${SHAPES_BASE}/ConceptCollectionShape-v1> a sh:NodeShape ;
+    sh:targetClass dscdo:ConceptCollection ;
+    rdfs:label "Concept Collection Shape"@en ;
+    rdfs:comment "SHACL shape for validating Concept Collection instances"@en ;
+    skos:definition "Defines constraints for collections of extracted concepts"@en ;
+    dcterms:created "2025-01-11"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    dcterms:version "1.0" ;
+    rdfs:isDefinedBy <${SHAPES_BASE}/DocumentChunkShape> ;
+    
+    sh:property [
+        sh:path rdf:type ;
+        sh:hasValue dscdo:ConceptCollection ;
+        sh:minCount 1
+    ] ;
+    
+    sh:property [
+        sh:path schema:description ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        rdfs:comment "Description of the concept collection"
+    ] ;
+    
+    sh:property [
+        sh:path prov:hadMember ;
+        sh:nodeKind sh:IRI ;
+        rdfs:comment "Concepts that are members of this collection"
+    ] ;
+    
+    sh:closed false ;
+    sh:ignoredProperties ( rdf:type rdfs:label rdfs:comment ) .
+
+# Schema.org PropertyValue Shape
+<${SHAPES_BASE}/PropertyValueShape-v1> a sh:NodeShape ;
+    sh:targetClass schema:PropertyValue ;
+    rdfs:label "Property Value Shape"@en ;
+    rdfs:comment "SHACL shape for validating Schema.org PropertyValue instances"@en ;
+    skos:definition "Defines constraints for structured key-value properties"@en ;
+    dcterms:created "2025-01-11"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    dcterms:version "1.0" ;
+    rdfs:isDefinedBy <${SHAPES_BASE}/DocumentChunkShape> ;
+    
+    sh:property [
+        sh:path rdf:type ;
+        sh:hasValue schema:PropertyValue ;
+        sh:minCount 1
+    ] ;
+    
+    sh:property [
+        sh:path schema:propertyID ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        rdfs:comment "The property identifier or name"
+    ] ;
+    
+    sh:property [
+        sh:path schema:value ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        rdfs:comment "The property value as string"
+    ] ;
+    
+    sh:closed false ;
+    sh:ignoredProperties ( rdf:type rdfs:label rdfs:comment ) .
+
+# Extracted Concept Shape
+<${SHAPES_BASE}/ExtractedConceptShape-v1> a sh:NodeShape ;
+    sh:targetClass dscdo:ExtractedConcept ;
+    rdfs:label "Extracted Concept Shape"@en ;
+    rdfs:comment "SHACL shape for validating Extracted Concept instances"@en ;
+    skos:definition "Defines constraints for SKOS concepts extracted from document content"@en ;
+    dcterms:created "2025-01-11"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    dcterms:version "1.0" ;
+    rdfs:isDefinedBy <${SHAPES_BASE}/DocumentChunkShape> ;
+    
+    sh:property [
+        sh:path rdf:type ;
+        sh:hasValue dscdo:ExtractedConcept ;
+        sh:minCount 1
+    ] ;
+    
+    sh:property [
+        sh:path skos:prefLabel ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        rdfs:comment "The preferred label for the concept"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:conceptType ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:in ("entity" "date" "location" "person" "organization" "event" "quantity" "other") ;
+        rdfs:comment "The type classification of the extracted concept"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:extractionConfidence ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0.0 ;
+        sh:maxInclusive 1.0 ;
+        sh:maxCount 1 ;
+        rdfs:comment "Confidence score for concept extraction (0.0 to 1.0)"
+    ] ;
+    
+    sh:property [
+        sh:path skos:definition ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        rdfs:comment "Definition or description of the concept"
+    ] ;
+    
+    sh:closed false ;
+    sh:ignoredProperties ( rdf:type rdfs:label rdfs:comment ) .
+
+# Concept Relationship Shape
+<${SHAPES_BASE}/ConceptRelationshipShape-v1> a sh:NodeShape ;
+    sh:targetClass dscdo:ConceptRelationship ;
+    rdfs:label "Concept Relationship Shape"@en ;
+    rdfs:comment "SHACL shape for validating Concept Relationship instances"@en ;
+    skos:definition "Defines constraints for semantic relationships between concepts"@en ;
+    dcterms:created "2025-01-11"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    dcterms:version "1.0" ;
+    rdfs:isDefinedBy <${SHAPES_BASE}/DocumentChunkShape> ;
+    
+    sh:property [
+        sh:path rdf:type ;
+        sh:hasValue dscdo:ConceptRelationship ;
+        sh:minCount 1
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:conceptRelationshipType ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:in ("relatedTo" "partOf" "instanceOf" "causedBy" "locatedIn" "occurredAt" "associatedWith" "similarTo") ;
+        rdfs:comment "Type of semantic relationship between concepts"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:conceptSource ;
+        sh:nodeKind sh:IRI ;
+        sh:class skos:Concept ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        rdfs:comment "Source concept in the relationship"
+    ] ;
+    
+    sh:property [
+        sh:path dscdo:conceptTarget ;
+        sh:nodeKind sh:IRI ;
+        sh:class skos:Concept ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        rdfs:comment "Target concept in the relationship"
+    ] ;
+    
+    sh:closed false ;
+    sh:ignoredProperties ( rdf:type rdfs:label rdfs:comment ) .

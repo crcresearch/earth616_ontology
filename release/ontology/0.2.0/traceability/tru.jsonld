@@ -1,23 +1,62 @@
 {
     "@graph": [
         {
-            "@id": "dscdo:measuredProperty",
+            "@id": "dscdo:observationIntegration",
+            "skos:example": {
+                "@language": "en",
+                "@value": "\n{\n  \"@context\": {\n    \"@vocab\": \"https://vocab.earth616.localhost/nd/scdoc/ont/\",\n    \"schema\": \"http://schema.org/\",\n    \"Observation\": \"schema:Observation\",\n    \"observationAbout\": \"schema:observationAbout\",\n    \"observationDate\": \"schema:observationDate\",\n    \"measuredProperty\": \"schema:measuredProperty\",\n    \"value\": \"schema:value\"\n  },\n  \"@graph\": [\n    {\n      \"@type\": \"ObservationEvent\",\n      \"@id\": \"https://vocab.earth616.localhost/nd/scdoc/ont/examples/events/mass-measurement-001\",\n      \"startedAtTime\": \"2024-03-15T08:45:00Z\",\n      \"observationAbout\": \"https://vocab.earth616.localhost/nd/scdoc/ont/examples/tru/steel-batch-001\",\n      \"observationDate\": \"2024-03-15T08:45:00Z\",\n      \"hasObservationResult\": {\n        \"@type\": \"Observation\",\n        \"@id\": \"https://vocab.earth616.localhost/nd/scdoc/ont/examples/observations/mass-obs-001\",\n        \"observationAbout\": \"https://vocab.earth616.localhost/nd/scdoc/ont/examples/tru/steel-batch-001\",\n        \"observationDate\": \"2024-03-15T08:45:00Z\",\n        \"measuredProperty\": \"mass\",\n        \"value\": {\n          \"@type\": \"QuantityOfMaterial\",\n          \"value\": 25.5,\n          \"unitCode\": \"KGM\",\n          \"unitText\": \"kilograms\",\n          \"hasMeasurementMethod\": \"industrial_scale_weighing\",\n          \"measurementObservation\": \"https://vocab.earth616.localhost/nd/scdoc/ont/examples/observations/mass-obs-001\"\n        },\n        \"observationMethod\": \"digital_industrial_scale\",\n        \"marginOfError\": 0.1\n      }\n    }\n  ]\n}\n"
+            }
+        },
+        {
+            "@id": "dscdo:observedQuantity",
+            "owl:inverseOf": {
+                "@id": "dscdo:measurementObservation"
+            },
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Inverse relationship connecting observations to their material quantity results"
+            },
             "rdfs:isDefinedBy": {
                 "@id": "dscdo:modules/traceability/tru"
             },
             "rdfs:comment": {
                 "@language": "en",
-                "@value": "The specific property of the material being quantified"
+                "@value": "Links a schema.org observation to the quantity of material that was measured."
             },
             "rdfs:label": {
                 "@language": "en",
-                "@value": "measured property"
+                "@value": "observed quantity"
+            },
+            "rdfs:range": {
+                "@id": "dscdo:QuantityOfMaterial"
+            },
+            "rdfs:domain": {
+                "@id": "schema:Observation"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:measurementObservation",
+            "skos:definition": {
+                "@language": "en",
+                "@value": "Connects material quantities to their observational provenance following schema.org patterns"
+            },
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/traceability/tru"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Links a quantity of material to the schema.org observation that captured its measurement data."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "measurement observation"
+            },
+            "rdfs:range": {
+                "@id": "schema:Observation"
             },
             "rdfs:domain": {
                 "@id": "dscdo:QuantityOfMaterial"
-            },
-            "rdfs:subPropertyOf": {
-                "@id": "schema:measuredProperty"
             },
             "@type": "owl:ObjectProperty"
         },
@@ -92,6 +131,27 @@
             "@type": "rdfs:Class"
         },
         {
+            "@id": "dscdo:measuredProperty",
+            "rdfs:isDefinedBy": {
+                "@id": "dscdo:modules/traceability/tru"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "The specific property of the material being quantified"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "measured property"
+            },
+            "rdfs:domain": {
+                "@id": "dscdo:QuantityOfMaterial"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "schema:measuredProperty"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
             "@id": "dscdo:hasMeasurementMethod",
             "rdfs:isDefinedBy": {
                 "@id": "dscdo:modules/traceability/tru"
@@ -138,7 +198,7 @@
             "skos:example": [
                 {
                     "@language": "en",
-                    "@value": "\n{\n  \"@type\": \"TraceableResourceUnit\",\n  \"@id\": \"https://vocab.earth616.local/ont/examples/tru/steel-batch-001\",\n  \"hasIdentifier\": {\n    \"@type\": \"Identifier\",\n    \"value\": \"SB-2024-001\",\n    \"propertyID\": \"BatchNumber\",\n    \"name\": \"Steel Production Batch\"\n  },\n  \"hasBatchNumber\": \"SB-2024-001\",\n  \"hasShelfLife\": \"P2Y\",\n  \"consistsOf\": {\n    \"@type\": \"QuantityOfMaterial\",\n    \"value\": 25.5,\n    \"unitCode\": \"KGM\",\n    \"unitText\": \"kilograms\",\n    \"ofMaterialType\": {\n      \"@type\": \"Material\",\n      \"name\": \"Stainless Steel Grade 304\"\n    },\n    \"measuredProperty\": \"mass\",\n    \"hasMeasurementMethod\": \"industrial_scale_weighing\"\n  }\n}\n"
+                    "@value": "\n{\n  \"@type\": \"TraceableResourceUnit\",\n  \"@id\": \"https://vocab.earth616.localhost/nd/scdoc/ont/examples/tru/steel-batch-001\",\n  \"hasIdentifier\": {\n    \"@type\": \"Identifier\",\n    \"value\": \"SB-2024-001\",\n    \"propertyID\": \"BatchNumber\",\n    \"name\": \"Steel Production Batch\"\n  },\n  \"hasBatchNumber\": \"SB-2024-001\",\n  \"hasShelfLife\": \"P2Y\",\n  \"consistsOf\": {\n    \"@type\": \"QuantityOfMaterial\",\n    \"value\": 25.5,\n    \"unitCode\": \"KGM\",\n    \"unitText\": \"kilograms\",\n    \"ofMaterialType\": {\n      \"@type\": \"Material\",\n      \"name\": \"Stainless Steel Grade 304\"\n    },\n    \"measuredProperty\": \"mass\",\n    \"hasMeasurementMethod\": \"industrial_scale_weighing\"\n  }\n}\n"
                 },
                 {
                     "@language": "en",
@@ -202,7 +262,7 @@
             "@id": "dscdo:inputTRU",
             "skos:example": {
                 "@language": "en",
-                "@value": "\n{\n  \"@type\": \"TransformationEvent\",\n  \"@id\": \"https://vocab.earth616.local/ont/examples/events/steel-cutting-001\",\n  \"startedAtTime\": \"2024-03-15T09:00:00Z\",\n  \"endedAtTime\": \"2024-03-15T11:30:00Z\",\n  \"inputTRU\": {\n    \"@type\": \"TraceableResourceUnit\",\n    \"hasIdentifier\": {\"value\": \"SB-2024-001\", \"propertyID\": \"BatchNumber\"},\n    \"consistsOf\": {\"value\": 25.5, \"unitCode\": \"KGM\"}\n  },\n  \"outputTRU\": [\n    {\n      \"@type\": \"TraceableResourceUnit\", \n      \"hasIdentifier\": {\"value\": \"SC-001-2024\", \"propertyID\": \"ComponentSerial\"},\n      \"consistsOf\": {\"value\": 12.2, \"unitCode\": \"KGM\"},\n      \"predecessorOf\": \"https://vocab.earth616.local/ont/examples/tru/steel-batch-001\"\n    },\n    {\n      \"@type\": \"TraceableResourceUnit\",\n      \"hasIdentifier\": {\"value\": \"SC-002-2024\", \"propertyID\": \"ComponentSerial\"}, \n      \"consistsOf\": {\"value\": 13.3, \"unitCode\": \"KGM\"},\n      \"predecessorOf\": \"https://vocab.earth616.local/ont/examples/tru/steel-batch-001\"\n    }\n  ]\n}\n"
+                "@value": "\n{\n  \"@type\": \"TransformationEvent\",\n  \"@id\": \"https://vocab.earth616.localhost/nd/scdoc/ont/examples/events/steel-cutting-001\",\n  \"startedAtTime\": \"2024-03-15T09:00:00Z\",\n  \"endedAtTime\": \"2024-03-15T11:30:00Z\",\n  \"inputTRU\": {\n    \"@type\": \"TraceableResourceUnit\",\n    \"hasIdentifier\": {\"value\": \"SB-2024-001\", \"propertyID\": \"BatchNumber\"},\n    \"consistsOf\": {\"value\": 25.5, \"unitCode\": \"KGM\"}\n  },\n  \"outputTRU\": [\n    {\n      \"@type\": \"TraceableResourceUnit\", \n      \"hasIdentifier\": {\"value\": \"SC-001-2024\", \"propertyID\": \"ComponentSerial\"},\n      \"consistsOf\": {\"value\": 12.2, \"unitCode\": \"KGM\"},\n      \"predecessorOf\": \"https://vocab.earth616.localhost/nd/scdoc/ont/examples/tru/steel-batch-001\"\n    },\n    {\n      \"@type\": \"TraceableResourceUnit\",\n      \"hasIdentifier\": {\"value\": \"SC-002-2024\", \"propertyID\": \"ComponentSerial\"}, \n      \"consistsOf\": {\"value\": 13.3, \"unitCode\": \"KGM\"},\n      \"predecessorOf\": \"https://vocab.earth616.localhost/nd/scdoc/ont/examples/tru/steel-batch-001\"\n    }\n  ]\n}\n"
             },
             "rdfs:isDefinedBy": {
                 "@id": "dscdo:modules/traceability/tru"
@@ -530,12 +590,12 @@
         "owl": "http://www.w3.org/2002/07/owl#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "skos": "http://www.w3.org/2004/02/skos/core#",
-        "dscdo": "https://vocab.earth616.local/ont/",
+        "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "xml": "http://www.w3.org/XML/1998/namespace",
         "dcterms": "http://purl.org/dc/terms/",
         "prov": "http://www.w3.org/ns/prov#",
-        "@vocab": "https://vocab.earth616.local/ont/"
+        "@vocab": "https://vocab.earth616.localhost/nd/scdoc/ont/"
     }
 }

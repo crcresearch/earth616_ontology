@@ -9,9 +9,9 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 # --- DSCDO (environment-specific namespace) ---
-@prefix dscdo: <https://vocab.earth616.local/ont> .
-@prefix : <https://vocab.earth616.local/ont> .
-@base <https://vocab.earth616.local/ont> .
+@prefix dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont/> .
+@prefix : <https://vocab.earth616.localhost/nd/scdoc/ont/> .
+@base <https://vocab.earth616.localhost/nd/scdoc/ont/> .
 
 # --- AMMO Ontology Reference ---
 @prefix ammo: <https://w3id.org/ammo/ont/> .
@@ -20,7 +20,7 @@
 # Enhanced Specification Module
 # =============================================================================
 
-<https://vocab.earth616.local/ont/modules/design/specification> rdf:type owl:Ontology ;
+<https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> rdf:type owl:Ontology ;
     rdfs:label "Enhanced Specification Module"@en ;
     rdfs:comment "Provides enhanced specification classes for materials, quantities, and design constraints. Extends basic TRU quantities with formal design specification patterns derived from AMMO ontology."@en ;
     owl:versionInfo "1.0" ;
@@ -28,9 +28,9 @@
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
     
     # === Module Dependencies ===
-    owl:imports <https://vocab.earth616.local/ont/modules/core/event> ;
-    owl:imports <https://vocab.earth616.local/ont/modules/traceability/tru> ;
-    owl:imports <https://vocab.earth616.local/ont/modules/design/composition> ;
+    owl:imports <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> ;
+    owl:imports <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
+    owl:imports <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
     
     # === AMMO Provenance ===
     dcterms:source <https://w3id.org/ammo/ont/> ;
@@ -45,7 +45,7 @@ dscdo:MaterialDesignSpecification rdf:type rdfs:Class ;
     rdfs:subClassOf dscdo:DesignSpecification ;
     rdfs:label "Material Design Specification"@en ;
     rdfs:comment "A design specification that defines requirements and constraints for material properties, composition, and behavior."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "A formal specification document that details material requirements including composition, properties, and performance criteria"@en ;
     skos:example "Steel alloy composition specification, polymer property requirements, ceramic performance criteria"@en ;
     
@@ -58,7 +58,7 @@ dscdo:QuantityDesignSpecification rdf:type rdfs:Class ;
     rdfs:subClassOf dscdo:DesignSpecification ;
     rdfs:label "Quantity Design Specification"@en ;
     rdfs:comment "A design specification that defines requirements and constraints for quantities, measurements, and dimensional properties."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "A formal specification document that details quantity requirements including dimensions, tolerances, and measurement criteria"@en ;
     skos:example "Dimensional tolerance specification, weight requirements, volume constraints"@en ;
     
@@ -71,7 +71,7 @@ dscdo:ProcessDesignSpecification rdf:type rdfs:Class ;
     rdfs:subClassOf dscdo:DesignSpecification ;
     rdfs:label "Process Design Specification"@en ;
     rdfs:comment "A design specification that defines requirements and constraints for manufacturing processes, procedures, and workflows."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "A formal specification document that details process requirements including parameters, sequences, and quality criteria"@en ;
     skos:example "Manufacturing process parameters, assembly procedures, quality control workflows"@en .
 
@@ -79,7 +79,7 @@ dscdo:QualitySpecification rdf:type rdfs:Class ;
     rdfs:subClassOf dscdo:DesignSpecification ;
     rdfs:label "Quality Specification"@en ;
     rdfs:comment "A design specification that defines quality requirements, testing procedures, and acceptance criteria."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "A formal specification document that details quality requirements and validation procedures"@en ;
     skos:example "Military standard compliance, testing protocols, acceptance criteria"@en .
 
@@ -94,7 +94,7 @@ dscdo:specifiedMaterial rdf:type owl:ObjectProperty ;
     rdfs:range dscdo:Material ;
     rdfs:label "specified material"@en ;
     rdfs:comment "Links a material design specification to the specific material it defines requirements for."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "Connects material specifications to the materials they constrain"@en ;
     
     # === AMMO Provenance ===
@@ -106,7 +106,7 @@ dscdo:materialProperty rdf:type owl:ObjectProperty ;
     rdfs:domain dscdo:MaterialDesignSpecification ;
     rdfs:label "material property"@en ;
     rdfs:comment "Links a material specification to specific properties that must be satisfied."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "Connects specifications to the material properties they define"@en .
 
 dscdo:compositionRequirement rdf:type owl:DatatypeProperty ;
@@ -114,7 +114,7 @@ dscdo:compositionRequirement rdf:type owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:label "composition requirement"@en ;
     rdfs:comment "Specifies the required chemical or physical composition for a material."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "Textual specification of required material composition"@en ;
     skos:example "18-20% Chromium, 8-10.5% Nickel, <0.08% Carbon"@en .
 
@@ -125,7 +125,7 @@ dscdo:specifiedQuantity rdf:type owl:ObjectProperty ;
     rdfs:range dscdo:QuantityOfMaterial ;
     rdfs:label "specified quantity"@en ;
     rdfs:comment "Links a quantity design specification to the specific quantity measurement it defines requirements for."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "Connects quantity specifications to the measurements they constrain"@en ;
     
     # === AMMO Provenance ===
@@ -138,7 +138,7 @@ dscdo:toleranceSpec rdf:type owl:ObjectProperty ;
     rdfs:range schema:QuantitativeValue ;
     rdfs:label "tolerance specification"@en ;
     rdfs:comment "Defines the acceptable tolerance range for a quantity measurement."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "Specifies measurement tolerance using Schema.org QuantitativeValue patterns"@en .
 
 dscdo:minimumValue rdf:type owl:DatatypeProperty ;
@@ -146,7 +146,7 @@ dscdo:minimumValue rdf:type owl:DatatypeProperty ;
     rdfs:range xsd:decimal ;
     rdfs:label "minimum value"@en ;
     rdfs:comment "The minimum acceptable value for a quantity measurement."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "Lower bound for acceptable quantity values"@en .
 
 dscdo:maximumValue rdf:type owl:DatatypeProperty ;
@@ -154,7 +154,7 @@ dscdo:maximumValue rdf:type owl:DatatypeProperty ;
     rdfs:range xsd:decimal ;
     rdfs:label "maximum value"@en ;
     rdfs:comment "The maximum acceptable value for a quantity measurement."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "Upper bound for acceptable quantity values"@en .
 
 dscdo:nominalValue rdf:type owl:DatatypeProperty ;
@@ -162,7 +162,7 @@ dscdo:nominalValue rdf:type owl:DatatypeProperty ;
     rdfs:range xsd:decimal ;
     rdfs:label "nominal value"@en ;
     rdfs:comment "The target or ideal value for a quantity measurement."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "Target value for quantity measurements"@en .
 
 # === Process Specification Properties ===
@@ -172,7 +172,7 @@ dscdo:processParameter rdf:type owl:ObjectProperty ;
     rdfs:range schema:PropertyValue ;
     rdfs:label "process parameter"@en ;
     rdfs:comment "Defines a specific parameter requirement for a manufacturing or operational process."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "Links process specifications to their required parameters"@en .
 
 dscdo:operatingCondition rdf:type owl:DatatypeProperty ;
@@ -180,7 +180,7 @@ dscdo:operatingCondition rdf:type owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:label "operating condition"@en ;
     rdfs:comment "Specifies required operating conditions for a process (temperature, pressure, environment, etc.)."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "Textual description of required process operating conditions"@en ;
     skos:example "Temperature: 850°C ± 25°C, Pressure: 1.2 ATM, Inert atmosphere"@en .
 
@@ -191,7 +191,7 @@ dscdo:qualityStandard rdf:type owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:label "quality standard"@en ;
     rdfs:comment "References a formal quality standard that must be met (e.g., military specifications, industry standards)."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "Identifier for applicable quality standards"@en ;
     skos:example "MIL-STD-810, ISO-9001, ASTM-A240"@en .
 
@@ -199,7 +199,7 @@ dscdo:testingProcedure rdf:type owl:ObjectProperty ;
     rdfs:domain dscdo:QualitySpecification ;
     rdfs:label "testing procedure"@en ;
     rdfs:comment "Links to a specific testing or validation procedure required for quality assurance."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "References procedures for quality validation"@en .
 
 dscdo:acceptanceCriteria rdf:type owl:DatatypeProperty ;
@@ -207,7 +207,7 @@ dscdo:acceptanceCriteria rdf:type owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:label "acceptance criteria"@en ;
     rdfs:comment "Defines the specific criteria that must be met for acceptance or approval."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "Textual description of acceptance requirements"@en ;
     skos:example "Surface roughness < 1.6 μm, No visible defects, Dimensional accuracy ± 0.1mm"@en .
 
@@ -219,7 +219,7 @@ dscdo:SpecifiedQuantityOfMaterial rdf:type rdfs:Class ;
     rdfs:subClassOf dscdo:QuantityOfMaterial ;
     rdfs:label "Specified Quantity Of Material"@en ;
     rdfs:comment "A quantity of material that has been measured and validated against formal design specifications."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "A material quantity with formal specification compliance"@en ;
     skos:example "Steel quantity verified against MIL-STD composition requirements"@en .
 
@@ -228,7 +228,7 @@ dscdo:meetsSpecification rdf:type owl:ObjectProperty ;
     rdfs:range dscdo:MaterialDesignSpecification ;
     rdfs:label "meets specification"@en ;
     rdfs:comment "Indicates that a material quantity satisfies the requirements defined in a material design specification."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "Links material quantities to the specifications they satisfy"@en .
 
 dscdo:quantityCompliance rdf:type owl:ObjectProperty ;
@@ -236,7 +236,7 @@ dscdo:quantityCompliance rdf:type owl:ObjectProperty ;
     rdfs:range dscdo:QuantityDesignSpecification ;
     rdfs:label "quantity compliance"@en ;
     rdfs:comment "Indicates that a material quantity meets the requirements defined in a quantity design specification."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "Links material quantities to quantity specifications they comply with"@en .
 
 dscdo:qualityCompliance rdf:type owl:ObjectProperty ;
@@ -244,7 +244,7 @@ dscdo:qualityCompliance rdf:type owl:ObjectProperty ;
     rdfs:range dscdo:QualitySpecification ;
     rdfs:label "quality compliance"@en ;
     rdfs:comment "Indicates that a material quantity meets the requirements defined in a quality specification."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "Links material quantities to quality specifications they satisfy"@en .
 
 # =============================================================================
@@ -255,7 +255,7 @@ dscdo:SpecificationValidationEvent rdf:type rdfs:Class ;
     rdfs:subClassOf dscdo:SupplyChainEvent ;
     rdfs:label "Specification Validation Event"@en ;
     rdfs:comment "An event that represents the validation or testing of materials, components, or processes against design specifications."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "An event tracking compliance verification against formal specifications"@en ;
     skos:example "Material composition testing, dimensional inspection, quality assurance validation"@en .
 
@@ -264,7 +264,7 @@ dscdo:validatesAgainst rdf:type owl:ObjectProperty ;
     rdfs:range dscdo:DesignSpecification ;
     rdfs:label "validates against"@en ;
     rdfs:comment "Indicates which design specification is being validated in the event."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "Links validation events to the specifications being tested"@en .
 
 dscdo:validationResult rdf:type owl:DatatypeProperty ;
@@ -272,7 +272,7 @@ dscdo:validationResult rdf:type owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:label "validation result"@en ;
     rdfs:comment "The outcome of the specification validation (pass, fail, conditional, etc.)."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "Textual result of specification validation testing"@en ;
     skos:example "PASS - All requirements met, FAIL - Composition out of tolerance, CONDITIONAL - Requires additional testing"@en .
 
@@ -281,7 +281,7 @@ dscdo:validationEvidence rdf:type owl:ObjectProperty ;
     rdfs:range dscdo:InformationObject ;
     rdfs:label "validation evidence"@en ;
     rdfs:comment "Links to documentation or data that provides evidence for the validation result."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.local/ont/modules/design/specification> ;
+    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
     skos:definition "References evidence supporting validation outcomes"@en .
 
 # =============================================================================
@@ -289,12 +289,12 @@ dscdo:validationEvidence rdf:type owl:ObjectProperty ;
 # =============================================================================
 
 # === Example Material Specification ===
-<https://vocab.earth616.local/ont/examples/specifications/steel-316l-material-spec>
+<https://vocab.earth616.localhost/nd/scdoc/ont/examples/specifications/steel-316l-material-spec>
     rdf:type dscdo:MaterialDesignSpecification ;
     rdfs:label "Steel 316L Material Specification"@en ;
     rdfs:comment "Material specification for stainless steel 316L used in defense applications"@en ;
     
-    dscdo:specifiedMaterial <https://vocab.earth616.local/ont/examples/materials/steel-316l-powder> ;
+    dscdo:specifiedMaterial <https://vocab.earth616.localhost/nd/scdoc/ont/examples/materials/steel-316l-powder> ;
     
     dscdo:compositionRequirement "17-20% Chromium, 10-14% Nickel, 2-3% Molybdenum, <0.03% Carbon" ;
     
@@ -317,7 +317,7 @@ dscdo:validationEvidence rdf:type owl:ObjectProperty ;
     skos:exactMatch ammo:MaterialDesignSpecification .
 
 # === Example Quantity Specification ===
-<https://vocab.earth616.local/ont/examples/specifications/component-weight-spec>
+<https://vocab.earth616.localhost/nd/scdoc/ont/examples/specifications/component-weight-spec>
     rdf:type dscdo:QuantityDesignSpecification ;
     rdfs:label "Component Weight Specification"@en ;
     rdfs:comment "Weight specification for steel component"@en ;
@@ -339,7 +339,7 @@ dscdo:validationEvidence rdf:type owl:ObjectProperty ;
     skos:exactMatch ammo:QuantityDesignSpecification .
 
 # === Example Specified Material Quantity ===
-<https://vocab.earth616.local/ont/examples/specified-quantities/validated-steel-component>
+<https://vocab.earth616.localhost/nd/scdoc/ont/examples/specified-quantities/validated-steel-component>
     rdf:type dscdo:SpecifiedQuantityOfMaterial ;
     rdfs:label "Validated Steel Component Quantity"@en ;
     rdfs:comment "Steel component quantity validated against design specifications"@en ;
@@ -348,11 +348,11 @@ dscdo:validationEvidence rdf:type owl:ObjectProperty ;
     schema:value 2.4 ;
     schema:unitCode "KGM" ;
     schema:unitText "kilograms" ;
-    dscdo:ofMaterialType <https://vocab.earth616.local/ont/examples/materials/steel-316l-powder> ;
+    dscdo:ofMaterialType <https://vocab.earth616.localhost/nd/scdoc/ont/examples/materials/steel-316l-powder> ;
     
     # Specification compliance
-    dscdo:meetsSpecification <https://vocab.earth616.local/ont/examples/specifications/steel-316l-material-spec> ;
-    dscdo:quantityCompliance <https://vocab.earth616.local/ont/examples/specifications/component-weight-spec> ;
+    dscdo:meetsSpecification <https://vocab.earth616.localhost/nd/scdoc/ont/examples/specifications/steel-316l-material-spec> ;
+    dscdo:quantityCompliance <https://vocab.earth616.localhost/nd/scdoc/ont/examples/specifications/component-weight-spec> ;
     
     # Validation evidence
     dscdo:validationEvidence [
@@ -362,13 +362,13 @@ dscdo:validationEvidence rdf:type owl:ObjectProperty ;
     ] .
 
 # === Example Validation Event ===
-<https://vocab.earth616.local/ont/examples/events/steel-component-validation>
+<https://vocab.earth616.localhost/nd/scdoc/ont/examples/events/steel-component-validation>
     rdf:type dscdo:SpecificationValidationEvent ;
     rdfs:label "Steel Component Validation"@en ;
     rdfs:comment "Validation event for steel component against specifications"@en ;
     
-    dscdo:validatesAgainst <https://vocab.earth616.local/ont/examples/specifications/steel-316l-material-spec> ,
-                          <https://vocab.earth616.local/ont/examples/specifications/component-weight-spec> ;
+    dscdo:validatesAgainst <https://vocab.earth616.localhost/nd/scdoc/ont/examples/specifications/steel-316l-material-spec> ,
+                          <https://vocab.earth616.localhost/nd/scdoc/ont/examples/specifications/component-weight-spec> ;
     
     dscdo:validationResult "PASS - All specifications met" ;
     
@@ -386,7 +386,7 @@ dscdo:validationEvidence rdf:type owl:ObjectProperty ;
 # SPECIFICATION GUIDELINES
 # =============================================================================
 
-<https://vocab.earth616.local/ont/design/specification-guidelines>
+<https://vocab.earth616.localhost/nd/scdoc/ont/design/specification-guidelines>
     rdf:type owl:NamedIndividual, skos:ConceptScheme ;
     rdfs:label "Enhanced Specification Guidelines"@en ;
     dcterms:description "Guidelines for using enhanced specification patterns in Earth616 ontology"@en ;
