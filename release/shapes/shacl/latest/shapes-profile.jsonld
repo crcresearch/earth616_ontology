@@ -1,0 +1,127 @@
+{
+    "@graph": [
+        {
+            "@id": "_:b0",
+            "dscdo:validatesModule": {
+                "@id": "dscdo:modules/spdx/sbom-integration"
+            },
+            "dcterms:conformsTo": {
+                "@id": "sh:NodeShape"
+            },
+            "prof:hasArtifact": {
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/SbomWorkflowShape.ttl"
+            },
+            "prof:hasRole": {
+                "@id": "prof:constraints"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "SHACL constraints for Software Bill of Materials workflow validation, SPDX integration, and supply chain security compliance",
+            "rdfs:label": "SBOM Workflow Shape",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b1",
+            "dscdo:validatesModule": {
+                "@id": "dscdo:modules/scdocumentation/document"
+            },
+            "dcterms:conformsTo": {
+                "@id": "sh:NodeShape"
+            },
+            "prof:hasArtifact": {
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentChunkShape.ttl"
+            },
+            "prof:hasRole": {
+                "@id": "prof:constraints"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "SHACL constraints for document chunks, content segmentation validation, and text processing workflows",
+            "rdfs:label": "Document Chunk Shape",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b2",
+            "dscdo:validatesModule": {
+                "@id": "dscdo:modules/traceability/tru"
+            },
+            "dcterms:conformsTo": {
+                "@id": "sh:NodeShape"
+            },
+            "prof:hasArtifact": {
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/TRUShape.ttl"
+            },
+            "prof:hasRole": {
+                "@id": "prof:constraints"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "SHACL constraints for Traceable Resource Units, traceability data validation, and supply chain compliance checking",
+            "rdfs:label": "TRU Shape",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b3",
+            "dscdo:validatesModule": {
+                "@id": "dscdo:modules/scdocumentation/document"
+            },
+            "dcterms:conformsTo": {
+                "@id": "sh:NodeShape"
+            },
+            "prof:hasArtifact": {
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentShape.ttl"
+            },
+            "prof:hasRole": {
+                "@id": "prof:constraints"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "SHACL constraints for document entities, metadata validation, and supply chain documentation requirements",
+            "rdfs:label": "Document Shape",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/profile/",
+            "prof:hasResource": [
+                {
+                    "@id": "_:b0"
+                },
+                {
+                    "@id": "_:b1"
+                },
+                {
+                    "@id": "_:b2"
+                },
+                {
+                    "@id": "_:b3"
+                }
+            ],
+            "prof:isProfileOf": {
+                "@id": "dscdo:profile/"
+            },
+            "prof:hasToken": "dscdo-shapes",
+            "owl:versionInfo": "",
+            "dcterms:creator": "Earth616 Consortium",
+            "dcterms:created": {
+                "@value": "2025-01-26",
+                "@type": "xsd:date"
+            },
+            "dcterms:description": {
+                "@language": "en",
+                "@value": "SHACL validation shapes for data quality assurance, constraint checking, and semantic validation within the Defense Supply Chain and Documentation Ontology ecosystem."
+            },
+            "dcterms:title": {
+                "@language": "en",
+                "@value": "DSCDO SHACL Shapes Profile"
+            },
+            "@type": "prof:Profile"
+        }
+    ],
+    "@context": {
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "prof": "http://www.w3.org/ns/dx/prof/",
+        "sdo": "https://schema.org/"
+    }
+}

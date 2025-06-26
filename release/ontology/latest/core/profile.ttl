@@ -265,6 +265,33 @@
         dscdo:useCaseDescription "Quality assurance teams use specification documents to define acceptance criteria for incoming TRUs. Each TRU must demonstrate compliance through validation events that reference specific quality standards and testing procedures documented in the specifications." ;
         skos:example "Quality specification document → acceptance criteria → TRU validation → compliance certification" ;
         sh:order 42 ;
+    ] ;
+
+    # === Multi-Profile Architecture References ===
+    
+    prof:hasProfile <https://vocab.earth616.localhost/nd/scdoc/context/profile/> ;
+    prof:hasProfile <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/profile/> ;
+    
+    # === Cross-Profile Resource References ===
+    
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "JSON-LD Contexts Collection" ;
+        rdfs:comment "Available JSON-LD contexts for semantic data processing and API integration" ;
+        dcterms:format "application/ld+json" ;
+        prof:hasRole prof:validation ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/context/> ;
+        dscdo:profileToken "dscdo-contexts" ;
+    ] ;
+    
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "SHACL Shapes Collection" ;
+        rdfs:comment "Available SHACL validation shapes for data quality assurance and constraint checking" ;
+        dcterms:format "text/turtle" ;
+        prof:hasRole prof:constraints ;
+        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/> ;
+        dscdo:profileToken "dscdo-shapes" ;
     ] .
 
 # =============================================================================
@@ -328,3 +355,15 @@ dscdo:useCaseDescription rdf:type owl:DatatypeProperty ;
     rdfs:comment "Detailed description of how modules work together in this use case scenario"@en ;
     rdfs:domain prof:ResourceDescriptor ;
     rdfs:range xsd:string .
+
+dscdo:profileToken rdf:type owl:DatatypeProperty ;
+    rdfs:label "profile token"@en ;
+    rdfs:comment "Profile token identifier for W3C Profiles content negotiation"@en ;
+    rdfs:domain prof:ResourceDescriptor ;
+    rdfs:range xsd:string .
+
+dscdo:validatesModule rdf:type owl:ObjectProperty ;
+    rdfs:label "validates module"@en ;
+    rdfs:comment "Indicates that this SHACL shape validates entities from the specified ontology module"@en ;
+    rdfs:domain prof:ResourceDescriptor ;
+    rdfs:range prof:ResourceDescriptor .
