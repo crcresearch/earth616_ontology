@@ -70,6 +70,68 @@ check_riot() {
     return 0
 }
 
+# Function to generate context catalog from base context
+generate_context_catalog() {
+    local base_context_file="$1"
+    local output_file="$2"
+    
+    if [ ! -f "$base_context_file" ]; then
+        echo "Warning: Base context file not found: $base_context_file"
+        return 1
+    fi
+    
+    echo "Generating context catalog from: $base_context_file"
+    
+    # Extract context references from base context using jq
+    if command -v jq >/dev/null 2>&1; then
+        cat > "$output_file" << EOF
+{
+  "@context": {
+    "jsonld": "https://www.w3.org/ns/json-ld#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dct": "http://purl.org/dc/terms/"
+  },
+  "@type": "dcat:Catalog",
+  "@id": "${CONTEXT_BASE}/",
+  "dct:title": "DSCDO JSON API Semantic Contexts",
+  "dct:description": "Single source of truth contexts for interpreting defense supply chain JSON APIs as semantic linked data",
+  "availableContexts": $(jq -r '
+    .["@context"] | 
+    to_entries | 
+    map(select(.key | endswith("Context")) | {
+      key: (.key | gsub("Context$"; "")),
+      value: {
+        "@id": .value["@id"],
+        "@type": "jsonld:Context",
+        "description": .value.description,
+        "version": .value.version
+      }
+    }) | 
+    from_entries
+  ' "$base_context_file")
+}
+EOF
+    else
+        echo "Warning: jq not available, creating minimal catalog"
+        cat > "$output_file" << EOF
+{
+  "@context": {
+    "jsonld": "https://www.w3.org/ns/json-ld#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dct": "http://purl.org/dc/terms/"
+  },
+  "@type": "dcat:Catalog",
+  "@id": "${CONTEXT_BASE}/",
+  "dct:title": "DSCDO JSON API Semantic Contexts",
+  "dct:description": "Single source of truth contexts for interpreting defense supply chain JSON APIs as semantic linked data",
+  "availableContexts": {}
+}
+EOF
+    fi
+    
+    echo "Context catalog generated: $output_file"
+}
+
 RIOT_AVAILABLE=$(check_riot && echo "true" || echo "false")
 
 # Process Layer 0: Contexts (JSON-LD only)
@@ -90,6 +152,11 @@ if [[ "$LAYERS" == "all" || "$LAYERS" == *"context"* ]]; then
                 envsubst < "$template" > "${RELEASE_DIR}/contexts/latest/${filename}"
             fi
         done
+        
+        # Generate context catalog from base context
+        echo "Generating context catalog..."
+        generate_context_catalog "${RELEASE_DIR}/contexts/latest/context-base.jsonld" "${RELEASE_DIR}/contexts/${VERSION}/collection.jsonld"
+        generate_context_catalog "${RELEASE_DIR}/contexts/latest/context-base.jsonld" "${RELEASE_DIR}/contexts/latest/collection.jsonld"
     else
         echo "Warning: No context templates found in ${TEMPLATES_DIR}/contexts"
     fi

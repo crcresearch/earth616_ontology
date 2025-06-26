@@ -1,0 +1,43 @@
+{
+  "@context": {
+    "jsonld": "https://www.w3.org/ns/json-ld#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dct": "http://purl.org/dc/terms/"
+  },
+  "@type": "dcat:Catalog",
+  "@id": "https://vocab.earth616.localhost/nd/scdoc/context/",
+  "dct:title": "DSCDO JSON API Semantic Contexts",
+  "dct:description": "Single source of truth contexts for interpreting defense supply chain JSON APIs as semantic linked data",
+  "availableContexts": {
+  "document": {
+    "@id": "https://vocab.earth616.localhost/nd/scdoc/context/context-documents.jsonld",
+    "@type": "jsonld:Context",
+    "description": "Context for SCDigitalDocument and related document concepts for supply chain documentation",
+    "version": "0.1.4"
+  },
+  "event": {
+    "@id": "https://vocab.earth616.localhost/nd/scdoc/context/context-event.jsonld",
+    "@type": "jsonld:Context",
+    "description": "Context for SupplyChainEvent and event types like TransferEvent, TransformationEvent",
+    "version": "0.1.4"
+  },
+  "identifier": {
+    "@id": "https://vocab.earth616.localhost/nd/scdoc/context/context-identifier.jsonld",
+    "@type": "jsonld:Context",
+    "description": "Context for Identifier pattern, IdentifierType, and IdentifierEncoding concepts",
+    "version": "0.1.4"
+  },
+  "workflow": {
+    "@id": "https://vocab.earth616.localhost/nd/scdoc/context/context-workflow.jsonld",
+    "@type": "jsonld:Context",
+    "description": "Context for InformationExtractionWorkflow and IEPipeline concepts",
+    "version": "0.1.4"
+  },
+  "role": {
+    "@id": "https://vocab.earth616.localhost/nd/scdoc/context/context-role.jsonld",
+    "@type": "jsonld:Context",
+    "description": "Context for ParticipantRole, SupplyChainRole and related role concepts",
+    "version": "0.1.4"
+  }
+}
+}
