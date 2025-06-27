@@ -17,7 +17,7 @@ try:
     from rdflib import Graph, Namespace, RDF, RDFS, OWL, XSD, URIRef, Literal
     from rdflib.namespace import DCTERMS, SKOS
 except ImportError:
-    print("Warning: rdflib not available, using fallback text parsing")
+    print("Warning: rdflib not available, using fallback text parsing", file=sys.stderr)
     Graph = None
 
 # Define namespaces
@@ -60,7 +60,7 @@ def extract_module_metadata_rdflib(template_path: Path) -> Dict:
         # Find the module ontology URI
         ontology_uris = list(g.subjects(RDF.type, OWL.Ontology))
         if not ontology_uris:
-            print(f"Warning: No owl:Ontology found in {template_path}")
+            print(f"Warning: No owl:Ontology found in {template_path}", file=sys.stderr)
             return metadata
             
         ontology = ontology_uris[0]
@@ -96,7 +96,7 @@ def extract_module_metadata_rdflib(template_path: Path) -> Dict:
         return metadata
         
     except Exception as e:
-        print(f"Warning: Failed to parse {template_path} with rdflib: {e}")
+        print(f"Warning: Failed to parse {template_path} with rdflib: {e}", file=sys.stderr)
         return extract_module_metadata_fallback(template_path)
 
 def extract_module_metadata_fallback(template_path: Path) -> Dict:
@@ -294,64 +294,64 @@ def discover_module_templates(templates_dir: Path) -> List[Path]:
 def generate_profile_descriptors(templates_dir: Path) -> str:
     """Main function to generate profile descriptors."""
     
-    print(f"Discovering module templates in {templates_dir}")
+    print(f"Discovering module templates in {templates_dir}", file=sys.stderr)
     template_paths = discover_module_templates(templates_dir)
     
     if not template_paths:
-        print("No module templates found")
+        print("No module templates found", file=sys.stderr)
         return ""
     
-    print(f"Found {len(template_paths)} module templates")
+    print(f"Found {len(template_paths)} module templates", file=sys.stderr)
     
     # Extract metadata from all modules
     modules_metadata = []
     for template_path in template_paths:
-        print(f"Processing: {template_path}")
+        print(f"Processing: {template_path}", file=sys.stderr)
         metadata = extract_module_metadata(template_path)
         if metadata.get('label'):  # Only include modules with labels
             modules_metadata.append(metadata)
         else:
-            print(f"  Warning: No label found, skipping")
+            print(f"  Warning: No label found, skipping", file=sys.stderr)
     
     if not modules_metadata:
-        print("No valid modules found")
+        print("No valid modules found", file=sys.stderr)
         return ""
     
     # Build dependency graph and sort
     dependency_graph = build_dependency_graph(modules_metadata)
     ordered_modules = topological_sort_with_categories(dependency_graph, modules_metadata)
     
-    print(f"Generated dependency ordering for {len(ordered_modules)} modules")
+    print(f"Generated dependency ordering for {len(ordered_modules)} modules", file=sys.stderr)
     
     # Generate ResourceDescriptor entries
     descriptors = []
     for i, module in enumerate(ordered_modules, 1):
         descriptor = generate_resource_descriptor(module, i, ordered_modules)
         descriptors.append(descriptor)
-        print(f"  {i:2d}. {module['path']} - {module.get('label', 'No label')}")
+        print(f"  {i:2d}. {module['path']} - {module.get('label', 'No label')}", file=sys.stderr)
     
     return '\n\n'.join(descriptors)
 
 def main():
     """Command line interface."""
     if len(sys.argv) != 2:
-        print("Usage: python generate_profile_descriptors.py <templates_dir>")
+        print("Usage: python generate_profile_descriptors.py <templates_dir>", file=sys.stderr)
         sys.exit(1)
     
     templates_dir = Path(sys.argv[1])
     if not templates_dir.exists():
-        print(f"Templates directory not found: {templates_dir}")
+        print(f"Templates directory not found: {templates_dir}", file=sys.stderr)
         sys.exit(1)
     
     descriptors = generate_profile_descriptors(templates_dir)
     
     if descriptors:
-        print("\n" + "="*80)
-        print("GENERATED RESOURCE DESCRIPTORS:")
-        print("="*80)
+        print("\n" + "="*80, file=sys.stderr)
+        print("GENERATED RESOURCE DESCRIPTORS:", file=sys.stderr)
+        print("="*80, file=sys.stderr)
         print(descriptors)
     else:
-        print("No descriptors generated")
+        print("No descriptors generated", file=sys.stderr)
         sys.exit(1)
 
 if __name__ == '__main__':
