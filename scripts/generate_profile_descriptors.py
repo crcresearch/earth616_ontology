@@ -222,16 +222,19 @@ def detect_module_relationships(module_metadata: Dict, all_modules: List[Dict]) 
     path = module_metadata['path']
     comment = module_metadata.get('comment', '').lower()
     
+    # Get ONTOLOGY_BASE from environment or use default
+    ontology_base = os.environ.get('ONTOLOGY_BASE', 'https://vocab.earth616.localhost/nd/scdoc/ont')
+    
     # Heuristic relationship detection
     if 'extends' in comment or 'extension' in comment:
         # Look for base modules this might extend
         if path.startswith('design/') and 'scdocumentation/document' in [m['path'] for m in all_modules]:
-            relationships['extends'].append('${ONTOLOGY_BASE}/modules/scdocumentation/document')
+            relationships['extends'].append(f'{ontology_base}/modules/scdocumentation/document')
     
     if 'constrain' in comment or 'validation' in comment:
         # Look for modules this might constrain
         if 'tru' in comment.lower() and 'traceability/tru' in [m['path'] for m in all_modules]:
-            relationships['constrains'].append('${ONTOLOGY_BASE}/modules/traceability/tru')
+            relationships['constrains'].append(f'{ontology_base}/modules/traceability/tru')
     
     return relationships
 
@@ -245,12 +248,15 @@ def generate_resource_descriptor(module_metadata: Dict, order: int, all_modules:
     if len(comment) > 200:
         comment = comment[:197] + "..."
     
+    # Get ONTOLOGY_BASE from environment or use default
+    ontology_base = os.environ.get('ONTOLOGY_BASE', 'https://vocab.earth616.localhost/nd/scdoc/ont')
+    
     descriptor = f'''    prof:hasResource [
         a prof:ResourceDescriptor ;
         rdfs:label "{label}" ;
         rdfs:comment "{comment}" ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <${{ONTOLOGY_BASE}}/modules/{module_metadata['path']}> ;'''
+        prof:hasArtifact <{ontology_base}/modules/{module_metadata['path']}> ;'''
     
     # Add role if detected
     role = determine_module_role(module_metadata)
