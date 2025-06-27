@@ -47,39 +47,6 @@
     # === Module Resource Descriptors ===
     # Auto-generated from module templates - see scripts/generate_profile_descriptors.py
     
-Discovering module templates in templates
-Found 13 module templates
-Processing: templates/modules/core/event.ttl.template
-Processing: templates/modules/core/identifier.ttl.template
-Processing: templates/modules/core/ontology.ttl.template
-  Warning: No label found, skipping
-Processing: templates/modules/design/composition.ttl.template
-Processing: templates/modules/design/hierarchy.ttl.template
-Processing: templates/modules/design/specification.ttl.template
-Processing: templates/modules/design/transition.ttl.template
-Processing: templates/modules/scdocumentation/document-chunks.ttl.template
-Processing: templates/modules/scdocumentation/document.ttl.template
-Processing: templates/modules/spdx/sbom-integration.ttl.template
-Processing: templates/modules/supplychain/eventmodule.ttl.template
-Processing: templates/modules/traceability/tru-ammo-alignment.ttl.template
-Processing: templates/modules/traceability/tru.ttl.template
-Generated dependency ordering for 12 modules
-   1. core/event - Core Event Module
-   2. core/identifier - Identifier Module
-   3. scdocumentation/document - Documentation Module
-   4. scdocumentation/document-chunks - Document Chunks Module
-   5. supplychain/eventmodule - Supply Chain Event Module
-   6. traceability/tru - Traceable Resource Unit Module
-   7. traceability/tru-ammo-alignment - TRU-AMMO Alignment Module
-   8. design/composition - Design Composition Module
-   9. design/hierarchy - Component Hierarchy Module
-  10. design/specification - Enhanced Specification Module
-  11. design/transition - State Transition Module
-  12. spdx/sbom-integration - DSCDO SPDX SBOM Integration Module
-
-================================================================================
-GENERATED RESOURCE DESCRIPTORS:
-================================================================================
     prof:hasResource [
         a prof:ResourceDescriptor ;
         rdfs:label "Core Event Module" ;

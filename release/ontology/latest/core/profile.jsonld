@@ -1,7 +1,647 @@
 {
     "@graph": [
         {
+            "@id": "dscdo:validatesModule",
+            "rdfs:range": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:domain": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that this SHACL shape validates entities from the specified ontology module"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "validates module"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:profileToken",
+            "rdfs:range": {
+                "@id": "xsd:string"
+            },
+            "rdfs:domain": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Profile token identifier for W3C Profiles content negotiation"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "profile token"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:useCaseDescription",
+            "rdfs:range": {
+                "@id": "xsd:string"
+            },
+            "rdfs:domain": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Detailed description of how modules work together in this use case scenario"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "use case description"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:involvedModules",
+            "rdfs:domain": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "List of module names that participate in this use case or pattern"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "involved modules"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:workflowSteps",
+            "rdfs:domain": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Ordered list of steps in an integration workflow pattern"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "workflow steps"
+            },
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "dscdo:integratesModules",
+            "rdfs:domain": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Lists the modules that this integration pattern connects"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "integrates modules"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:constrainsModule",
+            "rdfs:range": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:domain": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that this module defines constraints or requirements for entities in another module"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "constrains module"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:extendsModule",
+            "rdfs:range": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:domain": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that this module extends or specializes concepts from another module"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "extends module"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:documentedBy",
+            "rdfs:range": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:domain": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that entities in this module are documented or specified by another module"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "documented by"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:validatesAgainst",
+            "rdfs:range": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:domain": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that entities in this module are validated against specifications from another module"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "validates against"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:providesEvidenceFor",
+            "rdfs:range": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:domain": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that this module provides validation evidence or documentation for another module"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "provides evidence for"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
+            "@id": "dscdo:enablesModule",
+            "rdfs:range": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:domain": {
+                "@id": "prof:ResourceDescriptor"
+            },
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Indicates that this module provides foundational capabilities for another module"
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "enables module"
+            },
+            "@type": "owl:ObjectProperty"
+        },
+        {
             "@id": "_:b0",
+            "dscdo:profileToken": "dscdo-shapes",
+            "prof:hasArtifact": {
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/"
+            },
+            "prof:hasRole": {
+                "@id": "prof:role/constraints"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Available SHACL validation shapes for data quality assurance and constraint checking",
+            "rdfs:label": "SHACL Shapes Collection",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b1",
+            "dscdo:profileToken": "dscdo-contexts",
+            "prof:hasArtifact": {
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/context/"
+            },
+            "prof:hasRole": {
+                "@id": "prof:role/validation"
+            },
+            "dcterms:format": "application/ld+json",
+            "rdfs:comment": "Available JSON-LD contexts for semantic data processing and API integration",
+            "rdfs:label": "JSON-LD Contexts Collection",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b5",
+            "sh:order": {
+                "@value": "42",
+                "@type": "xsd:integer"
+            },
+            "skos:example": "Quality specification document → acceptance criteria → TRU validation → compliance certification",
+            "dscdo:useCaseDescription": "Quality assurance teams use specification documents to define acceptance criteria for incoming TRUs. Each TRU must demonstrate compliance through validation events that reference specific quality standards and testing procedures documented in the specifications.",
+            "dscdo:involvedModules": {
+                "@list": [
+                    "documentation",
+                    "specification",
+                    "tru"
+                ]
+            },
+            "prof:hasRole": {
+                "@id": "prof:role/guidance"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Use case demonstrating how quality specifications constrain TRU acceptance criteria",
+            "rdfs:label": "Quality Assurance Use Case",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b10",
+            "sh:order": {
+                "@value": "41",
+                "@type": "xsd:integer"
+            },
+            "skos:example": "Component TRU → transformation events → source material TRU → specification documents → compliance evidence",
+            "dscdo:useCaseDescription": "During a supply chain audit, investigators trace a component TRU back through its transformation events to find the original material specification documents and validation evidence that prove compliance with defense standards.",
+            "dscdo:involvedModules": {
+                "@list": [
+                    "documentation",
+                    "specification",
+                    "tru",
+                    "supplychain"
+                ]
+            },
+            "prof:hasRole": {
+                "@id": "prof:role/guidance"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Use case showing how documents provide audit trails for TRU provenance and compliance",
+            "rdfs:label": "Supply Chain Audit Use Case",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b14",
+            "sh:order": {
+                "@value": "40",
+                "@type": "xsd:integer"
+            },
+            "skos:example": "MIL-STD steel specification → steel batch TRU → composition testing → compliance validation",
+            "dscdo:useCaseDescription": "A defense contractor receives material specifications requiring steel with specific composition. They create TRUs for steel batches and validate them against the specifications through testing events that reference the original specification documents as evidence.",
+            "dscdo:involvedModules": {
+                "@list": [
+                    "documentation",
+                    "specification",
+                    "tru"
+                ]
+            },
+            "prof:hasRole": {
+                "@id": "prof:role/guidance"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Use case demonstrating how material specifications documents validate TRU compliance",
+            "rdfs:label": "Material Compliance Use Case",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b19",
+            "sh:order": {
+                "@value": "31",
+                "@type": "xsd:integer"
+            },
+            "skos:example": "Steel specification document → validation testing → compliant steel quantity → certified TRU",
+            "dscdo:workflowSteps": {
+                "@list": [
+                    "Material Design Specification Document",
+                    "Specification Validation Event",
+                    "Specified Quantity Of Material",
+                    "Traceable Resource Unit with Compliance"
+                ]
+            },
+            "prof:hasRole": {
+                "@id": "prof:role/guidance"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Complete workflow pattern for material certification from specification to validated TRU",
+            "rdfs:label": "Material Certification Workflow Pattern",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b23",
+            "sh:order": {
+                "@value": "30",
+                "@type": "xsd:integer"
+            },
+            "skos:note": "Documents provide specifications that TRUs must satisfy through validation events and compliance tracking",
+            "dscdo:integratesModules": {
+                "@list": [
+                    {
+                        "@id": "dscdo:modules/scdocumentation/document"
+                    },
+                    {
+                        "@id": "dscdo:modules/design/specification"
+                    },
+                    {
+                        "@id": "dscdo:modules/traceability/tru"
+                    }
+                ]
+            },
+            "prof:hasRole": {
+                "@id": "prof:role/guidance"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Core integration pattern showing how documents define specifications that constrain and validate TRUs",
+            "rdfs:label": "Document-Specification-TRU Integration Pattern",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b24",
+            "sh:order": {
+                "@value": "22",
+                "@type": "xsd:integer"
+            },
+            "prof:hasArtifact": {
+                "@id": "dscdo:patterns/SemanticTrajectory"
+            },
+            "prof:hasRole": {
+                "@id": "prof:role/guidance"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Pattern for modeling semantic trajectories and movement",
+            "rdfs:label": "Semantic Trajectory Pattern",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b25",
+            "sh:order": {
+                "@value": "21",
+                "@type": "xsd:integer"
+            },
+            "prof:hasArtifact": {
+                "@id": "dscdo:patterns/SpatioTemporalExtent"
+            },
+            "prof:hasRole": {
+                "@id": "prof:role/guidance"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Pattern for modeling unified spatial and temporal extents",
+            "rdfs:label": "Spatiotemporal Extent Pattern",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b26",
+            "sh:order": {
+                "@value": "20",
+                "@type": "xsd:integer"
+            },
+            "prof:hasArtifact": {
+                "@id": "dscdo:patterns/EventCore"
+            },
+            "prof:hasRole": {
+                "@id": "prof:role/guidance"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Core event modeling pattern from ontology design pattern library",
+            "rdfs:label": "Event Core Pattern",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b27",
+            "prof:hasArtifact": {
+                "@id": "dscdo:modules/imports/prov"
+            },
+            "prof:hasRole": {
+                "@id": "prof:role/vocabulary"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "W3C PROV-O provenance vocabulary",
+            "rdfs:label": "PROV Ontology",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b28",
+            "prof:hasArtifact": {
+                "@id": "dscdo:modules/imports/schema"
+            },
+            "prof:hasRole": {
+                "@id": "prof:role/vocabulary"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Schema.org terms used in the ontology",
+            "rdfs:label": "Schema.org Vocabulary",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b29",
+            "sh:order": {
+                "@value": "12",
+                "@type": "xsd:integer"
+            },
+            "prof:hasArtifact": {
+                "@id": "${ONTOLOGY_BASE}/modules/spdx/sbom-integration"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Integrates SPDX 3.0.1 Software Bill of Materials (SBOM) concepts with DSCDO workflow ontology for container-based AI agent provenance tracking.",
+            "rdfs:label": "DSCDO SPDX SBOM Integration Module",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b30",
+            "sh:order": {
+                "@value": "11",
+                "@type": "xsd:integer"
+            },
+            "prof:hasRole": {
+                "@id": "prof:role/constraints"
+            },
+            "prof:hasArtifact": {
+                "@id": "${ONTOLOGY_BASE}/modules/design/transition"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Provides formal state modeling and transition tracking for supply chain entities. Enables explicit state representation and transition validation with temporal constraints. Derived from AMMO ontolo...",
+            "rdfs:label": "State Transition Module",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b31",
+            "sh:order": {
+                "@value": "10",
+                "@type": "xsd:integer"
+            },
+            "dscdo:constrains": {
+                "@id": "${ONTOLOGY_BASE}/modules/traceability/tru"
+            },
+            "dscdo:extends": {
+                "@id": "${ONTOLOGY_BASE}/modules/scdocumentation/document"
+            },
+            "prof:hasRole": {
+                "@id": "prof:role/constraints"
+            },
+            "prof:hasArtifact": {
+                "@id": "${ONTOLOGY_BASE}/modules/design/specification"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Provides enhanced specification classes for materials, quantities, and design constraints. Extends basic TRU quantities with formal design specification patterns derived from AMMO ontology.",
+            "rdfs:label": "Enhanced Specification Module",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b32",
+            "sh:order": {
+                "@value": "9",
+                "@type": "xsd:integer"
+            },
+            "prof:hasRole": {
+                "@id": "prof:role/constraints"
+            },
+            "prof:hasArtifact": {
+                "@id": "${ONTOLOGY_BASE}/modules/design/hierarchy"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Provides formal part-whole relationship modeling with antisymmetric and irreflexive constraints. Enables sophisticated component composition modeling for complex systems and assemblies. Derived fro...",
+            "rdfs:label": "Component Hierarchy Module",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b33",
+            "sh:order": {
+                "@value": "8",
+                "@type": "xsd:integer"
+            },
+            "prof:hasRole": {
+                "@id": "prof:role/constraints"
+            },
+            "prof:hasArtifact": {
+                "@id": "${ONTOLOGY_BASE}/modules/design/composition"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Provides classes and properties for modeling design specifications, system designs, and their relationships to physical objects. Derived from AMMO ontology design patterns for defense supply chain ...",
+            "rdfs:label": "Design Composition Module",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b34",
+            "sh:order": {
+                "@value": "7",
+                "@type": "xsd:integer"
+            },
+            "prof:hasRole": {
+                "@id": "prof:role/validation"
+            },
+            "prof:hasArtifact": {
+                "@id": "${ONTOLOGY_BASE}/modules/traceability/tru-ammo-alignment"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Provides semantic alignment between the Traceable Resource Unit (TRU) module and the AMMO (Additive Manufacturing for Maintenance Operations) ontology for interoperability in defense manufacturing ...",
+            "rdfs:label": "TRU-AMMO Alignment Module",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b35",
+            "sh:order": {
+                "@value": "6",
+                "@type": "xsd:integer"
+            },
+            "prof:hasRole": {
+                "@id": "prof:role/validation"
+            },
+            "prof:hasArtifact": {
+                "@id": "${ONTOLOGY_BASE}/modules/traceability/tru"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Defines classes and properties for modeling Traceable Resource Units (TRUs) in supply chain operations, including measurement integration with Schema.org patterns.",
+            "rdfs:label": "Traceable Resource Unit Module",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b36",
+            "sh:order": {
+                "@value": "5",
+                "@type": "xsd:integer"
+            },
+            "prof:hasArtifact": {
+                "@id": "${ONTOLOGY_BASE}/modules/supplychain/eventmodule"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Supply chain events with enhanced spatial and temporal capabilities using W3C Time and GeoSPARQL vocabularies",
+            "rdfs:label": "Supply Chain Event Module",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b37",
+            "sh:order": {
+                "@value": "4",
+                "@type": "xsd:integer"
+            },
+            "prof:hasRole": {
+                "@id": "prof:role/specification"
+            },
+            "prof:hasArtifact": {
+                "@id": "${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Document chunk modeling with spatial and semantic boundaries for content extraction. Provides classes and properties for segmenting documents into meaningful chunks with spatial coordinates and ext...",
+            "rdfs:label": "Document Chunks Module",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b38",
+            "sh:order": {
+                "@value": "3",
+                "@type": "xsd:integer"
+            },
+            "dscdo:constrains": {
+                "@id": "${ONTOLOGY_BASE}/modules/traceability/tru"
+            },
+            "prof:hasRole": {
+                "@id": "prof:role/specification"
+            },
+            "prof:hasArtifact": {
+                "@id": "${ONTOLOGY_BASE}/modules/scdocumentation/document"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Supply chain documentation modeling - provides foundation for design specifications and TRU validation evidence. Defines core classes for digital documents, content extraction workflows, and inform...",
+            "rdfs:label": "Documentation Module",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b39",
+            "sh:order": {
+                "@value": "2",
+                "@type": "xsd:integer"
+            },
+            "prof:hasRole": {
+                "@id": "prof:role/specification"
+            },
+            "prof:hasArtifact": {
+                "@id": "${ONTOLOGY_BASE}/modules/core/identifier"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Identifier patterns and encoding classes for standardized entity identification. Provides the foundation for tracking and referencing supply chain entities through various identifier systems.",
+            "rdfs:label": "Identifier Module",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b40",
+            "sh:order": {
+                "@value": "1",
+                "@type": "xsd:integer"
+            },
+            "prof:hasRole": {
+                "@id": "prof:role/specification"
+            },
+            "prof:hasArtifact": {
+                "@id": "${ONTOLOGY_BASE}/modules/core/event"
+            },
+            "dcterms:format": "text/turtle",
+            "rdfs:comment": "Core event modeling with spatiotemporal extent patterns using W3C Time and GeoSPARQL vocabularies",
+            "rdfs:label": "Core Event Module",
+            "@type": "prof:ResourceDescriptor"
+        },
+        {
+            "@id": "_:b41",
             "prof:hasArtifact": {
                 "@id": "dscdo:pylode-config"
             },
@@ -15,22 +655,104 @@
         },
         {
             "@id": "dscdo:profile/",
-            "prof:hasResource": {
-                "@id": "_:b0"
-            },
-            "prof:isProfileOf": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/"
-            },
-            "prof:hasToken": "dscdo-cogitarelink",
-            "dcterms:description": {
-                "@language": "en",
-                "@value": "Profile defining modular implementation structure for the Defense Supply Chain and Documentation Ontology compatible with CogitareLink four-layer model."
-            },
+            "prof:hasResource": [
+                {
+                    "@id": "_:b0"
+                },
+                {
+                    "@id": "_:b1"
+                },
+                {
+                    "@id": "_:b5"
+                },
+                {
+                    "@id": "_:b10"
+                },
+                {
+                    "@id": "_:b14"
+                },
+                {
+                    "@id": "_:b19"
+                },
+                {
+                    "@id": "_:b23"
+                },
+                {
+                    "@id": "_:b24"
+                },
+                {
+                    "@id": "_:b25"
+                },
+                {
+                    "@id": "_:b26"
+                },
+                {
+                    "@id": "_:b27"
+                },
+                {
+                    "@id": "_:b28"
+                },
+                {
+                    "@id": "_:b29"
+                },
+                {
+                    "@id": "_:b30"
+                },
+                {
+                    "@id": "_:b41"
+                },
+                {
+                    "@id": "_:b40"
+                },
+                {
+                    "@id": "_:b39"
+                },
+                {
+                    "@id": "_:b38"
+                },
+                {
+                    "@id": "_:b37"
+                },
+                {
+                    "@id": "_:b36"
+                },
+                {
+                    "@id": "_:b35"
+                },
+                {
+                    "@id": "_:b34"
+                },
+                {
+                    "@id": "_:b33"
+                },
+                {
+                    "@id": "_:b32"
+                },
+                {
+                    "@id": "_:b31"
+                }
+            ],
+            "prof:hasProfile": [
+                {
+                    "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/profile/"
+                },
+                {
+                    "@id": "https://vocab.earth616.localhost/nd/scdoc/context/profile/"
+                }
+            ],
+            "@type": "prof:Profile",
             "dcterms:title": {
                 "@language": "en",
                 "@value": "DSCDO CogitareLink Implementation Profile"
             },
-            "@type": "prof:Profile"
+            "dcterms:description": {
+                "@language": "en",
+                "@value": "Profile defining modular implementation structure for the Defense Supply Chain and Documentation Ontology compatible with CogitareLink four-layer model."
+            },
+            "prof:hasToken": "dscdo-cogitarelink",
+            "prof:isProfileOf": {
+                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/"
+            }
         }
     ],
     "@context": {
