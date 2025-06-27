@@ -31,6 +31,30 @@
             "@type": "owl:Class"
         },
         {
+            "@id": "dscdo:modules/scdocumentation/document",
+            "skos:note": {
+                "@language": "en",
+                "@value": "Foundation module for all document-based supply chain knowledge capture and validation."
+            },
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-29",
+                "@type": "xsd:date"
+            },
+            "owl:versionInfo": "1.0",
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Supply chain documentation modeling - provides foundation for design specifications and TRU validation evidence. Defines core classes for digital documents, content extraction workflows, and information extraction processes."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Documentation Module"
+            },
+            "@type": "owl:Ontology"
+        },
+        {
             "@id": "dscdo:Document",
             "skos:definition": {
                 "@language": "en",

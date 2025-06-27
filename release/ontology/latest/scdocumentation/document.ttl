@@ -17,6 +17,16 @@
 # Supply Chain Documentation Module
 # =============================================================================
 
+<https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document>
+    a owl:Ontology ;
+    rdfs:label "Documentation Module"@en ;
+    rdfs:comment "Supply chain documentation modeling - provides foundation for design specifications and TRU validation evidence. Defines core classes for digital documents, content extraction workflows, and information extraction processes."@en ;
+    owl:versionInfo "1.0" ;
+    dcterms:created "2025-01-29"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    
+    skos:note "Foundation module for all document-based supply chain knowledge capture and validation."@en .
+
 # === Object Properties ===
 
 # Object property to link a digital document to its content

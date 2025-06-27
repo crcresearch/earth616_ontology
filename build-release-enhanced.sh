@@ -170,6 +170,24 @@ if [[ "$LAYERS" == "all" || "$LAYERS" == *"ontology"* ]]; then
     prepare_directory "${RELEASE_DIR}/ontology/latest"
     
     if [ -d "${TEMPLATES_DIR}/modules" ]; then
+        # === Auto-generate profile module descriptors ===
+        echo "Auto-generating profile module descriptors from templates..."
+        if [ -f "${SCRIPTS_DIR}/generate_profile_descriptors.py" ]; then
+            MODULE_DESCRIPTORS=$(uv run python "${SCRIPTS_DIR}/generate_profile_descriptors.py" "${TEMPLATES_DIR}" 2>/dev/null || echo "")
+            if [ -n "$MODULE_DESCRIPTORS" ]; then
+                export MODULE_DESCRIPTORS
+                echo "Generated descriptors for $(echo "$MODULE_DESCRIPTORS" | grep -c "prof:hasResource") modules"
+            else
+                echo "Warning: Profile generator returned empty result, using static descriptors"
+                MODULE_DESCRIPTORS=""
+                export MODULE_DESCRIPTORS
+            fi
+        else
+            echo "Warning: Profile generator not found, using static descriptors"
+            MODULE_DESCRIPTORS=""
+            export MODULE_DESCRIPTORS
+        fi
+        
         # Process individual module templates
         find ${TEMPLATES_DIR}/modules -name "*.ttl.template" | while read template; do
             # Get relative path structure

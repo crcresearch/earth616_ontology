@@ -17,6 +17,19 @@
 # Supply Chain Documentation Module - Document Chunks
 # =============================================================================
 
+<${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks>
+    a owl:Ontology ;
+    rdfs:label "Document Chunks Module"@en ;
+    rdfs:comment "Document chunk modeling with spatial and semantic boundaries for content extraction. Provides classes and properties for segmenting documents into meaningful chunks with spatial coordinates and extracted concepts."@en ;
+    owl:versionInfo "1.0" ;
+    dcterms:created "2025-01-29"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    
+    # === Module Dependencies ===
+    owl:imports <${ONTOLOGY_BASE}/modules/scdocumentation/document> ;
+    
+    skos:note "Extends basic document modeling with chunk-based analysis and concept extraction capabilities."@en .
+
 # === Object Properties ===
 
 # Object property to link document content to its chunks

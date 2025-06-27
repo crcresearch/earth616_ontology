@@ -22,6 +22,30 @@
             "@type": "rdf:Property"
         },
         {
+            "@id": "dscdo:modules/core/identifier",
+            "skos:note": {
+                "@language": "en",
+                "@value": "Core pattern for identifier modeling aligned with Schema.org PropertyValue and ODP best practices."
+            },
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-29",
+                "@type": "xsd:date"
+            },
+            "owl:versionInfo": "1.0",
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Identifier patterns and encoding classes for standardized entity identification. Provides the foundation for tracking and referencing supply chain entities through various identifier systems."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Identifier Module"
+            },
+            "@type": "owl:Ontology"
+        },
+        {
             "@id": "dscdo:IdentifierSource",
             "rdfs:isDefinedBy": {
                 "@id": "dscdo:modules/core/identifier"
@@ -163,6 +187,7 @@
     "@context": {
         "schema": "https://schema.org/",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "owl": "http://www.w3.org/2002/07/owl#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "skos": "http://www.w3.org/2004/02/skos/core#",
         "dcterms": "http://purl.org/dc/terms/",

@@ -45,104 +45,160 @@
     ] ;
 
     # === Module Resource Descriptors ===
+    # Auto-generated from module templates - see scripts/generate_profile_descriptors.py
+    
+Discovering module templates in templates
+Found 13 module templates
+Processing: templates/modules/core/event.ttl.template
+Processing: templates/modules/core/identifier.ttl.template
+Processing: templates/modules/core/ontology.ttl.template
+  Warning: No label found, skipping
+Processing: templates/modules/design/composition.ttl.template
+Processing: templates/modules/design/hierarchy.ttl.template
+Processing: templates/modules/design/specification.ttl.template
+Processing: templates/modules/design/transition.ttl.template
+Processing: templates/modules/scdocumentation/document-chunks.ttl.template
+Processing: templates/modules/scdocumentation/document.ttl.template
+Processing: templates/modules/spdx/sbom-integration.ttl.template
+Processing: templates/modules/supplychain/eventmodule.ttl.template
+Processing: templates/modules/traceability/tru-ammo-alignment.ttl.template
+Processing: templates/modules/traceability/tru.ttl.template
+Generated dependency ordering for 12 modules
+   1. core/event - Core Event Module
+   2. core/identifier - Identifier Module
+   3. scdocumentation/document - Documentation Module
+   4. scdocumentation/document-chunks - Document Chunks Module
+   5. supplychain/eventmodule - Supply Chain Event Module
+   6. traceability/tru - Traceable Resource Unit Module
+   7. traceability/tru-ammo-alignment - TRU-AMMO Alignment Module
+   8. design/composition - Design Composition Module
+   9. design/hierarchy - Component Hierarchy Module
+  10. design/specification - Enhanced Specification Module
+  11. design/transition - State Transition Module
+  12. spdx/sbom-integration - DSCDO SPDX SBOM Integration Module
 
+================================================================================
+GENERATED RESOURCE DESCRIPTORS:
+================================================================================
     prof:hasResource [
         a prof:ResourceDescriptor ;
         rdfs:label "Core Event Module" ;
-        rdfs:comment "Core event modeling patterns and classes" ;
+        rdfs:comment "Core event modeling with spatiotemporal extent patterns using W3C Time and GeoSPARQL vocabularies" ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> ;
+        prof:hasArtifact <${ONTOLOGY_BASE}/modules/core/event> ;
+        prof:hasRole role:specification ;
         sh:order 1 ;
     ] ;
 
     prof:hasResource [
         a prof:ResourceDescriptor ;
         rdfs:label "Identifier Module" ;
-        rdfs:comment "Identifier patterns and encoding classes" ;
+        rdfs:comment "Identifier patterns and encoding classes for standardized entity identification. Provides the foundation for tracking and referencing supply chain entities through various identifier systems." ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/identifier> ;
+        prof:hasArtifact <${ONTOLOGY_BASE}/modules/core/identifier> ;
+        prof:hasRole role:specification ;
         sh:order 2 ;
     ] ;
 
     prof:hasResource [
         a prof:ResourceDescriptor ;
         rdfs:label "Documentation Module" ;
-        rdfs:comment "Supply chain documentation modeling - provides foundation for design specifications and TRU validation evidence" ;
+        rdfs:comment "Supply chain documentation modeling - provides foundation for design specifications and TRU validation evidence. Defines core classes for digital documents, content extraction workflows, and inform..." ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
+        prof:hasArtifact <${ONTOLOGY_BASE}/modules/scdocumentation/document> ;
         prof:hasRole role:specification ;
-        dscdo:enablesModule <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
-        dscdo:providesEvidenceFor <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
+        dscdo:constrains <${ONTOLOGY_BASE}/modules/traceability/tru> ;
         sh:order 3 ;
     ] ;
 
     prof:hasResource [
         a prof:ResourceDescriptor ;
-        rdfs:label "Supply Chain Event Module" ;
-        rdfs:comment "Supply chain specific event types and patterns" ;
+        rdfs:label "Document Chunks Module" ;
+        rdfs:comment "Document chunk modeling with spatial and semantic boundaries for content extraction. Provides classes and properties for segmenting documents into meaningful chunks with spatial coordinates and ext..." ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+        prof:hasArtifact <${ONTOLOGY_BASE}/modules/scdocumentation/document-chunks> ;
+        prof:hasRole role:specification ;
         sh:order 4 ;
     ] ;
 
     prof:hasResource [
         a prof:ResourceDescriptor ;
-        rdfs:label "Traceable Resource Unit Module" ;
-        rdfs:comment "Traceable Resource Unit (TRU) modeling for supply chain traceability - validates against design specifications from documentation" ;
+        rdfs:label "Supply Chain Event Module" ;
+        rdfs:comment "Supply chain events with enhanced spatial and temporal capabilities using W3C Time and GeoSPARQL vocabularies" ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
-        prof:hasRole role:validation ;
-        dscdo:validatesAgainst <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
-        dscdo:documentedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
+        prof:hasArtifact <${ONTOLOGY_BASE}/modules/supplychain/eventmodule> ;
         sh:order 5 ;
     ] ;
 
     prof:hasResource [
         a prof:ResourceDescriptor ;
-        rdfs:label "TRU-AMMO Alignment Module" ;
-        rdfs:comment "Semantic alignment between TRU and AMMO ontology for additive manufacturing integration" ;
+        rdfs:label "Traceable Resource Unit Module" ;
+        rdfs:comment "Defines classes and properties for modeling Traceable Resource Units (TRUs) in supply chain operations, including measurement integration with Schema.org patterns." ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru-ammo-alignment> ;
+        prof:hasArtifact <${ONTOLOGY_BASE}/modules/traceability/tru> ;
+        prof:hasRole role:validation ;
         sh:order 6 ;
     ] ;
 
     prof:hasResource [
         a prof:ResourceDescriptor ;
-        rdfs:label "Design Composition Module" ;
-        rdfs:comment "Design patterns, specifications, and versioning derived from AMMO ontology" ;
+        rdfs:label "TRU-AMMO Alignment Module" ;
+        rdfs:comment "Provides semantic alignment between the Traceable Resource Unit (TRU) module and the AMMO (Additive Manufacturing for Maintenance Operations) ontology for interoperability in defense manufacturing ..." ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+        prof:hasArtifact <${ONTOLOGY_BASE}/modules/traceability/tru-ammo-alignment> ;
+        prof:hasRole role:validation ;
         sh:order 7 ;
     ] ;
 
     prof:hasResource [
         a prof:ResourceDescriptor ;
-        rdfs:label "Component Hierarchy Module" ;
-        rdfs:comment "Formal part-whole relationships with antisymmetric and irreflexive constraints" ;
+        rdfs:label "Design Composition Module" ;
+        rdfs:comment "Provides classes and properties for modeling design specifications, system designs, and their relationships to physical objects. Derived from AMMO ontology design patterns for defense supply chain ..." ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/hierarchy> ;
+        prof:hasArtifact <${ONTOLOGY_BASE}/modules/design/composition> ;
+        prof:hasRole role:constraints ;
         sh:order 8 ;
     ] ;
 
     prof:hasResource [
         a prof:ResourceDescriptor ;
-        rdfs:label "Enhanced Specification Module" ;
-        rdfs:comment "Material and quantity specifications with validation and compliance tracking - extends documentation patterns to constrain TRU properties" ;
+        rdfs:label "Component Hierarchy Module" ;
+        rdfs:comment "Provides formal part-whole relationship modeling with antisymmetric and irreflexive constraints. Enables sophisticated component composition modeling for complex systems and assemblies. Derived fro..." ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification> ;
+        prof:hasArtifact <${ONTOLOGY_BASE}/modules/design/hierarchy> ;
         prof:hasRole role:constraints ;
-        dscdo:extendsModule <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
-        dscdo:constrainsModule <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
         sh:order 9 ;
     ] ;
 
     prof:hasResource [
         a prof:ResourceDescriptor ;
-        rdfs:label "State Transition Module" ;
-        rdfs:comment "Formal state modeling and transition tracking for supply chain entities" ;
+        rdfs:label "Enhanced Specification Module" ;
+        rdfs:comment "Provides enhanced specification classes for materials, quantities, and design constraints. Extends basic TRU quantities with formal design specification patterns derived from AMMO ontology." ;
         dcterms:format "text/turtle" ;
-        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/transition> ;
+        prof:hasArtifact <${ONTOLOGY_BASE}/modules/design/specification> ;
+        prof:hasRole role:constraints ;
+        dscdo:extends <${ONTOLOGY_BASE}/modules/scdocumentation/document> ;
+        dscdo:constrains <${ONTOLOGY_BASE}/modules/traceability/tru> ;
         sh:order 10 ;
+    ] ;
+
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "State Transition Module" ;
+        rdfs:comment "Provides formal state modeling and transition tracking for supply chain entities. Enables explicit state representation and transition validation with temporal constraints. Derived from AMMO ontolo..." ;
+        dcterms:format "text/turtle" ;
+        prof:hasArtifact <${ONTOLOGY_BASE}/modules/design/transition> ;
+        prof:hasRole role:constraints ;
+        sh:order 11 ;
+    ] ;
+
+    prof:hasResource [
+        a prof:ResourceDescriptor ;
+        rdfs:label "DSCDO SPDX SBOM Integration Module" ;
+        rdfs:comment "Integrates SPDX 3.0.1 Software Bill of Materials (SBOM) concepts with DSCDO workflow ontology for container-based AI agent provenance tracking." ;
+        dcterms:format "text/turtle" ;
+        prof:hasArtifact <${ONTOLOGY_BASE}/modules/spdx/sbom-integration> ;
+        sh:order 12 ;
     ] ;
 
     # === Import Resource Descriptors ===

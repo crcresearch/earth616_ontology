@@ -20,6 +20,33 @@
             "@type": "ChunkRelationship"
         },
         {
+            "@id": "dscdo:modules/scdocumentation/document-chunks",
+            "skos:note": {
+                "@language": "en",
+                "@value": "Extends basic document modeling with chunk-based analysis and concept extraction capabilities."
+            },
+            "owl:imports": {
+                "@id": "dscdo:modules/scdocumentation/document"
+            },
+            "dcterms:creator": {
+                "@id": "https://orcid.org/0000-0003-4091-6059"
+            },
+            "dcterms:created": {
+                "@value": "2025-01-29",
+                "@type": "xsd:date"
+            },
+            "owl:versionInfo": "1.0",
+            "rdfs:comment": {
+                "@language": "en",
+                "@value": "Document chunk modeling with spatial and semantic boundaries for content extraction. Provides classes and properties for segmenting documents into meaningful chunks with spatial coordinates and extracted concepts."
+            },
+            "rdfs:label": {
+                "@language": "en",
+                "@value": "Document Chunks Module"
+            },
+            "@type": "owl:Ontology"
+        },
+        {
             "@id": "dscdo:ChunkRelationship",
             "skos:definition": {
                 "@language": "en",

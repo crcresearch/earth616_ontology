@@ -2508,6 +2508,22 @@ prov:SoftwareAgent rdfs:subClassOf [ a owl:Restriction ;
     skos:note "Both provide identification and specification information. AMMO DesignSpecification focuses on detailed technical documents while TRU Identifier provides traceability codes and metadata."@en ;
     skos:relatedMatch <https://w3id.org/ammo/ont/DesignSpecification> .
 
+<https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/identifier> a owl:Ontology ;
+    rdfs:label "Identifier Module"@en ;
+    dcterms:created "2025-01-29"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    rdfs:comment "Identifier patterns and encoding classes for standardized entity identification. Provides the foundation for tracking and referencing supply chain entities through various identifier systems."@en ;
+    owl:versionInfo "1.0" ;
+    skos:note "Core pattern for identifier modeling aligned with Schema.org PropertyValue and ODP best practices."@en .
+
+<https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> a owl:Ontology ;
+    rdfs:label "Documentation Module"@en ;
+    dcterms:created "2025-01-29"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    rdfs:comment "Supply chain documentation modeling - provides foundation for design specifications and TRU validation evidence. Defines core classes for digital documents, content extraction workflows, and information extraction processes."@en ;
+    owl:versionInfo "1.0" ;
+    skos:note "Foundation module for all document-based supply chain knowledge capture and validation."@en .
+
 <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> a owl:Ontology ;
     rdfs:label "Core Event Module"@en ;
     rdfs:comment "Core event modeling with spatiotemporal extent patterns using W3C Time and GeoSPARQL vocabularies"@en ;
@@ -2596,6 +2612,15 @@ prov:SoftwareAgent rdfs:subClassOf [ a owl:Restriction ;
     rdfs:comment "Supply chain events with enhanced spatial and temporal capabilities using W3C Time and GeoSPARQL vocabularies"@en ;
     owl:imports <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event>,
         <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/SpatioTemporalExtent> .
+
+<https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document-chunks> a owl:Ontology ;
+    rdfs:label "Document Chunks Module"@en ;
+    dcterms:created "2025-01-29"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
+    rdfs:comment "Document chunk modeling with spatial and semantic boundaries for content extraction. Provides classes and properties for segmenting documents into meaningful chunks with spatial coordinates and extracted concepts."@en ;
+    owl:imports <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
+    owl:versionInfo "1.0" ;
+    skos:note "Extends basic document modeling with chunk-based analysis and concept extraction capabilities."@en .
 
 [] a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
