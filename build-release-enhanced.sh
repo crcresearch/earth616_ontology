@@ -142,6 +142,7 @@ if [[ "$LAYERS" == "all" || "$LAYERS" == *"context"* ]]; then
     prepare_directory "${RELEASE_DIR}/contexts/latest"
     
     if [ -d "${TEMPLATES_DIR}/contexts" ]; then
+        # Process template files (.jsonld.template)
         for template in ${TEMPLATES_DIR}/contexts/*.jsonld.template; do
             if [ -f "$template" ]; then
                 filename=$(basename "$template" .template)
@@ -150,6 +151,18 @@ if [[ "$LAYERS" == "all" || "$LAYERS" == *"context"* ]]; then
                 # Process template with environment variables
                 envsubst < "$template" > "${RELEASE_DIR}/contexts/${VERSION}/${filename}"
                 envsubst < "$template" > "${RELEASE_DIR}/contexts/latest/${filename}"
+            fi
+        done
+        
+        # Copy non-template files (.jsonld) as-is
+        for context in ${TEMPLATES_DIR}/contexts/*.jsonld; do
+            if [ -f "$context" ]; then
+                filename=$(basename "$context")
+                echo "Copying context file: $context -> $filename"
+                
+                # Copy context file directly without template processing
+                cp "$context" "${RELEASE_DIR}/contexts/${VERSION}/${filename}"
+                cp "$context" "${RELEASE_DIR}/contexts/latest/${filename}"
             fi
         done
         
