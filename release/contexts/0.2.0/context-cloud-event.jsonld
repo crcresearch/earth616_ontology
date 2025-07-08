@@ -6,79 +6,55 @@
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "dcterms": "http://purl.org/dc/terms/",
     
-    "id": "@id",
     "type": "@type",
-    "graph": "@graph",
     
     "entity": {
-      "id": "graph",
+      "@id": "prov:generated",
+      "@type": "@id",
       "@context": {
-        "id": "id",
-        "content_type": "schema:encodingFormat",
-        "name": "schema:name",
-        "sensitivity": {
-          "id": "dcterms:accessRights",
-          "@container": "@list"
+        "type": {
+          "@id": "@type",
+          "@type": "@id"
         },
-        "content": "prov:value",
-        "uri": {
-          "id": "schema:contentUrl",
-          "type": "id"
-        }
-      }
-    },
-    "entity": {
-      "@id": "graph",
-      "@context": {
         "content_type": "schema:encodingFormat",
         "name": "schema:name",
         "sensitivity": {
           "@id": "dcterms:accessRights",
           "@container": "@list"
         },
+        "timestamp": {
+          "@id": "prov:generatedAtTime",
+          "@type": "xsd:dateTime"
+        },
         "content": "prov:value",
         "uri": {
           "@id": "schema:contentUrl",
+          "@type": "@id"
+        },
+        "source": {
+          "@id": "prov:hadPrimarySource",
           "@type": "@id"
         }
       }
     },
     
-    "generated_by": {
-      "@id": "prov:wasGeneratedBy",
-      "@type": "@id"
-    },
-    "generation_time": {
-      "@id": "prov:generatedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "attributed_to": {
-      "@id": "prov:wasAttributedTo",
+    "creator": {
+      "@id": "prov:wasAssociatedWith",
       "@type": "@id"
     },
     "derived_from": {
-      "@id": "prov:wasDerivedFrom",
+      "@id": "prov:used",
       "@type": "@id",
-      "@container": "@set"
+      "@container": "@list"
     },
-    "used_sources": {
-      "@id": "prov:hadPrimarySource",
-      "@type": "@id",
-      "@container": "@set"
+    "activity_start_time": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:dateTime"
     },
-    
-    "activity": {
-      "@id": "graph",
-      "@context": {
-        "start_time": {
-          "@id": "prov:startedAtTime",
-          "@type": "xsd:dateTime"
-        },
-        "end_time": {
-          "@id": "prov:endedAtTime",
-          "@type": "xsd:dateTime"
-        }
-      }
-    }
+    "activity_end_time": {
+      "@id": "prov:endedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "activity_id": "@id"
   }
 }
