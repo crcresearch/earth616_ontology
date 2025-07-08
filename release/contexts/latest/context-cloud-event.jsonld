@@ -1,15 +1,58 @@
 {
   "@context": {
     "@version": 1.1,
-    "prov":    "http://www.w3.org/ns/prov#",
-    "schema":  "http://schema.org/",
-    "xsd":     "http://www.w3.org/2001/XMLSchema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "dcterms": "http://purl.org/dc/terms/",
-    "entity": {              
-      "@id": "prov:entity",
+    
+    "id": "@id",
+    "type": "@type",
+    "graph": "@graph",
+    
+    "entity": {
+      "id": "graph",
+      "@context": {
+        "id": "id",
+        "content_type": "schema:encodingFormat",
+        "name": "schema:name",
+        "sensitivity": {
+          "id": "dcterms:accessRights",
+          "@container": "@list"
+        },
+        "content": "prov:value",
+        "uri": {
+          "id": "schema:contentUrl",
+          "type": "id"
+        }
+      }
+    },
+    "entity": {
+      "@id": "graph",
+      "@context": {
+        "content_type": "schema:encodingFormat",
+        "name": "schema:name",
+        "sensitivity": {
+          "@id": "dcterms:accessRights",
+          "@container": "@list"
+        },
+        "content": "prov:value",
+        "uri": {
+          "@id": "schema:contentUrl",
+          "@type": "@id"
+        }
+      }
+    },
+    
+    "generated_by": {
+      "@id": "prov:wasGeneratedBy",
       "@type": "@id"
     },
-    "creator": {             
+    "generation_time": {
+      "@id": "prov:generatedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "attributed_to": {
       "@id": "prov:wasAttributedTo",
       "@type": "@id"
     },
@@ -18,42 +61,24 @@
       "@type": "@id",
       "@container": "@set"
     },
-    "activity_start_time": {
-      "@id": "prov:startedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "activity_end_time": {
-      "@id": "prov:endedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "activity_id": {
-      "@id": "@id"
-    },
-
-    "content_type": {        
-      "@id": "schema:encodingFormat"
-    },
-    "name": {
-      "@id": "schema:name"
-    },
-    "sensitivity": {         
-      "@id": "dcterms:accessRights",
-      "@container": "@list"
-    },
-    "timestamp": {
-      "@id": "schema:dateCreated",
-      "@type": "xsd:dateTime"
-    },
-    "content": {             
-      "@id": "prov:value"
-    },
-    "uri": {
-      "@id": "schema:contentUrl",
-      "@type": "@id"
-    },
-    "source": {              
+    "used_sources": {
       "@id": "prov:hadPrimarySource",
-      "@type": "@id"
+      "@type": "@id",
+      "@container": "@set"
+    },
+    
+    "activity": {
+      "@id": "graph",
+      "@context": {
+        "start_time": {
+          "@id": "prov:startedAtTime",
+          "@type": "xsd:dateTime"
+        },
+        "end_time": {
+          "@id": "prov:endedAtTime",
+          "@type": "xsd:dateTime"
+        }
+      }
     }
   }
 }
