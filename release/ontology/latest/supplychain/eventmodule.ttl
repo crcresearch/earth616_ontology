@@ -13,43 +13,43 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 
 # --- DSCDO (environment-specific namespace) ---
-@prefix dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont/> .
-@prefix : <https://vocab.earth616.localhost/nd/scdoc/ont/> .
-@base <https://vocab.earth616.localhost/nd/scdoc/ont/> .
+@prefix dscdo: <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
+@prefix : <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
+@base <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
 
 # =============================================================================
 # Supply Chain Event Module
 # =============================================================================
 
-<https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule>
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule>
     a owl:Ontology ;
     rdfs:label "Supply Chain Event Module"@en ;
     rdfs:comment "Supply chain events with enhanced spatial and temporal capabilities using W3C Time and GeoSPARQL vocabularies"@en ;
     
     # Import enhanced spatiotemporal pattern
-    owl:imports <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/SpatioTemporalExtent> ;
-    owl:imports <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> .
+    owl:imports <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/SpatioTemporalExtent> ;
+    owl:imports <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/core/event> .
 
 # === Classes ===
 
 dscdo:SupplyChainEvent rdf:type owl:Class ;
     rdfs:subClassOf dscdo:Event ;
     rdfs:label "Supply Chain Event"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     rdfs:comment "An event occurring in a supply chain process."@en ;
     skos:definition "A specialized event that occurs within supply chain operations, tracking the movement, transformation, or status changes of goods, materials, or information"@en .
 
 dscdo:TransferEvent rdf:type owl:Class ;
     rdfs:subClassOf dscdo:SupplyChainEvent ;
     rdfs:label "Transfer Event"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     rdfs:comment "An event representing the transfer of goods or materials from one party to another."@en ;
     skos:definition "An event that records the change in custody or ownership of supply chain items"@en .
 
 dscdo:TransformationEvent rdf:type owl:Class ;
     rdfs:subClassOf dscdo:SupplyChainEvent ;
     rdfs:label "Transformation Event"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     rdfs:comment "An event representing the transformation of materials into new products or components."@en ;
     skos:definition "An event that records the conversion of input materials into different output products through manufacturing or processing"@en .
 
@@ -66,7 +66,7 @@ dscdo:TransportEvent rdf:type owl:Class ;
         owl:someValuesFrom geo:Feature
     ] ;
     rdfs:label "Transport Event"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     rdfs:comment "An event representing the movement of goods from one location to another."@en ;
     skos:definition "An event that tracks the physical movement of items through the supply chain network"@en .
 
@@ -83,21 +83,21 @@ dscdo:ObservationEvent rdf:type owl:Class ;
         owl:someValuesFrom schema:Observation
     ] ;
     rdfs:label "Observation Event"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     rdfs:comment "An event representing the observation or measurement of supply chain items without changing their state, aligned with schema.org observation patterns."@en ;
     skos:definition "An event that records data collection or monitoring activities without altering the observed items, producing structured observations following schema.org standards"@en .
 
 dscdo:AggregationEvent rdf:type owl:Class ;
     rdfs:subClassOf dscdo:SupplyChainEvent ;
     rdfs:label "Aggregation Event"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     rdfs:comment "An event representing the aggregation of multiple items into a container or package."@en ;
     skos:definition "An event that records the grouping of individual items into larger units for handling or shipping"@en .
 
 dscdo:DisaggregationEvent rdf:type owl:Class ;
     rdfs:subClassOf dscdo:SupplyChainEvent ;
     rdfs:label "Disaggregation Event"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     rdfs:comment "An event representing the disaggregation of items from a container or package."@en ;
     skos:definition "An event that records the separation of aggregated items back into individual units"@en .
 
@@ -106,28 +106,28 @@ dscdo:DisaggregationEvent rdf:type owl:Class ;
 dscdo:SupplierRole rdf:type owl:Class ;
     rdfs:subClassOf dscdo:ParticipantRole ;
     rdfs:label "Supplier Role"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     rdfs:comment "The role of an entity that provides goods or services in a supply chain event."@en ;
     skos:definition "A participant role representing an entity that provides inputs to the supply chain"@en .
 
 dscdo:CustomerRole rdf:type owl:Class ;
     rdfs:subClassOf dscdo:ParticipantRole ;
     rdfs:label "Customer Role"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     rdfs:comment "The role of an entity that receives goods or services in a supply chain event."@en ;
     skos:definition "A participant role representing an entity that receives outputs from the supply chain"@en .
 
 dscdo:CarrierRole rdf:type owl:Class ;
     rdfs:subClassOf dscdo:ParticipantRole ;
     rdfs:label "Carrier Role"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     rdfs:comment "The role of an entity that transports goods in a supply chain event."@en ;
     skos:definition "A participant role representing an entity responsible for moving items between locations"@en .
 
 dscdo:ManufacturerRole rdf:type owl:Class ;
     rdfs:subClassOf dscdo:ParticipantRole ;
     rdfs:label "Manufacturer Role"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     rdfs:comment "The role of an entity that produces or transforms goods in a supply chain event."@en ;
     skos:definition "A participant role representing an entity that creates or modifies products"@en .
 
@@ -142,7 +142,7 @@ dscdo:hasOriginLocation
     rdfs:subPropertyOf geo:hasGeometry ;
     rdfs:domain dscdo:TransportEvent ;
     rdfs:range geo:Feature ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> .
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> .
 
 dscdo:hasDestinationLocation
     a owl:ObjectProperty ;
@@ -151,7 +151,7 @@ dscdo:hasDestinationLocation
     rdfs:subPropertyOf geo:hasGeometry ;
     rdfs:domain dscdo:TransportEvent ;
     rdfs:range geo:Feature ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> .
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> .
 
 dscdo:hasCurrentLocation
     a owl:ObjectProperty ;
@@ -160,7 +160,7 @@ dscdo:hasCurrentLocation
     rdfs:subPropertyOf geo:hasGeometry ;
     rdfs:domain dscdo:SupplyChainEvent ;
     rdfs:range geo:Feature ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> .
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> .
 
 dscdo:followsRoute
     a owl:ObjectProperty ;
@@ -169,7 +169,7 @@ dscdo:followsRoute
     rdfs:subPropertyOf geo:hasGeometry ;
     rdfs:domain dscdo:TransportEvent ;
     rdfs:range geo:Geometry ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> .
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> .
 
 # =============================================================================
 # Temporal Aggregation Properties for Supply Chain Events
@@ -182,7 +182,7 @@ dscdo:hasEventSequence
     rdfs:subPropertyOf time:hasPart ;
     rdfs:domain dscdo:SupplyChainEvent ;
     rdfs:range dscdo:SupplyChainEvent ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> .
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> .
 
 dscdo:followsEvent
     a owl:ObjectProperty ;
@@ -191,7 +191,7 @@ dscdo:followsEvent
     rdfs:subPropertyOf time:after ;
     rdfs:domain dscdo:SupplyChainEvent ;
     rdfs:range dscdo:SupplyChainEvent ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> .
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> .
 
 dscdo:precedesEvent
     a owl:ObjectProperty ;
@@ -200,7 +200,7 @@ dscdo:precedesEvent
     rdfs:subPropertyOf time:before ;
     rdfs:domain dscdo:SupplyChainEvent ;
     rdfs:range dscdo:SupplyChainEvent ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> .
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> .
 
 dscdo:duringTimeInterval
     a owl:ObjectProperty ;
@@ -209,7 +209,7 @@ dscdo:duringTimeInterval
     rdfs:subPropertyOf time:hasTime ;
     rdfs:domain dscdo:SupplyChainEvent ;
     rdfs:range time:ProperInterval ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> .
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> .
 
 # =============================================================================
 # Schema.org Observation Integration Properties
@@ -222,7 +222,7 @@ dscdo:observationAbout
     rdfs:subPropertyOf schema:observationAbout ;
     rdfs:domain dscdo:ObservationEvent ;
     rdfs:range owl:Thing ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     skos:definition "Links an observation event to the supply chain entity that is the subject of observation"@en .
 
 dscdo:hasObservationResult
@@ -231,7 +231,7 @@ dscdo:hasObservationResult
     rdfs:comment "Links an observation event to the structured observation data produced, typically a schema:Observation instance."@en ;
     rdfs:domain dscdo:ObservationEvent ;
     rdfs:range schema:Observation ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     skos:definition "Connects an observation event to its structured result following schema.org observation patterns"@en .
 
 dscdo:observationDate
@@ -241,7 +241,7 @@ dscdo:observationDate
     rdfs:subPropertyOf schema:observationDate ;
     rdfs:domain dscdo:ObservationEvent ;
     rdfs:range xsd:dateTime ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     skos:definition "Timestamp indicating when the observation was recorded"@en .
 
 dscdo:measuredProperty
@@ -251,7 +251,7 @@ dscdo:measuredProperty
     rdfs:subPropertyOf schema:measuredProperty ;
     rdfs:domain schema:Observation ;
     rdfs:range owl:Thing ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     skos:definition "Specifies what characteristic is being measured (e.g., temperature, weight, location)"@en .
 
 dscdo:measurementValue
@@ -261,7 +261,7 @@ dscdo:measurementValue
     rdfs:subPropertyOf schema:value ;
     rdfs:domain schema:Observation ;
     rdfs:range [ owl:unionOf ( schema:QuantitativeValue schema:PropertyValue xsd:string xsd:boolean ) ] ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     skos:definition "The measured value or result of the observation activity"@en .
 
 dscdo:observationMethod
@@ -270,7 +270,7 @@ dscdo:observationMethod
     rdfs:comment "The technique or method used to make the observation, extending schema.org measurementTechnique. Can be a string (e.g., 'digital_scale') or a structured object describing the method."@en ;
     rdfs:subPropertyOf schema:measurementTechnique ;
     rdfs:domain schema:Observation ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/supplychain/eventmodule> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/supplychain/eventmodule> ;
     skos:definition "Describes how the observation was performed (sensor type, inspection method, etc.)"@en ;
     skos:example '"digital_industrial_scale"'@en ;
     skos:example '<http://www.wikidata.org/entity/Q134566>'@en ;

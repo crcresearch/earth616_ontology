@@ -36,7 +36,7 @@
             "@type": "sdo:Organization"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/",
             "owl:imports": [
                 {
                     "@id": "dscdo:modules/supplychain/eventmodule"
@@ -75,7 +75,7 @@
             "prof:hasProfile": {
                 "@id": "dscdo:profile/"
             },
-            "vann:preferredNamespaceUri": "https://vocab.earth616.localhost/nd/scdoc/ont/",
+            "vann:preferredNamespaceUri": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/",
             "vann:preferredNamespacePrefix": "dscdo",
             "sdo:codeRepository": {
                 "@value": "https://github.com/crcresearch/earth616_ontology",
@@ -162,7 +162,7 @@
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "voaf": "http://purl.org/vocommons/voaf#",
         "skos": "http://www.w3.org/2004/02/skos/core#",
-        "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont/",
+        "dscdo": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "vcard": "http://www.w3.org/2006/vcard/ns#",
         "prof": "http://www.w3.org/ns/dx/prof/",

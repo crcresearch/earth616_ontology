@@ -9,9 +9,9 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 # --- DSCDO (environment-specific namespace) ---
-@prefix dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont/> .
-@prefix : <https://vocab.earth616.localhost/nd/scdoc/ont/> .
-@base <https://vocab.earth616.localhost/nd/scdoc/ont/> .
+@prefix dscdo: <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
+@prefix : <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
+@base <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
 
 # --- AMMO Ontology Reference ---
 @prefix ammo: <https://w3id.org/ammo/ont/> .
@@ -20,7 +20,7 @@
 # Design Composition Module
 # =============================================================================
 
-<https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> rdf:type owl:Ontology ;
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/design/composition> rdf:type owl:Ontology ;
     rdfs:label "Design Composition Module"@en ;
     rdfs:comment "Provides classes and properties for modeling design specifications, system designs, and their relationships to physical objects. Derived from AMMO ontology design patterns for defense supply chain applications."@en ;
     owl:versionInfo "1.0" ;
@@ -28,8 +28,8 @@
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> ;
     
     # === Module Dependencies ===
-    owl:imports <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event> ;
-    owl:imports <https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/identifier> ;
+    owl:imports <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/core/event> ;
+    owl:imports <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/core/identifier> ;
     
     # === AMMO Provenance ===
     dcterms:source <https://w3id.org/ammo/ont/> ;
@@ -43,7 +43,7 @@
 dscdo:Design rdf:type rdfs:Class ;
     rdfs:label "Design"@en ;
     rdfs:comment "A plan or specification for the construction of an object, system, or process. Represents the abstract blueprint that guides physical implementation."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/design/composition> ;
     skos:definition "An abstract plan or blueprint that specifies how to construct, assemble, or implement a physical or conceptual entity"@en ;
     skos:example "Engineering drawings for a defense component, software architecture for a supply chain system, assembly instructions for a traceable resource unit"@en ;
     
@@ -56,7 +56,7 @@ dscdo:DesignSpecification rdf:type rdfs:Class ;
     rdfs:subClassOf dscdo:InformationObject ;
     rdfs:label "Design Specification"@en ;
     rdfs:comment "A detailed document that sets out exactly what a product, system, or process should present. Contains specific requirements, constraints, and implementation details."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/design/composition> ;
     skos:definition "A formal document containing detailed requirements and constraints that must be satisfied by a design implementation"@en ;
     skos:example "Technical specification document for steel alloy composition, CAD file with dimensional tolerances, quality control checklist for manufacturing process"@en ;
     
@@ -69,7 +69,7 @@ dscdo:SystemDesign rdf:type rdfs:Class ;
     rdfs:subClassOf dscdo:Design ;
     rdfs:label "System Design"@en ;
     rdfs:comment "A design that describes the architecture, components, modules, interfaces, and data flow for a system to satisfy specified requirements."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/design/composition> ;
     skos:definition "A comprehensive design that specifies system structure, component relationships, and functional requirements"@en ;
     skos:example "Defense system architecture, supply chain workflow design, integrated manufacturing system blueprint"@en ;
     
@@ -82,7 +82,7 @@ dscdo:ComponentDesign rdf:type rdfs:Class ;
     rdfs:subClassOf dscdo:Design ;
     rdfs:label "Component Design"@en ;
     rdfs:comment "A design that specifies the structure, properties, and behavior of an individual component within a larger system."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/design/composition> ;
     skos:definition "A design focused on a specific component, including its interfaces, requirements, and implementation details"@en ;
     skos:example "Design for a steel bracket component, specification for an electronic module, blueprint for a mechanical assembly"@en ;
     
@@ -102,7 +102,7 @@ dscdo:hasDesignSpecification rdf:type owl:ObjectProperty ;
     rdfs:range dscdo:DesignSpecification ;
     rdfs:label "has design specification"@en ;
     rdfs:comment "Links a design to one or more detailed specifications that define its requirements and constraints."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/design/composition> ;
     skos:definition "Connects a design to the formal specifications that detail its implementation requirements"@en ;
     
     # === AMMO Provenance ===
@@ -116,7 +116,7 @@ dscdo:isDesignSpecificationOf rdf:type owl:ObjectProperty ;
     rdfs:range dscdo:Design ;
     rdfs:label "is design specification of"@en ;
     rdfs:comment "Indicates that this specification defines requirements for a particular design."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/design/composition> ;
     skos:definition "Inverse property linking specifications back to the designs they define"@en .
 
 # === Design-to-Object Properties ===
@@ -125,7 +125,7 @@ dscdo:describes rdf:type owl:ObjectProperty ;
     rdfs:domain dscdo:Design ;
     rdfs:label "describes"@en ;
     rdfs:comment "Indicates that a design provides the blueprint or specification for a physical or conceptual entity."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/design/composition> ;
     skos:definition "Links a design to the entities it specifies or blueprints"@en ;
     
     # === AMMO Provenance ===
@@ -138,7 +138,7 @@ dscdo:isDescribedBy rdf:type owl:ObjectProperty ;
     rdfs:range dscdo:Design ;
     rdfs:label "is described by"@en ;
     rdfs:comment "Indicates that an entity is specified or blueprinted by a particular design."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/design/composition> ;
     skos:definition "Links entities back to the designs that specify them"@en ;
     
     # === AMMO Provenance ===
@@ -152,7 +152,7 @@ dscdo:specifies rdf:type owl:ObjectProperty ;
     rdfs:domain dscdo:DesignSpecification ;
     rdfs:label "specifies"@en ;
     rdfs:comment "Indicates that a design specification defines requirements or constraints for a particular entity."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/design/composition> ;
     skos:definition "Links specifications to the entities they define requirements for"@en ;
     
     # === AMMO Provenance ===
@@ -165,7 +165,7 @@ dscdo:isSpecifiedBy rdf:type owl:ObjectProperty ;
     rdfs:range dscdo:DesignSpecification ;
     rdfs:label "is specified by"@en ;
     rdfs:comment "Indicates that an entity is defined or constrained by a particular design specification."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/design/composition> ;
     skos:definition "Links entities back to the specifications that define their requirements"@en .
 
 # =============================================================================
@@ -175,7 +175,7 @@ dscdo:isSpecifiedBy rdf:type owl:ObjectProperty ;
 dscdo:DesignVersion rdf:type rdfs:Class ;
     rdfs:label "Design Version"@en ;
     rdfs:comment "A specific version or revision of a design, enabling tracking of design evolution and change management."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/design/composition> ;
     skos:definition "A timestamped version of a design that supports version control and change tracking"@en ;
     skos:example "Version 2.1 of missile component design, Revision C of manufacturing process specification"@en ;
     
@@ -187,7 +187,7 @@ dscdo:hasVersion rdf:type owl:ObjectProperty ;
     rdfs:range dscdo:DesignVersion ;
     rdfs:label "has version"@en ;
     rdfs:comment "Links a design to its specific versions or revisions."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/design/composition> ;
     skos:definition "Connects designs to their versioned instances"@en .
 
 dscdo:versionNumber rdf:type owl:DatatypeProperty ;
@@ -195,7 +195,7 @@ dscdo:versionNumber rdf:type owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:label "version number"@en ;
     rdfs:comment "The version identifier for a design version (e.g., '2.1', 'Rev C', 'v1.0.3')."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/design/composition> ;
     skos:definition "Alphanumeric identifier for a specific version of a design"@en .
 
 dscdo:supersedes rdf:type owl:ObjectProperty ;
@@ -203,7 +203,7 @@ dscdo:supersedes rdf:type owl:ObjectProperty ;
     rdfs:range dscdo:DesignVersion ;
     rdfs:label "supersedes"@en ;
     rdfs:comment "Indicates that one design version replaces or updates a previous version."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/design/composition> ;
     skos:definition "Links newer design versions to the versions they replace"@en .
 
 # =============================================================================
@@ -217,7 +217,7 @@ dscdo:implementsDesign rdf:type owl:ObjectProperty ;
     rdfs:range dscdo:Design ;
     rdfs:label "implements design"@en ;
     rdfs:comment "Indicates that a traceable resource unit is manufactured or assembled according to a specific design."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/design/composition> ;
     skos:definition "Links TRUs to the designs they implement or conform to"@en ;
     skos:example "Steel component TRU implements Design XYZ-2024-001"@en .
 
@@ -226,7 +226,7 @@ dscdo:conformsToSpecification rdf:type owl:ObjectProperty ;
     rdfs:range dscdo:DesignSpecification ;
     rdfs:label "conforms to specification"@en ;
     rdfs:comment "Indicates that a traceable resource unit meets the requirements defined in a design specification."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/design/composition> ;
     skos:definition "Links TRUs to the specifications they satisfy"@en ;
     skos:example "Manufactured component conforms to military specification MIL-STD-810"@en .
 
@@ -237,7 +237,7 @@ dscdo:executesDesign rdf:type owl:ObjectProperty ;
     rdfs:range dscdo:Design ;
     rdfs:label "executes design"@en ;
     rdfs:comment "Indicates that a supply chain event follows or implements a specific design or process plan."@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/composition> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/design/composition> ;
     skos:definition "Links events to the designs or process plans they execute"@en ;
     skos:example "Manufacturing event executes assembly design plan"@en .
 
@@ -246,7 +246,7 @@ dscdo:executesDesign rdf:type owl:ObjectProperty ;
 # =============================================================================
 
 # === Example Design Instance ===
-<https://vocab.earth616.localhost/nd/scdoc/ont/examples/designs/steel-component-design-001>
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/designs/steel-component-design-001>
     rdf:type dscdo:ComponentDesign ;
     rdfs:label "Steel Component Design 001"@en ;
     rdfs:comment "Design specification for precision steel component used in defense applications"@en ;
@@ -277,12 +277,12 @@ dscdo:executesDesign rdf:type owl:ObjectProperty ;
     ] .
 
 # === Example System Design ===
-<https://vocab.earth616.localhost/nd/scdoc/ont/examples/designs/missile-system-design>
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/designs/missile-system-design>
     rdf:type dscdo:SystemDesign ;
     rdfs:label "Missile System Design"@en ;
     rdfs:comment "Comprehensive system design for guided missile assembly including all subsystems and components"@en ;
     
-    dscdo:describes <https://vocab.earth616.localhost/nd/scdoc/ont/examples/systems/guided-missile-system> ;
+    dscdo:describes <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/systems/guided-missile-system> ;
     
     dscdo:hasDesignSpecification [
         rdf:type dscdo:DesignSpecification ;
@@ -298,7 +298,7 @@ dscdo:executesDesign rdf:type owl:ObjectProperty ;
 # DESIGN COMPOSITION GUIDELINES
 # =============================================================================
 
-<https://vocab.earth616.localhost/nd/scdoc/ont/design/composition-guidelines>
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/design/composition-guidelines>
     rdf:type owl:NamedIndividual, skos:ConceptScheme ;
     rdfs:label "Design Composition Guidelines"@en ;
     dcterms:description "Guidelines for using design composition patterns in Earth616 ontology"@en ;

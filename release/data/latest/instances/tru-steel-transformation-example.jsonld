@@ -1,6 +1,6 @@
 {
   "@context": [
-    "https://vocab.earth616.localhost/nd/scdoc/context/context-base.jsonld",
+    "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context/context-base.jsonld",
     {
       "TraceableResourceUnit": "dscdo:TraceableResourceUnit",
       "QuantityOfMaterial": "dscdo:QuantityOfMaterial", 
@@ -33,7 +33,7 @@
   ],
   "@graph": [
     {
-      "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/materials/steel-grade-304",
+      "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/materials/steel-grade-304",
       "@type": "Material",
       "name": "Stainless Steel Grade 304",
       "description": "Austenitic stainless steel alloy with excellent corrosion resistance",
@@ -52,7 +52,7 @@
     },
     
     {
-      "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/tru/steel-batch-sb-2024-001",
+      "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/tru/steel-batch-sb-2024-001",
       "@type": "TraceableResourceUnit",
       "name": "Steel Batch SB-2024-001",
       "description": "Raw steel batch from supplier for defense component manufacturing",
@@ -65,7 +65,7 @@
       "hasBatchNumber": "SB-2024-001",
       "hasShelfLife": "P2Y",
       "consistsOf": {
-        "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/quantities/steel-quantity-001",
+        "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/quantities/steel-quantity-001",
         "@type": "QuantityOfMaterial",
         "name": "25.5 kg Steel Alloy Grade 304",
         "value": 25.5,
@@ -73,7 +73,7 @@
         "unitText": "kilograms", 
         "minValue": 25.3,
         "maxValue": 25.7,
-        "ofMaterialType": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/materials/steel-grade-304",
+        "ofMaterialType": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/materials/steel-grade-304",
         "measuredProperty": "mass",
         "hasMeasurementMethod": "industrial_scale_weighing",
         "valueReference": {
@@ -97,7 +97,7 @@
     },
     
     {
-      "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/events/steel-cutting-transformation-001",
+      "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/events/steel-cutting-transformation-001",
       "@type": "TransformationEvent",
       "name": "Steel Batch Cutting and Shaping Operation",
       "description": "CNC cutting operation transforming steel batch into precision components",
@@ -115,21 +115,21 @@
           }
         }
       },
-      "inputTRU": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/tru/steel-batch-sb-2024-001",
+      "inputTRU": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/tru/steel-batch-sb-2024-001",
       "outputTRU": [
-        "https://vocab.earth616.localhost/nd/scdoc/ont/examples/tru/steel-component-sc-001-2024",
-        "https://vocab.earth616.localhost/nd/scdoc/ont/examples/tru/steel-component-sc-002-2024",
-        "https://vocab.earth616.localhost/nd/scdoc/ont/examples/tru/steel-waste-sw-001-2024"
+        "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/tru/steel-component-sc-001-2024",
+        "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/tru/steel-component-sc-002-2024",
+        "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/tru/steel-waste-sw-001-2024"
       ],
       "providesParticipantRole": [
         {
           "@type": "ManufacturerRole",
           "name": "Primary Manufacturer",
-          "assumesRole": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/agents/precision-manufacturing-corp"
+          "assumesRole": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/agents/precision-manufacturing-corp"
         },
         {
           "@type": "SourceTRURole",
-          "performsTRURole": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/tru/steel-batch-sb-2024-001"
+          "performsTRURole": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/tru/steel-batch-sb-2024-001"
         }
       ],
       "additionalProperty": [
@@ -147,7 +147,7 @@
     },
     
     {
-      "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/tru/steel-component-sc-001-2024",
+      "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/tru/steel-component-sc-001-2024",
       "@type": "TraceableResourceUnit", 
       "name": "Steel Component SC-001",
       "description": "Precision-cut steel component for defense application",
@@ -157,13 +157,13 @@
         "propertyID": "ComponentSerial",
         "name": "Component Serial Number"
       },
-      "predecessorOf": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/tru/steel-batch-sb-2024-001",
+      "predecessorOf": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/tru/steel-batch-sb-2024-001",
       "consistsOf": {
         "@type": "QuantityOfMaterial",
         "value": 12.2,
         "unitCode": "KGM", 
         "unitText": "kilograms",
-        "ofMaterialType": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/materials/steel-grade-304",
+        "ofMaterialType": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/materials/steel-grade-304",
         "measuredProperty": "mass",
         "hasMeasurementMethod": "precision_scale_weighing"
       },
@@ -192,7 +192,7 @@
     },
     
     {
-      "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/tru/steel-component-sc-002-2024",
+      "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/tru/steel-component-sc-002-2024",
       "@type": "TraceableResourceUnit",
       "name": "Steel Component SC-002", 
       "description": "Secondary precision-cut steel component",
@@ -202,20 +202,20 @@
         "propertyID": "ComponentSerial",
         "name": "Component Serial Number"
       },
-      "predecessorOf": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/tru/steel-batch-sb-2024-001",
+      "predecessorOf": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/tru/steel-batch-sb-2024-001",
       "consistsOf": {
         "@type": "QuantityOfMaterial",
         "value": 13.0,
         "unitCode": "KGM",
         "unitText": "kilograms",
-        "ofMaterialType": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/materials/steel-grade-304",
+        "ofMaterialType": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/materials/steel-grade-304",
         "measuredProperty": "mass",
         "hasMeasurementMethod": "precision_scale_weighing"
       }
     },
     
     {
-      "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/tru/steel-waste-sw-001-2024",
+      "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/tru/steel-waste-sw-001-2024",
       "@type": "TraceableResourceUnit",
       "name": "Steel Cutting Waste SW-001",
       "description": "Material waste from cutting operation - recyclable",
@@ -225,13 +225,13 @@
         "propertyID": "WasteID",
         "name": "Waste Material Identifier"
       },
-      "predecessorOf": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/tru/steel-batch-sb-2024-001",
+      "predecessorOf": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/tru/steel-batch-sb-2024-001",
       "consistsOf": {
         "@type": "QuantityOfMaterial",
         "value": 0.3,
         "unitCode": "KGM",
         "unitText": "kilograms",
-        "ofMaterialType": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/materials/steel-grade-304",
+        "ofMaterialType": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/materials/steel-grade-304",
         "measuredProperty": "mass"
       },
       "additionalProperty": {
@@ -242,7 +242,7 @@
     },
     
     {
-      "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/events/component-transfer-001",
+      "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/events/component-transfer-001",
       "@type": "TransferEvent",
       "name": "Component Transfer to Assembly Line",
       "description": "Transfer of completed components to next manufacturing stage",
@@ -256,19 +256,19 @@
         }
       },
       "transferredTRU": [
-        "https://vocab.earth616.localhost/nd/scdoc/ont/examples/tru/steel-component-sc-001-2024",
-        "https://vocab.earth616.localhost/nd/scdoc/ont/examples/tru/steel-component-sc-002-2024"
+        "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/tru/steel-component-sc-001-2024",
+        "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/tru/steel-component-sc-002-2024"
       ],
       "providesParticipantRole": [
         {
           "@type": "SupplierRole",
           "name": "Component Supplier",
-          "assumesRole": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/agents/precision-manufacturing-corp"
+          "assumesRole": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/agents/precision-manufacturing-corp"
         },
         {
           "@type": "CustomerRole", 
           "name": "Assembly Line Receiver",
-          "assumesRole": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/agents/final-assembly-division"
+          "assumesRole": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/agents/final-assembly-division"
         }
       ]
     }

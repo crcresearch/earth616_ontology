@@ -1,0 +1,60 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "prov": "http://www.w3.org/ns/prov#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    
+    "type": "@type",
+    
+    "entity": {
+      "@id": "prov:generated",
+      "@type": "@id",
+      "@context": {
+        "type": {
+          "@id": "@type",
+          "@type": "@id"
+        },
+        "content_type": "schema:encodingFormat",
+        "name": "schema:name",
+        "sensitivity": {
+          "@id": "dcterms:accessRights",
+          "@container": "@list"
+        },
+        "timestamp": {
+          "@id": "prov:generatedAtTime",
+          "@type": "xsd:dateTime"
+        },
+        "content": "prov:value",
+        "uri": {
+          "@id": "schema:contentUrl",
+          "@type": "@id"
+        },
+        "source": {
+          "@id": "prov:hadPrimarySource",
+          "@type": "@id"
+        }
+      }
+    },
+    
+    "creator": {
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
+    },
+    "derived_from": {
+      "@id": "prov:used",
+      "@type": "@id",
+      "@container": "@list"
+    },
+    "activity_start_time": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "activity_end_time": {
+      "@id": "prov:endedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "activity_id": "@id"
+  }
+}

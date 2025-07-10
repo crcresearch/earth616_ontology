@@ -8,9 +8,9 @@
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "owl": "http://www.w3.org/2002/07/owl#",
     "sdo": "https://schema.org/",
-    "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont/"
+    "dscdo": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/"
   },
-  "@id": "https://vocab.earth616.localhost/nd/scdoc/context/profile/",
+  "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context/profile/",
   "@type": "Profile",
   "dct:title": {
     "@value": "DSCDO JSON-LD Contexts Profile",
@@ -27,7 +27,7 @@
   "dct:creator": "Earth616 Consortium",
   "owl:versionInfo": "",
   "hasToken": "dscdo-contexts",
-  "isProfileOf": "https://vocab.earth616.localhost/nd/scdoc/ont/profile/",
+  "isProfileOf": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/profile/",
   "hasResource": [
     {
       "@type": "ResourceDescriptor",
@@ -35,7 +35,7 @@
       "rdfs:comment": "Core JSON-LD context for basic DSCDO terms, namespaces, and fundamental vocabulary mappings",
       "dct:format": "application/ld+json",
       "hasRole": "role:validation",
-      "hasArtifact": "https://vocab.earth616.localhost/nd/scdoc/context/context-base.jsonld",
+      "hasArtifact": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context/context-base.jsonld",
       "sdo:contentSize": "Small (<5KB)"
     },
     {
@@ -44,7 +44,7 @@
       "rdfs:comment": "JSON-LD context for document processing, content extraction, and supply chain documentation workflows",
       "dct:format": "application/ld+json",
       "hasRole": "role:validation",
-      "hasArtifact": "https://vocab.earth616.localhost/nd/scdoc/context/context-documents.jsonld",
+      "hasArtifact": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context/context-documents.jsonld",
       "sdo:contentSize": "Small (<5KB)"
     },
     {
@@ -53,7 +53,7 @@
       "rdfs:comment": "JSON-LD context for workflow operations, process management, and agentic workflow integration",
       "dct:format": "application/ld+json",
       "hasRole": "role:validation",
-      "hasArtifact": "https://vocab.earth616.localhost/nd/scdoc/context/context-workflow.jsonld", 
+      "hasArtifact": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context/context-workflow.jsonld", 
       "sdo:contentSize": "Small (<5KB)"
     }
   ]

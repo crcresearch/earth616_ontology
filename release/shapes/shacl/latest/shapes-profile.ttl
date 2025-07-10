@@ -16,14 +16,14 @@
 @prefix role: <http://www.w3.org/ns/dx/prof/role/> .
 
 # --- DSCDO (environment-specific namespace) ---
-@prefix dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont/> .
-@base <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/> .
+@prefix dscdo: <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
+@base <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/shacl/> .
 
 # =============================================================================
 # SHACL Shapes Profile Declaration  
 # =============================================================================
 
-<https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/profile/>
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/shacl/profile/>
     a prof:Profile ;
     dcterms:title "DSCDO SHACL Shapes Profile"@en ;
     dcterms:description "SHACL validation shapes for data quality assurance, constraint checking, and semantic validation within the Defense Supply Chain and Documentation Ontology ecosystem."@en ;
@@ -31,7 +31,7 @@
     dcterms:creator "Earth616 Consortium" ;
     owl:versionInfo "" ;
     prof:hasToken "dscdo-shapes" ;
-    prof:isProfileOf <https://vocab.earth616.localhost/nd/scdoc/ont/profile/> ;
+    prof:isProfileOf <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/profile/> ;
 
     # === Shape Resource Descriptors ===
 
@@ -41,9 +41,9 @@
         rdfs:comment "SHACL constraints for document entities, metadata validation, and supply chain documentation requirements" ;
         dcterms:format "text/turtle" ;
         prof:hasRole role:constraints ;
-        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentShape.ttl> ;
+        prof:hasArtifact <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/shacl/DocumentShape.ttl> ;
         dcterms:conformsTo sh:NodeShape ;
-        dscdo:validatesModule <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
+        dscdo:validatesModule <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/scdocumentation/document> ;
     ] ;
 
     prof:hasResource [
@@ -52,9 +52,9 @@
         rdfs:comment "SHACL constraints for Traceable Resource Units, traceability data validation, and supply chain compliance checking" ;
         dcterms:format "text/turtle" ;
         prof:hasRole role:constraints ;
-        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/TRUShape.ttl> ;
+        prof:hasArtifact <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/shacl/TRUShape.ttl> ;
         dcterms:conformsTo sh:NodeShape ;
-        dscdo:validatesModule <https://vocab.earth616.localhost/nd/scdoc/ont/modules/traceability/tru> ;
+        dscdo:validatesModule <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/traceability/tru> ;
     ] ;
 
     prof:hasResource [
@@ -63,9 +63,9 @@
         rdfs:comment "SHACL constraints for document chunks, content segmentation validation, and text processing workflows" ;
         dcterms:format "text/turtle" ;
         prof:hasRole role:constraints ;
-        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentChunkShape.ttl> ;
+        prof:hasArtifact <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/shacl/DocumentChunkShape.ttl> ;
         dcterms:conformsTo sh:NodeShape ;
-        dscdo:validatesModule <https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document> ;
+        dscdo:validatesModule <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/scdocumentation/document> ;
     ] ;
 
     prof:hasResource [
@@ -74,7 +74,7 @@
         rdfs:comment "SHACL constraints for Software Bill of Materials workflow validation, SPDX integration, and supply chain security compliance" ;
         dcterms:format "text/turtle" ;
         prof:hasRole role:constraints ;
-        prof:hasArtifact <https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/SbomWorkflowShape.ttl> ;
+        prof:hasArtifact <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/shacl/SbomWorkflowShape.ttl> ;
         dcterms:conformsTo sh:NodeShape ;
-        dscdo:validatesModule <https://vocab.earth616.localhost/nd/scdoc/ont/modules/spdx/sbom-integration> ;
+        dscdo:validatesModule <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/spdx/sbom-integration> ;
     ] .

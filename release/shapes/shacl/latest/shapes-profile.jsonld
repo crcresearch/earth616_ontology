@@ -9,7 +9,7 @@
                 "@id": "sh:NodeShape"
             },
             "prof:hasArtifact": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/SbomWorkflowShape.ttl"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/shacl/SbomWorkflowShape.ttl"
             },
             "prof:hasRole": {
                 "@id": "prof:role/constraints"
@@ -28,7 +28,7 @@
                 "@id": "sh:NodeShape"
             },
             "prof:hasArtifact": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentChunkShape.ttl"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/shacl/DocumentChunkShape.ttl"
             },
             "prof:hasRole": {
                 "@id": "prof:role/constraints"
@@ -47,7 +47,7 @@
                 "@id": "sh:NodeShape"
             },
             "prof:hasArtifact": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/TRUShape.ttl"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/shacl/TRUShape.ttl"
             },
             "prof:hasRole": {
                 "@id": "prof:role/constraints"
@@ -66,7 +66,7 @@
                 "@id": "sh:NodeShape"
             },
             "prof:hasArtifact": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentShape.ttl"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/shacl/DocumentShape.ttl"
             },
             "prof:hasRole": {
                 "@id": "prof:role/constraints"
@@ -77,7 +77,7 @@
             "@type": "prof:ResourceDescriptor"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/profile/",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/shacl/profile/",
             "prof:hasResource": [
                 {
                     "@id": "_:b0"
@@ -120,7 +120,7 @@
         "sh": "http://www.w3.org/ns/shacl#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "dcterms": "http://purl.org/dc/terms/",
-        "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont/",
+        "dscdo": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "prof": "http://www.w3.org/ns/dx/prof/",
         "sdo": "https://schema.org/"

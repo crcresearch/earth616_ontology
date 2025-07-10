@@ -1,6 +1,6 @@
 {
     "@context": {
-      "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont/",
+      "dscdo": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/",
       "schema": "https://schema.org/",
       "prov": "http://www.w3.org/ns/prov#",
       "skos": "http://www.w3.org/2004/02/skos/core#",
@@ -11,32 +11,32 @@
       "sh": "http://www.w3.org/ns/shacl#",
       "dcterms": "http://purl.org/dc/terms/",
       "documentContext": {
-        "@id": "https://vocab.earth616.localhost/nd/scdoc/context/context-documents.jsonld",
+        "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context/context-documents.jsonld",
         "description": "Context for SCDigitalDocument and related document concepts for supply chain documentation",
         "version": "0.1.4"
       },
       "eventContext": {
-        "@id": "https://vocab.earth616.localhost/nd/scdoc/context/context-event.jsonld",
+        "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context/context-event.jsonld",
         "description": "Context for SupplyChainEvent and event types like TransferEvent, TransformationEvent",
         "version": "0.1.4"
       },
       "identifierContext": {
-        "@id": "https://vocab.earth616.localhost/nd/scdoc/context/context-identifier.jsonld",
+        "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context/context-identifier.jsonld",
         "description": "Context for Identifier pattern, IdentifierType, and IdentifierEncoding concepts",
         "version": "0.1.4"
       },
       "workflowContext": {
-        "@id": "https://vocab.earth616.localhost/nd/scdoc/context/context-workflow.jsonld",
+        "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context/context-workflow.jsonld",
         "description": "Context for InformationExtractionWorkflow and IEPipeline concepts",
         "version": "0.1.4"
       },
       "roleContext": {
-        "@id": "https://vocab.earth616.localhost/nd/scdoc/context/context-role.jsonld",
+        "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/context/context-role.jsonld",
         "description": "Context for ParticipantRole, SupplyChainRole and related role concepts",
         "version": "0.1.4"
       },
-      "shapesGraph": {"@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/", "@type": "@id"},
-      "rulesGraph": {"@id": "https://vocab.earth616.localhost/nd/scdoc/rules/", "@type": "@id"},
+      "shapesGraph": {"@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/shacl/", "@type": "@id"},
+      "rulesGraph": {"@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/rules/", "@type": "@id"},
       "label": {"@id": "rdfs:label"},
       "comment": {"@id": "rdfs:comment"},
       "subClassOf": {"@id": "rdfs:subClassOf", "@type": "@id"},

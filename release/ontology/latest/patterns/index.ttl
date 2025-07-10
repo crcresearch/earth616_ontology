@@ -16,14 +16,14 @@
 @prefix oplax: <http://ontologydesignpatterns.org/opla-core#> .
 
 # --- DSCDO ---
-@prefix dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont/> .
-@base <https://vocab.earth616.localhost/nd/scdoc/ont/> .
+@prefix dscdo: <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
+@base <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
 
 # =============================================================================
 # DSCDO Patterns Index
 # =============================================================================
 
-<https://vocab.earth616.localhost/nd/scdoc/ont/patterns/>
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/>
     a dcat:Catalog, skos:ConceptScheme ;
     dcterms:title "DSCDO Ontology Design Patterns Catalog"@en ;
     dcterms:description "Index of ontology design patterns used in the Defense Supply Chain and Documentation Ontology."@en ;
@@ -37,45 +37,45 @@
     dcterms:modified "2025-04-15"^^xsd:date ;
 
     # Pattern Entries
-    dcat:dataset <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/EventCore> ;
-    dcat:dataset <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/SpatioTemporalExtent> ;
-    dcat:dataset <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/SemanticTrajectory> ;
-    dcat:dataset <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/IEIntegration> ;
+    dcat:dataset <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/EventCore> ;
+    dcat:dataset <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/SpatioTemporalExtent> ;
+    dcat:dataset <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/SemanticTrajectory> ;
+    dcat:dataset <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/IEIntegration> ;
 
-    skos:hasTopConcept <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/EventCore> ;
-    skos:hasTopConcept <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/SpatioTemporalExtent> ;
-    skos:hasTopConcept <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/SemanticTrajectory> ;
-    skos:hasTopConcept <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/IEIntegration> .
+    skos:hasTopConcept <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/EventCore> ;
+    skos:hasTopConcept <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/SpatioTemporalExtent> ;
+    skos:hasTopConcept <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/SemanticTrajectory> ;
+    skos:hasTopConcept <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/IEIntegration> .
 
 # Pattern Concept Definitions for SKOS hierarchy
-<https://vocab.earth616.localhost/nd/scdoc/ont/patterns/EventCore>
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/EventCore>
     a skos:Concept, oplax:Pattern ;
-    skos:inScheme <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/> ;
+    skos:inScheme <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/> ;
     skos:prefLabel "Event Core Pattern"@en ;
     skos:definition "Minimalistic model of events with spatiotemporal extents and participants."@en ;
-    skos:topConceptOf <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/> .
+    skos:topConceptOf <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/> .
 
-<https://vocab.earth616.localhost/nd/scdoc/ont/patterns/SpatioTemporalExtent>
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/SpatioTemporalExtent>
     a skos:Concept, oplax:Pattern ;
-    skos:inScheme <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/> ;
+    skos:inScheme <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/> ;
     skos:prefLabel "Spatiotemporal Extent Pattern"@en ;
     skos:definition "Unified modeling of spatial and temporal extents."@en ;
-    skos:topConceptOf <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/> ;
-    skos:related <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/EventCore> .
+    skos:topConceptOf <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/> ;
+    skos:related <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/EventCore> .
 
-<https://vocab.earth616.localhost/nd/scdoc/ont/patterns/SemanticTrajectory>
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/SemanticTrajectory>
     a skos:Concept, oplax:Pattern ;
-    skos:inScheme <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/> ;
+    skos:inScheme <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/> ;
     skos:prefLabel "Semantic Trajectory Pattern"@en ;
     skos:definition "Modeling movement through space, time, and semantic contexts."@en ;
-    skos:topConceptOf <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/> ;
-    skos:related <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/EventCore> ;
-    skos:related <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/SpatioTemporalExtent> .
+    skos:topConceptOf <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/> ;
+    skos:related <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/EventCore> ;
+    skos:related <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/SpatioTemporalExtent> .
 
-<https://vocab.earth616.localhost/nd/scdoc/ont/patterns/IEIntegration>
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/IEIntegration>
     a skos:Concept, oplax:Pattern ;
-    skos:inScheme <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/> ;
+    skos:inScheme <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/> ;
     skos:prefLabel "Information Extraction Integration Pattern"@en ;
     skos:definition "Semantic hooks for LLM-based information extraction workflows to integrate with Earth616 vocabulary for document processing, compliance validation, and TRU specification conformance."@en ;
-    skos:topConceptOf <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/> ;
-    skos:related <https://vocab.earth616.localhost/nd/scdoc/ont/patterns/EventCore> .
+    skos:topConceptOf <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/> ;
+    skos:related <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/EventCore> .

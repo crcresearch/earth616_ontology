@@ -101,7 +101,7 @@
             }
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentContentShape-v1",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/shacl/DocumentContentShape-v1",
             "sh:ignoredProperties": {
                 "@list": [
                     {
@@ -140,7 +140,7 @@
             },
             "dcterms:version": "1.0",
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentShape"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/shacl/DocumentShape"
             },
             "sh:property": [
                 {
@@ -168,7 +168,7 @@
             }
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentShape",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/shacl/DocumentShape",
             "dcterms:creator": {
                 "@id": "https://orcid.org/0000-0003-4091-6059"
             },
@@ -320,7 +320,7 @@
             }
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/SCDigitalDocumentShape-v1",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/shacl/SCDigitalDocumentShape-v1",
             "sh:ignoredProperties": {
                 "@list": [
                     {
@@ -392,7 +392,7 @@
             },
             "dcterms:version": "1.0",
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/shapes/shacl/DocumentShape"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/shapes/shacl/DocumentShape"
             }
         }
     ],
@@ -402,7 +402,7 @@
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "owl": "http://www.w3.org/2002/07/owl#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
-        "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont/",
+        "dscdo": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/",
         "skos": "http://www.w3.org/2004/02/skos/core#",
         "dcterms": "http://purl.org/dc/terms/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",

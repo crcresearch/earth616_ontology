@@ -1,0 +1,21 @@
+{
+  "@context": "https://raw.githubusercontent.com/crcresearch/earth616_ontology/main/release/contexts/latest/context-cloud-event.jsonld",
+  "activity_id": "https://example.com/activities/supply-chain-document-extraction-001",
+  "entity": {
+    "content_type": "application/pdf",
+    "name": "defense_contract_specifications.pdf",
+    "sensitivity": ["CUI", "FOUO"],
+    "timestamp": "2025-07-08T15:30:00Z",
+    "content": "Base64 encoded PDF content containing defense contract specifications...",
+    "uri": "https://example.com/documents/defense_contract_specifications.pdf",
+    "source": "https://example.com/scanner/facility-alpha-scanner-003"
+  },
+  "creator": "did:example:contractor-analyst-jane-doe",
+  "derived_from": [
+    "https://example.com/source/original-rfp-document",
+    "https://example.com/source/technical-requirements-doc",
+    "https://example.com/source/compliance-checklist"
+  ],
+  "activity_start_time": "2025-07-08T15:25:00Z",
+  "activity_end_time": "2025-07-08T15:35:00Z"
+}

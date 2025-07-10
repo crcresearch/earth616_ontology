@@ -1,26 +1,26 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont/> .
+@prefix dscdo: <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix rule: <https://vocab.earth616.localhost/nd/scdoc/rules/> .
+@prefix rule: <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/rules/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <https://vocab.earth616.localhost/nd/scdoc/rules/> .
+@base <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/rules/> .
 
 # Rules Graph metadata
-<https://vocab.earth616.localhost/nd/scdoc/rules/event-inference> a owl:Ontology ;
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/rules/event-inference> a owl:Ontology ;
     rdfs:label "Event Inference Rules"@en ;
     rdfs:comment "SPARQL rules for inferring additional event properties"@en ;
     owl:versionInfo "1.0" ;
     dcterms:created "2025-05-23" ;
     dcterms:creator <https://orcid.org/0000-0003-4091-6059> .
 
-<https://vocab.earth616.localhost/nd/scdoc/rules/EventTimestampInferenceRule> a sh:SPARQLRule ;
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/rules/EventTimestampInferenceRule> a sh:SPARQLRule ;
     rdfs:label "Event Timestamp Inference Rule"@en ;
     rdfs:comment "Infers event timestamps from associated activity start times"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/rules/event-inference> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/rules/event-inference> ;
     sh:construct """
-        PREFIX dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont/>
+        PREFIX dscdo: <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>
         PREFIX prov: <http://www.w3.org/ns/prov#>
         
         CONSTRUCT {
@@ -34,12 +34,12 @@
         }
     """ .
 
-<https://vocab.earth616.localhost/nd/scdoc/rules/DocumentEventLinkingRule> a sh:SPARQLRule ;
+<https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/rules/DocumentEventLinkingRule> a sh:SPARQLRule ;
     rdfs:label "Document Event Linking Rule"@en ;
     rdfs:comment "Links documents to events that generated them"@en ;
-    rdfs:isDefinedBy <https://vocab.earth616.localhost/nd/scdoc/rules/event-inference> ;
+    rdfs:isDefinedBy <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/rules/event-inference> ;
     sh:construct """
-        PREFIX dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont/>
+        PREFIX dscdo: <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/>
         PREFIX prov: <http://www.w3.org/ns/prov#>
         
         CONSTRUCT {

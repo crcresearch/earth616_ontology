@@ -1,7 +1,7 @@
 {
     "@graph": [
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/patterns/IEIntegration-usage",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/IEIntegration-usage",
             "oplax:hasDescription": {
                 "@language": "en",
                 "@value": "\n    Information Extraction Integration Pattern Usage:\n    \n    1. Document Type Registration:\n       - Create subclass of dscdo:DocumentType\n       - Specify dscdo:hasStandardFamily (ISO, ASTM, MIL, etc.)\n       - Link to target specification types via dscdo:targetsSpecificationType\n       - Validate against DocumentTypeShape\n    \n    2. Extraction Template Creation:\n       - Create instance of dscdo:ExtractionTemplate\n       - Link to applicable document types via dscdo:applicableToDocumentType\n       - Specify extracted data type via dscdo:extractsDataType\n       - Include LLM guidance in schema:description\n    \n    3. Workflow Capability Declaration (inspired by ProvOne):\n       - Declare input types via dscdo:hasInputType\n       - Declare output types via dscdo:hasOutputType\n       - Enable automatic workflow discovery and chaining\n       - Validate against WorkflowCapabilityShape\n    \n    4. Compliance Data Routing:\n       - Extract as dscdo:ComplianceInformation\n       - Link to specifications via dscdo:validatesSpecification\n       - Include extraction provenance via dscdo:extractedBy\n       - Route to validation events automatically\n    \n    5. Evidence Integration:\n       - Link validation events to source documents via dscdo:evidenceFrom\n       - Maintain complete audit trail from document to TRU compliance\n       - Use SPARQL queries for provenance tracking\n    \n    6. Discovery and Querying:\n       - Use provided SPARQL queries for capability discovery\n       - Query by standard family for processing specialization\n       - Trace evidence chains for compliance auditing\n       - Use workflow capability queries for automatic chaining\n    "
@@ -16,25 +16,25 @@
             ]
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/workflows/validation-workflow",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/workflows/validation-workflow",
             "schema:description": {
                 "@language": "en",
                 "@value": "Validates extracted material composition data against TRU design specifications."
             },
             "hasOutputType": [
                 {
-                    "@id": "https://vocab.earth616.localhost/nd/scdoc/ontValidationResult"
+                    "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontValidationResult"
                 },
                 {
-                    "@id": "https://vocab.earth616.localhost/nd/scdoc/ontSpecificationValidationEvent"
+                    "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontSpecificationValidationEvent"
                 }
             ],
             "hasInputType": [
                 {
-                    "@id": "https://vocab.earth616.localhost/nd/scdoc/ontChemicalCompositionData"
+                    "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontChemicalCompositionData"
                 },
                 {
-                    "@id": "https://vocab.earth616.localhost/nd/scdoc/ontComplianceInformation"
+                    "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontComplianceInformation"
                 }
             ],
             "rdfs:comment": {
@@ -48,13 +48,13 @@
             "@type": "InformationExtractionWorkflow"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontComplianceInformation",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontComplianceInformation",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Structured data extracted from compliance documents with semantic routing capabilities"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/patterns/IEIntegration"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/IEIntegration"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -65,14 +65,14 @@
                 "@value": "Compliance Information"
             },
             "rdfs:subClassOf": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDocumentContent"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontDocumentContent"
             },
             "@type": "rdfs:Class"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/workflows/materials-ie-workflow",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/workflows/materials-ie-workflow",
             "containerSbom": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/sboms/materials-workflow-sbom"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/sboms/materials-workflow-sbom"
             },
             "schema:description": {
                 "@language": "en",
@@ -80,18 +80,18 @@
             },
             "hasOutputType": [
                 {
-                    "@id": "https://vocab.earth616.localhost/nd/scdoc/ontComplianceInformation"
+                    "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontComplianceInformation"
                 },
                 {
-                    "@id": "https://vocab.earth616.localhost/nd/scdoc/ontChemicalCompositionData"
+                    "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontChemicalCompositionData"
                 }
             ],
             "hasInputType": [
                 {
-                    "@id": "https://vocab.earth616.localhost/nd/scdoc/ontSCDigitalDocument"
+                    "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontSCDigitalDocument"
                 },
                 {
-                    "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/document-types/ASTM_A240_Report"
+                    "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/document-types/ASTM_A240_Report"
                 }
             ],
             "rdfs:comment": {
@@ -105,12 +105,12 @@
             "@type": "InformationExtractionWorkflow"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/document-types/ASTM_A240_Report",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/document-types/ASTM_A240_Report",
             "hasExtractionCapability": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/templates/MaterialCompositionTemplate"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/templates/MaterialCompositionTemplate"
             },
             "targetsSpecificationType": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontMaterialDesignSpecification"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontMaterialDesignSpecification"
             },
             "hasStandardFamily": "ASTM",
             "rdfs:comment": {
@@ -122,7 +122,7 @@
                 "@value": "ASTM A240 Material Test Report"
             },
             "rdfs:subClassOf": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontSCDigitalDocument"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontSCDigitalDocument"
             },
             "@type": "DocumentType"
         },
@@ -149,7 +149,7 @@
             "@type": "schema:QuantitativeValue"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/compliance/steel-316l-composition-data",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/compliance/steel-316l-composition-data",
             "hasCompositionElement": [
                 {
                     "@id": "_:b0"
@@ -159,10 +159,10 @@
                 }
             ],
             "extractedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/workflows/materials-ie-workflow"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/workflows/materials-ie-workflow"
             },
             "validatesSpecification": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/specifications/steel-316l-material-spec"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/specifications/steel-316l-material-spec"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -175,16 +175,16 @@
             "@type": "ComplianceInformation"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/templates/MaterialCompositionTemplate",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/templates/MaterialCompositionTemplate",
             "schema:description": {
                 "@language": "en",
                 "@value": "\n    LLM Extraction Pattern:\n    1. Locate 'Chemical Composition' or 'Analysis' section\n    2. Extract percentage values for: Chromium (Cr), Nickel (Ni), Molybdenum (Mo), Carbon (C)\n    3. Structure as dscdo:ChemicalCompositionData with schema:QuantitativeValue for each element\n    4. Link to source document and extraction timestamp\n    "
             },
             "extractsDataType": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontChemicalCompositionData"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontChemicalCompositionData"
             },
             "applicableToDocumentType": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/document-types/ASTM_A240_Report"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/document-types/ASTM_A240_Report"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -197,7 +197,7 @@
             "@type": "ExtractionTemplate"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontExtractionTemplate",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontExtractionTemplate",
             "oplax:hasIntent": {
                 "@language": "en",
                 "@value": "Enable LLM agents to find appropriate extraction approaches for each document type"
@@ -207,7 +207,7 @@
                 "@value": "A discoverable template providing extraction patterns for specific document types"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/patterns/IEIntegration"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/IEIntegration"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -218,14 +218,14 @@
                 "@value": "Extraction Template"
             },
             "rdfs:subClassOf": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontInformationObject"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontInformationObject"
             },
             "@type": "rdfs:Class"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/examples/document-types/ISO_9001_Certificate",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/examples/document-types/ISO_9001_Certificate",
             "targetsSpecificationType": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontQualitySpecification"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontQualitySpecification"
             },
             "hasStandardFamily": "ISO",
             "rdfs:comment": {
@@ -237,12 +237,12 @@
                 "@value": "ISO 9001 Quality Management Certificate"
             },
             "rdfs:subClassOf": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontSCDigitalDocument"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontSCDigitalDocument"
             },
             "@type": "DocumentType"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDocumentType",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontDocumentType",
             "oplax:hasIntent": {
                 "@language": "en",
                 "@value": "Enable automatic discovery of document processing capabilities"
@@ -252,7 +252,7 @@
                 "@value": "A discoverable classification of document types with associated processing capabilities"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/patterns/IEIntegration"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/IEIntegration"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -286,11 +286,11 @@
                 "@value": "output data types"
             },
             "sh:path": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/onthasOutputType"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/onthasOutputType"
             }
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/onthasOutputType",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/onthasOutputType",
             "oplax:hasIntent": {
                 "@language": "en",
                 "@value": "Enable automatic workflow output discovery and chaining"
@@ -300,7 +300,7 @@
                 "@value": "Links workflows to the classes of data they produce as output"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/patterns/IEIntegration"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/IEIntegration"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -314,7 +314,7 @@
                 "@id": "rdfs:Class"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontInformationExtractionWorkflow"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontInformationExtractionWorkflow"
             },
             "@type": "owl:ObjectProperty"
         },
@@ -340,11 +340,11 @@
                 "@value": "input data types"
             },
             "sh:path": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/onthasInputType"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/onthasInputType"
             }
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/onthasInputType",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/onthasInputType",
             "oplax:hasIntent": {
                 "@language": "en",
                 "@value": "Enable automatic workflow capability discovery and chaining"
@@ -354,7 +354,7 @@
                 "@value": "Links workflows to the classes of data they can process as input"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/patterns/IEIntegration"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/IEIntegration"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -368,12 +368,12 @@
                 "@id": "rdfs:Class"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontInformationExtractionWorkflow"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontInformationExtractionWorkflow"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/shapes/WorkflowCapabilityShape",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/shapes/WorkflowCapabilityShape",
             "sh:property": [
                 {
                     "@id": "_:b2"
@@ -391,7 +391,7 @@
                 "@value": "Workflow Capability Validation Shape"
             },
             "sh:targetClass": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontInformationExtractionWorkflow"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontInformationExtractionWorkflow"
             },
             "@type": "sh:NodeShape"
         },
@@ -405,7 +405,7 @@
                 "@id": "sh:Info"
             },
             "sh:class": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontInformationExtractionWorkflow"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontInformationExtractionWorkflow"
             },
             "sh:maxCount": {
                 "@value": "1",
@@ -420,17 +420,17 @@
                 "@value": "extracted by workflow"
             },
             "sh:path": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontextractedBy"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontextractedBy"
             }
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontextractedBy",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontextractedBy",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Tracks which extraction workflow produced specific compliance information"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/patterns/IEIntegration"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/IEIntegration"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -441,10 +441,10 @@
                 "@value": "extracted by"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontInformationExtractionWorkflow"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontInformationExtractionWorkflow"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontComplianceInformation"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontComplianceInformation"
             },
             "@type": "owl:ObjectProperty"
         },
@@ -458,7 +458,7 @@
                 "@id": "sh:Violation"
             },
             "sh:class": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesignSpecification"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontDesignSpecification"
             },
             "sh:minCount": {
                 "@value": "1",
@@ -473,17 +473,17 @@
                 "@value": "validates specifications"
             },
             "sh:path": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontvalidatesSpecification"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontvalidatesSpecification"
             }
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontvalidatesSpecification",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontvalidatesSpecification",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Enables automatic routing of extracted data to specification validation"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/patterns/IEIntegration"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/IEIntegration"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -494,15 +494,15 @@
                 "@value": "validates specification"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDesignSpecification"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontDesignSpecification"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontComplianceInformation"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontComplianceInformation"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/shapes/ComplianceInformationShape",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/shapes/ComplianceInformationShape",
             "sh:property": [
                 {
                     "@id": "_:b4"
@@ -520,7 +520,7 @@
                 "@value": "Compliance Information Validation Shape"
             },
             "sh:targetClass": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontComplianceInformation"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontComplianceInformation"
             },
             "@type": "sh:NodeShape"
         },
@@ -550,17 +550,17 @@
                 "@value": "extracted data type"
             },
             "sh:path": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontextractsDataType"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontextractsDataType"
             }
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontextractsDataType",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontextractsDataType",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Links templates to the classes of information they extract"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/patterns/IEIntegration"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/IEIntegration"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -574,7 +574,7 @@
                 "@id": "rdfs:Class"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontExtractionTemplate"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontExtractionTemplate"
             },
             "@type": "owl:ObjectProperty"
         },
@@ -588,7 +588,7 @@
                 "@id": "sh:Violation"
             },
             "sh:class": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDocumentType"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontDocumentType"
             },
             "sh:minCount": {
                 "@value": "1",
@@ -603,17 +603,17 @@
                 "@value": "applicable document types"
             },
             "sh:path": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontapplicableToDocumentType"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontapplicableToDocumentType"
             }
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontapplicableToDocumentType",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontapplicableToDocumentType",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Enables template discovery via document type queries"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/patterns/IEIntegration"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/IEIntegration"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -624,15 +624,15 @@
                 "@value": "applicable to document type"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDocumentType"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontDocumentType"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontExtractionTemplate"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontExtractionTemplate"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/shapes/ExtractionTemplateShape",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/shapes/ExtractionTemplateShape",
             "sh:property": [
                 {
                     "@id": "_:b6"
@@ -650,7 +650,7 @@
                 "@value": "Extraction Template Validation Shape"
             },
             "sh:targetClass": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontExtractionTemplate"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontExtractionTemplate"
             },
             "@type": "sh:NodeShape"
         },
@@ -676,17 +676,17 @@
                 "@value": "target specification type"
             },
             "sh:path": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/onttargetsSpecificationType"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/onttargetsSpecificationType"
             }
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/onttargetsSpecificationType",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/onttargetsSpecificationType",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Links document types to the specification classes they can provide evidence for"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/patterns/IEIntegration"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/IEIntegration"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -700,7 +700,7 @@
                 "@id": "rdfs:Class"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDocumentType"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontDocumentType"
             },
             "@type": "owl:ObjectProperty"
         },
@@ -733,17 +733,17 @@
                 "@value": "standard family"
             },
             "sh:path": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/onthasStandardFamily"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/onthasStandardFamily"
             }
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/onthasStandardFamily",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/onthasStandardFamily",
             "skos:example": {
                 "@language": "en",
                 "@value": "ISO, ASTM, MIL, ANSI, DIN"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/patterns/IEIntegration"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/IEIntegration"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -757,12 +757,12 @@
                 "@id": "xsd:string"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDocumentType"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontDocumentType"
             },
             "@type": "owl:DatatypeProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/shapes/DocumentTypeShape",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/shapes/DocumentTypeShape",
             "sh:property": [
                 {
                     "@id": "_:b8"
@@ -780,15 +780,15 @@
                 "@value": "Document Type Validation Shape"
             },
             "sh:targetClass": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontDocumentType"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontDocumentType"
             },
             "@type": "sh:NodeShape"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/queries/find-workflow-chain",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/queries/find-workflow-chain",
             "oplax:hasQueryText": {
                 "@language": "en",
-                "@value": "\n    PREFIX dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont>\n    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n    \n    SELECT ?firstWorkflow ?firstLabel ?secondWorkflow ?secondLabel ?dataType WHERE {\n        ?firstWorkflow rdf:type dscdo:InformationExtractionWorkflow .\n        ?firstWorkflow rdfs:label ?firstLabel .\n        ?firstWorkflow dscdo:hasOutputType ?dataType .\n        \n        ?secondWorkflow rdf:type dscdo:InformationExtractionWorkflow .\n        ?secondWorkflow rdfs:label ?secondLabel .\n        ?secondWorkflow dscdo:hasInputType ?dataType .\n        \n        FILTER(?firstWorkflow != ?secondWorkflow)\n    }\n    ORDER BY ?dataType ?firstLabel ?secondLabel\n    "
+                "@value": "\n    PREFIX dscdo: <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont>\n    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n    \n    SELECT ?firstWorkflow ?firstLabel ?secondWorkflow ?secondLabel ?dataType WHERE {\n        ?firstWorkflow rdf:type dscdo:InformationExtractionWorkflow .\n        ?firstWorkflow rdfs:label ?firstLabel .\n        ?firstWorkflow dscdo:hasOutputType ?dataType .\n        \n        ?secondWorkflow rdf:type dscdo:InformationExtractionWorkflow .\n        ?secondWorkflow rdfs:label ?secondLabel .\n        ?secondWorkflow dscdo:hasInputType ?dataType .\n        \n        FILTER(?firstWorkflow != ?secondWorkflow)\n    }\n    ORDER BY ?dataType ?firstLabel ?secondLabel\n    "
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -801,10 +801,10 @@
             "@type": "oplax:SPARQLQuery"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/queries/discover-workflow-capabilities",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/queries/discover-workflow-capabilities",
             "oplax:hasQueryText": {
                 "@language": "en",
-                "@value": "\n    PREFIX dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont>\n    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n    \n    SELECT ?workflow ?workflowLabel ?inputType ?outputType WHERE {\n        ?workflow rdf:type dscdo:InformationExtractionWorkflow .\n        ?workflow rdfs:label ?workflowLabel .\n        OPTIONAL { ?workflow dscdo:hasInputType ?inputType }\n        OPTIONAL { ?workflow dscdo:hasOutputType ?outputType }\n    }\n    ORDER BY ?workflowLabel\n    "
+                "@value": "\n    PREFIX dscdo: <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont>\n    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n    \n    SELECT ?workflow ?workflowLabel ?inputType ?outputType WHERE {\n        ?workflow rdf:type dscdo:InformationExtractionWorkflow .\n        ?workflow rdfs:label ?workflowLabel .\n        OPTIONAL { ?workflow dscdo:hasInputType ?inputType }\n        OPTIONAL { ?workflow dscdo:hasOutputType ?outputType }\n    }\n    ORDER BY ?workflowLabel\n    "
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -817,10 +817,10 @@
             "@type": "oplax:SPARQLQuery"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/queries/find-processing-capabilities",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/queries/find-processing-capabilities",
             "oplax:hasQueryText": {
                 "@language": "en",
-                "@value": "\n    PREFIX dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont>\n    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n    \n    SELECT ?standardFamily ?docType ?template ?extractedDataType WHERE {\n        ?docType dscdo:hasStandardFamily ?standardFamily .\n        ?template dscdo:applicableToDocumentType ?docType .\n        ?template dscdo:extractsDataType ?extractedDataType .\n    }\n    ORDER BY ?standardFamily ?docType\n    "
+                "@value": "\n    PREFIX dscdo: <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont>\n    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n    \n    SELECT ?standardFamily ?docType ?template ?extractedDataType WHERE {\n        ?docType dscdo:hasStandardFamily ?standardFamily .\n        ?template dscdo:applicableToDocumentType ?docType .\n        ?template dscdo:extractsDataType ?extractedDataType .\n    }\n    ORDER BY ?standardFamily ?docType\n    "
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -833,10 +833,10 @@
             "@type": "oplax:SPARQLQuery"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/queries/trace-validation-evidence",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/queries/trace-validation-evidence",
             "oplax:hasQueryText": {
                 "@language": "en",
-                "@value": "\n    PREFIX dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont>\n    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n    \n    SELECT ?document ?extractedInfo ?validationEvent ?tru ?specification WHERE {\n        ?extractedInfo dscdo:extractedFrom ?document .\n        ?extractedInfo dscdo:validatesSpecification ?specification .\n        ?validationEvent dscdo:evidenceFrom ?document .\n        ?validationEvent dscdo:validatesAgainst ?specification .\n        ?tru dscdo:conformsToSpecification ?specification .\n    }\n    "
+                "@value": "\n    PREFIX dscdo: <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont>\n    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n    \n    SELECT ?document ?extractedInfo ?validationEvent ?tru ?specification WHERE {\n        ?extractedInfo dscdo:extractedFrom ?document .\n        ?extractedInfo dscdo:validatesSpecification ?specification .\n        ?validationEvent dscdo:evidenceFrom ?document .\n        ?validationEvent dscdo:validatesAgainst ?specification .\n        ?tru dscdo:conformsToSpecification ?specification .\n    }\n    "
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -849,14 +849,14 @@
             "@type": "oplax:SPARQLQuery"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/queries/find-extraction-templates",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/queries/find-extraction-templates",
             "oplax:hasParameter": {
                 "@language": "en",
                 "@value": "?docType - The document type to find templates for"
             },
             "oplax:hasQueryText": {
                 "@language": "en",
-                "@value": "\n    PREFIX dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont>\n    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n    \n    SELECT ?template ?templateLabel ?extractedDataType WHERE {\n        ?template dscdo:applicableToDocumentType ?docType .\n        ?template rdfs:label ?templateLabel .\n        ?template dscdo:extractsDataType ?extractedDataType .\n    }\n    "
+                "@value": "\n    PREFIX dscdo: <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont>\n    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n    \n    SELECT ?template ?templateLabel ?extractedDataType WHERE {\n        ?template dscdo:applicableToDocumentType ?docType .\n        ?template rdfs:label ?templateLabel .\n        ?template dscdo:extractsDataType ?extractedDataType .\n    }\n    "
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -869,10 +869,10 @@
             "@type": "oplax:SPARQLQuery"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/queries/discover-document-types",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/queries/discover-document-types",
             "oplax:hasQueryText": {
                 "@language": "en",
-                "@value": "\n    PREFIX dscdo: <https://vocab.earth616.localhost/nd/scdoc/ont>\n    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n    \n    SELECT ?docType ?label ?standardFamily ?targetSpecType WHERE {\n        ?docType rdfs:subClassOf dscdo:SCDigitalDocument .\n        ?docType rdfs:label ?label .\n        OPTIONAL { ?docType dscdo:hasStandardFamily ?standardFamily }\n        OPTIONAL { ?docType dscdo:targetsSpecificationType ?targetSpecType }\n    }\n    ORDER BY ?standardFamily ?label\n    "
+                "@value": "\n    PREFIX dscdo: <https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont>\n    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n    \n    SELECT ?docType ?label ?standardFamily ?targetSpecType WHERE {\n        ?docType rdfs:subClassOf dscdo:SCDigitalDocument .\n        ?docType rdfs:label ?label .\n        OPTIONAL { ?docType dscdo:hasStandardFamily ?standardFamily }\n        OPTIONAL { ?docType dscdo:targetsSpecificationType ?targetSpecType }\n    }\n    ORDER BY ?standardFamily ?label\n    "
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -885,7 +885,7 @@
             "@type": "oplax:SPARQLQuery"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/patterns/IEIntegration",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/IEIntegration",
             "oplax:hasCompetencyQuestion": [
                 {
                     "@language": "en",
@@ -958,13 +958,13 @@
             },
             "owl:imports": [
                 {
-                    "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/core/event"
+                    "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/core/event"
                 },
                 {
-                    "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/scdocumentation/document"
+                    "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/scdocumentation/document"
                 },
                 {
-                    "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/modules/design/specification"
+                    "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/modules/design/specification"
                 }
             ],
             "dcterms:created": {
@@ -976,13 +976,13 @@
             }
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontevidenceFrom",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontevidenceFrom",
             "skos:definition": {
                 "@language": "en",
                 "@value": "Provides audit trail from validation results back to source documents"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/patterns/IEIntegration"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/IEIntegration"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -993,21 +993,21 @@
                 "@value": "evidence from"
             },
             "rdfs:range": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontSCDigitalDocument"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontSCDigitalDocument"
             },
             "rdfs:domain": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ontSpecificationValidationEvent"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontSpecificationValidationEvent"
             },
             "@type": "owl:ObjectProperty"
         },
         {
-            "@id": "https://vocab.earth616.localhost/nd/scdoc/ontStandardFamily",
+            "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ontStandardFamily",
             "skos:definition": {
                 "@language": "en",
                 "@value": "A classification scheme for grouping related standards and document types"
             },
             "rdfs:isDefinedBy": {
-                "@id": "https://vocab.earth616.localhost/nd/scdoc/ont/patterns/IEIntegration"
+                "@id": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/patterns/IEIntegration"
             },
             "rdfs:comment": {
                 "@language": "en",
@@ -1032,9 +1032,9 @@
         "xml": "http://www.w3.org/XML/1998/namespace",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "skos": "http://www.w3.org/2004/02/skos/core#",
-        "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont",
+        "dscdo": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont",
         "dcterms": "http://purl.org/dc/terms/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-        "@vocab": "https://vocab.earth616.localhost/nd/scdoc/ont"
+        "@vocab": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont"
     }
 }

@@ -717,7 +717,7 @@
         "owl": "http://www.w3.org/2002/07/owl#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "skos": "http://www.w3.org/2004/02/skos/core#",
-        "dscdo": "https://vocab.earth616.localhost/nd/scdoc/ont/",
+        "dscdo": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "geo": "http://www.opengis.net/ont/geosparql#",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -725,6 +725,6 @@
         "dcterms": "http://purl.org/dc/terms/",
         "time": "http://www.w3.org/2006/time#",
         "prov": "http://www.w3.org/ns/prov#",
-        "@vocab": "https://vocab.earth616.localhost/nd/scdoc/ont/"
+        "@vocab": "https://schema-earth616-ks18.blocks.simbachain.com/nd/scdoc/ont/"
     }
 }
